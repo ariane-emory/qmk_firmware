@@ -3,7 +3,7 @@
   "notes": "",
   "documentation": "\"This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\"\n",
   "keyboard": "redox/rev1/base",
-  "keymap": "klamb_20221122_tarmak-left-numpad-flip-gui",
+  "keymap": "ariane-emory",
   "layout": "LAYOUT",
   "layers": [
     [
@@ -288,7 +288,7 @@
       "KC_TRNS",
       "KC_BTN2",
       "KC_BTN1",
-      "ANY(LM(10, MOD_LGUI | MOD_LALT))",
+      "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -355,7 +355,7 @@
       "KC_DOWN",
       "KC_UP",
       "KC_RGHT",
-      "ANY(LM(10, MOD_LGUI | MOD_LALT))",
+      "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
