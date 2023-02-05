@@ -43,6 +43,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_SHIFT_TIMEOUT 300
 #define RETRO_SHIFT
 #define ONESHOT_TIMEOUT 1000
-#define COMBO_COUNT 1
+#define COMBO_COUNT 2
 
 
