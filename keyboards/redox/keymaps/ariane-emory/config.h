@@ -43,4 +43,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RETRO_SHIFT
 #define ONESHOT_TIMEOUT 1000
 
-
