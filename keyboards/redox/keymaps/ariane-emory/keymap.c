@@ -1,5 +1,13 @@
 #include QMK_KEYBOARD_H
 
+enum td_events {
+  TD_TEST
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+  [TD_TEST] = ACTION_TAP_DANCE_DOUBLE(KC_SPC, KC_LALT),
+  };
+
 enum combo_events {
   DBL_SPC,
   DBL_OSM,
