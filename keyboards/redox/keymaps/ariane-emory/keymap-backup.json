@@ -217,10 +217,10 @@
       "KC_BTN2",
       "KC_BTN1",
       "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS"
+      "ANY(S(A(G(KC_A))))",
+      "ANY(S(A(G(KC_E))))",
+      "ANY(S(A(G(KC_R))))",
+      "ANY(S(A(G(KC_S))))"
     ],
     [
       "RCS(KC_TAB)",
@@ -289,10 +289,10 @@
       "KC_BTN2",
       "KC_BTN1",
       "ANY(LM(10, MOD_LGUI | MOD_LALT))",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS"
+      "ANY(S(A(G(KC_A))))",
+      "ANY(S(A(G(KC_E))))",
+      "ANY(S(A(G(KC_R))))",
+      "ANY(S(A(G(KC_S))))"
     ],
     [
       "RCS(KC_TAB)",
