@@ -361,10 +361,10 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
+      "ANY(S(A(G(KC_A))))",
       "ANY(S(A(G(KC_E))))",
       "ANY(S(A(G(KC_R))))",
-      "QK_BOOT",
-      "ANY(QK_REBOOT)"
+      "ANY(S(A(G(KC_S))))"
     ],
     [
       "QK_BOOT",
@@ -721,10 +721,10 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS"
+      "QK_BOOT",
+      "ANY(QK_REBOOT)",
+      "KC_NO",
+      "KC_NO"
     ],
     [
       "KC_GRV",
