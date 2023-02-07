@@ -47,7 +47,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_INERTIA 1 //	Enable Inertia mode
 #define MOUSEKEY_DELAY 0 //	Delay between pressing a movement key and cursor movement
 #define MOUSEKEY_INTERVAL 16 //	Time between cursor movements in milliseconds (16 = 60fps)
-#define MOUSEKEY_MAX_SPEED 48 //	Maximum cursor speed at which acceleration stops
-#define MOUSEKEY_TIME_TO_MAX 20 //	Number of frames until maximum cursor speed is reached
-#define MOUSEKEY_FRICTION 20 //	How quickly the cursor stops after releasing a key
+#define MOUSEKEY_MAX_SPEED 56 //	Maximum cursor speed at which acceleration stops
+#define MOUSEKEY_TIME_TO_MAX 21 //	Number of frames until maximum cursor speed is reached
+#define MOUSEKEY_FRICTION 22 //	How quickly the cursor stops after releasing a key
 #define MOUSEKEY_MOVE_DELTA 2 //	How much to move on first frame (1 strongly recommended)
