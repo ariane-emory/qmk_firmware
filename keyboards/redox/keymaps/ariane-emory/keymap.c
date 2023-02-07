@@ -22,11 +22,12 @@
 
 enum td_events {
   TD_SPC_LALT,
+  TD_OSL3_LGUI,
 };
-
 qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_SPC_LALT]  = ACTION_TAP_DANCE_DOUBLE(KC_SPC, KC_LALT),
-};
+  [TD_OSL3_LGUI] = ACTION_TAP_DANCE_DOUBLE(OSL(3), KC_LGUI),
+  };
 
 enum combo_events {
   DBL_SPC,
