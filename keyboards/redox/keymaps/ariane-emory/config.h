@@ -50,5 +50,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_MAX_SPEED 10
 #define MOUSEKEY_TIME_TO_MAX 27
 #define MOUSEKEY_WHEEL_INTERVAL 80
-#define MOUSEKEY_WHEEL_MAX_SPEED 10
+#define MOUSEKEY_WHEEL_MAX_SPEED 15
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 45
