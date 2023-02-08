@@ -31,18 +31,18 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 enum combo_events {
   DBL_SPC,
-  // DBL_OSL,
+  DBL_LT5_LT9,
   COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead!
 
 const uint16_t PROGMEM dbl_spc_combo[] = {TD(0), RGUI_T(KC_BSPC), COMBO_END};
-// const uint16_t PROGMEM dbl_osl_combo[] = {OSL(3), OSL(4), COMBO_END};
+const uint16_t PROGMEM dbl_lt5_lt9_combo[] = {LT(5, KC_ENT), LT(9, KC_ENT), COMBO_END};
 
 combo_t key_combos[] = {
-  [DBL_SPC] = COMBO(dbl_spc_combo, RCTL(KC_SPC)),
-  // [DBL_OSL] = COMBO(dbl_osl_combo, RCTL(KC_SPC)),
-};
+  [DBL_SPC]     = COMBO(dbl_spc_combo, RCTL(KC_SPC)),
+  [DBL_LT5_LT9] = COMBO(dbl_lt5_lt9_combo, KC_LCTL),
+  };
 
 #include "keymap.inl"
 
