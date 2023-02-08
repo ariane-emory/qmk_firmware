@@ -39,7 +39,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* #define RGBLIGHT_VAL_STEP 8 */
 
 #define TAPPING_TERM 275
-#define AUTO_SHIFT_TIMEOUT 250
+#define AUTO_SHIFT_TIMEOUT 225
 #define RETRO_SHIFT
 #define ONESHOT_TIMEOUT 1000
 
@@ -52,4 +52,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_WHEEL_INTERVAL 80
 #define MOUSEKEY_WHEEL_MAX_SPEED 15
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 45
-#define IGNORE_MOD_TAP_INTERRUPT
+#define IGNORE_MOD_TAP_INTERRUPT_PER_KEY
+
