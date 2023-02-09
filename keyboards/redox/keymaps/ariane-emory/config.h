@@ -38,7 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* #define RGBLIGHT_SAT_STEP 8 */
 /* #define RGBLIGHT_VAL_STEP 8 */
 
-#define TAPPING_TERM 275
+#define TAPPING_TERM 300
 #define AUTO_SHIFT_TIMEOUT 200
 #define RETRO_SHIFT
 #define ONESHOT_TIMEOUT 1000
