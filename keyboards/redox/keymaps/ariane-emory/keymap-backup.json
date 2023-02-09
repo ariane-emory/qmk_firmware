@@ -65,7 +65,7 @@
       "RSFT_T(KC_MINS)",
       "KC_F23",
       "KC_F24",
-      "KC_NO",
+      "OSM(MOD_LCTL|MOD_LALT)",
       "OSM(MOD_RGUI)",
       "OSL(3)",
       "LALT_T(KC_SPC)",
