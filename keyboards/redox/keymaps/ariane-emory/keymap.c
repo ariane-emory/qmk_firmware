@@ -60,5 +60,21 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
   }
 }
 
+enum arianes_keycodes {
+  SS_UPDIR = SAFE_RANGE
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+  case SS_UPDIR:
+    if (record->event.pressed) {
+      SEND_STRING("../");
+    }
+    return false;
+  }
+
+  return true;
+}
+
 #include "keymap.inl"
 
