@@ -350,7 +350,7 @@
       "RCTL(KC_C)",
       "RALT(KC_X)",
       "ANY(SS_UPDIR)",
-      "KC_TRNS",
+      "ANY(QK_CAPS_WORD_TOGGLE)",
       "KC_LEFT",
       "KC_DOWN",
       "KC_UP",
