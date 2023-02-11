@@ -335,7 +335,7 @@
       "KC_NO",
       "ANY(SS_UPDIR)",
       "KC_ENT",
-      "KC_TRNS",
+      "ANY(QK_CAPS_WORD_TOGGLE)",
       "LCTL(KC_A)",
       "LCTL(KC_E)",
       "LALT(KC_B)",
