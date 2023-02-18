@@ -351,7 +351,7 @@
       "ANY(SS_UPDIR)",
       "ANY(SS_UPDIR)",
       "ANY(QK_CAPS_WORD_TOGGLE)",
-      "KC_NO",
+      "ANY(X(KITTY))",
       "KC_NO",
       "KC_NO",
       "KC_NO",
