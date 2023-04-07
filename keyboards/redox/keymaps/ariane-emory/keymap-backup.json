@@ -407,7 +407,7 @@
       "KC_F8",
       "KC_LCBR",
       "KC_RCBR",
-      "KC_LSFT",
+      "ANY(LSFT_T(QK_CAPS_WORD_TOGGLE))",
       "KC_NO",
       "KC_NO",
       "KC_NO",
