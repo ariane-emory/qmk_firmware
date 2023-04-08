@@ -49,8 +49,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_MOVE_DELTA 8
 #define MOUSEKEY_MAX_SPEED 9
 #define MOUSEKEY_TIME_TO_MAX 38
-#define MOUSEKEY_WHEEL_INTERVAL 80
-#define MOUSEKEY_WHEEL_MAX_SPEED 15
+#define MOUSEKEY_WHEEL_INTERVAL 85
+#define MOUSEKEY_WHEEL_MAX_SPEED 14
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 45
 #define IGNORE_MOD_TAP_INTERRUPT_PER_KEY
 
