@@ -4,28 +4,29 @@
 // Tap dance
 // ================================================================================
 
-enum tap_dance_events {
-  TD_SPC_LALT,
-};
-qk_tap_dance_action_t tap_dance_actions[] = {
-  [TD_SPC_LALT]  = ACTION_TAP_DANCE_DOUBLE(KC_SPC, KC_LALT),
-};
+// enum tap_dance_events {
+//   TD_SPC_LALT,
+// };
+
+// qk_tap_dance_action_t tap_dance_actions[] = {
+//   [TD_SPC_LALT]  = ACTION_TAP_DANCE_DOUBLE(KC_SPC, KC_LALT),
+// };
 
 // ================================================================================
 // Combos
 // ================================================================================
 
-enum combo_events {
-//  DBL_SPC,
-  COMBO_LENGTH
-};
-uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead!
+// enum combo_events {
+//   DBL_SPC,
+//   COMBO_LENGTH
+// };
+// uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead!
 
-const uint16_t PROGMEM dbl_spc_combo[] = {LALT_T(KC_SPC), RGUI_T(KC_BSPC), COMBO_END};
+// const uint16_t PROGMEM dbl_spc_combo[] = {LALT_T(KC_SPC), RGUI_T(KC_BSPC), COMBO_END};
 
-combo_t key_combos[] = {
+// combo_t key_combos[] = {
 //  [DBL_SPC]       = COMBO(dbl_spc_combo, RCTL(KC_SPC)),
-};
+// };
 
 // ================================================================================
 // Mod tap interrupt
