@@ -4,7 +4,7 @@
 // Tap dance
 // ================================================================================
 
-enum td_events {
+enum tap_dance_events {
   TD_SPC_LALT,
 };
 qk_tap_dance_action_t tap_dance_actions[] = {
@@ -16,7 +16,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 // ================================================================================
 
 enum combo_events {
-  DBL_SPC,
+//  DBL_SPC,
   COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead!
@@ -24,7 +24,7 @@ uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this
 const uint16_t PROGMEM dbl_spc_combo[] = {LALT_T(KC_SPC), RGUI_T(KC_BSPC), COMBO_END};
 
 combo_t key_combos[] = {
-  [DBL_SPC]       = COMBO(dbl_spc_combo, RCTL(KC_SPC)),
+//  [DBL_SPC]       = COMBO(dbl_spc_combo, RCTL(KC_SPC)),
 };
 
 // ================================================================================
