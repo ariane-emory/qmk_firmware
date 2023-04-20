@@ -31,8 +31,8 @@ uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this
 // };
 
 const uint16_t PROGMEM dbl_tuck_combo[] = {
-  OSL(3),
-  OSL(4),
+  MO(3),
+  MO(4),
   COMBO_END
 };
 
