@@ -112,8 +112,9 @@ uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
   switch(keycode) {
   case AUTO_SHIFT_ALPHA:
     return get_generic_autoshift_timeout() + 100;
-  case AUTO_SHIFT_NUMERIC:
   case AUTO_SHIFT_SPECIAL:
+    return get_generic_autoshift_timeout() + 50;
+  case AUTO_SHIFT_NUMERIC:
   default:
     return get_generic_autoshift_timeout();
   }
