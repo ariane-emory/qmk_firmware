@@ -103,6 +103,22 @@ const uint32_t unicode_map[] PROGMEM = {
   [KITTY]  = 0x1F408,  // ‽
   };
 
+
+// ================================================================================
+// Autoshift
+// ================================================================================
+
+uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
+  switch(keycode) {
+  case AUTO_SHIFT_ALPHA:
+    return get_generic_autoshift_timeout() + 100;
+  case AUTO_SHIFT_NUMERIC:
+  case AUTO_SHIFT_SPECIAL:
+  default:
+    return get_generic_autoshift_timeout();
+  }
+}
+
 // ================================================================================
 // Include inlines
 // ================================================================================
