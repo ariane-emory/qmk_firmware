@@ -111,9 +111,9 @@ const uint32_t unicode_map[] PROGMEM = {
 uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
   switch(keycode) {
   case AUTO_SHIFT_ALPHA:
-    return get_generic_autoshift_timeout() + 100;
+    return get_generic_autoshift_timeout() + 80;
   case AUTO_SHIFT_SPECIAL:
-    return get_generic_autoshift_timeout() + 50;
+    return get_generic_autoshift_timeout() + 40;
   case AUTO_SHIFT_NUMERIC:
   default:
     return get_generic_autoshift_timeout();
