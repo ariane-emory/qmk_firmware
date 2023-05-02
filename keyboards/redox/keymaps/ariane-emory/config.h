@@ -41,6 +41,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 325
 #define AUTO_SHIFT_TIMEOUT 180
 #define AUTO_SHIFT_TIMEOUT_PER_KEY 
+#define AUTO_SHIFT_MODIFIERS
 #define RETRO_SHIFT
 #define ONESHOT_TIMEOUT 1000
 
