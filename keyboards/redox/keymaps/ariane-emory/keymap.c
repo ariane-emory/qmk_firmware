@@ -65,7 +65,8 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
 
 enum arianes_keycodes {
   SS_UPDIR = SAFE_RANGE,
-  SS_NUM
+  SS_NUM,
+  SS_NUM2
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -73,6 +74,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case SS_NUM:
     if (record->event.pressed) {
       SEND_STRING("6851");
+    }
+    return false;
+  case SS_NUM2:
+    if (record->event.pressed) {
+      SEND_STRING("^*%!");
     }
     return false;
   case SS_UPDIR:
