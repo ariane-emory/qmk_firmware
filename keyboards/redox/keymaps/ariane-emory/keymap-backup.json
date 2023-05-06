@@ -652,7 +652,7 @@
       "QK_BOOT",
       "ANY(QK_REBOOT)",
       "KC_NO",
-      "KC_NO"
+      "ANY(SS_NUM)"
     ],
     [
       "KC_NO",
