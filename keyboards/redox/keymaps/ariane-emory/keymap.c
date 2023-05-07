@@ -57,8 +57,8 @@ DEFINE_COMBO_KEYS(h_j,       KC_H, KC_J);
 DEFINE_COMBO_KEYS(j_k,       KC_J, KC_K);
 DEFINE_COMBO_KEYS(k_l,       KC_K, KC_L);
 DEFINE_COMBO_KEYS(l_quot,    KC_L, KC_QUOT);
+DEFINE_COMBO_KEYS(k_quot,    KC_K, KC_QUOT);
 DEFINE_COMBO_KEYS(j_l,       KC_J, KC_L);       /* stretch */
-DEFINE_COMBO_KEYS(k_quot,    KC_K, KC_QUOT);       /* stretch */
 
 /* Right bottom row */
 DEFINE_COMBO_KEYS(n_m,       KC_N, KC_M);
