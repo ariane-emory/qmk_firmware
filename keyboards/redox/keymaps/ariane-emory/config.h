@@ -59,4 +59,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_SHOULD_TRIGGER
 #define COMBO_ONLY_FROM_LAYER 0
 
-
+#define TRI_LAYER_LOWER_LAYER 3
+#define TRI_LAYER_UPPER_LAYER 4
+#define TRI_LAYER_ADJUST_LAYER 12
