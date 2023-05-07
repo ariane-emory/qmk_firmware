@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#include "secrets.h"
+#include "secrets.h" // #define AE_PIN_1 and AE_PIN_2 in this file.
 
 // ================================================================================
 // Custom keycodes
