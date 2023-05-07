@@ -79,16 +79,12 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 // Mod tap interrupt
 // ================================================================================
 
-bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case LALT_T(KC_SPC):
-    // Do not force the mod-tap key press to be handled as a modifier
-    // if any other key was pressed while the mod-tap key is held down.
-    return true;
-  default:
-    // Force the mod-tap key press to be handled as a modifier if any
-    // other key was pressed while the mod-tap key is held down.
     return false;
+  default:
+    return true;
   }
 }
 
