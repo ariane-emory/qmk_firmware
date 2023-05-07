@@ -58,6 +58,7 @@ DEFINE_COMBO_KEYS(j_k,       KC_J, KC_K);
 DEFINE_COMBO_KEYS(k_l,       KC_K, KC_L);
 DEFINE_COMBO_KEYS(l_quot,    KC_L, KC_QUOT);
 DEFINE_COMBO_KEYS(j_l,       KC_J, KC_L);       /* stretch */
+DEFINE_COMBO_KEYS(k_quot,    KC_K, KC_QUOT);       /* stretch */
 
 /* Right bottom row */
 DEFINE_COMBO_KEYS(n_m,       KC_N, KC_M);
@@ -76,6 +77,7 @@ combo_t key_combos[] = {
   
   COMBO(keys_j_k,       KC_LBRC),
   COMBO(keys_k_l,       KC_RBRC),
+  COMBO(keys_k_quot,    KC_SCLN),
   COMBO(keys_l_quot,    KC_SCLN), 
   COMBO(keys_j_l,       KC_EQL),
 
