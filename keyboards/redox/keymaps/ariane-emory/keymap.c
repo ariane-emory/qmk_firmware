@@ -71,8 +71,8 @@ DEFINE_COMBO_KEYS(m_dot,     KC_M, KC_DOT);     /* stretch */
 combo_t key_combos[] = {
   COMBO(keys_upr_j, LGUI(KC_Z)),
   
-  COMBO(keys_u_i,       RALT(KC_B)), 
-  COMBO(keys_i_o,       RALT(KC_F)), 
+  /* COMBO(keys_u_i,       RALT(KC_B)),  */
+  /* COMBO(keys_i_o,       RALT(KC_F)),  */
   
   COMBO(keys_j_k,       KC_LBRC),
   COMBO(keys_k_l,       KC_RBRC),
@@ -99,11 +99,11 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 // ================================================================================
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-  case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-    if (keycode == LALT_T(KC_SPC)) {
-      return false;
-    }
+   switch (keycode) {
+   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+     if (keycode == LALT_T(KC_SPC)) {
+       return false;
+     }
     else {
       return true;
     }
