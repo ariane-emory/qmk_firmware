@@ -780,7 +780,7 @@
       "ANY(LALT(LGUI(KC_A)))",
       "LALT(KC_LEFT)",
       "LALT(KC_RGHT)",
-      "LALT(KC_D)",
+      "LALT(KC_DEL)",
       "RGUI(KC_Z)",
       "KC_TRNS",
       "KC_NO",
