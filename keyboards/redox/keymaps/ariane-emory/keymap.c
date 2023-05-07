@@ -20,10 +20,11 @@ enum combo_events {
   EVENT_DBL_TUCK,
   /* EVENT_UI, */
   /* EVENT_IO, */
+  /* EVENT_UO, */
+  EVENT_HJ,
   EVENT_JK,
   EVENT_KL,
   EVENT_JL,
-  EVENT_HJ,
   EVENT_MCOMMA,
   COMBO_LENGTH
 };
@@ -33,21 +34,23 @@ uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this
 const uint16_t PROGMEM keys_dbl_tuck_combo[] = { MO(3), MO(4), COMBO_END };
 /* const uint16_t PROGMEM keys_ui[]        = { KC_U, KC_I, COMBO_END }; */
 /* const uint16_t PROGMEM keys_io[]        = { KC_I, KC_O, COMBO_END }; */
+/* const uint16_t PROGMEM keys_uo[]        = { KC_U, KC_O, COMBO_END }; */
+const uint16_t PROGMEM keys_hj[]        = { KC_H, KC_J, COMBO_END };
 const uint16_t PROGMEM keys_jk[]        = { KC_J, KC_K, COMBO_END };
 const uint16_t PROGMEM keys_kl[]        = { KC_K, KC_L, COMBO_END };
 const uint16_t PROGMEM keys_jl[]        = { KC_J, KC_L, COMBO_END };
-const uint16_t PROGMEM keys_hj[]        = { KC_H, KC_J, COMBO_END };
 const uint16_t PROGMEM keys_mcomma[]    = { KC_M, KC_COMM, COMBO_END };
 
 combo_t key_combos[] = {
   [EVENT_DBL_TUCK] = COMBO(keys_dbl_tuck_combo, KC_LCTL),
   /* [EVENT_UI]       = COMBO(keys_ui, KC_LCBR), */
   /* [EVENT_IO]       = COMBO(keys_io, KC_RCBR), */
+  /* [EVENT_IO]       = COMBO(keys_uo, KC_RCBR), */
+  [EVENT_HJ]       = COMBO(keys_hj, KC_EQL),
   [EVENT_JK]       = COMBO(keys_jk, KC_LBRC),
   [EVENT_KL]       = COMBO(keys_kl, KC_RBRC),
   [EVENT_JL]       = COMBO(keys_jl, KC_EQL),
-  [EVENT_HJ]       = COMBO(keys_hj, KC_EQL),
-  [EVENT_MCOMMA]   = COMBO(keys_mcomma, KC_EQL)
+  [EVENT_MCOMMA]   = COMBO(keys_mcomma, KC_ENT)
   };
 
 // ================================================================================
