@@ -19,7 +19,7 @@
 #define DEFINE_COMBO_KEYS(name, ...)                                                           \
   const uint16_t PROGMEM keys_ ## name[] = { __VA_ARGS__, COMBO_END};
 
-DEFINE_COMBO_KEYS(dbl_tuck_combo, MO(3), MO(4));
+DEFINE_COMBO_KEYS(mo3mo4, MO(3), MO(4));
 DEFINE_COMBO_KEYS(ik,             KC_I, KC_K);
 DEFINE_COMBO_KEYS(mo3f,           MO(3), KC_F);
 DEFINE_COMBO_KEYS(mo4j,           MO(4), KC_J);
@@ -47,22 +47,22 @@ DEFINE_COMBO_KEYS(mdot,           KC_M, KC_DOT);
 #undef DEFINE_COMBO_KEYS
 
 combo_t key_combos[] = {
-  COMBO(keys_dbl_tuck_combo, KC_LCTL),
+  COMBO(keys_mo3mo4, KC_LCTL),
   
-  COMBO(keys_ik,       TG(2)),
-  COMBO(keys_mo3f,     MO(5)),
-  COMBO(keys_mo4j,     MO(9)),
+  COMBO(keys_ik,     TG(2)),
+  COMBO(keys_mo3f,   MO(5)),
+  COMBO(keys_mo4j,   MO(9)),
 
-  COMBO(keys_ui,       RALT(KC_B)), 
-  COMBO(keys_io,       RALT(KC_F)), 
+  COMBO(keys_ui,     RALT(KC_B)), 
+  COMBO(keys_io,     RALT(KC_F)), 
 
-  COMBO(keys_jk,       KC_LBRC),
-  COMBO(keys_kl,       KC_RBRC),
-  COMBO(keys_lquot,    KC_SCLN), 
-  COMBO(keys_jl,       KC_EQL),
+  COMBO(keys_jk,     KC_LBRC),
+  COMBO(keys_kl,     KC_RBRC),
+  COMBO(keys_lquot,  KC_SCLN), 
+  COMBO(keys_jl,     KC_EQL),
 
-  COMBO(keys_nm,       LGUI(KC_Z)),
-  COMBO(keys_mcomma,   KC_ENT),
+  COMBO(keys_nm,     LGUI(KC_Z)),
+  COMBO(keys_mcomma, KC_ENT),
 };
 
 uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
