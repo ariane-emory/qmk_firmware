@@ -68,6 +68,8 @@ DEFINE_COMBO_KEYS(mdot,           KC_M, KC_DOT);     /* stretch */
 #undef KEYS
 
 combo_t key_combos[] = {
+  COMBO(keys_uprj, KC_Z),
+  
   COMBO(keys_ui,       RALT(KC_B)), 
   COMBO(keys_io,       RALT(KC_F)), 
   
