@@ -56,4 +56,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 45
 #define IGNORE_MOD_TAP_INTERRUPT_PER_KEY
 
+#define COMBO_SHOULD_TRIGGER
+#define COMBO_ONLY_FROM_LAYER 0
+
 //#define NO_AUTO_SHIFT_ALPHA

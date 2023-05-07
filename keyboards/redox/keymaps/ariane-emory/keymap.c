@@ -39,13 +39,13 @@ uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this
 
 const uint16_t PROGMEM keys_dbl_tuck_combo[] = { MO(3), MO(4), COMBO_END };
 
-const uint16_t PROGMEM keys_yu[]        = { KC_Y, KC_U, COMBO_END };
+/* const uint16_t PROGMEM keys_yu[]        = { KC_Y, KC_U, COMBO_END }; */
 const uint16_t PROGMEM keys_ui[]        = { KC_U, KC_I, COMBO_END };
 const uint16_t PROGMEM keys_io[]        = { KC_I, KC_O, COMBO_END };
 const uint16_t PROGMEM keys_uo[]        = { KC_U, KC_O, COMBO_END };
 const uint16_t PROGMEM keys_op[]        = { KC_O, KC_P, COMBO_END };
 
-const uint16_t PROGMEM keys_hj[]        = { KC_H, KC_J, COMBO_END };
+/* const uint16_t PROGMEM keys_hj[]        = { KC_H, KC_J, COMBO_END }; */
 const uint16_t PROGMEM keys_jk[]        = { KC_J, KC_K, COMBO_END };
 const uint16_t PROGMEM keys_kl[]        = { KC_K, KC_L, COMBO_END };
 const uint16_t PROGMEM keys_jl[]        = { KC_J, KC_L, COMBO_END };
@@ -56,13 +56,13 @@ const uint16_t PROGMEM keys_mcomma[]    = { KC_M, KC_COMM, COMBO_END };
 combo_t key_combos[] = {
   [EVENT_DBL_TUCK] = COMBO(keys_dbl_tuck_combo, KC_LCTL),
 
-  [EVENT_YU]       = COMBO(keys_yu,    KC_EQL),  
+  /* [EVENT_YU]       = COMBO(keys_yu,    KC_EQL),   */
   [EVENT_UI]       = COMBO(keys_ui,    KC_LBRC), 
   [EVENT_IO]       = COMBO(keys_io,    KC_RBRC), 
   [EVENT_UO]       = COMBO(keys_uo,    KC_EQL),  
   [EVENT_OP]       = COMBO(keys_op,    KC_EQL),  
 
-  [EVENT_HJ]       = COMBO(keys_hj,    KC_EQL),
+  /* [EVENT_HJ]       = COMBO(keys_hj,    KC_EQL), */
   [EVENT_JK]       = COMBO(keys_jk,    KC_LBRC),
   [EVENT_KL]       = COMBO(keys_kl,    KC_RBRC),
   [EVENT_JL]       = COMBO(keys_jl,    KC_EQL),
@@ -70,6 +70,14 @@ combo_t key_combos[] = {
 
   [EVENT_MCOMMA]   = COMBO(keys_mcomma, KC_ENT)
   };
+
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+  if (layer_state_is(0) || layer_state_is(1)) {
+    return true;
+  }
+
+  return false;
+}
 
 // ================================================================================
 // Mod tap interrupt
