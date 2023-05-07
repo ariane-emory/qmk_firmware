@@ -4,8 +4,8 @@
 // Combos
 // ================================================================================
 
-#define DEFINE_COMBO_KEYS(name, ...)                                                           \
-  const uint16_t PROGMEM keys_ ## name[] = { __VA_ARGS__, COMBO_END};
+#define DEFINE_COMBO_KEYS(name, ...)                                            \
+  const uint16_t PROGMEM keys_ ## name[] = { __VA_ARGS__, COMBO_END };
 
 DEFINE_COMBO_KEYS(mo3mo4, MO(3), MO(4));
 DEFINE_COMBO_KEYS(ik,             KC_I, KC_K);
