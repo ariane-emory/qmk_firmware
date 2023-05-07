@@ -56,17 +56,17 @@ const uint16_t PROGMEM keys_mcomma[]    = { KC_M, KC_COMM, COMBO_END };
 combo_t key_combos[] = {
   [EVENT_DBL_TUCK] = COMBO(keys_dbl_tuck_combo, KC_LCTL),
 
-  [EVENT_YU]       = COMBO(keys_yu, KC_EQL),  
-  [EVENT_UI]       = COMBO(keys_ui, KC_LBRC), 
-  [EVENT_IO]       = COMBO(keys_io, KC_RBRC), 
-  [EVENT_UO]       = COMBO(keys_uo, KC_EQL),  
-  [EVENT_OP]       = COMBO(keys_uo, KC_EQL),  
+  [EVENT_YU]       = COMBO(keys_yu,    KC_EQL),  
+  [EVENT_UI]       = COMBO(keys_ui,    KC_LBRC), 
+  [EVENT_IO]       = COMBO(keys_io,    KC_RBRC), 
+  [EVENT_UO]       = COMBO(keys_uo,    KC_EQL),  
+  [EVENT_OP]       = COMBO(keys_op,    KC_EQL),  
 
-  [EVENT_HJ]       = COMBO(keys_hj, KC_EQL),
-  [EVENT_JK]       = COMBO(keys_jk, KC_LBRC),
-  [EVENT_KL]       = COMBO(keys_kl, KC_RBRC),
-  [EVENT_JL]       = COMBO(keys_jl, KC_EQL),
-  [EVENT_LQUOT]    = COMBO(keys_jl, KC_EQL),  
+  [EVENT_HJ]       = COMBO(keys_hj,    KC_EQL),
+  [EVENT_JK]       = COMBO(keys_jk,    KC_LBRC),
+  [EVENT_KL]       = COMBO(keys_kl,    KC_RBRC),
+  [EVENT_JL]       = COMBO(keys_jl,    KC_EQL),
+  [EVENT_LQUOT]    = COMBO(keys_lquot, KC_EQL),  
 
   [EVENT_MCOMMA]   = COMBO(keys_mcomma, KC_ENT)
   };
