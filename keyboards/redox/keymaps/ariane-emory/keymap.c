@@ -41,30 +41,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define DEFINE_COMBO_KEYS(name, ...)                                            \
   const uint16_t PROGMEM keys_ ## name[] = { __VA_ARGS__, COMBO_END };
 
-DEFINE_COMBO_KEYS(ik,             KC_I, KC_K);
-DEFINE_COMBO_KEYS(lwrf,           QK_TRI_LAYER_LOWER, KC_F);
-DEFINE_COMBO_KEYS(uprj,           QK_TRI_LAYER_UPPER, KC_J);
+DEFINE_COMBO_KEYS(ik,       KC_I, KC_K);
+DEFINE_COMBO_KEYS(lwrf,     QK_TRI_LAYER_LOWER, KC_F);
+DEFINE_COMBO_KEYS(uprj,     QK_TRI_LAYER_UPPER, KC_J);
 
 /* Right top row */
-DEFINE_COMBO_KEYS(yu,             KC_Y, KC_U);
-DEFINE_COMBO_KEYS(ui,             KC_U, KC_I);
-DEFINE_COMBO_KEYS(io,             KC_I, KC_O);
-DEFINE_COMBO_KEYS(op,             KC_O, KC_P);
-DEFINE_COMBO_KEYS(uo,             KC_U, KC_O);       /* stretch */
+DEFINE_COMBO_KEYS(yu,       KC_Y, KC_U);
+DEFINE_COMBO_KEYS(ui,       KC_U, KC_I);
+DEFINE_COMBO_KEYS(io,       KC_I, KC_O);
+DEFINE_COMBO_KEYS(op,       KC_O, KC_P);
+DEFINE_COMBO_KEYS(uo,       KC_U, KC_O);       /* stretch */
 
 /* Right middle row */
-DEFINE_COMBO_KEYS(hj,             KC_H, KC_J);
-DEFINE_COMBO_KEYS(jk,             KC_J, KC_K);
-DEFINE_COMBO_KEYS(kl,             KC_K, KC_L);
-DEFINE_COMBO_KEYS(lquot,          KC_L, KC_QUOT);
-DEFINE_COMBO_KEYS(jl,             KC_J, KC_L);       /* stretch */
+DEFINE_COMBO_KEYS(hj,       KC_H, KC_J);
+DEFINE_COMBO_KEYS(jk,       KC_J, KC_K);
+DEFINE_COMBO_KEYS(kl,       KC_K, KC_L);
+DEFINE_COMBO_KEYS(lquot,    KC_L, KC_QUOT);
+DEFINE_COMBO_KEYS(jl,       KC_J, KC_L);       /* stretch */
 
 /* Right bottom row */
-DEFINE_COMBO_KEYS(nm,             KC_N, KC_M);
-DEFINE_COMBO_KEYS(mcomma,         KC_M, KC_COMM);
-DEFINE_COMBO_KEYS(commadot,       KC_COMM, KC_DOT);
-DEFINE_COMBO_KEYS(dotslash,       KC_DOT, KC_SLASH);
-DEFINE_COMBO_KEYS(mdot,           KC_M, KC_DOT);     /* stretch */
+DEFINE_COMBO_KEYS(nm,       KC_N, KC_M);
+DEFINE_COMBO_KEYS(mcomma,   KC_M, KC_COMM);
+DEFINE_COMBO_KEYS(commadot, KC_COMM, KC_DOT);
+DEFINE_COMBO_KEYS(dotslash, KC_DOT, KC_SLASH);
+DEFINE_COMBO_KEYS(mdot,     KC_M, KC_DOT);     /* stretch */
 
 #undef DEFINE_COMBO_KEYS
 #undef KEYS
