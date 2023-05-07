@@ -70,7 +70,7 @@
       "MO(3)",
       "LALT_T(KC_SPC)",
       "KC_ENT",
-      "KC_ENT",
+      "RALT_T(KC_ENT)",
       "RGUI_T(KC_BSPC)",
       "MO(4)",
       "KC_LEFT",
