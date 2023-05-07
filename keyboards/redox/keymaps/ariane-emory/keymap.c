@@ -22,13 +22,13 @@ enum combo_events {
   /* EVENT_YU, */
   EVENT_UI,
   EVENT_IO,
-  EVENT_OP,
+  /* EVENT_OP, */
   /* EVENT_UO, */
 
   /* EVENT_HJ, */
   EVENT_JK,
   EVENT_KL,
-  EVENT_LQUOT,
+  /* EVENT_LQUOT, */
   EVENT_JL,
 
   /* EVENT_NM, */
@@ -64,22 +64,24 @@ const uint16_t PROGMEM keys_mdot[]      = { KC_M, KC_DOT, COMBO_END };
 
 combo_t key_combos[] = {
   [EVENT_DBL_TUCK] = COMBO(keys_dbl_tuck_combo, KC_LCTL),
+  
+  /* [EVENT_YU]       = COMBO(keys_yu,       KC_EQL), */
+  [EVENT_UI]          = COMBO(keys_ui,       RALT(KC_B)), 
+  [EVENT_IO]          = COMBO(keys_io,       RALT(KC_F)), 
+  /* [EVENT_OP]       = COMBO(keys_op,       KC_EQL), */
+  /* [EVENT_UO]       = COMBO(keys_uo,       KC_EQL), */
 
-  /* [EVENT_YU]       = COMBO(keys_yu,    KC_EQL),   */
-  [EVENT_UI]       = COMBO(keys_ui,       RALT(KC_B)), 
-  [EVENT_IO]       = COMBO(keys_io,       RALT(KC_F)), 
-  /* [EVENT_UO]       = COMBO(keys_uo,       KC_EQL),   */
-  [EVENT_OP]       = COMBO(keys_op,       KC_EQL),  
+  /* [EVENT_HJ]       = COMBO(keys_hj,       KC_EQL), */
+  [EVENT_JK]          = COMBO(keys_jk,       KC_LBRC),
+  [EVENT_KL]          = COMBO(keys_kl,       KC_RBRC),
+  /* [EVENT_LQUOT]    = COMBO(keys_lquot,    KC_EQL), */
+  [EVENT_JL]          = COMBO(keys_jl,       KC_EQL),
 
-  /* [EVENT_HJ]       = COMBO(keys_hj,    KC_EQL), */
-  [EVENT_JK]       = COMBO(keys_jk,       KC_LBRC),
-  [EVENT_KL]       = COMBO(keys_kl,       KC_RBRC),
-  [EVENT_JL]       = COMBO(keys_jl,       KC_EQL),
-  [EVENT_LQUOT]    = COMBO(keys_lquot,    KC_EQL),  
-
-  [EVENT_MCOMMA]   = COMBO(keys_mcomma,   KC_ENT),
+  /* [EVENT_NM]       = COMBO(keys_commadot, KC_NO), */
+  [EVENT_MCOMMA]      = COMBO(keys_mcomma,   KC_ENT),
   /* [EVENT_COMMADOT] = COMBO(keys_commadot, KC_NO), */
-  /* [EVENT_MDOT] = COMBO(keys_commadot, KC_NO), */
+  /* [EVENT_DOTSLASH] = COMBO(keys_dotslash, KC_NO), */
+  /* [EVENT_MDOT]     = COMBO(keys_mdot,     KC_NO), */
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
