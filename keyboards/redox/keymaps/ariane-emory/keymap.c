@@ -31,7 +31,7 @@ enum combo_events {
   /* EVENT_LQUOT, */
   EVENT_JL,
 
-  /* EVENT_NM, */
+  EVENT_NM,
   EVENT_MCOMMA,
   /* EVENT_COMMADOT, */
   /* EVENT_DOTSLASH, */
@@ -77,7 +77,7 @@ combo_t key_combos[] = {
   /* [EVENT_LQUOT]    = COMBO(keys_lquot,    KC_EQL), */
   [EVENT_JL]          = COMBO(keys_jl,       KC_EQL),
 
-  /* [EVENT_NM]       = COMBO(keys_commadot, KC_NO), */
+  [EVENT_NM]          = COMBO(keys_nm,       LGUI(KC_Z)),
   [EVENT_MCOMMA]      = COMBO(keys_mcomma,   KC_ENT),
   /* [EVENT_COMMADOT] = COMBO(keys_commadot, KC_NO), */
   /* [EVENT_DOTSLASH] = COMBO(keys_dotslash, KC_NO), */
