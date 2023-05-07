@@ -33,6 +33,7 @@ enum combo_events {
 
   EVENT_MCOMMA,
   /* EVENT_COMMADOT, */
+  /* EVENT_MDOT, */
   
   COMBO_LENGTH
 };
@@ -55,6 +56,7 @@ const uint16_t PROGMEM keys_lquot[]     = { KC_L, KC_QUOT, COMBO_END };
 
 const uint16_t PROGMEM keys_mcomma[]    = { KC_M, KC_COMM, COMBO_END };
 const uint16_t PROGMEM keys_commadot[]  = { KC_COMM, KC_DOT, COMBO_END };
+const uint16_t PROGMEM keys_mdot[]  = { KC_M, KC_DOT, COMBO_END };
 
 combo_t key_combos[] = {
   [EVENT_DBL_TUCK] = COMBO(keys_dbl_tuck_combo, KC_LCTL),
@@ -73,6 +75,7 @@ combo_t key_combos[] = {
 
   [EVENT_MCOMMA]   = COMBO(keys_mcomma,   KC_ENT),
   /* [EVENT_COMMADOT] = COMBO(keys_commadot, KC_NO), */
+  /* [EVENT_MDOT] = COMBO(keys_commadot, KC_NO), */
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
