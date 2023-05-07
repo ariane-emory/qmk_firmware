@@ -84,74 +84,74 @@ combo_t key_combos[] = {
   COMBO(keys_dotslash, SS_UPDIR),
 };
 
-  uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
+uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
 
-  bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-    if (layer_state_is(0) || layer_state_is(1)) {
-      return true;
-    }
-
-    return false;
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+  if (layer_state_is(0) || layer_state_is(1)) {
+    return true;
   }
+
+  return false;
+}
 
 // ================================================================================
 // Mod tap interrupt
 // ================================================================================
 
-  bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-    case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-      if (keycode == LALT_T(KC_SPC)) {
-        return false;
-      }
-      else {
-        return true;
-      }
-    default:
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+  case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+    if (keycode == LALT_T(KC_SPC)) {
+      return false;
+    }
+    else {
       return true;
     }
+  default:
+    return true;
   }
+}
 
 // ================================================================================
 // Init
 // ================================================================================
 
-  void keyboard_post_init_user(void) {
-    // Customise these values to desired behaviour
-    /* debug_enable=true; */
-    /* debug_matrix=true; */
-    /* debug_keyboard=true; */
-    /* debug_mouse=true; */
-  }
+void keyboard_post_init_user(void) {
+  // Customise these values to desired behaviour
+  /* debug_enable=true; */
+  /* debug_matrix=true; */
+  /* debug_keyboard=true; */
+  /* debug_mouse=true; */
+}
 
 // ================================================================================
 // Unicode
 // ================================================================================
 
-  enum unicode_names {
-    KITTY
-  };
+enum unicode_names {
+  KITTY
+};
 
-  const uint32_t unicode_map[] PROGMEM = {
-    [KITTY]  = 0x1F408,  // ‽
-    };
+const uint32_t unicode_map[] PROGMEM = {
+  [KITTY]  = 0x1F408,  // ‽
+  };
 
 
 // ================================================================================
 // Autoshift
 // ================================================================================
 
-  uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
-    switch(keycode) {
-    case AUTO_SHIFT_ALPHA:
-      return get_generic_autoshift_timeout() + 80;
-    case AUTO_SHIFT_SPECIAL:
-      return get_generic_autoshift_timeout() + 40;
-    case AUTO_SHIFT_NUMERIC:
-    default:
-      return get_generic_autoshift_timeout();
-    }
+uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
+  switch(keycode) {
+  case AUTO_SHIFT_ALPHA:
+    return get_generic_autoshift_timeout() + 80;
+  case AUTO_SHIFT_SPECIAL:
+    return get_generic_autoshift_timeout() + 40;
+  case AUTO_SHIFT_NUMERIC:
+  default:
+    return get_generic_autoshift_timeout();
   }
+}
 
 // ================================================================================
 // Include inlines
