@@ -1,18 +1,6 @@
 #include QMK_KEYBOARD_H
 
 // ================================================================================
-// Tap dance
-// ================================================================================
-
-// enum tap_dance_events {
-//   TD_SPC_LALT,
-// };
-
-// qk_tap_dance_action_t tap_dance_actions[] = {
-//   [TD_SPC_LALT]  = ACTION_TAP_DANCE_DOUBLE(KC_SPC, KC_LALT),
-// };
-
-// ================================================================================
 // Combos
 // ================================================================================
 
@@ -24,25 +12,26 @@ DEFINE_COMBO_KEYS(ik,             KC_I, KC_K);
 DEFINE_COMBO_KEYS(mo3f,           MO(3), KC_F);
 DEFINE_COMBO_KEYS(mo4j,           MO(4), KC_J);
 
+/* Right top row */
 DEFINE_COMBO_KEYS(yu,             KC_Y, KC_U);
 DEFINE_COMBO_KEYS(ui,             KC_U, KC_I);
 DEFINE_COMBO_KEYS(io,             KC_I, KC_O);
 DEFINE_COMBO_KEYS(op,             KC_O, KC_P);
-DEFINE_COMBO_KEYS(uo,             KC_U, KC_O);
+DEFINE_COMBO_KEYS(uo,             KC_U, KC_O);       /* stretch */
 
+/* Right middle row */
 DEFINE_COMBO_KEYS(hj,             KC_H, KC_J);
-
 DEFINE_COMBO_KEYS(jk,             KC_J, KC_K);
-
 DEFINE_COMBO_KEYS(kl,             KC_K, KC_L);
 DEFINE_COMBO_KEYS(lquot,          KC_L, KC_QUOT);
-DEFINE_COMBO_KEYS(jl,             KC_J, KC_L);
+DEFINE_COMBO_KEYS(jl,             KC_J, KC_L);       /* stretch */
 
+/* Right bottom row */
 DEFINE_COMBO_KEYS(nm,             KC_N, KC_M);
 DEFINE_COMBO_KEYS(mcomma,         KC_M, KC_COMM);
 DEFINE_COMBO_KEYS(commadot,       KC_COMM, KC_DOT);
 DEFINE_COMBO_KEYS(dotslash,       KC_DOT, KC_SLASH);
-DEFINE_COMBO_KEYS(mdot,           KC_M, KC_DOT);
+DEFINE_COMBO_KEYS(mdot,           KC_M, KC_DOT);     /* stretch */
 
 #undef DEFINE_COMBO_KEYS
 
@@ -81,8 +70,13 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-  case LALT_T(KC_SPC):
-    return false;
+  case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+    if (keycode == LALT_T(KC_SPC)) {
+      return false;
+    }
+    else {
+      return true;
+    }
   default:
     return true;
   }
