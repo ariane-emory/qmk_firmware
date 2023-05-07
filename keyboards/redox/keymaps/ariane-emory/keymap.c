@@ -39,10 +39,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define DEFINE_COMBO_KEYS(name, ...)                                            \
   const uint16_t PROGMEM keys_ ## name[] = { __VA_ARGS__, COMBO_END };
 
-DEFINE_COMBO_KEYS(mo3mo4,         MO(3), MO(4));
 DEFINE_COMBO_KEYS(ik,             KC_I, KC_K);
-DEFINE_COMBO_KEYS(mo3f,           MO(3), KC_F);
-DEFINE_COMBO_KEYS(mo4j,           MO(4), KC_J);
+DEFINE_COMBO_KEYS(lwrf,           QK_TRI_LAYER_LOWER, KC_F);
+DEFINE_COMBO_KEYS(uprj,           QK_TRI_LAYER_UPPER, KC_J);
 
 /* Right top row */
 DEFINE_COMBO_KEYS(yu,             KC_Y, KC_U);
@@ -69,12 +68,6 @@ DEFINE_COMBO_KEYS(mdot,           KC_M, KC_DOT);     /* stretch */
 #undef KEYS
 
 combo_t key_combos[] = {
-  COMBO(keys_mo3mo4, KC_LCTL),
-  
-  COMBO(keys_ik,     TG(2)),
-  COMBO(keys_mo3f,   MO(5)),
-  COMBO(keys_mo4j,   MO(9)),
-
   COMBO(keys_ui,     RALT(KC_B)), 
   COMBO(keys_io,     RALT(KC_F)), 
 
