@@ -1,5 +1,7 @@
 #include QMK_KEYBOARD_H
 
+#include "secrets.h"
+
 // ================================================================================
 // Custom keycodes
 // ================================================================================
@@ -14,12 +16,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case SS_NUM:
     if (record->event.pressed) {
-      SEND_STRING("6851");
+      SEND_STRING(AE_PIN_1);
     }
     return false;
   case SS_NUM2:
     if (record->event.pressed) {
-      SEND_STRING("^*%!");
+      SEND_STRING(AE_PIN_2);
     }
     return false;
   case SS_UPDIR:
@@ -68,7 +70,7 @@ DEFINE_COMBO_KEYS(mdot,           KC_M, KC_DOT);     /* stretch */
 #undef KEYS
 
 combo_t key_combos[] = {
-  COMBO(keys_uprj, KC_Z),
+  COMBO(keys_uprj, LGUI(KC_Z)),
   
   COMBO(keys_ui,       RALT(KC_B)), 
   COMBO(keys_io,       RALT(KC_F)), 
