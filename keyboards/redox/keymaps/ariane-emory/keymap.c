@@ -8,18 +8,18 @@
 
 enum arianes_keycodes {
   SS_UPDIR = SAFE_RANGE,
-  SS_NUM,
-  SS_NUM2,
+  SS_PIN_,
+  SS_PIN_2,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-  case SS_NUM:
+  case SS_PIN_:
     if (record->event.pressed) {
       SEND_STRING(AE_PIN_1);
     }
     return false;
-  case SS_NUM2:
+  case SS_PIN_2:
     if (record->event.pressed) {
       SEND_STRING(AE_PIN_2);
     }
