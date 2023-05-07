@@ -651,8 +651,8 @@
       "KC_NO",
       "QK_BOOT",
       "ANY(QK_REBOOT)",
-      "ANY(SS_NUM)",
-      "ANY(SS_NUM2)"
+      "ANY(SS_PIN1)",
+      "ANY(SS_PIN2)"
     ],
     [
       "KC_NO",

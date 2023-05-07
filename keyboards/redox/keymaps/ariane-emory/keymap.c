@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#include "secrets.h" // #define AE_PIN_1 and AE_PIN_2 in this file.
+#include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
 // ================================================================================
 // Custom keycodes
@@ -8,20 +8,20 @@
 
 enum arianes_keycodes {
   SS_UPDIR = SAFE_RANGE,
-  SS_PIN_,
-  SS_PIN_2,
+  SS_PIN1,
+  SS_PIN2,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-  case SS_PIN_:
+  case SS_PIN1:
     if (record->event.pressed) {
-      SEND_STRING(AE_PIN_1);
+      SEND_STRING(AE_PIN1);
     }
     return false;
-  case SS_PIN_2:
+  case SS_PIN2:
     if (record->event.pressed) {
-      SEND_STRING(AE_PIN_2);
+      SEND_STRING(AE_PIN2);
     }
     return false;
   case SS_UPDIR:
