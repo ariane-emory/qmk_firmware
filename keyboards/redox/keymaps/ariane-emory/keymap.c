@@ -16,36 +16,6 @@
 // Combos
 // ================================================================================
 
-enum combo_events {
-  EVENT_DBL_TUCK,
-
-  EVENT_IK,
-  EVENT_MO3F,
-  EVENT_MO4J,
-  
-  /* EVENT_YU, */
-  EVENT_UI,
-  EVENT_IO,
-  /* EVENT_OP, */
-  /* EVENT_UO, */
-
-  /* EVENT_HJ, */
-  EVENT_JK,
-  EVENT_KL,
-  EVENT_LQUOT,
-  EVENT_JL,
-
-  EVENT_NM,
-  EVENT_MCOMMA,
-  /* EVENT_COMMADOT, */
-  /* EVENT_DOTSLASH, */
-  /* EVENT_MDOT, */
-  
-  COMBO_LENGTH
-};
-
-uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead!
-
 const uint16_t PROGMEM keys_dbl_tuck_combo[] = { MO(3), MO(4), COMBO_END };
 
 const uint16_t PROGMEM keys_ik[]        = { KC_I, KC_K, COMBO_END };
@@ -71,30 +41,32 @@ const uint16_t PROGMEM keys_dotslash[]  = { KC_DOT, KC_SLASH, COMBO_END };
 const uint16_t PROGMEM keys_mdot[]      = { KC_M, KC_DOT, COMBO_END };
 
 combo_t key_combos[] = {
-  [EVENT_DBL_TUCK] = COMBO(keys_dbl_tuck_combo, KC_LCTL),
+  COMBO(keys_dbl_tuck_combo, KC_LCTL),
   
-  [EVENT_IK]          = COMBO(keys_ik,       TG(2)),
-  [EVENT_MO3F]        = COMBO(keys_mo3f,     MO(5)),
-  [EVENT_MO4J]        = COMBO(keys_mo4j,     MO(9)),
+  COMBO(keys_ik,       TG(2)),
+  COMBO(keys_mo3f,     MO(5)),
+  COMBO(keys_mo4j,     MO(9)),
 
-  /* [EVENT_YU]       = COMBO(keys_yu,       KC_EQL), */
-  [EVENT_UI]          = COMBO(keys_ui,       RALT(KC_B)), 
-  [EVENT_IO]          = COMBO(keys_io,       RALT(KC_F)), 
-  /* [EVENT_OP]       = COMBO(keys_op,       KC_EQL), */
-  /* [EVENT_UO]       = COMBO(keys_uo,       KC_EQL), */
+  /* COMBO(keys_yu,       KC_EQL), */
+  COMBO(keys_ui,       RALT(KC_B)), 
+  COMBO(keys_io,       RALT(KC_F)), 
+  /* COMBO(keys_op,       KC_EQL), */
+  /* COMBO(keys_uo,       KC_EQL), */
 
-  /* [EVENT_HJ]       = COMBO(keys_hj,       KC_EQL), */
-  [EVENT_JK]          = COMBO(keys_jk,       KC_LBRC),
-  [EVENT_KL]          = COMBO(keys_kl,       KC_RBRC),
-  [EVENT_LQUOT]       = COMBO(keys_lquot,    KC_SCLN), 
-  [EVENT_JL]          = COMBO(keys_jl,       KC_EQL),
+  /* COMBO(keys_hj,       KC_EQL), */
+  COMBO(keys_jk,       KC_LBRC),
+  COMBO(keys_kl,       KC_RBRC),
+  COMBO(keys_lquot,    KC_SCLN), 
+  COMBO(keys_jl,       KC_EQL),
 
-  [EVENT_NM]          = COMBO(keys_nm,       LGUI(KC_Z)),
-  [EVENT_MCOMMA]      = COMBO(keys_mcomma,   KC_ENT),
+  COMBO(keys_nm,       LGUI(KC_Z)),
+  COMBO(keys_mcomma,   KC_ENT),
   /* [EVENT_COMMADOT] = COMBO(keys_commadot, KC_NO), */
   /* [EVENT_DOTSLASH] = COMBO(keys_dotslash, KC_NO), */
   /* [EVENT_MDOT]     = COMBO(keys_mdot,     KC_NO), */
 };
+
+uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
   if (layer_state_is(0) || layer_state_is(1)) {
