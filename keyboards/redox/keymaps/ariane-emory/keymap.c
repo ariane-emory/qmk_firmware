@@ -69,10 +69,8 @@ DEFINE_COMBO_KEYS(c_v,         KC_C, KC_V);
 DEFINE_COMBO_KEYS(x_v,         KC_X, KC_V);         /* stretch */
 
 /* Right top row */
-DEFINE_COMBO_KEYS(y_u,         KC_Y, KC_U);
 DEFINE_COMBO_KEYS(u_i,         KC_U, KC_I);
 DEFINE_COMBO_KEYS(i_o,         KC_I, KC_O);
-DEFINE_COMBO_KEYS(o_p,         KC_O, KC_P);
 DEFINE_COMBO_KEYS(u_o,         KC_U, KC_O);         /* stretch */
 
 /* Right top/middle row */
