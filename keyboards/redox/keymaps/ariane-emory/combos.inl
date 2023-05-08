@@ -115,12 +115,12 @@ combo_t key_combos[] = {
 
   //========================================================================================
   /* Right top row */
-  COMBO(keys_r_top_rch,                       LCTL(KC_A)),
-  COMBO(keys_r_top_in2,                       KC_NO),
+  COMBO(keys_r_top_rch,                       KC_NO),
+  COMBO(keys_r_top_in2,                       LCTL(KC_A)),
   COMBO(keys_r_top_inr,                       LALT(KC_B)),
   COMBO(keys_r_top_out,                       LALT(KC_F)),
-  COMBO(keys_r_top_ou2,                       KC_NO),
-  COMBO(keys_r_top_edg,                       LCTL(KC_E)),
+  COMBO(keys_r_top_ou2,                       LCTL(KC_E)),
+  COMBO(keys_r_top_edg,                       KC_NO),
   COMBO(keys_r_top_spr,                       LCTL(KC_Y)),
   COMBO(keys_r_top_triple,                    LCTL(KC_K)),
   //========================================================================================
