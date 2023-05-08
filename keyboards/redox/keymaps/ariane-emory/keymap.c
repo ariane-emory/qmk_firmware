@@ -57,6 +57,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 DEFINE_COMBO_KEYS(s_d,         KC_S, KC_D);
 DEFINE_COMBO_KEYS(d_f,         KC_D, KC_F);
 
+/* Left bottom row */
+DEFINE_COMBO_KEYS(x_c,         KC_X, KC_C);
+DEFINE_COMBO_KEYS(c_v,         KC_C, KC_V);
+
 /* Right top row */
 DEFINE_COMBO_KEYS(y_u,         KC_Y, KC_U);
 DEFINE_COMBO_KEYS(u_i,         KC_U, KC_I);
@@ -101,6 +105,10 @@ combo_t key_combos[] = {
   /* Left top row */
   COMBO(keys_s_d, KC_F21),
   COMBO(keys_d_f, KC_F22),
+  
+  /* Left bottom row */
+  COMBO(keys_x_c, LCTL(KC_TAB)),
+  COMBO(keys_c_v, LSFT*LCTL(KC_TAB)),
   
   /* Right top/middle row */
   /* COMBO(keys_y_h,         LGUI(KC_Z)), */
