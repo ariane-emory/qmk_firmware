@@ -59,16 +59,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 DEFINE_COMBO_KEYS(w_e,         KC_W, KC_E);
 DEFINE_COMBO_KEYS(e_r,         KC_E, KC_R);
 DEFINE_COMBO_KEYS(w_r,         KC_W, KC_R);         /* stretch */
+DEFINE_COMBO_KEYS(w_e_r,       KC_W, KC_E, KC_R);   /* triple  */
 
 /* Left middle row */
 DEFINE_COMBO_KEYS(s_d,         KC_S, KC_D);
 DEFINE_COMBO_KEYS(d_f,         KC_D, KC_F);
 DEFINE_COMBO_KEYS(s_f,         KC_S, KC_F);         /* stretch */
+DEFINE_COMBO_KEYS(s_d_f,       KC_S, KC_D, KC_F);   /* triple */
 
 /* Left bottom row */
 DEFINE_COMBO_KEYS(x_c,         KC_X, KC_C);
 DEFINE_COMBO_KEYS(c_v,         KC_C, KC_V);
 DEFINE_COMBO_KEYS(x_v,         KC_X, KC_V);         /* stretch */
+DEFINE_COMBO_KEYS(x_c_v,       KC_X, KC_C, KC_V);   /* triple */
 
 ////////////////////////////////////////////////////////////////////////////////
 
