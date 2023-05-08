@@ -99,8 +99,8 @@ DEFINE_COMBO_KEYS(m_dot,       KC_M, KC_DOT);       /* stretch */
 
 combo_t key_combos[] = {
   /* Left top row */
-  COMBO(keys_s_d, KC_F21);
-  COMBO(keys_d_f, KC_F22);
+  COMBO(keys_s_d, KC_ENT);
+  COMBO(keys_d_f, KC_ENT);
   
   /* Right top/middle row */
   /* COMBO(keys_y_h,         LGUI(KC_Z)), */
