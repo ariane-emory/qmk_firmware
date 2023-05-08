@@ -62,17 +62,17 @@ DEFINE_COMBO_KEYS(r_bot_triple, KC_M,  KC_COMM, KC_DOT);       /* r_bot_triple  
 combo_t key_combos[] = {
   //======================================================================================
   /* Left top row */
-  COMBO(keys_top_inner,         LCTL(KC_TAB)),            /* inner  */
-  COMBO(keys_top_outer,         LSFT(LCTL(KC_TAB))),      /* outer  */
+  COMBO(keys_l_top_inner,         LCTL(KC_TAB)),            /* inner  */
+  COMBO(keys_l_top_outer,         LSFT(LCTL(KC_TAB))),      /* outer  */
   //======================================================================================
   /* Left middle row */
-  COMBO(keys_mid_inner,         KC_F22),                  /* inner   */
-  COMBO(keys_mid_outer,         KC_F21),                  /* outer   */
-  COMBO(keys_mid_triple,       KC_F23),                  /* triple  */
+  COMBO(keys_l_mid_inner,         KC_F22),                  /* inner   */
+  COMBO(keys_l_mid_outer,         KC_F21),                  /* outer   */
+  COMBO(keys_l_mid_triple,       KC_F23),                  /* triple  */
   //======================================================================================
   /* Left bottom row */
-  COMBO(keys_bot_inner,         LCTL(KC_TAB)),            /* inner   */
-  COMBO(keys_bot_outer,         LSFT(LCTL(KC_TAB))),      /* outer   */
+  COMBO(keys_l_bot_inner,         LCTL(KC_TAB)),            /* inner   */
+  COMBO(keys_l_bot_outer,         LSFT(LCTL(KC_TAB))),      /* outer   */
   //======================================================================================
   
   //======================================================================================
