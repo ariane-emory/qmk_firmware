@@ -107,8 +107,8 @@ combo_t key_combos[] = {
   //========================================================================================
   /* Right top row */
   COMBO(keys_r_top_rch,                       KC_NO),
-  COMBO(keys_r_top_inr,                       KC_9),
-  COMBO(keys_r_top_out,                       KC_0),
+  COMBO(keys_r_top_inr,                       LCTL(KC_TAB)),
+  COMBO(keys_r_top_out,                       LSFT(KC_9)),
   COMBO(keys_r_top_edg,                       KC_NO),
   COMBO(keys_r_top_spr,                       KC_NO),
   // COMBO(keys_r_top_far,                    KC_NO),
@@ -116,20 +116,21 @@ combo_t key_combos[] = {
   //========================================================================================
   /* Right middle row */
   COMBO(keys_r_mid_rch,                       KC_ENT),
-  COMBO(keys_r_mid_inr,                       KC_LBRC),
-  COMBO(keys_r_mid_out,                       KC_RBRC),
-  COMBO(keys_r_mid_edg,                       KC_NO),
-  COMBO(keys_r_mid_spr,                       KC_SCLN),
-  // COMBO(keys_r_mid_far,                    KC_NO),
-  COMBO(keys_r_mid_triple,                    KC_EQL),
+  COMBO(keys_r_mid_inr,                       KC_F22),
+  COMBO(keys_r_mid_out,                       KC_F21),
+  COMBO(keys_r_mid_edg,                       KC_NO), 
+  COMBO(keys_r_mid_spr,                       KC_NO), 
+  // COMBO(keys_r_mid_far,                    KC_NO), 
+  COMBO(keys_r_mid_triple,                    KC_F23),
   //========================================================================================
   /* Right bottom row */
   COMBO(keys_r_bot_rch,                       LGUI(KC_Z)),
-  COMBO(keys_r_bot_inr,                       KC_ENT),
-  COMBO(keys_r_bot_out,                       KC_NO),
-  COMBO(keys_r_bot_edg,                       KC_NO),
-  COMBO(keys_r_bot_spr,                       KC_NO),
-  // COMBO(keys_r_bot_far,                    KC_NO),
+  COMBO(keys_r_bot_inr,                       KC_LBRC),
+  COMBO(keys_r_bot_out,                       KC_RBRC),
+  COMBO(keys_r_bot_edg,                       KC_NO),  
+  COMBO(keys_r_bot_edg,                       KC_SCLN),
+  COMBO(keys_r_bot_spr,                       KC_NO),  
+  // COMBO(keys_r_bot_far,                    KC_EQL), 
   COMBO(keys_r_bot_triple,                    KC_NO),
   //========================================================================================
   /* Right middle/bottom row */
