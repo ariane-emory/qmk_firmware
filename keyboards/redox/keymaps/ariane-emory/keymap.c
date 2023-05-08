@@ -112,8 +112,8 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
       return true;
     }
   default:
-    return true;
-  }
+    return false;
+   }
 }
 
 // ================================================================================
@@ -151,7 +151,7 @@ uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case SFT_T(KC_SPC):
-      return TAPPING_TERM << 2;
+      return 5000;
     default:
       return TAPPING_TERM;
     }
