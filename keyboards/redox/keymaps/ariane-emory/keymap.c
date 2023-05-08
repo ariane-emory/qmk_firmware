@@ -119,16 +119,10 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-    if (keycode == LCTL_T(KC_ESC)) {
-      return true;
-    }
-    else if (keycode == RCTL_T(KC_SCLN)) {
-      return true;
-    }
-    else if (keycode == LSFT_T(KC_MINS)) {
-      return true;
-    }
-    else if (keycode == RSFT_T(KC_MINS)) {
+    if (keycode == LCTL_T(KC_ESC)  ||
+        keycode == RCTL_T(KC_SCLN) ||
+        keycode == LSFT_T(KC_MINS) ||
+        keycode == RSFT_T(KC_MINS)) {
       return true;
     }
     else {
