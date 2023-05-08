@@ -53,6 +53,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define DEFINE_COMBO_KEYS(name, ...)                                            \
   const uint16_t PROGMEM keys_ ## name[] = { __VA_ARGS__, COMBO_END };
 
+////////////////////////////////////////////////////////////////////////////////
+
 /* Left top row */
 DEFINE_COMBO_KEYS(w_e,         KC_W, KC_E);
 DEFINE_COMBO_KEYS(e_r,         KC_E, KC_R);
@@ -68,15 +70,12 @@ DEFINE_COMBO_KEYS(x_c,         KC_X, KC_C);
 DEFINE_COMBO_KEYS(c_v,         KC_C, KC_V);
 DEFINE_COMBO_KEYS(x_v,         KC_X, KC_V);         /* stretch */
 
+////////////////////////////////////////////////////////////////////////////////
+
 /* Right top row */
 DEFINE_COMBO_KEYS(u_i,         KC_U, KC_I);
 DEFINE_COMBO_KEYS(i_o,         KC_I, KC_O);
 DEFINE_COMBO_KEYS(u_o,         KC_U, KC_O);         /* stretch */
-
-/* Right top/middle row */
-DEFINE_COMBO_KEYS(y_h,         KC_Y, KC_H);
-DEFINE_COMBO_KEYS(u_j,         KC_U, KC_J);
-DEFINE_COMBO_KEYS(i_k,         KC_I, KC_K);
 
 /* Right middle row */
 DEFINE_COMBO_KEYS(h_j,         KC_H, KC_J);
@@ -88,6 +87,21 @@ DEFINE_COMBO_KEYS(k_quot,      KC_K, KC_QUOT);      /* stretch */
 DEFINE_COMBO_KEYS(j_quot,      KC_J, KC_QUOT);      /* stretch */
 DEFINE_COMBO_KEYS(j_l,         KC_J, KC_L);         /* stretch */
 
+/* Right bottom row */
+DEFINE_COMBO_KEYS(n_m,         KC_N, KC_M);
+DEFINE_COMBO_KEYS(m_comma,     KC_M, KC_COMM);
+DEFINE_COMBO_KEYS(comma_dot,   KC_COMM, KC_DOT);
+DEFINE_COMBO_KEYS(dot_slash,   KC_DOT, KC_SLASH);
+DEFINE_COMBO_KEYS(comma_slash, KC_COMMA, KC_SLASH); /* stretch */
+DEFINE_COMBO_KEYS(m_dot,       KC_M, KC_DOT);       /* stretch */
+
+//------------------------------------------------------------------------------
+
+/* Right top/middle row */
+DEFINE_COMBO_KEYS(y_h,         KC_Y, KC_H);
+DEFINE_COMBO_KEYS(u_j,         KC_U, KC_J);
+DEFINE_COMBO_KEYS(i_k,         KC_I, KC_K);
+
 /* Right middle/bottom row */
 DEFINE_COMBO_KEYS(h_n,         KC_H, KC_N);
 DEFINE_COMBO_KEYS(m_k,         KC_M, KC_K);
@@ -96,13 +110,7 @@ DEFINE_COMBO_KEYS(j_slash,     KC_J, KC_SLASH);     /* stretch */
 DEFINE_COMBO_KEYS(j_comma,     KC_J, KC_COMM);
 DEFINE_COMBO_KEYS(j_n,         KC_J, KC_N);
 
-/* Right bottom row */
-DEFINE_COMBO_KEYS(n_m,         KC_N, KC_M);
-DEFINE_COMBO_KEYS(m_comma,     KC_M, KC_COMM);
-DEFINE_COMBO_KEYS(comma_dot,   KC_COMM, KC_DOT);
-DEFINE_COMBO_KEYS(dot_slash,   KC_DOT, KC_SLASH);
-DEFINE_COMBO_KEYS(comma_slash, KC_COMMA, KC_SLASH); /* stretch */
-DEFINE_COMBO_KEYS(m_dot,       KC_M, KC_DOT);       /* stretch */
+////////////////////////////////////////////////////////////////////////////////
 
 #undef DEFINE_COMBO_KEYS
 
