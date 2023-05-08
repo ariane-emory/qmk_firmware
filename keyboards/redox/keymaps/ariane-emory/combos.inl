@@ -130,8 +130,8 @@ combo_t key_combos[] = {
   COMBO(keys_r_bot_edg,                       KC_NO),  
   COMBO(keys_r_bot_edg,                       KC_SCLN),
   COMBO(keys_r_bot_spr,                       KC_NO),  
-  // COMBO(keys_r_bot_far,                    KC_EQL), 
-  COMBO(keys_r_bot_triple,                    KC_NO),
+  // COMBO(keys_r_bot_far,                    KC_NO),
+  COMBO(keys_r_bot_triple,                    KC_EQL),
   //========================================================================================
   /* Right middle/bottom row */
   COMBO(keys_r_pinky_dip,                     SS_UPDIR),
