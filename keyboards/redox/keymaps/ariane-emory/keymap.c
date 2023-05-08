@@ -116,19 +116,22 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 // Mod tap interrupt
 // ================================================================================
 
-/* bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) { */
-/*   switch (keycode) { */
-/*   case QK_MOD_TAP ... QK_MOD_TAP_MAX: */
-/*     if (keycode == MT(MOD_LALT,KC_SPC)) { */
-/*       return false; */
-/*     } */
-/*     else { */
-/*       return true; */
-/*     } */
-/*   default: */
-/*     return false; */
-/*   } */
-/* } */
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+  case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+    if (keycode == LCTL_T(KC_ESC)) {
+      return true;
+    }
+    else if (keycode == RCTL_T(KC_SCLN)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  default:
+    return false;
+  }
+}
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {

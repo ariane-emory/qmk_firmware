@@ -64,7 +64,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TRI_LAYER_ADJUST_LAYER 10
 
 //#define HOLD_ON_OTHER_KEY_PRESS
-//#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
 #define TAPPING_TERM 225
 //#define PERMISSIVE_HOLD
