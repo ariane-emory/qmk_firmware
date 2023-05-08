@@ -141,9 +141,9 @@ combo_t key_combos[] = {
   COMBO(keys_r_bot_out,                       KC_0),
   COMBO(keys_r_bot_in2,                       KC_NO),
   COMBO(keys_r_bot_ou2,                       KC_NO),
-  COMBO(keys_r_bot_spr,                       KC_NO),
+  COMBO(keys_r_bot_spr,                       KC_ESC),
   COMBO(keys_r_bot_triple,                    LCTL(KC_SPC)),
-  //========================================================================================
+//========================================================================================
   /* Right middle/bottom row */
   COMBO(keys_r_pinky_dip,                     SS_UPDIR),
 //========================================================================================
