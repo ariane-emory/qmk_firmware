@@ -149,12 +149,12 @@ uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
 // ================================================================================
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-  case SFT_T(KC_SPC):
-    return TAPPING_TERM << 1;
-  default:
-    return TAPPING_TERM;
-  }
+    switch (keycode) {
+    case SFT_T(KC_SPC):
+      return TAPPING_TERM << 2;
+    default:
+      return TAPPING_TERM;
+    }
 }
 
 // ================================================================================
