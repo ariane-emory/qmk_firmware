@@ -53,16 +53,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define DEFINE_COMBO_KEYS(name, ...)                                            \
   const uint16_t PROGMEM keys_ ## name[] = { __VA_ARGS__, COMBO_END };
 
-DEFINE_COMBO_KEYS(i_k,         KC_I, KC_K);
-DEFINE_COMBO_KEYS(lwr_f,       QK_TRI_LAYER_LOWER, KC_F);
-DEFINE_COMBO_KEYS(upr_j,       QK_TRI_LAYER_UPPER, KC_J);
-
 /* Right top row */
 DEFINE_COMBO_KEYS(y_u,         KC_Y, KC_U);
 DEFINE_COMBO_KEYS(u_i,         KC_U, KC_I);
 DEFINE_COMBO_KEYS(i_o,         KC_I, KC_O);
 DEFINE_COMBO_KEYS(o_p,         KC_O, KC_P);
 DEFINE_COMBO_KEYS(u_o,         KC_U, KC_O);         /* stretch */
+
+/* Right top/middle row */
+DEFINE_COMBO_KEYS(y_h,         KC_Y, KC_H);
+DEFINE_COMBO_KEYS(u_j,         KC_U, KC_J);
+DEFINE_COMBO_KEYS(i_k,         KC_I, KC_K);
 
 /* Right middle row */
 DEFINE_COMBO_KEYS(h_j,         KC_H, KC_J);
@@ -72,6 +73,10 @@ DEFINE_COMBO_KEYS(l_quot,      KC_L, KC_QUOT);
 DEFINE_COMBO_KEYS(k_quot,      KC_K, KC_QUOT);      /* stretch */
 DEFINE_COMBO_KEYS(j_quot,      KC_J, KC_QUOT);      /* stretch */
 DEFINE_COMBO_KEYS(j_l,         KC_J, KC_L);         /* stretch */
+
+/* Right middle/bottom row */
+DEFINE_COMBO_KEYS(h_n,         KC_H, KC_N);
+DEFINE_COMBO_KEYS(j_slash,     KC_J, KC_SLASH);     /* stretch */
 
 /* Right bottom row */
 DEFINE_COMBO_KEYS(n_m,         KC_N, KC_M);
@@ -84,22 +89,24 @@ DEFINE_COMBO_KEYS(m_dot,       KC_M, KC_DOT);       /* stretch */
 #undef DEFINE_COMBO_KEYS
 
 combo_t key_combos[] = {
-  COMBO(keys_upr_j, LGUI(KC_Z)),
+  /* Right top/middle row */
+  COMBO(keys_y_h,         LGUI(KC_Z)),
+  COMBO(keys_u_j,         KC_ENT),
+  COMBO(keys_i_k,         LGUI(KC_Z)),
   
-  /* COMBO(keys_u_i,       RALT(KC_B)),  */
-  /* COMBO(keys_i_o,       RALT(KC_F)),  */
-  
+  /* Right middle row */
   COMBO(keys_j_k,         KC_LBRC),
   COMBO(keys_k_l,         KC_RBRC),
-  /* COMBO(keys_l_quot,      KC_SCLN),  */
-  /* COMBO(keys_k_quot,      KC_SCLN), */
   COMBO(keys_j_quot,      KC_SCLN),
   COMBO(keys_j_l,         KC_EQL),
 
+  /* Right middle/bottom row */
+  COMBO(keys_h_n,    LGUI(KC_Z)),
+  COMBO(keys_j_slash, SS_UPDIR),
+  
+  /* Right bottom row */
   COMBO(keys_n_m,         LGUI(KC_Z)),
   COMBO(keys_m_comma,     KC_ENT),
-  COMBO(keys_comma_slash, SS_UPDIR),
-  COMBO(keys_dot_slash,   SS_UPDIR),
 };
 
 uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
