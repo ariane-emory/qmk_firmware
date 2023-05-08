@@ -2,7 +2,6 @@
 // Combos
 // =======================================================================================
 
-//  const uint16_t PROGMEM keys_ ## name[] = { __VA_ARGS__, COMBO_END };
 #define DEFINE_COMBO_KEYS(name, ...)                                            \
   const uint16_t PROGMEM name[] = { __VA_ARGS__, COMBO_END };
 
