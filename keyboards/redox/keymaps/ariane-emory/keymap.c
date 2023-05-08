@@ -96,6 +96,7 @@ combo_t key_combos[] = {
   
   /* Right middle row */
   COMBO(keys_j_k,         KC_LBRC),
+  COMBO(keys_h_j,         LGUI(KC_Z)),
   COMBO(keys_k_l,         KC_RBRC),
   COMBO(keys_j_quot,      KC_SCLN),
   COMBO(keys_j_l,         KC_EQL),
