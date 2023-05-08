@@ -62,87 +62,55 @@ DEFINE_COMBO_KEYS(r_bot_triple, KC_M,  KC_COMM, KC_DOT);
 combo_t key_combos[] = {
   //========================================================================================
   /* Left top row */
-  COMBO(keys_l_top_reach, KC_NO),
-  COMBO(keys_l_top_inner, KC_NO),
-  COMBO(keys_l_top_outer, KC_NO),
-  COMBO(keys_l_top_stretch, KC_NO),
-  COMBO(keys_l_top_far_stretch, KC_NO),
-  COMBO(keys_l_top_triple, KC_NO),
+  COMBO(keys_l_top_reach,                     KC_TRNS),
+  COMBO(keys_l_top_inner,                     KC_TRNS),
+  COMBO(keys_l_top_outer,                     KC_TRNS),
+  COMBO(keys_l_top_stretch,                   KC_TRNS),
+  COMBO(keys_l_top_far_stretch,               KC_TRNS),
+  COMBO(keys_l_top_triple,                    KC_TRNS),
   //========================================================================================
   /* Left middle row */
-  COMBO(keys_l_mid_reach, KC_NO),
-  COMBO(keys_l_mid_inner, KC_NO),
-  COMBO(keys_l_mid_outer, KC_NO),
-  COMBO(keys_l_mid_stretch, KC_NO),
-  COMBO(keys_l_mid_far_stretch, KC_NO),
-  COMBO(keys_l_mid_triple, KC_NO),
+  COMBO(keys_l_mid_reach,                     KC_ENT),
+  COMBO(keys_l_mid_inner,                     KC_F22),
+  COMBO(keys_l_mid_outer,                     KC_F21),
+  COMBO(keys_l_mid_stretch,                   KC_TRNS),
+  COMBO(keys_l_mid_far_stretch,               KC_TRNS),
+  COMBO(keys_l_mid_triple,                    KC_F23),
   //========================================================================================
   /* Left bottom row */
-  COMBO(keys_l_bot_reach, KC_NO),
-  COMBO(keys_l_bot_inner, KC_NO),
-  COMBO(keys_l_bot_outer, KC_NO),
-  COMBO(keys_l_bot_stretch, KC_NO),
-  COMBO(keys_l_bot_far_stretch, KC_NO),
-  COMBO(keys_l_bot_triple, KC_NO),
+  COMBO(keys_l_bot_reach,                     LGUI(KC_Z)),
+  COMBO(keys_l_bot_inner,                     LCTL(KC_TAB)),
+  COMBO(keys_l_bot_outer,                     LSFT(LCTL(KC_TAB))),
+  COMBO(keys_l_bot_stretch,                   KC_TRNS),
+  COMBO(keys_l_bot_far_stretch,               KC_TRNS),
+  COMBO(keys_l_bot_triple,                    KC_TRNS),
   //========================================================================================
 
   //========================================================================================
   /* Right top row */
-  COMBO(keys_r_top_reach, KC_NO),
-  COMBO(keys_r_top_inner, KC_NO),
-  COMBO(keys_r_top_outer, KC_NO),
-  COMBO(keys_r_top_stretch, KC_NO),
-  COMBO(keys_r_top_far_stretch, KC_NO),
-  COMBO(keys_r_top_triple, KC_NO),
+  COMBO(keys_r_top_reach,                     KC_TRNS),
+  COMBO(keys_r_top_inner,                     KC_TRNS),
+  COMBO(keys_r_top_outer,                     KC_TRNS),
+  COMBO(keys_r_top_stretch,                   KC_TRNS),
+  COMBO(keys_r_top_far_stretch,               KC_TRNS),
+  COMBO(keys_r_top_triple,                    KC_TRNS),
   //========================================================================================
   /* Right middle row */
-  COMBO(keys_r_mid_reach, KC_NO),
-  COMBO(keys_r_mid_inner, KC_NO),
-  COMBO(keys_r_mid_outer, KC_NO),
-  COMBO(keys_r_mid_stretch, KC_NO),
-  COMBO(keys_r_mid_far_stretch, KC_NO),
-  COMBO(keys_r_mid_triple, KC_NO),
+  COMBO(keys_r_mid_reach,                     KC_ENT),
+  COMBO(keys_r_mid_inner,                     KC_LBRC),
+  COMBO(keys_r_mid_outer,                     KC_RBRC),
+  COMBO(keys_r_mid_stretch,                   KC_SCLN),
+  COMBO(keys_r_mid_far_stretch,               KC_TRNS),
+  COMBO(keys_r_mid_triple,                    KC_EQL),
   //========================================================================================
   /* Right bottom row */
-  COMBO(keys_r_bot_reach, KC_NO),
-  COMBO(keys_r_bot_inner, KC_NO),
-  COMBO(keys_r_bot_outer, KC_NO),
-  COMBO(keys_r_bot_stretch, KC_NO),
-  COMBO(keys_r_bot_far_stretch, KC_NO),
-  COMBO(keys_r_bot_triple, KC_NO),
+  COMBO(keys_r_bot_reach,                     LGUI(KC_Z)),
+  COMBO(keys_r_bot_inner,                     KC_TRNS),
+  COMBO(keys_r_bot_outer,                     KC_TRNS),
+  COMBO(keys_r_bot_stretch,                   KC_TRNS),
+  COMBO(keys_r_bot_far_stretch,               KC_TRNS),
+  COMBO(keys_r_bot_triple,                    KC_TRNS),
   //========================================================================================
-
-
-
-
-//======================================================================================
-  /* Left top row */
-  // COMBO(keys_l_top_inner,         LCTL(KC_TAB)),
-  // COMBO(keys_l_top_outer,         LSFT(LCTL(KC_TAB))),
-  //======================================================================================
-  /* Left middle row */
-  COMBO(keys_l_mid_reach,         KC_ENT),
-  COMBO(keys_l_mid_inner,         KC_F22),
-  COMBO(keys_l_mid_outer,         KC_F21),
-  COMBO(keys_l_mid_triple,        KC_F23),
-  //======================================================================================
-  /* Left bottom row */
-  COMBO(keys_l_bot_reach,         LGUI(KC_Z)),
-  COMBO(keys_l_bot_inner,         LCTL(KC_TAB)),
-  COMBO(keys_l_bot_outer,         LSFT(LCTL(KC_TAB))),
-  //======================================================================================
-  
-  //======================================================================================
-  /* Right middle row */
-  COMBO(keys_r_mid_reach,         KC_ENT),
-  COMBO(keys_r_mid_inner,         KC_LBRC),
-  COMBO(keys_r_mid_outer,         KC_RBRC),
-  COMBO(keys_r_mid_stretch,       KC_SCLN),
-  COMBO(keys_r_mid_triple,        KC_EQL),
-  //======================================================================================
-  /* Right bottom row */
-  COMBO(keys_r_bot_reach,         LGUI(KC_Z)),
-  //======================================================================================
 };
 
 //========================================================================================
