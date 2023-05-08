@@ -113,7 +113,7 @@ combo_t key_combos[] = {
   
   /* Left bottom row */
   COMBO(keys_x_c, LCTL(KC_TAB)),
-  COMBO(keys_c_v, LSFT(LCTL(KC_TAB)))c,
+  COMBO(keys_c_v, LSFT(LCTL(KC_TAB))),
   
   /* Right top/middle row */
   /* COMBO(keys_y_h,         LGUI(KC_Z)), */
