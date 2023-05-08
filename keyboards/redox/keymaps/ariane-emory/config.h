@@ -42,7 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_SHIFT_TIMEOUT_PER_KEY 
 #define AUTO_SHIFT_MODIFIERS
 #define AUTO_SHIFT_REPEAT
-#define RETRO_SHIFT
+//#define RETRO_SHIFT
 
 #define ONESHOT_TIMEOUT 1000
 
@@ -63,10 +63,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TRI_LAYER_UPPER_LAYER 4
 #define TRI_LAYER_ADJUST_LAYER 10
 
-#define TAPPING_TERM 225
 //#define HOLD_ON_OTHER_KEY_PRESS
 //#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
-#define PERMISSIVE_HOLD
+
+#define TAPPING_TERM 225
+ //#define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
 #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_TERM_PER_KEY
