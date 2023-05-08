@@ -121,8 +121,8 @@ combo_t key_combos[] = {
   COMBO(keys_r_top_out,                       LALT(KC_RIGHT)),
   COMBO(keys_r_top_in2,                       KC_NO),
   COMBO(keys_r_top_ou2,                       KC_NO),
-  COMBO(keys_r_top_spr,                       LCTL(KC_Y)),
-  COMBO(keys_r_top_triple,                    LCTL(KC_K)),
+  COMBO(keys_r_top_spr,                       LGUI(KC_V)),
+  COMBO(keys_r_top_triple,                    LGUI(KC_X)),
   //========================================================================================
   /* Right middle row */
   COMBO(keys_r_mid_rch,                       KC_ENT),
@@ -142,7 +142,7 @@ combo_t key_combos[] = {
   COMBO(keys_r_bot_in2,                       KC_NO),
   COMBO(keys_r_bot_ou2,                       KC_NO),
   COMBO(keys_r_bot_spr,                       KC_NO),
-  COMBO(keys_r_bot_triple,                    KC_NO),
+  COMBO(keys_r_bot_triple,                    LCTL(KC_SPC)),
   //========================================================================================
   /* Right middle/bottom row */
   COMBO(keys_r_pinky_dip,                     SS_UPDIR),
@@ -151,17 +151,17 @@ combo_t key_combos[] = {
 
 //========================================================================================
 
-  uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
+uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
 
-  bool combo_should_trigger(
-    uint16_t combo_index,
-    combo_t *combo,
-    uint16_t keycode,
-    keyrecord_t *record) {
-    if (layer_state_is(0) || layer_state_is(1)) {
-      return true;
-    }
-
-    return false;
+bool combo_should_trigger(
+  uint16_t combo_index,
+  combo_t *combo,
+  uint16_t keycode,
+  keyrecord_t *record) {
+  if (layer_state_is(0) || layer_state_is(1)) {
+    return true;
   }
+
+  return false;
+}
 
