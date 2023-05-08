@@ -105,12 +105,12 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
    switch (keycode) {
    case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-     if (keycode == LALT_T(KC_SPC)) {
+     if (keycode == MT(MOD_LALT,KC_SPC)) {
        return false;
      }
-    else {
-      return true;
-    }
+     else {
+       return true;
+     }
   default:
     return false;
    }
@@ -138,7 +138,7 @@ uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
     return get_generic_autoshift_timeout() + 80;
   case AUTO_SHIFT_SPECIAL:
     return get_generic_autoshift_timeout() + 40;
-  case AUTO_SHIFT_NUMERIC:
+    case AUTO_SHIFT_NUMERIC:
   default:
     return get_generic_autoshift_timeout();
   }
