@@ -3,6 +3,18 @@
 #include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
 // ================================================================================
+// Init
+// ================================================================================
+
+void keyboard_post_init_user(void) {
+  // Customise these values to desired behaviour
+  /* debug_enable=true; */
+  /* debug_matrix=true; */
+  /* debug_keyboard=true; */
+  /* debug_mouse=true; */
+}
+
+// ================================================================================
 // Custom keycodes
 // ================================================================================
 
@@ -102,41 +114,31 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 // Mod tap interrupt
 // ================================================================================
 
-bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-  case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-    if (keycode == MT(MOD_LALT,KC_SPC)) {
-      return false;
-    }
-    else {
-      return true;
-    }
-  default:
-    return false;
-  }
-}
+/* bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) { */
+/*   switch (keycode) { */
+/*   case QK_MOD_TAP ... QK_MOD_TAP_MAX: */
+/*     if (keycode == MT(MOD_LALT,KC_SPC)) { */
+/*       return false; */
+/*     } */
+/*     else { */
+/*       return true; */
+/*     } */
+/*   default: */
+/*     return false; */
+/*   } */
+/* } */
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case MT(MOD_LALT,KC_SPC):
-    // Immediately select the hold action when another key is tapped.
+  case LCTL_T(KC_ESC):
+  case RCTL_T(KC_SCLN):
+     // Do not select the hold action when another key is tapped.
     return false;
   default:
-    // Do not select the hold action when another key is tapped.
+    // Immediately select the hold action when another key is tapped.
     return true;
   }
-}
-
-// ================================================================================
-// Init
-// ================================================================================
-
-void keyboard_post_init_user(void) {
-  // Customise these values to desired behaviour
-  /* debug_enable=true; */
-  /* debug_matrix=true; */
-  /* debug_keyboard=true; */
-  /* debug_mouse=true; */
 }
 
 // ================================================================================
@@ -146,10 +148,10 @@ void keyboard_post_init_user(void) {
 uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
   switch(keycode) {
   case AUTO_SHIFT_ALPHA:
-    return get_generic_autoshift_timeout() + 80;
+    return get_generic_autoshift_timeout() + 60;
   case AUTO_SHIFT_SPECIAL:
-    return get_generic_autoshift_timeout() + 40;
-    case AUTO_SHIFT_NUMERIC:
+    return get_generic_autoshift_timeout() + 30;
+  case AUTO_SHIFT_NUMERIC:
   default:
     return get_generic_autoshift_timeout();
   }
@@ -162,7 +164,7 @@ uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case MT(MOD_LALT,KC_SPC):
-      return 5000;
+      return TAPPING_TERM + 60;
     default:
       return TAPPING_TERM;
     }
