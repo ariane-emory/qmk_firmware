@@ -78,25 +78,32 @@ DEFINE_COMBO_KEYS(x_c_v,       KC_X, KC_C, KC_V);   /* triple */
 /* Right top row */
 DEFINE_COMBO_KEYS(u_i,         KC_U, KC_I);
 DEFINE_COMBO_KEYS(i_o,         KC_I, KC_O);
-DEFINE_COMBO_KEYS(u_o,         KC_U, KC_O);         /* stretch */
+DEFINE_COMBO_KEYS(u_o,         KC_U, KC_O);            /* stretch */
+DEFINE_COMBO_KEYS(u_i_o,       KC_U, KC_I, KC_O);      /* triple */
 
 /* Right middle row */
-DEFINE_COMBO_KEYS(h_j,         KC_H, KC_J);
 DEFINE_COMBO_KEYS(j_k,         KC_J, KC_K);
-DEFINE_COMBO_KEYS(j_k_l,       KC_J, KC_K, KC_L);
 DEFINE_COMBO_KEYS(k_l,         KC_K, KC_L);
+DEFINE_COMBO_KEYS(j_l,         KC_J, KC_L);            /* stretch */
+DEFINE_COMBO_KEYS(j_k_l,       KC_J, KC_K, KC_L);      /* triple */
+
+DEFINE_COMBO_KEYS(h_j,         KC_H, KC_J);            /* reach */
+
 DEFINE_COMBO_KEYS(l_quot,      KC_L, KC_QUOT);
-DEFINE_COMBO_KEYS(k_quot,      KC_K, KC_QUOT);      /* stretch */
-DEFINE_COMBO_KEYS(j_quot,      KC_J, KC_QUOT);      /* stretch */
-DEFINE_COMBO_KEYS(j_l,         KC_J, KC_L);         /* stretch */
+DEFINE_COMBO_KEYS(k_quot,      KC_K, KC_QUOT);         /* stretch */
+DEFINE_COMBO_KEYS(j_quot,      KC_J, KC_QUOT);         /* stretch */
 
 /* Right bottom row */
-DEFINE_COMBO_KEYS(n_m,         KC_N, KC_M);
 DEFINE_COMBO_KEYS(m_comma,     KC_M, KC_COMM);
 DEFINE_COMBO_KEYS(comma_dot,   KC_COMM, KC_DOT);
+DEFINE_COMBO_KEYS(m_dot,       KC_M, KC_DOT);          /* stretch */
+DEFINE_COMBO_KEYS(m_comma_dot, KC_M, KC_COMM, KC_DOT); /* triple */
+
+DEFINE_COMBO_KEYS(n_m,         KC_N, KC_M);            /* reach */
+
 DEFINE_COMBO_KEYS(dot_slash,   KC_DOT, KC_SLASH);
-DEFINE_COMBO_KEYS(comma_slash, KC_COMMA, KC_SLASH); /* stretch */
-DEFINE_COMBO_KEYS(m_dot,       KC_M, KC_DOT);       /* stretch */
+DEFINE_COMBO_KEYS(comma_slash, KC_COMMA, KC_SLASH);    /* stretch */
+
 
 //------------------------------------------------------------------------------
 
