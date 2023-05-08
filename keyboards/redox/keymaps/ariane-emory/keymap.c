@@ -53,13 +53,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define DEFINE_COMBO_KEYS(name, ...)                                            \
   const uint16_t PROGMEM keys_ ## name[] = { __VA_ARGS__, COMBO_END };
 
+/* Left top row */
+DEFINE_COMBO_KEYS(w_e,         KC_W, KC_E);
+DEFINE_COMBO_KEYS(e_r,         KC_E, KC_R);
+DEFINE_COMBO_KEYS(w_r,         KC_W, KC_R);         /* stretch */
+
 /* Left middle row */
 DEFINE_COMBO_KEYS(s_d,         KC_S, KC_D);
 DEFINE_COMBO_KEYS(d_f,         KC_D, KC_F);
+DEFINE_COMBO_KEYS(s_f,         KC_S, KC_F);         /* stretch */
 
 /* Left bottom row */
 DEFINE_COMBO_KEYS(x_c,         KC_X, KC_C);
 DEFINE_COMBO_KEYS(c_v,         KC_C, KC_V);
+DEFINE_COMBO_KEYS(x_v,         KC_X, KC_V);         /* stretch */
 
 /* Right top row */
 DEFINE_COMBO_KEYS(y_u,         KC_Y, KC_U);
@@ -108,7 +115,7 @@ combo_t key_combos[] = {
   
   /* Left bottom row */
   COMBO(keys_x_c, LCTL(KC_TAB)),
-  COMBO(keys_c_v, LSFT(LCTL(KC_TAB))),
+  COMBO(keys_c_v, LSFT(LCTL(KC_TAB)))c,
   
   /* Right top/middle row */
   /* COMBO(keys_y_h,         LGUI(KC_Z)), */
