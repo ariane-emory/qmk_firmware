@@ -106,7 +106,7 @@ combo_t key_combos[] = {
   /* COMBO(keys_j_slash, SS_UPDIR), */
   
   /* Right bottom row */
-  /* COMBO(keys_n_m,         LGUI(KC_Z)), */
+  COMBO(keys_n_m,         LGUI(KC_Z)), 
   COMBO(keys_m_comma,     LGUI(KC_Z)),
 };
 
