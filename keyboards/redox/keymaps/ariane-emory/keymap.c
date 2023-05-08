@@ -100,8 +100,7 @@ combo_t key_combos[] = {
   /* COMBO(keys_i_k,         LGUI(KC_Z)), */
     
   /* Right middle row */
-  /* COMBO(keys_h_j,         KC_ENT), */
-  /* COMBO(keys_h_k,         KC_ENT), */
+  COMBO(keys_h_j,         KC_ENT),
   COMBO(keys_j_k,         KC_LBRC),
   COMBO(keys_j_k_l,       KC_ENT),
   COMBO(keys_k_l,         KC_RBRC),
