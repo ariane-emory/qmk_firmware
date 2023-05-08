@@ -131,9 +131,9 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case MT(MOD_LALT,KC_SPC):
-  case LCTL_T(KC_ESC):
-  case RCTL_T(KC_SCLN):
-     // Do not select the hold action when another key is tapped.
+    /* case LCTL_T(KC_ESC): */
+    /* case RCTL_T(KC_SCLN): */
+    // Do not select the hold action when another key is tapped.
     return false;
   default:
     // Immediately select the hold action when another key is tapped.
