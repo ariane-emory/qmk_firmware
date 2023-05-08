@@ -103,17 +103,28 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 // ================================================================================
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-   switch (keycode) {
-   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-     if (keycode == MT(MOD_LALT,KC_SPC)) {
-       return false;
-     }
-     else {
-       return true;
-     }
+  switch (keycode) {
+  case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+    if (keycode == MT(MOD_LALT,KC_SPC)) {
+      return false;
+    }
+    else {
+      return true;
+    }
   default:
     return false;
-   }
+  }
+}
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+  case MT(MOD_LALT,KC_SPC):
+    // Immediately select the hold action when another key is tapped.
+    return false;
+  default:
+    // Do not select the hold action when another key is tapped.
+    return true;
+  }
 }
 
 // ================================================================================

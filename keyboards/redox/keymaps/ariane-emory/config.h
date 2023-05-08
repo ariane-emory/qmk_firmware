@@ -38,12 +38,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* #define RGBLIGHT_SAT_STEP 8 */
 /* #define RGBLIGHT_VAL_STEP 8 */
 
-#define TAPPING_TERM 250
 #define AUTO_SHIFT_TIMEOUT 180
 #define AUTO_SHIFT_TIMEOUT_PER_KEY 
 #define AUTO_SHIFT_MODIFIERS
 #define AUTO_SHIFT_REPEAT
 #define RETRO_SHIFT
+
 #define ONESHOT_TIMEOUT 1000
 
 #define MOUSEKEY_DELAY 0
@@ -55,10 +55,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_WHEEL_INTERVAL 85
 #define MOUSEKEY_WHEEL_MAX_SPEED 14
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 45
-//#define HOLD_ON_OTHER_KEY_PRESS
-#define PERMISSIVE_HOLD
-
-#define IGNORE_MOD_TAP_INTERRUPT
 
 #define COMBO_SHOULD_TRIGGER
 #define COMBO_ONLY_FROM_LAYER 0
@@ -67,4 +63,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TRI_LAYER_UPPER_LAYER 4
 #define TRI_LAYER_ADJUST_LAYER 10
 
+#define TAPPING_TERM 225
+//#define HOLD_ON_OTHER_KEY_PRESS
+//#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+#define PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD_PER_KEY
+#define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_TERM_PER_KEY
