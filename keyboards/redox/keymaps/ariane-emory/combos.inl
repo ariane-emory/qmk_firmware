@@ -121,7 +121,7 @@ combo_t key_combos[] = {
   COMBO(keys_r_bot_triple,                    LGUI(KC_Z)),
   //========================================================================================
   /* Right middle/bottom row */
-  COMBO(keus_r_pinky_dip,                     SS_UPDIR),
+  COMBO(keys_r_pinky_dip,                     SS_UPDIR),
   //========================================================================================
 };
 
