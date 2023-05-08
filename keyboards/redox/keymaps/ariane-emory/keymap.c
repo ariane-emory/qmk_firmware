@@ -105,10 +105,10 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
    switch (keycode) {
    case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-     if (keycode == MT(MOD_LALT,KC_SPC)) {
-       return false;
-     }
-     else {
+     /* if (keycode == MT(MOD_LALT,KC_SPC)) { */
+     /*   return false; */
+     /* } */
+     /* else */ {
        return true;
      }
   default:
