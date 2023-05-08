@@ -27,11 +27,14 @@ DEFINE_COMBO_KEYS(x_c,         KC_X, KC_C);            /* outer   */
 DEFINE_COMBO_KEYS(x_v,         KC_X, KC_V);            /* stretch */
 DEFINE_COMBO_KEYS(x_c_v,       KC_X, KC_C, KC_V);      /* triple  */
 //==============================================================================
+
+//==============================================================================
 /* Right top row */
 DEFINE_COMBO_KEYS(y_u,         KC_Y, KC_U);            /* reach   */
 DEFINE_COMBO_KEYS(u_i,         KC_U, KC_I);            /* inner   */
 DEFINE_COMBO_KEYS(i_o,         KC_I, KC_O);            /* outer   */
 DEFINE_COMBO_KEYS(u_o,         KC_U, KC_O);            /* stretch */
+DEFINE_COMBO_KEYS(u_p,         KC_U, KC_P);            /* far_stretch */
 DEFINE_COMBO_KEYS(u_i_o,       KC_U, KC_I, KC_O);      /* triple  */
 //==============================================================================
 /* Right middle row */
@@ -39,17 +42,15 @@ DEFINE_COMBO_KEYS(h_j,         KC_H, KC_J);            /* reach   */
 DEFINE_COMBO_KEYS(j_k,         KC_J, KC_K);            /* inner   */
 DEFINE_COMBO_KEYS(k_l,         KC_K, KC_L);            /* outer   */
 DEFINE_COMBO_KEYS(j_l,         KC_J, KC_L);            /* stretch */
+DEFINE_COMBO_KEYS(j_quot,      KC_J, KC_QUOT);         /* far_stretch */
 DEFINE_COMBO_KEYS(j_k_l,       KC_J, KC_K, KC_L);      /* triple  */
-//------------------------------------------------------------------------------
-/* DEFINE_COMBO_KEYS(l_quot,      KC_L, KC_QUOT); */
-/* DEFINE_COMBO_KEYS(k_quot,      KC_K, KC_QUOT);         /\* stretch *\/ */
-/* DEFINE_COMBO_KEYS(j_quot,      KC_J, KC_QUOT);         /\* stretch *\/ */
 //==============================================================================
 /* Right bottom row */
 DEFINE_COMBO_KEYS(n_m,         KC_N, KC_M);            /* reach   */
 DEFINE_COMBO_KEYS(m_comma,     KC_M, KC_COMM);         /* inner   */
 DEFINE_COMBO_KEYS(comma_dot,   KC_COMM, KC_DOT);       /* outer   */
 DEFINE_COMBO_KEYS(m_dot,       KC_M, KC_DOT);          /* stretch */
+DEFINE_COMBO_KEYS(m_slash,     KC_M, KC_SLASH);        /* far_stretch */
 DEFINE_COMBO_KEYS(m_comma_dot, KC_M, KC_COMM, KC_DOT); /* triple  */
 //==============================================================================
 
@@ -69,6 +70,8 @@ combo_t key_combos[] = {
   /* Left bottom row */
   COMBO(keys_c_v,         LCTL(KC_TAB)),            /* inner   */
   COMBO(keys_x_c,         LSFT(LCTL(KC_TAB))),      /* outer   */
+  //============================================================================
+  
   //============================================================================
   /* Right middle row */
   COMBO(keys_h_j,         KC_ENT),                  /* reach   */
