@@ -117,13 +117,17 @@ DEFINE_COMBO_KEYS(j_n,         KC_J, KC_N);
 combo_t key_combos[] = {
   //////////////////////////////////////////////////////////////////////////////
 
+  /* Left top row */
+  COMBO(keys_w_e, LSFT(LCTL(KC_TAB))),
+  COMBO(keys_e_r, LCTL(KC_TAB)),
+  
   /* Left middle row */
   COMBO(keys_s_d, KC_F21),
   COMBO(keys_d_f, KC_F22),
   
   /* Left bottom row */
-  COMBO(keys_x_c, LCTL(KC_TAB)),
-  COMBO(keys_c_v, LSFT(LCTL(KC_TAB))),
+  COMBO(keys_x_c, LSFT(LCTL(KC_TAB))),
+  COMBO(keys_c_v, LCTL(KC_TAB)),
   
   //////////////////////////////////////////////////////////////////////////////
   
