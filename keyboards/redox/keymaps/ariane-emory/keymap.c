@@ -125,6 +125,12 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     else if (keycode == RCTL_T(KC_SCLN)) {
       return true;
     }
+    else if (keycode == LSFT_T(KC_MINS)) {
+      return true;
+    }
+    else if (keycode == RSFT_T(KC_MINS)) {
+      return true;
+    }
     else {
       return false;
     }
@@ -136,8 +142,6 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case MT(MOD_LALT,KC_SPC):
-    /* case LCTL_T(KC_ESC): */
-    /* case RCTL_T(KC_SCLN): */
     // Do not select the hold action when another key is tapped.
     return false;
   default:
