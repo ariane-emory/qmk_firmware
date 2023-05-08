@@ -150,7 +150,7 @@ uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-    case MT(MOeD_LALT,KC_SPC):
+    case MT(MOD_LALT,KC_SPC):
       return 5000;
     default:
       return TAPPING_TERM;
