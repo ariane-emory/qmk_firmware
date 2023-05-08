@@ -106,14 +106,14 @@ combo_t key_combos[] = {
 
   //========================================================================================
   /* Right top row */
-  COMBO(keys_r_top_rch,                       KC_NO),
-  COMBO(keys_r_top_inr,                       KC_NO),
-  COMBO(keys_r_top_out,                       KC_NO),
-  COMBO(keys_r_top_edg,                       KC_NO),
-  COMBO(keys_r_top_spr,                       KC_NO),
+  COMBO(keys_r_top_rch,                       LCTL(KC_A)),
+  COMBO(keys_r_top_inr,                       LALT(KC_B)),
+  COMBO(keys_r_top_out,                       LALT(KC_F)),
+  COMBO(keys_r_top_edg,                       LCTL(KC_E)),
+  COMBO(keys_r_top_spr,                       LCTL(KC_K)),
   COMBO(keys_r_top_far,                       KC_NO),
-  COMBO(keys_r_top_triple,                    KC_NO),
-  //========================================================================================
+  COMBO(keys_r_top_triple,                    LCTL(KC_Y)),
+//========================================================================================
   /* Right middle row */
   COMBO(keys_r_mid_rch,                       KC_ENT),
   COMBO(keys_r_mid_inr,                       KC_LBRC), 
@@ -125,8 +125,8 @@ combo_t key_combos[] = {
   //========================================================================================
   /* Right bottom row */
   COMBO(keys_r_bot_rch,                       LGUI(KC_Z)),
-  COMBO(keys_r_bot_inr,                       LALT(KC_LEFT)), 
-  COMBO(keys_r_bot_out,                       LALT(KC_RIGHT)),
+  COMBO(keys_r_bot_inr,                       KC_9),
+  COMBO(keys_r_bot_out,                       KC_0),
   COMBO(keys_r_bot_edg,                       KC_NO),
   COMBO(keys_r_bot_spr,                       KC_NO),
   COMBO(keys_r_bot_far,                       KC_NO),
@@ -139,17 +139,17 @@ combo_t key_combos[] = {
 
 //========================================================================================
 
-uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
+  uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
 
-bool combo_should_trigger(
-  uint16_t combo_index,
-  combo_t *combo,
-  uint16_t keycode,
-  keyrecord_t *record) {
-  if (layer_state_is(0) || layer_state_is(1)) {
-    return true;
+  bool combo_should_trigger(
+    uint16_t combo_index,
+    combo_t *combo,
+    uint16_t keycode,
+    keyrecord_t *record) {
+    if (layer_state_is(0) || layer_state_is(1)) {
+      return true;
+    }
+
+    return false;
   }
-
-  return false;
-}
 
