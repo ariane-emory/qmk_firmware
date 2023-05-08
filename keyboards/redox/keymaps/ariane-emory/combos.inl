@@ -63,8 +63,8 @@ combo_t key_combos[] = {
   //========================================================================================
   /* Left top row */
   COMBO(keys_l_top_reach,                     KC_TRNS),
-  COMBO(keys_l_top_inner,                     KC_TRNS),
-  COMBO(keys_l_top_outer,                     KC_TRNS),
+  COMBO(keys_l_top_inner,                     LCTL(KC_TAB)),
+  COMBO(keys_l_top_outer,                     LSFT(LCTL(KC_TAB))),
   COMBO(keys_l_top_stretch,                   KC_TRNS),
   COMBO(keys_l_top_far_stretch,               KC_TRNS),
   COMBO(keys_l_top_triple,                    KC_TRNS),
