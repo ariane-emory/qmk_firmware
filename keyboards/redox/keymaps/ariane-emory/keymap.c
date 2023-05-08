@@ -104,7 +104,6 @@ DEFINE_COMBO_KEYS(n_m,         KC_N, KC_M);            /* reach */
 DEFINE_COMBO_KEYS(dot_slash,   KC_DOT, KC_SLASH);
 DEFINE_COMBO_KEYS(comma_slash, KC_COMMA, KC_SLASH);    /* stretch */
 
-
 //------------------------------------------------------------------------------
 
 /* Right top/middle row */
