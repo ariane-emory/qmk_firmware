@@ -90,96 +90,96 @@ DEFINE_COMBO_KEYS(m_dot,       KC_M, KC_DOT);       /* stretch */
 
 combo_t key_combos[] = {
   /* Right top/middle row */
-  COMBO(keys_y_h,         LGUI(KC_Z)),
-  COMBO(keys_u_j,         KC_ENT),
-  COMBO(keys_i_k,         LGUI(KC_Z)),
+  /* COMBO(keys_y_h,         LGUI(KC_Z)), */
+  /* COMBO(keys_u_j,         KC_ENT), */
+  /* COMBO(keys_i_k,         LGUI(KC_Z)), */
   
   /* Right middle row */
   COMBO(keys_h_j,         KC_ENT),
   COMBO(keys_j_k,         KC_LBRC),
-  COMBO(keys_k_l,         KC_RBRC),
-  COMBO(keys_j_quot,      KC_SCLN),
-  COMBO(keys_j_l,         KC_EQL),
+  COMBO(keys_k_l,         KC_RBRC), 
+  COMBO(keys_j_quot,      KC_SCLN), /* stretch */
+  COMBO(keys_j_l,         KC_EQL),  /* stretch */
 
   /* Right middle/bottom row */
-  COMBO(keys_h_n,    LGUI(KC_Z)),
-  COMBO(keys_j_slash, SS_UPDIR),
+  /* COMBO(keys_h_n,    LGUI(KC_Z)), */
+  /* COMBO(keys_j_slash, SS_UPDIR), */
   
   /* Right bottom row */
-  COMBO(keys_n_m,         LGUI(KC_Z)),
-  COMBO(keys_m_comma,     KC_ENT),
+  /* COMBO(keys_n_m,         LGUI(KC_Z)), */
+  COMBO(keys_m_comma,     LGUI(KC_Z)),
 };
 
-uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
+  uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
 
-bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-  if (layer_state_is(0) || layer_state_is(1)) {
-    return true;
+  bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    if (layer_state_is(0) || layer_state_is(1)) {
+      return true;
+    }
+
+    return false;
   }
-
-  return false;
-}
 
 // ================================================================================
 // Mod tap interrupt
 // ================================================================================
 
-bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-  case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-    if (keycode == LCTL_T(KC_ESC)  ||
-        keycode == RCTL_T(KC_SCLN) ||
-        keycode == LSFT_T(KC_MINS) ||
-        keycode == RSFT_T(KC_MINS)) {
-      return true;
-    }
-    else {
+  bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+      if (keycode == LCTL_T(KC_ESC)  ||
+          keycode == RCTL_T(KC_SCLN) ||
+          keycode == LSFT_T(KC_MINS) ||
+          keycode == RSFT_T(KC_MINS)) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    default:
       return false;
     }
-  default:
-    return false;
   }
-}
 
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-  case MT(MOD_LALT,KC_SPC):
-    // Do not select the hold action when another key is tapped.
-    return false;
-  default:
-    // Immediately select the hold action when another key is tapped.
-    return true;
+  bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case MT(MOD_LALT,KC_SPC):
+      // Do not select the hold action when another key is tapped.
+      return false;
+    default:
+      // Immediately select the hold action when another key is tapped.
+      return true;
+    }
   }
-}
 
 // ================================================================================
 // Autoshift
 // ================================================================================
 
-uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
-  switch(keycode) {
-  case AUTO_SHIFT_ALPHA:
-    return get_generic_autoshift_timeout() + 60;
-  case AUTO_SHIFT_SPECIAL:
-    return get_generic_autoshift_timeout() + 30;
-  case AUTO_SHIFT_NUMERIC:
-  default:
-    return get_generic_autoshift_timeout();
+  uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+    case AUTO_SHIFT_ALPHA:
+      return get_generic_autoshift_timeout() + 60;
+    case AUTO_SHIFT_SPECIAL:
+      return get_generic_autoshift_timeout() + 30;
+    case AUTO_SHIFT_NUMERIC:
+    default:
+      return get_generic_autoshift_timeout();
+    }
   }
-}
 
 // ================================================================================
 // Tapping term
 // ================================================================================
 
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+  uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case MT(MOD_LALT,KC_SPC):
       return TAPPING_TERM + 60;
     default:
       return TAPPING_TERM;
     }
-}
+  }
 
 // ================================================================================
 // Include inlines
