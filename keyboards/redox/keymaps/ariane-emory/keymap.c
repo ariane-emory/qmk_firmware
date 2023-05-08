@@ -133,7 +133,7 @@ combo_t key_combos[] = {
   /* Left middle row */
   COMBO(keys_s_d, KC_F21),
   COMBO(keys_d_f, KC_F22),
-  COMBO(keys_s_f, KC_F23),
+  COMBO(keys_s_d_f, KC_F23),                        /* triple */
   
   /* Left bottom row */
   COMBO(keys_x_c, LSFT(LCTL(KC_TAB))),
@@ -145,7 +145,7 @@ combo_t key_combos[] = {
   COMBO(keys_h_j,         KC_ENT),
   COMBO(keys_j_k,         KC_LBRC),
   COMBO(keys_k_l,         KC_RBRC),
-   
+  
   COMBO(keys_j_quot,      KC_SCLN), /* stretch */
   COMBO(keys_j_l,         KC_EQL),  /* stretch */
 
