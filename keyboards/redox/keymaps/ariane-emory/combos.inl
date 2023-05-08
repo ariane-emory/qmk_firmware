@@ -98,8 +98,8 @@ combo_t key_combos[] = {
   //========================================================================================
   /* Right top row */
   COMBO(keys_r_top_rch,                       KC_NO),
-  COMBO(keys_r_top_inr,                       KC_NO),
-  COMBO(keys_r_top_out,                       KC_NO),
+  COMBO(keys_r_top_inr,                       KC_9),
+  COMBO(keys_r_top_out,                       KC_0),
   COMBO(keys_r_top_str,                       KC_NO),
   COMBO(keys_r_top_far,                       KC_NO),
   COMBO(keys_r_top_triple,                    KC_NO),
