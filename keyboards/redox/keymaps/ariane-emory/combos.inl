@@ -105,7 +105,7 @@ combo_t key_combos[] = {
   //========================================================================================
   /* Right bottom row */
   COMBO(keys_r_bot_reach,                     LGUI(KC_Z)),
-  COMBO(keys_r_bot_inner,                     KC_TRNS),
+  COMBO(keys_r_bot_inner,                     KC_ENT),
   COMBO(keys_r_bot_outer,                     KC_TRNS),
   COMBO(keys_r_bot_stretch,                   KC_TRNS),
   COMBO(keys_r_bot_far_stretch,               KC_TRNS),
