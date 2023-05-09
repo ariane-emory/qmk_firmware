@@ -18,7 +18,8 @@ void keyboard_post_init_user(void) {
 // Define local macros
 // ==============================================================================
 
-#define KEYRECORD_FUN(name, t) t name(uint16_t keycode, keyrecord_t *record)
+#define KEYRECORD_FUN(name, t)                                                  \
+  t name(uint16_t keycode, keyrecord_t *record)
 
 #define SEND_STRING_WITHOUT_MODS_CASE(kc, str)                                  \
   case kc:                                                                      \
