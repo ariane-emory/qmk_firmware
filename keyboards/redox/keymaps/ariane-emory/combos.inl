@@ -8,6 +8,14 @@
 //========================================================================================
 // Define left hand combo keys
 //========================================================================================
+/* Left number row */
+DEFINE_COMBO_KEYS(l_num_triple, KC_2,    KC_3,      KC_4);
+DEFINE_COMBO_KEYS(l_num_spr,    KC_2,    KC_4);
+DEFINE_COMBO_KEYS(l_num_rch,    KC_4,    KC_5);
+DEFINE_COMBO_KEYS(l_num_edg,    KC_1,    KC_2);
+DEFINE_COMBO_KEYS(l_num_inr,    KC_3,    KC_4);
+DEFINE_COMBO_KEYS(l_num_out,    KC_2,    KC_3);
+//========================================================================================
 /* Left top row */
 DEFINE_COMBO_KEYS(l_top_triple, KC_W,    KC_E,      KC_R);
 DEFINE_COMBO_KEYS(l_top_spr,    KC_W,    KC_R);
@@ -74,6 +82,14 @@ DEFINE_COMBO_KEYS(r_pinky_dip,       KC_J,    KC_SLASH);
 combo_t key_combos[] = {
   //======================================================================================
   // Bind left hand combos
+  //======================================================================================
+  /* Left num row */
+  // COMBO(keys_l_num_triple,   KC_NO),          // 5
+  // COMBO(keys_l_num_spr,      KC_NO),          // 4
+  // COMBO(keys_l_num_rch,      KC_NO),          // 0
+  // COMBO(keys_l_num_edg,      KC_NO),          // 1
+  COMBO(keys_l_num_inr,         DF(1)),          // 2
+  COMBO(keys_l_num_out,         DF(0)),          // 3
   //======================================================================================
   /* Left top row */
   // COMBO(keys_l_top_triple,   KC_NO),          // 5
