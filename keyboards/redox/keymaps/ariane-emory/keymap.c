@@ -40,44 +40,36 @@ enum arianes_keycodes {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case SS_PIN1:
-    if (record->event.pressed) {
-      SEND_STRING(AE_PIN1);
-    }
+    if (record->event.pressed)
+      SEND_STRING_WITHOUT_MODS(AE_PIN1);
     return false;
   case SS_PIN2:
-    if (record->event.pressed) {
-      SEND_STRING(AE_PIN2);
-    }
+    if (record->event.pressed)
+      SEND_STRING_WITHOUT_MODS(AE_PIN2);
     return false;
   case SS_UPDIR:
-    if (record->event.pressed) {
-      SEND_STRING("../");
-    }
+    if (record->event.pressed)
+      SEND_STRING_WITHOUT_MODS("../");
     return false;
   case SS_LPAR:
-    if (record->event.pressed) {
+    if (record->event.pressed)
       SEND_STRING_WITHOUT_MODS("9");
-    }
     return false;
   case SS_RPAR:
-    if (record->event.pressed) {
+    if (record->event.pressed)
       SEND_STRING_WITHOUT_MODS("0");
-    }
     return false;
   case SS_TILD:
-    if (record->event.pressed) {
+    if (record->event.pressed)
       SEND_STRING_WITHOUT_MODS("~");
-    }
     return false;
   case SS_TILD_SLASH:
-    if (record->event.pressed) {
+    if (record->event.pressed)
       SEND_STRING_WITHOUT_MODS("~/");
-    }
     return false;
   case SS_GRAV:
-    if (record->event.pressed) {
+    if (record->event.pressed)
       SEND_STRING_WITHOUT_MODS("`");
-    }
     return false;
   }
 
