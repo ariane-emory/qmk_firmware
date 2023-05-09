@@ -15,6 +15,23 @@ void keyboard_post_init_user(void) {
 }
 
 // ================================================================================
+// Define local macros
+// ================================================================================
+
+#define KEYRECORD_FUN(name, t) t name(uint16_t keycode, keyrecord_t *record)
+
+#define SEND_STRING_WITHOUT_MODS_CASE(kc, str)                                  \
+  case kc:                                                                      \
+    if (record->event.pressed)                                                  \
+    {                                                                           \
+      const uint8_t current_mods = get_mods();                                  \
+      clear_mods();                                                             \
+      SEND_STRING(str);                                                         \
+      set_mods(current_mods);                                                   \
+    }                                                                           \
+    return false;
+
+// ================================================================================
 // Custom keycodes
 // ================================================================================
 
@@ -29,20 +46,7 @@ enum arianes_keycodes {
   SS_TILD_SLASH,
 };
 
-#define SEND_STRING_WITHOUT_MODS_CASE(kc, str)                                       \
-  case kc:                                                                      \
-    if (record->event.pressed)                                                  \
-    {                                                                           \
-      const uint8_t current_mods = get_mods();                                  \
-      clear_mods();                                                             \
-      SEND_STRING(str);                                                         \
-      set_mods(current_mods);                                                   \
-    }                                                                           \
-    return false;
-
-#define KEYRECORD_FUN(t, name) t name(uint16_t keycode, keyrecord_t *record)
-
-KEYRECORD_FUN(bool, process_record_user) {
+KEYRECORD_FUN(process_record_user, bool) {
   switch (keycode) {
     SEND_STRING_WITHOUT_MODS_CASE(SS_PIN1,       AE_PIN1);
     SEND_STRING_WITHOUT_MODS_CASE(SS_PIN2,       AE_PIN2);
@@ -67,7 +71,7 @@ KEYRECORD_FUN(bool, process_record_user) {
 // Mod tap interrupt
 // ================================================================================
 
-KEYRECORD_FUN(bool, get_hold_on_other_key_press) {
+KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   switch (keycode) {
   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
     if (keycode == LCTL_T(KC_ESC)  ||
@@ -84,7 +88,7 @@ KEYRECORD_FUN(bool, get_hold_on_other_key_press) {
   }
 }
 
-KEYRECORD_FUN(bool, get_permissive_hold) {
+KEYRECORD_FUN(get_permissive_hold, bool) {
   switch (keycode) {
   case MT(MOD_LALT,KC_SPC):
     // Do not select the hold action when another key is tapped.
@@ -99,7 +103,7 @@ KEYRECORD_FUN(bool, get_permissive_hold) {
 // Autoshift
 // ================================================================================
 
-KEYRECORD_FUN(uint16_t, get_autoshift_timeout) {
+KEYRECORD_FUN(get_autoshift_timeout, uint16_t) {
   switch(keycode) {
   case AUTO_SHIFT_ALPHA:
     return get_generic_autoshift_timeout() + 60;
@@ -115,7 +119,7 @@ KEYRECORD_FUN(uint16_t, get_autoshift_timeout) {
 // Tapping term
 // ================================================================================
 
-KEYRECORD_FUN(uint16_t, get_tapping_term) {
+KEYRECORD_FUN(get_tapping_term, uint16_t) {
   switch (keycode) {
   case MT(MOD_LALT,KC_SPC):
     return TAPPING_TERM + 60;
