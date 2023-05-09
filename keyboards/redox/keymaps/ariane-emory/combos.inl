@@ -122,6 +122,7 @@ combo_t key_combos[] = {
   //========================================================================================
   /* Right middle/bottom row */
   COMBO(keys_r_pinky_dip,                     SS_UPDIR),
+  //========================================================================================
 };
 //==========================================================================================
 
@@ -133,7 +134,7 @@ bool combo_should_trigger(
   combo_t *combo,
   uint16_t keycode,
   keyrecord_t *record) {
-  if (llayer_state_is(0) ||
+  if (layer_state_is(0) ||
       layer_state_is(1) ||
       (layer_state_is(2) && combo_index <= 4))
     return true;
