@@ -29,12 +29,12 @@ enum arianes_keycodes {
   SS_TILD_SLASH,
 };
 
-#define SEND_STRING_WITHOUT_MODS(str)  \
-  {                                    \
-    uint8_t current_mods = get_mods(); \
-    clear_mods();                      \
-    SEND_STRING(str);                  \
-    set_mods(current_mods);            \
+#define SEND_STRING_WITHOUT_MODS(str)                                           \
+  {                                                                             \
+    const uint8_t current_mods = get_mods();                                    \
+    clear_mods();                                                               \
+    SEND_STRING(str);                                                           \
+    set_mods(current_mods);                                                     \
   }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
