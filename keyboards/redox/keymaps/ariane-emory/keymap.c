@@ -40,9 +40,9 @@ enum arianes_keycodes {
     }                                                                           \
     return false;
 
-#define KEYRECORD_FUN(name) name(uint16_t keycode, keyrecord_t *record)
+#define KEYRECORD_FUN(t, name) t name(uint16_t keycode, keyrecord_t *record)
 
-bool KEYRECORD_FUN(process_record_user) {
+KEYRECORD_FUN(bool, process_record_user) {
   switch (keycode) {
     SEND_STRING_WITHOUT_MODS_CASE(SS_PIN1,       AE_PIN1);
     SEND_STRING_WITHOUT_MODS_CASE(SS_PIN2,       AE_PIN2);
@@ -67,7 +67,7 @@ bool KEYRECORD_FUN(process_record_user) {
 // Mod tap interrupt
 // ================================================================================
 
-bool KEYRECORD_FUN(get_hold_on_other_key_press) {
+KEYRECORD_FUN(bool, get_hold_on_other_key_press) {
   switch (keycode) {
   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
     if (keycode == LCTL_T(KC_ESC)  ||
@@ -84,7 +84,7 @@ bool KEYRECORD_FUN(get_hold_on_other_key_press) {
   }
 }
 
-bool KEYRECORD_FUN(get_permissive_hold) {
+KEYRECORD_FUN(bool, get_permissive_hold) {
   switch (keycode) {
   case MT(MOD_LALT,KC_SPC):
     // Do not select the hold action when another key is tapped.
@@ -99,7 +99,7 @@ bool KEYRECORD_FUN(get_permissive_hold) {
 // Autoshift
 // ================================================================================
 
-uint16_t KEYRECORD_FUN(get_autoshift_timeout) {
+KEYRECORD_FUN(uint16_t, get_autoshift_timeout) {
   switch(keycode) {
   case AUTO_SHIFT_ALPHA:
     return get_generic_autoshift_timeout() + 60;
@@ -115,7 +115,7 @@ uint16_t KEYRECORD_FUN(get_autoshift_timeout) {
 // Tapping term
 // ================================================================================
 
-uint16_t KEYRECORD_FUN(get_tapping_term) {
+KEYRECORD_FUN(uint16_t, get_tapping_term) {
   switch (keycode) {
   case MT(MOD_LALT,KC_SPC):
     return TAPPING_TERM + 60;
