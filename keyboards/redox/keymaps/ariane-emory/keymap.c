@@ -49,7 +49,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case SS_LPAR:
     if (record->event.pressed) {
       uint8_t current_mods = get_mods();
-      unregister_mods(MOD_MASK_SHIFT);
+      clear_mods();
       SEND_STRING("9");
       set_mods(current_mods);
     }
@@ -57,7 +57,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case SS_RPAR:
     if (record->event.pressed) {
       uint8_t current_mods = get_mods();
-      unregister_mods(MOD_MASK_SHIFT);
+      clear_mods();
       SEND_STRING("0");
       set_mods(current_mods);
     }
@@ -65,7 +65,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case SS_TILD:
     if (record->event.pressed) {
       uint8_t current_mods = get_mods();
-      unregister_mods(MOD_MASK_SHIFT);
+      clear_mods();
       SEND_STRING("~");
       set_mods(current_mods);
     }
@@ -73,7 +73,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case SS_TILD_SLASH:
     if (record->event.pressed) {
       uint8_t current_mods = get_mods();
-      unregister_mods(MOD_MASK_SHIFT);
+      clear_mods();
       SEND_STRING("~/");
       set_mods(current_mods);
     }
@@ -81,7 +81,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case SS_GRAV:
     if (record->event.pressed) {
       uint8_t current_mods = get_mods();
-      unregister_mods(MOD_MASK_SHIFT);
+      clear_mods();
       SEND_STRING("`");
       set_mods(current_mods);
     }
