@@ -22,6 +22,8 @@ enum arianes_keycodes {
   SS_UPDIR = SAFE_RANGE,
   SS_PIN1,
   SS_PIN2,
+  SS_LPAR,
+  SS_RPAR,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -39,6 +41,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case SS_UPDIR:
     if (record->event.pressed) {
       SEND_STRING("../");
+    }
+    return false;
+  case SS_LPAR:
+    if (record->event.pressed) {
+      SEND_STRING("(");
+    }
+  return false;
+  case SS_RPAR:
+    if (record->event.pressed) {
+      SEND_STRING(")");
     }
     return false;
   }

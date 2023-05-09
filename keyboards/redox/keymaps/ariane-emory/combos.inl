@@ -115,8 +115,8 @@ combo_t key_combos[] = {
   /* Right bottom row */
   COMBO(keys_r_bot_rch,                       LGUI(KC_Z)),
   COMBO(keys_r_bot_edg,                       SS_UPDIR),
-  COMBO(keys_r_bot_inr,                       KC_9),
-  COMBO(keys_r_bot_out,                       KC_0),
+  COMBO(keys_r_bot_inr,                       SS_LPAR),
+  COMBO(keys_r_bot_out,                       SS_RPAR),
   COMBO(keys_r_bot_spr,                       KC_ESC),
   COMBO(keys_r_bot_triple,                    LCTL(KC_SPC)),
 //========================================================================================
