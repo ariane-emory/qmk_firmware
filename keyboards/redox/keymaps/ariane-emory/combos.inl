@@ -78,7 +78,7 @@ combo_t key_combos[] = {
   /* Left middle row */
   COMBO(keys_l_mid_rch,                       KC_ENT),      // 6
   // COMBO(keys_l_mid_edg,                       KC_NO),       // 7
-  // COMBO(keys_l_mid_inr,                       KC_NO),       // 8
+  COMBO(keys_l_mid_inr,                       KC_GRV),       // 8
   // COMBO(keys_l_mid_out,                       KC_NO),       // 9
   // COMBO(keys_l_mid_spr,                       KC_NO),       // 10
   // COMBO(keys_l_mid_triple,                    KC_NO),       // 11
@@ -135,7 +135,7 @@ bool combo_should_trigger(
   uint16_t keycode,
   keyrecord_t *record) {
   if (layer_state_is(0) || layer_state_is(1) ||
-      (layer_state_is(2) && combo_index <= 1))
+      (layer_state_is(2) && (combo_index == 0 || combo_index == 2)))
     return true;
 
   return false;
