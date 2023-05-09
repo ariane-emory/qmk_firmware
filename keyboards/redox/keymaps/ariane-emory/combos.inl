@@ -68,31 +68,31 @@ DEFINE_COMBO_KEYS(r_pinky_dip,       KC_J,    KC_SLASH);
 combo_t key_combos[] = {
   //========================================================================================
   /* Left top row */
-  // COMBO(keys_l_top_rch,                       KC_NO),       // 0
-  // COMBO(keys_l_top_edg,                       KC_NO),       // 1
-  // COMBO(keys_l_top_inr,                       KC_NO),       // 2
-  // COMBO(keys_l_top_out,                       KC_NO),       // 3
-  // COMBO(keys_l_top_spr,                       KC_NO),       // 4
-  // COMBO(keys_l_top_triple,                    KC_NO),       // 5
+  // COMBO(keys_l_top_rch,                    KC_NO),          // 0
+  // COMBO(keys_l_top_edg,                    KC_NO),          // 1
+  // COMBO(keys_l_top_inr,                    KC_NO),          // 2
+  // COMBO(keys_l_top_out,                    KC_NO),          // 3
+  // COMBO(keys_l_top_spr,                    KC_NO),          // 4
+  // COMBO(keys_l_top_triple,                 KC_NO),          // 5
   //========================================================================================
   /* Left middle row */
-  COMBO(keys_l_mid_rch,                       KC_ENT),      // 6
-  // COMBO(keys_l_mid_edg,                       KC_NO),       // 7
-  COMBO(keys_l_mid_inr,                       SS_TILD),       // 8
-  COMBO(keys_l_mid_out,                       SS_GRAV),       // 9
-  // COMBO(keys_l_mid_spr,                       KC_NO),       // 10
-  COMBO(keys_l_mid_triple,                    SS_TILD_SLASH),       // 11
+  COMBO(keys_l_mid_rch,                       KC_ENT),         // 6
+  // COMBO(keys_l_mid_edg,                    KC_NO),          // 7
+  COMBO(keys_l_mid_inr,                       SS_TILD),        // 8
+  COMBO(keys_l_mid_out,                       SS_GRAV),        // 9
+  // COMBO(keys_l_mid_spr,                    KC_NO),          // 10
+  COMBO(keys_l_mid_triple,                    SS_TILD_SLASH),  // 11
   //========================================================================================
   /* Left bottom row */
-  COMBO(keys_l_bot_rch,                       LGUI(KC_Z)),  // 12
-  // COMBO(keys_l_bot_edg,                       KC_NO),       // 13
-  // COMBO(keys_l_bot_inr,                       KC_NO),       // 14
-  // COMBO(keys_l_bot_out,                       KC_NO),       // 15
-  // COMBO(keys_l_bot_spr,                       KC_NO),       // 16
-  // COMBO(keys_l_bot_triple,                    KC_NO),       // 17
+  COMBO(keys_l_bot_rch,                       LGUI(KC_Z)),     // 12
+  // COMBO(keys_l_bot_edg,                    KC_NO),          // 13
+  // COMBO(keys_l_bot_inr,                    KC_NO),          // 14
+  // COMBO(keys_l_bot_out,                    KC_NO),          // 15
+  // COMBO(keys_l_bot_spr,                    KC_NO),          // 16
+  // COMBO(keys_l_bot_triple,                 KC_NO),          // 17
   //========================================================================================
   /* Left middle/bottom row */
-  // COMBO(keys_l_pinky_dip,                     KC_NO),       // 18
+  // COMBO(keys_l_pinky_dip,                  KC_NO),          // 18
   //========================================================================================
 
   //========================================================================================
@@ -101,12 +101,12 @@ combo_t key_combos[] = {
   COMBO(keys_r_top_edg,                       LCTL(KC_SPC)),
   COMBO(keys_r_top_inr,                       LCTL(KC_K)),
   COMBO(keys_r_top_out,                       LCTL(KC_W)),
-  // COMBO(keys_r_top_spr,                         LCTL(KC_Y)),
-  // COMBO(keys_r_top_triple,                    LGUI(KC_SPC)),
+  // COMBO(keys_r_top_spr,                    LCTL(KC_Y)),
+  // COMBO(keys_r_top_triple,                 LGUI(KC_SPC)),
   //========================================================================================
   /* Right middle row */
   COMBO(keys_r_mid_rch,                       KC_ENT),
-  // COMBO(keys_r_mid_edg,                       KC_NO), 
+  // COMBO(keys_r_mid_edg,                    KC_NO), 
   COMBO(keys_r_mid_inr,                       KC_LBRC), 
   COMBO(keys_r_mid_out,                       KC_RBRC),
   COMBO(keys_r_mid_spr,                       KC_EQL),
@@ -122,11 +122,10 @@ combo_t key_combos[] = {
   //========================================================================================
   /* Right middle/bottom row */
   COMBO(keys_r_pinky_dip,                     SS_UPDIR),
-//========================================================================================
 };
+//==========================================================================================
 
-//========================================================================================
-
+//==========================================================================================
 uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
 
 bool combo_should_trigger(
@@ -134,7 +133,7 @@ bool combo_should_trigger(
   combo_t *combo,
   uint16_t keycode,
   keyrecord_t *record) {
-  if (layer_state_is(0) ||
+  if (llayer_state_is(0) ||
       layer_state_is(1) ||
       (layer_state_is(2) && combo_index <= 4))
     return true;
