@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 
-#include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
+// #define AE_PIN1 and AE_PIN2 in this file:
+#include "secrets.h"
 
 // ==============================================================================
 // Init
