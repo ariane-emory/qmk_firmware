@@ -135,9 +135,8 @@ bool combo_should_trigger(
   uint16_t keycode,
   keyrecord_t *record) {
   if (
-    layer_state_is(0)
-    || layer_state_is(1)
-    || (layer_state_is(2) && combo_index <= 18))
+    layer_state_is(0) || layer_state_is(1) ||
+    (layer_state_is(2) && combo_index <= 18))
     return true;
 
   return false;
