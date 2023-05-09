@@ -37,26 +37,26 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 enum arianes_keycodes {
-  SS_UPDIR = SAFE_RANGE,
-  SS_PIN1,
+  SS_PIN1 = SAFE_RANGE,
   SS_PIN2,
+  SS_GRAV,
   SS_LPAR,
   SS_RPAR,
-  SS_GRAV,
   SS_TILD,
   SS_TILD_SLASH,
+  SS_UPDIR,
 };
 
 KEYRECORD_FUN(process_record_user, bool) {
   switch (keycode) {
     SEND_STRING_WITHOUT_MODS_CASE(SS_PIN1,       AE_PIN1);
     SEND_STRING_WITHOUT_MODS_CASE(SS_PIN2,       AE_PIN2);
-    SEND_STRING_WITHOUT_MODS_CASE(SS_UPDIR,      "../");
+    SEND_STRING_WITHOUT_MODS_CASE(SS_GRAV,       "`");
     SEND_STRING_WITHOUT_MODS_CASE(SS_LPAR,       "9");
     SEND_STRING_WITHOUT_MODS_CASE(SS_RPAR,       "0");
     SEND_STRING_WITHOUT_MODS_CASE(SS_TILD,       "~");
     SEND_STRING_WITHOUT_MODS_CASE(SS_TILD_SLASH, "~/");
-    SEND_STRING_WITHOUT_MODS_CASE(SS_GRAV,       "`");
+    SEND_STRING_WITHOUT_MODS_CASE(SS_UPDIR,      "../");
   default:
     return true;
   }
