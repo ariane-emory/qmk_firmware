@@ -45,12 +45,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   case SS_LPAR:
     if (record->event.pressed) {
-      SEND_STRING("(");
+      SEND_STRING("9");
     }
   return false;
   case SS_RPAR:
     if (record->event.pressed) {
-      SEND_STRING(")");
+      SEND_STRING("0");
     }
     return false;
   }
