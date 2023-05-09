@@ -361,10 +361,10 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "RCTL(KC_A)",
       "RALT(KC_LEFT)",
-      "RALT(KC_RGHT)",
-      "RCTL(KC_E)"
+      "RCTL(KC_A)",
+      "RCTL(KC_E)",
+      "RALT(KC_RGHT)"
     ],
     [
       "QK_BOOT",
