@@ -66,7 +66,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
       uint8_t current_mods = get_mods();
       unregister_mods(MOD_MASK_SHIFT);
-      SEND_STRING("~");
+      SEND_STRING(" ~");
       set_mods(current_mods);
     }
     return false;
@@ -74,7 +74,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
       uint8_t current_mods = get_mods();
       unregister_mods(MOD_MASK_SHIFT);
-      SEND_STRING("~/");
+      SEND_STRING(" ~/");
       set_mods(current_mods);
     }
     return false;
