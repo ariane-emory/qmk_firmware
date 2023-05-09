@@ -1,1 +1,1 @@
-# The default keymap for Redox
+# Ariane Emory's keymap for Redox
