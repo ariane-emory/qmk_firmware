@@ -29,51 +29,30 @@ enum arianes_keycodes {
   SS_TILD_SLASH,
 };
 
-#define SEND_STRING_WITHOUT_MODS(str)                                           \
-  {                                                                             \
-    const uint8_t current_mods = get_mods();                                    \
-    clear_mods();                                                               \
-    SEND_STRING(str);                                                           \
-    set_mods(current_mods);                                                     \
-  }
+#define SEND_STRING_WITHOUT_MODS_CASE(kc, str)                                       \
+  case kc:                                                                      \
+    if (record->event.pressed)                                                  \
+    {                                                                           \
+      const uint8_t current_mods = get_mods();                                  \
+      clear_mods();                                                             \
+      SEND_STRING(str);                                                         \
+      set_mods(current_mods);                                                   \
+    }                                                                           \
+    return false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-  case SS_PIN1:
-    if (record->event.pressed)
-      SEND_STRING_WITHOUT_MODS(AE_PIN1);
-    return false;
-  case SS_PIN2:
-    if (record->event.pressed)
-      SEND_STRING_WITHOUT_MODS(AE_PIN2);
-    return false;
-  case SS_UPDIR:
-    if (record->event.pressed)
-      SEND_STRING_WITHOUT_MODS("../");
-    return false;
-  case SS_LPAR:
-    if (record->event.pressed)
-      SEND_STRING_WITHOUT_MODS("9");
-    return false;
-  case SS_RPAR:
-    if (record->event.pressed)
-      SEND_STRING_WITHOUT_MODS("0");
-    return false;
-  case SS_TILD:
-    if (record->event.pressed)
-      SEND_STRING_WITHOUT_MODS("~");
-    return false;
-  case SS_TILD_SLASH:
-    if (record->event.pressed)
-      SEND_STRING_WITHOUT_MODS("~/");
-    return false;
-  case SS_GRAV:
-    if (record->event.pressed)
-      SEND_STRING_WITHOUT_MODS("`");
-    return false;
+    SEND_STRING_WITHOUT_MODS_CASE(SS_PIN1,       AE_PIN1);
+    SEND_STRING_WITHOUT_MODS_CASE(SS_PIN2,       AE_PIN2);
+    SEND_STRING_WITHOUT_MODS_CASE(SS_UPDIR,      "../");
+    SEND_STRING_WITHOUT_MODS_CASE(SS_LPAR,       "9");
+    SEND_STRING_WITHOUT_MODS_CASE(SS_RPAR,       "0");
+    SEND_STRING_WITHOUT_MODS_CASE(SS_TILD,       "~");
+    SEND_STRING_WITHOUT_MODS_CASE(SS_TILD_SLASH, "~/");
+    SEND_STRING_WITHOUT_MODS_CASE(SS_GRAV,       "`");
+  default:
+    return true;
   }
-
-  return true;
 }
 
 #undef SEND_STRING_WITHOUT_MODS
