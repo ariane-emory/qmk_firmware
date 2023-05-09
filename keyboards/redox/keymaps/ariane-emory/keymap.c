@@ -24,6 +24,8 @@ enum arianes_keycodes {
   SS_PIN2,
   SS_LPAR,
   SS_RPAR,
+  SS_GRAV,
+  SS_TILD,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -56,6 +58,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       uint8_t current_mods = get_mods();
       unregister_mods(MOD_MASK_SHIFT);
       SEND_STRING("0");
+      set_mods(current_mods);
+    }
+    return false;
+  case SS_TILD:
+    if (record->event.pressed) {
+      uint8_t current_mods = get_mods();
+      unregister_mods(MOD_MASK_SHIFT);
+      SEND_STRING("`");
+      set_mods(current_mods);
+    }
+    return false;
+  case SS_GRAV
+    if (record->event.pressed) {
+      uint8_t current_mods = get_mods();
+      unregister_mods(MOD_MASK_SHIFT);
+      SEND_STRING("~");
       set_mods(current_mods);
     }
     return false;

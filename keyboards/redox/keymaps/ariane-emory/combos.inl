@@ -78,8 +78,8 @@ combo_t key_combos[] = {
   /* Left middle row */
   COMBO(keys_l_mid_rch,                       KC_ENT),      // 6
   // COMBO(keys_l_mid_edg,                       KC_NO),       // 7
-  COMBO(keys_l_mid_inr,                       KC_GRV),       // 8
-  // COMBO(keys_l_mid_out,                       KC_NO),       // 9
+  COMBO(keys_l_mid_inr,                       SS_TILD),       // 8
+  COMBO(keys_l_mid_out,                       SS_GRAV),       // 9
   // COMBO(keys_l_mid_spr,                       KC_NO),       // 10
   // COMBO(keys_l_mid_triple,                    KC_NO),       // 11
   //========================================================================================
