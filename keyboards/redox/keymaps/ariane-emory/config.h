@@ -56,7 +56,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_WHEEL_MAX_SPEED 14
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 45
 
-#define COMBO_TERM 60
+#define COMBO_TERM 75
 #define COMBO_SHOULD_TRIGGER
 #define COMBO_ONLY_FROM_LAYER 0
 

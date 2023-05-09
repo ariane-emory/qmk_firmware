@@ -106,7 +106,7 @@ combo_t key_combos[] = {
   //========================================================================================
   /* Right middle row */
   COMBO(keys_r_mid_rch,                       KC_ENT),
-  COMBO(keys_r_mid_edg,                       SS_UPDIR), 
+  COMBO(keys_r_mid_edg,                       KC_NO), 
   COMBO(keys_r_mid_inr,                       KC_LBRC), 
   COMBO(keys_r_mid_out,                       KC_RBRC),
   COMBO(keys_r_mid_spr,                       KC_EQL),
