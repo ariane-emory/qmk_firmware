@@ -69,7 +69,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       set_mods(current_mods);
     }
     return false;
-  case SS_GRAV
+  case SS_GRAV:
     if (record->event.pressed) {
       uint8_t current_mods = get_mods();
       unregister_mods(MOD_MASK_SHIFT);
