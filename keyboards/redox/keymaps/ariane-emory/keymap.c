@@ -29,6 +29,14 @@ enum arianes_keycodes {
   SS_TILD_SLASH,
 };
 
+#define SEND_STRING_WITHOUT_MODS(str)  \
+  {                                    \
+    uint8_t current_mods = get_mods(); \
+    clear_mods();                      \
+    SEND_STRING(str);                  \
+    set_mods(current_mods);            \
+  }
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case SS_PIN1:
@@ -48,42 +56,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   case SS_LPAR:
     if (record->event.pressed) {
-      uint8_t current_mods = get_mods();
-      clear_mods();
-      SEND_STRING("9");
-      set_mods(current_mods);
+      SEND_STRING_WITHOUT_MODS("9");
     }
     return false;
   case SS_RPAR:
     if (record->event.pressed) {
-      uint8_t current_mods = get_mods();
-      clear_mods();
-      SEND_STRING("0");
-      set_mods(current_mods);
+      SEND_STRING_WITHOUT_MODS("0");
     }
     return false;
   case SS_TILD:
     if (record->event.pressed) {
-      uint8_t current_mods = get_mods();
-      clear_mods();
-      SEND_STRING("~");
-      set_mods(current_mods);
+      SEND_STRING_WITHOUT_MODS("~");
     }
     return false;
   case SS_TILD_SLASH:
     if (record->event.pressed) {
-      uint8_t current_mods = get_mods();
-      clear_mods();
-      SEND_STRING("~/");
-      set_mods(current_mods);
+      SEND_STRING_WITHOUT_MODS("~/");
     }
     return false;
   case SS_GRAV:
     if (record->event.pressed) {
-      uint8_t current_mods = get_mods();
-      clear_mods();
-      SEND_STRING("`");
-      set_mods(current_mods);
+      SEND_STRING_WITHOUT_MODS("`");
     }
     return false;
   }
@@ -91,6 +84,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+#undef SEND_STRING_WITHOUT_MODS
+  
 // ================================================================================
 // Include combos 
 // ================================================================================
