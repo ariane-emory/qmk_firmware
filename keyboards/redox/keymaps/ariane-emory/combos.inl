@@ -63,7 +63,7 @@ DEFINE_COMBO_KEYS(r_mid_triple,      KC_J,    KC_K,      KC_L);
 //========================================================================================
 /* Right bottom row */
 DEFINE_COMBO_KEYS(r_bot_rch,         KC_N,    KC_M);
-DEFINE_COMBO_KEYS(r_bot_edg,         KC_L,    KC_QUOT);
+DEFINE_COMBO_KEYS(r_bot_edg,         KC_DOT,  KC_SLASH);
 DEFINE_COMBO_KEYS(r_bot_inr,         KC_M,    KC_COMM);
 DEFINE_COMBO_KEYS(r_bot_out,         KC_COMM, KC_DOT);
 DEFINE_COMBO_KEYS(r_bot_in2,         KC_N,    KC_COMM);
