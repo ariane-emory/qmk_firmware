@@ -97,12 +97,12 @@ combo_t key_combos[] = {
 
   //========================================================================================
   /* Right top row */
-  COMBO(keys_r_top_rch,                       LCTL(KC_A)),
-  COMBO(keys_r_top_edg,                       LCTL(KC_E)),
-  COMBO(keys_r_top_inr,                       LALT(KC_LEFT)),
-  COMBO(keys_r_top_out,                       LALT(KC_RIGHT)),
-  COMBO(keys_r_top_spr,                       LCTL(KC_Y)),
-  COMBO(keys_r_top_triple,                    LGUI(KC_SPC)),
+  // COMBO(keys_r_top_rch,                       LCTL(KC_A)),
+  // COMBO(keys_r_top_edg,                       LCTL(KC_E)),
+  // COMBO(keys_r_top_inr,                       LALT(KC_LEFT)),
+  // COMBO(keys_r_top_out,                       LALT(KC_RIGHT)),
+  // COMBO(keys_r_top_spr,                       LCTL(KC_Y)),
+  // COMBO(keys_r_top_triple,                    LGUI(KC_SPC)),
   //========================================================================================
   /* Right middle row */
   COMBO(keys_r_mid_rch,                       KC_ENT),
@@ -119,7 +119,7 @@ combo_t key_combos[] = {
   COMBO(keys_r_bot_out,                       SS_RPAR),
   COMBO(keys_r_bot_spr,                       KC_ESC),
   COMBO(keys_r_bot_triple,                    LCTL(KC_SPC)),
-//========================================================================================
+  //========================================================================================
   /* Right middle/bottom row */
   COMBO(keys_r_pinky_dip,                     SS_UPDIR),
 //========================================================================================
