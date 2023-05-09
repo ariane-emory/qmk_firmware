@@ -81,7 +81,7 @@ combo_t key_combos[] = {
   COMBO(keys_l_mid_inr,                       SS_TILD),       // 8
   COMBO(keys_l_mid_out,                       SS_GRAV),       // 9
   // COMBO(keys_l_mid_spr,                       KC_NO),       // 10
-  COMBO(keys_l_mid_triple,                    KC_TILD_SLASH),       // 11
+  COMBO(keys_l_mid_triple,                    SS_TILD_SLASH),       // 11
   //========================================================================================
   /* Left bottom row */
   COMBO(keys_l_bot_rch,                       LGUI(KC_Z)),  // 12
