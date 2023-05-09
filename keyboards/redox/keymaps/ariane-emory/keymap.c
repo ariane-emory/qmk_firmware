@@ -44,19 +44,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return false;
   case SS_LPAR:
+  {
     uint8_t current_mods = get_mods();
     if (record->event.pressed) {
       SEND_STRING("9");
     }
     set_mods(current_mods);
-    return false;
+      return false;
+  }
   case SS_RPAR:
+  {
     uint8_t current_mods = get_mods();
     if (record->event.pressed) {
       SEND_STRING("0");
     }
     set_mods(current_mods);
     return false;
+  }
   }
 
   return true;
