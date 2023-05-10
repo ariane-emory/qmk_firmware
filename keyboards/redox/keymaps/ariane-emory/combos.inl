@@ -124,7 +124,7 @@ combo_t key_combos[] = {
   //======================================================================================
   /* Right top row */
   COMBO(keys_r_top_triple,      LALT(LGUI(KC_A))),
-  // COMBO(keys_r_top_spr,      LCTL(KC_Y)),
+  COMBO(keys_r_top_spr,         LALT(LGUI(KC_V))),
   COMBO(keys_r_top_rch,         LCTL(KC_Y)),
   COMBO(keys_r_top_edg,         LCTL(KC_SPC)),
   COMBO(keys_r_top_inr,         LCTL(KC_K)),
