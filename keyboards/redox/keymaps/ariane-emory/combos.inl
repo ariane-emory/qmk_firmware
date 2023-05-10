@@ -110,7 +110,7 @@ combo_t key_combos[] = {
   /* Left top row */
   COMBO(keys_l_top_trpi,         DF(2)),
   COMBO(keys_l_top_trpm,         DF(0)),
-  COMBO(keys_l_top_trpo,         DF(1)),
+  COMBO(keys_l_top_tr po,         DF(1)),
   // COMBO(keys_l_top_sprd,      KC_NO),
   // COMBO(keys_l_top_rech,      KC_NO),
   // COMBO(keys_l_top_edge,      KC_NO),
@@ -148,7 +148,7 @@ combo_t key_combos[] = {
   // COMBO(keys_r_top_trpi,      KC_NO),
   COMBO(keys_r_top_trpm,         LCTL(KC_SPC)),
   // COMBO(keys_r_top_trpo,      KC_NO),
-  COMBO(keys_r_top_sprd,         LCTL(KC_Y)),
+  // COMBO(keys_r_top_sprd,      LCTL(KC_Y)),
   COMBO(keys_r_top_rech,         LCTL(KC_W)),
   COMBO(keys_r_top_edge,         LALT(LGUI(KC_D))),
   COMBO(keys_r_top_innr,         LCTL(KC_K)),
@@ -190,7 +190,7 @@ bool combo_should_trigger(
   keyrecord_t *record) {
   return (layer_state_is(0) ||
           layer_state_is(7) ||
-          (layer_state_is(2) && combo_index <= 8));
+          (layer_state_is(2) && combo_index <= 7));
 }
 //========================================================================================
 
