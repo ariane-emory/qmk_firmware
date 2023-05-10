@@ -49,6 +49,14 @@ enum arianes_keycodes {
 };
 
 KEYRECORD_FUN(process_record_user, bool) {
+  static uint16_t key_timer = 0;
+  
+  if (layer_state_is(3) && timer_elapsed(key_timer) >= 1500) {
+    layer_off(3);
+  }
+  
+  key_timer = timer_read();
+  
   switch (keycode) {
     SEND_STRING_WITHOUT_MODS_CASE(SS_PIN1,       AE_PIN1);
     SEND_STRING_WITHOUT_MODS_CASE(SS_PIN2,       AE_PIN2);
