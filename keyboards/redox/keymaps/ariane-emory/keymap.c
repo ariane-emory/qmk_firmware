@@ -22,6 +22,15 @@ void keyboard_post_init_user(void) {
 #define KEYRECORD_FUN(name, t)                                                  \
   t name(uint16_t keycode, keyrecord_t *record)
 
+#define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms)                 \
+  {                                                                             \
+    static uint16_t key_timer = 0;                                              \
+    if (layer_state_is(3) && timer_elapsed(key_timer) >= 2500) {                \
+      layer_off(3);                                                             \
+    }                                                                           \
+    key_timer = timer_read();                                                   \
+  }
+
 #define SEND_STRING_WITHOUT_MODS_CASE(kc, str)                                  \
   case kc:                                                                      \
     if (record->event.pressed)                                                  \
@@ -47,15 +56,9 @@ enum arianes_keycodes {
   SS_TILD_SLASH,
   SS_UPDIR,
 };
-
+  
 KEYRECORD_FUN(process_record_user, bool) {
-  static uint16_t key_timer = 0;
-  
-  if (layer_state_is(3) && timer_elapsed(key_timer) >= 2500) {
-    layer_off(3);
-  }
-  
-  key_timer = timer_read();
+  MANAGE_TOGGLED_LAYER_TIMEOUT(3, 2500);
   
   switch (keycode) {
     SEND_STRING_WITHOUT_MODS_CASE(SS_PIN1,       AE_PIN1);
@@ -143,6 +146,7 @@ KEYRECORD_FUN(get_tapping_term, uint16_t) {
 // ==============================================================================
 
 #undef KEYRECORD_FUN
+#undef MANAGE_TOGGLED_LAYER_TIMEOUT
 #undef SEND_STRING_WITHOUT_MODS
   
 // ==============================================================================
