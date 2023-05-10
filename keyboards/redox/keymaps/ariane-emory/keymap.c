@@ -25,8 +25,9 @@ void keyboard_post_init_user(void) {
 #define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms)                 \
   {                                                                             \
     static uint16_t key_timer = 0;                                              \
-    if (layer_state_is(3) && timer_elapsed(key_timer) >= 2500) {                \
-      layer_off(3);                                                             \
+    if (layer_state_is(layer) &&                                                \
+        timer_elapsed(key_timer) >= idle_time_limit_ms) {                       \
+      layer_off(layer);                                                         \
     }                                                                           \
     key_timer = timer_read();                                                   \
   }
