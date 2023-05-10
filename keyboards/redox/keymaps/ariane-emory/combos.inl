@@ -110,7 +110,7 @@ combo_t key_combos[] = {
   /* Left top row */
   COMBO(keys_l_top_trpi,         DF(2)),
   COMBO(keys_l_top_trpm,         DF(0)),
-  COMBO(keys_l_top_tr po,         DF(1)),
+  COMBO(keys_l_top_trpo,         DF(1)),
   // COMBO(keys_l_top_sprd,      KC_NO),
   // COMBO(keys_l_top_rech,      KC_NO),
   // COMBO(keys_l_top_edge,      KC_NO),
