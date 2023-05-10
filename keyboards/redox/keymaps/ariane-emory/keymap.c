@@ -51,7 +51,7 @@ enum arianes_keycodes {
 KEYRECORD_FUN(process_record_user, bool) {
   static uint16_t key_timer = 0;
   
-  if (layer_state_is(3) && timer_elapsed(key_timer) >= 1500) {
+  if (layer_state_is(3) && timer_elapsed(key_timer) >= 2500) {
     layer_off(3);
   }
   
