@@ -123,12 +123,12 @@ combo_t key_combos[] = {
   // Bind right hand combos
   //======================================================================================
   /* Right top row */
-  COMBO(keys_r_top_triple,      LALT(LGUI(KC_A))),
-  COMBO(keys_r_top_spr,         LALT(LGUI(KC_D))),
-  COMBO(keys_r_top_rch,         LCTL(KC_Y)),
-  COMBO(keys_r_top_edg,         LCTL(KC_SPC)),
+  COMBO(keys_r_top_triple,      LCTL(KC_SPC)),
+  COMBO(keys_r_top_spr,         LCTL(KC_Y)),
+  COMBO(keys_r_top_rch,         LCTL(KC_W)),
+  COMBO(keys_r_top_edg,         LALT(LGUI(KC_D))),
   COMBO(keys_r_top_inr,         LCTL(KC_K)),
-  COMBO(keys_r_top_out,         LCTL(KC_W)),
+  COMBO(keys_r_top_out,         LALT(LGUI(KC_A))),
   //======================================================================================
   /* Right middle row */
   COMBO(keys_r_mid_triple,      KC_SCLN),
@@ -139,8 +139,8 @@ combo_t key_combos[] = {
   COMBO(keys_r_mid_out,         KC_RBRC),
   //======================================================================================
   /* Right bottom row */
-  COMBO(keys_r_bot_triple,      LCTL(KC_SPC)),
-  COMBO(keys_r_bot_spr,         KC_ESC),
+  COMBO(keys_r_bot_triple,      KC_ESC),
+  // COMBO(keys_r_bot_spr,         LCTL(KC_SPC)),
   COMBO(keys_r_bot_rch,         LGUI(KC_Z)),
   COMBO(keys_r_bot_edg,         SS_UPDIR),
   COMBO(keys_r_bot_inr,         SS_LPAR),
