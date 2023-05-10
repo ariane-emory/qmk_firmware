@@ -123,7 +123,7 @@ combo_t key_combos[] = {
   // Bind right hand combos
   //======================================================================================
   /* Right top row */
-  COMBO(keys_r_top_triple,      LALT(LGUI(A))),
+  COMBO(keys_r_top_triple,      LALT(LGUI(KC_A))),
   // COMBO(keys_r_top_spr,      LCTL(KC_Y)),
   COMBO(keys_r_top_rch,         LCTL(KC_Y)),
   COMBO(keys_r_top_edg,         LCTL(KC_SPC)),
