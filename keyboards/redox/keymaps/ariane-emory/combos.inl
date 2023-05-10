@@ -134,8 +134,8 @@ combo_t key_combos[] = {
   // COMBO(keys_l_bot_sprd,      KC_NO),
   COMBO(keys_l_bot_rech,         LGUI(KC_Z)),
   // COMBO(keys_l_bot_edge,      KC_NO),
-  // COMBO(keys_l_bot_innr,      KC_NO),
-  // COMBO(keys_l_bot_outr,      KC_NO),
+  COMBO(keys_l_bot_innr,         KC_DOWN),
+  COMBO(keys_l_bot_outr,         KC_UP),
   //======================================================================================
   /* Left middle/bottom row */
   // COMBO(keys_l_pinky_dip,     KC_NO),
@@ -190,7 +190,7 @@ bool combo_should_trigger(
   keyrecord_t *record) {
   return (layer_state_is(0) ||
           layer_state_is(7) ||
-          (layer_state_is(2) && combo_index <= 7));
+          (layer_state_is(2) && combo_index <= 10));
 }
 //========================================================================================
 
