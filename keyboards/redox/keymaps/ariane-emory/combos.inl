@@ -98,24 +98,24 @@ combo_t key_combos[] = {
   // Bind left hand combos
   //======================================================================================
   /* Left num row */ 
-  COMBO(keys_l_num_trpi,         DF(0)),
-  COMBO(keys_l_num_trpm,         DF(1)),
-  COMBO(keys_l_num_trpo,         DF(2)),
+  // COMBO(keys_l_num_trpi,      KC_NO),
+  // COMBO(keys_l_num_trpm,      KC_NO),
+  // COMBO(keys_l_num_numm,      KC_NO),
   // COMBO(keys_l_num_sprd,      KC_NO),
   // COMBO(keys_l_num_rech,      KC_NO),
   // COMBO(keys_l_num_edge,      KC_NO),
   // COMBO(keys_l_num_innr,      KC_NO),
-  // COMBO(keys_l_num_outr,      KC_NO),        
+  // COMBO(keys_l_num_outr,      KC_NO),
   //======================================================================================
   /* Left top row */
-  // COMBO(keys_l_top_trpi,      KC_NO),
-  // COMBO(keys_l_top_trpm,      KC_NO),
-  // COMBO(keys_l_top_topm,      KC_NO),
+  COMBO(keys_l_top_trpi,         DF(0)),
+  COMBO(keys_l_top_trpm,         DF(1)),
+  COMBO(keys_l_top_trpo,         DF(2)),
   // COMBO(keys_l_top_sprd,      KC_NO),
   // COMBO(keys_l_top_rech,      KC_NO),
   // COMBO(keys_l_top_edge,      KC_NO),
   // COMBO(keys_l_top_innr,      KC_NO),
-  // COMBO(keys_l_top_outr,      KC_NO),
+  // COMBO(keys_l_top_outr,      KC_NO),        
   //======================================================================================
   /* Left middle row */
   // COMBO(keys_l_mid_trpi,      KC_NO),
