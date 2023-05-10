@@ -139,8 +139,8 @@ combo_t key_combos[] = {
   COMBO(keys_r_mid_out,         KC_RBRC),
   //======================================================================================
   /* Right bottom row */
-  COMBO(keys_r_bot_triple,      KC_ESC),
-  COMBO(keys_r_bot_spr,         LCTL(KC_SPC)),
+  COMBO(keys_r_bot_triple,      LCTL(KC_SPC)),
+  COMBO(keys_r_bot_spr,         KC_ESC),
   COMBO(keys_r_bot_rch,         LGUI(KC_Z)),
   COMBO(keys_r_bot_edg,         SS_UPDIR),
   COMBO(keys_r_bot_inr,         SS_LPAR),
