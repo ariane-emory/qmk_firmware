@@ -192,7 +192,9 @@ bool combo_should_trigger(
           layer_state_is(1) ||
           layer_state_is(2) ||
           layer_state_is(3) ||
-          (layer_state_is(4) && combo_index <= 8));
+          layer_state_is(4) ||
+          layer_state_is(5) ||
+          (layer_state_is(6) && combo_index <= 8));
 }
 //========================================================================================
 
