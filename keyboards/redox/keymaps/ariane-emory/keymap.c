@@ -56,6 +56,7 @@ enum arianes_keycodes {
   SS_TILD,
   SS_TILD_SLASH,
   SS_UPDIR,
+  SS_LASTARG,
 };
   
 KEYRECORD_FUN(process_record_user, bool) {
@@ -70,6 +71,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     SEND_STRING_WITHOUT_MODS_CASE(SS_TILD,       "~");
     SEND_STRING_WITHOUT_MODS_CASE(SS_TILD_SLASH, "~/");
     SEND_STRING_WITHOUT_MODS_CASE(SS_UPDIR,      "../");
+    SEND_STRING_WITHOUT_MODS_CASE(SS_LASTARG,    "$_");
   default:
     return true;
   }
