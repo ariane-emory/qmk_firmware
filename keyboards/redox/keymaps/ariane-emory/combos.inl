@@ -123,7 +123,7 @@ combo_t key_combos[] = {
   COMBO(keys_l_mid_innr,         KC_ENT),
   COMBO(keys_l_mid_trpm,         SS_TILD_SLASH),
   COMBO(keys_l_mid_outr,         SS_TILD),
-  // COMBO(keys_l_mid_topm,         KC_NO),
+  // COMBO(keys_l_mid_trpo,         KC_NO),
   COMBO(keys_l_mid_edge,         SS_LASTARG),
   // COMBO(keys_l_mid_sprd,         KC_NO),
   //======================================================================================
