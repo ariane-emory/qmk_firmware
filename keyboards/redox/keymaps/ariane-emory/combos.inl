@@ -158,7 +158,7 @@ combo_t key_combos[] = {
   COMBO(keys_r_mid_rech,         KC_LBRC),          // {
   COMBO(keys_r_mid_trpi,         LALT(LGUI(KC_V))), // previous buffer/
   COMBO(keys_r_mid_innr,         KC_ENT),           // <CR>
-  COMBO(keys_r_mid_trpm,         LALT(LGUI(KC_S))), // shell
+  COMBO(keys_r_mid_trpm,         LALT(LGUI(KC_D))), // dired
   COMBO(keys_r_mid_outr,         KC_RBRC),          // }
   COMBO(keys_r_mid_trpo,         LALT(LGUI(KC_A))), // all buffers
   COMBO(keys_r_mid_edge,         KC_SCLN),          // ;
@@ -168,7 +168,7 @@ combo_t key_combos[] = {
   // COMBO(keys_r_bot_rech,         KC_NO),            // 
   // COMBO(keys_r_bot_trpi,         KC_NO),            // 
   COMBO(keys_r_bot_innr,         LGUI(KC_Z)),       // 
-  COMBO(keys_r_bot_trpm,         LALT(LGUI(KC_D))), // dired
+  COMBO(keys_r_bot_trpm,         LALT(LGUI(KC_S))), // shell
   // COMBO(keys_r_bot_outr,         KC_NO),            // 
   // COMBO(keys_r_bot_trpo,         KC_NO),            // 
   COMBO(keys_r_bot_edge,         SS_UPDIR),         // 
