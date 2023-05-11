@@ -47,6 +47,8 @@ void keyboard_post_init_user(void) {
 // Custom keycodes
 // ==============================================================================
 
+#define SS_LASTARG_STR SS_LCTL("c") SS_DELAY(50) "."
+
 enum arianes_keycodes {
   SS_PIN1 = SAFE_RANGE,
   SS_PIN2,
@@ -71,15 +73,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     SEND_STRING_WITHOUT_MODS_CASE(SS_TILD,       "~");
     SEND_STRING_WITHOUT_MODS_CASE(SS_TILD_SLASH, "~/");
     SEND_STRING_WITHOUT_MODS_CASE(SS_UPDIR,      "../");
-  case SS_LASTARG:
-    if (record->event.pressed)
-    {
-      const uint8_t current_mods = get_mods();
-      clear_mods();
-      SEND_STRING(SS_LCTL("c") SS_DELAY(50) ".");
-      set_mods(current_mods);
-    }
-    return false;
+    SEND_STRING_WITHOUT_MODS_CASE(SS_LASTARG,    SS_LASTARG_STR);
   default:
     return true;
   }
