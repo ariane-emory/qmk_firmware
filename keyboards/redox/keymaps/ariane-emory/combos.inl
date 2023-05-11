@@ -165,14 +165,14 @@ combo_t key_combos[] = {
   COMBO(keys_r_mid_sprd,         KC_EQL),           // =
   //======================================================================================
   /* SECTION: Right bottom row */
-  COMBO(keys_r_bot_rech,         KC_ESC),
+  // COMBO(keys_r_bot_rech,      KC_NO),
   // COMBO(keys_r_bot_trpi,      KC_NO),
-  COMBO(keys_r_bot_innr,         SS_LPAR),
+  COMBO(keys_r_bot_innr,         KC_NO),
   COMBO(keys_r_bot_trpm,         LGUI(KC_Z)),
-  COMBO(keys_r_bot_outr,         SS_RPAR),
+  // COMBO(keys_r_bot_outr,      KC_NO),
   // COMBO(keys_r_bot_trpo,      KC_NO),
   COMBO(keys_r_bot_edge,         SS_UPDIR),
-  // COMBO(keys_r_bot_sprd,      LCTL(KC_SPC)),
+  COMBO(keys_r_bot_sprd,         KC_ESC),  
   //======================================================================================
   /* Right middle/bottom row */
   COMBO(keys_r_pinky_dip,       SS_UPDIR),
