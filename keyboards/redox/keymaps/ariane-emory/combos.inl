@@ -145,14 +145,14 @@ combo_t key_combos[] = {
   // Bind right hand combos
   //======================================================================================
   /* SECTION: Right top row */
-  COMBO(keys_r_top_rech,         LALT(LGUI(KC_A))),
-  COMBO(keys_r_top_trpi,         LCTL(KC_W)),  
-  COMBO(keys_r_top_innr,         SS_LPAR),
-  COMBO(keys_r_top_trpm,         LCTL(KC_Y)),
-  COMBO(keys_r_top_outr,         SS_RPAR),
-  COMBO(keys_r_top_trpo,         LCTL(KC_K)),
-  COMBO(keys_r_top_edge,         LALT(LGUI(KC_D))),
-  COMBO(keys_r_top_sprd,         LCTL(KC_SPC)),
+  COMBO(keys_r_top_rech,         LALT(LGUI(KC_A))), // all buffers
+  COMBO(keys_r_top_trpi,         LCTL(KC_W)),       // kill region
+  COMBO(keys_r_top_innr,         SS_LPAR),          // (
+  COMBO(keys_r_top_trpm,         LCTL(KC_Y)),       // yank
+  COMBO(keys_r_top_outr,         SS_RPAR),          // )
+  COMBO(keys_r_top_trpo,         LCTL(KC_K)),       // kill line
+  COMBO(keys_r_top_edge,         LALT(LGUI(KC_D))), // dired
+  COMBO(keys_r_top_sprd,         LCTL(KC_SPC)),     // mark
   //======================================================================================
   /* SECTION: Right middle row */
   COMBO(keys_r_mid_rech,         LALT(LGUI(KC_V))), // previous buffer/
