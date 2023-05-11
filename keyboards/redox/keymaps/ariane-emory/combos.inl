@@ -140,7 +140,7 @@ combo_t key_combos[] = {
   /* Left middle/bottom row */
   // COMBO(keys_l_pinky_dip,     KC_NO),
   //======================================================================================
-
+  
   //======================================================================================
   // Bind right hand combos
   //======================================================================================
@@ -157,7 +157,7 @@ combo_t key_combos[] = {
   /* Right middle row */
   // COMBO(keys_r_mid_trpi,      KC_NO),
   COMBO(keys_r_mid_trpm,         KC_SCLN),
-  // COMBO(keys_r_mid_trpo,      KC_NO),
+  COMBO(keys_r_mid_trpo,         LALT(LGUI(KC_S))), 
   COMBO(keys_r_mid_sprd,         KC_EQL),
   COMBO(keys_r_mid_rech,         KC_ENT),
   COMBO(keys_r_mid_edge,         LALT(LGUI(KC_V))), 
