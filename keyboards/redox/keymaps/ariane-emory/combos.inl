@@ -128,13 +128,13 @@ combo_t key_combos[] = {
   COMBO(keys_l_mid_sprd,         SS_LASTARG),
 //======================================================================================
   /* SECTION: Left bottom row */
-  // COMBO(keys_l_bot_rech,      KC_NO),
-  // COMBO(keys_l_bot_trpi,      KC_NO),
+  // COMBO(keys_l_bot_rech,         KC_NO),
+  // COMBO(keys_l_bot_trpi,         KC_NO),
   COMBO(keys_l_bot_innr,         LGUI(KC_Z)),
-  // COMBO(keys_l_bot_trpm,      KC_NO),
-  // COMBO(keys_l_bot_outr,      KC_NO)
-  // COMBO(keys_l_bot_topm,      KC_NO),
-  // COMBO(keys_l_bot_edge,      KC_NO),
+  COMBO(keys_l_bot_trpm,         SS_LASTARG),
+  // COMBO(keys_l_bot_outr,         KC_NO)
+  // COMBO(keys_l_bot_topm,         KC_NO),
+  // COMBO(keys_l_bot_edge,         KC_NO),
   COMBO(keys_l_bot_sprd,         KC_ESC),
   //======================================================================================
   /* Left middle/bottom row */

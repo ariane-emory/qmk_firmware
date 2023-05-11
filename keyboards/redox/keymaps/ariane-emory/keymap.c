@@ -71,7 +71,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     SEND_STRING_WITHOUT_MODS_CASE(SS_TILD,       "~");
     SEND_STRING_WITHOUT_MODS_CASE(SS_TILD_SLASH, "~/");
     SEND_STRING_WITHOUT_MODS_CASE(SS_UPDIR,      "../");
-    SEND_STRING_WITHOUT_MODS_CASE(SS_LASTARG,    "4_");
+    SEND_STRING_WITHOUT_MODS_CASE(SS_LASTARG,    " 4_");
   default:
     return true;
   }
