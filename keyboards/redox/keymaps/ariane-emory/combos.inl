@@ -118,20 +118,20 @@ combo_t key_combos[] = {
   // COMBO(keys_l_top_sprd,      KC_NO),
   //======================================================================================
   /* SECTION: Left middle row */
-  // COMBO(keys_l_mid_rech,      KC_NO),
-  // COMBO(keys_l_mid_trpi,      KC_NO),
-  COMBO(keys_l_mid_innr,         SS_GRAV),
-  COMBO(keys_l_mid_trpm,         KC_ENT),
-  COMBO(keys_l_mid_outr,         SS_TILD),
-  // COMBO(keys_l_mid_topm,      KC_NO),
-  COMBO(keys_l_mid_edge,         SS_TILD_SLASH),
-  // COMBO(keys_l_mid_sprd,      KC_NO),
+  COMBO(keys_l_mid_rech,         SS_TILD),
+  COMBO(keys_l_mid_trpi,         SS_TILD_SLASH),
+  COMBO(keys_l_mid_innr,         KC_ENT),
+  // COMBO(keys_l_mid_trpm,         KC_NO),
+  COMBO(keys_l_mid_outr,         SS_GRAV),
+  // COMBO(keys_l_mid_topm,         KC_NO),
+  // COMBO(keys_l_mid_edge,         KC_NO),
+  // COMBO(keys_l_mid_sprd,         KC_NO),
   //======================================================================================
   /* SECTION: Left bottom row */
   // COMBO(keys_l_bot_rech,      KC_NO),
   // COMBO(keys_l_bot_trpi,      KC_NO),
-  // COMBO(keys_l_bot_innr,      KC_NO),
-  COMBO(keys_l_bot_trpm,         LGUI(KC_Z)),
+  COMBO(keys_l_bot_innr,         LGUI(KC_Z)),
+  // COMBO(keys_l_bot_trpm,      KC_NO),
   // COMBO(keys_l_bot_outr,      KC_NO)
   // COMBO(keys_l_bot_topm,      KC_NO),
   // COMBO(keys_l_bot_edge,      KC_NO),
@@ -155,22 +155,22 @@ combo_t key_combos[] = {
   COMBO(keys_r_top_sprd,         LCTL(KC_SPC)),     // mark
   //======================================================================================
   /* SECTION: Right middle row */
-  COMBO(keys_r_mid_rech,         LALT(LGUI(KC_V))), // previous buffer/
+  COMBO(keys_r_mid_rech,         KC_LBRC),          // {
   COMBO(keys_r_mid_trpi,         LALT(LGUI(KC_S))), // shell
-  COMBO(keys_r_mid_innr,         KC_LBRC),          // {
-  COMBO(keys_r_mid_trpm,         KC_ENT),           // <CR>
+  COMBO(keys_r_mid_innr,         KC_ENT),           // <CR>
+  COMBO(keys_r_mid_trpm,         LALT(LGUI(KC_V))), // previous buffer/
   COMBO(keys_r_mid_outr,         KC_RBRC),          // }
-  // COMBO(keys_r_mid_trpo,      KC_NO),            // 
+  COMBO(keys_r_mid_trpo,         KC_NO),            // 
   COMBO(keys_r_mid_edge,         KC_SCLN),          // ;
   COMBO(keys_r_mid_sprd,         KC_EQL),           // =
   //======================================================================================
   /* SECTION: Right bottom row */
-  // COMBO(keys_r_bot_rech,      KC_NO),
-  // COMBO(keys_r_bot_trpi,      KC_NO),
-  // COMBO(keys_r_bot_innr,      KC_NO),
-  COMBO(keys_r_bot_trpm,         LGUI(KC_Z)),
-  // COMBO(keys_r_bot_outr,      KC_NO),
-  // COMBO(keys_r_bot_trpo,      KC_NO),
+  COMBO(keys_r_bot_rech,         KC_NO),
+  COMBO(keys_r_bot_trpi,         KC_NO),
+  COMBO(keys_r_bot_innr,         LGUI(KC_Z)),
+  COMBO(keys_r_bot_trpm,         KC_NO),
+  COMBO(keys_r_bot_outr,         KC_NO),
+  COMBO(keys_r_bot_trpo,         KC_NO),
   COMBO(keys_r_bot_edge,         SS_UPDIR),
   COMBO(keys_r_bot_sprd,         KC_ESC),  
   //======================================================================================
