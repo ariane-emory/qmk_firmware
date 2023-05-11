@@ -34,14 +34,14 @@ void keyboard_post_init_user(void) {
 
 #define SEND_STRING_WITHOUT_MODS_CASE(kc, str)                                  \
   case kc:                                                                      \
-    if (record->event.pressed)                                                  \
-    {                                                                           \
-      const uint8_t current_mods = get_mods();                                  \
-      clear_mods();                                                             \
-      SEND_STRING(str);                                                         \
-      set_mods(current_mods);                                                   \
-    }                                                                           \
-    return false;
+  if (record->event.pressed)                                                    \
+  {                                                                             \
+    const uint8_t current_mods = get_mods();                                    \
+    clear_mods();                                                               \
+    SEND_STRING(str);                                                           \
+    set_mods(current_mods);                                                     \
+  }                                                                             \
+  return false;
 
 // ==============================================================================
 // Custom keycodes
@@ -71,7 +71,15 @@ KEYRECORD_FUN(process_record_user, bool) {
     SEND_STRING_WITHOUT_MODS_CASE(SS_TILD,       "~");
     SEND_STRING_WITHOUT_MODS_CASE(SS_TILD_SLASH, "~/");
     SEND_STRING_WITHOUT_MODS_CASE(SS_UPDIR,      "../");
-    SEND_STRING_WITHOUT_MODS_CASE(SS_LASTARG,    " 4_");
+  case SS_LASTARG:
+    if (record->event.pressed)
+    {
+      const uint8_t current_mods = get_mods();
+      clear_mods();
+      SEND_STRING(SS_LCTL("c") SS_DELAY(50) ".");
+      set_mods(current_mods);
+    }
+    return false;
   default:
     return true;
   }
