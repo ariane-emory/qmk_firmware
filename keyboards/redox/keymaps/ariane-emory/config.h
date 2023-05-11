@@ -69,7 +69,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 225
 #define TAPPING_TERM_PER_KEY
 
-#define TRI_LAYER_ADJUST_LAYER 12
+#define TRI_LAYER_ADJUST_LAYER 11
 #define TRI_LAYER_LOWER_LAYER 5
 #define TRI_LAYER_UPPER_LAYER 6
 
