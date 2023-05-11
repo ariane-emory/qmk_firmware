@@ -147,7 +147,7 @@ combo_t key_combos[] = {
   /* SECTION: Right top row */
   COMBO(keys_r_top_rech,         SS_LPAR),          // (
   COMBO(keys_r_top_trpi,         LCTL(KC_K)),       // kill line
-  // COMBO(keys_r_top_innr,         LCTL(KC_SPC)),     // mark
+  COMBO(keys_r_top_innr,         SS_LPAR),          // (
   COMBO(keys_r_top_trpm,         LCTL(KC_Y)),       // yank
   COMBO(keys_r_top_outr,         SS_RPAR),          // )
   COMBO(keys_r_top_trpo,         LCTL(KC_W)),       // kill region
