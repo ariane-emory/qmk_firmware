@@ -155,6 +155,7 @@ KEYRECORD_FUN(get_tapping_term, uint16_t) {
 // Undefine local macros
 // ==============================================================================
 
+#undef KC_CASE
 #undef KEYRECORD_FUN
 #undef MANAGE_TOGGLED_LAYER_TIMEOUT
 #undef SEND_STRING_WITHOUT_MODS
