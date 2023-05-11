@@ -190,7 +190,7 @@ bool combo_should_trigger(
   keyrecord_t *record) {
   return (layer_state_is(0) ||
           layer_state_is(7) ||
-          (layer_state_is(2) && combo_index <= 10));
+          (layer_state_is(2) && combo_index <= 7));
 }
 //========================================================================================
 
