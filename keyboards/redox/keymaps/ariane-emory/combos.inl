@@ -118,11 +118,11 @@ combo_t key_combos[] = {
   // COMBO(keys_l_top_sprd,         KC_NO),
   //======================================================================================
   /* SECTION: Left middle row */
-  COMBO(keys_l_mid_rech,         SS_TILD),
-  COMBO(keys_l_mid_trpi,         SS_TILD_SLASH),
+  COMBO(keys_l_mid_rech,         SS_GRAV),
+  // COMBO(keys_l_mid_trpi,         KC_NO),
   COMBO(keys_l_mid_innr,         KC_ENT),
-  // COMBO(keys_l_mid_trpm,         KC_NO),
-  COMBO(keys_l_mid_outr,         SS_GRAV),
+  COMBO(keys_l_mid_trpm,         SS_TILD_SLASH),
+  COMBO(keys_l_mid_outr,         SS_TILD),
   // COMBO(keys_l_mid_topm,         KC_NO),
   // COMBO(keys_l_mid_edge,         KC_NO),
   // COMBO(keys_l_mid_sprd,         KC_NO),
