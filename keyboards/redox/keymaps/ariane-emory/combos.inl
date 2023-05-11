@@ -167,7 +167,7 @@ combo_t key_combos[] = {
   /* SECTION: Right bottom row */
   // COMBO(keys_r_bot_rech,      KC_NO),
   // COMBO(keys_r_bot_trpi,      KC_NO),
-  COMBO(keys_r_bot_innr,         KC_NO),
+  // COMBO(keys_r_bot_innr,      KC_NO),
   COMBO(keys_r_bot_trpm,         LGUI(KC_Z)),
   // COMBO(keys_r_bot_outr,      KC_NO),
   // COMBO(keys_r_bot_trpo,      KC_NO),
