@@ -97,25 +97,25 @@ combo_t key_combos[] = {
   //======================================================================================
   // Bind left hand combos
   //======================================================================================
-  /* SECTION: Left num row */ 
-  // COMBO(keys_l_num_rech,      KC_NO),
-  // COMBO(keys_l_num_trpi,      KC_NO),
-  // COMBO(keys_l_num_innr,      KC_NO),
-  // COMBO(keys_l_num_trpm,      KC_NO),
-  // COMBO(keys_l_num_outr,      KC_NO),
-  // COMBO(keys_l_num_trpo,      KC_NO),
-  // COMBO(keys_l_num_edge,      KC_NO),
-  // COMBO(keys_l_num_sprd,      KC_NO),
+  /* SECTION: Left num row */
+  COMBO(keys_l_num_rech,         DF(3)),
+  // COMBO(keys_l_num_trpi,         KC_NO),
+  COMBO(keys_l_num_innr,         DF(2)),        
+  // COMBO(keys_l_num_trpm,         KC_NO),
+  COMBO(keys_l_num_outr,         DF(1)),        
+  // COMBO(keys_l_num_trpo,         KC_NO),
+  COMBO(keys_l_num_edge,         DF(0)),
+  // COMBO(keys_l_num_sprd,         KC_NO),
   //======================================================================================
-  /* SECTION: Left top row */
-  // COMBO(keys_l_top_rech,      KC_NO),
-  COMBO(keys_l_top_trpi,         DF(2)),
-  // COMBO(keys_l_top_innr,      KC_NO),
-  COMBO(keys_l_top_trpm,         DF(0)),
-  // COMBO(keys_l_top_outr,      KC_NO),        
-  COMBO(keys_l_top_trpo,         DF(1)),
-  // COMBO(keys_l_top_edge,      KC_NO),
-  // COMBO(keys_l_top_sprd,      KC_NO),
+  /* SECTION: Left top row */ 
+  // COMBO(keys_l_top_rech,         KC_NO),
+  // COMBO(keys_l_top_trpi,         KC_NO),
+  // COMBO(keys_l_top_innr,         KC_NO),
+  // COMBO(keys_l_top_trpm,         KC_NO),
+  // COMBO(keys_l_top_outr,         KC_NO),
+  // COMBO(keys_l_top_trpo,         KC_NO),
+  // COMBO(keys_l_top_edge,         KC_NO),
+  // COMBO(keys_l_top_sprd,         KC_NO),
   //======================================================================================
   /* SECTION: Left middle row */
   COMBO(keys_l_mid_rech,         SS_TILD),
@@ -189,8 +189,10 @@ bool combo_should_trigger(
   uint16_t keycode,
   keyrecord_t *record) {
   return (layer_state_is(0) ||
-          layer_state_is(7) ||
-          (layer_state_is(2) && combo_index <= 8));
+          layer_state_is(1) ||
+          layer_state_is(2) ||
+          layer_state_is(3) ||
+          (layer_state_is(4 ) && combo_index <= 8));
 }
 //========================================================================================
 
