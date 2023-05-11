@@ -32,16 +32,21 @@ void keyboard_post_init_user(void) {
     key_timer = timer_read();                                                   \
   }
 
-#define SEND_STRING_WITHOUT_MODS_CASE(kc, str)                                  \
-  case kc:                                                                      \
-  if (record->event.pressed)                                                    \
+#define SEND_STRING_WITHOUT_MODS(str)                                           \
   {                                                                             \
     const uint8_t current_mods = get_mods();                                    \
     clear_mods();                                                               \
     SEND_STRING(str);                                                           \
     set_mods(current_mods);                                                     \
+  }                                                                             
+
+#define KC_CASE(kc, blk)                                                        \
+  case kc:                                                                      \
+  if (record->event.pressed)                                                    \
+  {                                                                             \
+    blk;                                                                        \
   }                                                                             \
-  return false;
+  return false;                                                                 
 
 // ==============================================================================
 // Custom keycodes
@@ -65,15 +70,15 @@ KEYRECORD_FUN(process_record_user, bool) {
   MANAGE_TOGGLED_LAYER_TIMEOUT(4, TOGGLED_LAYER_TIMEOUT);
   
   switch (keycode) {
-    SEND_STRING_WITHOUT_MODS_CASE(SS_PIN1,       AE_PIN1);
-    SEND_STRING_WITHOUT_MODS_CASE(SS_PIN2,       AE_PIN2);
-    SEND_STRING_WITHOUT_MODS_CASE(SS_GRAV,       "`");
-    SEND_STRING_WITHOUT_MODS_CASE(SS_LPAR,       "9");
-    SEND_STRING_WITHOUT_MODS_CASE(SS_RPAR,       "0");
-    SEND_STRING_WITHOUT_MODS_CASE(SS_TILD,       "~");
-    SEND_STRING_WITHOUT_MODS_CASE(SS_TILD_SLASH, " ~/");
-    SEND_STRING_WITHOUT_MODS_CASE(SS_UPDIR,      "../");
-    SEND_STRING_WITHOUT_MODS_CASE(SS_LASTARG,    " "SS_LCTL("c")SS_DELAY(50)".");
+    KC_CASE(SS_PIN1,       SEND_STRING_WITHOUT_MODS(AE_PIN1));
+    KC_CASE(SS_PIN2,       SEND_STRING_WITHOUT_MODS(AE_PIN2));
+    KC_CASE(SS_GRAV,       SEND_STRING_WITHOUT_MODS("`"));
+    KC_CASE(SS_LPAR,       SEND_STRING_WITHOUT_MODS("9"));
+    KC_CASE(SS_RPAR,       SEND_STRING_WITHOUT_MODS("0"));
+    KC_CASE(SS_TILD,       SEND_STRING_WITHOUT_MODS("~"));
+    KC_CASE(SS_TILD_SLASH, SEND_STRING_WITHOUT_MODS(" ~/"));
+    KC_CASE(SS_UPDIR,      SEND_STRING_WITHOUT_MODS("../"));
+    KC_CASE(SS_LASTARG,    SEND_STRING_WITHOUT_MODS(" "SS_LCTL("c")SS_DELAY(50)"."));
   default:
     return true;
   }
