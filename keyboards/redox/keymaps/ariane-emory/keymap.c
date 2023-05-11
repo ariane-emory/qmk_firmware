@@ -59,7 +59,7 @@ enum arianes_keycodes {
 };
   
 KEYRECORD_FUN(process_record_user, bool) {
-  MANAGE_TOGGLED_LAYER_TIMEOUT(4, 30000);
+  MANAGE_TOGGLED_LAYER_TIMEOUT(4, TOGGLED_LAYER_TIMEOUT);
   
   switch (keycode) {
     SEND_STRING_WITHOUT_MODS_CASE(SS_PIN1,       AE_PIN1);

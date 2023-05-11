@@ -69,6 +69,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 225
 #define TAPPING_TERM_PER_KEY
 
+#define TOGGLED_LAYER_TIMEOUT 60000
+
 #define TRI_LAYER_ADJUST_LAYER 13
 #define TRI_LAYER_LOWER_LAYER 7
 #define TRI_LAYER_UPPER_LAYER 8
