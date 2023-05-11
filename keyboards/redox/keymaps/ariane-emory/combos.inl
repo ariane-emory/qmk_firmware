@@ -96,7 +96,7 @@ DEFINE_COMBO_KEYS(r_pinky_dip,       KC_J,    KC_SLASH);
 combo_t key_combos[] = {
   //======================================================================================
   // Bind left hand combos
-  //======================================================================================
+  //================================================================================s======
   /* SECTION: Left num row */
   COMBO(keys_l_num_rech,         DF(3)),
   // COMBO(keys_l_num_trpi,         KC_NO),
@@ -118,13 +118,13 @@ combo_t key_combos[] = {
   // COMBO(keys_l_top_sprd,         KC_NO),
   //======================================================================================
   /* SECTION: Left middle row */
-  COMBO(keys_l_mid_rech,         SS_GRAV),
+  // COMBO(keys_l_mid_rech,         KC_NO),
   // COMBO(keys_l_mid_trpi,         KC_NO),
   COMBO(keys_l_mid_innr,         KC_ENT),
   COMBO(keys_l_mid_trpm,         SS_TILD_SLASH),
   COMBO(keys_l_mid_outr,         SS_TILD),
   // COMBO(keys_l_mid_trpo,         KC_NO),
-  COMBO(keys_l_mid_edge,         SS_LASTARG),
+  COMBO(keys_l_mid_edge,         SS_GRAV),
   COMBO(keys_l_mid_sprd,         SS_LASTARG),
 //======================================================================================
   /* SECTION: Left bottom row */
