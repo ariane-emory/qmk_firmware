@@ -29,13 +29,13 @@ DEFINE_COMBO_KEYS(l_top_innr,    KC_E,            KC_R);
 DEFINE_COMBO_KEYS(l_top_outr,    KC_W,            KC_E);
 //========================================================================================
 /* Left middle row */
-DEFINE_COMBO_KEYS(l_mid_trpi,    LALT_T(KC_D),    LCTL_(KC_F),       KC_G);
-DEFINE_COMBO_KEYS(l_mid_trpm,    LGUI_T(KC_S),    LALT_T(KC_D),      LCTL_(KC_F));
+DEFINE_COMBO_KEYS(l_mid_trpi,    LALT_T(KC_D),    LCTL_T(KC_F),      KC_G);
+DEFINE_COMBO_KEYS(l_mid_trpm,    LGUI_T(KC_S),    LALT_T(KC_D),      LCTL_T(KC_F));
 DEFINE_COMBO_KEYS(l_mid_trpo,    LSFT_T(KC_A),    LGUI_T(KC_S),      LALT_T(KC_D));
-DEFINE_COMBO_KEYS(l_mid_sprd,    LGUI_T(KC_S),    LCTL_(KC_F));
-DEFINE_COMBO_KEYS(l_mid_rech,    LCTL_(KC_F),     KC_G);
+DEFINE_COMBO_KEYS(l_mid_sprd,    LGUI_T(KC_S),    LCTL_T(KC_F));
+DEFINE_COMBO_KEYS(l_mid_rech,    LCTL_T(KC_F),    KC_G);
 DEFINE_COMBO_KEYS(l_mid_edge,    LSFT_T(KC_A),    LGUI_T(KC_S));
-DEFINE_COMBO_KEYS(l_mid_innr,    LALT_T(KC_D),    LCTL_(KC_F));
+DEFINE_COMBO_KEYS(l_mid_innr,    LALT_T(KC_D),    LCTL_T(KC_F));
 DEFINE_COMBO_KEYS(l_mid_outr,    LGUI_T(KC_S),    LALT_T(KC_D));
 //========================================================================================
 /* Left bottom row */
@@ -49,7 +49,7 @@ DEFINE_COMBO_KEYS(l_bot_innr,    KC_C,            KC_V);
 DEFINE_COMBO_KEYS(l_bot_outr,    KC_X,            KC_C);
 //========================================================================================
 /* Left middle/bottom row */
-DEFINE_COMBO_KEYS(l_pinky_dip,   LCTL_(KC_F),     KC_Z);
+DEFINE_COMBO_KEYS(l_pinky_dip,   LCTL_T(KC_F),    KC_Z);
 //========================================================================================
 
 //========================================================================================

@@ -72,7 +72,7 @@ enum arianes_keycodes {
 KEYRECORD_FUN(process_record_user, bool) {
   MANAGE_TOGGLED_LAYER_TIMEOUT(4, TOGGLED_LAYER_TIMEOUT);
 
-  // if (!process_achordion(keycode, record)) { return false; }
+  if (!process_achordion(keycode, record)) { return false; }
   
   switch (keycode) {
     KC_CASE(SS_PIN1,       SEND_STRING_WITHOUT_MODS(AE_PIN1));
@@ -99,24 +99,29 @@ bool achordion_chord(
   keyrecord_t* tap_hold_record,
   uint16_t other_keycode,
   keyrecord_t* other_record) {
-  return true;
-  
-  // Exceptionalley consider the following chords as holds:
-  switch (tap_hold_keycode) {
-  case LCTL_T(KC_ESC):
-  case RCTL_T(KC_SCLN):
-  case LSFT_T(KC_MINS):
-  case RSFT_T(KC_MINS):
-    return true;
-  case MT(MOD_LALT,KC_SPC):  
-    if (other_keycode >= KC_RIGHT && other_keycode <= KC_UP) {
-      return true;
-    }
-    break;
-  }
+  if (
+    tap_hold_keycode == LCTL_T(KC_F)    ||
+    tap_hold_keycode == LALT_T(KC_D)    ||
+    tap_hold_keycode == LGUI_T(KC_S)    ||
+    tap_hold_keycode == LSFT_T(KC_A)    ||
+    tap_hold_keycode == RCTL_T(KC_J)    ||
+    tap_hold_keycode == RALT_T(KC_K)    ||
+    tap_hold_keycode == RGUI_T(KC_L)    ||
+    tap_hold_keycode == RSFT_T(KC_QUOT)
+      )
+    // Require bilateral
+    return achordion_opposite_hands(tap_hold_record, other_record);
 
-  // Otherwise, follow the opposite hands rule.
-  return achordion_opposite_hands(tap_hold_record, other_record);
+  if (tap_hold_keycode == MT(MOD_LALT,KC_SPC)) {
+    if (other_keycode == KC_LEFT  ||
+        other_keycode == KC_DOWN  ||
+        other_keycode == KC_UP    ||
+        other_keycode == KC_RIGHT)
+      return false; // tap
+  }
+  
+  // Process normally
+  return true;
 }
 
 // ==============================================================================
