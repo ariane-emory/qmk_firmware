@@ -154,6 +154,14 @@ KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
 KEYRECORD_FUN(get_permissive_hold, bool) {
   switch (keycode) {
   case MT(MOD_LALT,KC_SPC):
+  case LCTL_T(KC_F):
+  case LALT_T(KC_D):
+  case LGUI_T(KC_S):
+  case LSFT_T(KC_A):
+  case RCTL_T(KC_J):
+  case RALT_T(KC_K):
+  case RGUI_T(KC_L):
+  case RSFT_T(KC_QUOT):
     // Do not select the hold action when another key is tapped.
     return false;
   default:
