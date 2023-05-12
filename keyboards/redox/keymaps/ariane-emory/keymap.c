@@ -99,8 +99,15 @@ bool achordion_chord(
   keyrecord_t* tap_hold_record,
   uint16_t other_keycode,
   keyrecord_t* other_record) {
+  return true;
+  
   // Exceptionalley consider the following chords as holds:
   switch (tap_hold_keycode) {
+  case LCTL_T(KC_ESC):
+  case RCTL_T(KC_SCLN):
+  case LSFT_T(KC_MINS):
+  case RSFT_T(KC_MINS):
+    return true;
   case MT(MOD_LALT,KC_SPC):  
     if (other_keycode >= KC_RIGHT && other_keycode <= KC_UP) {
       return true;
@@ -109,7 +116,7 @@ bool achordion_chord(
   }
 
   // Otherwise, follow the opposite hands rule.
-    return achordion_opposite_hands(tap_hold_record, other_record);
+  return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
 // ==============================================================================
