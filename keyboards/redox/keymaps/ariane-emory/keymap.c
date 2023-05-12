@@ -1,5 +1,7 @@
 #include QMK_KEYBOARD_H
 
+#include "features/achordion.h"
+
 // #define AE_PIN1 and AE_PIN2 in this file:
 #include "secrets.h"
 
@@ -69,6 +71,8 @@ enum arianes_keycodes {
   
 KEYRECORD_FUN(process_record_user, bool) {
   MANAGE_TOGGLED_LAYER_TIMEOUT(4, TOGGLED_LAYER_TIMEOUT);
+
+  if (!process_achordion(keycode, record)) { return false; }
   
   switch (keycode) {
     KC_CASE(SS_PIN1,       SEND_STRING_WITHOUT_MODS(AE_PIN1));
@@ -84,6 +88,28 @@ KEYRECORD_FUN(process_record_user, bool) {
   default:
     return true;
   }
+}
+
+void matrix_scan_user(void) {
+  achordion_task();
+}
+
+bool achordion_chord(
+  uint16_t tap_hold_keycode,
+  keyrecord_t* tap_hold_record,
+  uint16_t other_keycode,
+  keyrecord_t* other_record) {
+  // Exceptionalley consider the following chords as holds:
+  switch (tap_hold_keycode) {
+  case MT(MOD_LALT,KC_SPC):  
+    if (other_keycode >= KC_RIGHT && other_keycode <= KC_UP) {
+      return true;
+    }
+    break;
+  }
+
+  // Otherwise, follow the opposite hands rule.
+    return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
 // ==============================================================================

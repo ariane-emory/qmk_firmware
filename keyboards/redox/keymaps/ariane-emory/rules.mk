@@ -12,3 +12,5 @@ COMBO_ENABLE       = yes
 LTO_ENABLE         = yes
 SEND_STRING_ENABLE = yes
 TRI_LAYER_ENABLE   = yes
+
+SRC += features/achordion.c
