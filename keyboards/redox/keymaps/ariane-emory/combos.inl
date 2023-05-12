@@ -133,7 +133,7 @@ combo_t key_combos[] = {
   COMBO(keys_l_bot_innr,         LGUI(KC_Z)),
   COMBO(keys_l_bot_trpm,         SS_LASTARG),
   COMBO(keys_l_bot_outr,         LCTL(KC_C)),
-  // COMBO(keys_l_bot_topm,         KC_NO),
+  // COMBO(keys_l_bot_trpo,         KC_NO),
   COMBO(keys_l_bot_edge,         LCTL(KC_X)),
   COMBO(keys_l_bot_sprd,         KC_ESC),
   //======================================================================================
