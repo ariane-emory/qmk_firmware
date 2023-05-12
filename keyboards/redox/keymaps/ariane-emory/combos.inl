@@ -132,9 +132,9 @@ combo_t key_combos[] = {
   // COMBO(keys_l_bot_trpi,         KC_NO),
   COMBO(keys_l_bot_innr,         LGUI(KC_Z)),
   COMBO(keys_l_bot_trpm,         SS_LASTARG),
-  // COMBO(keys_l_bot_outr,         KC_NO)
-  // COMBO(keys_l_bot_topm,         KC_NO),
-  // COMBO(keys_l_bot_edge,         KC_NO),
+  COMBO(keys_l_bot_outr,         LCTL(KX_C),
+        // COMBO(keys_l_bot_topm,         KC_NO),
+  COMBO(keys_l_bot_edge,         LCTL(KC_X)),
   COMBO(keys_l_bot_sprd,         KC_ESC),
   //======================================================================================
   /* Left middle/bottom row */
@@ -194,7 +194,7 @@ bool combo_should_trigger(
           layer_state_is(3) ||
           layer_state_is(4) ||
           layer_state_is(5) ||
-          (layer_state_is(6) && combo_index <= 8));
+          (layer_state_is(6) && combo_index <= 10));
 }
 //========================================================================================
 
