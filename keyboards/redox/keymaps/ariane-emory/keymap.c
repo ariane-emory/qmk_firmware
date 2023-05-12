@@ -161,6 +161,7 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
 // Autoshift
 // ==============================================================================
 
+#ifdef AUTO_SHIFT_ENABLE
 KEYRECORD_FUN(get_autoshift_timeout, uint16_t) {
   switch(keycode) {
   case AUTO_SHIFT_ALPHA:
@@ -172,6 +173,7 @@ KEYRECORD_FUN(get_autoshift_timeout, uint16_t) {
     return get_generic_autoshift_timeout();
   }
 }
+#endif
 
 // ==============================================================================
 // Tapping term
