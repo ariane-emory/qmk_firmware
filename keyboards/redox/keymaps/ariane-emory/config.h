@@ -72,6 +72,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TOGGLED_LAYER_TIMEOUT 40000
 
 #define TRI_LAYER_ADJUST_LAYER 13
-#define TRI_LAYER_LOWER_LAYER 7
+#define TRI_LAYER_LOWER_LAYER 6
 #define TRI_LAYER_UPPER_LAYER 8
 
