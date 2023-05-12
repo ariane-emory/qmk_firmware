@@ -111,13 +111,13 @@ bool achordion_chord(
       )
     // Require bilateral
     return achordion_opposite_hands(tap_hold_record, other_record);
-
+  
   /* if (tap_hold_keycode == MT(MOD_LALT,KC_SPC)) { */
   /*   if (other_keycode == KC_LEFT  || */
   /*       other_keycode == KC_DOWN  || */
   /*       other_keycode == KC_UP    || */
   /*       other_keycode == KC_RIGHT) */
-  /*     return true; // tap */
+  /*     return true; */
   /* } */
   
   // Process normally
