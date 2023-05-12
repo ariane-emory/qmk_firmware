@@ -64,6 +64,7 @@ enum arianes_keycodes {
   SS_TILD_SLASH,
   SS_UPDIR,
   SS_LASTARG,
+  SS_REPEAT,
 };
   
 KEYRECORD_FUN(process_record_user, bool) {
@@ -79,6 +80,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_CASE(SS_TILD_SLASH, SEND_STRING_WITHOUT_MODS(" ~/"));
     KC_CASE(SS_UPDIR,      SEND_STRING_WITHOUT_MODS("../"));
     KC_CASE(SS_LASTARG,    SEND_STRING_WITHOUT_MODS(" "SS_LCTL("c")SS_DELAY(50)"."));
+    KC_CASE(SS_REPEAT,     SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
   default:
     return true;
   }
