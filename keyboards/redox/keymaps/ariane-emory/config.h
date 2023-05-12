@@ -38,7 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* #define RGBLIGHT_SAT_STEP 8 */
 /* #define RGBLIGHT_VAL_STEP 8 */
 
-#define AUTO_SHIFT_MODIFIERS
+// #define AUTO_SHIFT_MODIFIERS
 #define AUTO_SHIFT_REPEAT
 #define AUTO_SHIFT_TIMEOUT 150
 #define AUTO_SHIFT_TIMEOUT_PER_KEY 
