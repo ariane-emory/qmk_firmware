@@ -66,8 +66,6 @@ void keyboard_post_init_user(void) {
 // Custom keycodes
 // ==============================================================================
 
-#define SS_LASTARG_STR SS_LCTL("c") SS_DELAY(50) "."
-
 enum arianes_keycodes {
   SS_PIN1 = SAFE_RANGE,
   SS_PIN2,
