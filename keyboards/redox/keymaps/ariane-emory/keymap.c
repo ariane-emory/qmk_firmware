@@ -110,9 +110,11 @@ void matrix_scan_user(void) {
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
   
   if (IS_LAYER_ON(TOGGLED_LAYER))
-    rgblight_enable_noeeprom();
+    rgblight_sethsv_noeeprom(HSV_RED);
+  // rgblight_enable_noeeprom();
   else
-    rgblight_disable_noeeprom();
+    rgblight_sethsv_noeeprom(HSV_GREEN);
+  // rgblight_disable_noeeprom();
 }
 
 // ==============================================================================
