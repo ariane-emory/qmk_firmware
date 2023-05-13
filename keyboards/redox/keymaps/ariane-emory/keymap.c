@@ -81,9 +81,11 @@ enum arianes_keycodes {
 };
 
 static uint16_t idle_timer = 0;
+static bool asleep = false;
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
+  asleep = false;
 
   if (!process_achordion(keycode, record)) { return false; }
   
@@ -109,8 +111,9 @@ void matrix_scan_user(void) {
 
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
 
-  if (timer_elapsed(idle_timer) >= RGB_TIMEOUT)
+  if (asleep || timer_elapsed(idle_timer) >= RGB_TIMEOUT)
   {
+    asleep = true;
     rgblight_sethsv_noeeprom(HSV_BLACK);
   }
   else if (IS_LAYER_ON(TOGGLED_LAYER)) {
