@@ -85,7 +85,7 @@ enum arianes_keycodes {
 };
   
 KEYRECORD_FUN(process_record_user, bool) {
-  MANAGE_TOGGLED_LAYER_TIMEOUT(4, TOGGLED_LAYER_TIMEOUT);
+  MANAGE_TOGGLED_LAYER_TIMEOUT(6, TOGGLED_LAYER_TIMEOUT);
 
   if (!process_achordion(keycode, record)) { return false; }
   
