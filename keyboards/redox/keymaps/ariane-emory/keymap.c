@@ -120,7 +120,7 @@ void matrix_scan_user(void) {
     rgblight_sethsv_noeeprom(HSV_RED);
   }
   else {
-    rgblight_sethsv_noeeprom(HSV_CHARTREUSE);
+    rgblight_sethsv_noeeprom(HSV_PURPLE);
   }
 }
 
