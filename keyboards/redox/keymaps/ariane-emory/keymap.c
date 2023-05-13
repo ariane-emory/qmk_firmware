@@ -104,16 +104,16 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_CASE(SS_LASTARG,    SEND_STRING_WITHOUT_MODS(" "SS_LCTL("c")SS_DELAY(50)"."));
     KC_CASE(SS_REPEAT,     SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
   case INSERT_UPP:
-    if (record->event.pressed)
+    if (record->event.pressed) {
+      register_code(KC_LSFT);
       for (uint8_t ix = 0; ix < 6; ix++) {
         static const uint16_t hex_keycodes[] = { KC_0, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_A, KC_B, KC_C, KC_D, KC_E, KC_F, };
         const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
-        if (roll > 9)
-          register_code(KC_LSFT);
         tap_code(hex_keycodes[roll]);
-        if (roll > 9)
-          unregister_code(KC_LSFT);
       }
+      unregister_code(KC_LSFT);
+      tap_code(KC_ENTER);
+    }
     return false;
   default:
     return true;
