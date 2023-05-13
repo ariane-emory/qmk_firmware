@@ -42,7 +42,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_SHIFT_REPEAT
 #define AUTO_SHIFT_TIMEOUT 150
 #define AUTO_SHIFT_TIMEOUT_PER_KEY
-#define NO_AUTO_SHIFT_ALPHA
+// #define NO_AUTO_SHIFT_ALPHA
+#define RETRO_SHIFT
 
 #define COMBO_ONLY_FROM_LAYER 0
 #define COMBO_SHOULD_TRIGGER
@@ -65,7 +66,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define IGNORE_MOD_TAP_INTERRUPT
 //#define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
-//#define RETRO_SHIFT
 
 #define TAPPING_TERM 225
 #define TAPPING_TERM_PER_KEY
