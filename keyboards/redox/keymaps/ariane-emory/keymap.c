@@ -29,6 +29,7 @@ void keyboard_post_init_user(void) {
   /* debug_matrix=true; */
   /* debug_keyboard=true; */
   /* debug_mouse=true; */
+  // rgblight_enable();
 }
 
 // ==============================================================================
@@ -38,16 +39,13 @@ void keyboard_post_init_user(void) {
 #define KEYRECORD_FUN(name, t)                                                  \
   t name(uint16_t keycode, keyrecord_t *record)
 
-#define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms)                 \
+#define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms, timer)          \
   {                                                                             \
-    static uint16_t key_timer = 0;                                              \
     if (layer_state_is(layer) &&                                                \
-        timer_elapsed(key_timer) >= idle_time_limit_ms) {                       \
+        timer_elapsed(timer) >= idle_time_limit_ms)                             \
       layer_off(layer);                                                         \
-    }                                                                           \
-    key_timer = timer_read();                                                   \
-  }
-
+  }                                                                             
+  
 #define SEND_STRING_WITHOUT_MODS(str)                                           \
   {                                                                             \
     const uint8_t current_mods = get_mods();                                    \
@@ -68,23 +66,26 @@ void keyboard_post_init_user(void) {
 // Custom keycodes
 // ==============================================================================
 
-#define SS_LASTARG_STR SS_LCTL("c") SS_DELAY(50) "."
-
 enum arianes_keycodes {
   SS_PIN1 = SAFE_RANGE,
   SS_PIN2,
   SS_GRAV,
   SS_LPAR,
   SS_RPAR,
+  SS_RPAR_SCLN,
   SS_TILD,
   SS_TILD_SLASH,
   SS_UPDIR,
   SS_LASTARG,
   SS_REPEAT,
 };
-  
+
+static uint16_t idle_timer = 0;
+static bool asleep = false;
+
 KEYRECORD_FUN(process_record_user, bool) {
-  MANAGE_TOGGLED_LAYER_TIMEOUT(6, TOGGLED_LAYER_TIMEOUT);
+  idle_timer = timer_read();
+  asleep = false;
 
   if (!process_achordion(keycode, record)) { return false; }
   
@@ -94,6 +95,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_CASE(SS_GRAV,       SEND_STRING_WITHOUT_MODS("`"));
     KC_CASE(SS_LPAR,       SEND_STRING_WITHOUT_MODS("9"));
     KC_CASE(SS_RPAR,       SEND_STRING_WITHOUT_MODS("0"));
+    KC_CASE(SS_RPAR_SCLN,  SEND_STRING_WITHOUT_MODS("0;"));
     KC_CASE(SS_TILD,       SEND_STRING_WITHOUT_MODS("~"));
     KC_CASE(SS_TILD_SLASH, SEND_STRING_WITHOUT_MODS(" ~/"));
     KC_CASE(SS_UPDIR,      SEND_STRING_WITHOUT_MODS("../"));
@@ -106,7 +108,25 @@ KEYRECORD_FUN(process_record_user, bool) {
 
 void matrix_scan_user(void) {
   achordion_task();
+
+  MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
+
+  if (asleep || timer_elapsed(idle_timer) >= RGB_TIMEOUT)
+  {
+    asleep = true;
+    rgblight_sethsv_noeeprom(HSV_ASLEEP);
+  }
+  else if (IS_LAYER_ON(TOGGLED_LAYER)) {
+    rgblight_sethsv_noeeprom(HSV_TOGGLED_LAYER_ON);
+  }
+  else {
+    rgblight_sethsv_noeeprom(HSV_TOGGLED_LAYER_OFF);
+  }
 }
+
+// ==============================================================================
+// Achordion
+// ==============================================================================
 
 bool achordion_chord(
   uint16_t tap_hold_keycode,
@@ -114,25 +134,27 @@ bool achordion_chord(
   uint16_t other_keycode,
   keyrecord_t* other_record) {
   if (
-    tap_hold_keycode == LCTL_T(KC_F)    ||
-    tap_hold_keycode == LALT_T(KC_D)    ||
-    tap_hold_keycode == LGUI_T(KC_S)    ||
-    tap_hold_keycode == LSFT_T(KC_A)    ||
-    tap_hold_keycode == RCTL_T(KC_J)    ||
-    tap_hold_keycode == RALT_T(KC_K)    ||
-    tap_hold_keycode == RGUI_T(KC_L)    ||
-    tap_hold_keycode == RSFT_T(KC_QUOT)
+    (IS_LAYER_ON(0) && (
+      tap_hold_keycode == LCTL_T(KC_F)    ||
+      tap_hold_keycode == LALT_T(KC_D)    ||
+      tap_hold_keycode == LGUI_T(KC_S)    ||
+      tap_hold_keycode == LSFT_T(KC_A)    ||
+      tap_hold_keycode == RCTL_T(KC_J)    ||
+      tap_hold_keycode == RALT_T(KC_K)    ||
+      tap_hold_keycode == RGUI_T(KC_L)    ||
+      tap_hold_keycode == RSFT_T(KC_QUOT))) ||
+    (IS_LAYER_ON(1) && (
+      tap_hold_keycode == LCTL_T(KC_T)    ||
+      tap_hold_keycode == LALT_T(KC_S)    ||
+      tap_hold_keycode == LGUI_T(KC_R)    ||
+      tap_hold_keycode == LSFT_T(KC_A)    ||
+      tap_hold_keycode == RCTL_T(KC_N)    ||
+      tap_hold_keycode == RALT_T(KC_E)    ||
+      tap_hold_keycode == RGUI_T(KC_I)    ||
+      tap_hold_keycode == RSFT_T(KC_QUOT)))
       )
-    // Require bilateral
+// Require bilateral
     return achordion_opposite_hands(tap_hold_record, other_record);
-  
-  /* if (tap_hold_keycode == MT(MOD_LALT,KC_SPC)) { */
-  /*   if (other_keycode == KC_LEFT  || */
-  /*       other_keycode == KC_DOWN  || */
-  /*       other_keycode == KC_UP    || */
-  /*       other_keycode == KC_RIGHT) */
-  /*     return true; */
-  /* } */
   
   // Process normally
   return true;
@@ -229,4 +251,3 @@ KEYRECORD_FUN(get_tapping_term, uint16_t) {
 // ==============================================================================
 
 #include "keymap.inl"
-

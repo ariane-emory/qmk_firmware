@@ -33,15 +33,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* #define RGBLIGHT_EFFECT_RGB_TEST */
 /* #define RGBLIGHT_EFFECT_ALTERNATING */
 /* #define RGBLIGHT_EFFECT_TWINKLE */
-/* #define RGBLED_NUM 14 */
-/* #define RGBLIGHT_HUE_STEP 8 */
-/* #define RGBLIGHT_SAT_STEP 8 */
-/* #define RGBLIGHT_VAL_STEP 8 */
+#define RGBLED_NUM 14
+#define RGBLIGHT_HUE_STEP 8
+#define RGBLIGHT_SAT_STEP 8
+#define RGBLIGHT_VAL_STEP 8
 
 // #define AUTO_SHIFT_MODIFIERS
 #define AUTO_SHIFT_REPEAT
 #define AUTO_SHIFT_TIMEOUT 150
-#define AUTO_SHIFT_TIMEOUT_PER_KEY 
+#define AUTO_SHIFT_TIMEOUT_PER_KEY
+#define NO_AUTO_SHIFT_ALPHA
+// #define RETRO_SHIFT
 
 #define COMBO_ONLY_FROM_LAYER 0
 #define COMBO_SHOULD_TRIGGER
@@ -64,12 +66,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define IGNORE_MOD_TAP_INTERRUPT
 //#define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
-//#define RETRO_SHIFT
 
 #define TAPPING_TERM 225
 #define TAPPING_TERM_PER_KEY
 
+#define TOGGLED_LAYER 6
 #define TOGGLED_LAYER_TIMEOUT 20000
+#define RGB_TIMEOUT 40000
+#define HSV_ASLEEP HSV_BLACK
+#define HSV_TOGGLED_LAYER_OFF HSV_RED
+#define HSV_TOGGLED_LAYER_ON  HSV_CHARTREUSE
 
 #define TRI_LAYER_ADJUST_LAYER 13
 #define TRI_LAYER_LOWER_LAYER 7

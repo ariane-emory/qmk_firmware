@@ -145,13 +145,13 @@ combo_t key_combos[] = {
   // Bind right hand combos
   //======================================================================================
   /* SECTION: Right top row */
-  COMBO(keys_r_top_rech,         SS_LPAR),          // (
-  COMBO(keys_r_top_trpi,         LCTL(KC_K)),       // kill line
+  COMBO(keys_r_top_rech,         LCTL(KC_K)),       // kill line
+  // COMBO(keys_r_top_trpi,         KC_NO),            // 
   COMBO(keys_r_top_innr,         SS_LPAR),          // (
   COMBO(keys_r_top_trpm,         LCTL(KC_Y)),       // yank
   COMBO(keys_r_top_outr,         SS_RPAR),          // )
-  COMBO(keys_r_top_trpo,         LCTL(KC_W)),       // kill region
-  // COMBO(keys_r_top_edge,         KC_NO),            // 
+  COMBO(keys_r_top_trpo,         SS_RPAR_SCLN),     // ); 
+  COMBO(keys_r_top_edge,         LCTL(KC_W)),       // kill region
   COMBO(keys_r_top_sprd,         LCTL(KC_SPC)),     // mark
   //======================================================================================
   /* SECTION: Right middle row */
