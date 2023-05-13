@@ -72,7 +72,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TOGGLED_LAYER 6
 #define TOGGLED_LAYER_TIMEOUT 20000
-#define RGB_TIMEOUT 60000
+#define RGB_TIMEOUT 40000
 
 #define TRI_LAYER_ADJUST_LAYER 13
 #define TRI_LAYER_LOWER_LAYER 7
