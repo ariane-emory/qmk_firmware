@@ -41,14 +41,13 @@ void keyboard_post_init_user(void) {
 
 static uint16_t idle_timer = 0;
 
-#define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms)                 \
+#define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms, timer)          \
   {                                                                             \
     if (layer_state_is(layer) &&                                                \
-        timer_elapsed(idle_timer) >= idle_time_limit_ms) {                      \
+        timer_elapsed(timer) >= idle_time_limit_ms)                             \
       layer_off(layer);                                                         \
-    }                                                                           \
-  }
-
+  }                                                                             
+  
 #define SEND_STRING_WITHOUT_MODS(str)                                           \
   {                                                                             \
     const uint8_t current_mods = get_mods();                                    \
@@ -108,9 +107,7 @@ KEYRECORD_FUN(process_record_user, bool) {
 void matrix_scan_user(void) {
   achordion_task();
 
-  if (layer_state_is(TOGGLED_LAYER) && 
-      timer_elapsed(idle_timer) >= TOGGLED_LAYER_TIMEOUT)
-    layer_off(TOGGLED_LAYER);
+  MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
   
   if (IS_LAYER_ON(TOGGLED_LAYER))
     rgblight_enable_noeeprom();
