@@ -29,6 +29,7 @@ void keyboard_post_init_user(void) {
   /* debug_matrix=true; */
   /* debug_keyboard=true; */
   /* debug_mouse=true; */
+  rgblight_enable();
 }
 
 // ==============================================================================
@@ -106,7 +107,15 @@ KEYRECORD_FUN(process_record_user, bool) {
 
 void matrix_scan_user(void) {
   achordion_task();
+  if (IS_LAYER_ON(6))
+    rgblight_enable_noeeprom();
+  else
+    rgblight_disable_noeeprom();
 }
+
+// ==============================================================================
+// Achordion
+// ==============================================================================
 
 bool achordion_chord(
   uint16_t tap_hold_keycode,
@@ -125,14 +134,6 @@ bool achordion_chord(
       )
     // Require bilateral
     return achordion_opposite_hands(tap_hold_record, other_record);
-  
-  /* if (tap_hold_keycode == MT(MOD_LALT,KC_SPC)) { */
-  /*   if (other_keycode == KC_LEFT  || */
-  /*       other_keycode == KC_DOWN  || */
-  /*       other_keycode == KC_UP    || */
-  /*       other_keycode == KC_RIGHT) */
-  /*     return true; */
-  /* } */
   
   // Process normally
   return true;
@@ -229,4 +230,3 @@ KEYRECORD_FUN(get_tapping_term, uint16_t) {
 // ==============================================================================
 
 #include "keymap.inl"
-
