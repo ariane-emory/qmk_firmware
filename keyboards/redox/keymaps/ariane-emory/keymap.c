@@ -134,16 +134,26 @@ bool achordion_chord(
   uint16_t other_keycode,
   keyrecord_t* other_record) {
   if (
-    tap_hold_keycode == LCTL_T(KC_F)    ||
-    tap_hold_keycode == LALT_T(KC_D)    ||
-    tap_hold_keycode == LGUI_T(KC_S)    ||
-    tap_hold_keycode == LSFT_T(KC_A)    ||
-    tap_hold_keycode == RCTL_T(KC_J)    ||
-    tap_hold_keycode == RALT_T(KC_K)    ||
-    tap_hold_keycode == RGUI_T(KC_L)    ||
-    tap_hold_keycode == RSFT_T(KC_QUOT)
+    (IS_LAYER_ON(0) && (
+      tap_hold_keycode == LCTL_T(KC_F)    ||
+      tap_hold_keycode == LALT_T(KC_D)    ||
+      tap_hold_keycode == LGUI_T(KC_S)    ||
+      tap_hold_keycode == LSFT_T(KC_A)    ||
+      tap_hold_keycode == RCTL_T(KC_J)    ||
+      tap_hold_keycode == RALT_T(KC_K)    ||
+      tap_hold_keycode == RGUI_T(KC_L)    ||
+      tap_hold_keycode == RSFT_T(KC_QUOT))) ||
+    (IS_LAYER_ON(1) && (
+      tap_hold_keycode == LCTL_T(KC_T)    ||
+      tap_hold_keycode == LALT_T(KC_S)    ||
+      tap_hold_keycode == LGUI_T(KC_R)    ||
+      tap_hold_keycode == LSFT_T(KC_A)    ||
+      tap_hold_keycode == RCTL_T(KC_N)    ||
+      tap_hold_keycode == RALT_T(KC_E)    ||
+      tap_hold_keycode == RGUI_T(KC_I)    ||
+      tap_hold_keycode == RSFT_T(KC_QUOT)))
       )
-    // Require bilateral
+// Require bilateral
     return achordion_opposite_hands(tap_hold_record, other_record);
   
   // Process normally
