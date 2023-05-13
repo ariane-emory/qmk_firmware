@@ -41,12 +41,12 @@ void keyboard_post_init_user(void) {
 
 #define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms)                 \
   {                                                                             \
-    static uint16_t key_timer = 0;                                              \
+    static uint16_t idle_timer = 0;                                             \
     if (layer_state_is(layer) &&                                                \
-        timer_elapsed(key_timer) >= idle_time_limit_ms) {                       \
+        timer_elapsed(idle_timer) >= idle_time_limit_ms) {                      \
       layer_off(layer);                                                         \
     }                                                                           \
-    key_timer = timer_read();                                                   \
+    idle_timer = timer_read();                                                  \
   }
 
 #define SEND_STRING_WITHOUT_MODS(str)                                           \
