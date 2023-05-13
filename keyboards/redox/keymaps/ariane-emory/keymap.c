@@ -114,13 +114,13 @@ void matrix_scan_user(void) {
   if (asleep || timer_elapsed(idle_timer) >= RGB_TIMEOUT)
   {
     asleep = true;
-    rgblight_sethsv_noeeprom(HSV_BLACK);
+    rgblight_sethsv_noeeprom(HSV_ASLEEP);
   }
   else if (IS_LAYER_ON(TOGGLED_LAYER)) {
-    rgblight_sethsv_noeeprom(HSV_RED);
+    rgblight_sethsv_noeeprom(HSV_TOGGLED_LAYER_ON);
   }
   else {
-    rgblight_sethsv_noeeprom(HSV_CHARTREUSE);
+    rgblight_sethsv_noeeprom(HSV_TOGGLED_LAYER_OFF);
   }
 }
 
