@@ -39,8 +39,6 @@ void keyboard_post_init_user(void) {
 #define KEYRECORD_FUN(name, t)                                                  \
   t name(uint16_t keycode, keyrecord_t *record)
 
-static uint16_t idle_timer = 0;
-
 #define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms, timer)          \
   {                                                                             \
     if (layer_state_is(layer) &&                                                \
@@ -82,7 +80,9 @@ enum arianes_keycodes {
   SS_LASTARG,
   SS_REPEAT,
 };
-  
+
+static uint16_t idle_timer = 0;
+
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
