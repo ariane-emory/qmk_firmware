@@ -85,22 +85,7 @@ static uint16_t idle_timer = 0;
 static bool asleep = false;
 
 static const uint16_t hex_keycodes[] = {
-  KC_0,
-  KC_1,
-  KC_2,
-  KC_3,
-  KC_4,
-  KC_5,
-  KC_6,
-  KC_7,
-  KC_8,
-  KC_9,
-  KC_A,
-  KC_B,
-  KC_C,
-  KC_D,
-  KC_E,
-  KC_F,
+  KC_0, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_A, KC_B, KC_C, KC_D, KC_E, KC_F,
 };
 
 KEYRECORD_FUN(process_record_user, bool) {
@@ -112,8 +97,19 @@ KEYRECORD_FUN(process_record_user, bool) {
   switch (keycode) {
   case SS_UPP:
   {
-    const uint8_t roll = (rand() % 6) + 1;
-    tap_code(hex_keycodes[roll]);
+    if (record->event.pressed) {
+      for (uint8_t ix = 0; ix < 6; ix++) {
+        const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
+        if (roll > 9)
+          register_code(KC_LSFT);
+        tap_code(hex_keycodes[roll]);
+        if (roll > 9)
+          unregister_code(KC_LSFT);
+      }
+    }
+    /* SEND_STRING_WITHOUT_MODS("a"); */
+    /* tap_code(hex_keycodes[0]); */
+    /* SEND_STRING_WITHOUT_MODS("b"); */
     return false;
   }
   KC_CASE(SS_PIN1,       SEND_STRING_WITHOUT_MODS(AE_PIN1));
