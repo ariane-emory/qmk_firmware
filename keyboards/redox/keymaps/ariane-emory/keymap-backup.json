@@ -33,7 +33,7 @@
       "KC_O",
       "KC_P",
       "KC_BSLS",
-      "KC_LCTL",
+      "LCTL_T(KC_ESC)",
       "LSFT_T(KC_A)",
       "LGUI_T(KC_S)",
       "LALT_T(KC_D)",
