@@ -110,7 +110,8 @@ KEYRECORD_FUN(process_record_user, bool) {
           KC_8, KC_9, KC_A, KC_B, KC_C, 
         };
         const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
-        tap_code16(LSFT(hex_keycodes[roll - 2]));
+        const uint16_t hex_kc = LSFT(hex_keycodes[roll - 2]);
+        tap_code16(hex_kc);
       }
       tap_code(KC_ENTER);
     }
