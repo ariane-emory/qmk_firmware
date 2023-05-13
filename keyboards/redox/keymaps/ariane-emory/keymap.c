@@ -78,10 +78,30 @@ enum arianes_keycodes {
   SS_UPDIR,
   SS_LASTARG,
   SS_REPEAT,
+  SS_UPP,
 };
 
 static uint16_t idle_timer = 0;
 static bool asleep = false;
+
+static const uint16_t hex_keycodes[] = {
+  KC_0,
+  KC_1,
+  KC_2,
+  KC_3,
+  KC_4,
+  KC_5,
+  KC_6,
+  KC_7,
+  KC_8,
+  KC_9,
+  KC_A,
+  KC_B,
+  KC_C,
+  KC_D,
+  KC_E,
+  KC_F,
+};
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
@@ -90,17 +110,23 @@ KEYRECORD_FUN(process_record_user, bool) {
   if (!process_achordion(keycode, record)) { return false; }
   
   switch (keycode) {
-    KC_CASE(SS_PIN1,       SEND_STRING_WITHOUT_MODS(AE_PIN1));
-    KC_CASE(SS_PIN2,       SEND_STRING_WITHOUT_MODS(AE_PIN2));
-    KC_CASE(SS_GRAV,       SEND_STRING_WITHOUT_MODS("`"));
-    KC_CASE(SS_LPAR,       SEND_STRING_WITHOUT_MODS("9"));
-    KC_CASE(SS_RPAR,       SEND_STRING_WITHOUT_MODS("0"));
-    KC_CASE(SS_RPAR_SCLN,  SEND_STRING_WITHOUT_MODS("0;"));
-    KC_CASE(SS_TILD,       SEND_STRING_WITHOUT_MODS("~"));
-    KC_CASE(SS_TILD_SLASH, SEND_STRING_WITHOUT_MODS(" ~/"));
-    KC_CASE(SS_UPDIR,      SEND_STRING_WITHOUT_MODS("../"));
-    KC_CASE(SS_LASTARG,    SEND_STRING_WITHOUT_MODS(" "SS_LCTL("c")SS_DELAY(50)"."));
-    KC_CASE(SS_REPEAT,     SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
+  case SS_UPP:
+  {
+    const uint8_t roll = (rand() % 6) + 1;
+    tap_code(hex_keycodes[roll]);
+    return false;
+  }
+  KC_CASE(SS_PIN1,       SEND_STRING_WITHOUT_MODS(AE_PIN1));
+  KC_CASE(SS_PIN2,       SEND_STRING_WITHOUT_MODS(AE_PIN2));
+  KC_CASE(SS_GRAV,       SEND_STRING_WITHOUT_MODS("`"));
+  KC_CASE(SS_LPAR,       SEND_STRING_WITHOUT_MODS("9"));
+  KC_CASE(SS_RPAR,       SEND_STRING_WITHOUT_MODS("0"));
+  KC_CASE(SS_RPAR_SCLN,  SEND_STRING_WITHOUT_MODS("0;"));
+  KC_CASE(SS_TILD,       SEND_STRING_WITHOUT_MODS("~"));
+  KC_CASE(SS_TILD_SLASH, SEND_STRING_WITHOUT_MODS(" ~/"));
+  KC_CASE(SS_UPDIR,      SEND_STRING_WITHOUT_MODS("../"));
+  KC_CASE(SS_LASTARG,    SEND_STRING_WITHOUT_MODS(" "SS_LCTL("c")SS_DELAY(50)"."));
+  KC_CASE(SS_REPEAT,     SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
   default:
     return true;
   }
