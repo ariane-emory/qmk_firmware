@@ -151,7 +151,7 @@ combo_t key_combos[] = {
   COMBO(keys_r_top_trpm,         LCTL(KC_Y)),       // yank
   COMBO(keys_r_top_outr,         SS_RPAR),          // )
   COMBO(keys_r_top_trpo,         LCTL(KC_W)),       // kill region
-  // COMBO(keys_r_top_edge,         KC_NO),            // 
+  COMBO(keys_r_top_edge,         SS_RPAR_SCLN),     // ); 
   COMBO(keys_r_top_sprd,         LCTL(KC_SPC)),     // mark
   //======================================================================================
   /* SECTION: Right middle row */

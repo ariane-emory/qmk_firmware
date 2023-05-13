@@ -29,7 +29,7 @@ void keyboard_post_init_user(void) {
   /* debug_matrix=true; */
   /* debug_keyboard=true; */
   /* debug_mouse=true; */
-  rgblight_enable();
+  // rgblight_enable();
 }
 
 // ==============================================================================
@@ -74,6 +74,7 @@ enum arianes_keycodes {
   SS_GRAV,
   SS_LPAR,
   SS_RPAR,
+  SS_RPAR_SCLN,
   SS_TILD,
   SS_TILD_SLASH,
   SS_UPDIR,
@@ -94,6 +95,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_CASE(SS_GRAV,       SEND_STRING_WITHOUT_MODS("`"));
     KC_CASE(SS_LPAR,       SEND_STRING_WITHOUT_MODS("9"));
     KC_CASE(SS_RPAR,       SEND_STRING_WITHOUT_MODS("0"));
+    KC_CASE(SS_RPAR_SCLN,  SEND_STRING_WITHOUT_MODS("0;"));
     KC_CASE(SS_TILD,       SEND_STRING_WITHOUT_MODS("~"));
     KC_CASE(SS_TILD_SLASH, SEND_STRING_WITHOUT_MODS(" ~/"));
     KC_CASE(SS_UPDIR,      SEND_STRING_WITHOUT_MODS("../"));
@@ -110,12 +112,10 @@ void matrix_scan_user(void) {
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
   
   if (IS_LAYER_ON(TOGGLED_LAYER)) {
-    rgblight_sethsv_noeeprom(HSV_RED);
-    // rgblight_enable_noeeprom();
+    rgblight_sethsv_noeeprom(HSV_RED); // CHARTREUSE); // RED);
   }
   else {
-    rgblight_sethsv_noeeprom(HSV_CHARTREUSE);
-    // rgblight_disable_noeeprom();
+    rgblight_sethsv_noeeprom(HSV_BLACK); // CHARTREUSE);
   }
 }
 
