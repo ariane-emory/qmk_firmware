@@ -39,14 +39,14 @@ void keyboard_post_init_user(void) {
 #define KEYRECORD_FUN(name, t)                                                  \
   t name(uint16_t keycode, keyrecord_t *record)
 
+static uint16_t idle_timer = 0;
+
 #define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms)                 \
   {                                                                             \
-    static uint16_t idle_timer = 0;                                             \
     if (layer_state_is(layer) &&                                                \
         timer_elapsed(idle_timer) >= idle_time_limit_ms) {                      \
       layer_off(layer);                                                         \
     }                                                                           \
-    idle_timer = timer_read();                                                  \
   }
 
 #define SEND_STRING_WITHOUT_MODS(str)                                           \
@@ -85,7 +85,7 @@ enum arianes_keycodes {
 };
   
 KEYRECORD_FUN(process_record_user, bool) {
-  MANAGE_TOGGLED_LAYER_TIMEOUT(6, TOGGLED_LAYER_TIMEOUT);
+  idle_timer = timer_read();
 
   if (!process_achordion(keycode, record)) { return false; }
   
@@ -107,7 +107,12 @@ KEYRECORD_FUN(process_record_user, bool) {
 
 void matrix_scan_user(void) {
   achordion_task();
-  if (IS_LAYER_ON(6))
+
+  if (layer_state_is(TOGGLED_LAYER) && 
+      timer_elapsed(idle_timer) >= TOGGLED_LAYER_TIMEOUT)
+    layer_off(TOGGLED_LAYER);
+  
+  if (IS_LAYER_ON(TOGGLED_LAYER))
     rgblight_enable_noeeprom();
   else
     rgblight_disable_noeeprom();
