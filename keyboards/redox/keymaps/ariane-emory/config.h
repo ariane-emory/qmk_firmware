@@ -70,7 +70,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM_PER_KEY
 
 #define TOGGLED_LAYER 6
-#define TOGGLED_LAYER_TIMEOUT 30000
+#define TOGGLED_LAYER_TIMEOUT 20000
+#define RGB_TIMEOUT 60000
 
 #define TRI_LAYER_ADJUST_LAYER 13
 #define TRI_LAYER_LOWER_LAYER 7

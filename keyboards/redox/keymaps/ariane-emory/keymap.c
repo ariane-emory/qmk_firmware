@@ -108,8 +108,12 @@ void matrix_scan_user(void) {
   achordion_task();
 
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
-  
-  if (IS_LAYER_ON(TOGGLED_LAYER)) {
+
+  if (timer_elapsed(idle_timer) >= RGB_TIMEOUT)
+  {
+    rgblight_sethsv_noeeprom(HSV_BLACK);
+  }
+  else if (IS_LAYER_ON(TOGGLED_LAYER)) {
     rgblight_sethsv_noeeprom(HSV_RED);
   }
   else {
