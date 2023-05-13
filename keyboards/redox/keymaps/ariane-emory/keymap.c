@@ -106,11 +106,11 @@ KEYRECORD_FUN(process_record_user, bool) {
     if (record->event.pressed) {
       for (uint8_t ix = 0; ix < 6; ix++) {
         static const uint16_t hex_keycodes[] = {
-          LSFT(KC_0), LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), LSFT(KC_4), LSFT(KC_5), LSFT(KC_6),
-          LSFT(KC_7), LSFT(KC_8), LSFT(KC_9), LSFT(KC_A), LSFT(KC_B), LSFT(KC_C), 
+          KC_0, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6,
+          KC_7, KC_8, KC_9, KC_A, KC_B, KC_C, 
         };
         const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
-        tap_code16(hex_keycodes[roll]);
+        tap_code16(LSFT(hex_keycodes[roll]));
       }
       tap_code(KC_ENTER);
     }
