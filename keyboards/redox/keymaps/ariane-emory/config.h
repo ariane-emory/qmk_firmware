@@ -84,5 +84,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TRI_LAYER_UPPER_LAYER      8
 #define TRI_LAYER_ADJUST_LAYER     13
 
-#define IGNORE_WAKING_KEY
+// #define IGNORE_WAKING_KEY
 #define INSERT_UPP_ENABLED
