@@ -179,13 +179,13 @@ bool achordion_chord(
       tap_hold_keycode == RGUI_T(KC_I)    ||
       tap_hold_keycode == RSFT_T(KC_QUOT)))
       )
-    // Require bilateral
   {
     // Also allow same-hand holds when the other key is in the rows below the
     // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
     if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
       return true;
 
+    // Require bilateral
     return achordion_opposite_hands(tap_hold_record, other_record);
   }
 
