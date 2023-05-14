@@ -204,6 +204,7 @@ bool achordion_chord(
       tap_hold_keycode == RCTL_T(KC_J)    ||
       tap_hold_keycode == RALT_T(KC_K)    ||
       tap_hold_keycode == RGUI_T(KC_L)    ||
+      tap_hold_keycode == RSFT_T(KC_DQUO) ||
       tap_hold_keycode == RSFT_T(KC_QUOT))) ||
     (IS_LAYER_ON(1) && (
       tap_hold_keycode == LCTL_T(KC_T)    ||
@@ -213,6 +214,7 @@ bool achordion_chord(
       tap_hold_keycode == RCTL_T(KC_N)    ||
       tap_hold_keycode == RALT_T(KC_E)    ||
       tap_hold_keycode == RGUI_T(KC_I)    ||
+      tap_hold_keycode == RSFT_T(KC_DQUO) ||
       tap_hold_keycode == RSFT_T(KC_QUOT)))
       )
   {
