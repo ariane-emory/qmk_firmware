@@ -82,8 +82,7 @@ enum arianes_keycodes {
 };
 
 static uint16_t idle_timer = 0;
-static bool asleep = false;
-
+static bool     asleep     = false;
 #ifdef IGNORE_WAKING_KEY
 static uint16_t waking_key = KC_NO;
 #endif
@@ -100,7 +99,6 @@ KEYRECORD_FUN(process_record_user, bool) {
       asleep = false;
       waking_key = KC_NO;
     }
-    
     return false;
   }
 #else
