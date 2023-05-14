@@ -64,7 +64,7 @@ void keyboard_post_init_user(void) {
 #define SEND_STRING_WITHOUT_MODS(str) (((void)0))                                
 #endif
 
-#define KC_TAP_CASE(kc, blk)                                                        \
+#define KC_TAP_CASE(kc, blk)                                                    \
   case kc:                                                                      \
   if (record->event.pressed)                                                    \
   {                                                                             \
