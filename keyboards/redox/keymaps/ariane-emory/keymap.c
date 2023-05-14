@@ -132,10 +132,10 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_CASE(SS_LASTARG,    SEND_STRING_WITHOUT_MODS(" "SS_LCTL("c")SS_DELAY(50)"."));
     KC_CASE(SS_REPEAT,     SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
   case RSFT_T(KC_DQUO):
-    // KC_DQUO is not "basic" so we have to tap it manually.
+    // KC_DQUO is not "basic" so we have to tap it manually
     if (record->tap.count && record->event.pressed) {
-      tap_code16(KC_DQUO); // Send KC_DQUO on tap
-      return false;        // Return false to ignore further processing of key
+      tap_code16(KC_DQUO);
+      return false;
     }
     break;
   case INSERT_UPP:
