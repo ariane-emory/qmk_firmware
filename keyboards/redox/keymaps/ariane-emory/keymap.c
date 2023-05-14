@@ -64,7 +64,7 @@ void keyboard_post_init_user(void) {
 #define SEND_STRING_WITHOUT_MODS(str) (((void)0))                                
 #endif
 
-#define KC_CASE(kc, blk)                                                        \
+#define KC_TAP_CASE(kc, blk)                                                        \
   case kc:                                                                      \
   if (record->event.pressed)                                                    \
   {                                                                             \
@@ -120,17 +120,17 @@ KEYRECORD_FUN(process_record_user, bool) {
     return false;
   
   switch (keycode) {
-    KC_CASE(SS_PIN1,       SEND_STRING_WITHOUT_MODS(AE_PIN1));
-    KC_CASE(SS_PIN2,       SEND_STRING_WITHOUT_MODS(AE_PIN2));
-    KC_CASE(SS_GRAV,       SEND_STRING_WITHOUT_MODS("`"));
-    KC_CASE(SS_LPAR,       SEND_STRING_WITHOUT_MODS("9"));
-    KC_CASE(SS_RPAR,       SEND_STRING_WITHOUT_MODS("0"));
-    KC_CASE(SS_RPAR_SCLN,  SEND_STRING_WITHOUT_MODS("0;"));
-    KC_CASE(SS_TILD,       SEND_STRING_WITHOUT_MODS("~"));
-    KC_CASE(SS_TILD_SLASH, SEND_STRING_WITHOUT_MODS(" ~/"));
-    KC_CASE(SS_UPDIR,      SEND_STRING_WITHOUT_MODS("../"));
-    KC_CASE(SS_LASTARG,    SEND_STRING_WITHOUT_MODS(" "SS_LCTL("c")SS_DELAY(50)"."));
-    KC_CASE(SS_REPEAT,     SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
+    KC_TAP_CASE(SS_PIN1,       SEND_STRING_WITHOUT_MODS(AE_PIN1));
+    KC_TAP_CASE(SS_PIN2,       SEND_STRING_WITHOUT_MODS(AE_PIN2));
+    KC_TAP_CASE(SS_GRAV,       SEND_STRING_WITHOUT_MODS("`"));
+    KC_TAP_CASE(SS_LPAR,       SEND_STRING_WITHOUT_MODS("9"));
+    KC_TAP_CASE(SS_RPAR,       SEND_STRING_WITHOUT_MODS("0"));
+    KC_TAP_CASE(SS_RPAR_SCLN,  SEND_STRING_WITHOUT_MODS("0;"));
+    KC_TAP_CASE(SS_TILD,       SEND_STRING_WITHOUT_MODS("~"));
+    KC_TAP_CASE(SS_TILD_SLASH, SEND_STRING_WITHOUT_MODS(" ~/"));
+    KC_TAP_CASE(SS_UPDIR,      SEND_STRING_WITHOUT_MODS("../"));
+    KC_TAP_CASE(SS_LASTARG,    SEND_STRING_WITHOUT_MODS(" "SS_LCTL("c")SS_DELAY(50)"."));
+    KC_TAP_CASE(SS_REPEAT,     SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
   case RSFT_T(KC_DQUO):
     // KC_DQUO is not "basic" so we have to tap it manually
     if (record->tap.count && record->event.pressed) {
@@ -310,7 +310,7 @@ KEYRECORD_FUN(get_tapping_term, uint16_t) {
 // Undefine local macros
 // ==============================================================================
 
-#undef KC_CASE
+#undef KC_TAP_CASE
 #undef KEYRECORD_FUN
 #undef MANAGE_TOGGLED_LAYER_TIMEOUT
 #undef RGBLIGHT_SETHSV
