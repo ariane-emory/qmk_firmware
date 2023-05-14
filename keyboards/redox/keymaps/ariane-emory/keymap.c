@@ -131,7 +131,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_TAP_CASE(SS_UPDIR,      SEND_STRING_WITHOUT_MODS("../"));
     KC_TAP_CASE(SS_LASTARG,    SEND_STRING_WITHOUT_MODS(" "SS_LCTL("c")SS_DELAY(50)"."));
     KC_TAP_CASE(SS_REPEAT,     SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
-  case RSFT_T(KC_DQUO):
+  case RCTL_T(KC_DQUO):
     // KC_DQUO is not "basic" so we have to tap it manually
     if (record->tap.count && record->event.pressed) {
       tap_code16(KC_DQUO);
@@ -263,7 +263,7 @@ KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   switch (keycode) {
   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
     if (keycode == LCTL_T(KC_ESC)  ||
-        keycode == RCTL_T(KC_QUOT) ||
+        keycode == RCTL_T(KC_DQUO) ||
         keycode == LSFT_T(KC_MINS) ||
         keycode == RSFT_T(KC_MINS)) {
       return true;
@@ -286,7 +286,7 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
   case RCTL_T(KC_J):
   case RALT_T(KC_K):
   case RGUI_T(KC_L):
-  case RSFT_T(KC_DQUO):
+  case RSFT_T(KC_QUOT):
     // Do not select the hold action when another key is tapped.
     return false;
   default:
