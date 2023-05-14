@@ -14,3 +14,5 @@ SEND_STRING_ENABLE = yes
 TRI_LAYER_ENABLE   = yes
 
 SRC += features/achordion.c
+# OPT = 1
+# OPT_DEFS += -g
