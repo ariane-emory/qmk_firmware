@@ -76,8 +76,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define HSV_ASLEEP                 HSV_BLACK
 #define HSV_TOGGLED_LAYER_OFF      HSV_RED
 #define HSV_TOGGLED_LAYER_ON       HSV_CHARTREUSE
-#define HSV_LOWER_LAYER_ON         HSV_YELLOW
-#define HSV_UPPER_LAYER_ON         HSV_ORANGE
+#define HSV_LOWER_LAYER_ON         HSV_ORANGE
+#define HSV_UPPER_LAYER_ON         HSV_YELLOW
 #define HSV_ADJUST_LAYER_ON        HSV_PURPLE
 
 #define TRI_LAYER_LOWER_LAYER      7
