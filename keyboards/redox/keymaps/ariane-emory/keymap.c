@@ -137,7 +137,7 @@ KEYRECORD_FUN(process_record_user, bool) {
       tap_code16(KC_DQUO);
       return false;
     }
-    break;
+    return true;
   case INSERT_UPP:
 #ifdef INSERT_UPP_ENABLED
     if (record->event.pressed) {
@@ -154,9 +154,9 @@ KEYRECORD_FUN(process_record_user, bool) {
     }
 #endif
     return false;
+  default:
+    return true;
   }
-
-  return true;
 }
 
 void matrix_scan_user(void) {
