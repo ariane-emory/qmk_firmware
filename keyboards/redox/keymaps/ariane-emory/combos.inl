@@ -76,6 +76,7 @@ DEFINE_COMBO_KEYS(r_mid_rech,    KC_H,            RCTL_T(KC_J));
 DEFINE_COMBO_KEYS(r_mid_edge,    RGUI_T(KC_L),    RSFT_T(KC_DQUO));
 DEFINE_COMBO_KEYS(r_mid_innr,    RCTL_T(KC_J),    RALT_T(KC_K));
 DEFINE_COMBO_KEYS(r_mid_outr,    RALT_T(KC_K),    RGUI_T(KC_L));
+DEFINE_COMBO_KEYS(r_mid_EXTR,    RSFT_T(KC_DQUO), RCTL_T(KC_QUOT));
 //========================================================================================
 /* Right bottom row */
 DEFINE_COMBO_KEYS(r_bot_trpi,    KC_N,            KC_M,              KC_COMM);
@@ -165,6 +166,7 @@ combo_t key_combos[] = {
   COMBO(keys_r_mid_trpo,         LALT(LGUI(KC_A))), // all buffers
   COMBO(keys_r_mid_edge,         KC_SCLN),          // ;
   COMBO(keys_r_mid_sprd,         KC_EQL),           // =
+  COMBO(keys_r_mid_EXTR,         KC_COLN),
   //======================================================================================
   /* SECTION: Right bottom row */
   COMBO(keys_r_bot_rech,         SS_LASTARG),       // last arg
