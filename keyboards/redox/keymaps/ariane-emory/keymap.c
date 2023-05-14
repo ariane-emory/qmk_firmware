@@ -133,9 +133,6 @@ void matrix_scan_user(void) {
     asleep = true;
     rgblight_sethsv_noeeprom(HSV_ASLEEP);
   }
-  else if (IS_LAYER_ON(TOGGLED_LAYER)) {
-    rgblight_sethsv_noeeprom(HSV_TOGGLED_LAYER_ON);
-  }
   else if (IS_LAYER_ON(TRI_LAYER_ADJUST_LAYER)) {
     rgblight_sethsv_noeeprom(HSV_ADJUST_LAYER_ON);
   }
@@ -144,6 +141,9 @@ void matrix_scan_user(void) {
   }
   else if (IS_LAYER_ON(TRI_LAYER_LOWER_LAYER)) {
     rgblight_sethsv_noeeprom(HSV_LOWER_LAYER_ON);
+  }
+  else if (IS_LAYER_ON(TOGGLED_LAYER)) {
+    rgblight_sethsv_noeeprom(HSV_TOGGLED_LAYER_ON);
   }
   else {
     rgblight_sethsv_noeeprom(HSV_TOGGLED_LAYER_OFF);
