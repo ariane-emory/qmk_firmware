@@ -263,7 +263,7 @@ KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   switch (keycode) {
   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
     if (keycode == LCTL_T(KC_ESC)  ||
-        keycode == RCTL_T(KC_SCLN) ||
+        keycode == RCTL_T(KC_QUOT) ||
         keycode == LSFT_T(KC_MINS) ||
         keycode == RSFT_T(KC_MINS)) {
       return true;
