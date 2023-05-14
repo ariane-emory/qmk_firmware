@@ -286,7 +286,7 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
   case RCTL_T(KC_J):
   case RALT_T(KC_K):
   case RGUI_T(KC_L):
-  case RSFT_T(KC_QUOT):
+  case RSFT_T(KC_DQUO):
     // Do not select the hold action when another key is tapped.
     return false;
   default:
@@ -341,3 +341,4 @@ KEYRECORD_FUN(get_tapping_term, uint16_t) {
 // ==============================================================================
 
 #include "keymap.inl"
+j
