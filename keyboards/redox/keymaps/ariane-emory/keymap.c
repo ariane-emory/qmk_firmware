@@ -36,6 +36,12 @@ void keyboard_post_init_user(void) {
 // Define local macros
 // ==============================================================================
 
+#ifdef RGBLIGHT_ENABLE
+#define RGBLIGHT_SETHSV(hsv) rgblight_sethsv_noeeprom(hsv)
+#else
+#define RGBLIGHT_SETHSV(hsv) (((void)0))
+#endif
+
 #define KEYRECORD_FUN(name, t)                                                  \
   t name(uint16_t keycode, keyrecord_t *record)
 
@@ -55,7 +61,7 @@ void keyboard_post_init_user(void) {
     set_mods(current_mods);                                                     \
   }                                                                         
 #else
-#define SEND_STRING_WITHOUT_MODS(str) {}
+#define SEND_STRING_WITHOUT_MODS(str) (((void)0))                                
 #endif
 
 #define KC_CASE(kc, blk)                                                        \
@@ -154,22 +160,22 @@ void matrix_scan_user(void) {
   if (asleep || timer_elapsed(idle_timer) >= RGB_TIMEOUT)
   {
     asleep = true;
-    rgblight_sethsv_noeeprom(HSV_ASLEEP);
+    RGBLIGHT_SETHSV(HSV_ASLEEP);
   }
   else if (IS_LAYER_ON(TRI_LAYER_ADJUST_LAYER)) {
-    rgblight_sethsv_noeeprom(HSV_ADJUST_LAYER_ON);
+    RGBLIGHT_SETHSV(HSV_ADJUST_LAYER_ON);
   }
   else if (IS_LAYER_ON(TRI_LAYER_UPPER_LAYER)) {
-    rgblight_sethsv_noeeprom(HSV_UPPER_LAYER_ON);
+    RGBLIGHT_SETHSV(HSV_UPPER_LAYER_ON);
   }
   else if (IS_LAYER_ON(TRI_LAYER_LOWER_LAYER)) {
-    rgblight_sethsv_noeeprom(HSV_LOWER_LAYER_ON);
+    RGBLIGHT_SETHSV(HSV_LOWER_LAYER_ON);
   }
   else if (IS_LAYER_ON(TOGGLED_LAYER)) {
-    rgblight_sethsv_noeeprom(HSV_TOGGLED_LAYER_ON);
+    RGBLIGHT_SETHSV(HSV_TOGGLED_LAYER_ON);
   }
   else {
-    rgblight_sethsv_noeeprom(HSV_TOGGLED_LAYER_OFF);
+    RGBLIGHT_SETHSV(HSV_TOGGLED_LAYER_OFF);
   }
 }
 
@@ -300,6 +306,7 @@ KEYRECORD_FUN(get_tapping_term, uint16_t) {
 #undef KC_CASE
 #undef KEYRECORD_FUN
 #undef MANAGE_TOGGLED_LAYER_TIMEOUT
+#undef RGBLIGHT_SETHSV
 #undef SEND_STRING_WITHOUT_MODS
   
 // ==============================================================================
