@@ -83,16 +83,27 @@ enum arianes_keycodes {
 
 static uint16_t idle_timer = 0;
 static bool asleep = false;
+static uint16_t waking_key = KC_NO;
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
+#ifdef IGNORE_WAKING_KEY
   if (asleep) {
-    asleep = false;
+    if (record->event.pressed && waking_key == KC_NO) {
+      waking_key = keycode;
+    }
+    else if (keycode == waking_key) {
+      asleep = false;
+      waking_key = KC_NO;
+    }
+    
     return false;
   }
+#endif
   
-  if (!process_achordion(keycode, record)) { return false; }
+  if (!process_achordion(keycode, record))
+    return false;
   
   switch (keycode) {
     KC_CASE(SS_PIN1,       SEND_STRING_WITHOUT_MODS(AE_PIN1));
