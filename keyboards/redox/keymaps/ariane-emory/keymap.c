@@ -86,8 +86,12 @@ static bool asleep = false;
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
-  asleep = false;
 
+  if (asleep) {
+    asleep = false;
+    return false;
+  }
+  
   if (!process_achordion(keycode, record)) { return false; }
   
   switch (keycode) {
@@ -105,16 +109,16 @@ KEYRECORD_FUN(process_record_user, bool) {
   case INSERT_UPP:
 #ifdef INSERT_UPP_ENABLED
     if (record->event.pressed) {
-    for (uint8_t ix = 0; ix < 6; ix++) {
-      static const uint16_t hex_keycodes[] = {
-        KC_2, KC_3, KC_4, KC_5, KC_6, KC_7,
-        KC_8, KC_9, KC_A, KC_B, KC_C, 
-      };
-      const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
-      const uint16_t hex_kc = LSFT(hex_keycodes[roll - 2]);
-      tap_code16(hex_kc);
-    }
-    tap_code(KC_ENTER);
+      for (uint8_t ix = 0; ix < 6; ix++) {
+        static const uint16_t hex_keycodes[] = {
+          KC_2, KC_3, KC_4, KC_5, KC_6, KC_7,
+          KC_8, KC_9, KC_A, KC_B, KC_C, 
+        };
+        const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
+        const uint16_t hex_kc = LSFT(hex_keycodes[roll - 2]);
+        tap_code16(hex_kc);
+      }
+      tap_code(KC_ENTER);
     }
 #endif
     return false;
