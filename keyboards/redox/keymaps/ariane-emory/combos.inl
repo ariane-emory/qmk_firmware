@@ -114,7 +114,7 @@ combo_t key_combos[] = {
   // COMBO(keys_l_top_trpm,         KC_NO),
   // COMBO(keys_l_top_outr,         KC_NO),
   // COMBO(keys_l_top_trpo,         KC_NO),
-  // COMBO(keys_l_top_edge,         KC_NO),
+  COMBO(keys_l_top_edge,         INSERT_UPP),
   // COMBO(keys_l_top_sprd,         KC_NO),
   //======================================================================================
   /* SECTION: Left middle row */
