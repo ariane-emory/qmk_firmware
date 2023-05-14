@@ -81,3 +81,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TRI_LAYER_LOWER_LAYER 7
 #define TRI_LAYER_UPPER_LAYER 8
 
+#define INSERT_UPP_ENABLED
