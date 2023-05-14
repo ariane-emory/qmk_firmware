@@ -45,14 +45,18 @@ void keyboard_post_init_user(void) {
         timer_elapsed(timer) >= idle_time_limit_ms)                             \
       layer_off(layer);                                                         \
   }                                                                             
-  
+
+#ifdef SEND_STRING_ENABLE
 #define SEND_STRING_WITHOUT_MODS(str)                                           \
   {                                                                             \
     const uint8_t current_mods = get_mods();                                    \
     clear_mods();                                                               \
     SEND_STRING(str);                                                           \
     set_mods(current_mods);                                                     \
-  }                                                                             
+  }                                                                         
+#else
+#define SEND_STRING_WITHOUT_MODS(str) {}
+#endif
 
 #define KC_CASE(kc, blk)                                                        \
   case kc:                                                                      \
