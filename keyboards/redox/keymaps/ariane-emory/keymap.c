@@ -232,6 +232,8 @@ bool achordion_chord(
 }
 
 bool achordion_eager_mod(uint8_t mod) {
+  return false;
+  
   switch (mod) {
   case MOD_LGUI:
   case MOD_RGUI:
