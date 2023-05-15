@@ -112,7 +112,7 @@ combo_t key_combos[] = {
   //======================================================================================
   /* SECTION: Left top row */ 
   // COMBO(keys_l_top_rech,         KC_NO),
-  // COMBO(keys_l_top_trpi,         KC_NO),
+  COMBO(keys_l_top_trpi,         SS_REVERT),
   // COMBO(keys_l_top_innr,         KC_NO),
   // COMBO(keys_l_top_trpm,         KC_NO),
   // COMBO(keys_l_top_outr,         KC_NO),
@@ -126,13 +126,13 @@ combo_t key_combos[] = {
   COMBO(keys_l_mid_innr,         KC_ENT),
   COMBO(keys_l_mid_trpm,         SS_TILD_SLASH),
   COMBO(keys_l_mid_outr,         SS_TILD),
-  // COMBO(keys_l_mid_trpo,         KC_NO),
+  COMBO(keys_l_mid_trpo,         SS_SPC_TILD_SLASH),
   COMBO(keys_l_mid_edge,         SS_GRAV),
   COMBO(keys_l_mid_sprd,         SS_LASTARG),
 //======================================================================================
   /* SECTION: Left bottom row */
   COMBO(keys_l_bot_rech,         SS_LASTARG),
-  // COMBO(keys_l_bot_trpi,         KC_NO),
+  COMBO(keys_l_bot_trpi,         SS_SWITCH_BUFFER),
   COMBO(keys_l_bot_innr,         LGUI(KC_Z)),
   COMBO(keys_l_bot_trpm,         SS_LASTARG),
   COMBO(keys_l_bot_outr,         LCTL(KC_C)),
