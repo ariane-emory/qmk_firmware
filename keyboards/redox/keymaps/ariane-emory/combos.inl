@@ -173,7 +173,7 @@ combo_t key_combos[] = {
   COMBO(keys_r_bot_trpi,         SS_REPEAT),        // repeat last 
   COMBO(keys_r_bot_innr,         LGUI(KC_Z)),       // undo
   COMBO(keys_r_bot_trpm,         LALT(LGUI(KC_S))), // shell
-  COMBO(keys_r_bot_outr,         KC_THISDIR),       // ./
+  COMBO(keys_r_bot_outr,         SS_THISDIR),       // ./
   // COMBO(keys_r_bot_trpo,         KC_NO),         // 
   COMBO(keys_r_bot_edge,         SS_UPDIR),         // ../
   COMBO(keys_r_bot_sprd,         KC_ESC),           // escape
