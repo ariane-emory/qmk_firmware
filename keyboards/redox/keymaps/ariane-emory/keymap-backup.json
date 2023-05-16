@@ -65,7 +65,7 @@
       "RSFT_T(KC_MINS)",
       "KC_F23",
       "KC_F24",
-      "OSM(MOD_LCTL|MOD_LALT)",
+      "TG(6)",
       "OSM(MOD_RGUI)",
       "ANY(QK_TRI_LAYER_LOWER)",
       "ANY(MT(MOD_LALT,KC_SPC))",
