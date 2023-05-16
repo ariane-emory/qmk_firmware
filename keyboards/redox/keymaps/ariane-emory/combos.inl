@@ -122,11 +122,11 @@ combo_t key_combos[] = {
   //======================================================================================
   /* SECTION: Left middle row */
   // COMBO(keys_l_mid_rech,         KC_NO),
-  // COMBO(keys_l_mid_trpi,         KC_NO),
+  COMBO(keys_l_mid_trpi,         LALT(LGUI(KC_W))),
   COMBO(keys_l_mid_innr,         KC_ENT),
-  COMBO(keys_l_mid_trpm,         EM_LASTARG),
+  COMBO(keys_l_mid_trpm,         LALT(LGUI(KC_R))),
   // COMBO(keys_l_mid_outr,         KC_NO),
-  // COMBO(keys_l_mid_trpo,         KC_NO),
+  COMBO(keys_l_mid_trpo,         LALT(LGUI(KC_E))),
   // COMBO(keys_l_mid_edge,         KC_NO),
   // COMBO(keys_l_mid_sprd,         KC_NO),
 //======================================================================================
