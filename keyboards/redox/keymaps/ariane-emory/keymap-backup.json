@@ -480,7 +480,7 @@
       "KC_RGUI",
       "RCTL_T(KC_ESC)",
       "KC_LSFT",
-      "KC_NO",
+      "RGUI(KC_Z)",
       "LALT(KC_BSPC)",
       "LALT(KC_LEFT)",
       "LALT(KC_RGHT)",
@@ -984,7 +984,7 @@
       "KC_END",
       "KC_TRNS",
       "KC_LSFT",
-      "KC_NO",
+      "RGUI(KC_Z)",
       "LALT(KC_BSPC)",
       "LALT(KC_LEFT)",
       "LALT(KC_RGHT)",
@@ -997,7 +997,7 @@
       "LALT(KC_LEFT)",
       "LALT(KC_RGHT)",
       "LALT(KC_DEL)",
-      "KC_NO",
+      "RGUI(KC_Z)",
       "KC_RSFT",
       "KC_TRNS",
       "KC_NO",
@@ -1009,10 +1009,10 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO"
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS"
     ]
   ],
   "author": ""
