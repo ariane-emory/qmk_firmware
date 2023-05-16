@@ -67,7 +67,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
 
-#define TAPPING_TERM               225
+#define TAPPING_TERM               200
 #define TAPPING_TERM_PER_KEY
 
 #define TOGGLED_LAYER              6
