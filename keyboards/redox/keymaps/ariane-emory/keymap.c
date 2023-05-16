@@ -141,9 +141,9 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_TAP_CASE(EM_REPEAT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
     KC_TAP_CASE(EM_REVERT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")));
     KC_TAP_CASE(EM_SWITCH_BUFFER,  SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"b"));
-  case QK_TRI_LAYER_LOWER:
-    layer_off(6);
-    return true;
+    /* case QK_TRI_LAYER_LOWER: */
+    /*   layer_off(6); */
+    /*   return true; */
   case RCTL_T(KC_DQUO):
     // KC_DQUO is not "basic" so we have to tap it manually
     if (record->tap.count && record->event.pressed) {
