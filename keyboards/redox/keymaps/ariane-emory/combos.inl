@@ -192,13 +192,14 @@ bool combo_should_trigger(
   combo_t *combo,
   uint16_t keycode,
   keyrecord_t *record) {
-  return (layer_state_is(0) ||
-          layer_state_is(1) ||
-          layer_state_is(2) ||
-          layer_state_is(3) ||
-          layer_state_is(4) ||
-          layer_state_is(5) ||
-          (layer_state_is(6) && combo_index <= 10));
+  return (layer_state_is(0)
+          || layer_state_is(1)
+          || layer_state_is(2)
+          || layer_state_is(3)
+          || layer_state_is(4)
+          || layer_state_is(5) 
+          // || (layer_state_is(6) && combo_index <= 10)
+          );
 }
 //========================================================================================
 
