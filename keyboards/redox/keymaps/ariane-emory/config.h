@@ -75,7 +75,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define RGB_TIMEOUT                45000
 #define HSV_ASLEEP                 HSV_BLACK
-#define HSV_TOGGLED_LAYER_OFF      HSV_RED
+#define HSV_TOGGLED_LAYER_OFF      HSV_BLACK // HSV_RED
 #define HSV_TOGGLED_LAYER_ON       HSV_CHARTREUSE
 #define HSV_LOWER_LAYER_ON         HSV_PURPLE
 #define HSV_UPPER_LAYER_ON         HSV_BLUE
