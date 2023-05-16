@@ -111,8 +111,8 @@ combo_t key_combos[] = {
   // COMBO(keys_l_num_sprd,         KC_NO),
   //======================================================================================
   /* SECTION: Left top row */ 
-  COMBO(keys_l_top_rech,         SS_REVERT),
-  // COMBO(keys_l_top_trpi,         SS_REVERT),
+  COMBO(keys_l_top_rech,         EM_REVERT),
+  // COMBO(keys_l_top_trpi,         EM_REVERT),
   // COMBO(keys_l_top_innr,         KC_NO),
   // COMBO(keys_l_top_trpm,         KC_NO),
   // COMBO(keys_l_top_outr,         KC_NO),
@@ -128,10 +128,10 @@ combo_t key_combos[] = {
   COMBO(keys_l_mid_outr,         SS_TILD),
   COMBO(keys_l_mid_trpo,         SS_SPC_TILD_SLASH),
   COMBO(keys_l_mid_edge,         SS_GRAV),
-  COMBO(keys_l_mid_sprd,         SS_LASTARG),
+  COMBO(keys_l_mid_sprd,         EM_LASTARG),
 //======================================================================================
   /* SECTION: Left bottom row */
-  COMBO(keys_l_bot_rech,         SS_SWITCH_BUFFER),
+  COMBO(keys_l_bot_rech,         EM_SWITCH_BUFFER),
   COMBO(keys_l_bot_trpi,         KC_NO),
   COMBO(keys_l_bot_innr,         LGUI(KC_Z)),
   COMBO(keys_l_bot_trpm,         KC_NO),
@@ -169,8 +169,8 @@ combo_t key_combos[] = {
   COMBO(keys_r_mid_EXTR,         KC_COLN),          // :
   //======================================================================================
   /* SECTION: Right bottom row */
-  COMBO(keys_r_bot_rech,         SS_LASTARG),       // last arg
-  COMBO(keys_r_bot_trpi,         SS_REPEAT),        // repeat last 
+  COMBO(keys_r_bot_rech,         EM_LASTARG),       // last arg
+  COMBO(keys_r_bot_trpi,         EM_REPEAT),        // repeat last 
   COMBO(keys_r_bot_innr,         LGUI(KC_Z)),       // undo
   COMBO(keys_r_bot_trpm,         LALT(LGUI(KC_S))), // shell
   COMBO(keys_r_bot_outr,         SS_ARROW),         // -> 
