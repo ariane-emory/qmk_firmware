@@ -23,7 +23,7 @@
 
 // #define AUTO_SHIFT_MODIFIERS
 #define AUTO_SHIFT_REPEAT
-#define AUTO_SHIFT_TIMEOUT         150
+#define AUTO_SHIFT_TIMEOUT         120
 #define AUTO_SHIFT_TIMEOUT_PER_KEY
 #define NO_AUTO_SHIFT_ALPHA
 // #define RETRO_SHIFT
@@ -33,10 +33,10 @@
 #define COMBO_TERM                 50
 
 #define MOUSEKEY_DELAY             0
-#define MOUSEKEY_INTERVAL          20
-#define MOUSEKEY_MAX_SPEED         9
+#define MOUSEKEY_INTERVAL          22 // 20
+#define MOUSEKEY_MAX_SPEED         8  // 9
 #define MOUSEKEY_MOVE_DELTA        8
-#define MOUSEKEY_TIME_TO_MAX       38
+#define MOUSEKEY_TIME_TO_MAX       40 // 38
 #define MOUSEKEY_WHEEL_DELAY       0
 #define MOUSEKEY_WHEEL_INTERVAL    85
 #define MOUSEKEY_WHEEL_MAX_SPEED   14
