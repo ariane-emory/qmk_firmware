@@ -183,21 +183,16 @@ void matrix_scan_user(void) {
     asleep = true;
     RGBLIGHT_SETHSV(HSV_ASLEEP);
   }
-  else if (IS_LAYER_ON(TRI_LAYER_ADJUST_LAYER)) {
+  else if (IS_LAYER_ON(TRI_LAYER_ADJUST_LAYER))
     RGBLIGHT_SETHSV(HSV_ADJUST_LAYER_ON);
-  }
-  else if (IS_LAYER_ON(TRI_LAYER_UPPER_LAYER)) {
+  else if (IS_LAYER_ON(TRI_LAYER_UPPER_LAYER))
     RGBLIGHT_SETHSV(HSV_UPPER_LAYER_ON);
-  }
-  else if (IS_LAYER_ON(TRI_LAYER_LOWER_LAYER)) {
+  else if (IS_LAYER_ON(TRI_LAYER_LOWER_LAYER))
     RGBLIGHT_SETHSV(HSV_LOWER_LAYER_ON);
-  }
-  else if (IS_LAYER_ON(TOGGLED_LAYER)) {
+  else if (IS_LAYER_ON(TOGGLED_LAYER))
     RGBLIGHT_SETHSV(HSV_TOGGLED_LAYER_ON);
-  }
-  else {
+  else
     RGBLIGHT_SETHSV(HSV_TOGGLED_LAYER_OFF);
-  }
 }
 
 // ==============================================================================
