@@ -10,18 +10,6 @@
 #define QH_K    RALT_T(KC_K)
 #define QH_L    RGUI_T(KC_L)
 #define QH_QUOT RSFT_T(KC_QUOT)
-
-#define QB_Z    LCTL_T(KC_Z)
-#define QB_X    LALT_T(KC_X)
-#define QB_C    LGUI_T(KC_C)
-#define QB_V    LSFT_T(KC_V)
-#define QB_B    KC_B
-#define QB_N    KC_N
-#define QB_M    RSFT_T(KC_M)
-#define QB_COMM RGUI_T(KC_COMM)
-#define QB_DOT  RALT_T(KC_DOT)
-#define QB_SLSH RCTL_T(KC_SLSH)
-
 #define CH_A    LSFT_T(KC_A)
 #define CH_R    LGUI_T(KC_R)
 #define CH_S    LALT_T(KC_S)
@@ -33,6 +21,16 @@
 #define CH_I    RGUI_T(KC_I)
 #define CH_QUOT RSFT_T(KC_QUOT)
 
+#define QB_Z    LCTL_T(KC_Z)
+#define QB_X    LALT_T(KC_X)
+#define QB_C    LGUI_T(KC_C)
+#define QB_V    LSFT_T(KC_V)
+#define QB_B    KC_B
+#define QB_N    KC_N
+#define QB_M    RSFT_T(KC_M)
+#define QB_COMM RGUI_T(KC_COMM)
+#define QB_DOT  RALT_T(KC_DOT)
+#define QB_SLSH RCTL_T(KC_SLSH)
 #define CB_Z    LCTL_T(KC_Z)
 #define CB_X    LALT_T(KC_X)
 #define CB_C    LGUI_T(KC_C)
