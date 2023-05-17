@@ -21,6 +21,7 @@
 #define CH_I    RGUI_T(KC_I)
 #define CH_QUOT RSFT_T(KC_QUOT)
 
+#ifdef BOTTOM_ROW_MODS
 #define QB_Z    LCTL_T(KC_Z)
 #define QB_X    LALT_T(KC_X)
 #define QB_C    LGUI_T(KC_C)
@@ -41,3 +42,25 @@
 #define CB_COMM RGUI_T(KC_COMM)
 #define CB_DOT  RALT_T(KC_DOT)
 #define CB_SLSH RCTL_T(KC_SLSH)
+#else
+#define QB_Z    KC_Z
+#define QB_X    KC_X
+#define QB_C    KC_C
+#define QB_V    KC_V
+#define QB_B    KC_B
+#define QB_N    KC_N
+#define QB_M    KC_M
+#define QB_COMM KC_COMM
+#define QB_DOT  KC_DOT
+#define QB_SLSH KC_SLSH
+#define CB_Z    KC_Z
+#define CB_X    KC_X
+#define CB_C    KC_C
+#define CB_V    KC_V
+#define CB_B    KC_B
+#define CB_K    KC_K
+#define CB_M    KC_M
+#define CB_COMM KC_COMM
+#define CB_DOT  KC_DOT
+#define CB_SLSH KC_SLSH
+#endif

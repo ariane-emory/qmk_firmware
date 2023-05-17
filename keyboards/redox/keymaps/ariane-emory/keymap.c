@@ -221,6 +221,7 @@ bool achordion_chord(
       tap_hold_keycode == QH_K    ||
       tap_hold_keycode == QH_L    ||
       tap_hold_keycode == QH_QUOT ||
+#ifdef BOTTOM_ROW_MODS
       tap_hold_keycode == QB_Z    ||
       tap_hold_keycode == QB_X    ||
       tap_hold_keycode == QB_C    ||
@@ -231,6 +232,7 @@ bool achordion_chord(
       tap_hold_keycode == QB_COMM ||
       tap_hold_keycode == QB_DOT  ||
       tap_hold_keycode == QB_SLSH ||
+#endif
       false)) ||
     (IS_LAYER_ON(1) && (
       tap_hold_keycode == CH_A    ||
@@ -243,6 +245,7 @@ bool achordion_chord(
       tap_hold_keycode == CH_E    ||
       tap_hold_keycode == CH_I    ||
       tap_hold_keycode == QH_QUOT ||
+#ifdef BOTTOM_ROW_MODS
       tap_hold_keycode == CB_Z    ||
       tap_hold_keycode == CB_X    ||
       tap_hold_keycode == CB_C    ||
@@ -253,6 +256,7 @@ bool achordion_chord(
       tap_hold_keycode == CB_COMM ||
       tap_hold_keycode == CB_DOT  ||
       tap_hold_keycode == CB_SLSH ||
+#endif
       false)))
   {
     // Also allow same-hand holds when the other key is in the rows below the

@@ -87,3 +87,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // #define IGNORE_WAKING_KEY
 #define INSERT_UPP_ENABLED
+#define BOTTOM_ROW_MODS
