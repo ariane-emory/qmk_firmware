@@ -215,20 +215,45 @@ bool achordion_chord(
       tap_hold_keycode == QH_S    ||
       tap_hold_keycode == QH_D    ||
       tap_hold_keycode == QH_F    ||
+      // tap_hold_keycode == QH_G    || // not a mod currently
+      // tap_hold_keycode == QH_H    || // not a mod currently
       tap_hold_keycode == QH_J    ||
       tap_hold_keycode == QH_K    ||
       tap_hold_keycode == QH_L    ||
-      tap_hold_keycode == QH_QUOT)) ||
+      tap_hold_keycode == QH_QUOT ||
+      tap_hold_keycode == QB_Z    ||
+      tap_hold_keycode == QB_X    ||
+      tap_hold_keycode == QB_C    ||
+      tap_hold_keycode == QB_V    ||
+      // tap_hold_keycode == QB_B    || // not a mod currently
+      // tap_hold_keycode == QB_N    || // not a mod currently
+      tap_hold_keycode == QB_M    ||
+      tap_hold_keycode == QB_COMM ||
+      tap_hold_keycode == QB_DOT  ||
+      tap_hold_keycode == QB_SLSH ||
+      false)) ||
     (IS_LAYER_ON(1) && (
       tap_hold_keycode == CH_A    ||
       tap_hold_keycode == CH_R    ||
       tap_hold_keycode == CH_S    ||
       tap_hold_keycode == CH_T    ||
+      // tap_hold_keycode == CH_D    || // not a mod currently
+      // tap_hold_keycode == CH_H    || // not a mod currently
       tap_hold_keycode == CH_N    ||
       tap_hold_keycode == CH_E    ||
       tap_hold_keycode == CH_I    ||
-      tap_hold_keycode == QH_QUOT))
-      )
+      tap_hold_keycode == QH_QUOT ||
+      tap_hold_keycode == CB_Z    ||
+      tap_hold_keycode == CB_X    ||
+      tap_hold_keycode == CB_C    ||
+      tap_hold_keycode == CB_V    ||
+      // tap_hold_keycode == CB_B    || // not a mod currently
+      // tap_hold_keycode == CB_K    || // not a mod currently
+      tap_hold_keycode == CB_M    ||
+      tap_hold_keycode == CB_COMM ||
+      tap_hold_keycode == CB_DOT  ||
+      tap_hold_keycode == CB_SLSH ||
+      false)))
   {
     // Also allow same-hand holds when the other key is in the rows below the
     // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
