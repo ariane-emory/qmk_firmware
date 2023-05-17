@@ -158,7 +158,7 @@ KEYRECORD_FUN(process_record_user, bool) {
       for (uint8_t ix = 0; ix < 6; ix++) {
         static const uint16_t hex_keycodes[] = {
           KC_2, KC_3, KC_4, KC_5, KC_6, KC_7,
-          KC_8, KC_9, KC_A, KC_B, KC_C, 
+          KC_8, KC_9, KC_A, KC_B, QBC, 
         };
         const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
         const uint16_t hex_kc = LSFT(hex_keycodes[roll - 2]);
@@ -211,25 +211,25 @@ bool achordion_chord(
   keyrecord_t* other_record) {
   if (
     (IS_LAYER_ON(0) && (
-      tap_hold_keycode == LCTL_T(KC_F)    ||
-      tap_hold_keycode == LALT_T(KC_D)    ||
-      tap_hold_keycode == LGUI_T(KC_S)    ||
-      tap_hold_keycode == LSFT_T(KC_A)    ||
-      tap_hold_keycode == RCTL_T(KC_J)    ||
-      tap_hold_keycode == RALT_T(KC_K)    ||
-      tap_hold_keycode == RGUI_T(KC_L)    ||
+      tap_hold_keycode == QHF    ||
+      tap_hold_keycode == QHD    ||
+      tap_hold_keycode == QHS    ||
+      tap_hold_keycode == QHA    ||
+      tap_hold_keycode == QHJ    ||
+      tap_hold_keycode == QHK    ||
+      tap_hold_keycode == QHL    ||
       tap_hold_keycode == RSFT_T(KC_DQUO) ||
-      tap_hold_keycode == RSFT_T(KC_QUOT))) ||
+      tap_hold_keycode == QHQUOT)) ||
     (IS_LAYER_ON(1) && (
       tap_hold_keycode == LCTL_T(KC_T)    ||
       tap_hold_keycode == LALT_T(KC_S)    ||
       tap_hold_keycode == LGUI_T(KC_R)    ||
-      tap_hold_keycode == LSFT_T(KC_A)    ||
+      tap_hold_keycode == QHA    ||
       tap_hold_keycode == RCTL_T(KC_N)    ||
       tap_hold_keycode == RALT_T(KC_E)    ||
       tap_hold_keycode == RGUI_T(KC_I)    ||
       tap_hold_keycode == RSFT_T(KC_DQUO) ||
-      tap_hold_keycode == RSFT_T(KC_QUOT)))
+      tap_hold_keycode == QHQUOT))
       )
   {
     // Also allow same-hand holds when the other key is in the rows below the
@@ -291,14 +291,14 @@ KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
 KEYRECORD_FUN(get_permissive_hold, bool) {
   switch (keycode) {
   case MT(MOD_LALT,KC_SPC):
-  case LCTL_T(KC_F):
-  case LALT_T(KC_D):
-  case LGUI_T(KC_S):
-  case LSFT_T(KC_A):
-  case RCTL_T(KC_J):
-  case RALT_T(KC_K):
-  case RGUI_T(KC_L):
-  case RSFT_T(KC_QUOT):
+  case QHF:
+  case QHD:
+  case QHS:
+  case QHA:
+  case QHJ:
+  case QHK:
+  case QHL:
+  case QHQUOT:
     // Do not select the hold action when another key is tapped.
     return false;
   default:
