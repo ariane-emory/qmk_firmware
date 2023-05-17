@@ -233,59 +233,63 @@ bool achordion_chord(
       tap_hold_keycode == QB_DOT  ||
       tap_hold_keycode == QB_SLSH ||
 #endif
-      false)) ||
-    (IS_LAYER_ON(1) && (
-      tap_hold_keycode == CH_A    ||
-      tap_hold_keycode == CH_R    ||
-      tap_hold_keycode == CH_S    ||
-      tap_hold_keycode == CH_T    ||
-      // tap_hold_keycode == CH_D    || // not a mod currently
-      // tap_hold_keycode == CH_H    || // not a mod currently
-      tap_hold_keycode == CH_N    ||
-      tap_hold_keycode == CH_E    ||
-      tap_hold_keycode == CH_I    ||
-      tap_hold_keycode == QH_QUOT ||
-#ifdef BOTTOM_ROW_MODS
-      tap_hold_keycode == CB_Z    ||
-      tap_hold_keycode == CB_X    ||
-      tap_hold_keycode == CB_C    ||
-      tap_hold_keycode == CB_V    ||
-      // tap_hold_keycode == CB_B    || // not a mod currently
-      // tap_hold_keycode == CB_K    || // not a mod currently
-      tap_hold_keycode == CB_M    ||
-      tap_hold_keycode == CB_COMM ||
-      tap_hold_keycode == CB_DOT  ||
-      tap_hold_keycode == CB_SLSH ||
-#endif
       false)))
   {
     // Exceptionally consider the following chords as holds, even though they
     // are on the same hand.
-    switch (tap_hold_keycode) {
-    case QH_F:  // Control + A / E / S.
-      if (other_keycode == QH_A ||
-          other_keycode == KC_E ||
-          other_keycode == KC_W ||
-          other_keycode == QH_S)
-        return true; 
-      break;
-    case CH_T:  // Control + A.
-      if (other_keycode == CH_A)
-        return true; 
-      break;
-    }
-
-    // Also allow same-hand holds when the other key is in the rows below the
-    // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
-    if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
+    if (tap_hold_keycode == QH_F &&
+        (other_keycode == QH_A ||
+         other_keycode == KC_E ||
+         other_keycode == KC_W ||
+         other_keycode == QH_S))
+      return true;    
+    goto process_bilaterally;
+  }
+  
+  if (IS_LAYER_ON(1) && (
+        tap_hold_keycode == CH_A    ||
+        tap_hold_keycode == CH_R    ||
+        tap_hold_keycode == CH_S    ||
+        tap_hold_keycode == CH_T    ||
+        // tap_hold_keycode == CH_D    || // not a mod currently
+        // tap_hold_keycode == CH_H    || // not a mod currently
+        tap_hold_keycode == CH_N    ||
+        tap_hold_keycode == CH_E    ||
+        tap_hold_keycode == CH_I    ||
+        tap_hold_keycode == QH_QUOT ||
+#ifdef BOTTOM_ROW_MODS
+        tap_hold_keycode == CB_Z    ||
+        tap_hold_keycode == CB_X    ||
+        tap_hold_keycode == CB_C    ||
+        tap_hold_keycode == CB_V    ||
+        // tap_hold_keycode == CB_B    || // not a mod currently
+        // tap_hold_keycode == CB_K    || // not a mod currently
+        tap_hold_keycode == CB_M    ||
+        tap_hold_keycode == CB_COMM ||
+        tap_hold_keycode == CB_DOT  ||
+        tap_hold_keycode == CB_SLSH ||
+#endif
+        false))
+  {
+    // Exceptionally consider the following chords as holds, even though they
+    // are on the same hand.
+    if (tap_hold_keycode == CH_T &&
+        other_keycode == CH_A)
       return true;
-
-    // Require bilateral
-    return achordion_opposite_hands(tap_hold_record, other_record);
+    goto process_bilaterally;
   }
 
-  // Process normally
+// process_normally:
   return true;
+  
+process_bilaterally:
+  // Also allow same-hand holds when the other key is in the rows below the
+  // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
+  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
+    return true;
+  
+  // Require bilateral
+  return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
 bool achordion_eager_mod(uint8_t mod) {
@@ -342,7 +346,7 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
     case QB_Z: case QB_X: case QB_C: case QB_V:
       // case QB_B: case QB_N: // not mods currently
     case QB_M: case QB_COMM: case QB_DOT: case QB_SLSH:
-      #endif
+#endif
       return false; // Do not select the hold action when another key is tapped.
     }
   }
@@ -371,31 +375,31 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
 // ==============================================================================
 
 #ifdef AUTO_SHIFT_ENABLE
-KEYRECORD_FUN(get_autoshift_timeout, uint16_t) {
-  switch(keycode) {
-  case AUTO_SHIFT_ALPHA:
-    return get_generic_autoshift_timeout() + 60;
-  case AUTO_SHIFT_SPECIAL:
-    return get_generic_autoshift_timeout() + 30;
-  case AUTO_SHIFT_NUMERIC:
-  default:
-    return get_generic_autoshift_timeout();
-  }
-}
+/* KEYRECORD_FUN(get_autoshift_timeout, uint16_t) { */
+/*   switch(keycode) { */
+/*   case AUTO_SHIFT_ALPHA: */
+/*     return get_generic_autoshift_timeout() + 60; */
+/*   case AUTO_SHIFT_SPECIAL: */
+/*     return get_generic_autoshift_timeout() + 30; */
+/*   case AUTO_SHIFT_NUMERIC: */
+/*   default: */
+/*     return get_generic_autoshift_timeout(); */
+/*   } */
+/* } */
 #endif
 
 // ==============================================================================
 // Tapping term
 // ==============================================================================
 
-KEYRECORD_FUN(get_tapping_term, uint16_t) {
-  switch (keycode) {
-  case MT(MOD_LALT,KC_SPC):
-    return TAPPING_TERM + 60;
-  default:
-    return TAPPING_TERM;
-  }
-}
+/* KEYRECORD_FUN(get_tapping_term, uint16_t) { */
+/*   switch (keycode) { */
+/*   case MT(MOD_LALT,KC_SPC): */
+/*     return TAPPING_TERM + 60; */
+/*   default: */
+/*     return TAPPING_TERM; */
+/*   } */
+/* } */
 
 // ==============================================================================
 // Undefine local macros
