@@ -114,12 +114,12 @@ combo_t key_combos[] = {
   //======================================================================================
   /* SECTION: Left top row */ 
   COMBO(keys_l_top_rech,         EM_REVERT),        // revert buffer
-  COMBO(keys_l_top_trpi,         SS_SPC_TILD_SLSH), // '  ~/'
-  COMBO(keys_l_top_innr,         SS_TILD),          // ~
+  COMBO(keys_l_top_trpi,         SS_SPC_TILD_SLSH),  hk// '  ~/'
+  COMBO(keys_l_top_innr,         ),
   COMBO(keys_l_top_trpm,         SS_TILD_SLSH),     // ~/
-  COMBO(keys_l_top_outr,         SS_GRAV),          // `
+  COMBO(keys_l_top_outr,         SS_TILD),          // ~
   COMBO(keys_l_top_trpo,         INSERT_UPP),       // insert a UPP
-  COMBO(keys_l_top_edge,         KC_TAB),           // tab
+  COMBO(keys_l_top_edge,         SS_GRAV),          // `
   // COMBO(keys_l_top_sprd,         KC_NO),            //
   //======================================================================================
   /* SECTION: Left middle row */
