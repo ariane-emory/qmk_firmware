@@ -318,14 +318,48 @@ KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
 KEYRECORD_FUN(get_permissive_hold, bool) {
   switch (keycode) {
   case MT(MOD_LALT,KC_SPC):
-  case QH_F:
-  case QH_D:
-  case QH_S:
   case QH_A:
+  case QH_S:
+  case QH_D:
+  case QH_F:
+    // case QH_G: // not a mod currently
+    // case QH_H: // not a mod currently
   case QH_J:
   case QH_K:
   case QH_L:
   case QH_QUOT:
+    // case CH_A:
+  case CH_R:
+  case CH_S:
+  case CH_T:
+    // case CH_D: // not a mod currently
+    // case CH_H: // not a mod currently
+  case CH_N:
+  case CH_E:
+  case CH_I:
+    // case CH_QUOT:
+#ifdef BOTTOM_ROW_MODS
+  case QB_Z:
+  case QB_X:
+  case QB_C:
+  case QB_V:
+    // case QB_B: // not a mod currently
+    // case QB_N: // not a mod currently
+  case QB_M:
+  case QB_COMM:
+  case QB_DOT:
+  case QB_SLSH:
+    // case CB_Z:
+    // case CB_X:
+    // case CB_C:
+    // case CB_V:
+    // case CB_B: // not a mod currently
+    // case CB_K: // not a mod currently
+    // case CB_M:
+    // case CB_COMM:
+    // case CB_DOT:
+    // case CB_SLSH:
+#endif
     // Do not select the hold action when another key is tapped.
     return false;
   default:
