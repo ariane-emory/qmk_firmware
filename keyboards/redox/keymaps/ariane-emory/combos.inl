@@ -113,8 +113,8 @@ combo_t key_combos[] = {
   // COMBO(keys_l_num_sprd,         KC_NO),
   //======================================================================================
   /* SECTION: Left top row */ 
-  COMBO(keys_l_top_rech,         EM_REVERT),        // revert buffer
-  COMBO(keys_l_top_trpi,         SS_SPC_TILD_SLSH),  // '  ~/'
+  COMBO(keys_l_top_rech,         KC_NO),            //
+  COMBO(keys_l_top_trpi,         SS_SPC_TILD_SLSH), // '  ~/'
   // COMBO(keys_l_top_innr,         KC_NO),            //
   COMBO(keys_l_top_trpm,         SS_TILD_SLSH),     // ~/
   COMBO(keys_l_top_outr,         SS_TILD),          // ~
@@ -150,14 +150,14 @@ combo_t key_combos[] = {
   // Bind right hand combos
   //======================================================================================
   /* SECTION: Right top row */
-  // COMBO(keys_r_top_rech,         LCTL(KC_K)),       // kill line
+  // COMBO(keys_r_top_rech,         KC_NO),            // 
   // COMBO(keys_r_top_trpi,         KC_NO),            // 
   COMBO(keys_r_top_innr,         SS_LPAR),          // (
-  // COMBO(keys_r_top_trpm,         LCTL(KC_Y)),       // yank
+  // COMBO(keys_r_top_trpm,         KC_NO),            // 
   COMBO(keys_r_top_outr,         SS_RPAR),          // )
   COMBO(keys_r_top_trpo,         SS_RPAR_SCLN),     // ); 
-  // COMBO(keys_r_top_edge,         LCTL(KC_W)),       // kill region
-  // COMBO(keys_r_top_sprd,         LCTL(KC_SPC)),     // mark
+  COMBO(keys_r_top_edge,         EM_REVERT),        // revert buffer
+  // COMBO(keys_r_top_sprd,         KC_NO),            // 
   //======================================================================================
   /* SECTION: Right middle row */
   COMBO(keys_r_mid_rech,         KC_LBRC),          // {
