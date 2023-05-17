@@ -158,7 +158,7 @@ KEYRECORD_FUN(process_record_user, bool) {
       for (uint8_t ix = 0; ix < 6; ix++) {
         static const uint16_t hex_keycodes[] = {
           KC_2, KC_3, KC_4, KC_5, KC_6, KC_7,
-          KC_8, KC_9, KC_A, KC_B, QBC, 
+          KC_8, KC_9, KC_A, KC_B, QB_C, 
         };
         const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
         const uint16_t hex_kc = LSFT(hex_keycodes[roll - 2]);
@@ -211,25 +211,25 @@ bool achordion_chord(
   keyrecord_t* other_record) {
   if (
     (IS_LAYER_ON(0) && (
-      tap_hold_keycode == QHF    ||
-      tap_hold_keycode == QHD    ||
-      tap_hold_keycode == QHS    ||
-      tap_hold_keycode == QHA    ||
-      tap_hold_keycode == QHJ    ||
-      tap_hold_keycode == QHK    ||
-      tap_hold_keycode == QHL    ||
+      tap_hold_keycode == QH_F    ||
+      tap_hold_keycode == QH_D    ||
+      tap_hold_keycode == QH_S    ||
+      tap_hold_keycode == QH_A    ||
+      tap_hold_keycode == QH_J    ||
+      tap_hold_keycode == QH_K    ||
+      tap_hold_keycode == QH_L    ||
       tap_hold_keycode == RSFT_T(KC_DQUO) ||
-      tap_hold_keycode == QHQUOT)) ||
+      tap_hold_keycode == QH_QUOT)) ||
     (IS_LAYER_ON(1) && (
-      tap_hold_keycode == CHT    ||
-      tap_hold_keycode == CHS    ||
-      tap_hold_keycode == CHR    ||
-      tap_hold_keycode == QHA    ||
-      tap_hold_keycode == CHN    ||
-      tap_hold_keycode == CHE    ||
-      tap_hold_keycode == CHI    ||
+      tap_hold_keycode == CH_T    ||
+      tap_hold_keycode == CH_S    ||
+      tap_hold_keycode == CH_R    ||
+      tap_hold_keycode == QH_A    ||
+      tap_hold_keycode == CH_N    ||
+      tap_hold_keycode == CH_E    ||
+      tap_hold_keycode == CH_I    ||
       tap_hold_keycode == RSFT_T(KC_DQUO) ||
-      tap_hold_keycode == QHQUOT))
+      tap_hold_keycode == QH_QUOT))
       )
   {
     // Also allow same-hand holds when the other key is in the rows below the
@@ -291,14 +291,14 @@ KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
 KEYRECORD_FUN(get_permissive_hold, bool) {
   switch (keycode) {
   case MT(MOD_LALT,KC_SPC):
-  case QHF:
-  case QHD:
-  case QHS:
-  case QHA:
-  case QHJ:
-  case QHK:
-  case QHL:
-  case QHQUOT:
+  case QH_F:
+  case QH_D:
+  case QH_S:
+  case QH_A:
+  case QH_J:
+  case QH_K:
+  case QH_L:
+  case QH_QUOT:
     // Do not select the hold action when another key is tapped.
     return false;
   default:
