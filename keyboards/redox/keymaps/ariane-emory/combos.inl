@@ -164,11 +164,11 @@ combo_t key_combos[] = {
   COMBO(keys_r_mid_trpi,         LALT(LGUI(KC_V))), // previous buffer/
   COMBO(keys_r_mid_innr,         KC_ENT),           // <CR>
   COMBO(keys_r_mid_trpm,         LALT(LGUI(KC_D))), // dired
-  COMBO(keys_r_mid_outr,         KC_SCLN),          // ;
+  COMBO(keys_r_mid_outr,         KC_RBRC),          // }
   COMBO(keys_r_mid_trpo,         LALT(LGUI(KC_A))), // all buffers
-  COMBO(keys_r_mid_edge,         KC_RBRC),          // }
+  COMBO(keys_r_mid_edge,         KC_SCLN),          // ;
   COMBO(keys_r_mid_sprd,         KC_EQL),           // =
-  COMBO(keys_r_mid_EXTR,         KC_COLN),          // :
+  // COMBO(keys_r_mid_EXTR,         KC_NO),            // 
   //======================================================================================
   /* SECTION: Right bottom row */
   COMBO(keys_r_bot_rech,         EM_LASTARG),       // last arg
