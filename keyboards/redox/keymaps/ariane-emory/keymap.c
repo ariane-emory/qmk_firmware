@@ -259,6 +259,21 @@ bool achordion_chord(
 #endif
       false)))
   {
+    // Exceptionally consider the following chords as holds, even though they
+    // are on the same hand.
+    switch (tap_hold_keycode) {
+    case QH_F:  // Control + A / E / S.
+      if (other_keycode == QH_A ||
+          other_keycode == KC_E ||
+          other_keycode == QH_S)
+        return true; 
+      break;
+    case CH_T:  // Control + A.
+      if (other_keycode == CH_A)
+        return true; 
+      break;
+    }
+
     // Also allow same-hand holds when the other key is in the rows below the
     // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
     if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
