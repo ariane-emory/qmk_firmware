@@ -293,19 +293,19 @@ process_bilaterally:
 }
 
 bool achordion_eager_mod(uint8_t mod) {
-  switch (mod) {
-  case MOD_LGUI:
-  case MOD_RGUI:
-  case MOD_LALT:
-  case MOD_RALT:
-  case MOD_LSFT:
-  case MOD_RSFT:
-  case MOD_LCTL:
-  case MOD_RCTL:
-    return true;  // Eagerly apply all mods.
-  default:
-    return false;
-  }
+  /* switch (mod) { */
+  /* case MOD_LGUI: */
+  /* case MOD_RGUI: */
+  /* case MOD_LALT: */
+  /* case MOD_RALT: */
+  /* case MOD_LSFT: */
+  /* case MOD_RSFT: */
+  /* case MOD_LCTL: */
+  /* case MOD_RCTL: */
+  return true;  // Eagerly apply all mods.
+  /* default: */
+  /*   return false; */
+  /* } */
 }
 
 // ==============================================================================
