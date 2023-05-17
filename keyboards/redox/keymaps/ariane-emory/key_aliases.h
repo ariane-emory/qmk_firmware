@@ -17,3 +17,21 @@
 #define QBCOMM KC_COMM
 #define QBDOT  KC_DOT
 #define QBSLSH KC_SLSH
+
+#define CHA    LSFT_T(KC_A)
+#define CHR    LGUI_T(KC_R)
+#define CHS    LALT_T(KC_S)
+#define CHT    LCTL_T(KC_T)
+#define CHN    RCTL_T(KC_N)
+#define CHE    RALT_T(KC_E)
+#define CHI    RGUI_T(KC_I)
+#define CHQUOT RSFT_T(KC_QUOT)
+
+#define CBZ    KC_Z
+#define CBX    KC_X
+#define CBC    KC_C
+#define CBV    KC_V
+#define CBM    KC_M
+#define CBCOMM KC_COMM
+#define CBDOT  KC_DOT
+#define CBSLSH KC_SLSH
