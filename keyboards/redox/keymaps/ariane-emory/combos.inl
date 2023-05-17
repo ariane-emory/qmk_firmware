@@ -70,28 +70,28 @@ DEFINE_COMBO_KEYS(r_top_innr,    KC_U,            KC_I);
 DEFINE_COMBO_KEYS(r_top_outr,    KC_I,            KC_O);
 //========================================================================================
 /* Right middle row */
-DEFINE_COMBO_KEYS(r_mid_trpi,    KC_H,            QHJ,      QHK);
-DEFINE_COMBO_KEYS(r_mid_trpm,    QHJ,    QHK,      QHL);
-DEFINE_COMBO_KEYS(r_mid_trpo,    QHK,    QHL,      QHQUOT);
-DEFINE_COMBO_KEYS(r_mid_sprd,    QHJ,    QHL);
+DEFINE_COMBO_KEYS(r_mid_trpi,    KC_H,            QHJ,               QHK);
+DEFINE_COMBO_KEYS(r_mid_trpm,    QHJ,             QHK,               QHL);
+DEFINE_COMBO_KEYS(r_mid_trpo,    QHK,             QHL,               QHQUOT);
+DEFINE_COMBO_KEYS(r_mid_sprd,    QHJ,             QHL);
 DEFINE_COMBO_KEYS(r_mid_rech,    KC_H,            QHJ);
-DEFINE_COMBO_KEYS(r_mid_edge,    QHL,    QHQUOT);
-DEFINE_COMBO_KEYS(r_mid_innr,    QHJ,    QHK);
-DEFINE_COMBO_KEYS(r_mid_outr,    QHK,    QHL);
-DEFINE_COMBO_KEYS(r_mid_EXTR,    QHQUOT, RCTL_T(KC_DQUO));
+DEFINE_COMBO_KEYS(r_mid_edge,    QHL,             QHQUOT);
+DEFINE_COMBO_KEYS(r_mid_innr,    QHJ,             QHK);
+DEFINE_COMBO_KEYS(r_mid_outr,    QHK,             QHL);
+DEFINE_COMBO_KEYS(r_mid_EXTR,    QHQUOT,          RCTL_T(KC_DQUO));
 //========================================================================================
 /* Right bottom row */
 DEFINE_COMBO_KEYS(r_bot_trpi,    KC_N,            QBM,              QBCOMM);
-DEFINE_COMBO_KEYS(r_bot_trpm,    QBM,            QBCOMM,           QBDOT);
-DEFINE_COMBO_KEYS(r_bot_trpo,    QBCOMM,         QBDOT,            QBSLSH);
-DEFINE_COMBO_KEYS(r_bot_sprd,    QBM,            QBDOT);
+DEFINE_COMBO_KEYS(r_bot_trpm,    QBM,             QBCOMM,           QBDOT);
+DEFINE_COMBO_KEYS(r_bot_trpo,    QBCOMM,          QBDOT,            QBSLSH);
+DEFINE_COMBO_KEYS(r_bot_sprd,    QBM,             QBDOT);
 DEFINE_COMBO_KEYS(r_bot_rech,    KC_N,            QBM);
-DEFINE_COMBO_KEYS(r_bot_edge,    QBDOT,          KC_SLASH);
-DEFINE_COMBO_KEYS(r_bot_innr,    QBM,            QBCOMM);
-DEFINE_COMBO_KEYS(r_bot_outr,    QBCOMM,         QBDOT);
+DEFINE_COMBO_KEYS(r_bot_edge,    QBDOT,           KC_SLSH);
+DEFINE_COMBO_KEYS(r_bot_innr,    QBM,             QBCOMM);
+DEFINE_COMBO_KEYS(r_bot_outr,    QBCOMM,          QBDOT);
 //========================================================================================
 /* Right middle/bottom row */
-DEFINE_COMBO_KEYS(r_pinky_dip,   QHJ,    KC_SLASH);
+DEFINE_COMBO_KEYS(r_pinky_dip,   QHJ,             KC_SLSH);
 //========================================================================================
 
 
@@ -114,9 +114,9 @@ combo_t key_combos[] = {
   //======================================================================================
   /* SECTION: Left top row */ 
   COMBO(keys_l_top_rech,         EM_REVERT),        // revert buffer
-  COMBO(keys_l_top_trpi,         SS_SPC_TILD_SLASH),// '  ~/'
+  COMBO(keys_l_top_trpi,         SS_SPC_TILD_SLSH),// '  ~/'
   COMBO(keys_l_top_innr,         SS_TILD),          // ~
-  COMBO(keys_l_top_trpm,         SS_TILD_SLASH),    // ~/
+  COMBO(keys_l_top_trpm,         SS_TILD_SLSH),    // ~/
   COMBO(keys_l_top_outr,         SS_GRAV),          // `
   COMBO(keys_l_top_trpo,         INSERT_UPP),       // insert a UPP
   COMBO(keys_l_top_edge,         KC_TAB),           // tab
