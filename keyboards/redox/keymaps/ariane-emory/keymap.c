@@ -320,13 +320,11 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
           switch (keycode) {
           case MT(MOD_LALT,KC_SPC):
           case QH_A: case QH_S: case QH_D: case QH_F:
-               // case QH_G: // not a mod currently
-               // case QH_H: // not a mod currently
+            // case QH_G: case QH_H: // not mods currently
           case QH_J: case QH_K: case QH_L: case QH_QUOT:
 #ifdef BOTTOM_ROW_MODS
           case QB_Z: case QB_X: case QB_C: case QB_V:
-               // case QB_B: // not a mod currently
-               // case QB_N: // not a mod currently
+            // case QB_B: case QB_N: // not mods currently
           case QB_M: case QB_COMM: case QB_DOT: case QB_SLSH:
 #endif
                return false; // Do not select the hold action when another key is tapped.
