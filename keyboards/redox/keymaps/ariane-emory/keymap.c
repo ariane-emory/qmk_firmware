@@ -237,12 +237,16 @@ bool achordion_chord(
   {
     // Exceptionally consider the following chords as holds, even though they
     // are on the same hand.
-    if (tap_hold_keycode == QH_F &&
-        (other_keycode == QH_A ||
+    if ((tap_hold_keycode == QH_F &&
+         (other_keycode == QH_A ||
          other_keycode == KC_E ||
          other_keycode == KC_W ||
-         other_keycode == QH_S))
-      return true;    
+          other_keycode == QH_S)) ||
+        (tap_hold_keycode == QH_K &&
+         (other_keycode == KC_P ||
+          other_keycode == QB_N)))
+      return true;
+    
     goto process_bilaterally;
   }
   
@@ -276,6 +280,7 @@ bool achordion_chord(
     if (tap_hold_keycode == CH_T &&
         other_keycode == CH_A)
       return true;
+    
     goto process_bilaterally;
   }
 
