@@ -583,7 +583,7 @@
       "ANY(S(A(G(KC_S))))"
     ],
     [
-      "KC_NO",
+      "KC_HOME",
       "KC_F1",
       "KC_F2",
       "KC_F3",
@@ -595,7 +595,7 @@
       "RGUI(KC_MINS)",
       "RGUI(KC_EQL)",
       "LT(11,KC_HOME)",
-      "KC_NO",
+      "KC_END",
       "LCTL(KC_A)",
       "LCTL(KC_E)",
       "RCS(KC_TAB)",
@@ -636,8 +636,8 @@
       "RALT(KC_X)",
       "RCTL(KC_X)",
       "RCTL(KC_C)",
-      "KC_NO",
-      "KC_NO",
+      "KC_END",
+      "KC_HOME",
       "ANY(QK_CAPS_WORD_TOGGLE)",
       "KC_TRNS",
       "KC_NO",
