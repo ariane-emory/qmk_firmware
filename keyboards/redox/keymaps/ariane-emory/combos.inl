@@ -155,7 +155,7 @@ combo_t key_combos[] = {
   COMBO(keys_r_top_innr,         SS_LPAR),          // (
   // COMBO(keys_r_top_trpm,         KC_NO),            // 
   COMBO(keys_r_top_outr,         SS_RPAR),          // )
-  COMBO(keys_r_top_trpo,         SS_RPAR_SCLN),     // ); 
+  // COMBO(keys_r_top_trpo,         SS_RPAR_SCLN),     // ); 
   COMBO(keys_r_top_edge,         EM_REVERT),        // revert buffer
   // COMBO(keys_r_top_sprd,         KC_NO),            // 
   //======================================================================================
