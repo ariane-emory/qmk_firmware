@@ -211,24 +211,22 @@ bool achordion_chord(
   keyrecord_t* other_record) {
   if (
     (IS_LAYER_ON(0) && (
-      tap_hold_keycode == QH_F    ||
-      tap_hold_keycode == QH_D    ||
-      tap_hold_keycode == QH_S    ||
       tap_hold_keycode == QH_A    ||
+      tap_hold_keycode == QH_S    ||
+      tap_hold_keycode == QH_D    ||
+      tap_hold_keycode == QH_F    ||
       tap_hold_keycode == QH_J    ||
       tap_hold_keycode == QH_K    ||
       tap_hold_keycode == QH_L    ||
-      tap_hold_keycode == RSFT_T(KC_DQUO) ||
       tap_hold_keycode == QH_QUOT)) ||
     (IS_LAYER_ON(1) && (
-      tap_hold_keycode == CH_T    ||
-      tap_hold_keycode == CH_S    ||
+      tap_hold_keycode == CH_A    ||
       tap_hold_keycode == CH_R    ||
-      tap_hold_keycode == QH_A    ||
+      tap_hold_keycode == CH_S    ||
+      tap_hold_keycode == CH_T    ||
       tap_hold_keycode == CH_N    ||
       tap_hold_keycode == CH_E    ||
       tap_hold_keycode == CH_I    ||
-      tap_hold_keycode == RSFT_T(KC_DQUO) ||
       tap_hold_keycode == QH_QUOT))
       )
   {
