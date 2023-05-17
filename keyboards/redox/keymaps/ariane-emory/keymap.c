@@ -239,7 +239,9 @@ bool achordion_chord(
           other_keycode == QH_S)) ||
         (tap_hold_keycode == QH_K &&
          (other_keycode == KC_P ||
-          other_keycode == QB_N)))
+          other_keycode == QB_N)) ||
+        (tap_hold_keycode == QH_J &&
+         other_keycode == QH_K))
       return true;
     
     goto process_bilaterally;
