@@ -265,6 +265,7 @@ bool achordion_chord(
     case QH_F:  // Control + A / E / S.
       if (other_keycode == QH_A ||
           other_keycode == KC_E ||
+          other_keycode == KC_W ||
           other_keycode == QH_S)
         return true; 
       break;
