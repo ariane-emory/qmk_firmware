@@ -113,23 +113,23 @@ combo_t key_combos[] = {
   // COMBO(keys_l_num_sprd,         KC_NO),
   //======================================================================================
   /* SECTION: Left top row */ 
-  COMBO(keys_l_top_rech,         KC_NO),            //
-  COMBO(keys_l_top_trpi,         SS_SPC_TILD_SLSH), // '  ~/'
-  // COMBO(keys_l_top_innr,         KC_NO),            //
-  COMBO(keys_l_top_trpm,         SS_TILD_SLSH),     // ~/
+  // COMBO(keys_l_top_rech,         KC_NO),            //
+  // COMBO(keys_l_top_trpi,         SS_SPC_TILD_SLSH), // '  ~/'
+  COMBO(keys_l_top_innr,         SS_TILD_SLSH),     // ~/
+  // COMBO(keys_l_top_trpm,         KC_NO),            //
   COMBO(keys_l_top_outr,         SS_TILD),          // ~
-  COMBO(keys_l_top_trpo,         INSERT_UPP),       // insert a UPP
+  // COMBO(keys_l_top_trpo,         INSERT_UPP),       // insert a UPP
   COMBO(keys_l_top_edge,         SS_GRAV),          // `
   // COMBO(keys_l_top_sprd,         KC_NO),            //
   //======================================================================================
   /* SECTION: Left middle row */
-  // COMBO(keys_l_mid_rech,         KC_NO),            //
-  COMBO(keys_l_mid_trpi,         LALT(LGUI(KC_E))), // macro end  
+  COMBO(keys_l_mid_rech,         LALT(LGUI(KC_E))), // macro end  
+  // COMBO(keys_l_mid_trpi,         KC_NO),            //
   COMBO(keys_l_mid_innr,         KC_ENT),           // enter
-  COMBO(keys_l_mid_trpm,         LALT(LGUI(KC_R))), // macro repeat
-  // COMBO(keys_l_mid_outr,         KC_NO),            //
-  COMBO(keys_l_mid_trpo,         LALT(LGUI(KC_W))), // macro start
-  // COMBO(keys_l_mid_edge,         KC_NO),            //
+  // COMBO(keys_l_mid_trpm,         KC_NO),            //
+  COMBO(keys_l_mid_outr,         LALT(LGUI(KC_R))), // macro repeat
+  // COMBO(keys_l_mid_trpo,         KC_NO),            //
+  COMBO(keys_l_mid_edge,         LALT(LGUI(KC_W))), // macro start
   // COMBO(keys_l_mid_sprd,         KC_NO),            //
   //======================================================================================
   /* SECTION: Left bottom row */
@@ -140,7 +140,7 @@ combo_t key_combos[] = {
   COMBO(keys_l_bot_outr,         LCTL(KC_C)),       // C-c
   // COMBO(keys_l_bot_trpo,         KC_NO),            //
   COMBO(keys_l_bot_edge,         LCTL(KC_X)),       // C-x
-  COMBO(keys_l_bot_sprd,         KC_ESC),           // escape
+  // COMBO(keys_l_bot_sprd,         KC_NO),         // 
   //======================================================================================
   /* Left middle/bottom row */
   // COMBO(keys_l_pinky_dip,     KC_NO),
@@ -178,8 +178,8 @@ combo_t key_combos[] = {
   COMBO(keys_r_bot_outr,         SS_ARROW),         // -> 
   COMBO(keys_r_bot_trpo,         SS_UPDIR),         // ../
   COMBO(keys_r_bot_edge,         SS_THISDIR),       // ./
-  COMBO(keys_r_bot_sprd,         KC_ESC),           // escape
-  //======================================================================================
+  // COMBO(keys_r_bot_sprd,         KC_NO),            // 
+//======================================================================================
   /* Right middle/bottom row */
   COMBO(keys_r_pinky_dip,        SS_UPDIR),
   //======================================================================================
