@@ -70,5 +70,5 @@
 
 // #define IGNORE_WAKING_KEY
 // #define INSERT_UPP_ENABLED
-// #define HOME_ROW_MODS
+#define HOME_ROW_MODS
 #define BOTTOM_ROW_MODS

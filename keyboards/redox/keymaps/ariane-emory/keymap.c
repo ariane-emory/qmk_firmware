@@ -203,6 +203,7 @@ bool achordion_chord(
   keyrecord_t* other_record) {
   if (
     (IS_LAYER_ON(0) && (
+#ifdef HOME_ROW_MODS
       tap_hold_keycode == QH_A    ||
       tap_hold_keycode == QH_S    ||
       tap_hold_keycode == QH_D    ||
@@ -213,6 +214,7 @@ bool achordion_chord(
       tap_hold_keycode == QH_K    ||
       tap_hold_keycode == QH_L    ||
       tap_hold_keycode == QH_QUOT ||
+#endif
 #ifdef BOTTOM_ROW_MODS
       tap_hold_keycode == QB_Z    ||
       tap_hold_keycode == QB_X    ||
@@ -229,18 +231,26 @@ bool achordion_chord(
   {
     // Exceptionally consider the following chords as holds, even though they
     // are on the same hand.
-    if ((tap_hold_keycode == QH_F &&
-         (other_keycode == QH_A ||
-         other_keycode == KC_E ||
-         other_keycode == KC_W ||
-          other_keycode == QH_S)) ||
-        (tap_hold_keycode == QH_K &&
-         (other_keycode == KC_P ||
-          other_keycode == QB_N)) ||
-        (tap_hold_keycode == QH_J &&
-         other_keycode == QH_K) ||
-        (tap_hold_keycode == QB_SLSH &&
-         other_keycode == QH_K))
+    if (
+#ifdef HOME_ROW_MODS
+      (tap_hold_keycode == QH_F &&
+       (other_keycode == QH_A ||
+        other_keycode == KC_E ||
+        other_keycode == KC_W ||
+        other_keycode == QH_S)) ||
+
+      (tap_hold_keycode == QH_K &&
+       (other_keycode == KC_P ||
+        other_keycode == QB_N)) ||
+
+      (tap_hold_keycode == QH_J &&
+       other_keycode == QH_K) ||
+#endif
+#ifdef BOTTOM_ROW_MODS
+      (tap_hold_keycode == QB_SLSH &&
+       other_keycode == QH_K) ||
+#endif
+      false)
       return true;
     
     goto process_bilaterally;
