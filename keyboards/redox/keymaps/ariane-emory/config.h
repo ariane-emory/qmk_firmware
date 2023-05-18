@@ -30,7 +30,7 @@
 
 #define COMBO_ONLY_FROM_LAYER      0
 #define COMBO_SHOULD_TRIGGER
-#define COMBO_TERM                 50
+#define COMBO_TERM                 40
 
 #define MOUSEKEY_DELAY             0
 #define MOUSEKEY_INTERVAL          21 // 20
