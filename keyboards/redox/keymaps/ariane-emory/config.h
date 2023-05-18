@@ -26,7 +26,7 @@
 #define AUTO_SHIFT_TIMEOUT         180
 #define AUTO_SHIFT_TIMEOUT_PER_KEY
 #define NO_AUTO_SHIFT_ALPHA
-// #define RETRO_SHIFT
+#define RETRO_TAPPING
 
 #define COMBO_ONLY_FROM_LAYER      0
 #define COMBO_SHOULD_TRIGGER
@@ -50,7 +50,7 @@
 //#define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
 
-#define TAPPING_TERM               225
+#define TAPPING_TERM               250
 #define TAPPING_TERM_PER_KEY
 
 #define TOGGLED_LAYER              6
