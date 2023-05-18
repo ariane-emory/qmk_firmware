@@ -2,9 +2,6 @@
 
 #if defined(HOME_ROW_MODS) || defined(BOTTOM_ROW_MODS)
 #define USE_ACHORDION
-#endif
-
-#ifdef USE_ACHORDION
 #include "features/achordion.h"
 #endif
 
@@ -114,9 +111,11 @@ KEYRECORD_FUN(process_record_user, bool) {
   if (asleep)
     asleep = false;
 #endif
-  
+
+#ifdef USE_ACHORDION
   if (!process_achordion(keycode, record))
     return false;
+#endif
   
   switch (keycode) {
     KC_TAP_CASE(SS_PIN1,           SEND_STRING_WITHOUT_MODS(AE_PIN1));
@@ -171,7 +170,9 @@ void matrix_scan_user(void) {
   achordion_task();
 #endif
 
+#ifdef TOGGLED_LAYER_TIMEOUT
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
+#endif
 
   if (asleep || timer_elapsed(idle_timer) >= RGB_TIMEOUT)
   {
