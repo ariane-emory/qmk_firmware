@@ -56,7 +56,7 @@
 #define TOGGLED_LAYER              6
 #define TOGGLED_LAYER_TIMEOUT      30000
 
-#define RGB_TIMEOUT                45000
+#define SLEEP_TIMEOUT              45000
 #define HSV_ASLEEP                 HSV_BLACK
 #define HSV_TOGGLED_LAYER_OFF      HSV_BLACK // HSV_RED
 #define HSV_TOGGLED_LAYER_ON       HSV_CHARTREUSE

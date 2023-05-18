@@ -175,21 +175,31 @@ void matrix_scan_user(void) {
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
 #endif
 
-  if (asleep || timer_elapsed(idle_timer) >= RGB_TIMEOUT)
+#ifdef RGB_SLEEP_TIMEOUT
+  if (asleep || timer_elapsed(idle_timer) >= SLEEP_TIMEOUT)
   {
     asleep = true;
     RGBLIGHT_SETHSV(HSV_ASLEEP);
   }
-  else if (IS_LAYER_ON(TRI_LAYER_ADJUST_LAYER))
-    RGBLIGHT_SETHSV(HSV_ADJUST_LAYER_ON);
-  else if (IS_LAYER_ON(TRI_LAYER_UPPER_LAYER))
-    RGBLIGHT_SETHSV(HSV_UPPER_LAYER_ON);
-  else if (IS_LAYER_ON(TRI_LAYER_LOWER_LAYER))
-    RGBLIGHT_SETHSV(HSV_LOWER_LAYER_ON);
-  else if (IS_LAYER_ON(TOGGLED_LAYER))
-    RGBLIGHT_SETHSV(HSV_TOGGLED_LAYER_ON);
   else
-    RGBLIGHT_SETHSV(HSV_TOGGLED_LAYER_OFF);
+#endif
+#ifdef RGBLIGHT_ENABLE
+  {
+    if (IS_LAYER_ON(TRI_LAYER_ADJUST_LAYER))
+      RGBLIGHT_SETHSV(HSV_ADJUST_LAYER_ON);
+    else if (IS_LAYER_ON(TRI_LAYER_UPPER_LAYER))
+      RGBLIGHT_SETHSV(HSV_UPPER_LAYER_ON);
+    else if (IS_LAYER_ON(TRI_LAYER_LOWER_LAYER))
+      RGBLIGHT_SETHSV(HSV_LOWER_LAYER_ON);
+    else if (IS_LAYER_ON(TOGGLED_LAYER))
+      RGBLIGHT_SETHSV(HSV_TOGGLED_LAYER_ON);
+    else
+      RGBLIGHT_SETHSV(HSV_TOGGLED_LAYER_OFF);
+  }
+#endif
+  {
+    /* So that compile works when defined(SLEEP_TIMEOUT) && !defined(RGBLIGHT_ENABLE). */
+  } 
 }
 
 // ==============================================================================
