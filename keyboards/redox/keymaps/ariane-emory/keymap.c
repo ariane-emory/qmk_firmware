@@ -145,8 +145,8 @@ KEYRECORD_FUN(process_record_user, bool) {
       return false;
     }
     return true;
-  case INSERT_UPP:
 #ifdef INSERT_UPP_ENABLED
+  case INSERT_UPP:
     if (record->event.pressed) {
       for (uint8_t ix = 0; ix < 6; ix++) {
         static const uint16_t hex_keycodes[] = {
@@ -159,8 +159,8 @@ KEYRECORD_FUN(process_record_user, bool) {
       }
       tap_code(KC_ENTER);
     }
-#endif
     return false;
+#endif
   default:
     return true;
   }

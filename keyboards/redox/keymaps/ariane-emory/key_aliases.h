@@ -87,3 +87,11 @@
 #define CB_DOT  KC_DOT
 #define CB_SLSH KC_SLSH
 #endif
+
+#ifdef TRI_LAYER_ENABLE
+#define TH_LFT QK_TRI_LAYER_LOWER
+#define TH_RGT QK_TRI_LAYER_UPPER
+#else
+#define TH_LFT MO(MY_LOWER_LAYER)
+#define TH_RGT MO(MY_UPPER_LAYER)
+#endif

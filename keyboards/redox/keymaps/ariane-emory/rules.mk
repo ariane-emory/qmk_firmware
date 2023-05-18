@@ -11,7 +11,7 @@ COMBO_ENABLE       = yes
 LTO_ENABLE         = yes
 RGBLIGHT_ENABLE    = yes 
 SEND_STRING_ENABLE = yes
-TRI_LAYER_ENABLE   = yes
+TRI_LAYER_ENABLE   = no
 NKRO_ENABLE        = yes
 
 SRC += features/achordion.c
