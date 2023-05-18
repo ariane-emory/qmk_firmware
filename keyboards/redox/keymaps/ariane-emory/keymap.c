@@ -1,6 +1,13 @@
 #include QMK_KEYBOARD_H
 
+#if defined(HOME_ROW_MODS) || defined(BOTTOM_ROW_MODS)
+#define USE_ACHORDION
+#endif
+
+#ifdef USE_ACHORDION
 #include "features/achordion.h"
+#endif
+
 #include "key_aliases.h"
 
 // #define AE_PIN1 and AE_PIN2 in this file:
@@ -160,7 +167,9 @@ KEYRECORD_FUN(process_record_user, bool) {
 }
 
 void matrix_scan_user(void) {
+#ifdef USE_ACHORDION
   achordion_task();
+#endif
 
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
 
@@ -185,6 +194,7 @@ void matrix_scan_user(void) {
 // Achordion
 // ==============================================================================
 
+#ifdef USE_ACHORDION
 bool achordion_chord(
   uint16_t tap_hold_keycode,
   keyrecord_t* tap_hold_record,
@@ -297,6 +307,7 @@ bool achordion_eager_mod(uint8_t mod) {
   /*   return false; */
   /* } */
 }
+#endif
 
 // ==============================================================================
 // Include combos 
@@ -329,9 +340,11 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
   if (IS_LAYER_ON(0)) {
     switch (keycode) {
     case MT(MOD_LALT,KC_SPC):
+#ifdef HOME_ROW_MODS
     case QH_A: case QH_S: case QH_D: case QH_F:
       // case QH_G: case QH_H: // not mods currently
     case QH_J: case QH_K: case QH_L: case QH_QUOT:
+#endif
 #ifdef BOTTOM_ROW_MODS
     case QB_Z: case QB_X: case QB_C: case QB_V:
       // case QB_B: case QB_N: // not mods currently
@@ -344,9 +357,11 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
   if (IS_LAYER_ON(1)) {
     switch (keycode) {
     case MT(MOD_LALT,KC_SPC):
+#ifdef HOME_ROW_MODS
     case CH_A: case CH_R: case CH_S: case CH_T:
       // case CH_D: case CH_H: // not mods currently
     case CH_N: case CH_E: case CH_I: case CH_QUOT:
+#endif
 #ifdef BOTTOM_ROW_MODS
     case CB_Z: case CB_X: case CB_C: case CB_V:
       // case CB_B: case CB_K: // not mods currently
