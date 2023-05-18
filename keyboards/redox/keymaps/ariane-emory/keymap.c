@@ -263,6 +263,7 @@ bool achordion_chord(
   }
   
   if (IS_LAYER_ON(1) && (
+#ifdef HOME_ROW_MODS
         tap_hold_keycode == CH_A    ||
         tap_hold_keycode == CH_R    ||
         tap_hold_keycode == CH_S    ||
@@ -273,6 +274,7 @@ bool achordion_chord(
         tap_hold_keycode == CH_E    ||
         tap_hold_keycode == CH_I    ||
         tap_hold_keycode == QH_QUOT ||
+#endif
 #ifdef BOTTOM_ROW_MODS
         tap_hold_keycode == CB_Z    ||
         tap_hold_keycode == CB_X    ||
