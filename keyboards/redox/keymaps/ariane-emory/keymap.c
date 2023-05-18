@@ -283,8 +283,11 @@ bool achordion_chord(
   {
     // Exceptionally consider the following chords as holds, even though they
     // are on the same hand.
-    if (tap_hold_keycode == CH_T &&
-        other_keycode == CH_A)
+#ifdef HOME_ROW_MODS
+    if ((tap_hold_keycode == CH_T &&
+         other_keycode == CH_A) ||
+#endif
+        false)
       return true;
     
     goto process_bilaterally;
