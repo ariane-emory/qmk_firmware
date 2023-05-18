@@ -1,5 +1,6 @@
 #pragma once
 
+#ifdef HOME_ROW_MODS
 #define QH_A    LSFT_T(KC_A)
 #define QH_S    LGUI_T(KC_S)
 #define QH_D    LALT_T(KC_D)
@@ -20,6 +21,28 @@
 #define CH_E    RALT_T(KC_E)
 #define CH_I    RGUI_T(KC_I)
 #define CH_QUOT RSFT_T(KC_QUOT)
+#else
+#define QH_A    KC_A
+#define QH_S    KC_S
+#define QH_D    KC_D
+#define QH_F    KC_F
+#define QH_G    KC_G
+#define QH_H    KC_H
+#define QH_J    KC_J
+#define QH_K    KC_K
+#define QH_L    KC_L
+#define QH_QUOT KC_QUOT
+#define CH_A    KC_A
+#define CH_R    KC_R
+#define CH_S    KC_S
+#define CH_T    KC_T
+#define CH_D    KC_D
+#define CH_H    KC_H
+#define CH_N    KC_N
+#define CH_E    KC_E
+#define CH_I    KC_I
+#define CH_QUOT KC_QUOT
+#endif
 
 #ifdef BOTTOM_ROW_MODS
 #define QB_Z    LCTL_T(KC_Z)
