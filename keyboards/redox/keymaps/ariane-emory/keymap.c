@@ -6,9 +6,7 @@
 #endif
 
 #include "key_aliases.h"
-
-// #define AE_PIN1 and AE_PIN2 in this file:
-#include "secrets.h"
+#include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file:
 
 // ==============================================================================
 // Init
@@ -119,6 +117,7 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
   
   switch (keycode) {
+#ifdef COMBO_ENABLE
     KC_TAP_CASE(SS_PIN1,           SEND_STRING_WITHOUT_MODS(AE_PIN1));
     KC_TAP_CASE(SS_PIN2,           SEND_STRING_WITHOUT_MODS(AE_PIN2));
     KC_TAP_CASE(SS_GRAV,           SEND_STRING_WITHOUT_MODS("`"));
@@ -135,6 +134,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_TAP_CASE(EM_REPEAT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
     KC_TAP_CASE(EM_REVERT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")));
     KC_TAP_CASE(EM_SWITCH_BUFFER,  SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"b"));
+#endif
   case QK_TRI_LAYER_LOWER:
     layer_off(6);
     return true;
