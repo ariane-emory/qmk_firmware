@@ -26,17 +26,17 @@
 #define AUTO_SHIFT_TIMEOUT         180
 #define AUTO_SHIFT_TIMEOUT_PER_KEY
 #define NO_AUTO_SHIFT_ALPHA
-#define RETRO_TAPPING
+// #define RETRO_TAPPING
 
 #define COMBO_ONLY_FROM_LAYER      0
 #define COMBO_SHOULD_TRIGGER
 #define COMBO_TERM                 50
 
 #define MOUSEKEY_DELAY             0
-#define MOUSEKEY_INTERVAL          20 // 20
-#define MOUSEKEY_MAX_SPEED         7  // 9
+#define MOUSEKEY_INTERVAL          21 // 20
+#define MOUSEKEY_MAX_SPEED         7 // 9
 #define MOUSEKEY_MOVE_DELTA        8
-#define MOUSEKEY_TIME_TO_MAX       40 // 38
+#define MOUSEKEY_TIME_TO_MAX       42 // 38
 #define MOUSEKEY_WHEEL_DELAY       0
 #define MOUSEKEY_WHEEL_INTERVAL    85
 #define MOUSEKEY_WHEEL_MAX_SPEED   13
