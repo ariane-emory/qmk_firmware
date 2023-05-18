@@ -136,7 +136,7 @@ combo_t key_combos[] = {
   COMBO(keys_l_bot_rech,         EM_SWITCH_BUFFER), // switch buffer
   // COMBO(keys_l_bot_trpi,         KC_NO),            //
   COMBO(keys_l_bot_innr,         LGUI(KC_Z)),       // undo
-  // COMBO(keys_l_bot_trpm,         KC_NO),            //
+  COMBO(keys_l_bot_trpm,         EM_SWITCH_BUFFER), // switch buffer
   COMBO(keys_l_bot_outr,         LCTL(KC_C)),       // C-c
   // COMBO(keys_l_bot_trpo,         KC_NO),            //
   COMBO(keys_l_bot_edge,         LCTL(KC_X)),       // C-x
