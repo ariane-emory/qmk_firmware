@@ -168,7 +168,7 @@ combo_t key_combos[] = {
   COMBO(keys_r_mid_trpo,         LALT(LGUI(KC_A))), // all buffers
   COMBO(keys_r_mid_edge,         KC_SCLN),          // ;
   COMBO(keys_r_mid_sprd,         KC_EQL),           // =
-  // COMBO(keys_r_mid_EXTR,         KC_NO),            // 
+  COMBO(keys_r_mid_EXTR,         LALT(LGUI(KC_L))), // line wrap
   //======================================================================================
   /* SECTION: Right bottom row */
   COMBO(keys_r_bot_rech,         EM_LASTARG),       // last arg
