@@ -175,7 +175,7 @@ void matrix_scan_user(void) {
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
 #endif
 
-#ifdef RGB_SLEEP_TIMEOUT
+#ifdef SLEEP_TIMEOUT
   if (asleep || timer_elapsed(idle_timer) >= SLEEP_TIMEOUT)
   {
     asleep = true;
