@@ -126,7 +126,7 @@ combo_t key_combos[] = {
   COMBO(keys_l_mid_rech,         LALT(LGUI(KC_E))), // macro end  
   // COMBO(keys_l_mid_trpi,         KC_NO),            //
   COMBO(keys_l_mid_innr,         KC_ENT),           // enter
-  // COMBO(keys_l_mid_trpm,         KC_NO),            //
+  COMBO(keys_l_mid_trpm,         EM_SWITCH_BUFFER), // switch buffer
   COMBO(keys_l_mid_outr,         LALT(LGUI(KC_R))), // macro repeat
   // COMBO(keys_l_mid_trpo,         KC_NO),            //
   COMBO(keys_l_mid_edge,         LALT(LGUI(KC_W))), // macro start
