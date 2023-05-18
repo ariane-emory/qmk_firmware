@@ -174,6 +174,7 @@ void matrix_scan_user(void) {
 #ifdef TOGGLED_LAYER_TIMEOUT
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
 #endif
+
   if (false) {}
 #ifdef SLEEP_TIMEOUT
   else if (asleep || timer_elapsed(idle_timer) >= SLEEP_TIMEOUT)
@@ -194,7 +195,7 @@ void matrix_scan_user(void) {
   else
     RGBLIGHT_SETHSV(HSV_TOGGLED_LAYER_OFF);
 #endif
-  }
+}
 
 // ==============================================================================
 // Achordion
