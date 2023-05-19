@@ -402,7 +402,10 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
 // ==============================================================================
 
 #ifdef AUTO_SHIFT_ENABLE
-/* KEYRECORD_FUN(get_autoshift_timeout, uint16_t) { */
+KEYRECORD_FUN(get_autoshift_timeout, uint16_t) {
+  if (keycode == KC_TAB)
+    return 5000;
+  return get_generic_autoshift_timeout();
 /*   switch(keycode) { */
 /*   case AUTO_SHIFT_ALPHA: */
 /*     return get_generic_autoshift_timeout() + 60; */
@@ -412,7 +415,7 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
 /*   default: */
 /*     return get_generic_autoshift_timeout(); */
 /*   } */
-/* } */
+}
 #endif
 
 // ==============================================================================
