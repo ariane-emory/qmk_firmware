@@ -339,7 +339,7 @@ bool achordion_eager_mod(uint8_t mod) {
 // Include combos 
 // ==============================================================================
 
-#include "combos.inl"
+#include "combos.inc"
 
 // ==============================================================================
 // Mod tap interrupt
@@ -449,4 +449,4 @@ KEYRECORD_FUN(get_autoshift_timeout, uint16_t) {
 // Include keymap
 // ==============================================================================
 
-#include "keymap.inl"
+#include "keymap.inc"
