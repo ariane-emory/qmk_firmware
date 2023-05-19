@@ -145,16 +145,14 @@ KEYRECORD_FUN(process_record_user, bool) {
     if (record->event.pressed)
     {
       register_code(KC_LGUI);
+    }
+    else {
       static deferred_token my_token = INVALID_DEFERRED_TOKEN;
-
       if (my_token != INVALID_DEFERRED_TOKEN) {
         cancel_deferred_exec(my_token);
         my_token = INVALID_DEFERRED_TOKEN;
-        
       }
-      
-      my_token = defer_exec(1000, ae_magic_callback, NULL);
-
+      my_token = defer_exec(1500, ae_magic_callback, NULL);
     }
     return false;                                                                 
   case QK_TRI_LAYER_LOWER:
