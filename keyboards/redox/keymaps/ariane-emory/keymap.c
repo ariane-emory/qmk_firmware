@@ -84,7 +84,13 @@ enum arianes_keycodes {
   SS_ARROW,
   EM_SWITCH_BUFFER,
   INSERT_UPP,
+  AE_MAGIC,
 };
+
+uint32_t ae_magic_callback(uint32_t trigger_time, void *cb_arg) {
+  unregister_code(KC_LGUI);
+  return 0;
+}
 
 static uint16_t idle_timer = 0;
 static bool     asleep     = false;
@@ -135,6 +141,20 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_TAP_CASE(EM_REVERT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")));
     KC_TAP_CASE(EM_SWITCH_BUFFER,  SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"b"));
 #endif
+  case AE_MAGIC:
+    if (record->event.pressed)
+    {
+      register_code(KC_LGUI);
+    }
+    else {
+      static deferred_token my_token = INVALID_DEFERRED_TOKEN;
+      if (my_token != INVALID_DEFERRED_TOKEN) {
+        cancel_deferred_exec(my_token);
+        my_token = INVALID_DEFERRED_TOKEN;
+      }
+      my_token = defer_exec(1500, ae_magic_callback, NULL);
+    }
+    return false;                                                                 
   case QK_TRI_LAYER_LOWER:
     layer_off(6);
     return true;
@@ -144,7 +164,7 @@ KEYRECORD_FUN(process_record_user, bool) {
       tap_code16(KC_DQUO);
       return false;
     }
-    return true;
+      return true;
 #ifdef INSERT_UPP_ENABLED
   case INSERT_UPP:
     if (record->event.pressed) {
