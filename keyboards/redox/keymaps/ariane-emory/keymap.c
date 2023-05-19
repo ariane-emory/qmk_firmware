@@ -242,6 +242,7 @@ bool achordion_chord(
       (tap_hold_keycode == QH_F &&
        (other_keycode == QH_A ||
         other_keycode == KC_E ||
+        other_keycode == KC_T ||
         other_keycode == KC_W ||
         other_keycode == QH_S)) ||
 
