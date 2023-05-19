@@ -153,7 +153,7 @@ KEYRECORD_FUN(process_record_user, bool) {
         
       }
       
-      my_token = defer_exec(3000, ae_magic_callback, NULL);
+      my_token = defer_exec(1000, ae_magic_callback, NULL);
 
     }
     return false;                                                                 
