@@ -183,7 +183,7 @@ void matrix_scan_user(void) {
     RGBLIGHT_SETHSV(HSV_ASLEEP);
   }
 #endif
-#ifdef RGBLIGHT_ENABLE
+#if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
   else if (IS_LAYER_ON(TRI_LAYER_ADJUST_LAYER))
     RGBLIGHT_SETHSV(HSV_ADJUST_LAYER_ON);
   else if (IS_LAYER_ON(TRI_LAYER_UPPER_LAYER))
