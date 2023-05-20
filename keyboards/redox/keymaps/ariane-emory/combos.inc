@@ -112,10 +112,10 @@ combo_t key_combos[] = {
   COMBO(keys_l_num_edge,         DF(0)),
   // COMBO(keys_l_num_sprd,         KC_NO),
   //======================================================================================
-  /* SECTION: Left top row */ 
-  // COMBO(keys_l_top_rech,         KC_NO),            //
+  /* SECTION: Left top row */
+  COMBO(keys_l_top_rech,         SS_TILD_SLSH),     // ~/
   // COMBO(keys_l_top_trpi,         SS_SPC_TILD_SLSH), // '  ~/'
-  COMBO(keys_l_top_innr,         SS_TILD_SLSH),     // ~/
+  // COMBO(keys_l_top_innr,         KC_NO),            //
   // COMBO(keys_l_top_trpm,         KC_NO),            //
   COMBO(keys_l_top_outr,         SS_TILD),          // ~
   // COMBO(keys_l_top_trpo,         INSERT_UPP),       // insert a UPP
