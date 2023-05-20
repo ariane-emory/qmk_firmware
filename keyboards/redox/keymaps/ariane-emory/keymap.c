@@ -339,9 +339,9 @@ bool achordion_chord(
 #ifdef HOME_ROW_MODS
     if ((tap_hold_keycode == CH_T &&
          other_keycode == CH_A) ||
-#endif
         false)
       return true;
+#endif
     
     goto process_bilaterally;
   }
