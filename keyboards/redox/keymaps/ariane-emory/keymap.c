@@ -164,7 +164,7 @@ KEYRECORD_FUN(process_record_user, bool) {
       tap_code16(KC_DQUO);
       return false;
     }
-      return true;
+    return true;
 #ifdef INSERT_UPP_ENABLED
   case INSERT_UPP:
     if (record->event.pressed) {
@@ -264,7 +264,8 @@ bool achordion_chord(
       (tap_hold_keycode == QH_S &&
        (other_keycode == KC_TAB)) ||
       (tap_hold_keycode == QH_D &&
-       (other_keycode == KC_W)) ||
+       (other_keycode == KC_TAB ||
+        other_keycode == KC_W)) ||
       (tap_hold_keycode == QH_F &&
        (other_keycode == QH_A ||
         other_keycode == KC_E ||
