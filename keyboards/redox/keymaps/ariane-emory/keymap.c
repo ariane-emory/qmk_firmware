@@ -277,6 +277,8 @@ bool achordion_chord(
         other_keycode == QB_N)) ||
       (tap_hold_keycode == QH_L &&
        (other_keycode == QH_K)) ||
+      (tap_hold_keycode == QH_QUOT &&
+       (other_keycode == RSFT_T(KC_MINS))) ||
 #endif
 #ifdef BOTTOM_ROW_MODS
       (tap_hold_keycode == QB_SLSH &&
