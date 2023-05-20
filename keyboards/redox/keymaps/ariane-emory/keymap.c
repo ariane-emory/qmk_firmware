@@ -146,7 +146,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     if (record->event.pressed)
     {
       register_code(KC_F24);
-      SEND_STRING_WITHOUT_MODS((SS_DELAY(50)));
+      SEND_STRING_WITHOUT_MODS(SS_DELAY(50));
       tap_code(KC_SPC);
       unregister_code(KC_F24);
     }
