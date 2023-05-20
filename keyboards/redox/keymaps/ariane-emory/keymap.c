@@ -85,6 +85,7 @@ enum arianes_keycodes {
   EM_SWITCH_BUFFER,
   INSERT_UPP,
   HOLD_GUI,
+  SS_SIRI,
 };
 
 uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
@@ -141,6 +142,14 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_TAP_CASE(EM_REVERT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")));
     KC_TAP_CASE(EM_SWITCH_BUFFER,  SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"b"));
 #endif
+  case SS_SIRI:
+    if (record->event.pressed)
+    {
+      register_code(KC_F24);
+      SEND_STRING_WITHOUT_MODS((SS_DELAY(500)));
+      unregister_code(KC_F24);
+    }
+    return false;
   case HOLD_GUI:
     if (record->event.pressed)
     {
