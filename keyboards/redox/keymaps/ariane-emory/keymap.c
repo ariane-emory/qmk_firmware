@@ -84,7 +84,7 @@ enum arianes_keycodes {
   SS_ARROW,
   EM_SWITCH_BUFFER,
   INSERT_UPP,
-  AE_MAGIC,
+  HOLD_GUI,
 };
 
 uint32_t ae_magic_callback(uint32_t trigger_time, void *cb_arg) {
@@ -141,7 +141,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_TAP_CASE(EM_REVERT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")));
     KC_TAP_CASE(EM_SWITCH_BUFFER,  SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"b"));
 #endif
-  case AE_MAGIC:
+  case HOLD_GUI:
     if (record->event.pressed)
     {
       register_code(KC_LGUI);
