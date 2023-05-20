@@ -85,6 +85,7 @@ enum arianes_keycodes {
   EM_SWITCH_BUFFER,
   INSERT_UPP,
   HOLD_GUI,
+  SHOLD_GUI,
   SS_SIRI,
 };
 
