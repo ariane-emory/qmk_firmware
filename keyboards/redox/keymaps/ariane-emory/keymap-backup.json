@@ -70,7 +70,7 @@
       "ANY(TH_LFT)",
       "ANY(MT(MOD_LALT,KC_SPC))",
       "LT(9,KC_ENT)",
-      "LT(12,KC_ENT)",
+      "MO(12)",
       "RGUI_T(KC_BSPC)",
       "ANY(TH_RGT)",
       "KC_LEFT",
