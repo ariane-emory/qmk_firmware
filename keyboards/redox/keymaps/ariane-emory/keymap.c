@@ -259,14 +259,19 @@ bool achordion_chord(
     // are on the same hand.
     if (
 #ifdef HOME_ROW_MODS
+      (tap_hold_keycode == QH_A &&
+       (other_keycode == LSFT_T(KC_MINS))) ||
+      (tap_hold_keycode == QH_S &&
+       (other_keycode == KC_TAB)) ||
+      (tap_hold_keycode == QH_D &&
+       (other_keycode == KC_W)) ||
       (tap_hold_keycode == QH_F &&
        (other_keycode == QH_A ||
         other_keycode == KC_E ||
         other_keycode == KC_T ||
         other_keycode == KC_W ||
         other_keycode == QH_S)) ||
-      (tap_hold_keycode == QH_D &&
-       (other_keycode == KC_W)) ||
+
       (tap_hold_keycode == QH_J &&
        (other_keycode == QH_K ||
         other_keycode == KC_Y ||
