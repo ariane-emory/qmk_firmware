@@ -621,7 +621,7 @@
       "KC_F21",
       "KC_F22",
       "KC_F23",
-      "ANY(SS_SIRI-)",
+      "ANY(SS_SIRI)",
       "KC_ESC",
       "ANY(QK_CAPS_WORD_TOGGLE)",
       "LSA(KC_LCBR)",
