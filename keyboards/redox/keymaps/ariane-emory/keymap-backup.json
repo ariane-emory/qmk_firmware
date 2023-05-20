@@ -32,7 +32,7 @@
       "KC_I",
       "KC_O",
       "KC_P",
-      "KC_BSLS",
+      "LT(12,KC_BSLS)",
       "LCTL_T(KC_ESC)",
       "ANY(QH_A)",
       "ANY(QH_S)",
