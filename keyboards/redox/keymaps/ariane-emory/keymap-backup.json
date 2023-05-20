@@ -71,7 +71,7 @@
       "ANY(MT(MOD_LALT,KC_SPC))",
       "MO(9)",
       "MO(12)",
-      "RGUI_T(KC_SPC)",
+      "ANY(MT(MOD_RGUI,KC_BSPC))",
       "ANY(TH_RGT)",
       "KC_LEFT",
       "KC_DOWN",
