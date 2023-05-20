@@ -87,7 +87,7 @@ enum arianes_keycodes {
   HOLD_GUI,
 };
 
-uint32_t ae_magic_callback(uint32_t trigger_time, void *cb_arg) {
+uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
   unregister_code(KC_LGUI);
   return 0;
 }
@@ -147,12 +147,12 @@ KEYRECORD_FUN(process_record_user, bool) {
       register_code(KC_LGUI);
     }
     else {
-      static deferred_token my_token = INVALID_DEFERRED_TOKEN;
-      if (my_token != INVALID_DEFERRED_TOKEN) {
-        cancel_deferred_exec(my_token);
-        my_token = INVALID_DEFERRED_TOKEN;
+      static deferred_token token = INVALID_DEFERRED_TOKEN;
+      if (token != INVALID_DEFERRED_TOKEN) {
+        cancel_deferred_exec(token);
+        token = INVALID_DEFERRED_TOKEN;
       }
-      my_token = defer_exec(1500, ae_magic_callback, NULL);
+      token = defer_exec(1500, release_lgui_callback, NULL);
     }
     return false;                                                                 
   case QK_TRI_LAYER_LOWER:
