@@ -274,7 +274,9 @@ bool achordion_chord(
        (other_keycode == LSFT_T(KC_MINS))) ||
       (tap_hold_keycode == QH_S &&
        (other_keycode == KC_TAB ||
-        other_keycode == KC_C)) ||
+        other_keycode == KC_Z ||
+        other_keycode == KC_C ||
+        other_keycode == KC_V)) ||
       (tap_hold_keycode == QH_D &&
        (other_keycode == KC_TAB ||
         other_keycode == KC_W)) ||
