@@ -129,9 +129,9 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
   
   switch (keycode) {
-#ifdef COMBO_ENABLE
     KC_TAP_CASE(SS_PIN1,           SEND_STRING_WITHOUT_MODS(AE_PIN1));
     KC_TAP_CASE(SS_PIN2,           SEND_STRING_WITHOUT_MODS(AE_PIN2));
+#ifdef COMBO_ENABLE
     KC_TAP_CASE(SS_GRAV,           SEND_STRING_WITHOUT_MODS("`"));
     KC_TAP_CASE(SS_LPAR,           SEND_STRING_WITHOUT_MODS("9"));
     KC_TAP_CASE(SS_RPAR,           SEND_STRING_WITHOUT_MODS("0"));
