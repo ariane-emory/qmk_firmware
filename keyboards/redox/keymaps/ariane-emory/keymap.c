@@ -35,12 +35,16 @@ void keyboard_post_init_user(void) {
 #define KEYRECORD_FUN(name, t)                                                  \
   t name(uint16_t keycode, keyrecord_t *record)
 
+#ifdef TOGGLED_LAYER_TIMEOUT
 #define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms, timer)          \
   {                                                                             \
     if (layer_state_is(layer) &&                                                \
         timer_elapsed(timer) >= idle_time_limit_ms)                             \
       layer_off(layer);                                                         \
   }                                                                             
+#else
+#define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms, timer) ((void))
+#endif
 
 #ifdef SEND_STRING_ENABLE
 #define SEND_STRING_WITHOUT_MODS(str)                                           \
@@ -202,9 +206,7 @@ void matrix_scan_user(void) {
   achordion_task();
 #endif
 
-#ifdef TOGGLED_LAYER_TIMEOUT
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
-#endif
 
   if (false) {}
 #ifdef SLEEP_TIMEOUT
