@@ -36,7 +36,7 @@ void keyboard_post_init_user(void) {
   t name(uint16_t keycode, keyrecord_t *record)
 
 #ifdef TOGGLED_LAYER_TIMEOUT
-#define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms, timer)          \
+#define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms, timer)         \
   {                                                                             \
     if (layer_state_is(layer) &&                                                \
         timer_elapsed(timer) >= idle_time_limit_ms)                             \
@@ -278,6 +278,7 @@ bool achordion_chord(
        (other_keycode == KC_TAB ||
         other_keycode == KC_Z ||
         other_keycode == KC_R ||
+        other_keycode == KC_T ||
         other_keycode == KC_C ||
         other_keycode == KC_V)) ||
       (tap_hold_keycode == QH_D &&
