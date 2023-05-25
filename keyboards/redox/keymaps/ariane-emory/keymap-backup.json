@@ -933,7 +933,7 @@
       "KC_PDOT",
       "LSFT(KC_0)",
       "ANY(VS_FORMAT_DOC)",
-      "KC_TRNS",
+      "ANY(VS_FORMAT_DOC)",
       "KC_TRNS",
       "ANY(MT(MOD_LALT,KC_SPC))",
       "KC_NO",
