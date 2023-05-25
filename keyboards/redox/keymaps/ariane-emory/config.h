@@ -64,8 +64,8 @@
 #define HSV_UPPER_LAYER_ON         HSV_BLUE
 #define HSV_ADJUST_LAYER_ON        HSV_CYAN
 
-#define MY_LOWER_LAYER      7 
-#define MY_UPPER_LAYER      8
+#define MY_LOWER_LAYER             7 
+#define MY_UPPER_LAYER             8
 #define TRI_LAYER_LOWER_LAYER      7 // MY_LOWER_LAYER
 #define TRI_LAYER_UPPER_LAYER      8 // MY_UPPER_LAYER
 #define TRI_LAYER_ADJUST_LAYER     13
