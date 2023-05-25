@@ -153,7 +153,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     if (record->event.pressed)
     {
       tap_code(KC_F7);
-      SEND_STRING_WITHOUT_MODS(SS_DELAY(1500)SS_LALT("e")SS_DELAY(333)"v"SS_LALT("e")SS_DELAY(333)"v"SS_DELAY(333)"a"SS_LALT("f")SS_DELAY(333)"s");
+      SEND_STRING_WITHOUT_MODS(SS_DELAY(1500)SS_LALT("e")SS_DELAY(500)"v"SS_LALT("e")SS_DELAY(500)"v"SS_DELAY(500)"a"SS_LALT("f")SS_DELAY(500)"s");
     }
     return false;
 
