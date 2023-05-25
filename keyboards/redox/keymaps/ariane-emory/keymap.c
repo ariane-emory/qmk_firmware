@@ -147,10 +147,18 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_TAP_CASE(EM_REPEAT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
     KC_TAP_CASE(EM_REVERT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")));
     KC_TAP_CASE(EM_SWITCH_BUFFER,  SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"b"));
-    KC_TAP_CASE(VS_FORMAT_DOC,     SEND_STRING_WITHOUT_MODS(SS_LALT("e")SS_DELAY(300)"v"SS_LALT("e")SS_DELAY(300)"v"SS_DELAY(300)"a"SS_LALT("f")SS_DELAY(300)"s"));
+    // KC_TAP_CASE(VS_FORMAT_DOC,     SEND_STRING_WITHOUT_MODS(SS_LALT("e")SS_DELAY(250)"v"SS_LALT("e")SS_DELAY(250)"v"SS_DELAY(250)"a"SS_LALT("f")SS_DELAY(250)"s"));
 #endif
-                case SS_SIRI:
-                if (record->event.pressed)
+  case VS_FORMAT_DOC:
+    if (record->event.pressed)
+    {
+      tap_code(KC_F7);
+      SEND_STRING_WITHOUT_MODS(SS_DELAY(1500)SS_LALT("e")SS_DELAY(333)"v"SS_LALT("e")SS_DELAY(333)"v"SS_DELAY(333)"a"SS_LALT("f")SS_DELAY(333)"s");
+    }
+    return false;
+
+  case SS_SIRI:
+    if (record->event.pressed)
     {
       register_code(KC_F24);
       SEND_STRING_WITHOUT_MODS(SS_DELAY(50));
