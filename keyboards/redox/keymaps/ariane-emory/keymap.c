@@ -283,8 +283,9 @@ bool achordion_chord(
         other_keycode == KC_V)) ||
       (tap_hold_keycode == QH_D &&
        (other_keycode == KC_TAB ||
-        other_keycode == KC_T ||
-        other_keycode == KC_W)) ||
+        other_keycode == KC_W ||
+        other_keycode == KC_R ||
+        other_keycode == KC_T)) ||
       (tap_hold_keycode == QH_F &&
        (other_keycode == QH_A ||
         other_keycode == KC_E ||
