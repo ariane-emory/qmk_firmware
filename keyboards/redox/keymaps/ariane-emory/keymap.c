@@ -301,9 +301,11 @@ bool achordion_chord(
         other_keycode == KC_P)) ||
       (tap_hold_keycode == QH_K &&
        (other_keycode == KC_P ||
+        other_keycode == LT(12,KC_BSLS) ||
         other_keycode == QB_N)) ||
-      (tap_hold_keycode == QH_L &&
-       (other_keycode == QH_K)) ||
+       (tap_hold_keycode == QH_L &&
+        (other_keycode == QH_K ||
+         other_keycode == LT(12,KC_BSLS))) ||
       (tap_hold_keycode == QH_QUOT &&
        (other_keycode == RSFT_T(KC_MINS))) ||
 #endif
