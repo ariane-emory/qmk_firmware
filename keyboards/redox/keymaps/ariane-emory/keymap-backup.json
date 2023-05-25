@@ -702,7 +702,7 @@
       "KC_M",
       "KC_N",
       "KC_BSPC",
-      "KC_NO",
+      "ANY(VS_FORMAT_DOC)",
       "KC_NO",
       "KC_NO",
       "KC_F1",
