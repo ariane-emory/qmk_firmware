@@ -48,7 +48,7 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #ifdef RGBLIGHT_ENABLE
-#define RGBLIGHT_SETRGB(rgb) rgblight_setrgb(rgb.r, rgb.g, rgb.b)
+#define RGBLIGHT_SETRGB(rgb) rgb_fader_set_target_from_rgb(&rgb_fader, &rgb)
 #else
 #define RGBLIGHT_SETRGB(rgb) (((void)0))
 #endif
@@ -128,6 +128,7 @@ static uint16_t waking_key = KC_NO;
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
+  // rgb_fader_step(&rgb_fader); 
 
 #ifdef IGNORE_WAKING_KEY
   if (asleep) {
@@ -259,6 +260,13 @@ void matrix_scan_user(void) {
   else
     RGBLIGHT_SETRGB(rgb_toggled_layer_off);
 #endif
+
+  // static uint32_t ix = 0;
+  
+  /* if ((ix % (1 << 15)) == 0) */
+  rgb_fader_step(&rgb_fader); 
+  
+  rgblight_setrgb(rgb_fader.current.r, rgb_fader.current.g, rgb_fader.current.b);
 }
 
 // ==============================================================================
