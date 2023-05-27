@@ -1,9 +1,7 @@
 #include QMK_KEYBOARD_H
 
 #include "lwsm/src/lwsm.h"
-#include "lwsm/src/rgb.h"
 #include "lwsm/src/rgb_fader.h"
-#include "lwsm/src/rgb_fader_lwsm.h"
 
 #if defined(HOME_ROW_MODS) || defined(BOTTOM_ROW_MODS)
 #define USE_ACHORDION
