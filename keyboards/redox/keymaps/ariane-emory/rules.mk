@@ -22,7 +22,10 @@ SRC += lwsm/src/lwsm.c
 SRC += lwsm/src/rgb.c
 SRC += lwsm/src/rgb_fader.c
 SRC += lwsm/src/debug.c
-SRC += lwsm/src/rgb_fader_lwsm.c
+
+# OPT = 1
+# OPT_DEFS += -Os
+
 
 # OPT = 1
 # OPT_DEFS += -Os
