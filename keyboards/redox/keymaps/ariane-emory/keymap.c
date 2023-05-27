@@ -15,12 +15,6 @@
 // Init
 // ==============================================================================
 
-rgb_t       rgb_asleep;
-rgb_t       rgb_adjust_layer_on;
-rgb_t       rgb_upper_layer_on;
-rgb_t       rgb_lower_layer_on;
-rgb_t       rgb_toggled_layer_on;
-rgb_t       rgb_toggled_layer_off;
 rgb_fader_t rgb_fader;
 
 void keyboard_post_init_user(void) {
@@ -31,7 +25,7 @@ void keyboard_post_init_user(void) {
   debug_mouse=true;
 #endif
 
-  rgb_fader_init_from_rgb(&rgb_fader, &rgb_asleep);
+  rgb_fader_init(&rgb_fader, RGB_ASLEEP);
 }
 
 // ==============================================================================
