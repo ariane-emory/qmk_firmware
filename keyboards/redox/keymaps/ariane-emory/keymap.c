@@ -22,6 +22,7 @@ rgb_t rgb_adjust_layer_on;
 rgb_t rgb_upper_layer_on;
 rgb_t rgb_lower_layer_on;
 rgb_t rgb_toggled_layer_on;
+rgb_t rgb_toggled_layer_off;
 
 void keyboard_post_init_user(void) {
 #if CONSOLE_ENABLE
@@ -37,6 +38,7 @@ void keyboard_post_init_user(void) {
   rgb_init(&rgb_upper_layer_on,   RGB_UPPER_LAYER_ON);
   rgb_init(&rgb_lower_layer_on,   RGB_LOWER_LAYER_ON);
   rgb_init(&rgb_toggled_layer_on, RGB_TOGGLED_LAYER_ON);
+  rgb_init(&rgb_toggled_layer_off, RGB_TOGGLED_LAYER_OFF);
 }
 
 // ==============================================================================
@@ -44,7 +46,7 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #ifdef RGBLIGHT_ENABLE
-#define RGBLIGHT_SETRGB(rgb) rgblight_setrgb(rgb)
+#define RGBLIGHT_SETRGB(rgb) rgblight_setrgb(rgb.r, rgb.g, rgb.b)
 #else
 #define RGBLIGHT_SETRGB(rgb) (((void)0))
 #endif
@@ -240,20 +242,20 @@ void matrix_scan_user(void) {
   else if (asleep || timer_elapsed(idle_timer) >= SLEEP_TIMEOUT)
   {
     asleep = true;
-    RGBLIGHT_SETRGB(RGB_ASLEEP);
+    RGBLIGHT_SETRGB(rgb_asleep);
   }
 #endif
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
   else if (IS_LAYER_ON(TRI_LAYER_ADJUST_LAYER))
-    RGBLIGHT_SETRGB(RGB_ADJUST_LAYER_ON);
+    RGBLIGHT_SETRGB(rgb_adjust_layer_on);
   else if (IS_LAYER_ON(TRI_LAYER_UPPER_LAYER))
-    RGBLIGHT_SETRGB(RGB_UPPER_LAYER_ON);
+    RGBLIGHT_SETRGB(rgb_upper_layer_on);
   else if (IS_LAYER_ON(TRI_LAYER_LOWER_LAYER))
-    RGBLIGHT_SETRGB(RGB_LOWER_LAYER_ON);
+    RGBLIGHT_SETRGB(rgb_lower_layer_on);
   else if (IS_LAYER_ON(TOGGLED_LAYER))
-    RGBLIGHT_SETRGB(RGB_TOGGLED_LAYER_ON);
+    RGBLIGHT_SETRGB(rgb_toggled_layer_on);
   else
-    RGBLIGHT_SETRGB(RGB_TOGGLED_LAYER_OFF);
+    RGBLIGHT_SETRGB(rgb_toggled_layer_off);
 #endif
 }
 
