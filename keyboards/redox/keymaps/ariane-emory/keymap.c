@@ -261,8 +261,10 @@ void matrix_scan_user(void) {
     RGBLIGHT_SETRGB(rgb_toggled_layer_off);
 #endif
 
-  rgb_fader_step(&rgb_fader);
-  rgb_fader_step(&rgb_fader); 
+  /* static uint8_t ix = 0; */
+  
+  /* if (ix++ & 0b1) */
+  /*   rgb_fader_step(&rgb_fader); */
   
   rgblight_setrgb(rgb_fader.current.r, rgb_fader.current.g, rgb_fader.current.b);
 }
