@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 
 #include "lwsm/src/lwsm.h"
+#include "lwsm/src/rgb.h"
 #include "lwsm/src/rgb_fader.h"
 #include "lwsm/src/rgb_fader_lwsm.h"
 
@@ -16,6 +17,12 @@
 // Init
 // ==============================================================================
 
+rgb_t rgb_asleep;
+rgb_t rgb_adjust_layer_on;
+rgb_t rgb_upper_layer_on;
+rgb_t rgb_lower_layer_on;
+rgb_t rgb_toggled_layer_on;
+
 void keyboard_post_init_user(void) {
 #if CONSOLE_ENABLE
   debug_enable=true;
@@ -24,6 +31,12 @@ void keyboard_post_init_user(void) {
   debug_mouse=true;
 #endif
   // rgblight_enable();
+
+  rgb_init(&rgb_asleep,           RGB_ASLEEP);
+  rgb_init(&rgb_adjust_layer_on,  RGB_ADJUST_LAYER_ON);
+  rgb_init(&rgb_upper_layer_on,   RGB_UPPER_LAYER_ON);
+  rgb_init(&rgb_lower_layer_on,   RGB_LOWER_LAYER_ON);
+  rgb_init(&rgb_toggled_layer_on, RGB_TOGGLED_LAYER_ON);
 }
 
 // ==============================================================================

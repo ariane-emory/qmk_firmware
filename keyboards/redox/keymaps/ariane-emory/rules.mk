@@ -18,6 +18,11 @@ TRI_LAYER_ENABLE   	 	 = yes
 DEFERRED_EXEC_ENABLE 	 = yes
 
 SRC += features/achordion.c
+SRC += lwsm/src/lwsm.c
+SRC += lwsm/src/rgb.c
+SRC += lwsm/src/rgb_fader.c
+SRC += lwsm/src/debug.c
+SRC += lwsm/src/rgb_fader_lwsm.c
 
 # OPT = 1
 # OPT_DEFS += -Os
