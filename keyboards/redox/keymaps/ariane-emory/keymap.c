@@ -32,14 +32,7 @@ void keyboard_post_init_user(void) {
   debug_keyboard=true;
   debug_mouse=true;
 #endif
-  // rgblight_enable();
 
-  rgb_init               (&rgb_asleep,            RGB_ASLEEP);
-  rgb_init               (&rgb_adjust_layer_on,   RGB_ADJUST_LAYER_ON);
-  rgb_init               (&rgb_upper_layer_on,    RGB_UPPER_LAYER_ON);
-  rgb_init               (&rgb_lower_layer_on,    RGB_LOWER_LAYER_ON);
-  rgb_init               (&rgb_toggled_layer_on,  RGB_TOGGLED_LAYER_ON);
-  rgb_init               (&rgb_toggled_layer_off, RGB_TOGGLED_LAYER_OFF);
   rgb_fader_init_from_rgb(&rgb_fader, &rgb_asleep);
 }
 
@@ -48,7 +41,7 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #ifdef RGBLIGHT_ENABLE
-#define RGBLIGHT_SETRGB(rgb) rgb_fader_set_target_from_rgb(&rgb_fader, &rgb)
+#define RGBLIGHT_SETRGB(rgb) rgb_fader_set_target(&rgb_fader, rgb)
 #else
 #define RGBLIGHT_SETRGB(rgb) (((void)0))
 #endif
@@ -245,30 +238,25 @@ void matrix_scan_user(void) {
   else if (asleep || timer_elapsed(idle_timer) >= SLEEP_TIMEOUT)
   {
     asleep = true;
-    RGBLIGHT_SETRGB(rgb_asleep);
+    RGBLIGHT_SETRGB(RGB_ASLEEP);
   }
 #endif
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
   else if (IS_LAYER_ON(TRI_LAYER_ADJUST_LAYER))
-    RGBLIGHT_SETRGB(rgb_adjust_layer_on);
+    RGBLIGHT_SETRGB(RGB_ADJUST_LAYER_ON);
   else if (IS_LAYER_ON(TRI_LAYER_UPPER_LAYER))
-    RGBLIGHT_SETRGB(rgb_upper_layer_on);
+    RGBLIGHT_SETRGB(RGB_UPPER_LAYER_ON);
   else if (IS_LAYER_ON(TRI_LAYER_LOWER_LAYER))
-    RGBLIGHT_SETRGB(rgb_lower_layer_on);
+    RGBLIGHT_SETRGB(RGB_LOWER_LAYER_ON);
   else if (IS_LAYER_ON(TOGGLED_LAYER))
-    RGBLIGHT_SETRGB(rgb_toggled_layer_on);
+    RGBLIGHT_SETRGB(RGB_TOGGLED_LAYER_ON);
   else
-    RGBLIGHT_SETRGB(rgb_toggled_layer_off);
-#endif
+    RGBLIGHT_SETRGB(RGB_TOGGLED_LAYER_OFF);
 
-  /* static uint8_t ix = 0; */
-  
-  if (
-    /* (ix++ & 0b1) && */
-    true)
-    rgb_fader_step(&rgb_fader);
+  rgb_fader_step(&rgb_fader);
   
   rgblight_setrgb(rgb_fader.current.r, rgb_fader.current.g, rgb_fader.current.b);
+#endif
 }
 
 // ==============================================================================
