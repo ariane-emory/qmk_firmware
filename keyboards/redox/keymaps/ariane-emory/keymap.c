@@ -27,9 +27,9 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #ifdef RGBLIGHT_ENABLE
-#define RGBLIGHT_SETHSV(hsv) rgblight_sethsv_noeeprom(hsv)
+#define RGBLIGHT_SETRGB(rgb) rgblight_setrgb(rgb)
 #else
-#define RGBLIGHT_SETHSV(hsv) (((void)0))
+#define RGBLIGHT_SETRGB(rgb) (((void)0))
 #endif
 
 #define KEYRECORD_FUN(name, t)                                                  \
@@ -223,20 +223,20 @@ void matrix_scan_user(void) {
   else if (asleep || timer_elapsed(idle_timer) >= SLEEP_TIMEOUT)
   {
     asleep = true;
-    RGBLIGHT_SETHSV(HSV_ASLEEP);
+    RGBLIGHT_SETRGB(RGB_ASLEEP);
   }
 #endif
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
   else if (IS_LAYER_ON(TRI_LAYER_ADJUST_LAYER))
-    RGBLIGHT_SETHSV(HSV_ADJUST_LAYER_ON);
+    RGBLIGHT_SETRGB(RGB_ADJUST_LAYER_ON);
   else if (IS_LAYER_ON(TRI_LAYER_UPPER_LAYER))
-    RGBLIGHT_SETHSV(HSV_UPPER_LAYER_ON);
+    RGBLIGHT_SETRGB(RGB_UPPER_LAYER_ON);
   else if (IS_LAYER_ON(TRI_LAYER_LOWER_LAYER))
-    RGBLIGHT_SETHSV(HSV_LOWER_LAYER_ON);
+    RGBLIGHT_SETRGB(RGB_LOWER_LAYER_ON);
   else if (IS_LAYER_ON(TOGGLED_LAYER))
-    RGBLIGHT_SETHSV(HSV_TOGGLED_LAYER_ON);
+    RGBLIGHT_SETRGB(RGB_TOGGLED_LAYER_ON);
   else
-    RGBLIGHT_SETHSV(HSV_TOGGLED_LAYER_OFF);
+    RGBLIGHT_SETRGB(RGB_TOGGLED_LAYER_OFF);
 #endif
 }
 
@@ -507,7 +507,7 @@ KEYRECORD_FUN(get_autoshift_timeout, uint16_t) {
 #undef KC_TAP_CASE
 #undef KEYRECORD_FUN
 #undef MANAGE_TOGGLED_LAYER_TIMEOUT
-#undef RGBLIGHT_SETHSV
+#undef RGBLIGHT_SETRGB
 #undef SEND_STRING_WITHOUT_MODS
 
 // ==============================================================================

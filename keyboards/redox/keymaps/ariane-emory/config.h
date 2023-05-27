@@ -57,12 +57,12 @@
 #define TOGGLED_LAYER_TIMEOUT      30000
 
 #define SLEEP_TIMEOUT              45000
-#define HSV_ASLEEP                 HSV_BLACK
-#define HSV_TOGGLED_LAYER_OFF      HSV_BLACK // HSV_RED
-#define HSV_TOGGLED_LAYER_ON       HSV_CHARTREUSE
-#define HSV_LOWER_LAYER_ON         HSV_PURPLE
-#define HSV_UPPER_LAYER_ON         HSV_BLUE
-#define HSV_ADJUST_LAYER_ON        HSV_CYAN
+#define RGB_ASLEEP                 RGB_BLACK
+#define RGB_TOGGLED_LAYER_OFF      RGB_BLACK // RGB_RED
+#define RGB_TOGGLED_LAYER_ON       RGB_CHARTREUSE
+#define RGB_LOWER_LAYER_ON         RGB_PURPLE
+#define RGB_UPPER_LAYER_ON         RGB_BLUE
+#define RGB_ADJUST_LAYER_ON        RGB_CYAN
 
 #define MY_LOWER_LAYER             7 
 #define MY_UPPER_LAYER             8
