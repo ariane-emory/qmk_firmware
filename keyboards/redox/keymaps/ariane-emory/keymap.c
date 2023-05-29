@@ -110,7 +110,9 @@ static bool     asleep     = false;
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
-  asleep     = false;
+
+  if (asleep)
+    asleep     = false;
 
 #ifdef USE_ACHORDION
   if (!process_achordion(keycode, record))
