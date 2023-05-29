@@ -232,9 +232,7 @@ void set_rgb_by_layer(void) {
     { TOGGLED_LAYER,          RGB_TOGGLED_LAYER_ON },
     { 0,                      RGB_ASLEEP           },
   };
-
   static const size_t rgb_table_length = ARRAY_SIZE(rgb_table);
-
   for (size_t ix = 0; ix < rgb_table_length; ix++) {
     if (IS_LAYER_ON(rgb_table[ix].layer)) {
       RGBLIGHT_SETRGB(rgb_table[ix].r, rgb_table[ix].g, rgb_table[ix].b);
