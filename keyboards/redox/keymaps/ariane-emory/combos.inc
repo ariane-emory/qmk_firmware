@@ -8,7 +8,7 @@
 #define __(...)
 #define ____________
 
-#define MY_COMBOS                                                               \
+#define FOR_EACH_COMBO(XX)                                                      \
   XX(l_num_edge,    DF(0),        KC_1,    KC_2                               ) \
   XX(l_num_innr,    DF(2),        KC_3,    KC_4                               ) \
   XX(l_num_outr,    DF(1),        KC_2,    KC_3                               ) \
@@ -79,17 +79,17 @@
 // Define combo keys
 //========================================================================================
 
-#define XX(name, ignored, ...) const uint16_t PROGMEM name[] = { __VA_ARGS__, COMBO_END };
-MY_COMBOS
-#undef XX
+#define DEFINE_COMBO_KEYS(name, ignored, ...) const uint16_t PROGMEM name[] = { __VA_ARGS__, COMBO_END };
+FOR_EACH_COMBO(DEFINE_COMBO_KEYS)
+#undef DEFINE_COMBO_KEYS
 
 //========================================================================================
 // Bind combos
 //========================================================================================
 
-#define XX(name, binding, ...) COMBO(name, binding),
-combo_t key_combos[] = { MY_COMBOS };
-#undef XX
+#define BIND_COMBO(name, binding, ...) COMBO(name, binding),
+combo_t key_combos[] = { FOR_EACH_COMBO(BIND_COMBO) };
+#undef BIND_COMBO
 
 uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
 
@@ -117,5 +117,6 @@ bool combo_should_trigger(
 
 #undef __
 #undef ____________
+#undef FOR_EACH_COMBO
 
 #endif
