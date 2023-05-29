@@ -217,14 +217,13 @@ KEYRECORD_FUN(process_record_user, bool) {
   }
 }
 
-typedef struct {
-  uint8_t layer;
-  uint8_t r;
-  uint8_t g;
-  uint8_t b;
-} rgb_table_row_t;
-
 void set_rgb_by_layer(void) {
+  typedef struct {
+    uint8_t layer;
+    uint8_t r;
+    uint8_t g;
+    uint8_t b;
+  } rgb_table_row_t;
   static const rgb_table_row_t rgb_table[] = {
     { TRI_LAYER_ADJUST_LAYER, RGB_ADJUST_LAYER_ON  },
     { TRI_LAYER_UPPER_LAYER,  RGB_UPPER_LAYER_ON   },
