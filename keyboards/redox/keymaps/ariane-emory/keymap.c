@@ -9,6 +9,7 @@
 
 #include "key_aliases.h"
 #include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file:
+#include <stdbool.h>
 
 // ==============================================================================
 // Init
@@ -32,9 +33,9 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #ifdef RGBLIGHT_ENABLE
-#define RGBLIGHT_SETRGB(rgb) rgb_fader_set_target(&rgb_fader, rgb)
+#define RGBLIGHT_SETRGB(...) rgb_fader_set_target(&rgb_fader, __VA_ARGS__)
 #else
-#define RGBLIGHT_SETRGB(rgb) (((void)0))
+#define RGBLIGHT_SETRGB(...) (((void)0))
 #endif
 
 #define KEYRECORD_FUN(name, t)                                                  \
@@ -217,6 +218,33 @@ KEYRECORD_FUN(process_record_user, bool) {
   }
 }
 
+typedef struct {
+  uint8_t layer;
+  uint8_t r;
+  uint8_t g;
+  uint8_t b;
+} rgb_table_row_t;
+
+void set_rgb_by_layer(void) {
+  static const rgb_table_row_t rgb_table[] = {
+    { TRI_LAYER_ADJUST_LAYER, RGB_ADJUST_LAYER_ON  },
+    { TRI_LAYER_UPPER_LAYER,  RGB_UPPER_LAYER_ON   },
+    { TRI_LAYER_LOWER_LAYER,  RGB_LOWER_LAYER_ON   },
+    { TOGGLED_LAYER,          RGB_TOGGLED_LAYER_ON },
+    { 0,                      RGB_ASLEEP           },
+  };
+
+  static const size_t rgb_table_length = ARRAY_SIZE(rgb_table);
+
+  for (size_t ix = 0; ix < rgb_table_length; ix++) {
+    if (IS_LAYER_ON(rgb_table[ix].layer)) {
+      RGBLIGHT_SETRGB(rgb_table[ix].r, rgb_table[ix].g, rgb_table[ix].b);
+      return;
+    }
+  }
+  RGBLIGHT_SETRGB(rgb_table[rgb_table_length-1].r, rgb_table[rgb_table_length-1].g, rgb_table[rgb_table_length-1].b);
+}
+
 void matrix_scan_user(void) {
 #ifdef USE_ACHORDION
   achordion_task();
@@ -233,19 +261,10 @@ void matrix_scan_user(void) {
   }
 #endif
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-  else if (IS_LAYER_ON(TRI_LAYER_ADJUST_LAYER))
-    RGBLIGHT_SETRGB(RGB_ADJUST_LAYER_ON);
-  else if (IS_LAYER_ON(TRI_LAYER_UPPER_LAYER))
-    RGBLIGHT_SETRGB(RGB_UPPER_LAYER_ON);
-  else if (IS_LAYER_ON(TRI_LAYER_LOWER_LAYER))
-    RGBLIGHT_SETRGB(RGB_LOWER_LAYER_ON);
-  else if (IS_LAYER_ON(TOGGLED_LAYER))
-    RGBLIGHT_SETRGB(RGB_TOGGLED_LAYER_ON);
   else
-    RGBLIGHT_SETRGB(RGB_TOGGLED_LAYER_OFF);
+    set_rgb_by_layer();
 
   rgb_fader_step(&rgb_fader);
-  
   rgblight_setrgb(rgb_fader.current.r, rgb_fader.current.g, rgb_fader.current.b);
 #endif
 }

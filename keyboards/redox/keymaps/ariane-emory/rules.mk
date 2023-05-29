@@ -21,9 +21,4 @@ SRC += features/achordion.c
 SRC += lwsm/src/rgb.c
 SRC += lwsm/src/rgb_fader.c
 
-# OPT = 1
-# OPT_DEFS += -Os
-
-
-# OPT = 1
-# OPT_DEFS += -Os
+CFLAGS += -Wno-error=unused-variable -funroll-loops
