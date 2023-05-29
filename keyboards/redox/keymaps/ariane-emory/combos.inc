@@ -78,7 +78,7 @@
 // Defone combo keys
 //========================================================================================
 
-#define XX(name, ig__red, ...) const uint16_t PROGMEM name[] = { __VA_ARGS__, COMBO_END };
+#define XX(name, ignored, ...) const uint16_t PROGMEM name[] = { __VA_ARGS__, COMBO_END };
 MY_COMBOS
 #undef XX
 
