@@ -27,22 +27,22 @@
   __(l_top_trpm,    ____________, KC_W,    KC_E,      KC_R                    ) \
   __(l_top_trpo,    ____________, KC_Q,    KC_W,      KC_E                    ) \
                                                                                 \
-  XX(l_mid_edge,    EM_BGNMAC,    QH_A,    QH_S                               ) \
+  XX(l_mid_edge,    EM_BGN_MAC,   QH_A,    QH_S                               ) \
   XX(l_mid_innr,    KC_ENT,       QH_D,    QH_F                               ) \
-  XX(l_mid_outr,    EM_RPTMAC,    QH_S,    QH_D                               ) \
-  XX(l_mid_rech,    EM_ENDMAC,    QH_F,    KC_G                               ) \
+  XX(l_mid_outr,    EM_RPT_MAC,   QH_S,    QH_D                               ) \
+  XX(l_mid_rech,    EM_END_MAC,   QH_F,    KC_G                               ) \
   __(l_mid_sprd,    ____________, QH_S,    QH_F                               ) \
   __(l_mid_trpi,    ____________, QH_D,    QH_F,      KC_G                    ) \
-  XX(l_mid_trpm,    EM_CHGBUF,    QH_S,    QH_D,      QH_F                    ) \
+  XX(l_mid_trpm,    EM_CHG_BUF,   QH_S,    QH_D,      QH_F                    ) \
   __(l_mid_trpo,    ____________, QH_A,    QH_S,      QH_D                    ) \
                                                                                 \
   XX(l_bot_edge,    EM_CTL_X,     QB_Z,    QB_X                               ) \
   XX(l_bot_innr,    KA_UNDO,      QB_C,    QB_V                               ) \
   XX(l_bot_outr,    EM_CTL_C,     QB_X,    QB_C                               ) \
-  XX(l_bot_rech,    EM_CHGBUF,    QB_V,    KC_B                               ) \
+  XX(l_bot_rech,    EM_CHG_BUF,   QB_V,    KC_B                               ) \
   __(l_bot_sprd,    ____________, QB_X,    QB_V                               ) \
   __(l_bot_trpi,    ____________, QB_C,    QB_V,      KC_B                    ) \
-  XX(l_bot_trpm,    EM_CHGBUF,    QB_X,    QB_C,      QB_V                    ) \
+  XX(l_bot_trpm,    EM_CHG_BUF,   QB_X,    QB_C,      QB_V                    ) \
   __(l_bot_trpo,    ____________, QB_Z,    QB_X,      QB_C                    ) \
   __(l_pinky_dip,   ____________, QH_F,    QB_Z                               ) \
                                                                                 \
@@ -61,9 +61,9 @@
   XX(r_mid_outr,    KC_RBRC,      QH_K,    QH_L                               ) \
   XX(r_mid_rech,    KC_LBRC,      KC_H,    QH_J                               ) \
   XX(r_mid_sprd,    KC_EQL,       QH_J,    QH_L                               ) \
-  XX(r_mid_trpi,    EM_PRVBUF,    KC_H,    QH_J,       QH_K                   ) \
+  XX(r_mid_trpi,    EM_PRV_BUF,   KC_H,    QH_J,       QH_K                   ) \
   XX(r_mid_trpm,    EM_DIRED,     QH_J,    QH_K,       QH_L                   ) \
-  XX(r_mid_trpo,    EM_ALLBUF,    QH_K,    QH_L,       QH_QUOT                ) \
+  XX(r_mid_trpo,    EM_ALL_BUF,   QH_K,    QH_L,       QH_QUOT                ) \
                                                                                 \
   XX(r_bot_edge,    SS_THISDIR,   QB_DOT,  KC_SLSH                            ) \
   XX(r_bot_innr,    KA_UNDO,      QB_M,    QB_COMM                            ) \
