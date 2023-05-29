@@ -253,10 +253,10 @@ void matrix_scan_user(void) {
 
 #ifdef USE_ACHORDION
 bool achordion_chord(
-  uint16_t tap_hold_keycode,
-  keyrecord_t* tap_hold_record,
-  uint16_t other_keycode,
-  keyrecord_t* other_record) {
+  uint16_t      tap_hold_keycode,
+  keyrecord_t * tap_hold_record,
+  uint16_t      other_keycode,
+  keyrecord_t * other_record) {
   if (
     (IS_LAYER_ON(0) && (
 #ifdef HOME_ROW_MODS
