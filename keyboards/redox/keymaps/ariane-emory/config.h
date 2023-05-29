@@ -70,8 +70,6 @@
 #define TRI_LAYER_UPPER_LAYER      8 // MY_UPPER_LAYER
 #define TRI_LAYER_ADJUST_LAYER     13
 
-// #define IGNORE_WAKING_KEY
-// #define INSERT_UPP_ENABLED
 #define HOME_ROW_MODS
 // #define BOTTOM_ROW_MODS
 #define MY_RGB_LAYERS

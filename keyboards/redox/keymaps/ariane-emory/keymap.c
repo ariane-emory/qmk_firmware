@@ -113,7 +113,6 @@ static uint16_t waking_key = KC_NO;
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
-  // rgb_fader_step(&rgb_fader); 
 
 #ifdef IGNORE_WAKING_KEY
   if (asleep) {
