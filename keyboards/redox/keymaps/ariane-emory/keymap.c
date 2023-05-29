@@ -146,7 +146,6 @@ KEYRECORD_FUN(process_record_user, bool) {
       SEND_STRING_WITHOUT_MODS(SS_DELAY(1500)SS_LALT("e")SS_DELAY(500)"v"SS_LALT("e")SS_DELAY(500)"v"SS_DELAY(500)"a"SS_LALT("f")SS_DELAY(500)"s");
     }
     return false;
-
   case SS_SIRI:
     if (record->event.pressed)
     {
