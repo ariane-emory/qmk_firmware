@@ -26,22 +26,22 @@
   __(l_top_trpm,    KC_NO,             KC_W,    KC_E,              KC_R)        \
   __(l_top_trpo,    KC_NO,             KC_Q,    KC_W,              KC_E)        \
                                                                                 \
-  XX(l_mid_edge,    LALT(LGUI(KC_W)),  QH_A,    QH_S)                           \
+  XX(l_mid_edge,    EM_BGNMAC,         QH_A,    QH_S)                           \
   XX(l_mid_innr,    KC_ENT,            QH_D,    QH_F)                           \
-  XX(l_mid_outr,    LALT(LGUI(KC_R)),  QH_S,    QH_D)                           \
-  XX(l_mid_rech,    LALT(LGUI(KC_E)),  QH_F,    KC_G)                           \
+  XX(l_mid_outr,    EM_RPTMAC,         QH_S,    QH_D)                           \
+  XX(l_mid_rech,    EM_ENDMAC,         QH_F,    KC_G)                           \
   __(l_mid_sprd,    KC_NO,             QH_S,    QH_F)                           \
   __(l_mid_trpi,    KC_NO,             QH_D,    QH_F,              KC_G)        \
-  XX(l_mid_trpm,    EM_SWITCH_BUFFER,  QH_S,    QH_D,              QH_F)        \
+  XX(l_mid_trpm,    EM_CHGBUF,         QH_S,    QH_D,              QH_F)        \
   __(l_mid_trpo,    KC_NO,             QH_A,    QH_S,              QH_D)        \
                                                                                 \
-  XX(l_bot_edge,    LCTL(KC_X),        QB_Z,    QB_X)                           \
-  XX(l_bot_innr,    LGUI(KC_Z),        QB_C,    QB_V)                           \
-  XX(l_bot_outr,    LCTL(KC_C),        QB_X,    QB_C)                           \
-  XX(l_bot_rech,    EM_SWITCH_BUFFER,  QB_V,    KC_B)                           \
+  XX(l_bot_edge,    EM_CTL_X,          QB_Z,    QB_X)                           \
+  XX(l_bot_innr,    KA_UNDO,           QB_C,    QB_V)                           \
+  XX(l_bot_outr,    EM_CTL_C,          QB_X,    QB_C)                           \
+  XX(l_bot_rech,    EM_CHGBUF,         QB_V,    KC_B)                           \
   __(l_bot_sprd,    KC_NO,             QB_X,    QB_V)                           \
   __(l_bot_trpi,    KC_NO,             QB_C,    QB_V,              KC_B)        \
-  XX(l_bot_trpm,    EM_SWITCH_BUFFER,  QB_X,    QB_C,              QB_V)        \
+  XX(l_bot_trpm,    EM_CHGBUF,         QB_X,    QB_C,              QB_V)        \
   __(l_bot_trpo,    KC_NO,             QB_Z,    QB_X,              QB_C)        \
   __(l_pinky_dip,   KC_NO,             QH_F,    QB_Z)                           \
                                                                                 \
@@ -54,23 +54,23 @@
   __(r_top_trpm,    KC_NO,             KC_U,    KC_I,              KC_O)        \
   __(r_top_trpo,    KC_NO,             KC_I,    KC_O,              KC_P)        \
                                                                                 \
-  XX(r_mid_EXTR,    LALT(LGUI(KC_A)),  QH_QUOT, RCTL_T(KC_DQUO))                \
+  XX(r_mid_EXTR,    EM_LWRAP,          QH_QUOT, RCTL_T(KC_DQUO))                \
   XX(r_mid_edge,    KC_SCLN,           QH_L,    QH_QUOT)                        \
   XX(r_mid_innr,    KC_ENT,            QH_J,    QH_K)                           \
   XX(r_mid_outr,    KC_RBRC,           QH_K,    QH_L)                           \
   XX(r_mid_rech,    KC_LBRC,           KC_H,    QH_J)                           \
   XX(r_mid_sprd,    KC_EQL,            QH_J,    QH_L)                           \
-  XX(r_mid_trpi,    LALT(LGUI(KC_V)),  KC_H,    QH_J,               QH_K)       \
-  XX(r_mid_trpm,    LALT(LGUI(KC_D)),  QH_J,    QH_K,               QH_L)       \
-  XX(r_mid_trpo,    LALT(LGUI(KC_A)),  QH_K,    QH_L,               QH_QUOT)    \
+  XX(r_mid_trpi,    EM_PRVBUF,         KC_H,    QH_J,               QH_K)       \
+  XX(r_mid_trpm,    EM_DIRED,          QH_J,    QH_K,               QH_L)       \
+  XX(r_mid_trpo,    EM_ALLBUF,         QH_K,    QH_L,               QH_QUOT)    \
                                                                                 \
   XX(r_bot_edge,    SS_THISDIR,        QB_DOT,  KC_SLSH)                        \
-  XX(r_bot_innr,    LGUI(KC_Z),        QB_M,    QB_COMM)                        \
+  XX(r_bot_innr,    KA_UNDO,           QB_M,    QB_COMM)                        \
   XX(r_bot_outr,    SS_ARROW,          QB_COMM, QB_DOT)                         \
   XX(r_bot_rech,    EM_LASTARG,        KC_N,    QB_M)                           \
   __(r_bot_sprd,    KC_NO,             QB_M,    QB_DOT)                         \
   XX(r_bot_trpi,    EM_REPEAT,         KC_N,    QB_M,              QB_COMM)     \
-  XX(r_bot_trpm,    LALT(LGUI(KC_S)),  QB_M,    QB_COMM,           QB_DOT)      \
+  XX(r_bot_trpm,    EM_SHELL,          QB_M,    QB_COMM,           QB_DOT)      \
   XX(r_bot_trpo,    SS_UPDIR,          QB_COMM, QB_DOT,            QB_SLSH)     \
   XX(r_pinky_dip,   SS_UPDIR,          QH_J,    KC_SLSH)
 

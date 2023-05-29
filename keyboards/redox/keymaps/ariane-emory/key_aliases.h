@@ -95,3 +95,15 @@
 #define TH_LFT MO(TRI_LAYER_LOWER_LAYER)
 #define TH_RGT MO(TRI_LAYER_UPPER_LAYER)
 #endif
+
+#define EM_SHELL  LALT(LGUI(KC_S))
+#define KA_UNDO   LGUI(KC_Z)
+#define EM_ALLBUF LALT(LGUI(KC_A))
+#define EM_PRVBUF LALT(LGUI(KC_V))
+#define EM_DIRED  LALT(LGUI(KC_D))
+#define EM_LWRAP  LALT(LGUI(KC_L))
+#define EM_BGNMAC LALT(LGUI(KC_W))
+#define EM_RPTMAC LALT(LGUI(KC_E))
+#define EM_ENDMAC LALT(LGUI(KC_R))
+#define EM_CTL_X  LCTL(KC_X)
+#define EM_CTL_C  LCTL(KC_C)
