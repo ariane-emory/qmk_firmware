@@ -19,10 +19,10 @@ rgb_fader_t rgb_fader;
 
 void keyboard_post_init_user(void) {
 #if CONSOLE_ENABLE
-  debug_enable=true;
-  debug_matrix=true;
-  debug_keyboard=true;
-  debug_mouse=true;
+  debug_enable   = true;
+  debug_matrix   = true;
+  debug_keyboard = true;
+  debug_mouse    = true;
 #endif
 
   rgb_fader_init(&rgb_fader, RGB_ASLEEP);
