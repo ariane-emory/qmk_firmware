@@ -107,3 +107,4 @@
 #define EM_ENDMAC LALT(LGUI(KC_R))
 #define EM_CTL_X  LCTL(KC_X)
 #define EM_CTL_C  LCTL(KC_C)
+#define RCTL_DQUO RCTL_T(KC_DQUO)
