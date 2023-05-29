@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#include "lwsm/src/rgb_fader.h"
+#include <stdbool.h>
 
 #if defined(HOME_ROW_MODS) || defined(BOTTOM_ROW_MODS)
 #define USE_ACHORDION
@@ -8,10 +8,9 @@
 #endif
 
 #include "key_aliases.h"
+#include "lwsm/src/rgb_fader.h"
 #include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file:
-#include <stdbool.h>
 
-// ==============================================================================
 // Init
 // ==============================================================================
 
