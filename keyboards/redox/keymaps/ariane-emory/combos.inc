@@ -74,7 +74,7 @@
   X(r_bot_trpi,    EM_REPEAT,    KC_N,    QB_M,      QB_COMM                  ) \
   X(r_bot_trpm,    EM_SHELL,     QB_M,    QB_COMM,   QB_DOT                   ) \
   X(r_bot_trpo,    SS_UPDIR,     QB_COMM, QB_DOT,    QB_SLSH                  ) \
-  X(r_pinky_dip,   SS_UPDIR,     QH_J,    KC_SLSH                            )
+  X(r_pinky_dip,   SS_UPDIR,     QH_J,    KC_SLSH                             )
 
 //========================================================================================
 // Define combo keys
