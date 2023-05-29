@@ -64,10 +64,8 @@
 #define RGB_UPPER_LAYER_ON         RGB_BLUE
 #define RGB_ADJUST_LAYER_ON        RGB_CYAN
 
-#define MY_LOWER_LAYER             7 
-#define MY_UPPER_LAYER             8
-#define TRI_LAYER_LOWER_LAYER      7 // MY_LOWER_LAYER
-#define TRI_LAYER_UPPER_LAYER      8 // MY_UPPER_LAYER
+#define TRI_LAYER_LOWER_LAYER      7
+#define TRI_LAYER_UPPER_LAYER      8
 #define TRI_LAYER_ADJUST_LAYER     13
 
 #define HOME_ROW_MODS
