@@ -111,21 +111,8 @@ static bool     asleep     = false;
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
-#ifdef IGNORE_WAKING_KEY
-  if (asleep) {
-    if (record->event.pressed && waking_key == KC_NO) {
-      waking_key = keycode;
-    }
-    else if (keycode == waking_key) {
-      asleep = false;
-      waking_key = KC_NO;
-    }
-    return false;
-  }
-#else
   if (asleep)
     asleep = false;
-#endif
 
 #ifdef USE_ACHORDION
   if (!process_achordion(keycode, record))
