@@ -83,7 +83,7 @@ combo_t key_combos[] = {
   // Bind left hand combos
   //================================================================================s======
   /* SECTION: Left num row */
-  COMBO(keys_l_num_rech,         DF(3)),
+  CCC(keys_l_num_rech,         DF(3))
   // COMBO(keys_l_num_trpi,         KC_NO),
   COMBO(keys_l_num_innr,         DF(2)),        
   // COMBO(keys_l_num_trpm,         KC_NO),
