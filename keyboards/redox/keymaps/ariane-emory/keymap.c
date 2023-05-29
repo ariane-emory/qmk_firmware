@@ -107,9 +107,6 @@ uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
 
 static uint16_t idle_timer = 0;
 static bool     asleep     = false;
-#ifdef IGNORE_WAKING_KEY
-static uint16_t waking_key = KC_NO;
-#endif
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
