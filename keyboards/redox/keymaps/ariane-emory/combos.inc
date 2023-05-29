@@ -75,7 +75,7 @@
   XX(r_pinky_dip,   SS_UPDIR,          QH_J,    KC_SLSH)
 
 //========================================================================================
-// Defone combo keys
+// Define combo keys
 //========================================================================================
 
 #define XX(name, ignored, ...) const uint16_t PROGMEM name[] = { __VA_ARGS__, COMBO_END };
