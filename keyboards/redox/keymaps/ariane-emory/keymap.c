@@ -171,7 +171,7 @@ KEYRECORD_FUN(process_record_user, bool) {
   case QK_TRI_LAYER_LOWER:
     layer_off(6);
     return true;
-  case RCTL_T(KC_DQUO):
+  case RCTL_DQUO:
     // KC_DQUO is not "basic" so we have to tap it manually
     if (record->tap.count && record->event.pressed) {
       tap_code16(KC_DQUO);
