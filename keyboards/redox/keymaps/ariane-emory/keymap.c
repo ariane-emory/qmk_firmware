@@ -196,7 +196,7 @@ KEYRECORD_FUN(process_record_user, bool) {
   }
 }
 
-void set_rgb_by_layer(void) {
+void setrgb_by_layer(void) {
   typedef struct {
     uint8_t layer;
     uint8_t r;
@@ -228,7 +228,7 @@ void matrix_scan_user(void) {
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
 
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-  set_rgb_by_layer();
+  setrgb_by_layer();
   rgb_fader_step(&rgb_fader);
   rgblight_setrgb(rgb_fader.current.r, rgb_fader.current.g, rgb_fader.current.b);
 #endif
