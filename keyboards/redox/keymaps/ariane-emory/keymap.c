@@ -11,7 +11,7 @@
 #include "features/rgb_fader.h"
 #include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file:
 
-struct rgb_fader_t rgb_fader;
+rgb_fader_t rgb_fader;
 
 // ==============================================================================
 // Init
