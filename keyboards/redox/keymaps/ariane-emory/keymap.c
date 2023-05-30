@@ -211,21 +211,24 @@ void setrgb_by_layer(void) {
     uint8_t g;
     uint8_t b;
   } rgb_table_row_t;
+
   static const rgb_table_row_t rgb_table[] = {
     { TRI_LAYER_ADJUST_LAYER, RGB_ADJUST_LAYER_ON  },
     { TRI_LAYER_UPPER_LAYER,  RGB_UPPER_LAYER_ON   },
     { TRI_LAYER_LOWER_LAYER,  RGB_LOWER_LAYER_ON   },
     { TOGGLED_LAYER,          RGB_TOGGLED_LAYER_ON },
-    { 0,                      RGB_DEFAULT          },
   };
   static const size_t rgb_table_length = ARRAY_SIZE(rgb_table);
-  for (size_t ix = 0; ix < rgb_table_length; ix++) {
+
+  const rgb_table_row_t * row = &row[0];
+  
+  for (size_t ix = 1; ix < rgb_table_length; ix++) {
     if (IS_LAYER_ON(rgb_table[ix].layer)) {
-      RGBLIGHT_SETRGB(rgb_table[ix].r, rgb_table[ix].g, rgb_table[ix].b);
-      return;
+      row = &rgb_table[ix];
+      break;
     }
   }
-  RGBLIGHT_SETRGB(rgb_table[rgb_table_length-1].r, rgb_table[rgb_table_length-1].g, rgb_table[rgb_table_length-1].b);
+  RGBLIGHT_SETRGB(row->r, row->g, row->b);
 }
 
 void matrix_scan_user(void) {
