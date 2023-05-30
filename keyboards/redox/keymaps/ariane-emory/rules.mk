@@ -16,6 +16,7 @@ RGBLIGHT_ENABLE    	 	 = yes
 SEND_STRING_ENABLE 	 	 = yes
 TRI_LAYER_ENABLE   	 	 = yes
 DEFERRED_EXEC_ENABLE 	 = yes
+DYNAMIC_MACRO_ENABLE   = yes
 
 # EEPROM_DRIVER          = transient
 
