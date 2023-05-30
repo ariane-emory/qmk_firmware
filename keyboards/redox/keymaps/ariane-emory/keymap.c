@@ -213,6 +213,7 @@ void setrgb_by_layer(void) {
   } rgb_table_row_t;
 
   static const rgb_table_row_t rgb_table[] = {
+    { TOGGLED_LAYER,          RGB_DEFAULT          },
     { TRI_LAYER_ADJUST_LAYER, RGB_ADJUST_LAYER_ON  },
     { TRI_LAYER_UPPER_LAYER,  RGB_UPPER_LAYER_ON   },
     { TRI_LAYER_LOWER_LAYER,  RGB_LOWER_LAYER_ON   },
