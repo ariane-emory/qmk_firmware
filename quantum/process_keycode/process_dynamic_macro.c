@@ -255,7 +255,15 @@ bool process_dynamic_macro(uint16_t keycode, keyrecord_t *record) {
                 if (record->event.pressed ^ (keycode != QK_DYNAMIC_MACRO_RECORD_STOP)) { /* Ignore the initial release
                                                                                           * just after the recording
                                                                                           * starts for DM_RSTP. */
-                    dynamic_macro_record_end(macro_buffer, macro_pointer, +1, &macro_end);
+                    switch (macro_id) {
+                        case 1:
+                            dynamic_macro_record_end(macro_buffer, macro_pointer, +1, &macro_end);
+                            break;
+                        case 2:
+                            dynamic_macro_record_end(r_macro_buffer, macro_pointer, -1, &r_macro_end);
+                            break;
+                    }
+                    
                     macro_id = 0;
                     dynamic_macro_play(macro_buffer, macro_end, +1);
                 }
@@ -265,7 +273,15 @@ bool process_dynamic_macro(uint16_t keycode, keyrecord_t *record) {
                 if (record->event.pressed ^ (keycode != QK_DYNAMIC_MACRO_RECORD_STOP)) { /* Ignore the initial release
                                                                                           * just after the recording
                                                                                           * starts for DM_RSTP. */
-                    dynamic_macro_record_end(r_macro_buffer, macro_pointer, -1, &r_macro_end);
+                    switch (macro_id) {
+                        case 1:
+                            dynamic_macro_record_end(macro_buffer, macro_pointer, +1, &macro_end);
+                            break;
+                        case 2:
+                            dynamic_macro_record_end(r_macro_buffer, macro_pointer, -1, &r_macro_end);
+                            break;
+                    }
+                    
                     macro_id = 0;
                     dynamic_macro_play(r_macro_buffer, r_macro_end, -1);
                 }
