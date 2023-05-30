@@ -8,7 +8,7 @@
 #endif
 
 #include "key_aliases.h"
-#include "lwsm/src/rgb_fader.h"
+#include "features/rgb_fader.h"
 #include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file:
 
 // Init

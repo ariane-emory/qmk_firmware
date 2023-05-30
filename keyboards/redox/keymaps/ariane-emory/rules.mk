@@ -18,7 +18,7 @@ TRI_LAYER_ENABLE   	 	 = yes
 DEFERRED_EXEC_ENABLE 	 = yes
 
 SRC += features/achordion.c
-SRC += lwsm/src/rgb.c
-SRC += lwsm/src/rgb_fader.c
+SRC += features/rgb.c
+SRC += features/rgb_fader.c
 
 CFLAGS += -funroll-loops
