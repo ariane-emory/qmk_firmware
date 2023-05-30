@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include "rgb.h"
 
-typedef struct {
+typedef struct rgb_fader_t {
   rgb_t   initial;
   rgb_t   current;
   rgb_t   target;
