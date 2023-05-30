@@ -99,6 +99,7 @@ enum arianes_keycodes {
   SHOLD_GUI,
   SS_SIRI,
   VS_FORMAT_DOC,
+  RGB_TOGGLE_NOEE,
 };
 
 uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
@@ -150,6 +151,12 @@ KEYRECORD_FUN(process_record_user, bool) {
       SEND_STRING_WITHOUT_MODS(SS_DELAY(50));
       tap_code(KC_SPC);
       unregister_code(KC_F24);
+    }
+    return false;
+  case RGB_TOGGLE_NOEE:
+    if (record->event.pressed)
+    {
+      rgblight_toggle_noeeprom();
     }
     return false;
   case HOLD_GUI:

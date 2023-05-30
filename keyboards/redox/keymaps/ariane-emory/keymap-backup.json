@@ -65,7 +65,7 @@
       "RSFT_T(KC_MINS)",
       "KC_F23",
       "KC_F24",
-      "RGB_TOG",
+      "ANY(RGB_TOGGLE_NOEE)",
       "KC_RGUI",
       "ANY(TH_LFT)",
       "ANY(MT(MOD_LALT,KC_SPC))",
