@@ -25,7 +25,7 @@ void keyboard_post_init_user(void) {
   debug_mouse    = true;
 #endif
 
-  rgb_fader_init(&rgb_fader, RGB_ASLEEP);
+  rgb_fader_init(&rgb_fader, RGB_DEFAULT);
 }
 
 // ==============================================================================
