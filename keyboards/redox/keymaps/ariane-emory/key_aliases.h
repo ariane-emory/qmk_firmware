@@ -1,5 +1,16 @@
 #pragma once
 
+#define QT_Q    KC_Q
+#define QT_W    KC_W
+#define QT_E    KC_E
+#define QT_R    KC_R
+#define QT_T    KC_T
+#define QT_Y    KC_Y
+#define QT_U    KC_U
+#define QT_I    KC_I
+#define QT_O    KC_O
+#define QT_P    KC_P
+
 #ifdef HOME_ROW_MODS
 // #define QH_A    LSFT_T(KC_A)
 #define QH_A    KC_A
@@ -75,7 +86,7 @@
 #define CB_DOT  RALT_T(KC_DOT)
 #define CB_SLSH RCTL_T(KC_SLSH)
 #else
-#define QB_Z    KC_Z
+// #define QB_Z    KC_Z
 #define QB_X    KC_X
 #define QB_C    KC_C
 #define QB_V    KC_V
@@ -84,7 +95,7 @@
 #define QB_M    KC_M
 #define QB_COMM KC_COMM
 #define QB_DOT  KC_DOT
-#define QB_SLSH KC_SLSH
+// #define QB_SLSH KC_SLSH
 #define CB_Z    KC_Z
 #define CB_X    KC_X
 #define CB_C    KC_C
