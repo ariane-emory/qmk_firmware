@@ -154,10 +154,10 @@ KEYRECORD_FUN(process_record_user, bool) {
     }
     return false;
   case RGB_TOGGLE_NOEE:
-    if (record->event.pressed)
-    {
-      rgblight_toggle_noeeprom();
-    }
+    /* if (record->event.pressed) */
+    /* { */
+    /*   rgblight_toggle_noeeprom(); */
+    /* } */
     return false;
   case HOLD_GUI:
     if (record->event.pressed)
