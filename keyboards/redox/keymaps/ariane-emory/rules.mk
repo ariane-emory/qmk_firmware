@@ -17,6 +17,8 @@ SEND_STRING_ENABLE 	 	 = yes
 TRI_LAYER_ENABLE   	 	 = yes
 DEFERRED_EXEC_ENABLE 	 = yes
 
+# EEPROM_DRIVER          = transient
+
 SRC += features/achordion.c
 SRC += features/rgb.c
 SRC += features/rgb_fader.c
