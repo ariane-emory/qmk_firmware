@@ -25,6 +25,7 @@ void keyboard_post_init_user(void) {
   debug_mouse    = true;
 #endif
 
+  rgblight_enable_noeeprom();
   rgb_fader_init(&rgb_fader, RGB_DEFAULT);
 }
 

@@ -107,3 +107,4 @@
 #undef  LOCKING_RESYNC_ENABLE
 
 
+//#undef EEPROM_ENABLE
