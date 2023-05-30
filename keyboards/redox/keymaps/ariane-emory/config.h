@@ -56,6 +56,35 @@
 #define TOGGLED_LAYER              6
 #define TOGGLED_LAYER_TIMEOUT      30000
 
+#define RGB_DEFAULT                RGB_BLACK
+#define RGB_TOGGLED_LAYER_OFF      RGB_BLACK // RGB_RED
+#define RGB_TOGGLED_LAYER_ON       RGB_CHARTREUSE
+#define RGB_LOWER_LAYER_ON         RGB_PURPLE
+#define RGB_UPPER_LAYER_ON         RGB_BLUE
+#define RGB_ADJUST_LAYER_ON        RGB_CYAN
+
+#define TRI_LAYER_LOWER_LAYER      7
+#define TRI_LAYER_UPPER_LAYER      8
+#define TRI_LAYER_ADJUST_LAYER     13
+
+#define HOME_ROW_MODS
+// #define BOTTOM_ROW_MODS
+#define MY_RGB_LAYERS
+
+#define NO_ACTION_ONESHOT
+#define RGB_FADER_NO_STRINGS
+#undef  LOCKING_SUPPORT_ENABLE
+#undef  LOCKING_RESYNC_ENABLE
+
+//#define PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD_PER_KEY
+
+#define TAPPING_TERM               250
+#define TAPPING_TERM_PER_KEY
+
+#define TOGGLED_LAYER              6
+#define TOGGLED_LAYER_TIMEOUT      30000
+
 #define SLEEP_TIMEOUT              45000
 #define RGB_ASLEEP                 RGB_BLACK
 #define RGB_TOGGLED_LAYER_OFF      RGB_BLACK // RGB_RED

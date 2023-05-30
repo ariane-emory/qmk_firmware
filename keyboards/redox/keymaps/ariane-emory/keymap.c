@@ -106,13 +106,9 @@ uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
 }
 
 static uint16_t idle_timer = 0;
-static bool     asleep     = false;
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
-
-  if (asleep)
-    asleep     = false;
 
 #ifdef USE_ACHORDION
   if (!process_achordion(keycode, record))
@@ -212,7 +208,7 @@ void set_rgb_by_layer(void) {
     { TRI_LAYER_UPPER_LAYER,  RGB_UPPER_LAYER_ON   },
     { TRI_LAYER_LOWER_LAYER,  RGB_LOWER_LAYER_ON   },
     { TOGGLED_LAYER,          RGB_TOGGLED_LAYER_ON },
-    { 0,                      RGB_ASLEEP           },
+    { 0,                      RGB_DEFAULT          },
   };
   static const size_t rgb_table_length = ARRAY_SIZE(rgb_table);
   for (size_t ix = 0; ix < rgb_table_length; ix++) {
@@ -231,19 +227,8 @@ void matrix_scan_user(void) {
 
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
 
-  if (false) {}
-#ifdef SLEEP_TIMEOUT
-  else if (asleep || timer_elapsed(idle_timer) >= SLEEP_TIMEOUT)
-  {
-    asleep = true;
-    RGBLIGHT_SETRGB(RGB_ASLEEP);
-  }
-#endif
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-  else {
-    set_rgb_by_layer();
-  }
-  
+  set_rgb_by_layer();
   rgb_fader_step(&rgb_fader);
   rgblight_setrgb(rgb_fader.current.r, rgb_fader.current.g, rgb_fader.current.b);
 #endif
