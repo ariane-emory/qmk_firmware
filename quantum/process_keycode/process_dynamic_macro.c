@@ -254,26 +254,6 @@ bool process_dynamic_macro(uint16_t keycode, keyrecord_t *record) {
                     dynamic_macro_stop_recording();
                 }
                 return false;
-#ifdef DYNAMIC_MACRO_AUTO_STOP_ON_PLAY
-            case QK_DYNAMIC_MACRO_PLAY_1:
-                /* Stop the macro recording. */
-                if (record->event.pressed ^ (keycode != QK_DYNAMIC_MACRO_RECORD_STOP)) { /* Ignore the initial release
-                                                                                          * just after the recording
-                                                                                          * starts for DM_RSTP. */
-                    dynamic_macro_stop_recording();                    
-                    dynamic_macro_play(macro_buffer, macro_end, +1);
-                }
-                return false;
-            case QK_DYNAMIC_MACRO_PLAY_2:
-                /* Stop the macro recording. */
-                if (record->event.pressed ^ (keycode != QK_DYNAMIC_MACRO_RECORD_STOP)) { /* Ignore the initial release
-                                                                                          * just after the recording
-                                                                                          * starts for DM_RSTP. */
-                    dynamic_macro_stop_recording();
-                    dynamic_macro_play(r_macro_buffer, r_macro_end, -1);
-                }
-                return false;
-#endif
 #ifdef DYNAMIC_MACRO_NO_NESTING
             case QK_DYNAMIC_MACRO_PLAY_1:
             case QK_DYNAMIC_MACRO_PLAY_2:
