@@ -40,4 +40,3 @@ void dynamic_macro_play_user(int8_t direction);
 void dynamic_macro_record_key_user(int8_t direction, keyrecord_t *record);
 void dynamic_macro_record_end_user(int8_t direction);
 void dynamic_macro_stop_recording(void);
-void dynamic_macro_start_recording(int8_t direction);
