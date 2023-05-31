@@ -14,7 +14,7 @@ LTO_ENABLE         	 	 = yes
 NKRO_ENABLE        	 	 = yes
 RGBLIGHT_ENABLE    	 	 = yes 
 SEND_STRING_ENABLE 	 	 = yes
-TRI_LAYER_ENABLE   	 	 = yes
+TRI_LAYER_ENABLE   	 	 = no # yes
 DEFERRED_EXEC_ENABLE 	 = yes
 DYNAMIC_MACRO_ENABLE   = yes
 

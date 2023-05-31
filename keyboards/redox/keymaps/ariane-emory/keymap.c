@@ -224,7 +224,7 @@ void dynamic_macro_record_end_user(int8_t direction) {
 bool setrgb_if_recording_macro(void) {
   if (! currently_recording_macro)
     return false;
-  RGBLIGHT_SETRGB(RGB_RED);
+  RGBLIGHT_SETRGB(RGB_MAGENTA);
   return true;
 }
 
