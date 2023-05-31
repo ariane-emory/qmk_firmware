@@ -107,7 +107,7 @@
 #define QB_DOT  KC_DOT
 
 #  ifdef STAGGERED_SHIFT
-#    define QB_SLSH RSFT_T(KC_SLSH)j
+#    define QB_SLSH RSFT_T(KC_SLSH)
 #  else // STAGGERED_SHIFT
 #    define QB_SLSH KC_SLSH
 #  endif // STAGGERED_SHIFT

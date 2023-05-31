@@ -266,7 +266,9 @@ bool achordion_chord(
   if (
     (IS_LAYER_ON(0) && (
 #ifdef HOME_ROW_MODS
-      // tap_hold_keycode == QH_A    ||
+#  ifndef STAGGERED_SHIFT
+      tap_hold_keycode == QH_A    ||
+#  endif
       tap_hold_keycode == QH_S    ||
       tap_hold_keycode == QH_D    ||
       tap_hold_keycode == QH_F    ||
@@ -275,7 +277,9 @@ bool achordion_chord(
       tap_hold_keycode == QH_J    ||
       tap_hold_keycode == QH_K    ||
       tap_hold_keycode == QH_L    ||
-      // tap_hold_keycode == QH_QUOT ||
+#  ifndef STAGGERED_SHIFT
+      tap_hold_keycode == QH_QUOT ||
+#  endif
 #endif
 #ifdef BOTTOM_ROW_MODS
       tap_hold_keycode == QB_Z    ||
