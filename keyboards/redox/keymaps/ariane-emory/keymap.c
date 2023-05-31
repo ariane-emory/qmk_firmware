@@ -282,19 +282,14 @@ bool achordion_chord(
   keyrecord_t * tap_hold_record,
   uint16_t      other_keycode,
   keyrecord_t * other_record) {
-  if (
-    (IS_LAYER_ON(0) && (
+  if (IS_LAYER_ON(0) && (
 #ifndef HOME_SHIFT
-      tap_hold_keycode == QH_A    ||
-      tap_hold_keycode == QH_QUOT ||
-      tap_hold_keycode == CH_A    ||
-      tap_hold_keycode == CH_QUOT ||
+        tap_hold_keycode == QH_A    ||
+        tap_hold_keycode == QH_QUOT ||
 #endif
 #if defined(BOTTOM_SHIFT) && ! defined(BOTTOM_ROW_MODS)
-      tap_hold_keycode == QB_Z    ||
-      tap_hold_keycode == QB_SLSH ||
-      tap_hold_keycode == CB_Z    ||
-      tap_hold_keycode == CB_SLSH ||
+        tap_hold_keycode == QB_Z    ||
+        tap_hold_keycode == QB_SLSH ||
 #endif
 #ifdef HOME_ROW_MODS
       tap_hold_keycode == QH_S    ||
@@ -318,15 +313,25 @@ bool achordion_chord(
       tap_hold_keycode == QB_DOT  ||
       tap_hold_keycode == QB_SLSH ||
 #endif
-      false)))
+      false))
   {
     // Exceptionally consider the following chords as holds, even though they
     // are on the same hand.
     if (
-#ifdef HOME_ROW_MODS
-      // Left side
+#ifdef TOP_SHIFT
       (tap_hold_keycode == QH_A &&
        (other_keycode == LSFT_T(KC_MINS))) ||
+      (tap_hold_keycode == QH_QUOT &&
+       (other_keycode == RSFT_T(KC_MINS))) ||
+#endif
+#ifdef BOTTOM_SHIFT
+      (tap_hold_keycode == QB_Z &&
+       (other_keycode == LSFT_T(KC_MINS))) ||
+      (tap_hold_keycode == QB_SLSH &&
+       (other_keycode == RSFT_T(KC_MINS))) ||
+#endif
+#ifdef HOME_ROW_MODS
+      // Left side
       (tap_hold_keycode == QH_S &&
        (other_keycode == KC_TAB ||
         other_keycode == QB_Z ||
@@ -351,6 +356,7 @@ bool achordion_chord(
       (tap_hold_keycode == QH_J &&
        (other_keycode == QH_H ||
         other_keycode == QH_K ||
+        other_keycode == QH_L ||
         other_keycode == QT_Y ||
         other_keycode == QB_N ||
         other_keycode == QT_P)) ||
@@ -361,8 +367,6 @@ bool achordion_chord(
       (tap_hold_keycode == QH_L &&
        (other_keycode == QH_K ||
         other_keycode == LT(12,KC_BSLS))) ||
-      (tap_hold_keycode == QH_QUOT &&
-       (other_keycode == RSFT_T(KC_MINS))) ||
 #endif
 #ifdef BOTTOM_ROW_MODS
       (tap_hold_keycode == QB_SLSH &&
@@ -375,8 +379,15 @@ bool achordion_chord(
   }
   
   if (IS_LAYER_ON(1) && (
-#ifdef HOME_ROW_MODS
+#ifndef HOME_SHIFT
         tap_hold_keycode == CH_A    ||
+        tap_hold_keycode == CH_QUOT ||
+#endif
+#if defined(BOTTOM_SHIFT) && ! defined(BOTTOM_ROW_MODS)
+        tap_hold_keycode == CB_Z    ||
+        tap_hold_keycode == CB_SLSH ||
+#endif
+#ifdef HOME_ROW_MODS
         tap_hold_keycode == CH_R    ||
         tap_hold_keycode == CH_S    ||
         tap_hold_keycode == CH_T    ||
@@ -385,7 +396,6 @@ bool achordion_chord(
         tap_hold_keycode == CH_N    ||
         tap_hold_keycode == CH_E    ||
         tap_hold_keycode == CH_I    ||
-        tap_hold_keycode == QH_QUOT ||
 #endif
 #ifdef BOTTOM_ROW_MODS
         tap_hold_keycode == CB_Z    ||
