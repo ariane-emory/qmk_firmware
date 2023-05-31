@@ -45,9 +45,9 @@
 #define ONESHOT_TIMEOUT            1000
 
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
-//#define HOLD_ON_OTHER_KEY_PRESS
-#define IGNORE_MOD_TAP_INTERRUPT
-//#define PERMISSIVE_HOLD
+// #define HOLD_ON_OTHER_KEY_PRESS
+// #define IGNORE_MOD_TAP_INTERRUPT
+// #define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
 
 #define TAPPING_TERM               250
@@ -117,3 +117,4 @@
 // #define STAGGERED_SHIFT
 #define TOP_SHIFT
 #define BOTTOM_SHIFT
+

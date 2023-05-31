@@ -213,7 +213,7 @@ KEYRECORD_FUN(process_record_user, bool) {
 
 static bool currently_recording_macro = false;
 
-void dynamic_macro_record_start_user(void) {
+void dynamic_macro_record_start_user(int8_t direction) {
   currently_recording_macro = true;
 }
 
