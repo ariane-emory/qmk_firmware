@@ -43,7 +43,7 @@ void keyboard_post_init_user(void) {
   t name(uint16_t keycode, keyrecord_t *record)
 
 #ifdef TOGGLED_LAYER_TIMEOUT
-#define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms, timer)         \
+#define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms, timer)          \
   {                                                                             \
     if (layer_state_is(layer) &&                                                \
         timer_elapsed(timer) >= idle_time_limit_ms)                             \
@@ -318,40 +318,43 @@ bool achordion_chord(
     // are on the same hand.
     if (
 #ifdef HOME_ROW_MODS
+      // Left side
       (tap_hold_keycode == QH_A &&
        (other_keycode == LSFT_T(KC_MINS))) ||
       (tap_hold_keycode == QH_S &&
        (other_keycode == KC_TAB ||
-        other_keycode == KC_Z ||
-        other_keycode == KC_R ||
-        other_keycode == KC_T ||
-        other_keycode == KC_C ||
-        other_keycode == KC_V)) ||
+        other_keycode == QB_Z ||
+        other_keycode == QT_R ||
+        other_keycode == QT_T ||
+        other_keycode == QB_C ||
+        other_keycode == QB_V)) ||
       (tap_hold_keycode == QH_D &&
        (other_keycode == KC_TAB ||
-        other_keycode == KC_W ||
-        other_keycode == KC_R ||
-        other_keycode == KC_T)) ||
+        other_keycode == QT_W ||
+        other_keycode == QT_R ||
+        other_keycode == QH_F ||
+        other_keycode == QB_B ||
+        other_keycode == QT_T)) ||
       (tap_hold_keycode == QH_F &&
        (other_keycode == QH_A ||
-        other_keycode == KC_E ||
-        other_keycode == KC_T ||
-        other_keycode == KC_W ||
+        other_keycode == QT_E ||
+        other_keycode == QT_T ||
+        other_keycode == QT_W ||
         other_keycode == QH_S)) ||
-
+      // Right side
       (tap_hold_keycode == QH_J &&
        (other_keycode == QH_H ||
         other_keycode == QH_K ||
-        other_keycode == KC_Y ||
-        other_keycode == KC_N ||
-        other_keycode == KC_P)) ||
+        other_keycode == QT_Y ||
+        other_keycode == QB_N ||
+        other_keycode == QT_P)) ||
       (tap_hold_keycode == QH_K &&
-       (other_keycode == KC_P ||
+       (other_keycode == QT_P ||
         other_keycode == LT(12,KC_BSLS) ||
         other_keycode == QB_N)) ||
-       (tap_hold_keycode == QH_L &&
-        (other_keycode == QH_K ||
-         other_keycode == LT(12,KC_BSLS))) ||
+      (tap_hold_keycode == QH_L &&
+       (other_keycode == QH_K ||
+        other_keycode == LT(12,KC_BSLS))) ||
       (tap_hold_keycode == QH_QUOT &&
        (other_keycode == RSFT_T(KC_MINS))) ||
 #endif
