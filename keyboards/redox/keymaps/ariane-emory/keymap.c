@@ -211,6 +211,23 @@ KEYRECORD_FUN(process_record_user, bool) {
   }
 }
 
+static bool currently_recording_macro = false;
+
+void dynamic_macro_record_start_user(void) {
+  currently_recording_macro = true;
+}
+
+void dynamic_macro_record_end_user(int8_t direction) {
+  currently_recording_macro = false;
+}
+
+bool setrgb_if_recording_macro(void) {
+  if (! currently_recording_macro)
+    return false;
+  RGBLIGHT_SETRGB(RGB_RED);
+  return true;
+}
+
 void setrgb_by_layer(void) {
   typedef struct {
     uint8_t layer;
@@ -218,7 +235,7 @@ void setrgb_by_layer(void) {
     uint8_t g;
     uint8_t b;
   } rgb_table_row_t;
-
+  
   static const rgb_table_row_t rgb_table[] = {
     { TOGGLED_LAYER,          RGB_DEFAULT          },
     { TRI_LAYER_ADJUST_LAYER, RGB_ADJUST_LAYER_ON  },
@@ -236,6 +253,7 @@ void setrgb_by_layer(void) {
       break;
     }
   }
+
   RGBLIGHT_SETRGB(row->r, row->g, row->b);
 }
 
@@ -247,7 +265,8 @@ void matrix_scan_user(void) {
   MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
 
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-  setrgb_by_layer();
+  if (! setrgb_if_recording_macro())
+    setrgb_by_layer();
   rgb_fader_step(&rgb_fader);
   rgblight_setrgb(rgb_fader.current.r, rgb_fader.current.g, rgb_fader.current.b);
 #endif
