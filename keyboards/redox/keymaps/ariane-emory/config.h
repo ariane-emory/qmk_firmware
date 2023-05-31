@@ -114,4 +114,6 @@
 #  define DYNAMIC_MACRO_DELAY 15
 #endif
 
-#define STAGGERED_SHIFT
+// #define STAGGERED_SHIFT
+#define TOP_SHIFT
+#define BOTTOM_SHIFT

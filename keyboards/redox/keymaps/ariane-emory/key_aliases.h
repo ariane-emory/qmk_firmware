@@ -11,12 +11,33 @@
 #define QT_O    KC_O
 #define QT_P    KC_P
 
-#ifdef HOME_ROW_MODS
-#  ifdef STAGGERED_SHIFT
-#    define QH_A    KC_A
-#  else // STAGGERED_SHIFT
+#ifdef    TOP_SHIFT
 #    define QH_A    LSFT_T(KC_A)
-#  endif // STAGGERED_SHIFT
+#    define QH_QUOT RSFT_T(KC_QUOT)
+#    define CH_A    LSFT_T(KC_A)
+#    define CH_QUOT RSFT_T(KC_QUOT)
+#else  // TOP_SHIFT
+#    define QH_A    KC_A
+#    define QH_QUOT KC_QUOT
+#    define CH_A    KC_A
+#    define CH_QUOT KC_QUOT
+#endif // TOP_SHIFT
+
+#if       defined(BOTTOM_SHIFT) && ! defined(BOTTOM_ROW_MODS)
+#    define QB_Z    LSFT_T(KC_Z)
+#    define QB_SLSH RSFT_T(KC_SLSH)
+#    define CB_Z    LSFT_T(KC_Z)
+#    define CB_SLSH RSFT_T(KC_SLSH)
+#else  // BOTTOM_SHIFT
+#    define QB_Z    KC_Z
+#    define QB_SLSH KC_SLSH
+#    define CB_Z    KC_Z
+#    define CB_SLSH KC_SLSH
+#endif // BOTTOM_SHIFT
+
+
+#ifdef    HOME_ROW_MODS
+//------------------------------
 #define QH_S    LGUI_T(KC_S)
 #define QH_D    LALT_T(KC_D)
 #define QH_F    LCTL_T(KC_F)
@@ -25,14 +46,7 @@
 #define QH_J    RCTL_T(KC_J)
 #define QH_K    RALT_T(KC_K)
 #define QH_L    RGUI_T(KC_L)
-
-#  ifdef STAGGERED_SHIFT
-#    define QH_QUOT KC_QUOT
-#  else // STAGGERED_SHIFT
-#    define QH_QUOT RSFT_T(KC_QUOT)
-#  endif // STAGGERED_SHIFT
-
-#define CH_A    LSFT_T(KC_A)
+//------------------------------
 #define CH_R    LGUI_T(KC_R)
 #define CH_S    LALT_T(KC_S)
 #define CH_T    LCTL_T(KC_T)
@@ -41,11 +55,9 @@
 #define CH_N    RCTL_T(KC_N)
 #define CH_E    RALT_T(KC_E)
 #define CH_I    RGUI_T(KC_I)
-#define CH_QUOT RSFT_T(KC_QUOT)
-
+//------------------------------
 #else // HOME_ROW_MODS
-
-#define QH_A    KC_A
+//------------------------------
 #define QH_S    KC_S
 #define QH_D    KC_D
 #define QH_F    KC_F
@@ -54,8 +66,7 @@
 #define QH_J    KC_J
 #define QH_K    KC_K
 #define QH_L    KC_L
-#define QH_QUOT KC_QUOT
-#define CH_A    KC_A
+//------------------------------
 #define CH_R    KC_R
 #define CH_S    KC_S
 #define CH_T    KC_T
@@ -64,10 +75,11 @@
 #define CH_N    KC_N
 #define CH_E    KC_E
 #define CH_I    KC_I
-#define CH_QUOT KC_QUOT
+//------------------------------
 #endif // HOME_ROW_MODS
 
 #ifdef BOTTOM_ROW_MODS
+//------------------------------
 #define QB_Z    LCTL_T(KC_Z)
 #define QB_X    LALT_T(KC_X)
 #define QB_C    LGUI_T(KC_C)
@@ -78,6 +90,7 @@
 #define QB_COMM RGUI_T(KC_COMM)
 #define QB_DOT  RALT_T(KC_DOT)
 #define QB_SLSH RCTL_T(KC_SLSH)
+//------------------------------
 #define CB_Z    LCTL_T(KC_Z)
 #define CB_X    LALT_T(KC_X)
 #define CB_C    LGUI_T(KC_C)
@@ -88,15 +101,9 @@
 #define CB_COMM RGUI_T(KC_COMM)
 #define CB_DOT  RALT_T(KC_DOT)
 #define CB_SLSH RCTL_T(KC_SLSH)
-
+//------------------------------
 #else // BOTTOM_ROW_MODS
-
-#  ifdef STAGGERED_SHIFT
-#    define QB_Z    LSFT_T(KC_Z)
-#  else // STAGGERED_SHIFT
-#    define QB_Z   KC_Z
-#  endif // STAGGERED_SHIFT
-
+//------------------------------
 #define QB_X    KC_X
 #define QB_C    KC_C
 #define QB_V    KC_V
@@ -105,14 +112,7 @@
 #define QB_M    KC_M
 #define QB_COMM KC_COMM
 #define QB_DOT  KC_DOT
-
-#  ifdef STAGGERED_SHIFT
-#    define QB_SLSH RSFT_T(KC_SLSH)
-#  else // STAGGERED_SHIFT
-#    define QB_SLSH KC_SLSH
-#  endif // STAGGERED_SHIFT
-
-#define CB_Z    KC_Z
+//------------------------------
 #define CB_X    KC_X
 #define CB_C    KC_C
 #define CB_V    KC_V
@@ -121,9 +121,11 @@
 #define CB_M    KC_M
 #define CB_COMM KC_COMM
 #define CB_DOT  KC_DOT
-#define CB_SLSH KC_SLSH
+//------------------------------
 #endif // BOTTOM_ROW_MODS
 
+
+//==============================================================================
 #ifdef TRI_LAYER_ENABLE
 #  define TH_LFT QK_TRI_LAYER_LOWER
 #  define TH_RGT QK_TRI_LAYER_UPPER
@@ -131,7 +133,7 @@
 #  define TH_LFT MO(TRI_LAYER_LOWER_LAYER)
 #  define TH_RGT MO(TRI_LAYER_UPPER_LAYER)
 #endif // TRI_LAYER_ENABLE
-
+//==============================================================================
 #define EM_SHELL    LALT(LGUI(KC_S))
 #define KA_UNDO     LGUI(KC_Z)
 #define EM_ALL_BUF  LALT(LGUI(KC_A))
@@ -144,3 +146,4 @@
 #define EM_CTL_X    LCTL(KC_X)
 #define EM_CTL_C    LCTL(KC_C)
 #define RCTL_DQUO   RCTL_T(KC_DQUO)
+//==============================================================================
