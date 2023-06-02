@@ -51,10 +51,10 @@
 #define TAPPING_TERM_PER_KEY
 
 #define TOGGLED_LAYER                        6
-#define TOGGLED_LAYER_TIMEOUT                               30000
+#define TOGGLED_LAYER_TIMEOUT                30000
 
-#define MY_RGB_DEFAULT                       RGB_BLACK
-#define MY_RGB_TOGGLED_LAYER_OFF             RGB_BLACK // RGB_RED
+#define MY_RGB_DEFAULT                       RGB_BLACK // RGB_RED
+#define MY_RGB_RECORDING_MACRO               RGB_MAGENTA
 #define MY_RGB_TOGGLED_LAYER_ON              RGB_CHARTREUSE
 #define MY_RGB_LOWER_LAYER_ON                RGB_PURPLE
 #define MY_RGB_UPPER_LAYER_ON                RGB_BLUE
