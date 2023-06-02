@@ -73,12 +73,6 @@
 #undef  LOCKING_SUPPORT_ENABLE
 #undef  LOCKING_RESYNC_ENABLE
 
-#define TAPPING_TERM               250
-#define TAPPING_TERM_PER_KEY
-
-#define TOGGLED_LAYER              6
-#define TOGGLED_LAYER_TIMEOUT      30000
-
 #undef EEPROM_ENABLE
 #undef EEPROM_DRIVER
 
