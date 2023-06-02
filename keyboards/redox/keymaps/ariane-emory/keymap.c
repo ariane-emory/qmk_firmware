@@ -42,17 +42,6 @@ void keyboard_post_init_user(void) {
 #define KEYRECORD_FUN(name, t)                                                  \
   t name(uint16_t keycode, keyrecord_t *record)
 
-#ifdef TOGGLED_LAYER_TIMEOUT
-#define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms, timer)          \
-  {                                                                             \
-    if (layer_state_is(layer) &&                                                \
-        timer_elapsed(timer) >= idle_time_limit_ms)                             \
-      layer_off(layer);                                                         \
-  }                                                                             
-#else
-#define MANAGE_TOGGLED_LAYER_TIMEOUT(layer, idle_time_limit_ms, timer) ((void))
-#endif
-
 #ifdef SEND_STRING_ENABLE
 #define SEND_STRING_WITHOUT_MODS(str)                                           \
   {                                                                             \
@@ -235,31 +224,37 @@ bool setrgb_if_recording_macro(void) {
 
 void setrgb_by_layer(void) {
   typedef struct {
-    uint8_t layer;
-    uint8_t r;
-    uint8_t g;
-    uint8_t b;
+  uint8_t layer;
+  uint8_t r;
+  uint8_t g;
+  uint8_t b;
   } rgb_table_row_t;
-  
+
   static const rgb_table_row_t rgb_table[] = {
-    { TOGGLED_LAYER,          RGB_DEFAULT          },
-    { TRI_LAYER_ADJUST_LAYER, RGB_ADJUST_LAYER_ON  },
-    { TRI_LAYER_UPPER_LAYER,  RGB_UPPER_LAYER_ON   },
-    { TRI_LAYER_LOWER_LAYER,  RGB_LOWER_LAYER_ON   },
-    { TOGGLED_LAYER,          RGB_TOGGLED_LAYER_ON },
+      {TOGGLED_LAYER, RGB_DEFAULT}, {TRI_LAYER_ADJUST_LAYER, RGB_ADJUST_LAYER_ON}, {TRI_LAYER_UPPER_LAYER, RGB_UPPER_LAYER_ON}, {TRI_LAYER_LOWER_LAYER, RGB_LOWER_LAYER_ON}, {TOGGLED_LAYER, RGB_TOGGLED_LAYER_ON},
   };
   static const size_t rgb_table_length = ARRAY_SIZE(rgb_table);
 
-  const rgb_table_row_t * row = &row[0];
-  
+  const rgb_table_row_t *row = &row[0];
+
   for (size_t ix = 1; ix < rgb_table_length; ix++) {
-    if (IS_LAYER_ON(rgb_table[ix].layer)) {
-      row = &rgb_table[ix];
-      break;
-    }
+  if (IS_LAYER_ON(rgb_table[ix].layer)) {
+    row = &rgb_table[ix];
+    break;
+  }
   }
 
   RGBLIGHT_SETRGB(row->r, row->g, row->b);
+}
+
+void manage_toggled_layer_timeout(uint8_t layer, uint16_t idle_time_limit_ms, uint16_t timer)
+{
+  if (layer_state_is(layer) &&
+      timer_elapsed(timer) >= idle_time_limit_ms)
+    layer_off(layer);
+}                                                                             
+
+void housekeeping_task_user(void) {
 }
 
 void matrix_scan_user(void) {
@@ -267,11 +262,10 @@ void matrix_scan_user(void) {
   achordion_task();
 #endif
 
-  MANAGE_TOGGLED_LAYER_TIMEOUT(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
+  manage_toggled_layer_timeout(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
 
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-  if (! setrgb_if_recording_macro())
-    setrgb_by_layer();
+  if (!setrgb_if_recording_macro()) setrgb_by_layer();
   rgb_fader_step(&rgb_fader);
   rgblight_setrgb(rgb_fader.current.r, rgb_fader.current.g, rgb_fader.current.b);
 #endif
