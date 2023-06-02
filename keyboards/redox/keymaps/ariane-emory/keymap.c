@@ -37,12 +37,6 @@ void keyboard_post_init_user(void) {
 // Define local macros
 // ==============================================================================
 
-#ifdef RGBLIGHT_ENABLE
-#define RGBLIGHT_SETRGB(...) rgb_fader_set_target(&rgb_fader, __VA_ARGS__)
-#else
-#define RGBLIGHT_SETRGB(...) (((void)0))
-#endif
-
 #define KEYRECORD_FUN(name, t)                                                  \
   t name(uint16_t keycode, keyrecord_t *record)
 
@@ -219,14 +213,15 @@ void dynamic_macro_record_end_user(int8_t direction) {
   currently_recording_macro = false;
 }
 
+#ifdef RGBLIGHT_ENABLE
 bool setrgb_if_recording_macro(void) {
   if (! currently_recording_macro)
     return false;
-  RGBLIGHT_SETRGB(RGB_MAGENTA);
+  rgb_fader_set_target(&rgb_fader, RGB_MAGENTA);
   return true;
 }
 
-void setrgb_by_layer(void) {
+void rgb_fader_set_target_by_layer(rgb_fader_t * const this) {
   typedef struct {
     uint8_t layer;
     uint8_t r;
@@ -252,8 +247,9 @@ void setrgb_by_layer(void) {
     }
   }
 
-  RGBLIGHT_SETRGB(row->r, row->g, row->b);
+  rgb_fader_set_target(&rgb_fader, row->r, row->g, row->b);
 }
+#endif
 
 #ifdef TOGGLED_LAYER_TIMEOUT
 void manage_toggled_layer_timeout(uint8_t layer, uint16_t idle_time_limit_ms, uint16_t timer)
@@ -277,7 +273,8 @@ void matrix_scan_user(void) {
 #endif
   
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-  if (!setrgb_if_recording_macro()) setrgb_by_layer();
+  if (!setrgb_if_recording_macro())
+    rgb_fader_set_target_by_layer(&rgb_fader);
   rgb_fader_step(&rgb_fader);
   rgblight_setrgb(rgb_fader.current.r, rgb_fader.current.g, rgb_fader.current.b);
 #endif
