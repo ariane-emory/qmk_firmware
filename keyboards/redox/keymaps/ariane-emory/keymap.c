@@ -247,12 +247,14 @@ void setrgb_by_layer(void) {
   RGBLIGHT_SETRGB(row->r, row->g, row->b);
 }
 
+#ifdef TOGGLED_LAYER_TIMEOUT
 void manage_toggled_layer_timeout(uint8_t layer, uint16_t idle_time_limit_ms, uint16_t timer)
 {
   if (layer_state_is(layer) &&
       timer_elapsed(timer) >= idle_time_limit_ms)
     layer_off(layer);
 }                                                                             
+#endif
 
 void housekeeping_task_user(void) {
 }
@@ -262,8 +264,10 @@ void matrix_scan_user(void) {
   achordion_task();
 #endif
 
+#ifdef TOGGLED_LAYER_TIMEOUT
   manage_toggled_layer_timeout(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
-
+#endif
+  
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
   if (!setrgb_if_recording_macro()) setrgb_by_layer();
   rgb_fader_step(&rgb_fader);
