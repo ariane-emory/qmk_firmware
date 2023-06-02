@@ -214,10 +214,10 @@ void dynamic_macro_record_end_user(int8_t direction) {
 }
 
 #ifdef RGBLIGHT_ENABLE
-bool setrgb_if_recording_macro(void) {
+bool rgb_fader_set_target_if_recording_macro(rgb_fader_t * const this) {
   if (! currently_recording_macro)
     return false;
-  rgb_fader_set_target(&rgb_fader, RGB_MAGENTA);
+  rgb_fader_set_target(this, MY_RGB_RECORDING_MACRO);
   return true;
 }
 
@@ -273,7 +273,7 @@ void matrix_scan_user(void) {
 #endif
   
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-  if (!setrgb_if_recording_macro())
+  if (!rgb_fader_set_target_if_recording_macro(&rgb_fader))
     rgb_fader_set_target_by_layer(&rgb_fader);
   rgb_fader_step(&rgb_fader);
   rgblight_setrgb(rgb_fader.current.r, rgb_fader.current.g, rgb_fader.current.b);
