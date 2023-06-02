@@ -10,10 +10,10 @@
 #include "key_aliases.h"
 #ifdef RGBLIGHT_ENABLE
 #  include "features/rgb_fader.h"
-#endif
-#include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file:
-
 rgb_fader_t rgb_fader;
+#endif
+
+#include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file:
 
 // ==============================================================================
 // Init
