@@ -8,7 +8,9 @@
 #endif
 
 #include "key_aliases.h"
-#include "features/rgb_fader.h"
+#ifdef RGBLIGHT_ENABLE
+#  include "features/rgb_fader.h"
+#endif
 #include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file:
 
 rgb_fader_t rgb_fader;
@@ -25,8 +27,10 @@ void keyboard_post_init_user(void) {
   debug_mouse    = true;
 #endif
 
+#ifdef RGBLIGHT_ENABLE
   rgblight_enable_noeeprom();
   rgb_fader_init(&rgb_fader, MY_RGB_DEFAULT);
+#endif
 }
 
 // ==============================================================================
