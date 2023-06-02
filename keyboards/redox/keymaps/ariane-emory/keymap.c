@@ -26,7 +26,7 @@ void keyboard_post_init_user(void) {
 #endif
 
   rgblight_enable_noeeprom();
-  rgb_fader_init(&rgb_fader, RGB_DEFAULT);
+  rgb_fader_init(&rgb_fader, MY_RGB_DEFAULT);
 }
 
 // ==============================================================================
@@ -224,24 +224,28 @@ bool setrgb_if_recording_macro(void) {
 
 void setrgb_by_layer(void) {
   typedef struct {
-  uint8_t layer;
-  uint8_t r;
-  uint8_t g;
-  uint8_t b;
+    uint8_t layer;
+    uint8_t r;
+    uint8_t g;
+    uint8_t b;
   } rgb_table_row_t;
 
   static const rgb_table_row_t rgb_table[] = {
-      {TOGGLED_LAYER, RGB_DEFAULT}, {TRI_LAYER_ADJUST_LAYER, RGB_ADJUST_LAYER_ON}, {TRI_LAYER_UPPER_LAYER, RGB_UPPER_LAYER_ON}, {TRI_LAYER_LOWER_LAYER, RGB_LOWER_LAYER_ON}, {TOGGLED_LAYER, RGB_TOGGLED_LAYER_ON},
+    {TOGGLED_LAYER,          MY_RGB_DEFAULT          },
+    {TRI_LAYER_ADJUST_LAYER, MY_RGB_ADJUST_LAYER_ON  },
+    {TRI_LAYER_UPPER_LAYER,  MY_RGB_UPPER_LAYER_ON   },
+    {TRI_LAYER_LOWER_LAYER,  MY_RGB_LOWER_LAYER_ON   },
+    {TOGGLED_LAYER,          MY_RGB_TOGGLED_LAYER_ON },
   };
   static const size_t rgb_table_length = ARRAY_SIZE(rgb_table);
 
   const rgb_table_row_t *row = &row[0];
-
+  
   for (size_t ix = 1; ix < rgb_table_length; ix++) {
-  if (IS_LAYER_ON(rgb_table[ix].layer)) {
-    row = &rgb_table[ix];
-    break;
-  }
+    if (IS_LAYER_ON(rgb_table[ix].layer)) {
+      row = &rgb_table[ix];
+      break;
+    }
   }
 
   RGBLIGHT_SETRGB(row->r, row->g, row->b);
@@ -295,28 +299,28 @@ bool achordion_chord(
         tap_hold_keycode == QB_SLSH ||
 #endif
 #ifdef HOME_ROW_MODS
-      tap_hold_keycode == QH_S    ||
-      tap_hold_keycode == QH_D    ||
-      tap_hold_keycode == QH_F    ||
-      // tap_hold_keycode == QH_G    || // not a mod currently
-      // tap_hold_keycode == QH_H    || // not a mod currently
-      tap_hold_keycode == QH_J    ||
-      tap_hold_keycode == QH_K    ||
-      tap_hold_keycode == QH_L    ||
+        tap_hold_keycode == QH_S    ||
+        tap_hold_keycode == QH_D    ||
+        tap_hold_keycode == QH_F    ||
+        // tap_hold_keycode == QH_G    || // not a mod currently
+        // tap_hold_keycode == QH_H    || // not a mod currently
+        tap_hold_keycode == QH_J    ||
+        tap_hold_keycode == QH_K    ||
+        tap_hold_keycode == QH_L    ||
 #endif // HOME_ROW_MODS
 #ifdef BOTTOM_ROW_MODS
-      tap_hold_keycode == QB_Z    ||
-      tap_hold_keycode == QB_X    ||
-      tap_hold_keycode == QB_C    ||
-      tap_hold_keycode == QB_V    ||
-      // tap_hold_keycode == QB_B    || // not a mod currently
-      // tap_hold_keycode == QB_N    || // not a mod currently
-      tap_hold_keycode == QB_M    ||
-      tap_hold_keycode == QB_COMM ||
-      tap_hold_keycode == QB_DOT  ||
-      tap_hold_keycode == QB_SLSH ||
+        tap_hold_keycode == QB_Z    ||
+        tap_hold_keycode == QB_X    ||
+        tap_hold_keycode == QB_C    ||
+        tap_hold_keycode == QB_V    ||
+        // tap_hold_keycode == QB_B    || // not a mod currently
+        // tap_hold_keycode == QB_N    || // not a mod currently
+        tap_hold_keycode == QB_M    ||
+        tap_hold_keycode == QB_COMM ||
+        tap_hold_keycode == QB_DOT  ||
+        tap_hold_keycode == QB_SLSH ||
 #endif
-      false))
+        false))
   {
     // Exceptionally consider the following chords as holds, even though they
     // are on the same hand.
