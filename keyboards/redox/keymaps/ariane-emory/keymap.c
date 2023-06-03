@@ -84,7 +84,6 @@ void send_string_without_mods(const char * const string) {
   DO(SS_UPDIR,          "../")
 
 #define enum_item(kc, str) kc,
-
 enum arianes_keycodes {
   AE_DUMMY = SAFE_RANGE,
   HOLD_GUI,
@@ -95,6 +94,7 @@ enum arianes_keycodes {
   VS_CLOSE,
   VS_FORMAT_DOC,
   FOR_EACH_SEND_STRING_KEYCODE(enum_item)
+#undef enum_item
 };
 
 uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
