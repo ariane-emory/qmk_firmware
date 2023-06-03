@@ -67,7 +67,7 @@
   DO(r_mid_trpm,    EM_DIRED,     QH_J,    QH_K,       QH_L                    ) \
   DO(r_mid_trpo,    EM_ALL_BUF,   QH_K,    QH_L,       QH_QUOT                 ) \
   ______________________________________________________________________________ \
-  DO(r_bot_edge,    SS_THISDIR,   QB_DOT,  KC_SLSH                             ) \
+  DO(r_bot_edge,    SS_THISDIR,   QB_DOT,  QB_SLSH                             ) \
   DO(r_bot_innr,    KA_UNDO,      QB_M,    QB_COMM                             ) \
   DO(r_bot_outr,    SS_ARROW,     QB_COMM, QB_DOT                              ) \
   DO(r_bot_rech,    EM_LASTARG,   KC_N,    QB_M                                ) \
