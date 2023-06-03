@@ -40,7 +40,7 @@ void keyboard_post_init_user(void) {
 #define KEYRECORD_FUN(name, t) t name(uint16_t keycode, keyrecord_t *record)
 
 #ifdef SEND_STRING_ENABLE
-  void send_string_without_mods_P(const char * const string) {
+void send_string_without_mods_P(const char * const string) {
   const uint8_t current_mods = get_mods();
   clear_mods();
   send_string_with_delay_P(string, 0);
@@ -57,7 +57,7 @@ void keyboard_post_init_user(void) {
   {                                                                             \
     blk;                                                                        \
   }                                                                             \
-  return false;                                                                 
+  return false;
 
 // ==============================================================================
 // Custom keycodes
@@ -122,6 +122,8 @@ KEYRECORD_FUN(process_record_user, bool) {
     KC_TAP_CASE(EM_REPEAT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
     KC_TAP_CASE(EM_REVERT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")));
     KC_TAP_CASE(EM_CHG_BUF,        SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"b"));
+    KC_TAP_CASE(VS_CLOSE,          SEND_STRING_WITHOUT_MODS(SS_LALT("f")SS_DELAY(100)"c"));
+    KC_TAP_CASE(VS_FORMAT_DOC,     SEND_STRING_WITHOUT_MODS(SS_TAP(X_F7)SS_DELAY(1500)SS_LALT("e")SS_DELAY(500)"v"SS_LALT("e")SS_DELAY(500)"v"SS_DELAY(500)"a"SS_LALT("f")SS_DELAY(500)"s"));
     // KC_TAP_CASE(VS_FORMAT_DOC,     SEND_STRING_WITHOUT_MODS(SS_LALT("e")SS_DELAY(250)"v"SS_LALT("e")SS_DELAY(250)"v"SS_DELAY(250)"a"SS_LALT("f")SS_DELAY(250)"s"));
 #endif
   case QK_DYNAMIC_MACRO_PLAY_1:
@@ -129,19 +131,6 @@ KEYRECORD_FUN(process_record_user, bool) {
     if (record->event.pressed)
       dynamic_macro_stop_recording();
     return true;
-  case VS_CLOSE:
-    if (record->event.pressed)
-    {
-      SEND_STRING_WITHOUT_MODS(SS_LALT("f")SS_DELAY(100)"c");
-    }
-    return false;
-  case VS_FORMAT_DOC:
-    if (record->event.pressed)
-    {
-      tap_code(KC_F7);
-      SEND_STRING_WITHOUT_MODS(SS_DELAY(1500)SS_LALT("e")SS_DELAY(500)"v"SS_LALT("e")SS_DELAY(500)"v"SS_DELAY(500)"a"SS_LALT("f")SS_DELAY(500)"s");
-    }
-    return false;
   case SS_SIRI:
     if (record->event.pressed)
     {
