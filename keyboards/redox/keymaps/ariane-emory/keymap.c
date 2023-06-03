@@ -158,9 +158,19 @@ KEYRECORD_FUN(process_record_user, bool) {
   }
 
   for (uint8_t ix = 0; ix < shiftable_send_string_keycodes_size; ix++) {
-    if (shiftable_send_string_keycodes[ix].kc == keycode) {
-      if (record->event.pressed) 
-        SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].str);
+    if (shiftable_send_string_keycodes[ix].kc == keycode) {      
+      if (record->event.pressed) {
+        const uint8_t mods = get_mods();
+        
+        if (mods & MOD_MASK_SHIFT) {  // Is shift held?
+          // Temporarily delete shift.
+          unregister_mods(MOD_MASK_SHIFT);  
+          SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].shifted_str);
+          register_mods(mods);            // Restore mods.
+        } else { // if shift is not held
+          SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].str);
+        }
+      }
       return false;
     }
   }
