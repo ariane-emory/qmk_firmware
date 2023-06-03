@@ -107,9 +107,9 @@ uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
 
 static uint16_t idle_timer = 0;
 
-//DO(SS_PIN2,           AE_PIN2)                                                
 
 #define FOR_EACH_SEND_STRING_KEYCODE(DO)                                        \
+  DO(SS_PIN2,           AE_PIN2)                                                \
   DO(SS_PIN1,           AE_PIN1)                                                \
   DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."))                       \
   DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"))                          \
@@ -126,24 +126,23 @@ static uint16_t idle_timer = 0;
   DO(SS_THISDIR,        "./")                                                   \
   DO(SS_ARROW,          "->")
 
+#define define_progmem_string(kc, str) static const char str_##kc[] PROGMEM = str;
+FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string)
+#undef define_progmem_string
+
 // #define EXPERIMENT
 
 #ifdef EXPERIMENT
-typedef struct {
-  uint16_t kc;
-  const char * PROGMEM str;
-} send_string_keycodes_table_row_t;
+  typedef struct {
+    uint16_t kc;
+    const char * PROGMEM str;
+  } send_string_keycodes_table_row_t;
 
-#  define define_progmem_string(kc, str) static const char str_##kc[] PROGMEM = str;
 #  define send_string_keycodes_row_for(kc, str) { kc, str_##kc },
-FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string)
 static const send_string_keycodes_table_row_t send_string_keycodes[] PROGMEM = { FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row_for) };
 static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
-#  undef define_progmem_string
 #  undef send_string_keycodes_row_for
 #endif // EXPERIMENT
-
-const char str_hello[] PROGMEM = "hello1";
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
@@ -163,12 +162,13 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
   switch (keycode) {
-  case SS_PIN2:
-    if (record->event.pressed)
-      SEND_STRING_WITHOUT_MODS_P(str_hello);
-    return false;
 #ifndef EXPERIMENT
-#  define kc_tap_case_send_string(kc, str) KC_TAP_CASE(kc, SEND_STRING_WITHOUT_MODS(str));
+#  define kc_tap_case_send_string(kc, str)                                      \
+    case kc:                                                                    \
+      if (record->event.pressed)                                                \
+        SEND_STRING_WITHOUT_MODS_P(str_##kc);                                   \
+      return false;
+    
     FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
 #  undef  kc_tap_case_send_string
 #endif // ! EXPERIMENT
