@@ -98,7 +98,6 @@ enum arianes_keycodes {
   INSERT_UPP,
   RGB_TOGGLE_NOEE,
   SHOLD_GUI,
-  //  SS_SIRI,
   VS_CLOSE,
   VS_FORMAT_DOC,
   FOR_EACH_SEND_STRING_KEYCODE(enum_item)
