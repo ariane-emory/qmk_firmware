@@ -41,13 +41,13 @@ void keyboard_post_init_user(void) {
   t name(uint16_t keycode, keyrecord_t *record)
 
 #ifdef SEND_STRING_ENABLE
-#define SEND_STRING_WITHOUT_MODS(str)                                           \
-  {                                                                             \
-    const uint8_t current_mods = get_mods();                                    \
-    clear_mods();                                                               \
-    SEND_STRING(str);                                                           \
-    set_mods(current_mods);                                                     \
-  }                                                                         
+void send_string_without_mods_P(const char * const string) {
+  const uint8_t current_mods = get_mods();
+  clear_mods();
+  send_string_with_delay_P(string, 0);
+  set_mods(current_mods);
+}
+#define SEND_STRING_WITHOUT_MODS(string) send_string_without_mods_P(PSTR(string))
 #else
 #define SEND_STRING_WITHOUT_MODS(str) (((void)0))
 #endif
