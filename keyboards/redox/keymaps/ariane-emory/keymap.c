@@ -126,9 +126,9 @@ FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 
 #ifdef EXPERIMENT
 typedef struct { uint16_t kc; const char * str; } send_string_keycodes_table_row_t;
-#  define send_string_keycodes_row_for(kc, str) { kc, str_##kc },
-static const send_string_keycodes_table_row_t send_string_keycodes[] = { FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row_for) };
-#  undef send_string_keycodes_row_for
+#  define send_string_keycodes_row(kc, str) { kc, str_##kc },
+static const send_string_keycodes_table_row_t send_string_keycodes[] = { FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row) };
+#  undef send_string_keycodes_row
 static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
 #endif // EXPERIMENT
 
