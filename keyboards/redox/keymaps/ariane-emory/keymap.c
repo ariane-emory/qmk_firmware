@@ -46,8 +46,16 @@ void send_string_without_mods_P(const char * const string) {
   send_string_with_delay_P(string, 0);
   set_mods(current_mods);
 }
-#define SEND_STRING_WITHOUT_MODS(string) send_string_without_mods_P(PSTR(string))
+#define SEND_STRING_WITHOUT_MODS_P(string) send_string_without_mods_P(PSTR(string))
+void send_string_without_mods(const char * const string) {
+  const uint8_t current_mods = get_mods();
+  clear_mods();
+  send_string_with_delay(string, 0);
+  set_mods(current_mods);
+}
+#define SEND_STRING_WITHOUT_MODS(string) send_string_without_mods_P(string)
 #else
+#define SEND_STRING_WITHOUT_MODS_P(str) (((void)0))
 #define SEND_STRING_WITHOUT_MODS(str) (((void)0))
 #endif
 
@@ -103,40 +111,73 @@ KEYRECORD_FUN(process_record_user, bool) {
   if (!process_achordion(keycode, record))
     return false;
 #endif
+
+  // #define EXPERIMENT
+
+#ifdef EXPERIMENT
+  typedef struct {
+    uint16_t kc;
+    const char * PROGMEM str;
+  } send_string_keycodes_row;
   
+  static const send_string_keycodes_row send_string_keycodes[] PROGMEM = {
+    { SS_PIN1,           AE_PIN1 },
+    { SS_PIN2,           AE_PIN2 },
+    { SS_GRAV,           "`" },
+    { SS_LPAR,           "9" },
+    { SS_RPAR,           "0" },
+    { SS_RPAR_SCLN,      "0;" },
+    { SS_TILD,           "~" },
+    { SS_TILD_SLSH,      "~/" },
+    { SS_SPC_TILD_SLSH,  " ~/" },
+    { SS_UPDIR,          "../" },
+    { SS_THISDIR,        "./" },
+    { SS_ARROW,          "->" },
+    { EM_LASTARG,        " "SS_LCTL("c")SS_DELAY(50)"." },
+    { EM_REPEAT,         SS_LCTL("x")SS_DELAY(50)"z" },
+    { EM_REVERT,         SS_LCTL("x")SS_DELAY(50)SS_LCTL("r") },
+    { EM_CHG_BUF,        SS_LCTL("x")SS_DELAY(50)"b" },
+  };
+
+  static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
+
+  for (uint8_t ix = 0; ix < send_string_keycodes_size; ix++) {
+    if (send_string_keycodes[ix].kc == keycode)
+      SEND_STRING_WITHOUT_MODS(send_string_keycodes[ix].str);
+  }
+#endif // EXPERIMENT  
   switch (keycode) {
-    KC_TAP_CASE(SS_PIN1,           SEND_STRING_WITHOUT_MODS(AE_PIN1));
-    KC_TAP_CASE(SS_PIN2,           SEND_STRING_WITHOUT_MODS(AE_PIN2));
+#ifndef EXPERIMENT
+    KC_TAP_CASE(SS_PIN1,           SEND_STRING_WITHOUT_MODS_P(AE_PIN1));
+    KC_TAP_CASE(SS_PIN2,           SEND_STRING_WITHOUT_MODS_P(AE_PIN2));
+#endif // EXPERIMENT
 #ifdef COMBO_ENABLE
-    KC_TAP_CASE(SS_GRAV,           SEND_STRING_WITHOUT_MODS("`"));
-    KC_TAP_CASE(SS_LPAR,           SEND_STRING_WITHOUT_MODS("9"));
-    KC_TAP_CASE(SS_RPAR,           SEND_STRING_WITHOUT_MODS("0"));
-    KC_TAP_CASE(SS_RPAR_SCLN,      SEND_STRING_WITHOUT_MODS("0;"));
-    KC_TAP_CASE(SS_TILD,           SEND_STRING_WITHOUT_MODS("~"));
-    KC_TAP_CASE(SS_TILD_SLSH,      SEND_STRING_WITHOUT_MODS("~/"));
-    KC_TAP_CASE(SS_SPC_TILD_SLSH,  SEND_STRING_WITHOUT_MODS(" ~/"));
-    KC_TAP_CASE(SS_UPDIR,          SEND_STRING_WITHOUT_MODS("../"));
-    KC_TAP_CASE(SS_THISDIR,        SEND_STRING_WITHOUT_MODS("./"));
-    KC_TAP_CASE(SS_ARROW,          SEND_STRING_WITHOUT_MODS("->"));
-    KC_TAP_CASE(EM_LASTARG,        SEND_STRING_WITHOUT_MODS(" "SS_LCTL("c")SS_DELAY(50)"."));
-    KC_TAP_CASE(EM_REPEAT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"z"));
-    KC_TAP_CASE(EM_REVERT,         SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")));
-    KC_TAP_CASE(EM_CHG_BUF,        SEND_STRING_WITHOUT_MODS(SS_LCTL("x")SS_DELAY(50)"b"));
+#  ifndef EXPERIMENT
+    KC_TAP_CASE(SS_GRAV,           SEND_STRING_WITHOUT_MODS_P("`"));
+    KC_TAP_CASE(SS_LPAR,           SEND_STRING_WITHOUT_MODS_P("9"));
+    KC_TAP_CASE(SS_RPAR,           SEND_STRING_WITHOUT_MODS_P("0"));
+    KC_TAP_CASE(SS_RPAR_SCLN,      SEND_STRING_WITHOUT_MODS_P("0;"));
+    KC_TAP_CASE(SS_TILD,           SEND_STRING_WITHOUT_MODS_P("~"));
+    KC_TAP_CASE(SS_TILD_SLSH,      SEND_STRING_WITHOUT_MODS_P("~/"));
+    KC_TAP_CASE(SS_SPC_TILD_SLSH,  SEND_STRING_WITHOUT_MODS_P(" ~/"));
+    KC_TAP_CASE(SS_UPDIR,          SEND_STRING_WITHOUT_MODS_P("../"));
+    KC_TAP_CASE(SS_THISDIR,        SEND_STRING_WITHOUT_MODS_P("./"));
+    KC_TAP_CASE(SS_ARROW,          SEND_STRING_WITHOUT_MODS_P("->"));
+# endif // EXPERIMENT
 #endif
-    KC_TAP_CASE(VS_CLOSE,          SEND_STRING_WITHOUT_MODS(SS_LALT("f")SS_DELAY(100)"c"));
-    KC_TAP_CASE(VS_FORMAT_DOC,     SEND_STRING_WITHOUT_MODS(SS_TAP(X_F7)SS_DELAY(1500)SS_LALT("e")SS_DELAY(500)"v"SS_LALT("e")SS_DELAY(500)"v"SS_DELAY(500)"a"SS_LALT("f")SS_DELAY(500)"s"));
-    KC_TAP_CASE(SS_SIRI,           SEND_STRING_WITHOUT_MODS(SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)));
+    KC_TAP_CASE(VS_CLOSE,          SEND_STRING_WITHOUT_MODS_P(SS_LALT("f")SS_DELAY(100)"c"));
+    KC_TAP_CASE(VS_FORMAT_DOC,     SEND_STRING_WITHOUT_MODS_P(SS_TAP(X_F7)SS_DELAY(1500)SS_LALT("e")SS_DELAY(500)"v"SS_LALT("e")SS_DELAY(500)"v"SS_DELAY(500)"a"SS_LALT("f")SS_DELAY(500)"s"));
+    KC_TAP_CASE(SS_SIRI,           SEND_STRING_WITHOUT_MODS_P(SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)));
   case QK_DYNAMIC_MACRO_PLAY_1:
   case QK_DYNAMIC_MACRO_PLAY_2:
     if (record->event.pressed)
       dynamic_macro_stop_recording();
     return true;
-  case RGB_TOGGLE_NOEE:
-    /* if (record->event.pressed) */
+    /* case RGB_TOGGLE_NOEE: */
     /* { */
     /*   rgblight_toggle_noeeprom(); */
     /* } */
-    return false;
+    /* return false; */
   case HOLD_GUI:
     if (record->event.pressed)
     {
@@ -348,7 +389,8 @@ bool achordion_chord(
         other_keycode == QB_N ||
         other_keycode == QT_P)) ||
       (tap_hold_keycode == QH_K &&
-       (other_keycode == QT_P ||
+       (other_keycode == QH_L ||
+        other_keycode == QT_P ||
         other_keycode == LT(12,KC_BSLS) ||
         other_keycode == QB_N)) ||
       (tap_hold_keycode == QH_L &&
