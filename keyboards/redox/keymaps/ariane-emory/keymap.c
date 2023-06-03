@@ -104,6 +104,24 @@ uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
 
 static uint16_t idle_timer = 0;
 
+#define FOR_EACH_SEND_STRING_KEYCODE(DO)                                        \
+  DO(  SS_PIN1,         AE_PIN1)                                                \
+  DO(SS_PIN2,           AE_PIN2)                                                \
+  DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."))                       \
+  DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"))                          \
+  DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")))                 \
+  DO(EM_CHG_BUF,        (SS_LCTL("x")SS_DELAY(50)"b"))                          \
+  DO(SS_GRAV,           "`")                                                    \
+  DO(SS_LPAR,           "9")                                                    \
+  DO(SS_RPAR,           "0")                                                    \
+  DO(SS_RPAR_SCLN,      "0;")                                                   \
+  DO(SS_TILD,           "~")                                                    \
+  DO(SS_TILD_SLSH,      "~/")                                                   \
+  DO(SS_SPC_TILD_SLSH,  " ~/")                                                  \
+  DO(SS_UPDIR,          "../")                                                  \
+  DO(SS_THISDIR,        "./")                                                   \
+  DO(SS_ARROW,          "->")
+
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
@@ -113,7 +131,11 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
   switch (keycode) {
-#ifndef EXPERIMENT
+#ifdef EXPERIMENT
+# define kc_tap_case_send_string(kc, str) KC_TAP_CASE(kc, SEND_STRING_WITHOUT_MODS_P(str));
+    FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
+# undef  kc_tap_case_send_string
+#else
     KC_TAP_CASE(SS_PIN1,           SEND_STRING_WITHOUT_MODS_P(AE_PIN1));
     KC_TAP_CASE(SS_PIN2,           SEND_STRING_WITHOUT_MODS_P(AE_PIN2));
     KC_TAP_CASE(SS_GRAV,           SEND_STRING_WITHOUT_MODS_P("`"));
