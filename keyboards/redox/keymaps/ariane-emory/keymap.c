@@ -83,6 +83,7 @@ static uint16_t idle_timer = 0;
   DO(SS_PIN1,           AE_PIN1)                                                \
   DO(SS_PIN2,           AE_PIN2)                                                \
   DO(SS_RPAR,           "0")                                                    \
+  DO(SS_SIRI,           (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)))  \
   DO(SS_RPAR_SCLN,      "0;")                                                   \
   DO(SS_SPC_TILD_SLSH,  " ~/")                                                  \
   DO(SS_THISDIR,        "./")                                                   \
@@ -97,7 +98,7 @@ enum arianes_keycodes {
   INSERT_UPP,
   RGB_TOGGLE_NOEE,
   SHOLD_GUI,
-  SS_SIRI,
+  //  SS_SIRI,
   VS_CLOSE,
   VS_FORMAT_DOC,
   FOR_EACH_SEND_STRING_KEYCODE(enum_item)
