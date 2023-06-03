@@ -122,6 +122,8 @@ static uint16_t idle_timer = 0;
   DO(SS_THISDIR,        "./")                                                   \
   DO(SS_ARROW,          "->")
 
+#define EXPERIMENT
+
 #ifdef EXPERIMENT
 typedef struct {
   uint16_t kc;
@@ -143,6 +145,15 @@ KEYRECORD_FUN(process_record_user, bool) {
 #ifdef USE_ACHORDION
   if (!process_achordion(keycode, record))
     return false;
+#endif
+
+#ifdef EXPERIMENT
+  for (uint8_t ix = 0; ix < send_string_keycodes_size; ix++) {
+    if (send_string_keycodes[ix].kc == keycode) {
+      SEND_STRING_WITHOUT_MODS(send_string_keycodes[ix].str);
+      return false;
+    }
+  }
 #endif
 
   switch (keycode) {
