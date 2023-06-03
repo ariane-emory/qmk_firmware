@@ -91,9 +91,9 @@ static uint16_t idle_timer = 0;
   DO(SS_UPDIR,          "-../")
 
 #define FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(DO)                              \
-  DO(SS_THISDIR,        "-./")
+  DO(SS_THISDIR,        "-./",               "-../")
 
-#define enum_item(kc, str) kc,
+#define enum_item(kc, str, ...) kc,
 enum arianes_keycodes {
   AE_DUMMY = SAFE_RANGE,
   HOLD_GUI,
@@ -107,7 +107,7 @@ enum arianes_keycodes {
 #undef enum_item
 };
 
-#define define_progmem_string(kc, str) static const char str_##kc[] PROGMEM = str;
+#define define_progmem_string(kc, str, ...) static const char str_##kc[] PROGMEM = str;
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string);
 #undef define_progmem_string
@@ -121,7 +121,7 @@ static const send_string_keycodes_table_row_t send_string_keycodes[] = { FOR_EAC
 static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
 #  undef send_string_keycodes_row
 
-#  define shiftable_send_string_keycodes_row(kc, str) { kc, str_##kc },
+#  define shiftable_send_string_keycodes_row(kc, str, ...) { kc, str_##kc },
 static const send_string_keycodes_table_row_t shiftable_send_string_keycodes[] = { FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(shiftable_send_string_keycodes_row) };
 static const uint8_t shiftable_send_string_keycodes_size = ARRAY_SIZE(shiftable_send_string_keycodes);
 #  undef shiftable_send_string_keycodes_row
