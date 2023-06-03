@@ -65,6 +65,13 @@ void send_string_without_mods(const char * const string) {
 // Custom keycodes
 // ==============================================================================
 
+uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
+  unregister_code(KC_LGUI);
+  return 0;
+}
+
+static uint16_t idle_timer = 0;
+
 #define FOR_EACH_SEND_STRING_KEYCODE(DO)                                        \
   DO(EM_CHG_BUF,        (SS_LCTL("x")SS_DELAY(50)"b"))                          \
   DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."))                       \
@@ -96,13 +103,6 @@ enum arianes_keycodes {
   FOR_EACH_SEND_STRING_KEYCODE(enum_item)
 #undef enum_item
 };
-
-uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
-  unregister_code(KC_LGUI);
-  return 0;
-}
-
-static uint16_t idle_timer = 0;
 
 #define define_progmem_string(kc, str) static const char str_##kc[] PROGMEM = str;
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
