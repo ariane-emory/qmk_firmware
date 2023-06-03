@@ -46,14 +46,16 @@ void send_string_without_mods_P(const char * const string) {
   send_string_with_delay_P(string, 0);
   set_mods(current_mods);
 }
-#define SEND_STRING_WITHOUT_MODS_P(string) send_string_without_mods_P(PSTR(string))
+#define SEND_STRING_WITHOUT_MODS_P(string) send_string_without_mods_P(string)
+
 void send_string_without_mods(const char * const string) {
   const uint8_t current_mods = get_mods();
   clear_mods();
   send_string_with_delay(string, 0);
   set_mods(current_mods);
 }
-#define SEND_STRING_WITHOUT_MODS(string) send_string_without_mods_P(string)
+#define SEND_STRING_WITHOUT_MODS(string) send_string_without_mods(string)
+
 #else
 #define SEND_STRING_WITHOUT_MODS_P(str) (((void)0))
 #define SEND_STRING_WITHOUT_MODS(str) (((void)0))
@@ -150,7 +152,7 @@ KEYRECORD_FUN(process_record_user, bool) {
 #ifdef EXPERIMENT
   for (uint8_t ix = 0; ix < send_string_keycodes_size; ix++) {
     if (send_string_keycodes[ix].kc == keycode) {
-      SEND_STRING_WITHOUT_MODS(send_string_keycodes[ix].str);
+      SEND_STRING_WITHOUT_MODS_P(send_string_keycodes[ix].str);
       return false;
     }
   }
@@ -158,7 +160,7 @@ KEYRECORD_FUN(process_record_user, bool) {
 
   switch (keycode) {
 #ifndef EXPERIMENT
-#  define kc_tap_case_send_string(kc, str) KC_TAP_CASE(kc, SEND_STRING_WITHOUT_MODS_P(str));
+#  define kc_tap_case_send_string(kc, str) KC_TAP_CASE(kc, SEND_STRING_WITHOUT_MODS(str));
     FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
 #  undef  kc_tap_case_send_string
 #endif // ! EXPERIMENT
