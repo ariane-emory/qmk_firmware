@@ -65,31 +65,36 @@ void send_string_without_mods(const char * const string) {
 // Custom keycodes
 // ==============================================================================
 
+#define FOR_EACH_SEND_STRING_KEYCODE(DO)                                        \
+  DO(EM_CHG_BUF,        (SS_LCTL("x")SS_DELAY(50)"b"))                          \
+  DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."))                       \
+  DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"))                          \
+  DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")))                 \
+  DO(SS_ARROW,          "->")                                                   \
+  DO(SS_GRAV,           "`")                                                    \
+  DO(SS_LPAR,           "9")                                                    \
+  DO(SS_PIN1,           AE_PIN1)                                                \
+  DO(SS_PIN2,           AE_PIN2)                                                \
+  DO(SS_RPAR,           "0")                                                    \
+  DO(SS_RPAR_SCLN,      "0;")                                                   \
+  DO(SS_SPC_TILD_SLSH,  " ~/")                                                  \
+  DO(SS_THISDIR,        "./")                                                   \
+  DO(SS_TILD,           "~")                                                    \
+  DO(SS_TILD_SLSH,      "~/")                                                   \
+  DO(SS_UPDIR,          "../")
+
+#define enum_item(kc, str) kc,
+
 enum arianes_keycodes {
   AE_DUMMY = SAFE_RANGE,
-  SS_PIN1,
-  SS_PIN2,
-  SS_GRAV,
-  SS_LPAR,
-  SS_RPAR,
-  SS_RPAR_SCLN,
-  SS_TILD,
-  SS_TILD_SLSH,
-  SS_SPC_TILD_SLSH,
-  SS_UPDIR,
-  SS_THISDIR,
-  EM_LASTARG,
-  EM_REPEAT,
-  EM_REVERT,
-  SS_ARROW,
-  EM_CHG_BUF,
-  INSERT_UPP,
   HOLD_GUI,
+  INSERT_UPP,
+  RGB_TOGGLE_NOEE,
   SHOLD_GUI,
   SS_SIRI,
-  VS_FORMAT_DOC,
-  RGB_TOGGLE_NOEE,
   VS_CLOSE,
+  VS_FORMAT_DOC,
+  FOR_EACH_SEND_STRING_KEYCODE(enum_item)
 };
 
 uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
@@ -98,25 +103,6 @@ uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
 }
 
 static uint16_t idle_timer = 0;
-
-
-#define FOR_EACH_SEND_STRING_KEYCODE(DO)                                        \
-  DO(SS_PIN2,           AE_PIN2)                                                \
-  DO(SS_PIN1,           AE_PIN1)                                                \
-  DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."))                       \
-  DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"))                          \
-  DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")))                 \
-  DO(EM_CHG_BUF,        (SS_LCTL("x")SS_DELAY(50)"b"))                          \
-  DO(SS_GRAV,           "`")                                                    \
-  DO(SS_LPAR,           "9")                                                    \
-  DO(SS_RPAR,           "0")                                                    \
-  DO(SS_RPAR_SCLN,      "0;")                                                   \
-  DO(SS_TILD,           "~")                                                    \
-  DO(SS_TILD_SLSH,      "~/")                                                   \
-  DO(SS_SPC_TILD_SLSH,  " ~/")                                                  \
-  DO(SS_UPDIR,          "../")                                                  \
-  DO(SS_THISDIR,        "./")                                                   \
-  DO(SS_ARROW,          "->")
 
 #define define_progmem_string(kc, str) static const char str_##kc[] PROGMEM = str;
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
