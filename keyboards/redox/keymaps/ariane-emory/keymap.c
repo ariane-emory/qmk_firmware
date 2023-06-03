@@ -105,7 +105,7 @@ uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
 static uint16_t idle_timer = 0;
 
 #define FOR_EACH_SEND_STRING_KEYCODE(DO)                                        \
-  DO(SS_PIN1,         AE_PIN1)                                                  \
+  DO(SS_PIN1,           AE_PIN1)                                                \
   DO(SS_PIN2,           AE_PIN2)                                                \
   DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."))                       \
   DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"))                          \
