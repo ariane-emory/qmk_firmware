@@ -112,40 +112,6 @@ KEYRECORD_FUN(process_record_user, bool) {
     return false;
 #endif
 
-  // #define EXPERIMENT
-
-#ifdef EXPERIMENT
-  typedef struct {
-    uint16_t kc;
-    const char * PROGMEM str;
-  } send_string_keycodes_row;
-  
-  static const send_string_keycodes_row send_string_keycodes[] PROGMEM = {
-    { SS_PIN1,           AE_PIN1 },
-    { SS_PIN2,           AE_PIN2 },
-    { SS_GRAV,           "`" },
-    { SS_LPAR,           "9" },
-    { SS_RPAR,           "0" },
-    { SS_RPAR_SCLN,      "0;" },
-    { SS_TILD,           "~" },
-    { SS_TILD_SLSH,      "~/" },
-    { SS_SPC_TILD_SLSH,  " ~/" },
-    { SS_UPDIR,          "../" },
-    { SS_THISDIR,        "./" },
-    { SS_ARROW,          "->" },
-    { EM_LASTARG,        " "SS_LCTL("c")SS_DELAY(50)"." },
-    { EM_REPEAT,         SS_LCTL("x")SS_DELAY(50)"z" },
-    { EM_REVERT,         SS_LCTL("x")SS_DELAY(50)SS_LCTL("r") },
-    { EM_CHG_BUF,        SS_LCTL("x")SS_DELAY(50)"b" },
-  };
-
-  static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
-
-  for (uint8_t ix = 0; ix < send_string_keycodes_size; ix++) {
-    if (send_string_keycodes[ix].kc == keycode)
-      SEND_STRING_WITHOUT_MODS(send_string_keycodes[ix].str);
-  }
-#endif // EXPERIMENT  
   switch (keycode) {
 #ifndef EXPERIMENT
     KC_TAP_CASE(SS_PIN1,           SEND_STRING_WITHOUT_MODS_P(AE_PIN1));
