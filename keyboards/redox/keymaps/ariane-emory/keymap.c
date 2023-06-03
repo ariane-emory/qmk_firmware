@@ -74,7 +74,8 @@ void send_string_without_mods(const char * const string) {
 // ==============================================================================
 
 enum arianes_keycodes {
-  SS_PIN1 = SAFE_RANGE,
+  AE_DUMMY = SAFE_RANGE,
+  SS_PIN1,
   SS_PIN2,
   SS_GRAV,
   SS_LPAR,
