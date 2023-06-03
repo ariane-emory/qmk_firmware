@@ -91,7 +91,7 @@ static uint16_t idle_timer = 0;
   DO(SS_UPDIR,          "-../")
 
 #define FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(DO)                              \
-  DO(SS_THISDIR,        "-./",               "-../")
+  DO(SS_THISDIR,        "-./",               "")
 
 #define enum_item(kc, str, ...) kc,
 enum arianes_keycodes {
@@ -162,7 +162,8 @@ KEYRECORD_FUN(process_record_user, bool) {
       if (record->event.pressed) {
         const uint8_t mods = get_mods();
         
-        if (mods & MOD_MASK_SHIFT) {  // Is shift held?
+        if ((shiftable_send_string_keycodes[ix].shifted_str[0] != '\0') &&
+            (mods & MOD_MASK_SHIFT)) {  // Is shift held?
           // Temporarily delete shift.
           unregister_mods(MOD_MASK_SHIFT);  
           SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].shifted_str);
