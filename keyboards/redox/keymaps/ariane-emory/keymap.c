@@ -37,11 +37,10 @@ void keyboard_post_init_user(void) {
 // Define local macros
 // ==============================================================================
 
-#define KEYRECORD_FUN(name, t)                                                  \
-  t name(uint16_t keycode, keyrecord_t *record)
+#define KEYRECORD_FUN(name, t) t name(uint16_t keycode, keyrecord_t *record)
 
 #ifdef SEND_STRING_ENABLE
-void send_string_without_mods_P(const char * const string) {
+  void send_string_without_mods_P(const char * const string) {
   const uint8_t current_mods = get_mods();
   clear_mods();
   send_string_with_delay_P(string, 0);
