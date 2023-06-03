@@ -133,10 +133,7 @@ KEYRECORD_FUN(process_record_user, bool) {
   case SS_SIRI:
     if (record->event.pressed)
     {
-      register_code(KC_F24);
-      SEND_STRING_WITHOUT_MODS(SS_DELAY(50));
-      tap_code(KC_SPC);
-      unregister_code(KC_F24);
+      SEND_STRING_WITHOUT_MODS(SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24));
     }
     return false;
   case RGB_TOGGLE_NOEE:
