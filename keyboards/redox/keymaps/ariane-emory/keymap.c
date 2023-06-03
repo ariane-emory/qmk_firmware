@@ -125,17 +125,12 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
     KC_TAP_CASE(VS_CLOSE,          SEND_STRING_WITHOUT_MODS(SS_LALT("f")SS_DELAY(100)"c"));
     KC_TAP_CASE(VS_FORMAT_DOC,     SEND_STRING_WITHOUT_MODS(SS_TAP(X_F7)SS_DELAY(1500)SS_LALT("e")SS_DELAY(500)"v"SS_LALT("e")SS_DELAY(500)"v"SS_DELAY(500)"a"SS_LALT("f")SS_DELAY(500)"s"));
+    KC_TAP_CASE(SS_SIRI,           SEND_STRING_WITHOUT_MODS(SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)));
   case QK_DYNAMIC_MACRO_PLAY_1:
   case QK_DYNAMIC_MACRO_PLAY_2:
     if (record->event.pressed)
       dynamic_macro_stop_recording();
     return true;
-  case SS_SIRI:
-    if (record->event.pressed)
-    {
-      SEND_STRING_WITHOUT_MODS(SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24));
-    }
-    return false;
   case RGB_TOGGLE_NOEE:
     /* if (record->event.pressed) */
     /* { */
