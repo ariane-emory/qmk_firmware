@@ -86,10 +86,10 @@ static uint16_t idle_timer = 0;
   DO(SS_SIRI,           (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)))  \
   DO(SS_RPAR_SCLN,      "0;")                                                   \
   DO(SS_SPC_TILD_SLSH,  " ~/")                                                  \
-  DO(SS_THISDIR,        "./")                                                   \
+  DO(SS_THISDIR,        "-./")                                                   \
   DO(SS_TILD,           "~")                                                    \
   DO(SS_TILD_SLSH,      "~/")                                                   \
-  DO(SS_UPDIR,          "../")
+  DO(SS_UPDIR,          "-../")
 
 #define enum_item(kc, str) kc,
 enum arianes_keycodes {
