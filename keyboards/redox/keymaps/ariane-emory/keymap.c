@@ -121,6 +121,7 @@ FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string_and_shifted_string)
 #define USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
+
 #  define send_string_keycodes_row(kc, str) { kc, str_##kc },
 typedef struct { uint16_t kc; const char * str; } send_string_keycodes_table_row_t;
 static const send_string_keycodes_table_row_t send_string_keycodes[] = {
@@ -136,6 +137,7 @@ static const shiftable_send_string_keycodes_table_row_t shiftable_send_string_ke
 };
 static const uint8_t shiftable_send_string_keycodes_size = ARRAY_SIZE(shiftable_send_string_keycodes);
 #  undef shiftable_send_string_keycodes_row
+
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
 KEYRECORD_FUN(process_record_user, bool) {
