@@ -86,10 +86,12 @@ static uint16_t idle_timer = 0;
   DO(SS_SIRI,           (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)))  \
   DO(SS_RPAR_SCLN,      "0;")                                                   \
   DO(SS_SPC_TILD_SLSH,  " ~/")                                                  \
-  DO(SS_THISDIR,        "-./")                                                   \
   DO(SS_TILD,           "~")                                                    \
   DO(SS_TILD_SLSH,      "~/")                                                   \
   DO(SS_UPDIR,          "-../")
+
+#define FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(DO)                              \
+  DO(SS_THISDIR,        "-./")
 
 #define enum_item(kc, str) kc,
 enum arianes_keycodes {
@@ -101,21 +103,28 @@ enum arianes_keycodes {
   VS_CLOSE,
   VS_FORMAT_DOC,
   FOR_EACH_SEND_STRING_KEYCODE(enum_item)
+  FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(enum_item)
 #undef enum_item
 };
 
 #define define_progmem_string(kc, str) static const char str_##kc[] PROGMEM = str;
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
+FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string);
 #undef define_progmem_string
 
 #define USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
-typedef struct { uint16_t kc; const char * str; } send_string_keycodes_table_row_t;
 #  define send_string_keycodes_row(kc, str) { kc, str_##kc },
+typedef struct { uint16_t kc; const char * str; } send_string_keycodes_table_row_t;
 static const send_string_keycodes_table_row_t send_string_keycodes[] = { FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row) };
-#  undef send_string_keycodes_row
 static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
+#  undef send_string_keycodes_row
+
+#  define shiftable_send_string_keycodes_row(kc, str) { kc, str_##kc },
+static const send_string_keycodes_table_row_t shiftable_send_string_keycodes[] = { FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(shiftable_send_string_keycodes_row) };
+static const uint8_t shiftable_send_string_keycodes_size = ARRAY_SIZE(shiftable_send_string_keycodes);
+#  undef shiftable_send_string_keycodes_row
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
 KEYRECORD_FUN(process_record_user, bool) {
@@ -131,6 +140,14 @@ KEYRECORD_FUN(process_record_user, bool) {
     if (send_string_keycodes[ix].kc == keycode) {
       if (record->event.pressed) 
         SEND_STRING_WITHOUT_MODS_P(send_string_keycodes[ix].str);
+      return false;
+    }
+  }
+
+  for (uint8_t ix = 0; ix < shiftable_send_string_keycodes_size; ix++) {
+    if (shiftable_send_string_keycodes[ix].kc == keycode) {
+      if (record->event.pressed) 
+        SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].str);
       return false;
     }
   }
