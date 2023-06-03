@@ -128,8 +128,8 @@ FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 typedef struct { uint16_t kc; const char * str; } send_string_keycodes_table_row_t;
 #  define send_string_keycodes_row_for(kc, str) { kc, str_##kc },
 static const send_string_keycodes_table_row_t send_string_keycodes[] = { FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row_for) };
-static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
 #  undef send_string_keycodes_row_for
+static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
 #endif // EXPERIMENT
 
 KEYRECORD_FUN(process_record_user, bool) {
