@@ -131,37 +131,16 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
   switch (keycode) {
-#ifdef EXPERIMENT
-# define kc_tap_case_send_string(kc, str) KC_TAP_CASE(kc, SEND_STRING_WITHOUT_MODS_P(str));
+#ifndef EXPERIMENT
+#  define kc_tap_case_send_string(kc, str) KC_TAP_CASE(kc, SEND_STRING_WITHOUT_MODS_P(str));
     FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
-# undef  kc_tap_case_send_string
-#else
-    KC_TAP_CASE(SS_PIN1,           SEND_STRING_WITHOUT_MODS_P(AE_PIN1));
-    KC_TAP_CASE(SS_PIN2,           SEND_STRING_WITHOUT_MODS_P(AE_PIN2));
-    KC_TAP_CASE(SS_GRAV,           SEND_STRING_WITHOUT_MODS_P("`"));
-    KC_TAP_CASE(SS_LPAR,           SEND_STRING_WITHOUT_MODS_P("9"));
-    KC_TAP_CASE(SS_RPAR,           SEND_STRING_WITHOUT_MODS_P("0"));
-    KC_TAP_CASE(SS_RPAR_SCLN,      SEND_STRING_WITHOUT_MODS_P("0;"));
-    KC_TAP_CASE(SS_TILD,           SEND_STRING_WITHOUT_MODS_P("~"));
-    KC_TAP_CASE(SS_TILD_SLSH,      SEND_STRING_WITHOUT_MODS_P("~/"));
-    KC_TAP_CASE(SS_SPC_TILD_SLSH,  SEND_STRING_WITHOUT_MODS_P(" ~/"));
-    KC_TAP_CASE(SS_UPDIR,          SEND_STRING_WITHOUT_MODS_P("../"));
-    KC_TAP_CASE(SS_THISDIR,        SEND_STRING_WITHOUT_MODS_P("./"));
-    KC_TAP_CASE(SS_ARROW,          SEND_STRING_WITHOUT_MODS_P("->"));
-    KC_TAP_CASE(VS_CLOSE,          SEND_STRING_WITHOUT_MODS_P(SS_LALT("f")SS_DELAY(100)"c"));
-    KC_TAP_CASE(VS_FORMAT_DOC,     SEND_STRING_WITHOUT_MODS_P(SS_TAP(X_F7)SS_DELAY(1500)SS_LALT("e")SS_DELAY(500)"v"SS_LALT("e")SS_DELAY(500)"v"SS_DELAY(500)"a"SS_LALT("f")SS_DELAY(500)"s"));
-    KC_TAP_CASE(SS_SIRI,           SEND_STRING_WITHOUT_MODS_P(SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)));
-# endif // EXPERIMENT
+#  undef  kc_tap_case_send_string
+#endif // ! EXPERIMENT
   case QK_DYNAMIC_MACRO_PLAY_1:
   case QK_DYNAMIC_MACRO_PLAY_2:
     if (record->event.pressed)
       dynamic_macro_stop_recording();
     return true;
-    /* case RGB_TOGGLE_NOEE: */
-    /* { */
-    /*   rgblight_toggle_noeeprom(); */
-    /* } */
-    /* return false; */
   case HOLD_GUI:
     if (record->event.pressed)
     {
