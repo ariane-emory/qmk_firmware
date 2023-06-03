@@ -108,15 +108,15 @@ enum arianes_keycodes {
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 #undef define_progmem_string
 
-#define EXPERIMENT
+#define USE_SEND_STRING_KEYCODES_TABLE
 
-#ifdef EXPERIMENT
+#ifdef USE_SEND_STRING_KEYCODES_TABLE
 typedef struct { uint16_t kc; const char * str; } send_string_keycodes_table_row_t;
 #  define send_string_keycodes_row(kc, str) { kc, str_##kc },
 static const send_string_keycodes_table_row_t send_string_keycodes[] = { FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row) };
 #  undef send_string_keycodes_row
 static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
-#endif // EXPERIMENT
+#endif // USE_SEND_STRING_KEYCODES_TABLE
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
@@ -126,7 +126,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     return false;
 #endif
 
-#ifdef EXPERIMENT
+#ifdef USE_SEND_STRING_KEYCODES_TABLE
   for (uint8_t ix = 0; ix < send_string_keycodes_size; ix++) {
     if (send_string_keycodes[ix].kc == keycode) {
       if (record->event.pressed) 
@@ -137,7 +137,7 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
   switch (keycode) {
-#ifndef EXPERIMENT
+#ifndef USE_SEND_STRING_KEYCODES_TABLE
 #  define kc_tap_case_send_string(kc, str)                                      \
     case kc:                                                                    \
       if (record->event.pressed)                                                \
@@ -146,7 +146,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     
     FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
 #  undef  kc_tap_case_send_string
-#endif // ! EXPERIMENT
+#endif // ! USE_SEND_STRING_KEYCODES_TABLE
   case QK_DYNAMIC_MACRO_PLAY_1:
   case QK_DYNAMIC_MACRO_PLAY_2:
     if (record->event.pressed)
