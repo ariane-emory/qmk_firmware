@@ -107,9 +107,10 @@ uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
 
 static uint16_t idle_timer = 0;
 
+//DO(SS_PIN2,           AE_PIN2)                                                
+
 #define FOR_EACH_SEND_STRING_KEYCODE(DO)                                        \
   DO(SS_PIN1,           AE_PIN1)                                                \
-  DO(SS_PIN2,           AE_PIN2)                                                \
   DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."))                       \
   DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"))                          \
   DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")))                 \
@@ -142,6 +143,8 @@ static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes
 #  undef send_string_keycodes_row_for
 #endif // EXPERIMENT
 
+const char str_hello[] PROGMEM = "hello1";
+
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
@@ -160,6 +163,10 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
   switch (keycode) {
+  case SS_PIN2:
+    if (record->event.pressed)
+      SEND_STRING_WITHOUT_MODS_P(str_hello);
+    return false;
 #ifndef EXPERIMENT
 #  define kc_tap_case_send_string(kc, str) KC_TAP_CASE(kc, SEND_STRING_WITHOUT_MODS(str));
     FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
