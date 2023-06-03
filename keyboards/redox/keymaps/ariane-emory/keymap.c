@@ -107,16 +107,16 @@ enum arianes_keycodes {
 #undef enum_item
 };
 
-#define define_progmem_string(kc, str, ...) static const char str_##kc[] PROGMEM = str;
+#define define_progmem_string(kc, str) static const char str_##kc[] PROGMEM = str;
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 #undef define_progmem_string
 
-#define define_progmem_string(kc, str, str2, ...) \
-  static const char str_##kc[] PROGMEM = str;     \
-  static const char shifted_str_##kc[] PROGMEM = str2;
+#define define_progmem_string_with_shifted_string(kc, str, shifted_str)         \
+  static const char str_##kc[] PROGMEM = str;                                   \
+  static const char shifted_str_##kc[] PROGMEM = shifted_str;
 
-FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string);
-#undef define_progmem_string
+FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string_with_shifted_string);
+#undef define_progmem_string_with_shifted_string
 
 #define USE_SEND_STRING_KEYCODES_TABLE
 
