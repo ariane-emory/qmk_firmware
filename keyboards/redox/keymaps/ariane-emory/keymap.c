@@ -122,6 +122,21 @@ static uint16_t idle_timer = 0;
   DO(SS_THISDIR,        "./")                                                   \
   DO(SS_ARROW,          "->")
 
+#ifdef EXPERIMENT
+typedef struct {
+  uint16_t kc;
+  const char * PROGMEM str;
+} send_string_keycodes_row_t;
+
+#  define define_string(kc, str) const char str_##kc[] PROGMEM = str;
+#  define send_string_keycodes_row_for(kc, str) { kc, str_##kc },
+FOR_EACH_SEND_STRING_KEYCODE(define_string)
+static const send_string_keycodes_row_t send_string_keycodes[] PROGMEM = { FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row_for) };
+static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
+#  undef define_string
+#  undef send_string_keycodes_row_for
+#endif // EXPERIMENT
+
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
