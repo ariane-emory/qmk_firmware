@@ -127,19 +127,15 @@ static uint16_t idle_timer = 0;
   DO(SS_ARROW,          "->")
 
 #define define_progmem_string(kc, str) static const char str_##kc[] PROGMEM = str;
-FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string)
+FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 #undef define_progmem_string
 
-// #define EXPERIMENT
+#define EXPERIMENT
 
 #ifdef EXPERIMENT
-  typedef struct {
-    uint16_t kc;
-    const char * PROGMEM str;
-  } send_string_keycodes_table_row_t;
-
+typedef struct { uint16_t kc; const char * str; } send_string_keycodes_table_row_t;
 #  define send_string_keycodes_row_for(kc, str) { kc, str_##kc },
-static const send_string_keycodes_table_row_t send_string_keycodes[] PROGMEM = { FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row_for) };
+static const send_string_keycodes_table_row_t send_string_keycodes[] = { FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row_for) };
 static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
 #  undef send_string_keycodes_row_for
 #endif // EXPERIMENT
@@ -155,7 +151,8 @@ KEYRECORD_FUN(process_record_user, bool) {
 #ifdef EXPERIMENT
   for (uint8_t ix = 0; ix < send_string_keycodes_size; ix++) {
     if (send_string_keycodes[ix].kc == keycode) {
-      SEND_STRING_WITHOUT_MODS_P(send_string_keycodes[ix].str);
+      if (record->event.pressed) 
+        SEND_STRING_WITHOUT_MODS_P(send_string_keycodes[ix].str);
       return false;
     }
   }
