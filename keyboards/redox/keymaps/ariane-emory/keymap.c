@@ -107,7 +107,8 @@ enum arianes_keycodes {
 #undef enum_item
 };
 
-#define define_progmem_string(kc, str) static const char str_##kc[] PROGMEM = str;
+#define define_progmem_string(kc, str)                                          \
+  static const char str_##kc[] PROGMEM = str;
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 #undef define_progmem_string
 
