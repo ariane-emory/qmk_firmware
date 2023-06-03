@@ -109,6 +109,12 @@ enum arianes_keycodes {
 
 #define define_progmem_string(kc, str, ...) static const char str_##kc[] PROGMEM = str;
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
+#undef define_progmem_string
+
+#define define_progmem_string(kc, str, str2, ...) \
+  static const char str_##kc[] PROGMEM = str;     \
+  static const char shifted_str_##kc[] PROGMEM = str2;
+
 FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string);
 #undef define_progmem_string
 
@@ -117,12 +123,17 @@ FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string);
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
 #  define send_string_keycodes_row(kc, str) { kc, str_##kc },
 typedef struct { uint16_t kc; const char * str; } send_string_keycodes_table_row_t;
-static const send_string_keycodes_table_row_t send_string_keycodes[] = { FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row) };
+static const send_string_keycodes_table_row_t send_string_keycodes[] = {
+  FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row)
+};
 static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
 #  undef send_string_keycodes_row
 
-#  define shiftable_send_string_keycodes_row(kc, str, ...) { kc, str_##kc },
-static const send_string_keycodes_table_row_t shiftable_send_string_keycodes[] = { FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(shiftable_send_string_keycodes_row) };
+#  define shiftable_send_string_keycodes_row(kc, str, str2) { kc, str_##kc, shifted_str_##kc },
+typedef struct { uint16_t kc; const char * str; const char * shifted_str; } shiftable_send_string_keycodes_table_row_t;
+static const shiftable_send_string_keycodes_table_row_t shiftable_send_string_keycodes[] = {
+  FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(shiftable_send_string_keycodes_row)
+};
 static const uint8_t shiftable_send_string_keycodes_size = ARRAY_SIZE(shiftable_send_string_keycodes);
 #  undef shiftable_send_string_keycodes_row
 #endif // USE_SEND_STRING_KEYCODES_TABLE
