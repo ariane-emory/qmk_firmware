@@ -49,7 +49,7 @@ void keyboard_post_init_user(void) {
     set_mods(current_mods);                                                     \
   }                                                                         
 #else
-#define SEND_STRING_WITHOUT_MODS(str) (((void)0))                                
+#define SEND_STRING_WITHOUT_MODS(str) (((void)0))
 #endif
 
 #define KC_TAP_CASE(kc, blk)                                                    \
