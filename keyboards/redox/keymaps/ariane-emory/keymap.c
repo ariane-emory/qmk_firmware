@@ -122,7 +122,7 @@ static uint16_t idle_timer = 0;
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 #undef define_progmem_string
 
-// #define EXPERIMENT
+#define EXPERIMENT
 
 #ifdef EXPERIMENT
 typedef struct { uint16_t kc; const char * str; } send_string_keycodes_table_row_t;
