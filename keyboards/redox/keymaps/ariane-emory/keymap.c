@@ -122,7 +122,7 @@ static uint16_t idle_timer = 0;
   DO(SS_THISDIR,        "./")                                                   \
   DO(SS_ARROW,          "->")
 
-#define EXPERIMENT
+// #define EXPERIMENT
 
 #ifdef EXPERIMENT
 typedef struct {
