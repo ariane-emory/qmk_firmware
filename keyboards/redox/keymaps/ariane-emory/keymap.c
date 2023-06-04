@@ -138,6 +138,13 @@ static const uint8_t ctrlable_send_string_keycodes_size = ARRAY_SIZE(ctrlable_se
 #  undef ctrlable_send_string_keycodes_row
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
+bool process_ctrlable_send_stringname(
+  const uint16_t keycode,
+  const keyrecord_t * const record,
+  const uint8_t ix) {
+  return false;
+}
+
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
