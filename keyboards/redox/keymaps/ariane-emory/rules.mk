@@ -25,10 +25,3 @@ SRC += features/rgb.c
 SRC += features/rgb_fader.c
 
 CFLAGS += -funroll-loops
-# EEPROM_DRIVER          = transient
-
-SRC += features/achordion.c
-SRC += features/rgb.c
-SRC += features/rgb_fader.c
-
-CFLAGS += -funroll-loops
