@@ -119,7 +119,7 @@ FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string_and_shifted_string);
 #undef define_progmem_string_and_shifted_string
 
-#define USE_SEND_STRING_KEYCODES_TABLE
+// #define USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
 #  define send_string_keycodes_row(kc, str) { kc, str_##kc },
@@ -159,14 +159,9 @@ KEYRECORD_FUN(process_record_user, bool) {
   for (uint8_t ix = 0; ix < shiftable_send_string_keycodes_size; ix++) {
     if (shiftable_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed) {
-        const uint8_t mods = get_mods();
-        
         if ((shiftable_send_string_keycodes[ix].shifted_str[0] != '\0') &&
-            (mods & MOD_MASK_SHIFT)) {  // Is shift held?
-          // Temporarily delete shift.
-          unregister_mods(MOD_MASK_SHIFT);  
+            (get_mods() & MOD_MASK_SHIFT)) { // Is shift held?
           SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].shifted_str);
-          register_mods(mods);            // Restore mods.
         } else { // if shift is not held
           SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].str);
         }
@@ -187,9 +182,7 @@ KEYRECORD_FUN(process_record_user, bool) {
       if (record->event.pressed) {                                                                  \
         if ((shifted_str_##kc != '\0') &&                                                           \
             (mods & MOD_MASK_SHIFT)) {                                                              \
-          unregister_mods(MOD_MASK_SHIFT);                                                          \
           SEND_STRING_WITHOUT_MODS_P(shifted_str_##kc);                                             \
-          register_mods(mods);                                                                      \
         } else {                                                                                    \
           SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                     \
         }                                                                                           \
