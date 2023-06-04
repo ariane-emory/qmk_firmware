@@ -93,7 +93,7 @@ static uint16_t idle_timer = 0;
   DO(SS_TILD,           ("~"))                                                                      \
   DO(SS_TILD_SLSH,      ("~/"))
 
-#define FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(DO)                                                  \
+#define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                  \
   DO(SS_UPDIR,          ("../"),                                                ("./"))
 
 #define enum_item(kc, str, ...) kc,
@@ -106,7 +106,7 @@ enum arianes_keycodes {
   VS_CLOSE,
   VS_FORMAT_DOC,
   FOR_EACH_SEND_STRING_KEYCODE(enum_item)
-  FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(enum_item)
+  FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 #undef enum_item
 };
 
@@ -115,11 +115,11 @@ enum arianes_keycodes {
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 #undef define_progmem_string
 
-#define define_progmem_string_and_shifted_string(kc, str, shifted_str)                              \
+#define define_progmem_string_and_ctrled_string(kc, str, ctrled_str)                              \
   static const char str_##kc[] PROGMEM = str;                                                       \
-  static const char shifted_str_##kc[] PROGMEM = shifted_str;
-FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string_and_shifted_string);
-#undef define_progmem_string_and_shifted_string
+  static const char ctrled_str_##kc[] PROGMEM = ctrled_str;
+FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_progmem_string_and_ctrled_string);
+#undef define_progmem_string_and_ctrled_string
 
 #define USE_SEND_STRING_KEYCODES_TABLE
 
@@ -132,13 +132,13 @@ static const send_string_keycodes_table_row_t send_string_keycodes[] = {
 static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
 #  undef send_string_keycodes_row
 
-#  define shiftable_send_string_keycodes_row(kc, str, str2) { kc, str_##kc, shifted_str_##kc },
-typedef struct { uint16_t kc; const char * str; const char * shifted_str; } shiftable_send_string_keycodes_table_row_t;
-static const shiftable_send_string_keycodes_table_row_t shiftable_send_string_keycodes[] = {
-  FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(shiftable_send_string_keycodes_row)
+#  define ctrlable_send_string_keycodes_row(kc, str, str2) { kc, str_##kc, ctrled_str_##kc },
+typedef struct { uint16_t kc; const char * str; const char * ctrled_str; } ctrlable_send_string_keycodes_table_row_t;
+static const ctrlable_send_string_keycodes_table_row_t ctrlable_send_string_keycodes[] = {
+  FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(ctrlable_send_string_keycodes_row)
 };
-static const uint8_t shiftable_send_string_keycodes_size = ARRAY_SIZE(shiftable_send_string_keycodes);
-#  undef shiftable_send_string_keycodes_row
+static const uint8_t ctrlable_send_string_keycodes_size = ARRAY_SIZE(ctrlable_send_string_keycodes);
+#  undef ctrlable_send_string_keycodes_row
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
 KEYRECORD_FUN(process_record_user, bool) {
@@ -158,14 +158,14 @@ KEYRECORD_FUN(process_record_user, bool) {
     }
   }
 
-  for (uint8_t ix = 0; ix < shiftable_send_string_keycodes_size; ix++) {
-    if (shiftable_send_string_keycodes[ix].kc == keycode) {      
+  for (uint8_t ix = 0; ix < ctrlable_send_string_keycodes_size; ix++) {
+    if (ctrlable_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed) {
-        if ((shiftable_send_string_keycodes[ix].shifted_str[0] != '\0') &&
-            (get_mods() & MOD_MASK_SHIFT)) {
-          SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].shifted_str);
+        if ((ctrlable_send_string_keycodes[ix].ctrled_str[0] != '\0') &&
+            (get_mods() & MOD_MASK_CTRL)) {
+          SEND_STRING_WITHOUT_MODS_P(ctrlable_send_string_keycodes[ix].ctrled_str);
         } else {
-          SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].str);
+          SEND_STRING_WITHOUT_MODS_P(ctrlable_send_string_keycodes[ix].str);
         }
       }
       return false;
@@ -175,19 +175,19 @@ KEYRECORD_FUN(process_record_user, bool) {
 
   switch (keycode) {
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
-#  define kc_tap_case_shiftable_send_string(kc, str, shifted_str)                                   \
+#  define kc_tap_case_ctrlable_send_string(kc, str, ctrled_str)                                     \
     case kc:                                                                                        \
       if (record->event.pressed) {                                                                  \
-        if ((shifted_str_##kc[0] != '\0') &&                                                        \
-            (get_mods() & MOD_MASK_SHIFT)) {                                                        \
-          SEND_STRING_WITHOUT_MODS_P(shifted_str_##kc);                                             \
+        if ((ctrled_str_##kc[0] != '\0') &&                                                         \
+            (get_mods() & MOD_MASK_CTRL)) {                                                         \
+          SEND_STRING_WITHOUT_MODS_P(ctrled_str_##kc);                                              \
         } else {                                                                                    \
           SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                     \
         }                                                                                           \
       }                                                                                             \
       return false;
-    FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(kc_tap_case_shiftable_send_string)
-#  undef  kc_tap_case_shiftable_send_string
+    FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(kc_tap_case_ctrlable_send_string)
+#  undef  kc_tap_case_ctrlable_send_string
 #  define kc_tap_case_send_string(kc, str)                                                          \
       case kc:                                                                                      \
         if (record->event.pressed)                                                                  \
@@ -399,7 +399,8 @@ bool achordion_chord(
         other_keycode == QB_B ||
         other_keycode == QT_T)) ||
       (tap_hold_keycode == QH_F &&
-       (other_keycode == QH_A ||
+       (other_keycode == SS_UPDIR ||
+        other_keycode == QH_A ||
         other_keycode == QT_E ||
         other_keycode == QT_T ||
         other_keycode == QT_W ||
