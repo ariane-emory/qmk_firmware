@@ -147,3 +147,14 @@
 #define EM_CTL_C    LCTL(KC_C)
 #define RCTL_DQUO   RCTL_T(KC_DQUO)
 //==============================================================================
+
+#define N_1         KC_1
+#define N_2         KC_2
+#define N_3         KC_3
+#define N_4         KC_4
+#define N_5         KC_5
+#define N_6         KC_6
+#define N_7         KC_7
+#define N_8         KC_8
+#define N_9         KC_9
+#define N_0         KC_0
