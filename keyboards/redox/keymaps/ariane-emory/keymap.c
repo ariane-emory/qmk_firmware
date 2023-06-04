@@ -123,7 +123,6 @@ FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string_and_shifted_string)
 // #define USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
-
 #  define send_string_keycodes_row(kc, str) { kc, str_##kc },
 typedef struct { uint16_t kc; const char * str; } send_string_keycodes_table_row_t;
 static const send_string_keycodes_table_row_t send_string_keycodes[] = {
@@ -139,7 +138,6 @@ static const shiftable_send_string_keycodes_table_row_t shiftable_send_string_ke
 };
 static const uint8_t shiftable_send_string_keycodes_size = ARRAY_SIZE(shiftable_send_string_keycodes);
 #  undef shiftable_send_string_keycodes_row
-
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
 KEYRECORD_FUN(process_record_user, bool) {
@@ -179,15 +177,33 @@ KEYRECORD_FUN(process_record_user, bool) {
   }
 #endif
 
+#ifndef USE_SEND_STRING_KEYCODES_TABLE
+  const uint8_t mods = get_mods();
+#endif
+
   switch (keycode) {
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
-#  define kc_tap_case_send_string(kc, str)                                                          \
+#  define kc_tap_case_shiftable_send_string(kc, str, shifted_str)                                   \
     case kc:                                                                                        \
-      if (record->event.pressed)                                                                    \
-        SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                       \
+      if (record->event.pressed) {                                                                  \
+        if ((shifted_str_##kc != '\0') &&                                                           \
+            (mods & MOD_MASK_SHIFT)) {                                                              \
+          unregister_mods(MOD_MASK_SHIFT);                                                          \
+          SEND_STRING_WITHOUT_MODS_P(shifted_str_##kc);                                             \
+          register_mods(mods);                                                                      \
+        } else {                                                                                    \
+          SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                     \
+        }                                                                                           \
+      }                                                                                             \
       return false;
-    
-    FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
+    FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(kc_tap_case_shiftable_send_string)
+#  undef  kc_tap_case_shiftable_send_string
+#  define kc_tap_case_send_string(kc, str)                                                          \
+      case kc:                                                                                      \
+        if (record->event.pressed)                                                                  \
+          SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                     \
+        return false;
+      FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
 #  undef  kc_tap_case_send_string
 #endif // ! USE_SEND_STRING_KEYCODES_TABLE
   case QK_DYNAMIC_MACRO_PLAY_1:
