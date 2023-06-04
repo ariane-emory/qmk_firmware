@@ -92,7 +92,7 @@ static uint16_t idle_timer = 0;
   DO(SS_TILD_SLSH,      ("~/"))
 
 #define FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(DO)                                                  \
-  DO(SS_UPDIR,          ("../"),                                                ("./"))
+  DO(SS_UPDIR,          ("abc"),                                                ("def"))
 
 #define enum_item(kc, str, ...) kc,
 enum arianes_keycodes {
@@ -119,7 +119,7 @@ FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string_and_shifted_string);
 #undef define_progmem_string_and_shifted_string
 
-#define USE_SEND_STRING_KEYCODES_TABLE
+// #define USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
 #  define send_string_keycodes_row(kc, str) { kc, str_##kc },
@@ -172,6 +172,19 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
   switch (keycode) {
+  case VS_CLOSE:  // Arrow macro, types -> or =>.
+    if (record->event.pressed) {
+      const uint8_t mods = get_mods();
+      if (mods & MOD_MASK_SHIFT) {  // Is shift held?
+        // Temporarily delete shift.
+        unregister_mods(MOD_MASK_SHIFT);  
+        SEND_STRING("=>");
+        register_mods(mods);            // Restore mods.
+      } else {
+        SEND_STRING("->");
+      }
+    }
+    return false;
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
 #  define kc_tap_case_shiftable_send_string(kc, str, shifted_str)                                   \
     case kc:                                                                                        \
