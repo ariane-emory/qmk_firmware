@@ -182,7 +182,6 @@ KEYRECORD_FUN(process_record_user, bool) {
     if (process_send_string(keycode, record, ix))
       return false;
   }
-
   for (uint8_t ix = 0; ix < ctrlable_send_string_keycodes_size; ix++) {
     if (process_ctrlable_send_string(keycode, record, ix))
       return false;
