@@ -77,21 +77,21 @@ static uint16_t idle_timer = 0;
   DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."))                       \
   DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"))                          \
   DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")))                 \
-  DO(SS_ARROW,          "->")                                                   \
-  DO(SS_GRAV,           "`")                                                    \
-  DO(SS_LPAR,           "9")                                                    \
-  DO(SS_PIN1,           AE_PIN1)                                                \
-  DO(SS_PIN2,           AE_PIN2)                                                \
-  DO(SS_RPAR,           "0")                                                    \
+  DO(SS_ARROW,          ("->"))                                                 \
+  DO(SS_GRAV,           ("`"))                                                  \
+  DO(SS_LPAR,           ("9"))                                                  \
+  DO(SS_PIN1,           (AE_PIN1))                                              \
+  DO(SS_PIN2,           (AE_PIN2))                                              \
+  DO(SS_RPAR,           ("0"))                                                  \
   DO(SS_SIRI,           (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)))  \
-  DO(SS_RPAR_SCLN,      "0;")                                                   \
-  DO(SS_SPC_TILD_SLSH,  " ~/")                                                  \
-  DO(SS_TILD,           "~")                                                    \
-  DO(SS_TILD_SLSH,      "~/")                                                   \
-  DO(SS_UPDIR,          "-../")
+  DO(SS_RPAR_SCLN,      ("0;"))                                                 \
+  DO(SS_SPC_TILD_SLSH,  (" ~/"))                                                \
+  DO(SS_TILD,           ("~"))                                                  \
+  DO(SS_TILD_SLSH,      ("~/"))                                                 \
+  DO(SS_UPDIR,          ("-../"))
 
 #define FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(DO)                              \
-  DO(SS_THISDIR,        "../",               "./")
+  DO(SS_THISDIR,        ("../"), ("./"))
 
 #define enum_item(kc, str, ...) kc,
 enum arianes_keycodes {
