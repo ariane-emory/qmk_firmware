@@ -107,15 +107,15 @@ enum arianes_keycodes {
 #undef enum_item
 };
 
-#define define_progmem_string(kc, str)                                                              \
+#define define_progmem_string(kc, str, ...)                                                         \
   static const char str_##kc[] PROGMEM = str;
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
-#undef define_progmem_string
 
-#define define_progmem_string_and_ctrled_string(kc, str, ctrled_str)                              \
-  static const char str_##kc[] PROGMEM = str;                                                       \
+#define define_progmem_string_and_ctrled_string(kc, str, ctrled_str)                                \
   static const char ctrled_str_##kc[] PROGMEM = ctrled_str;
+FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_progmem_string);
 FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_progmem_string_and_ctrled_string);
+#undef define_progmem_string
 #undef define_progmem_string_and_ctrled_string
 
 #define USE_SEND_STRING_KEYCODES_TABLE
