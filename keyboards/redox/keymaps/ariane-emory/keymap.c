@@ -297,7 +297,7 @@ void rgb_fader_set_target_by_layer(rgb_fader_t * const this) {
   };
   static const size_t rgb_table_length = ARRAY_SIZE(rgb_table);
 
-  const rgb_table_row_t *row = &row[0];
+  const rgb_table_row_t *row = &rgb_table[0];
   
   for (size_t ix = 1; ix < rgb_table_length; ix++) {
     if (IS_LAYER_ON(rgb_table[ix].layer)) {
