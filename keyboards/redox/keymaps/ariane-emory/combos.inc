@@ -22,8 +22,8 @@
   ______________________________________________________________________________ \
   DO(l_top_edge,    SS_GRAV,      QT_Q,    QT_W                                ) \
   __(l_top_innr,    ____________, QT_E,    QT_R                                ) \
-  DO(l_top_outr,    SS_TILD,      QT_W,    QT_E                                ) \
-  DO(l_top_rech,    SS_TILD_SLSH, QT_T,    QT_R                                ) \
+  DO(l_top_outr,    SS_TILD_SLSH, QT_W,    QT_E                                ) \
+  __(l_top_rech,    ____________, QT_T,    QT_R                                ) \
   __(l_top_sprd,    ____________, QT_W,    QT_R                                ) \
   __(l_top_trpi,    ____________, QT_E,    QT_R,      QT_T                     ) \
   __(l_top_trpm,    ____________, QT_W,    QT_E,      QT_R                     ) \
@@ -41,7 +41,7 @@
   DO(l_bot_edge,    EM_CTL_X,     QB_Z,    QB_X                                ) \
   DO(l_bot_innr,    KA_UNDO,      QB_C,    QB_V                                ) \
   DO(l_bot_outr,    EM_CTL_C,     QB_X,    QB_C                                ) \
-  DO(l_bot_rech,    EM_CHG_BUF,   QB_V,    QB_B                                ) \
+  __(l_bot_rech,    ____________,   QB_V,    QB_B                                ) \
   __(l_bot_sprd,    ____________, QB_X,    QB_V                                ) \
   __(l_bot_trpi,    ____________, QB_C,    QB_V,      QB_B                     ) \
   DO(l_bot_trpm,    EM_CHG_BUF,   QB_X,    QB_C,      QB_V                     ) \
