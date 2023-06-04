@@ -121,7 +121,7 @@ FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string_and_shifted_string);
 #undef define_progmem_string_and_shifted_string
 
-// #define USE_SEND_STRING_KEYCODES_TABLE
+#define USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
 #  define send_string_keycodes_row(kc, str) { kc, str_##kc },
@@ -162,9 +162,9 @@ KEYRECORD_FUN(process_record_user, bool) {
     if (shiftable_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed) {
         if ((shiftable_send_string_keycodes[ix].shifted_str[0] != '\0') &&
-            (get_mods() & MOD_MASK_SHIFT)) { // Is shift held?
+            (get_mods() & MOD_MASK_SHIFT)) {
           SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].shifted_str);
-        } else { // if shift is not held
+        } else {
           SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].str);
         }
       }
