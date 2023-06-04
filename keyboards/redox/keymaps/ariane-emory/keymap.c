@@ -119,7 +119,7 @@ FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string_and_shifted_string);
 #undef define_progmem_string_and_shifted_string
 
-// #define USE_SEND_STRING_KEYCODES_TABLE
+#define USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
 #  define send_string_keycodes_row(kc, str) { kc, str_##kc },
@@ -171,17 +171,13 @@ KEYRECORD_FUN(process_record_user, bool) {
   }
 #endif
 
-#ifndef USE_SEND_STRING_KEYCODES_TABLE
-  const uint8_t mods = get_mods();
-#endif
-
   switch (keycode) {
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
 #  define kc_tap_case_shiftable_send_string(kc, str, shifted_str)                                   \
     case kc:                                                                                        \
       if (record->event.pressed) {                                                                  \
-        if ((shifted_str_##kc != '\0') &&                                                           \
-            (mods & MOD_MASK_SHIFT)) {                                                              \
+        if ((shifted_str_##kc[0] != '\0') &&                                                        \
+            (get_mods() & MOD_MASK_SHIFT)) {                                                        \
           SEND_STRING_WITHOUT_MODS_P(shifted_str_##kc);                                             \
         } else {                                                                                    \
           SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                     \
