@@ -91,7 +91,7 @@ static uint16_t idle_timer = 0;
   DO(SS_UPDIR,          "-../")
 
 #define FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(DO)                              \
-  DO(SS_THISDIR,        "-./",               "")
+  DO(SS_THISDIR,        "-./",               "-../")
 
 #define enum_item(kc, str, ...) kc,
 enum arianes_keycodes {
