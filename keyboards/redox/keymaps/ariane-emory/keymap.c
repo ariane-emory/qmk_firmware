@@ -45,6 +45,7 @@ void keyboard_post_init_user(void) {
 void send_string_without_mods_P(const char * const string) {
   const uint8_t current_mods = get_mods();
   clear_mods();
+  send_keyboard_report();
   send_string_with_delay_P(string, 0);
   set_mods(current_mods);
 }
@@ -53,6 +54,7 @@ void send_string_without_mods_P(const char * const string) {
 void send_string_without_mods(const char * const string) {
   const uint8_t current_mods = get_mods();
   clear_mods();
+  send_keyboard_report();
   send_string_with_delay(string, 0);
   set_mods(current_mods);
 }
@@ -92,7 +94,7 @@ static uint16_t idle_timer = 0;
   DO(SS_TILD_SLSH,      ("~/"))
 
 #define FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(DO)                                                  \
-  DO(SS_UPDIR,          ("abc"),                                                ("def"))
+  DO(SS_UPDIR,          ("../"),                                                ("./"))
 
 #define enum_item(kc, str, ...) kc,
 enum arianes_keycodes {
@@ -172,19 +174,6 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
   switch (keycode) {
-  case VS_CLOSE:  // Arrow macro, types -> or =>.
-    if (record->event.pressed) {
-      const uint8_t mods = get_mods();
-      if (mods & MOD_MASK_SHIFT) {  // Is shift held?
-        // Temporarily delete shift.
-        unregister_mods(MOD_MASK_SHIFT);  
-        SEND_STRING("=>");
-        register_mods(mods);            // Restore mods.
-      } else {
-        SEND_STRING("->");
-      }
-    }
-    return false;
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
 #  define kc_tap_case_shiftable_send_string(kc, str, shifted_str)                                   \
     case kc:                                                                                        \
