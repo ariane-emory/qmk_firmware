@@ -93,8 +93,8 @@ static uint16_t idle_timer = 0;
   DO(SS_TILD,           ("~"))                                                                      \
   DO(SS_TILD_SLSH,      ("~/"))
 
-#define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                  \
-  DO(SS_UPDIR,          ("../"),                                                ("./"))
+#define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                   \
+  DO(SS_UPDIR,          ("../"), ("./"))
 
 #define enum_item(kc, str, ...) kc,
 enum arianes_keycodes {
