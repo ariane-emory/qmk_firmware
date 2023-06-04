@@ -77,6 +77,7 @@ uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
 static uint16_t idle_timer = 0;
 
 #define FOR_EACH_SEND_STRING_KEYCODE(DO)                                                            \
+  DO(SS_SIRI,           (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)))                      \
   DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."))                                           \
   DO(EM_CHG_BUF,        (SS_LCTL("x")SS_DELAY(50)"b"))                                              \
   DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"))                                              \
@@ -87,7 +88,6 @@ static uint16_t idle_timer = 0;
   DO(SS_GRAV,           ("`"))                                                                      \
   DO(SS_LPAR,           ("9"))                                                                      \
   DO(SS_RPAR,           ("0"))                                                                      \
-  DO(SS_SIRI,           (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)))                      \
   DO(SS_TILD_SLSH,      ("~/"))
 
 #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                   \
