@@ -67,15 +67,15 @@
   DO(r_mid_trpm,    EM_DIRED,     QH_J,    QH_K,       QH_L                    ) \
   DO(r_mid_trpo,    EM_ALL_BUF,   QH_K,    QH_L,       QH_QUOT                 ) \
   ______________________________________________________________________________ \
-  DO(r_bot_edge,    SS_THISDIR,   QB_DOT,  QB_SLSH                             ) \
+  DO(r_bot_edge,    SS_UPDIR,     QB_DOT,  QB_SLSH                             ) \
   DO(r_bot_innr,    KA_UNDO,      QB_M,    QB_COMM                             ) \
   DO(r_bot_outr,    SS_ARROW,     QB_COMM, QB_DOT                              ) \
   DO(r_bot_rech,    EM_LASTARG,   QB_N,    QB_M                                ) \
   __(r_bot_sprd,    ____________, QB_M,    QB_DOT                              ) \
-  DO(r_bot_trpi,    EM_REPEAT,    QB_N,    QB_M,      QB_COMM                  ) \
+  __(r_bot_trpi,    ____________, QB_N,    QB_M,      QB_COMM                  ) \
   DO(r_bot_trpm,    EM_SHELL,     QB_M,    QB_COMM,   QB_DOT                   ) \
-  DO(r_bot_trpo,    SS_UPDIR,     QB_COMM, QB_DOT,    QB_SLSH                  ) \
-  DO(r_pinky_dip,   SS_UPDIR,     QH_J,    QB_SLSH                             ) \
+  __(r_bot_trpo,    ____________, QB_COMM, QB_DOT,    QB_SLSH                  ) \
+  __(r_pinky_dip,   ____________, QH_J,    QB_SLSH                             ) \
   ______________________________________________________________________________
 
 //========================================================================================

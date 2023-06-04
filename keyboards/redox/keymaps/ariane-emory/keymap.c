@@ -89,11 +89,10 @@ static uint16_t idle_timer = 0;
   DO(SS_RPAR_SCLN,      ("0;"))                                                                     \
   DO(SS_SPC_TILD_SLSH,  (" ~/"))                                                                    \
   DO(SS_TILD,           ("~"))                                                                      \
-  DO(SS_TILD_SLSH,      ("~/"))                                                                     \
-  DO(SS_UPDIR,          ("-../"))
+  DO(SS_TILD_SLSH,      ("~/"))
 
 #define FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(DO)                                                  \
-  DO(SS_THISDIR,        ("../"), ("./"))
+  DO(SS_UPDIR,          ("../"), ("./"))
 
 #define enum_item(kc, str, ...) kc,
 enum arianes_keycodes {
@@ -120,7 +119,7 @@ FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string_and_shifted_string);
 #undef define_progmem_string_and_shifted_string
 
-// #define USE_SEND_STRING_KEYCODES_TABLE
+#define USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
 #  define send_string_keycodes_row(kc, str) { kc, str_##kc },
