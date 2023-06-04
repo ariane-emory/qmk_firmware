@@ -1,3 +1,5 @@
+// -*- c-backslash-column: 100; c-backslash-max-column: 100; -*-
+
 #include QMK_KEYBOARD_H
 
 #include <stdbool.h>
@@ -72,25 +74,25 @@ uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
 
 static uint16_t idle_timer = 0;
 
-#define FOR_EACH_SEND_STRING_KEYCODE(DO)                                        \
-  DO(EM_CHG_BUF,        (SS_LCTL("x")SS_DELAY(50)"b"))                          \
-  DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."))                       \
-  DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"))                          \
-  DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")))                 \
-  DO(SS_ARROW,          ("->"))                                                 \
-  DO(SS_GRAV,           ("`"))                                                  \
-  DO(SS_LPAR,           ("9"))                                                  \
-  DO(SS_PIN1,           (AE_PIN1))                                              \
-  DO(SS_PIN2,           (AE_PIN2))                                              \
-  DO(SS_RPAR,           ("0"))                                                  \
-  DO(SS_SIRI,           (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)))  \
-  DO(SS_RPAR_SCLN,      ("0;"))                                                 \
-  DO(SS_SPC_TILD_SLSH,  (" ~/"))                                                \
-  DO(SS_TILD,           ("~"))                                                  \
-  DO(SS_TILD_SLSH,      ("~/"))                                                 \
+#define FOR_EACH_SEND_STRING_KEYCODE(DO)                                                            \
+  DO(EM_CHG_BUF,        (SS_LCTL("x")SS_DELAY(50)"b"))                                              \
+  DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."))                                           \
+  DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"))                                              \
+  DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")))                                     \
+  DO(SS_ARROW,          ("->"))                                                                     \
+  DO(SS_GRAV,           ("`"))                                                                      \
+  DO(SS_LPAR,           ("9"))                                                                      \
+  DO(SS_PIN1,           (AE_PIN1))                                                                  \
+  DO(SS_PIN2,           (AE_PIN2))                                                                  \
+  DO(SS_RPAR,           ("0"))                                                                      \
+  DO(SS_SIRI,           (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)))                      \
+  DO(SS_RPAR_SCLN,      ("0;"))                                                                     \
+  DO(SS_SPC_TILD_SLSH,  (" ~/"))                                                                    \
+  DO(SS_TILD,           ("~"))                                                                      \
+  DO(SS_TILD_SLSH,      ("~/"))                                                                     \
   DO(SS_UPDIR,          ("-../"))
 
-#define FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(DO)                              \
+#define FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(DO)                                                  \
   DO(SS_THISDIR,        ("../"), ("./"))
 
 #define enum_item(kc, str, ...) kc,
@@ -107,13 +109,13 @@ enum arianes_keycodes {
 #undef enum_item
 };
 
-#define define_progmem_string(kc, str)                                          \
+#define define_progmem_string(kc, str)                                                              \
   static const char str_##kc[] PROGMEM = str;
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 #undef define_progmem_string
 
-#define define_progmem_string_and_shifted_string(kc, str, shifted_str)          \
-  static const char str_##kc[] PROGMEM = str;                                   \
+#define define_progmem_string_and_shifted_string(kc, str, shifted_str)                              \
+  static const char str_##kc[] PROGMEM = str;                                                       \
   static const char shifted_str_##kc[] PROGMEM = shifted_str;
 FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_progmem_string_and_shifted_string);
 #undef define_progmem_string_and_shifted_string
@@ -179,10 +181,10 @@ KEYRECORD_FUN(process_record_user, bool) {
 
   switch (keycode) {
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
-#  define kc_tap_case_send_string(kc, str)                                      \
-    case kc:                                                                    \
-      if (record->event.pressed)                                                \
-        SEND_STRING_WITHOUT_MODS_P(str_##kc);                                   \
+#  define kc_tap_case_send_string(kc, str)                                                          \
+    case kc:                                                                                        \
+      if (record->event.pressed)                                                                    \
+        SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                       \
       return false;
     
     FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
