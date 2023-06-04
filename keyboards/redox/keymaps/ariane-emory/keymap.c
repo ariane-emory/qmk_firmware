@@ -87,7 +87,8 @@ static uint16_t idle_timer = 0;
   DO(SS_ARROW,          ("->"))                                                                     \
   DO(SS_GRAV,           ("`"))                                                                      \
   DO(SS_LPAR,           ("9"))                                                                      \
-  DO(SS_RPAR,           ("0"))
+  DO(SS_RPAR,           ("0"))                                                                      \
+  DO(SS_BANGBANG,       (SS_LALT("p")SS_TAP(X_ENT)))
 
 #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                   \
   DO(SS_TILD_SLSH,      ("~/"),  ("~"))                                                             \
