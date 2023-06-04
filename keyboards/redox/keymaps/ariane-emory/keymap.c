@@ -87,10 +87,10 @@ static uint16_t idle_timer = 0;
   DO(SS_ARROW,          ("->"))                                                                     \
   DO(SS_GRAV,           ("`"))                                                                      \
   DO(SS_LPAR,           ("9"))                                                                      \
-  DO(SS_RPAR,           ("0"))                                                                      \
-  DO(SS_TILD_SLSH,      ("~/"))
+  DO(SS_RPAR,           ("0"))
 
 #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                   \
+  DO(SS_TILD_SLSH,      ("~/"),  ("~"))                                                             \
   DO(SS_UPDIR,          ("../"), ("./"))
 
 #define enum_item(kc, str, ...) kc,
@@ -138,7 +138,7 @@ static const uint8_t ctrlable_send_string_keycodes_size = ARRAY_SIZE(ctrlable_se
 #  undef ctrlable_send_string_keycodes_row
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
-bool process_ctrlable_send_stringname(
+bool process_ctrlable_send_string(
   const uint16_t keycode,
   const keyrecord_t * const record,
   const uint8_t ix) {
@@ -156,6 +156,18 @@ bool process_ctrlable_send_stringname(
   return false;
 }
 
+bool process_send_string(
+  const uint16_t keycode,
+  const keyrecord_t * const record,
+  const uint8_t ix) {
+  if (send_string_keycodes[ix].kc == keycode) {
+    if (record->event.pressed) 
+      SEND_STRING_WITHOUT_MODS_P(send_string_keycodes[ix].str);
+    return true;
+  }
+  return false;
+}
+
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
@@ -166,15 +178,12 @@ KEYRECORD_FUN(process_record_user, bool) {
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
   for (uint8_t ix = 0; ix < send_string_keycodes_size; ix++) {
-    if (send_string_keycodes[ix].kc == keycode) {
-      if (record->event.pressed) 
-        SEND_STRING_WITHOUT_MODS_P(send_string_keycodes[ix].str);
+    if (process_send_string(keycode, record, ix))
       return false;
-    }
   }
 
   for (uint8_t ix = 0; ix < ctrlable_send_string_keycodes_size; ix++) {
-    if (process_ctrlable_send_stringname(keycode, record, ix))
+    if (process_ctrlable_send_string(keycode, record, ix))
       return false;
   }
 #endif
