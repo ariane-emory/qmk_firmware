@@ -108,10 +108,11 @@ bool combo_should_trigger(
           || layer_state_is(2)
           || layer_state_is(3)
           || layer_state_is(4)
-          || layer_state_is(5) 
-          // || (layer_state_is(6) && combo_index <= 10)
-          );
+          || layer_state_is(5)
+          || (layer_state_is(TRI_LAYER_ADJUST_LAYER) &&
+              combo->keycode == KC_ENT));
 }
+
 //========================================================================================
 
 // =======================================================================================
