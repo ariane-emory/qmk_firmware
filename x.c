@@ -21,7 +21,7 @@ int main() {
     }
   }
     
-  printf("str  @ %p   = '%s'\n", &buf[ix+1], &buf[ix+1]);
+  printf("\nstr  @ %p   = '%s'\n", &buf[ix+1], &buf[ix+1]);
   printf("ix                   =  %d\n", ix);
 
   for (uint8_t i = 0; i < siz; i++)
