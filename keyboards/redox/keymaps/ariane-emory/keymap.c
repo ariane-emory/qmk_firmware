@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 #if defined(HOME_ROW_MODS) || defined(BOTTOM_ROW_MODS)
-#define USE_ACHORDION
+// #define USE_ACHORDION
 #include "features/achordion.h"
 #endif
 
