@@ -89,7 +89,7 @@ static uint16_t idle_timer = 0;
 // #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)
  
 #define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                        \
-  DO(SS_ARROW,          ("->"),  ("`"SS_TAP(X_LEFT)"`"),  ("49"SS_TAP(X_LEFT)"9"))                  \
+  DO(SS_ARROW,          ("->"),  ("`"SS_TAP(X_LEFT)"`"),  ("49"SS_TAP(X_LEFT)"0"))                  \
   DO(SS_DIR,            ("../"), ("./"),                  ("~/"))                                   \
   DO(SS_LBRACK,         ("9"),   ("["),                   ("{"))                                    \
   DO(SS_RBRACK,         ("0"),   ("]"),                   ("}"))
