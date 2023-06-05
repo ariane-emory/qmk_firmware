@@ -439,8 +439,8 @@ bool achordion_chord(
         tap_hold_keycode == QH_QUOT ||
 #endif
 #if defined(BOTTOM_SHIFT) && ! defined(BOTTOM_ROW_MODS)
-        tap_hold_keycode == QB_Z    ||
-        tap_hold_keycode == QB_SLSH ||
+        /* tap_hold_keycode == QB_Z    || */
+        /* tap_hold_keycode == QB_SLSH || */
 #endif
 #ifdef HOME_ROW_MODS
         tap_hold_keycode == QH_S    ||
