@@ -145,7 +145,7 @@ bool process_ctrlable_send_string(
   const uint8_t ix) {
   if (ctrlable_send_string_keycodes[ix].kc == keycode) {      
     if (record->event.pressed) {
-      if ((strlen_P(ctrlable_send_string_keycodes[ix].ctrled_str) > 0) &&
+      if ((pgm_read_byte(ctrlable_send_string_keycodes[ix].ctrled_str) != 0) &&
           (get_mods() & MOD_MASK_CTRL)) {
         SEND_STRING_WITHOUT_MODS_P(ctrlable_send_string_keycodes[ix].ctrled_str);
       } else {
