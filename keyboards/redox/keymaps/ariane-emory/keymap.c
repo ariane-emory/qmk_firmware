@@ -401,8 +401,8 @@ void manage_toggled_layer_timeout(uint8_t layer, uint16_t idle_time_limit_ms, ui
 }                                                                             
 #endif
 
-void housekeeping_task_user(void) {
-}
+/* void housekeeping_task_user(void) { */
+/* } */
 
 void matrix_scan_user(void) {
 #ifdef USE_ACHORDION
