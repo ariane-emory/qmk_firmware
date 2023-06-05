@@ -89,10 +89,12 @@ static uint16_t idle_timer = 0;
   DO(SS_BANGBANG,       ("11"SS_TAP(X_ENT)))
 
 #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                   \
-  DO(SS_LPAR,           ("9"), ("["))                                                               \
-  DO(SS_RPAR,           ("0"), ("]"))                                                               \
   DO(SS_TILD_SLSH,      ("~/"),  ("~"))                                                             \
   DO(SS_UPDIR,          ("../"), ("./"))
+
+#define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                        \
+  DO(SS_LPAR,           ("9"), ("["), ("{"))                                                        \
+  DO(SS_RPAR,           ("0"), ("]"), ("}"))
 
 #define enum_item(kc, str, ...) kc,
 #define define_progmem_string(kc, str, ...)                                                         \
@@ -102,6 +104,8 @@ static uint16_t idle_timer = 0;
 
 enum arianes_keycodes {
   AE_DUMMY = SAFE_RANGE,
+  SS_LPAR, // tmp
+  SS_RPAR, // tmp
   HOLD_GUI,
   INSERT_UPP,
   RGB_TOGGLE_NOEE,
