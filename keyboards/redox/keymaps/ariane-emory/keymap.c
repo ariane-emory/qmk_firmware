@@ -256,9 +256,24 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
   switch (keycode) {
+  case VS_CLOSE:
+    if (record->event.pressed) {
+      uint8_t num = 123;
+      while (num > 0) {
+        const uint8_t modulo = num % 10;
+        num -= modulo;
+        num /= 10;
+        if (modulo == 0) {
+          tap_code16(LSFT(KC_0));
+        } else {
+          tap_code16(LSFT(KC_1 + modulo - 1));
+        }
+      }
+    }
+    return false;
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
 #  define kc_tap_case_ctrlable_or_altable_send_string(kc, str, ctrled_str, alted_str)               \
-    case kc:                                                                                        \
+      case kc:                                                                                      \
       if (record->event.pressed) {                                                                  \
         if (                                                                                        \
           (ctrled_str_##kc[0] != '\0') &&                                                           \
