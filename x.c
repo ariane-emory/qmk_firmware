@@ -22,7 +22,7 @@ int main() {
   }
     
   printf("\nstr  @ %p   = '%s'\n", &buf[ix+1], &buf[ix+1]);
-  printf("ix                   =  %d\n", ix);
+  printf("ix                   = %d\n", ix);
 
   for (uint8_t i = 0; i < siz; i++)
     printf("buf[%d] @ %p = %d\n", i, &buf[i], buf[i]);
