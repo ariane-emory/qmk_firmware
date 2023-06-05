@@ -72,7 +72,7 @@
   DO(r_bot_outr,    SS_ARROW,     QB_COMM, QB_DOT                              ) \
   DO(r_bot_rech,    EM_LASTARG,   QB_N,    QB_M                                ) \
   __(r_bot_sprd,    ____________, QB_M,    QB_DOT                              ) \
-  __(r_bot_trpi,    ____________, QB_N,    QB_M,      QB_COMM                  ) \
+  DO(r_bot_trpi,    SS_DICT,      QB_N,    QB_M,      QB_COMM                  ) \
   DO(r_bot_trpm,    EM_SHELL,     QB_M,    QB_COMM,   QB_DOT                   ) \
   __(r_bot_trpo,    ____________, QB_COMM, QB_DOT,    QB_SLSH                  ) \
   __(r_pinky_dip,   ____________, QH_J,    QB_SLSH                             ) \

@@ -85,7 +85,8 @@ static uint16_t idle_timer = 0;
   DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")))                                     \
   DO(SS_PIN1,           (AE_PIN1))                                                                  \
   DO(SS_PIN2,           (AE_PIN2))                                                                  \
-  DO(SS_BANGBANG,       ("11"SS_TAP(X_ENT)))
+  DO(SS_BANGBANG,       ("11"SS_TAP(X_ENT)))                                                        \
+  DO(SS_DICT,           ("11"SS_TAP(X_ENT)))
 
 // #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)
 
