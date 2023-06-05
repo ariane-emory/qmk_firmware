@@ -134,18 +134,18 @@ FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
 #define USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
-#  define send_string_keycodes_row(kc, str) { kc, str_##kc },
-typedef struct {
-  uint16_t kc;
-  const char * str;
-} send_string_keycodes_table_row_t;
+/* #  define send_string_keycodes_row(kc, str) { kc, str_##kc }, */
+/* typedef struct { */
+/*   uint16_t kc; */
+/*   const char * str; */
+/* } send_string_keycodes_table_row_t; */
 /* static const send_string_keycodes_table_row_t send_string_keycodes[] = { */
 /*   FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row) */
 /* }; */
 /* static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes); */
-#  undef send_string_keycodes_row
+/* #  undef send_string_keycodes_row */
  
-#  define ctrlable_send_string_keycodes_row(kc, str, ctrlable_str) { kc, str_##kc, ctrled_str_##kc },
+/* #  define ctrlable_send_string_keycodes_row(kc, str, ctrlable_str) { kc, str_##kc, ctrled_str_##kc }, */
 /* typedef struct { */
 /*   uint16_t kc; */
 /*   const char * str; */
@@ -155,7 +155,7 @@ typedef struct {
 /*   FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(ctrlable_send_string_keycodes_row) */
 /* }; */
 /* static const uint8_t ctrlable_send_string_keycodes_size = ARRAY_SIZE(ctrlable_send_string_keycodes); */
-#  undef ctrlable_send_string_keycodes_row
+/* #  undef ctrlable_send_string_keycodes_row */
 
 #  define ctrlable_or_altable_send_string_keycodes_row(kc, str, str2, altable_str) { kc, nomods_str_##kc, ctrled_str_##kc, alted_str_##kc },
 typedef struct {
