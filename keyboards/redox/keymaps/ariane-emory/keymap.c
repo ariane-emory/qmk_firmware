@@ -84,13 +84,12 @@ static uint16_t idle_timer = 0;
   DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")))                                     \
   DO(SS_PIN1,           (AE_PIN1))                                                                  \
   DO(SS_PIN2,           (AE_PIN2))                                                                  \
-  DO(SS_ARROW,          ("->"))                                                                     \
-  DO(SS_GRAV,           ("`"))                                                                      \
   DO(SS_BANGBANG,       ("11"SS_TAP(X_ENT)))
 
 // #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)
  
 #define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                        \
+  DO(SS_ARROW,          ("->"),  ("`"),  (""))                                                      \
   DO(SS_UPDIR,          ("../"), ("./"), ("~/"))                                                    \
   DO(SS_LPAR,           ("9"),   ("["),  ("{"))                                                     \
   DO(SS_RPAR,           ("0"),   ("]"),  ("}"))
@@ -488,17 +487,20 @@ bool achordion_chord(
         other_keycode == QB_V)) ||
       (tap_hold_keycode == QH_D &&
        (other_keycode == KC_TAB ||
+        other_keycode == SS_ARROW ||
+        other_keycode == SS_UPDIR ||
         other_keycode == SS_LPAR ||
         other_keycode == SS_RPAR ||
-        other_keycode == SS_UPDIR ||
         other_keycode == QT_W ||
         other_keycode == QT_R ||
         other_keycode == QH_F ||
         other_keycode == QB_B ||
         other_keycode == QT_T)) ||
       (tap_hold_keycode == QH_F &&
-       (other_keycode == SS_UPDIR ||
-        other_keycode == SS_RPAR ||
+       (other_keycode == SS_ARROW ||
+        other_keycode == SS_UPDIR ||
+        other_keycode == SS_LPAR ||
+        other_keycode == SS_RPAR ||        
         other_keycode == QH_A ||
         other_keycode == QT_E ||
         other_keycode == QT_T ||
