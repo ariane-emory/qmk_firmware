@@ -98,7 +98,7 @@ static uint16_t idle_timer = 0;
   DO(SS_DIR,            ("~/"),                ("../"),                   ("./"))                   \
   DO(SS_LBRACK,         ("9"),                 ("{"),                     ("["))                    \
   DO(SS_RBRACK,         ("0"),                 ("}"),                     ("]"))                    \
-  DO(SS_BRACKS,         ("90" LL),             ("{" CR CR "}" UU TB),  ("[]" LL))
+  DO(SS_BRACKS,         ("90" LL),             ("{" CR CR "}" UU TB),     ("[]" LL))
 
 #define enum_item(kc, str, ...) kc,
 
@@ -233,7 +233,7 @@ bool process_send_string(
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
 void tap_number(uint16_t num) {
-  const uint8_t max_digits = 5;
+  static const uint8_t max_digits = 5;
   const uint8_t current_mods = get_mods();
   clear_mods();
   send_keyboard_report();
