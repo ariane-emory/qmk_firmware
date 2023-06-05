@@ -17,11 +17,7 @@ void print_num(uint8_t num, const uint8_t max_digits) {
     
       num -= modulo;
       num /= 10;
-      if (modulo == 0) {
-        buf[ix--] = 48 + modulo;
-      } else {
-        buf[ix--] = 48 + modulo;
-      }
+      buf[ix--] = 48 + modulo;
     }
 
     ix++;
