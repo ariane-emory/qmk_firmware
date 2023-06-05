@@ -23,7 +23,7 @@ void print_num(uint8_t num, const uint8_t max_digits) {
     ix++;
   }
   
-  printf("\nstr  @ %p   = '%s'\n", &buf[ix+1], &buf[ix]);
+  printf("\nstr    @ %p = '%s'\n", &buf[ix+1], &buf[ix]);
   printf("ix                   = %d\n", ix);
   printf("\n");
   
