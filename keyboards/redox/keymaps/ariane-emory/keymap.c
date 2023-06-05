@@ -42,11 +42,12 @@ void keyboard_post_init_user(void) {
 #define KEYRECORD_FUN(name, t) t name(uint16_t keycode, keyrecord_t *record)
 
 #ifdef SEND_STRING_ENABLE
+#  define MY_SS_DELAY 250
 void send_string_without_mods_P(const char * const string) {
   const uint8_t current_mods = get_mods();
   clear_mods();
   send_keyboard_report();
-  send_string_with_delay_P(string, 0);
+  send_string_with_delay_P(string, MY_SS_DELAY);
   set_mods(current_mods);
 }
 #define SEND_STRING_WITHOUT_MODS_P(string) send_string_without_mods_P(string)
@@ -55,7 +56,7 @@ void send_string_without_mods(const char * const string) {
   const uint8_t current_mods = get_mods();
   clear_mods();
   send_keyboard_report();
-  send_string_with_delay(string, 0);
+  send_string_with_delay(string, MY_SS_DELAY);
   set_mods(current_mods);
 }
 #define SEND_STRING_WITHOUT_MODS(string) send_string_without_mods(string)
@@ -89,7 +90,7 @@ static uint16_t idle_timer = 0;
 // #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)
  
 #define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                        \
-  DO(SS_ARROW,          ("->"),  ("`"SS_TAP(X_LEFT)"`"),  ("49"SS_TAP(X_LEFT)"0"))                  \
+  DO(SS_ARROW,          ("->"),  ("``"SS_TAP(X_LEFT)),  ("490"SS_TAP(X_LEFT)))                      \
   DO(SS_DIR,            ("../"), ("./"),                  ("~/"))                                   \
   DO(SS_LBRACK,         ("9"),   ("["),                   ("{"))                                    \
   DO(SS_RBRACK,         ("0"),   ("]"),                   ("}"))
