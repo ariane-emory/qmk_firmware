@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 #if defined(HOME_ROW_MODS) || defined(BOTTOM_ROW_MODS)
-//#define USE_ACHORDION
+#define USE_ACHORDION
 #include "features/achordion.h"
 #endif
 
@@ -388,8 +388,7 @@ bool achordion_chord(
     if (
 #ifdef TOP_SHIFT
       (tap_hold_keycode == QH_A &&
-       (other_keycode == LSFT_T(KC_MINS) ||
-        other_keycode == SS_UPDIR)) ||
+       (other_keycode == LSFT_T(KC_MINS))) ||
       (tap_hold_keycode == QH_QUOT &&
        (other_keycode == RSFT_T(KC_MINS))) ||
 #endif
@@ -417,6 +416,8 @@ bool achordion_chord(
         other_keycode == QT_T)) ||
       (tap_hold_keycode == QH_F &&
        (other_keycode == SS_UPDIR ||
+        other_keycode == KC_LBRC ||
+        other_keycode == KC_RBRC ||
         other_keycode == QH_A ||
         other_keycode == QT_E ||
         other_keycode == QT_T ||
