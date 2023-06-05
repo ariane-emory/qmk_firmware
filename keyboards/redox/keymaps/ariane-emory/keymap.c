@@ -91,7 +91,7 @@ static uint16_t idle_timer = 0;
 #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                   \
   DO(SS_TILD_SLSH,      ("~/"),  ("~"))                                                             \
   DO(SS_UPDIR,          ("../"), ("./"))
-
+ 
 #define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                        \
   DO(SS_LPAR,           ("9"), ("["), ("{"))                                                        \
   DO(SS_RPAR,           ("0"), ("]"), ("}"))
