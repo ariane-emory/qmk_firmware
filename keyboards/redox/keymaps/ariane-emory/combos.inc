@@ -103,7 +103,8 @@ bool combo_should_trigger(
   combo_t *    combo,
   uint16_t     keycode,
   keyrecord_t *record) {
-  return (combo->keycode == SS_DICT
+  return ((combo->keycode == SS_DICT)
+          || (combo->keycode == KC_ENT)
           || layer_state_is(0)
           || layer_state_is(1)
           || layer_state_is(2)
