@@ -130,6 +130,7 @@ FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_progmem_alted_string);
 #undef enum_item
 #undef define_progmem_string
 #undef define_progmem_ctrled_string
+#undef define_progmem_alted_string
 
 #define USE_SEND_STRING_KEYCODES_TABLE
 
