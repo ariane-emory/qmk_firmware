@@ -90,9 +90,9 @@ static uint16_t idle_timer = 0;
  
 #define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                        \
   DO(SS_ARROW,          ("->"),  ("`"),  (""))                                                      \
-  DO(SS_UPDIR,          ("../"), ("./"), ("~/"))                                                    \
-  DO(SS_LPAR,           ("9"),   ("["),  ("{"))                                                     \
-  DO(SS_RPAR,           ("0"),   ("]"),  ("}"))
+  DO(SS_DIR,          ("../"), ("./"), ("~/"))                                                      \
+  DO(SS_LBRACK,           ("9"),   ("["),  ("{"))                                                   \
+  DO(SS_RBRACK,           ("0"),   ("]"),  ("}"))
 
 #define enum_item(kc, str, ...) kc,
 
@@ -488,9 +488,9 @@ bool achordion_chord(
       (tap_hold_keycode == QH_D &&
        (other_keycode == KC_TAB ||
         other_keycode == SS_ARROW ||
-        other_keycode == SS_UPDIR ||
-        other_keycode == SS_LPAR ||
-        other_keycode == SS_RPAR ||
+        other_keycode == SS_DIR ||
+        other_keycode == SS_LBRACK ||
+        other_keycode == SS_RBRACK ||
         other_keycode == QT_W ||
         other_keycode == QT_R ||
         other_keycode == QH_F ||
@@ -498,9 +498,9 @@ bool achordion_chord(
         other_keycode == QT_T)) ||
       (tap_hold_keycode == QH_F &&
        (other_keycode == SS_ARROW ||
-        other_keycode == SS_UPDIR ||
-        other_keycode == SS_LPAR ||
-        other_keycode == SS_RPAR ||        
+        other_keycode == SS_DIR ||
+        other_keycode == SS_LBRACK ||
+        other_keycode == SS_RBRACK ||        
         other_keycode == QH_A ||
         other_keycode == QT_E ||
         other_keycode == QT_T ||
