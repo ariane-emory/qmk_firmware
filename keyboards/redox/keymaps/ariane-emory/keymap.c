@@ -101,11 +101,11 @@ static uint16_t idle_timer = 0;
 
 #define define_tagged_progmem_string(tag, kc, str, ...)                                                                 \
   static const char tag##_str_##kc[] PROGMEM = str;
-#define define_progmem_string(kc, str, ...)                                                                             \
+#define define_nomods_progmem_string(kc, str, ...)                                                                      \
   define_tagged_progmem_string(nomods, kc, str, __VA_ARGS__)
-#define define_progmem_ctrled_string(kc, str, ctrled_str, ...)                                                          \
+#define define_ctrled_progmem_string(kc, str, ctrled_str, ...)                                                          \
   define_tagged_progmem_string(ctrled, kc, ctrled_str, __VA_ARGS__)
-#define define_progmem_alted_string(kc, str, ctrled_str, alted_str, ...)                                                \
+#define define_alted_progmem_string(kc, str, ctrled_str, alted_str, ...)                                                \
   define_tagged_progmem_string(alted, kc, alted_str, __VA_ARGS__)
 
 enum arianes_keycodes {
@@ -121,20 +121,20 @@ enum arianes_keycodes {
   FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
-// FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
+// FOR_EACH_SEND_STRING_KEYCODE(define_nomods_progmem_string);
 
-/* FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_progmem_string); */
-/* FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_progmem_ctrled_string); */
+/* FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string); */
+/* FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string); */
 
-FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_progmem_string);
-FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_progmem_ctrled_string);
-FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_progmem_alted_string);
+FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
+FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
+FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
 
 #undef enum_item
 #undef define_tagged_progmem_string
-#undef define_progmem_nomods_string
-#undef define_progmem_ctrled_string
-#undef define_progmem_alted_string
+#undef define_nomods_progmem_string
+#undef define_ctrled_progmem_string
+#undef define_alted_progmem_string
 
 #define USE_SEND_STRING_KEYCODES_TABLE
 
