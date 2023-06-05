@@ -54,7 +54,7 @@
   __(r_top_rech,    ____________, QT_Y,    QT_U                                ) \
   __(r_top_sprd,    ____________, QT_U,    QT_O                                ) \
   __(r_top_trpi,    ____________, QT_Y,    QT_U,      QT_I                     ) \
-  __(r_top_trpm,    ____________, QT_U,    QT_I,      QT_O                     ) \
+  DO(r_top_trpm,    SS_BRACKS,    QT_U,    QT_I,      QT_O                     ) \
   __(r_top_trpo,    ____________, QT_I,    QT_O,      QT_P                     ) \
   ______________________________________________________________________________ \
   DO(r_mid_EXTR,    EM_LWRAP,     QH_QUOT, RCTL_DQUO                           ) \
