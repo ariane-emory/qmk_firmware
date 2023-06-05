@@ -89,6 +89,7 @@ static uint16_t idle_timer = 0;
 // #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)
 
 #define LL SS_TAP(X_LEFT)
+#define UU SS_TAP(X_UP)
 #define TB SS_TAP(X_TAB)
 #define CR SS_TAP(X_ENT)
 
@@ -97,7 +98,7 @@ static uint16_t idle_timer = 0;
   DO(SS_DIR,            ("~/"),                ("../"),                   ("./"))                   \
   DO(SS_LBRACK,         ("9"),                 ("{"),                     ("["))                    \
   DO(SS_RBRACK,         ("0"),                 ("}"),                     ("]"))                    \
-  DO(SS_BRACKS,         ("90" LL),             ("{" CR CR "}" LL LL TB),  ("[]" LL))
+  DO(SS_BRACKS,         ("90" LL),             ("{" CR CR "}" UU TB),  ("[]" LL))
 
 #define enum_item(kc, str, ...) kc,
 
@@ -298,7 +299,7 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif // ! USE_SEND_STRING_KEYCODES_TABLE
   case QK_DYNAMIC_MACRO_PLAY_1:
   case QK_DYNAMIC_MACRO_PLAY_2:
-    if (record->event.pressed)
+    if (record->event.pressed) 
       dynamic_macro_stop_recording();
     return true;
   case HOLD_GUI:
