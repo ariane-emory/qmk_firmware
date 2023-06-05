@@ -1,4 +1,4 @@
-// -*- c-backslash-column: 100; c-backslash-max-column: 100; -*-
+// -*- c-backslash-column: 120; c-backslash-max-column: 120; -*-
 
 #include QMK_KEYBOARD_H
 
@@ -83,28 +83,28 @@ static uint16_t idle_timer = 0;
 #define TB SS_TAP(X_TAB)
 #define CR SS_TAP(X_ENT)
 
-#define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                        \
-  DO(SS_SIRI,           (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)), (""), (""))          \
-  DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."), (""), (""))                               \
-  DO(EM_CHG_BUF,        (SS_LCTL("x")SS_DELAY(50)"b"), (""), (""))                                  \
-  DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"), (""), (""))                                  \
-  DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")), (""), (""))                         \
-  DO(SS_PIN1,           (AE_PIN1), (AE_PIN2), (""))                                                 \
-  DO(SS_BANGBANG,       ("11"SS_TAP(X_ENT)), (""), (""))                                            \
-  DO(SS_DICT,           (SS_TAP(X_F24)SS_TAP(X_F24)), (""), (""))                                   \
-  DO(SS_ARROW,          ("->"),                ("490"LL),                 ("``"LL))                 \
-  DO(SS_DIR,            ("~/"),                ("../"),                   ("./"))                   \
-  DO(SS_LBRACK,         ("9"),                 ("{"),                     ("["))                    \
-  DO(SS_RBRACK,         ("0"),                 ("}"),                     ("]"))                    \
-  DO(SS_BRACKS,         ("90" LL),             ("{" CR CR "}" UU TB),     ("[]" LL))
+#define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                                            \
+  DO(SS_SIRI,           (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)), (""),                   (""))            \
+  DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."),                      (""),                   (""))            \
+  DO(EM_CHG_BUF,        (SS_LCTL("x")SS_DELAY(50)"b"),                         (""),                   (""))            \
+  DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"),                         (""),                   (""))            \
+  DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")),                (""),                   (""))            \
+  DO(SS_BANGBANG,       ("11"SS_TAP(X_ENT)),                                   (""),                   (""))            \
+  DO(SS_DICT,           (SS_TAP(X_F24)SS_TAP(X_F24)),                          (""),                   (""))            \
+  DO(SS_PIN1,           (AE_PIN1),                                             (AE_PIN2),              (""))            \
+  DO(SS_ARROW,          ("->"),                                                ("490"LL),              ("``"LL))        \
+  DO(SS_DIR,            ("~/"),                                                ("../"),                ("./"))          \
+  DO(SS_LBRACK,         ("9"),                                                 ("{"),                  ("["))           \
+  DO(SS_RBRACK,         ("0"),                                                 ("}"),                  ("]"))           \
+  DO(SS_BRACKS,         ("90" LL),                                             ("{" CR CR "}" UU TB),  ("[]" LL))
 
 #define enum_item(kc, str, ...) kc,
 
-#define define_progmem_string(kc, str, ...)                                                         \
+#define define_progmem_string(kc, str, ...)                                                                             \
   static const char str_##kc[] PROGMEM = str;
-#define define_progmem_ctrled_string(kc, str, ctrled_str, ...)                                      \
+#define define_progmem_ctrled_string(kc, str, ctrled_str, ...)                                                          \
   static const char ctrled_str_##kc[] PROGMEM = ctrled_str;
-#define define_progmem_alted_string(kc, str, ctrled_str, alted_str, ...)                            \
+#define define_progmem_alted_string(kc, str, ctrled_str, alted_str, ...)                                                \
   static const char alted_str_##kc[] PROGMEM = alted_str;
 
 enum arianes_keycodes {
@@ -283,21 +283,21 @@ KEYRECORD_FUN(process_record_user, bool) {
     }
     return false;
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
-#  define kc_tap_case_ctrlable_or_altable_send_string(kc, str, ctrled_str, alted_str)               \
-    case kc:                                                                                        \
-      if (record->event.pressed) {                                                                  \
-        if (                                                                                        \
-          (ctrled_str_##kc[0] != '\0') &&                                                           \
-          (get_mods() & MOD_MASK_CTRL)) {                                                           \
-          SEND_STRING_WITHOUT_MODS_P(ctrled_str_##kc);                                              \
-        } else if (                                                                                 \
-          (alted_str_##kc[0] != '\0') &&                                                            \
-          (get_mods() & MOD_MASK_ALT)) {                                                            \
-          SEND_STRING_WITHOUT_MODS_P(alted_str_##kc);                                               \
-        } else {                                                                                    \
-          SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                     \
-        }                                                                                           \
-      }                                                                                             \
+#  define kc_tap_case_ctrlable_or_altable_send_string(kc, str, ctrled_str, alted_str)                                   \
+    case kc:                                                                                                            \
+      if (record->event.pressed) {                                                                                      \
+        if (                                                                                                            \
+          (ctrled_str_##kc[0] != '\0') &&                                                                               \
+          (get_mods() & MOD_MASK_CTRL)) {                                                                               \
+          SEND_STRING_WITHOUT_MODS_P(ctrled_str_##kc);                                                                  \
+        } else if (                                                                                                     \
+          (alted_str_##kc[0] != '\0') &&                                                                                \
+          (get_mods() & MOD_MASK_ALT)) {                                                                                \
+          SEND_STRING_WITHOUT_MODS_P(alted_str_##kc);                                                                   \
+        } else {                                                                                                        \
+          SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                                         \
+        }                                                                                                               \
+      }                                                                                                                 \
       return false;
     FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(kc_tap_case_ctrlable_or_altable_send_string)
 #  undef  kc_tap_case_ctrlable_or_altable_send_string
@@ -315,10 +315,10 @@ KEYRECORD_FUN(process_record_user, bool) {
 /*         return false; */
 /*       FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(kc_tap_case_ctrlable_send_string) */
 /* #  undef  kc_tap_case_ctrlable_send_string */
-#  define kc_tap_case_send_string(kc, str)                                                          \
-      case kc:                                                                                      \
-        if (record->event.pressed)                                                                  \
-          SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                     \
+#  define kc_tap_case_send_string(kc, str)                                                                              \
+      case kc:                                                                                                          \
+        if (record->event.pressed)                                                                                      \
+          SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                                         \
         return false;
       FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
 #  undef  kc_tap_case_send_string
