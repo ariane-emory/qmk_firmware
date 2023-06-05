@@ -20,9 +20,9 @@
   __(l_num_trpm,    ____________, KC_2,    KC_3,      KC_4                     ) \
   __(l_num_trpo,    ____________, KC_1,    KC_2,      KC_3                     ) \
   ______________________________________________________________________________ \
-  DO(l_top_edge,    SS_GRAV,      QT_Q,    QT_W                                ) \
+  __(l_top_edge,    ____________, QT_Q,    QT_W                                ) \
   __(l_top_innr,    ____________, QT_E,    QT_R                                ) \
-  DO(l_top_outr,    SS_TILD_SLSH, QT_W,    QT_E                                ) \
+  __(l_top_outr,    ____________, QT_W,    QT_E                                ) \
   __(l_top_rech,    ____________, QT_T,    QT_R                                ) \
   __(l_top_sprd,    ____________, QT_W,    QT_R                                ) \
   __(l_top_trpi,    ____________, QT_E,    QT_R,      QT_T                     ) \
