@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 #if defined(HOME_ROW_MODS) || defined(BOTTOM_ROW_MODS)
-#define USE_ACHORDION
+//#define USE_ACHORDION
 #include "features/achordion.h"
 #endif
 
@@ -86,11 +86,11 @@ static uint16_t idle_timer = 0;
   DO(SS_PIN2,           (AE_PIN2))                                                                  \
   DO(SS_ARROW,          ("->"))                                                                     \
   DO(SS_GRAV,           ("`"))                                                                      \
-  DO(SS_LPAR,           ("9"))                                                                      \
-  DO(SS_RPAR,           ("0"))                                                                      \
   DO(SS_BANGBANG,       ("11"SS_TAP(X_ENT)))
 
 #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                   \
+  DO(SS_LPAR,           ("9"), ("["))                                                               \
+  DO(SS_RPAR,           ("0"), ("]"))                                                               \
   DO(SS_TILD_SLSH,      ("~/"),  ("~"))                                                             \
   DO(SS_UPDIR,          ("../"), ("./"))
 
@@ -145,7 +145,7 @@ bool process_ctrlable_send_string(
   const uint8_t ix) {
   if (ctrlable_send_string_keycodes[ix].kc == keycode) {      
     if (record->event.pressed) {
-      if ((ctrlable_send_string_keycodes[ix].ctrled_str[0] != '\0') &&
+      if ((strlen_P(ctrlable_send_string_keycodes[ix].ctrled_str) > 0) &&
           (get_mods() & MOD_MASK_CTRL)) {
         SEND_STRING_WITHOUT_MODS_P(ctrlable_send_string_keycodes[ix].ctrled_str);
       } else {
