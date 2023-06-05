@@ -489,6 +489,8 @@ bool achordion_chord(
         other_keycode == QB_V)) ||
       (tap_hold_keycode == QH_D &&
        (other_keycode == KC_TAB ||
+        other_keycode == SS_LPAR ||
+        other_keycode == SS_RPAR ||
         other_keycode == QT_W ||
         other_keycode == QT_R ||
         other_keycode == QH_F ||
@@ -496,7 +498,6 @@ bool achordion_chord(
         other_keycode == QT_T)) ||
       (tap_hold_keycode == QH_F &&
        (other_keycode == SS_UPDIR ||
-        other_keycode == SS_LPAR ||
         other_keycode == SS_RPAR ||
         other_keycode == QH_A ||
         other_keycode == QT_E ||
