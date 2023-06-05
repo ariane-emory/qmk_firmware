@@ -33,14 +33,13 @@ void print_num(uint8_t num, const uint8_t max_digits) {
 }
 
 void print_num2(uint8_t num, const uint8_t max_digits) {
-  const uint8_t size = max_digits + 1;
-  char buf[size];
-  uint8_t ix = size - 2;
-  for (uint8_t i = 0; i < size; i++) buf[i] = 0;
+  char buf[max_digits + 1];
+  uint8_t ix = max_digits + 1 - 2;
+  for (uint8_t i = 0; i < max_digits + 1; i++) buf[i] = 0;
 
   if (num == 0) {
-    buf[size - 2] = '0';
-    ix     = size - 2;
+    buf[max_digits + 1 - 2] = '0';
+    ix     = max_digits + 1 - 2;
   } else {  
     while (num) {
       const uint8_t modulo = num % 10;
@@ -62,19 +61,19 @@ void print_num2(uint8_t num, const uint8_t max_digits) {
   }
   printf("'\n");
 
-  for (uint8_t i = 0; i < size; i++)
+  for (uint8_t i = 0; i < max_digits + 1; i++)
     printf("buf[%d] @ %p = %d\n", i, &buf[i], buf[i]);
 
   printf("\n");
 }
 
 int main() {
-  print_num (219, 3);
+//   print_num (219, 3);
   print_num2(219, 3);
-  print_num (29,  3);
+//   print_num (29,  3);
   print_num2(29,  3);
-  print_num (7,   3);
+//   print_num (7,   3);
   print_num2(7,   3);
-  print_num (0,   3);
+//   print_num (0,   3);
   print_num2(0,   3);
 }
