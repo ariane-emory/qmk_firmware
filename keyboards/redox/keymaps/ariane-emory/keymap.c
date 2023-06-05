@@ -88,12 +88,13 @@ static uint16_t idle_timer = 0;
   DO(SS_BANGBANG,       ("11"SS_TAP(X_ENT)))
 
 // #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)
- 
+
+#define LL SS_TAP(X_LEFT)
 #define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                        \
-  DO(SS_ARROW,          ("->"),  ("490"SS_TAP(X_LEFT)), ("``"SS_TAP(X_LEFT)))                       \
-  DO(SS_DIR,            ("~/"),  ("../"),               ("./"))                                     \
-  DO(SS_LBRACK,         ("9"),   ("[]"SS_TAP(X_LEFT)),  ("{}"SS_TAP(X_LEFT)))                       \
-  DO(SS_RBRACK,         ("0"),   ("]"),                 ("}"))
+  DO(SS_ARROW,          ("->"),    ("490"LL), ("``"LL))                                             \
+  DO(SS_DIR,            ("~/"),    ("../"),   ("./"))                                               \
+  DO(SS_LBRACK,         ("90"LL),  ("[]"LL),  ("{}"LL))                                             \
+  DO(SS_RBRACK,         ("0"),     ("]"),     ("}"))
 
 #define enum_item(kc, str, ...) kc,
 
