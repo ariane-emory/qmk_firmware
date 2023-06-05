@@ -35,7 +35,7 @@ void print_num(uint8_t num, const uint8_t max_digits) {
 void print_num2(uint8_t num, const uint8_t max_digits) {
   char buf[max_digits];
   uint8_t ix = max_digits - 1;
-  for (uint8_t i = 0; i < max_digits; i++) buf[i] = 0;
+  //  for (uint8_t i = 0; i < max_digits; i++) buf[i] = 0;
 
   //  if (num != 0) {
   while (num) {
