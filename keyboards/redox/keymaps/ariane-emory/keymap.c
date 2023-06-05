@@ -5,8 +5,8 @@
 #include <stdbool.h>
 
 #if defined(HOME_ROW_MODS) || defined(BOTTOM_ROW_MODS)
-// #define USE_ACHORDION
-#include "features/achordion.h"
+#  define USE_ACHORDION
+#  include "features/achordion.h"
 #endif
 
 #include "key_aliases.h"
@@ -91,8 +91,7 @@ static uint16_t idle_timer = 0;
 // #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)
  
 #define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                        \
-  DO(SS_TILD_SLSH,      ("~/"),  ("~"),  (""))                                                      \
-  DO(SS_UPDIR,          ("../"), ("./"), (""))                                                      \
+  DO(SS_UPDIR,          ("../"), ("./"), ("~/"))                                                    \
   DO(SS_LPAR,           ("9"),   ("["),  ("{"))                                                     \
   DO(SS_RPAR,           ("0"),   ("]"),  ("}"))
 
@@ -491,6 +490,7 @@ bool achordion_chord(
        (other_keycode == KC_TAB ||
         other_keycode == SS_LPAR ||
         other_keycode == SS_RPAR ||
+        other_keycode == SS_UPDIR ||
         other_keycode == QT_W ||
         other_keycode == QT_R ||
         other_keycode == QH_F ||
