@@ -35,6 +35,7 @@ void print_num(uint8_t num, const uint8_t max_digits) {
 
 int main() {
   print_num(219, 3);
-  print_num(29, 3);
-  print_num(0, 3);
+  print_num(29,  3);
+  print_num(7,   3);
+  print_num(0,   3);
 }
