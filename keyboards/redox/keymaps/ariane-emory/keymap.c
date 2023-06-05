@@ -177,12 +177,14 @@ bool process_ctrlable_or_altable_send_string(
   const uint8_t ix) {
   if (ctrlable_or_altable_send_string_keycodes[ix].kc == keycode) {      
     if (record->event.pressed) {
-      if ((pgm_read_byte(ctrlable_or_altable_send_string_keycodes[ix].ctrled_str) != 0) &&
-          (get_mods() & MOD_MASK_CTRL)) {
+      if (
+        (pgm_read_byte(ctrlable_or_altable_send_string_keycodes[ix].ctrled_str) != 0) &&
+        (get_mods() & MOD_MASK_CTRL)) {
         SEND_STRING_WITHOUT_MODS_P(ctrlable_or_altable_send_string_keycodes[ix].ctrled_str);
       }
-      else if ((pgm_read_byte(ctrlable_or_altable_send_string_keycodes[ix].alted_str) != 0) &&
-               (get_mods() & MOD_MASK_ALT)) {
+      else if (
+        (pgm_read_byte(ctrlable_or_altable_send_string_keycodes[ix].alted_str) != 0) &&
+        (get_mods() & MOD_MASK_ALT)) {
         SEND_STRING_WITHOUT_MODS_P(ctrlable_or_altable_send_string_keycodes[ix].alted_str);
       }
       else {
@@ -200,8 +202,9 @@ bool process_ctrlable_send_string(
   const uint8_t ix) {
   if (ctrlable_send_string_keycodes[ix].kc == keycode) {      
     if (record->event.pressed) {
-      if ((pgm_read_byte(ctrlable_send_string_keycodes[ix].ctrled_str) != 0) &&
-          (get_mods() & MOD_MASK_CTRL)) {
+      if (
+        (pgm_read_byte(ctrlable_send_string_keycodes[ix].ctrled_str) != 0) &&
+        (get_mods() & MOD_MASK_CTRL)) {
         SEND_STRING_WITHOUT_MODS_P(ctrlable_send_string_keycodes[ix].ctrled_str);
       } else {
         SEND_STRING_WITHOUT_MODS_P(ctrlable_send_string_keycodes[ix].str);
