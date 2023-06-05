@@ -37,19 +37,16 @@ void print_num2(uint8_t num, const uint8_t max_digits) {
   uint8_t ix = max_digits - 1;
   for (uint8_t i = 0; i < max_digits; i++) buf[i] = 0;
 
-  if (num != 0) {
-    while (num) {
-      const uint8_t modulo = num % 10;
-      printf("modulo '%d'\n", modulo);
+  //  if (num != 0) {
+  while (num) {
+    const uint8_t modulo = num % 10;
+    printf("modulo '%d'\n", modulo);
     
-      num -= modulo;
-      num /= 10;
-      buf[ix--] = modulo;
-    }
-
-    ix++;
+    num -= modulo;
+    num /= 10;
+    buf[ix] = modulo;
+    if (num) ix--;
   }
-  
   printf("ix                   = %d\n", ix);
   printf("str     @ %p = '", &buf[ix+1]);
   while (ix < max_digits) {
