@@ -91,9 +91,9 @@ static uint16_t idle_timer = 0;
  
 #define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                        \
   DO(SS_ARROW,          ("->"),  ("``"SS_TAP(X_LEFT)),  ("490"SS_TAP(X_LEFT)))                      \
-  DO(SS_DIR,            ("../"), ("./"),                  ("~/"))                                   \
-  DO(SS_LBRACK,         ("9"),   ("["),                   ("{"))                                    \
-  DO(SS_RBRACK,         ("0"),   ("]"),                   ("}"))
+  DO(SS_DIR,            ("~/"),  ("../"),               ("./"))                                    \
+  DO(SS_LBRACK,         ("9"),   ("["),                 ("{"))                                     \
+  DO(SS_RBRACK,         ("0"),   ("]"),                 ("}"))
 
 #define enum_item(kc, str, ...) kc,
 
