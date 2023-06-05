@@ -741,16 +741,6 @@ KEYRECORD_FUN(get_autoshift_timeout, uint16_t) {
 /* } */
 
 // ==============================================================================
-// Undefine local macros
-// ==============================================================================
-
-#undef KC_TAP_CASE
-#undef KEYRECORD_FUN
-#undef MANAGE_TOGGLED_LAYER_TIMEOUT
-#undef RGBLIGHT_SETRGB
-#undef SEND_STRING_WITHOUT_MODS
-
-// ==============================================================================
 // Include keymap
 // ==============================================================================
 
