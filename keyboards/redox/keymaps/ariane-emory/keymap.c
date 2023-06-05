@@ -232,7 +232,8 @@ bool process_send_string(
 }
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
-void tap_number(uint8_t num, const uint8_t max_digits) {
+void tap_number(uint16_t num) {
+  const uint8_t max_digits = 5;
   const uint8_t current_mods = get_mods();
   clear_mods();
   send_keyboard_report();
@@ -240,18 +241,15 @@ void tap_number(uint8_t num, const uint8_t max_digits) {
   uint8_t  ix = max_digits - 1;
 
   while (num) {
-    const uint8_t modulo = num % 10;
-    
+    const uint8_t modulo = num % 10;    
     num -= modulo;
     num /= 10;
     buf[ix] = (modulo == KC_0) ? KC_0 : KC_1 + modulo - 1;
     if (num) ix--;
   }
   
-  while (ix < max_digits) {
+  for (;ix < max_digits; ix++)
     tap_code16(LSFT(buf[ix]));
-    ix++;
-  }
   
   set_mods(current_mods);
 }
@@ -283,7 +281,7 @@ KEYRECORD_FUN(process_record_user, bool) {
   switch (keycode) {
   case VS_CLOSE:
     if (record->event.pressed) {
-      tap_number(123, 3);
+      tap_number(12388);
     }
     return false;
 #ifndef USE_SEND_STRING_KEYCODES_TABLE

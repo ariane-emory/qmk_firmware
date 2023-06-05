@@ -35,9 +35,7 @@ void print_num(uint8_t num, const uint8_t max_digits) {
 void print_num2(uint8_t num, const uint8_t max_digits) {
   char buf[max_digits];
   uint8_t ix = max_digits - 1;
-  //  for (uint8_t i = 0; i < max_digits; i++) buf[i] = 0;
 
-  //  if (num != 0) {
   while (num) {
     const uint8_t modulo = num % 10;
     printf("modulo '%d'\n", modulo);
@@ -49,10 +47,9 @@ void print_num2(uint8_t num, const uint8_t max_digits) {
   }
   printf("ix                   = %d\n", ix);
   printf("str     @ %p = '", &buf[ix+1]);
-  while (ix < max_digits) {
+  for (;ix < max_digits; ix++)
     printf("%c", buf[ix] + 48);
-    ix++;
-  }
+
   printf("'\n");
 
   for (uint8_t i = 0; i < max_digits; i++)
