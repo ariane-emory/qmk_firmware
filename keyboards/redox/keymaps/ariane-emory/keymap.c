@@ -233,6 +233,9 @@ bool process_send_string(
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
 void print_num2(uint8_t num, const uint8_t max_digits) {
+  const uint8_t current_mods = get_mods();
+  clear_mods();
+  send_keyboard_report();
   uint16_t buf[max_digits];
   uint8_t ix = max_digits - 1;
   for (uint8_t i = 0; i < max_digits; i++) buf[i] = 0;
@@ -250,9 +253,11 @@ void print_num2(uint8_t num, const uint8_t max_digits) {
   }
   
   while (ix < max_digits) {
-    tap_code16(buf[ix]);
+    tap_code16(LSFT(buf[ix]));
     ix++;
   }
+  
+  set_mods(current_mods);
 }
 
 
