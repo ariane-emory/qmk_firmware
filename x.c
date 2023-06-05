@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdint.h>
 
-void print_num(uint8_t num, const uint8_t size) {
-  const uint8_t siz = 5;
-  char buf[siz] = { 0 };
-  uint8_t ix = siz - 2;
+void print_num(uint8_t num, const uint8_t max_digits) {
+  const uint8_t size = max_digits + 1;
+  char buf[size];
+
+  for (uint8_t i = 0; i < size; i++)
+    buf[i] = 0;
+  
+  uint8_t ix = size - 2;
     
   while (num) {
     const uint8_t modulo = num % 10;
@@ -23,7 +27,7 @@ void print_num(uint8_t num, const uint8_t size) {
   printf("ix                   = %d\n", ix);
   printf("\n");
   
-  for (uint8_t i = 0; i < siz; i++)
+  for (uint8_t i = 0; i < size; i++)
     printf("buf[%d] @ %p = %d\n", i, &buf[i], buf[i]);
 
   printf("\n");
