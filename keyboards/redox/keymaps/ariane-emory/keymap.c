@@ -100,7 +100,7 @@ static uint16_t idle_timer = 0;
 #define enum_item(kc, str, ...) kc,
 
 #define define_progmem_string(kc, str, ...)                                                                             \
-  static const char nomod_str_##kc[] PROGMEM = str;
+  static const char nomods_str_##kc[] PROGMEM = str;
 #define define_progmem_ctrled_string(kc, str, ctrled_str, ...)                                                          \
   static const char ctrled_str_##kc[] PROGMEM = ctrled_str;
 #define define_progmem_alted_string(kc, str, ctrled_str, alted_str, ...)                                                \
@@ -159,7 +159,7 @@ typedef struct {
 /* static const uint8_t ctrlable_send_string_keycodes_size = ARRAY_SIZE(ctrlable_send_string_keycodes); */
 #  undef ctrlable_send_string_keycodes_row
 
-#  define ctrlable_or_altable_send_string_keycodes_row(kc, str, str2, altable_str) { kc, nomod_str_##kc, ctrled_str_##kc, alted_str_##kc },
+#  define ctrlable_or_altable_send_string_keycodes_row(kc, str, str2, altable_str) { kc, nomods_str_##kc, ctrled_str_##kc, alted_str_##kc },
 typedef struct {
   uint16_t kc;
   const char * str;
