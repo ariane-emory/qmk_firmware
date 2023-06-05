@@ -254,18 +254,33 @@ KEYRECORD_FUN(process_record_user, bool) {
 
   switch (keycode) {
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
-#  define kc_tap_case_ctrlable_send_string(kc, str, ctrled_str)                                     \
+#  define kc_tap_case_ctrlable_or_altable_send_string(kc, str, ctrled_str)                          \
     case kc:                                                                                        \
       if (record->event.pressed) {                                                                  \
-        if ((ctrled_str_##kc[0] != '\0') &&                                                         \
-            (get_mods() & MOD_MASK_CTRL)) {                                                         \
+        if (                                                                                        \
+          (ctrled_str_##kc[0] != '\0') &&                                                           \
+          (get_mods() & MOD_MASK_CTRL)) {                                                           \
           SEND_STRING_WITHOUT_MODS_P(ctrled_str_##kc);                                              \
         } else {                                                                                    \
           SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                     \
         }                                                                                           \
       }                                                                                             \
       return false;
-    FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(kc_tap_case_ctrlable_send_string)
+    FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(kc_tap_case_ctrlable_or_altable_send_string)
+#  undef  kc_tap_case_ctrlable_or_altable_send_string
+#  define kc_tap_case_ctrlable_send_string(kc, str, ctrled_str)                                     \
+      case kc:                                                                                      \
+        if (record->event.pressed) {                                                                \
+          if (                                                                                      \
+            (ctrled_str_##kc[0] != '\0') &&                                                         \
+            (get_mods() & MOD_MASK_CTRL)) {                                                         \
+            SEND_STRING_WITHOUT_MODS_P(ctrled_str_##kc);                                            \
+          } else {                                                                                  \
+            SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                   \
+          }                                                                                         \
+        }                                                                                           \
+        return false;
+      FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(kc_tap_case_ctrlable_send_string)
 #  undef  kc_tap_case_ctrlable_send_string
 #  define kc_tap_case_send_string(kc, str)                                                          \
       case kc:                                                                                      \
