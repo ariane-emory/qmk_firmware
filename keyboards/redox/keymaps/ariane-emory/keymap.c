@@ -261,6 +261,10 @@ KEYRECORD_FUN(process_record_user, bool) {
           (ctrled_str_##kc[0] != '\0') &&                                                           \
           (get_mods() & MOD_MASK_CTRL)) {                                                           \
           SEND_STRING_WITHOUT_MODS_P(ctrled_str_##kc);                                              \
+        } else if (                                                                                 \
+          (alted_str_##kc[0] != '\0') &&                                                            \
+          (get_mods() & MOD_MASK_ALT)) {                                                            \
+          SEND_STRING_WITHOUT_MODS_P(alted_str_##kc);                                               \
         } else {                                                                                    \
           SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                     \
         }                                                                                           \
