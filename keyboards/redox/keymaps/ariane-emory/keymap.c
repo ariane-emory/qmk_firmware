@@ -100,15 +100,13 @@ static uint16_t idle_timer = 0;
 
 #define define_progmem_string(kc, str, ...)                                                         \
   static const char str_##kc[] PROGMEM = str;
-#define define_progmem_ctrled_string(kc, str, ctrled_str)                                           \
+#define define_progmem_ctrled_string(kc, str, ctrled_str, ...)                                      \
   static const char ctrled_str_##kc[] PROGMEM = ctrled_str;
-#define define_progmem_alted_string(kc, str, ctrled_str, alted_str)                                 \
+#define define_progmem_alted_string(kc, str, ctrled_str, alted_str, ...)                            \
   static const char alted_str_##kc[] PROGMEM = alted_str;
 
 enum arianes_keycodes {
   AE_DUMMY = SAFE_RANGE,
-  SS_LPAR, // tmp
-  SS_RPAR, // tmp
   HOLD_GUI,
   INSERT_UPP,
   RGB_TOGGLE_NOEE,
@@ -117,11 +115,17 @@ enum arianes_keycodes {
   VS_FORMAT_DOC,
   FOR_EACH_SEND_STRING_KEYCODE(enum_item)
   FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
+  FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
+
 FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_progmem_string);
 FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_progmem_ctrled_string);
+
+FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_progmem_string);
+FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_progmem_ctrled_string);
+FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_progmem_alted_string);
 
 #undef enum_item
 #undef define_progmem_string
