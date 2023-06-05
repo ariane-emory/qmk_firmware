@@ -88,13 +88,13 @@ static uint16_t idle_timer = 0;
   DO(SS_GRAV,           ("`"))                                                                      \
   DO(SS_BANGBANG,       ("11"SS_TAP(X_ENT)))
 
-#define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                   \
-  DO(SS_TILD_SLSH,      ("~/"),  ("~"))                                                             \
-  DO(SS_UPDIR,          ("../"), ("./"))
+// #define FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(DO)
  
 #define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                        \
-  DO(SS_LPAR,           ("9"), ("["), ("{"))                                                        \
-  DO(SS_RPAR,           ("0"), ("]"), ("}"))
+  DO(SS_TILD_SLSH,      ("~/"),  ("~"),  (""))                                                      \
+  DO(SS_UPDIR,          ("../"), ("./"), (""))                                                      \
+  DO(SS_LPAR,           ("9"),   ("["),  ("{"))                                                     \
+  DO(SS_RPAR,           ("0"),   ("]"),  ("}"))
 
 #define enum_item(kc, str, ...) kc,
 
@@ -114,14 +114,14 @@ enum arianes_keycodes {
   VS_CLOSE,
   VS_FORMAT_DOC,
   FOR_EACH_SEND_STRING_KEYCODE(enum_item)
-  FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
+  // FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
   FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
 FOR_EACH_SEND_STRING_KEYCODE(define_progmem_string);
 
-FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_progmem_string);
-FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_progmem_ctrled_string);
+/* FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_progmem_string); */
+/* FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(define_progmem_ctrled_string); */
 
 FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_progmem_string);
 FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_progmem_ctrled_string);
@@ -147,15 +147,15 @@ static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes
 #  undef send_string_keycodes_row
  
 #  define ctrlable_send_string_keycodes_row(kc, str, ctrlable_str) { kc, str_##kc, ctrled_str_##kc },
-typedef struct {
-  uint16_t kc;
-  const char * str;
-  const char * ctrled_str;
-} ctrlable_send_string_keycodes_table_row_t;
-static const ctrlable_send_string_keycodes_table_row_t ctrlable_send_string_keycodes[] = {
-  FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(ctrlable_send_string_keycodes_row)
-};
-static const uint8_t ctrlable_send_string_keycodes_size = ARRAY_SIZE(ctrlable_send_string_keycodes);
+/* typedef struct { */
+/*   uint16_t kc; */
+/*   const char * str; */
+/*   const char * ctrled_str; */
+/* } ctrlable_send_string_keycodes_table_row_t; */
+/* static const ctrlable_send_string_keycodes_table_row_t ctrlable_send_string_keycodes[] = { */
+/*   FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(ctrlable_send_string_keycodes_row) */
+/* }; */
+/* static const uint8_t ctrlable_send_string_keycodes_size = ARRAY_SIZE(ctrlable_send_string_keycodes); */
 #  undef ctrlable_send_string_keycodes_row
 
 #  define ctrlable_or_altable_send_string_keycodes_row(kc, str, str2, altable_str) { kc, str_##kc, ctrled_str_##kc, alted_str_##kc },
@@ -196,24 +196,24 @@ bool process_ctrlable_or_altable_send_string(
   return false;
 }
 
-bool process_ctrlable_send_string(
-  const uint16_t keycode,
-  const keyrecord_t * const record,
-  const uint8_t ix) {
-  if (ctrlable_send_string_keycodes[ix].kc == keycode) {      
-    if (record->event.pressed) {
-      if (
-        (pgm_read_byte(ctrlable_send_string_keycodes[ix].ctrled_str) != 0) &&
-        (get_mods() & MOD_MASK_CTRL)) {
-        SEND_STRING_WITHOUT_MODS_P(ctrlable_send_string_keycodes[ix].ctrled_str);
-      } else {
-        SEND_STRING_WITHOUT_MODS_P(ctrlable_send_string_keycodes[ix].str);
-      }
-    }
-    return true;
-  }
-  return false;
-}
+/* bool process_ctrlable_send_string( */
+/*   const uint16_t keycode, */
+/*   const keyrecord_t * const record, */
+/*   const uint8_t ix) { */
+/*   if (ctrlable_send_string_keycodes[ix].kc == keycode) {       */
+/*     if (record->event.pressed) { */
+/*       if ( */
+/*         (pgm_read_byte(ctrlable_send_string_keycodes[ix].ctrled_str) != 0) && */
+/*         (get_mods() & MOD_MASK_CTRL)) { */
+/*         SEND_STRING_WITHOUT_MODS_P(ctrlable_send_string_keycodes[ix].ctrled_str); */
+/*       } else { */
+/*         SEND_STRING_WITHOUT_MODS_P(ctrlable_send_string_keycodes[ix].str); */
+/*       } */
+/*     } */
+/*     return true; */
+/*   } */
+/*   return false; */
+/* } */
 
 bool process_send_string(
   const uint16_t keycode,
@@ -241,10 +241,10 @@ KEYRECORD_FUN(process_record_user, bool) {
     if (process_send_string(keycode, record, ix))
       return false;
   }
-  for (uint8_t ix = 0; ix < ctrlable_send_string_keycodes_size; ix++) {
-    if (process_ctrlable_send_string(keycode, record, ix))
-      return false;
-  }
+  /* for (uint8_t ix = 0; ix < ctrlable_send_string_keycodes_size; ix++) { */
+  /*   if (process_ctrlable_send_string(keycode, record, ix)) */
+  /*     return false; */
+  /* } */
   for (uint8_t ix = 0; ix < ctrlable_or_altable_send_string_keycodes_size; ix++) {
     if (process_ctrlable_or_altable_send_string(keycode, record, ix))
       return false;
@@ -271,20 +271,20 @@ KEYRECORD_FUN(process_record_user, bool) {
       return false;
     FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(kc_tap_case_ctrlable_or_altable_send_string)
 #  undef  kc_tap_case_ctrlable_or_altable_send_string
-#  define kc_tap_case_ctrlable_send_string(kc, str, ctrled_str)                                     \
-      case kc:                                                                                      \
-        if (record->event.pressed) {                                                                \
-          if (                                                                                      \
-            (ctrled_str_##kc[0] != '\0') &&                                                         \
-            (get_mods() & MOD_MASK_CTRL)) {                                                         \
-            SEND_STRING_WITHOUT_MODS_P(ctrled_str_##kc);                                            \
-          } else {                                                                                  \
-            SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                   \
-          }                                                                                         \
-        }                                                                                           \
-        return false;
-      FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(kc_tap_case_ctrlable_send_string)
-#  undef  kc_tap_case_ctrlable_send_string
+/* #  define kc_tap_case_ctrlable_send_string(kc, str, ctrled_str)                                     \ */
+/*       case kc:                                                                                      \ */
+/*         if (record->event.pressed) {                                                                \ */
+/*           if (                                                                                      \ */
+/*             (ctrled_str_##kc[0] != '\0') &&                                                         \ */
+/*             (get_mods() & MOD_MASK_CTRL)) {                                                         \ */
+/*             SEND_STRING_WITHOUT_MODS_P(ctrled_str_##kc);                                            \ */
+/*           } else {                                                                                  \ */
+/*             SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                   \ */
+/*           }                                                                                         \ */
+/*         }                                                                                           \ */
+/*         return false; */
+/*       FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(kc_tap_case_ctrlable_send_string) */
+/* #  undef  kc_tap_case_ctrlable_send_string */
 #  define kc_tap_case_send_string(kc, str)                                                          \
       case kc:                                                                                      \
         if (record->event.pressed)                                                                  \
