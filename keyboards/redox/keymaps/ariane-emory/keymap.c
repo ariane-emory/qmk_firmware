@@ -136,32 +136,57 @@ FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_progmem_alted_string);
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
 #  define send_string_keycodes_row(kc, str) { kc, str_##kc },
-typedef struct { uint16_t kc; const char * str; } send_string_keycodes_table_row_t;
+typedef struct {
+  uint16_t kc;
+  const char * str;
+} send_string_keycodes_table_row_t;
 static const send_string_keycodes_table_row_t send_string_keycodes[] = {
   FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row)
 };
 static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes);
 #  undef send_string_keycodes_row
-
-#  define ctrlable_send_string_keycodes_row(kc, str, str2) { kc, str_##kc, ctrled_str_##kc },
-typedef struct { uint16_t kc; const char * str; const char * ctrled_str; } ctrlable_send_string_keycodes_table_row_t;
+ 
+#  define ctrlable_send_string_keycodes_row(kc, str, ctrlable_str) { kc, str_##kc, ctrled_str_##kc },
+typedef struct {
+  uint16_t kc;
+  const char * str;
+  const char * ctrled_str;
+} ctrlable_send_string_keycodes_table_row_t;
 static const ctrlable_send_string_keycodes_table_row_t ctrlable_send_string_keycodes[] = {
   FOR_EACH_CTRLABLE_SEND_STRING_KEYCODE(ctrlable_send_string_keycodes_row)
 };
 static const uint8_t ctrlable_send_string_keycodes_size = ARRAY_SIZE(ctrlable_send_string_keycodes);
 #  undef ctrlable_send_string_keycodes_row
 
+#  define ctrlable_or_altable_send_string_keycodes_row(kc, str, str2, altable_str) { kc, str_##kc, ctrled_str_##kc, alted_str_##kc },
+typedef struct {
+  uint16_t kc;
+  const char * str;
+  const char * ctrled_str;
+  const char * alted_str;
+} ctrlable_or_altable_send_string_keycodes_table_row_t;
+static const ctrlable_or_altable_send_string_keycodes_table_row_t ctrlable_or_altable_send_string_keycodes[] = {
+  FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(ctrlable_or_altable_send_string_keycodes_row)
+};
+static const uint8_t ctrlable_or_altable_send_string_keycodes_size = ARRAY_SIZE(ctrlable_or_altable_send_string_keycodes);
+#  undef ctrlable_or_altable_send_string_keycodes_row
+
 bool process_ctrlable_or_altable_send_string(
   const uint16_t keycode,
   const keyrecord_t * const record,
   const uint8_t ix) {
-  if (ctrlable_send_string_keycodes[ix].kc == keycode) {      
+  if (ctrlable_or_altable_send_string_keycodes[ix].kc == keycode) {      
     if (record->event.pressed) {
-      if ((pgm_read_byte(ctrlable_send_string_keycodes[ix].ctrled_str) != 0) &&
+      if ((pgm_read_byte(ctrlable_or_altable_send_string_keycodes[ix].ctrled_str) != 0) &&
           (get_mods() & MOD_MASK_CTRL)) {
-        SEND_STRING_WITHOUT_MODS_P(ctrlable_send_string_keycodes[ix].ctrled_str);
-      } else {
-        SEND_STRING_WITHOUT_MODS_P(ctrlable_send_string_keycodes[ix].str);
+        SEND_STRING_WITHOUT_MODS_P(ctrlable_or_altable_send_string_keycodes[ix].ctrled_str);
+      }
+      else if ((pgm_read_byte(ctrlable_or_altable_send_string_keycodes[ix].alted_str) != 0) &&
+               (get_mods() & MOD_MASK_ALT)) {
+        SEND_STRING_WITHOUT_MODS_P(ctrlable_or_altable_send_string_keycodes[ix].alted_str);
+      }
+      else {
+        SEND_STRING_WITHOUT_MODS_P(ctrlable_or_altable_send_string_keycodes[ix].str);
       }
     }
     return true;
