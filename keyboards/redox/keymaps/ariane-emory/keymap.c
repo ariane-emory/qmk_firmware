@@ -97,10 +97,13 @@ static uint16_t idle_timer = 0;
   DO(SS_RPAR,           ("0"), ("]"), ("}"))
 
 #define enum_item(kc, str, ...) kc,
+
 #define define_progmem_string(kc, str, ...)                                                         \
   static const char str_##kc[] PROGMEM = str;
 #define define_progmem_ctrled_string(kc, str, ctrled_str)                                           \
   static const char ctrled_str_##kc[] PROGMEM = ctrled_str;
+#define define_progmem_alted_string(kc, str, ctrled_str, alted_str)                                 \
+  static const char alted_str_##kc[] PROGMEM = alted_str;
 
 enum arianes_keycodes {
   AE_DUMMY = SAFE_RANGE,
