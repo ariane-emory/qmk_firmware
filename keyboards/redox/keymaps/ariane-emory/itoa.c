@@ -58,7 +58,7 @@ void print_num2(uint8_t num, const uint8_t max_digits) {
   }
   printf("'\n");
 
-  for (uint8_t i = 0; i < max_digits + 1; i++)
+  for (uint8_t i = 0; i < max_digits; i++)
     printf("buf[%d] @ %p = %d\n", i, &buf[i], buf[i]);
 
   printf("\n");
