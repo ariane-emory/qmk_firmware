@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 #if defined(HOME_ROW_MODS) || defined(BOTTOM_ROW_MODS)
-// #define USE_ACHORDION
+#define USE_ACHORDION
 #include "features/achordion.h"
 #endif
 
@@ -228,7 +228,6 @@ bool process_send_string(
 }
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
-
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
@@ -254,7 +253,7 @@ KEYRECORD_FUN(process_record_user, bool) {
 
   switch (keycode) {
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
-#  define kc_tap_case_ctrlable_or_altable_send_string(kc, str, ctrled_str)                          \
+#  define kc_tap_case_ctrlable_or_altable_send_string(kc, str, ctrled_str, alted_str)               \
     case kc:                                                                                        \
       if (record->event.pressed) {                                                                  \
         if (                                                                                        \
