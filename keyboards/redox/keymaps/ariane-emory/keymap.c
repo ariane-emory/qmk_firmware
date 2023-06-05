@@ -50,8 +50,7 @@ void send_string_without_mods_P(const char * const string) {
   send_string_with_delay_P(string, MY_SS_DELAY);
   set_mods(current_mods);
 }
-#define SEND_STRING_WITHOUT_MODS_P(string) send_string_without_mods_P(string)
-
+#  define SEND_STRING_WITHOUT_MODS_P(string) send_string_without_mods_P(string)
 void send_string_without_mods(const char * const string) {
   const uint8_t current_mods = get_mods();
   clear_mods();
@@ -60,10 +59,9 @@ void send_string_without_mods(const char * const string) {
   set_mods(current_mods);
 }
 #define SEND_STRING_WITHOUT_MODS(string) send_string_without_mods(string)
-
 #else
-#define SEND_STRING_WITHOUT_MODS_P(str) (((void)0))
-#define SEND_STRING_WITHOUT_MODS(str) (((void)0))
+#  define SEND_STRING_WITHOUT_MODS_P(str) (((void)0))
+#  define SEND_STRING_WITHOUT_MODS(str) (((void)0))
 #endif
 
 // ==============================================================================
