@@ -232,7 +232,7 @@ bool process_send_string(
 }
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
-void print_num2(uint8_t num, const uint8_t max_digits) {
+void tap_number2(uint8_t num, const uint8_t max_digits) {
   const uint8_t current_mods = get_mods();
   clear_mods();
   send_keyboard_report();
@@ -287,9 +287,8 @@ KEYRECORD_FUN(process_record_user, bool) {
   switch (keycode) {
   case VS_CLOSE:
     if (record->event.pressed) {
-      print_num2(123, 3);
+      tap_number2(123, 3);
     }
-
     return false;
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
 #  define kc_tap_case_ctrlable_or_altable_send_string(kc, str, ctrled_str, alted_str)               \
