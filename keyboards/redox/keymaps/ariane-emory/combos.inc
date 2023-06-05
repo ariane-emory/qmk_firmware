@@ -48,14 +48,14 @@
   __(l_bot_trpo,    ____________, QB_Z,    QB_X,      QB_C                     ) \
   __(l_pinky_dip,   ____________, QH_F,    QB_Z                                ) \
   ______________________________________________________________________________ \
-  DO(r_top_edge,    EM_REVERT,    QT_O,    QT_P                                ) \
+  DO(r_top_edge,    KC_SCLN,      QT_O,    QT_P                                ) \
   DO(r_top_innr,    SS_LBRACK,    QT_U,    QT_I                                ) \
   DO(r_top_outr,    SS_RBRACK,    QT_I,    QT_O                                ) \
   __(r_top_rech,    ____________, QT_Y,    QT_U                                ) \
   __(r_top_sprd,    ____________, QT_U,    QT_O                                ) \
   __(r_top_trpi,    ____________, QT_Y,    QT_U,      QT_I                     ) \
   DO(r_top_trpm,    SS_BRACKS,    QT_U,    QT_I,      QT_O                     ) \
-  __(r_top_trpo,    ____________, QT_I,    QT_O,      QT_P                     ) \
+  DO(r_top_trpo,    EM_REVERT,    QT_I,    QT_O,      QT_P                     ) \
   ______________________________________________________________________________ \
   DO(r_mid_EXTR,    EM_LWRAP,     QH_QUOT, RCTL_DQUO                           ) \
   DO(r_mid_edge,    KC_SCLN,      QH_L,    QH_QUOT                             ) \
