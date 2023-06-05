@@ -42,7 +42,7 @@ void keyboard_post_init_user(void) {
 #define KEYRECORD_FUN(name, t) t name(uint16_t keycode, keyrecord_t *record)
 
 #ifdef SEND_STRING_ENABLE
-#  define MY_SS_DELAY 250
+#  define MY_SS_DELAY 50
 void send_string_without_mods_P(const char * const string) {
   const uint8_t current_mods = get_mods();
   clear_mods();
