@@ -232,6 +232,30 @@ bool process_send_string(
 }
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
+void print_num2(uint8_t num, const uint8_t max_digits) {
+  uint16_t buf[max_digits];
+  uint8_t ix = max_digits - 1;
+  for (uint8_t i = 0; i < max_digits; i++) buf[i] = 0;
+
+  while (num) {
+    const uint8_t modulo = num % 10;
+    
+    num -= modulo;
+    num /= 10;
+    if (modulo == KC_0)
+      buf[ix] = KC_0;
+    else
+      buf[ix] = KC_1 + modulo - 1;
+    if (num) ix--;
+  }
+  
+  while (ix < max_digits) {
+    tap_code16(buf[ix]);
+    ix++;
+  }
+}
+
+
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
@@ -258,18 +282,9 @@ KEYRECORD_FUN(process_record_user, bool) {
   switch (keycode) {
   case VS_CLOSE:
     if (record->event.pressed) {
-      uint8_t num = 123;
-      while (num > 0) {
-        const uint8_t modulo = num % 10;
-        num -= modulo;
-        num /= 10;
-        if (modulo == 0) {
-          tap_code16(LSFT(KC_0));
-        } else {
-          tap_code16(LSFT(KC_1 + modulo - 1));
-        }
-      }
+      print_num2(123, 3);
     }
+
     return false;
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
 #  define kc_tap_case_ctrlable_or_altable_send_string(kc, str, ctrled_str, alted_str)               \
