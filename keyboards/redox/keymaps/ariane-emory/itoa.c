@@ -34,10 +34,7 @@ void print_num(uint8_t num, const uint8_t max_digits) {
 }
 
 int main() {
-  /* print_num(123, 5); */
-  /* print_num(123, 4); */
-  /* print_num(43, 5); */
-  print_num(29, 4);
-  print_num(0, 5);
-  print_num(0, 4);
+  print_num(219, 3);
+  print_num(29, 3);
+  print_num(0, 3);
 }
