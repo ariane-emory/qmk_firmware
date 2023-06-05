@@ -249,7 +249,6 @@ void tap_number(uint16_t num) {
   set_mods(current_mods);
 }
 
-
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
