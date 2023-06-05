@@ -99,12 +99,14 @@ static uint16_t idle_timer = 0;
 
 #define enum_item(kc, str, ...) kc,
 
+#define define_tagged_progmem_string(tag, kc, str, ...)                                                                 \
+  static const char tag##_str_##kc[] PROGMEM = str;
 #define define_progmem_string(kc, str, ...)                                                                             \
-  static const char nomods_str_##kc[] PROGMEM = str;
+  define_tagged_progmem_string(nomods, kc, str, __VA_ARGS__)
 #define define_progmem_ctrled_string(kc, str, ctrled_str, ...)                                                          \
-  static const char ctrled_str_##kc[] PROGMEM = ctrled_str;
+  define_tagged_progmem_string(ctrled, kc, ctrled_str, __VA_ARGS__)
 #define define_progmem_alted_string(kc, str, ctrled_str, alted_str, ...)                                                \
-  static const char alted_str_##kc[] PROGMEM = alted_str;
+  define_tagged_progmem_string(alted, kc, alted_str, __VA_ARGS__)
 
 enum arianes_keycodes {
   AE_DUMMY = SAFE_RANGE,
@@ -129,7 +131,8 @@ FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_progmem_ctrled_string);
 FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_progmem_alted_string);
 
 #undef enum_item
-#undef define_progmem_string
+#undef define_tagged_progmem_string
+#undef define_progmem_nomods_string
 #undef define_progmem_ctrled_string
 #undef define_progmem_alted_string
 
