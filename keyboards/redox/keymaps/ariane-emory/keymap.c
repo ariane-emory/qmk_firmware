@@ -85,12 +85,11 @@ static uint16_t idle_timer = 0;
 
 #define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                                            \
   DO(SS_SIRI,           (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)), (""),                   (""))            \
+  DO(SS_DICT,           (SS_TAP(X_F24)SS_TAP(X_F24)),                          (""),                   (""))            \
   DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."),                      (""),                   (""))            \
   DO(EM_CHG_BUF,        (SS_LCTL("x")SS_DELAY(50)"b"),                         (""),                   (""))            \
-  DO(EM_REPEAT,         (SS_LCTL("x")SS_DELAY(50)"z"),                         (""),                   (""))            \
   DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")),                (""),                   (""))            \
   DO(SS_BANGBANG,       ("11"SS_TAP(X_ENT)),                                   (""),                   (""))            \
-  DO(SS_DICT,           (SS_TAP(X_F24)SS_TAP(X_F24)),                          (""),                   (""))            \
   DO(SS_PIN1,           (AE_PIN1),                                             (AE_PIN2),              (""))            \
   DO(SS_ARROW,          ("->"),                                                ("490"LL),              ("``"LL))        \
   DO(SS_DIR,            ("~/"),                                                ("../"),                ("./"))          \

@@ -35,7 +35,7 @@
   DO(l_mid_rech,    EM_END_MAC,   QH_F,    QH_G                                ) \
   DO(l_mid_sprd,    SS_BANGBANG,  QH_S,    QH_F                                ) \
   __(l_mid_trpi,    ____________, QH_D,    QH_F,      QH_G                     ) \
-  DO(l_mid_trpm,    EM_CHG_BUF,   QH_S,    QH_D,      QH_F                     ) \
+  __(l_mid_trpm,    ____________, QH_S,    QH_D,      QH_F                     ) \
   __(l_mid_trpo,    ____________, QH_A,    QH_S,      QH_D                     ) \
   ______________________________________________________________________________ \
   DO(l_bot_edge,    EM_CTL_X,     QB_Z,    QB_X                                ) \
@@ -44,7 +44,7 @@
   __(l_bot_rech,    ____________, QB_V,    QB_B                                ) \
   __(l_bot_sprd,    ____________, QB_X,    QB_V                                ) \
   __(l_bot_trpi,    ____________, QB_C,    QB_V,      QB_B                     ) \
-  DO(l_bot_trpm,    EM_CHG_BUF,   QB_X,    QB_C,      QB_V                     ) \
+  __(l_bot_trpm,    ____________, QB_X,    QB_C,      QB_V                     ) \
   __(l_bot_trpo,    ____________, QB_Z,    QB_X,      QB_C                     ) \
   __(l_pinky_dip,   ____________, QH_F,    QB_Z                                ) \
   ______________________________________________________________________________ \
@@ -53,7 +53,7 @@
   DO(r_top_outr,    SS_RBRACK,    QT_I,    QT_O                                ) \
   __(r_top_rech,    ____________, QT_Y,    QT_U                                ) \
   __(r_top_sprd,    ____________, QT_U,    QT_O                                ) \
-  __(r_top_trpi,    ____________, QT_Y,    QT_U,      QT_I                     ) \
+  DO(r_top_trpi,    EM_CHG_BUF,   QT_Y,    QT_U,      QT_I                     ) \
   DO(r_top_trpm,    SS_BRACKS,    QT_U,    QT_I,      QT_O                     ) \
   DO(r_top_trpo,    EM_REVERT,    QT_I,    QT_O,      QT_P                     ) \
   ______________________________________________________________________________ \
