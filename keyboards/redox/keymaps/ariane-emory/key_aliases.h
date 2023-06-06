@@ -159,14 +159,14 @@
 #define NUM_9       KC_9
 #define NUM_0       KC_0
 
-#define NUMP_0       KC_0
-#define NUMP_1       KC_1
-#define NUMP_2       KC_2
-#define NUMP_3       KC_3
-#define NUMP_4       KC_4
-#define NUMP_5       KC_5
-#define NUMP_6       KC_6
-#define NUMP_7       KC_7
-#define NUMP_8       KC_8
-#define NUMP_9       KC_9
-#define NUMP_0       KC_0
+#define NUMP_0      KC_0
+#define NUMP_1      KC_1
+#define NUMP_2      KC_2
+#define NUMP_3      KC_3
+#define NUMP_4      KC_4
+#define NUMP_5      KC_5
+#define NUMP_6      KC_6
+#define NUMP_7      KC_7
+#define NUMP_8      KC_8
+#define NUMP_9      KC_9
+#define NUMP_0      KC_0
