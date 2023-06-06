@@ -5,6 +5,8 @@
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
+#undef USE_CIE1931_CURVE
+
 #undef RGBLED_NUM
 /* #define RGBLIGHT_EFFECT_BREATHING */
 /* #define RGBLIGHT_EFFECT_RAINBOW_MOOD */
