@@ -16,7 +16,7 @@ typedef struct rgb_fader_t {
 
 void rgb_fader_init               (rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b);
 bool rgb_fader_is_changing        (const rgb_fader_t * const this);
-bool rgb_fader_set_target         (rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b);
+void rgb_fader_set_target         (rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b);
 void rgb_fader_step               (rgb_fader_t * const this);
 void rgb_fader_stop               (rgb_fader_t * const this);
 

@@ -145,16 +145,16 @@ bool rgb_fader_is_changing(const rgb_fader_t * const this) {
 // Setters
 ////////////////////////////////////////////////////////////////////////////////
 
-bool rgb_fader_set_target(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b) {
+void rgb_fader_set_target(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b) {
   rgb_t rgb;
   rgb_init(&rgb, r, g, b);
   // if rgb_fader_before_set_target returns false, no change is needed and we
-  // 'success
+  // return success
   if (! rgb_fader_before_set_target(this, &rgb))
-    return true;
+    return;
   rgb_fader_stop(this);
   rgb_copy(&this->target, &rgb);
-  return true;
+  return;
 }
 
 #ifndef RGB_FADER_NO_STRINGS
