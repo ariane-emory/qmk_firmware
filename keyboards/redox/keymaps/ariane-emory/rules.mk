@@ -24,4 +24,5 @@ SRC += features/achordion.c
 SRC += features/rgb.c
 SRC += features/rgb_fader.c
 
-CFLAGS += -funroll-loops -e TOP_SYMBOLS=50
+CFLAGS += -funroll-loops
+# CFLAGS += -funroll-loops -e TOP_SYMBOLS=50
