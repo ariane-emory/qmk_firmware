@@ -154,7 +154,6 @@ void rgb_fader_set_target(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_
     return;
   rgb_fader_stop(this);
   rgb_copy(&this->target, &rgb);
-  return;
 }
 
 #ifndef RGB_FADER_NO_STRINGS
