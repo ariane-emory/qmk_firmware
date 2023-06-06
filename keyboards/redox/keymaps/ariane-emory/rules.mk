@@ -21,9 +21,9 @@ DYNAMIC_MACRO_ENABLE   = yes
 SRC                   += features/achordion.c
 SRC                   += features/rgb.c
 SRC                   += features/rgb_fader.c
-
 CFLAGS                += -funroll-loops
-TOP_SYMBOLS            = 20
+
+TOP_SYMBOLS            = 50
 
 # EEPROM_DRIVER          = transient
 
