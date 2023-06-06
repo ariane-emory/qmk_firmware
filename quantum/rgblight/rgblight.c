@@ -64,10 +64,12 @@ static uint8_t static_effect_table[] = {
 #define _RGBM_MULTI_DYNAMIC(sym) RGBLIGHT_MODE_##sym,
 #define _RGBM_TMP_STATIC(sym, msym) RGBLIGHT_MODE_##msym,
 #define _RGBM_TMP_DYNAMIC(sym, msym) RGBLIGHT_MODE_##msym,
+#ifdef DO_NOT_USE_THIS
 static uint8_t mode_base_table[] = {
     0, // RGBLIGHT_MODE_zero
 #include "rgblight_modes.h"
 };
+#endif
 
 #if !defined(RGBLIGHT_DEFAULT_MODE)
 #    define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_STATIC_LIGHT
@@ -523,6 +525,7 @@ void rgblight_sethsv_noeeprom_old(uint8_t hue, uint8_t sat, uint8_t val) {
 }
 
 void rgblight_sethsv_eeprom_helper(uint8_t hue, uint8_t sat, uint8_t val, bool write_to_eeprom) {
+#ifdef DO_NOT_USE_THIS
     if (rgblight_config.enable) {
 #ifdef RGBLIGHT_SPLIT
         if (rgblight_config.hue != hue || rgblight_config.sat != sat || rgblight_config.val != val) {
@@ -596,6 +599,7 @@ void rgblight_sethsv_eeprom_helper(uint8_t hue, uint8_t sat, uint8_t val, bool w
             dprintf("rgblight set hsv [NOEEPROM]: %u,%u,%u\n", rgblight_config.hue, rgblight_config.sat, rgblight_config.val);
         }
     }
+#endif
 }
 
 void rgblight_sethsv(uint8_t hue, uint8_t sat, uint8_t val) {
