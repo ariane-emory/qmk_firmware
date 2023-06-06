@@ -18,11 +18,12 @@ TRI_LAYER_ENABLE   	 	 = yes
 DEFERRED_EXEC_ENABLE 	 = yes
 DYNAMIC_MACRO_ENABLE   = yes
 
+SRC                   += features/achordion.c
+SRC                   += features/rgb.c
+SRC                   += features/rgb_fader.c
+
+CFLAGS                += -funroll-loops
+TOP_SYMBOLS            = 20
+
 # EEPROM_DRIVER          = transient
 
-SRC += features/achordion.c
-SRC += features/rgb.c
-SRC += features/rgb_fader.c
-
-CFLAGS += -funroll-loops
-# CFLAGS += -funroll-loops -e TOP_SYMBOLS=50
