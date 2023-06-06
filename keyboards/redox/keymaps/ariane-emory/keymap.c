@@ -744,4 +744,8 @@ KEYRECORD_FUN(get_autoshift_timeout, uint16_t) {
 // Include keymap
 // ==============================================================================
 
+uint16_t keycode_config(uint16_t keycode) {
+  return keycode;
+}
+
 #include "keymap.inc"
