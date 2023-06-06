@@ -160,9 +160,9 @@ bool rgb_fader_set_target(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_
 #ifndef RGB_FADER_NO_STRINGS
 bool rgb_fader_set_target_from_str(rgb_fader_t * const this, const char * const str) {
   rgb_t rgb;
-  if (! rgb_init_from_str(&rgb, str))
-    return false;
-  return rgb_fader_set_target_from_rgb(this, &rgb);
+  return ! rgb_init_from_str(&rgb, str)
+    ? false
+    : rgb_fader_set_target_from_rgb(this, &rgb);
 }
 #endif
 
