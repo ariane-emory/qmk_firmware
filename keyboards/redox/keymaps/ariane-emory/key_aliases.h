@@ -171,3 +171,6 @@
 #define NUMP_9      LSFT(KC_9)
 #define NUMP_0      LSFT(KC_0)
 
+#define VD_LEFT     LALT(LCTL(KC_S))
+#define VD_RIGHT    LALT(LCTL(KC_D))
+#define VD_ALL      LALT(LCTL(KC_TAB))
