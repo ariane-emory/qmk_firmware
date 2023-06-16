@@ -89,6 +89,7 @@ static uint16_t idle_timer = 0;
   DO(EM_LASTARG,        (" "SS_LCTL("c")SS_DELAY(50)"."),                        (""),                   (""))          \
   DO(EM_CHG_BUF,        (SS_LCTL("x")SS_DELAY(50)"b"),                           (""),                   (""))          \
   DO(EM_REVERT,         (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")),                  (""),                   (""))          \
+  DO(EM_KIL_BUF,        (SS_LCTL("x")SS_DELAY(50)SS_LCTL("x")),                  (""),                   (""))   \
   DO(SS_BANGBANG,       ("11"SS_TAP(X_ENT)),                                     (""),                   (""))          \
   DO(SS_PIN1,           (AE_PIN1),                                               (AE_PIN2),              (""))          \
   DO(SS_ARROW,          ("->"),                                                  ("490"LL),              ("``"LL))      \

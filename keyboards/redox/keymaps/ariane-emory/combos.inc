@@ -72,7 +72,7 @@
   __(r_bot_sprd,    ____________, QB_M,    QB_DOT                             ) \
   DO(r_bot_trpi,    EM_CHG_BUF,   QB_N,    QB_M,      QB_COMM                 ) \
   DO(r_bot_trpm,    EM_SHELL,     QB_M,    QB_COMM,   QB_DOT                  ) \
-  __(r_bot_trpo,    ____________, QB_COMM, QB_DOT,    QB_SLSH                 ) \
+  DO(r_bot_trpo,    EM_KIL_BUF,   QB_COMM, QB_DOT,    QB_SLSH                 ) \
   _____________________________________________________________________________ 
 
 //========================================================================================
