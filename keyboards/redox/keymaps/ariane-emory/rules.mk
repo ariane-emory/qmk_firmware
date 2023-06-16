@@ -23,7 +23,7 @@ SRC                   += features/rgb.c
 SRC                   += features/rgb_fader.c
 CFLAGS                += -funroll-loops
 
-TOP_SYMBOLS            = 50
+TOP_SYMBOLS            = 15
 
 # EEPROM_DRIVER          = transient
 
