@@ -281,12 +281,13 @@ KEYRECORD_FUN(process_record_user, bool) {
       tap_number(128);
     return false;
   case KC_USCORE:
-    if (record->event.pressed) {
+    if (record->tap.count && record->event.pressed) {
       register_code(KC_LSFT);
       tap_code(KC_MINS);
       unregister_code(KC_LSFT);
+      return false;
     }
-    return false;
+    return true;
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
 #  define kc_tap_case_shiftable_or_altable_send_string(kc, str, shifted_str, alted_str)                                 \
     case kc:                                                                                                            \
