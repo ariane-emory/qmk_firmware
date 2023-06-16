@@ -34,9 +34,9 @@
   __(l_mid_trpi,    ____________, QH_D,    QH_F,      QH_G                     ) \
   DO(l_mid_trpm,    SS_BANGBANG,  QH_S,    QH_D,      QH_F                     ) \
   __(l_mid_trpo,    ____________, QH_A,    QH_S,      QH_D                     ) \
-  DO(l_bot_edge,    EM_CTL_X,     QB_Z,    QB_X                                ) \
-  __(l_bot_innr,    ____________, QB_C,    QB_V                                ) \
-  DO(l_bot_outr,    EM_CTL_C,     QB_X,    QB_C                                ) \
+  __(l_bot_edge,    ____________, QB_Z,    QB_X                                ) \
+  DO(l_bot_innr,    EM_CTL_C,     QB_C,    QB_V                                ) \
+  DO(l_bot_outr,    EM_CTL_X,     QB_X,    QB_C                                ) \
   __(l_bot_rech,    ____________, QB_V,    QB_B                                ) \
   __(l_bot_sprd,    ____________, QB_X,    QB_V                                ) \
   __(l_bot_trpi,    ____________, QB_C,    QB_V,      QB_B                     ) \
