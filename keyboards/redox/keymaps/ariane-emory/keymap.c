@@ -91,11 +91,11 @@ static uint16_t idle_timer = 0;
   DO(EM_LASTARG,   (" "SS_LCTL("c")SS_DELAY(50)"."),        (""),                                                   (""))       \
   DO(SS_BANGBANG,  ("11"SS_TAP(X_ENT)),                     (""),                                                   (""))       \
   DO(SS_PIN1,      (AE_PIN1),                               (AE_PIN2),                                              (""))       \
-  DO(SS_ARROW,     ("->"),                                  ("490"LL),                                              ("``"LL))   \
+  DO(SS_ARROW,     ("->"),                                  ("490"LL), /* $() */                                    ("``"LL)) \
   DO(SS_DIR,       ("~/"),                                  ("../"),                                                ("./"))     \
-  DO(SS_LBRACK,    ("9"),                                   ("{"),                                                  ("["))      \
-  DO(SS_RBRACK,    ("0"),                                   ("}"),                                                  ("]"))      \
-  DO(SS_BRACKS,    ("90" LL),                               ("{" CR CR "}" UU TB),                                  ("[]" LL))
+  DO(SS_LBRACK,    ("9"),                                   ("["),                                                  ("{"))      \
+  DO(SS_RBRACK,    ("0"),                                   ("]"),                                                  ("}"))      \
+  DO(SS_BRACKS,    ("90" LL),                               ("[" CR CR "]" UU TB),                                  ("{}" LL))
 
 #define enum_item(kc, str, ...)                                                  kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                          static const char tag##_str_##kc[] PROGMEM = str;
