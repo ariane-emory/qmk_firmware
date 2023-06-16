@@ -58,7 +58,7 @@
   __(r_top_trpo,    ____________, QT_I,    QT_O,      QT_P                    ) \
   _____________________________________________________________________________ \
   DO(r_mid_EXTR,    EM_LWRAP,     QH_QUOT, RCTL_DQUO                          ) \
-  __(r_mid_edge,    ____________, QH_L,    QH_QUOT                            ) \
+  DO(r_mid_edge,    EM_LWRAP,     QH_L,    QH_QUOT                            ) \
   DO(r_mid_innr,    KC_ENT,       QH_J,    QH_K                               ) \
   DO(r_mid_outr,    KC_SCLN,      QH_K,    QH_L                               ) \
   DO(r_mid_rech,    KC_EQL,       QH_H,    QH_J                               ) \
