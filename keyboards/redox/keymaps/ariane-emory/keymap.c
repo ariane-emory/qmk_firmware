@@ -229,13 +229,6 @@ bool process_shiftable_or_altable_send_string(
 /* } */
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
-extern void *__brkval;
-
-int free_ram(void) {
-  char top;
-  return ((void*)&top) - __brkval;
-}
-
 void tap_number(uint16_t num) {
   static const uint8_t max_digits = 5;
   const uint8_t current_mods = get_mods();
@@ -284,7 +277,7 @@ KEYRECORD_FUN(process_record_user, bool) {
   switch (keycode) {
   case VS_CLOSE:
     if (record->event.pressed)
-      tap_number(free_ram());
+      tap_number(128);
     return false;
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
 #  define kc_tap_case_shiftable_or_altable_send_string(kc, str, shifted_str, alted_str)                                 \
