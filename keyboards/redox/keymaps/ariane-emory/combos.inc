@@ -32,10 +32,10 @@
   DO(l_mid_edge,    EM_END_MAC,   QH_A,    QH_S                               ) \
   DO(l_mid_innr,    EM_RPT_MAC,   QH_D,    QH_F                               ) \
   DO(l_mid_outr,    EM_BGN_MAC,   QH_S,    QH_D                               ) \
-  __(l_mid_rech,    ____________, QH_F,    QH_G                               ) \
+  DO(l_mid_rech,    SS_BANGBANG,  QH_F,    QH_G                               ) \
   __(l_mid_sprd,    ____________, QH_S,    QH_F                               ) \
   __(l_mid_trpi,    ____________, QH_D,    QH_F,      QH_G                    ) \
-  DO(l_mid_trpm,    SS_BANGBANG,  QH_S,    QH_D,      QH_F                    ) \
+  __(l_mid_trpm,    ____________, QH_S,    QH_D,      QH_F                    ) \
   __(l_mid_trpo,    ____________, QH_A,    QH_S,      QH_D                    ) \
   _____________________________________________________________________________ \
   __(l_bot_edge,    ____________, QB_Z,    QB_X                               ) \
