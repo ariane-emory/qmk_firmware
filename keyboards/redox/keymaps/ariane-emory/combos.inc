@@ -12,9 +12,9 @@
 #define FOR_EACH_COMBO(DO)                                                      \
   _____________________________________________________________________________ \
   DO(l_num_rech,    DF(0),        KC_1,    KC_2                               ) \
-    DO(l_num_innr,    DF(2),        KC_3,    KC_4                               ) \
-    DO(l_num_outr,    DF(1),        KC_2,    KC_3                               ) \
-    DO(l_num_curl,    DF(3),        KC_4,    KC_5                               ) \
+  DO(l_num_innr,    DF(2),        KC_3,    KC_4                               ) \
+  DO(l_num_outr,    DF(1),        KC_2,    KC_3                               ) \
+  DO(l_num_curl,    DF(3),        KC_4,    KC_5                               ) \
   __(l_num_sprd,    ____________, KC_2,    KC_4                               ) \
   __(l_num_trpi,    ____________, KC_3,    KC_4,      KC_5                    ) \
   __(l_num_trpm,    ____________, KC_2,    KC_3,      KC_4                    ) \
@@ -56,7 +56,8 @@
   DO(r_top_trpm,    EM_REVERT,    QT_U,    QT_I,      QT_O                    ) \
   __(r_top_trpo,    ____________, QT_I,    QT_O,      QT_P                    ) \
   _____________________________________________________________________________ \
-  DO(r_mid_rech,    EM_LWRAP,     QH_L,    QH_QUOT                            ) \
+  DO(r_mid_EXTR,    EM_LWRAP,     QH_QUOT, RCTL_DQUO                          ) \
+  __(r_mid_rech,    ____________, QH_L,    QH_QUOT                            ) \
   DO(r_mid_innr,    KC_ENT,       QH_J,    QH_K                               ) \
   DO(r_mid_outr,    KC_SCLN,      QH_K,    QH_L                               ) \
   DO(r_mid_curl,    KC_EQL,       QH_H,    QH_J                               ) \
