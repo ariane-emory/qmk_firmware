@@ -64,7 +64,7 @@
   DO(r_mid_outr,    KC_SCLN,       QH_K,    QH_L                               ) \
   DO(r_mid_curl,    KC_EQL,        QH_H,    QH_J                               ) \
   DO(r_mid_sprd,    LALT(KC_X),    QH_J,    QH_L                               ) \
-  DO(r_mid_trpi,    EM_CHG_BUF,    QH_H,    QH_J,       QH_K                   ) \
+  DO(r_mid_trpi,    EM_PRV_BUF,    QH_H,    QH_J,       QH_K                   ) \
   DO(r_mid_trpm,    EM_DIRED,      QH_J,    QH_K,       QH_L                   ) \
   DO(r_mid_trpo,    EM_ALL_BUF,    QH_K,    QH_L,       QH_QUOT                ) \
   ______________________________________________________________________________ \
@@ -73,7 +73,7 @@
   DO(r_bot_outr,    SS_DIR,        QB_COMM, QB_DOT                             ) \
   DO(r_bot_curl,    EM_LASTARG,    QB_N,    QB_M                               ) \
   DO(r_bot_sprd,    SS_DICT,       QB_M,    QB_DOT                             ) \
-  DO(r_bot_trpi,    EM_PRV_BUF,    QB_N,    QB_M,      QB_COMM                 ) \
+  DO(r_bot_trpi,    EM_CHG_BUF,    QB_N,    QB_M,      QB_COMM                 ) \
   DO(r_bot_trpm,    EM_SHELL,      QB_M,    QB_COMM,   QB_DOT                  ) \
   DO(r_bot_trpo,    EM_KIL_BUF,    QB_COMM, QB_DOT,    QB_SLSH                 ) \
   ______________________________________________________________________________ 
