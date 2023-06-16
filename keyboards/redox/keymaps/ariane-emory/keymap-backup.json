@@ -561,7 +561,7 @@
       "ANY(QK_DYNAMIC_MACRO_PLAY_1)",
       "ANY(QK_DYNAMIC_MACRO_RECORD_START_2)",
       "ANY(QK_DYNAMIC_MACRO_PLAY_2)",
-      "ANY(VS_CLOSE)",
+      "KC_NO",
       "KC_WH_U",
       "KC_WH_D",
       "KC_F21",

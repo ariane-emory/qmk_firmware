@@ -35,7 +35,7 @@
 #define COMBO_TERM                           40
 
 #define MOUSEKEY_DELAY                       0
-#define MOUSEKEY_INTERVAL                    21 // 20
+#define MOUSEKEY_INTERVAL                    20 // 20
 #define MOUSEKEY_MAX_SPEED                   7 // 9
 #define MOUSEKEY_MOVE_DELTA                  8
 #define MOUSEKEY_TIME_TO_MAX                 42 // 38
