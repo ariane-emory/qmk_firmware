@@ -46,18 +46,16 @@
   __(l_bot_trpi,    ____________, QB_C,    QB_V,      QB_B                    ) \
   __(l_bot_trpm,    ____________, QB_X,    QB_C,      QB_V                    ) \
   __(l_bot_trpo,    ____________, QB_Z,    QB_X,      QB_C                    ) \
-  __(l_pinky_dip,   ____________, QH_F,    QB_Z                               ) \
   _____________________________________________________________________________ \
   __(r_top_edge,    ____________, QT_O,    QT_P                               ) \
   DO(r_top_innr,    SS_LBRACK,    QT_U,    QT_I                               ) \
   DO(r_top_outr,    SS_RBRACK,    QT_I,    QT_O                               ) \
   __(r_top_rech,    ____________, QT_Y,    QT_U                               ) \
   __(r_top_sprd,    ____________, QT_U,    QT_O                               ) \
-  DO(r_top_trpi,    EM_CHG_BUF,   QT_Y,    QT_U,      QT_I                    ) \
+  __(r_top_trpi,    ____________, QT_Y,    QT_U,      QT_I                    ) \
   DO(r_top_trpm,    EM_REVERT,    QT_U,    QT_I,      QT_O                    ) \
   __(r_top_trpo,    ____________, QT_I,    QT_O,      QT_P                    ) \
   _____________________________________________________________________________ \
-  DO(r_mid_EXTR,    EM_LWRAP,     QH_QUOT, RCTL_DQUO                          ) \
   DO(r_mid_edge,    EM_LWRAP,     QH_L,    QH_QUOT                            ) \
   DO(r_mid_innr,    KC_ENT,       QH_J,    QH_K                               ) \
   DO(r_mid_outr,    KC_SCLN,      QH_K,    QH_L                               ) \
@@ -72,10 +70,9 @@
   DO(r_bot_outr,    SS_ARROW,     QB_COMM, QB_DOT                             ) \
   DO(r_bot_rech,    EM_LASTARG,   QB_N,    QB_M                               ) \
   __(r_bot_sprd,    ____________, QB_M,    QB_DOT                             ) \
-  DO(r_bot_trpi,    SS_DICT,      QB_N,    QB_M,      QB_COMM                 ) \
+  DO(r_bot_trpi,    EM_CHG_BUF,   QB_N,    QB_M,      QB_COMM                 ) \
   DO(r_bot_trpm,    EM_SHELL,     QB_M,    QB_COMM,   QB_DOT                  ) \
   __(r_bot_trpo,    ____________, QB_COMM, QB_DOT,    QB_SLSH                 ) \
-  __(r_pinky_dip,   ____________, QH_J,    QB_SLSH                            ) \
   _____________________________________________________________________________ 
 
 //========================================================================================
