@@ -1,3 +1,5 @@
+// -*- c-backslash-column: 90; c-backslash-max-column: 90 -*-
+
 #ifdef COMBO_ENABLE
 #include "key_aliases.h"
 
@@ -9,7 +11,7 @@
 #define ____________
 #define ______________________________________________________________________________
 
-#define FOR_EACH_COMBO(DO)                                                      \
+#define FOR_EACH_COMBO(DO)                                                       \
   ______________________________________________________________________________ \
   DO(l_num_rech,    DF(0),         KC_1,    KC_2                               ) \
   DO(l_num_innr,    DF(2),         KC_3,    KC_4                               ) \
@@ -20,9 +22,9 @@
   __(l_num_trpm,    ____________,  KC_2,    KC_3,      KC_4                    ) \
   __(l_num_trpo,    ____________,  KC_1,    KC_2,      KC_3                    ) \
   ______________________________________________________________________________ \
-  DO(l_top_rech,    LSFT(KC_GRV),  QT_Q,    QT_W                               ) \
-  __(l_top_innr,    KC_GRV,        QT_E,    QT_R                               ) \
-  __(l_top_outr,    ____________,  QT_W,    QT_E                               ) \
+  DO(l_top_rech,    KC_GRV,        QT_Q,    QT_W                               ) \
+  __(l_top_innr,    ____________,  QT_E,    QT_R                               ) \
+  DO(l_top_outr,    LSFT(KC_GRV),  QT_W,    QT_E                               ) \
   __(l_top_curl,    ____________,  QT_T,    QT_R                               ) \
   __(l_top_sprd,    ____________,  QT_W,    QT_R                               ) \
   __(l_top_trpi,    ____________,  QT_E,    QT_R,      QT_T                    ) \
@@ -61,7 +63,7 @@
   DO(r_mid_innr,    KC_ENT,        QH_J,    QH_K                               ) \
   DO(r_mid_outr,    KC_SCLN,       QH_K,    QH_L                               ) \
   DO(r_mid_curl,    KC_EQL,        QH_H,    QH_J                               ) \
-  DO(r_mid_sprd,    SS_BRACKS,     QH_J,    QH_L                               ) \
+  DO(r_mid_sprd,    LALT(KC_X),    QH_J,    QH_L                               ) \
   DO(r_mid_trpi,    EM_CHG_BUF,    QH_H,    QH_J,       QH_K                   ) \
   DO(r_mid_trpm,    EM_DIRED,      QH_J,    QH_K,       QH_L                   ) \
   DO(r_mid_trpo,    EM_ALL_BUF,    QH_K,    QH_L,       QH_QUOT                ) \
