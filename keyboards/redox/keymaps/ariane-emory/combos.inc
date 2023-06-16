@@ -103,14 +103,14 @@ bool combo_should_trigger(
   keyrecord_t *record) {
   return ((combo->keycode == SS_DICT)
           || (combo->keycode == KC_ENT)
+          || (combo->keycode == KC_HOME)
+          || (combo->keycode == KC_END)
           || layer_state_is(0)
           || layer_state_is(1)
           || layer_state_is(2)
           || layer_state_is(3)
           || layer_state_is(4)
-          || layer_state_is(5)
-          || (layer_state_is(TRI_LAYER_ADJUST_LAYER) &&
-              combo->keycode == KC_ENT));
+          || layer_state_is(5));
 }
 
 //========================================================================================
