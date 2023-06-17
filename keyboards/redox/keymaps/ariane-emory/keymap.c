@@ -117,6 +117,7 @@ enum arianes_keycodes {
   SHOLD_GUI,
   VS_CLOSE,
   VS_FORMAT_DOC,
+  KC_USCORE,
   // FOR_EACH_SEND_STRING_KEYCODE(enum_item)
   // FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(enum_item)
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
@@ -350,6 +351,12 @@ KEYRECORD_FUN(process_record_user, bool) {
     // KC_DQUO is not "basic" so we have to tap it manually
     if (record->tap.count && record->event.pressed) {
       tap_code16(KC_DQUO);
+      return false;
+    }
+    return true;
+  case LT(9,KC_USCORE):
+    if (record->tap.count && record->event.pressed) {
+      tap_code16(LSFT(KC_MINS));
       return false;
     }
     return true;
