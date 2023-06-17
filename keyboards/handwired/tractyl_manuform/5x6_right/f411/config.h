@@ -33,9 +33,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 #define RGBLED_NUM          57
-#define RGBLIGHT_SPLIT
-#define RGBLED_SPLIT \
-    { 26, 31 }
 
 #define DEBUG_LED_PIN      C13
 

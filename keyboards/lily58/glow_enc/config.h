@@ -21,6 +21,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #define RGBLED_NUM 72    // Number of LEDs
-
-#define RGBLED_SPLIT { 36, 36 }
-#define RGBLIGHT_SPLIT

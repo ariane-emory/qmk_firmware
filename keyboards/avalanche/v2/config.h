@@ -4,5 +4,3 @@
 #pragma once
 
 #define RGBLED_NUM 12
-#define RGBLED_SPLIT { 6, 6 }
-#define RGBLIGHT_SPLIT
