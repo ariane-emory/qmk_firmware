@@ -16,7 +16,7 @@ rgb_fader_t rgb_fader;
 #endif
 
 #include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file:
- 
+
 #if CONSOLE_ENABLE
 #  include "print.h"
 #endif
