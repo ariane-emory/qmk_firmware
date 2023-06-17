@@ -107,7 +107,7 @@ static uint16_t idle_timer = 0;
 #define define_tagged_progmem_string(tag, kc, str, ...)                          static const char tag##_str_##kc[] PROGMEM = str;
 #define define_nomods_progmem_string(kc, nomods_str, ...)                        define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
 #define define_shifted_progmem_string(kc, nomods_str, shifted_str, ...)            define_tagged_progmem_string(shifted, kc, shifted_str, __VA_ARGS__)
-#define define_ctrlable_progmem_string(kc, nomods_str, shifted_str, ctrlable_str, ...)  define_tagged_progmem_string(ctrlable, kc, ctrlable_str, __VA_ARGS__)
+#define define_ctrled_progmem_string(kc, nomods_str, shifted_str, ctrled_str, ...)  define_tagged_progmem_string(ctrled, kc, ctrled_str, __VA_ARGS__)
 
 enum arianes_keycodes {
   AE_DUMMY = SAFE_RANGE,
@@ -130,13 +130,13 @@ enum arianes_keycodes {
 
 FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
 FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
-FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrlable_progmem_string);
+FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
 
 #undef enum_item
 #undef define_tagged_progmem_string
 #undef define_nomods_progmem_string
 #undef define_shifted_progmem_string
-#undef define_ctrlable_progmem_string
+#undef define_ctrled_progmem_string
 
 #define USE_SEND_STRING_KEYCODES_TABLE
 
@@ -164,7 +164,7 @@ FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrlable_progmem_strin
 /* static const uint8_t shiftable_send_string_keycodes_size = ARRAY_SIZE(shiftable_send_string_keycodes); */
 /* #  undef shiftable_send_string_keycodes_row */
 
-#  define shiftable_or_ctrlable_send_string_keycodes_row(kc, str, str2, ctrlable_str) { kc, nomods_str_##kc, shifted_str_##kc, ctrlable_str_##kc },
+#  define shiftable_or_ctrlable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, shifted_str_##kc, ctrled_str_##kc },
 typedef struct {
   uint16_t kc;
   const char * str;
@@ -626,10 +626,13 @@ bool achordion_chord(
   return true;
   
 process_bilaterally:
+  if (other_keycode >= SAFE_RANGE)
+    return true;
+  
   // Also allow same-hand holds when the other key is in the rows below the
   // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
   if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
-    return true;
+        return true;
   
   // Require bilateral
   return achordion_opposite_hands(tap_hold_record, other_record);
