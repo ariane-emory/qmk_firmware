@@ -19,7 +19,7 @@ DEFERRED_EXEC_ENABLE 	 = yes
 DYNAMIC_MACRO_ENABLE   = yes
 
 SRC                   += features/achordion.c
-SRC                   += features/rgb.c
+SRC                   += features/cRGB_functions.c
 SRC                   += features/rgb_fader.c
 CFLAGS                += -funroll-loops
 

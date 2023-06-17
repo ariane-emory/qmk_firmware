@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "rgb.h"
+#include "cRGB_functions.h"
 #include "color.h"
 
 typedef struct rgb_fader_t {

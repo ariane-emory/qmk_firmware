@@ -1,6 +1,6 @@
 #include <string.h>
 #include <stdio.h>
-#include "color.h"
+#include "cRGB_functions.h"
 
 #define COLORS                                                                  \
   C(r)                                                                          \
