@@ -354,6 +354,12 @@ KEYRECORD_FUN(process_record_user, bool) {
       return false;
     }
     return true;
+  case RSFT_T(KC_F23):
+    if (record->tap.count && record->event.pressed) {
+      tap_code16(VD_ALL);
+      return false;
+    }
+    return true;
   case LT(9,KC_USCORE):
     if (record->tap.count && record->event.pressed) {
       tap_code16(LSFT(KC_MINS));
