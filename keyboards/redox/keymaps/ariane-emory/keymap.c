@@ -169,7 +169,7 @@ typedef struct {
   uint16_t kc;
   const char * str;
   const char * shifted_str;
-  const char * ctrlable_str;
+  const char * ctrled_str;
 } shiftable_or_ctrlable_send_string_keycodes_table_row_t;
 static const shiftable_or_ctrlable_send_string_keycodes_table_row_t shiftable_or_ctrlable_send_string_keycodes[] = {
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(shiftable_or_ctrlable_send_string_keycodes_row)
@@ -189,9 +189,9 @@ bool process_shiftable_or_ctrlable_send_string(
         SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].shifted_str);
       }
       else if (
-        (pgm_read_byte(shiftable_or_ctrlable_send_string_keycodes[ix].ctrlable_str) != 0) &&
+        (pgm_read_byte(shiftable_or_ctrlable_send_string_keycodes[ix].ctrled_str) != 0) &&
         (get_mods() & MOD_MASK_CTRL)) {
-        SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].ctrlable_str);
+        SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].ctrled_str);
       }
       else {
         SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].str);
@@ -293,7 +293,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     }
     return true;
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
-#  define kc_tap_case_shiftable_or_ctrlable_send_string(kc, str, shifted_str, ctrlable_str)                             \
+#  define kc_tap_case_shiftable_or_ctrlable_send_string(kc, str, shifted_str, ctrled_str)                               \
     case kc:                                                                                                            \
       if (record->event.pressed) {                                                                                      \
         if (                                                                                                            \
@@ -301,9 +301,9 @@ KEYRECORD_FUN(process_record_user, bool) {
           (get_mods() & MOD_MASK_CTRL)) {                                                                               \
           SEND_STRING_WITHOUT_MODS_P(shifted_str_##kc);                                                                 \
         } else if (                                                                                                     \
-          (ctrlable_str_##kc[0] != '\0') &&                                                                             \
+          (ctrled_str_##kc[0] != '\0') &&                                                                               \
           (get_mods() & MOD_MASK_ALT)) {                                                                                \
-          SEND_STRING_WITHOUT_MODS_P(ctrlable_str_##kc);                                                                \
+          SEND_STRING_WITHOUT_MODS_P(ctrled_str_##kc);                                                                  \
         } else {                                                                                                        \
           SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                                         \
         }                                                                                                               \
