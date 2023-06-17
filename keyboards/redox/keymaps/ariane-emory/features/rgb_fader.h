@@ -3,11 +3,12 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "rgb.h"
+#include "color.h"
 
 typedef struct rgb_fader_t {
-  rgb_t   initial;
-  rgb_t   current;
-  rgb_t   target;
+  cRGB   initial;
+  cRGB   current;
+  cRGB   target;
   uint8_t step;
 #ifndef RGB_FADER_NO_STRINGS
   char    c_str[8];

@@ -31,7 +31,7 @@ void rgb_fader_finish_init(rgb_fader_t * const this) {
   this->step = 0;
 }
 
-bool rgb_fader_before_set_target (rgb_fader_t * const this, const rgb_t * const rgb) {
+bool rgb_fader_before_set_target (rgb_fader_t * const this, const cRGB * const rgb) {
   return ! rgb_equal(&this->target, rgb);
 }
 
@@ -40,7 +40,7 @@ bool rgb_fader_before_set_target (rgb_fader_t * const this, const rgb_t * const 
 ////////////////////////////////////////////////////////////////////////////////
 
 void rgb_fader_init(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b) {
-  rgb_t rgb;
+  cRGB rgb;
   rgb_init(&rgb, r, g, b);
 #define copy_rgb(r) rgb_copy(&this->r, &rgb);
   FOR_EACH_RGB(copy_rgb);
@@ -50,7 +50,7 @@ void rgb_fader_init(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b) {
 
 #ifndef RGB_FADER_NO_STRINGS
 bool rgb_fader_init_from_str(rgb_fader_t * const this, const char * const str) {
-  rgb_t tmp;
+  cRGB tmp;
   if (! rgb_init_from_str(&tmp, str))
     return false;
   rgb_fader_init(this, tmp.r, tmp.g, tmp.b);
@@ -146,7 +146,7 @@ bool rgb_fader_is_changing(const rgb_fader_t * const this) {
 ////////////////////////////////////////////////////////////////////////////////
 
 void rgb_fader_set_target(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b) {
-  rgb_t rgb;
+  cRGB rgb;
   rgb_init(&rgb, r, g, b);
   // if rgb_fader_before_set_target returns false, no change is needed and we
   // return success
@@ -158,7 +158,7 @@ void rgb_fader_set_target(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_
 
 #ifndef RGB_FADER_NO_STRINGS
 bool rgb_fader_set_target_from_str(rgb_fader_t * const this, const char * const str) {
-  rgb_t rgb;
+  cRGB rgb;
   return ! rgb_init_from_str(&rgb, str)
     ? false
     : rgb_fader_set_target_from_rgb(this, &rgb);
