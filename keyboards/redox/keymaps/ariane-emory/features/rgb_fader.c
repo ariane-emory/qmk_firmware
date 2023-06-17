@@ -32,7 +32,7 @@ void rgb_fader_finish_init(rgb_fader_t * const this) {
 }
 
 bool rgb_fader_before_set_target (rgb_fader_t * const this, const cRGB * const rgb) {
-  return ! rgb_equal(&this->target, rgb);
+  return ! cRGB_equal(&this->target, rgb);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -41,8 +41,8 @@ bool rgb_fader_before_set_target (rgb_fader_t * const this, const cRGB * const r
 
 void rgb_fader_init(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b) {
   cRGB rgb;
-  rgb_init(&rgb, r, g, b);
-#define copy_rgb(r) rgb_copy(&this->r, &rgb);
+  cRGB_init(&rgb, r, g, b);
+#define copy_rgb(r) cRGB_copy(&this->r, &rgb);
   FOR_EACH_RGB(copy_rgb);
 #undef copy_rgb
   rgb_fader_finish_init(this);
@@ -51,7 +51,7 @@ void rgb_fader_init(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b) {
 #ifndef RGB_FADER_NO_STRINGS
 bool rgb_fader_init_from_str(rgb_fader_t * const this, const char * const str) {
   cRGB tmp;
-  if (! rgb_init_from_str(&tmp, str))
+  if (! cRGB_init_from_str(&tmp, str))
     return false;
   rgb_fader_init(this, tmp.r, tmp.g, tmp.b);
   return true;
@@ -64,7 +64,7 @@ bool rgb_fader_init_from_str(rgb_fader_t * const this, const char * const str) {
 
 #ifndef RGB_FADER_NO_STRINGS
 void rgb_fader_update_c_str(rgb_fader_t * const this) {
-  rgb_sprintf(&this->current, this->c_str);
+  cRGB_sprintf(&this->current, this->c_str);
 }
 #endif
 
@@ -138,7 +138,7 @@ void rgb_fader_describe(const rgb_fader_t * const this) {
 ////////////////////////////////////////////////////////////////////////////////
 
 bool rgb_fader_is_changing(const rgb_fader_t * const this) {
-  return ! rgb_equal(&this->current, &this->target);
+  return ! cRGB_equal(&this->current, &this->target);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -147,13 +147,13 @@ bool rgb_fader_is_changing(const rgb_fader_t * const this) {
 
 void rgb_fader_set_target(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b) {
   cRGB rgb;
-  rgb_init(&rgb, r, g, b);
+  cRGB_init(&rgb, r, g, b);
   // if rgb_fader_before_set_target returns false, no change is needed and we
   // return success
   if (! rgb_fader_before_set_target(this, &rgb))
     return;
   rgb_fader_stop(this);
-  rgb_copy(&this->target, &rgb);
+  cRGB_copy(&this->target, &rgb);
 }
 
 #ifndef RGB_FADER_NO_STRINGS
