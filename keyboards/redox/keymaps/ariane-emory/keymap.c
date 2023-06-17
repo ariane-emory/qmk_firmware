@@ -85,7 +85,7 @@ static uint16_t idle_timer = 0;
 
 #define REPEAT_SHELL_CMD (SS_DOWN(X_LGUI)SS_TAP(X_A)SS_UP(X_LGUI)SS_TAP(X_BSPC)SS_TAP(X_ENT)"11"SS_TAP(X_ENT))
 
-#define FOR_EACH_SHIFTABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                                                   \
+#define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                   \
   DO(SS_DICT,      (SS_TAP(X_F24)SS_TAP(X_F24)),            (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)),   (""))      \
   DO(EM_CHG_BUF,   (SS_LCTL("x")SS_DELAY(50)"b"),           (""),                                                    (""))      \
   DO(EM_KIL_BUF,   (SS_LCTL("x")SS_DELAY(50)SS_LCTL("k")),  (""),                                                    (""))      \
@@ -103,7 +103,7 @@ static uint16_t idle_timer = 0;
 #define define_tagged_progmem_string(tag, kc, str, ...)                          static const char tag##_str_##kc[] PROGMEM = str;
 #define define_nomods_progmem_string(kc, nomods_str, ...)                        define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
 #define define_shifted_progmem_string(kc, nomods_str, shifted_str, ...)            define_tagged_progmem_string(shifted, kc, shifted_str, __VA_ARGS__)
-#define define_alted_progmem_string(kc, nomods_str, shifted_str, alted_str, ...)  define_tagged_progmem_string(alted, kc, alted_str, __VA_ARGS__)
+#define define_ctrlable_progmem_string(kc, nomods_str, shifted_str, ctrlable_str, ...)  define_tagged_progmem_string(ctrlable, kc, ctrlable_str, __VA_ARGS__)
 
 enum arianes_keycodes {
   AE_DUMMY = SAFE_RANGE,
@@ -116,7 +116,7 @@ enum arianes_keycodes {
   KC_USCORE,
   // FOR_EACH_SEND_STRING_KEYCODE(enum_item)
   // FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(enum_item)
-  FOR_EACH_SHIFTABLE_OR_ALTABLE_SEND_STRING_KEYCODE(enum_item)
+  FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
 // FOR_EACH_SEND_STRING_KEYCODE(define_nomods_progmem_string);
@@ -124,15 +124,15 @@ enum arianes_keycodes {
 /* FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string); */
 /* FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string); */
 
-FOR_EACH_SHIFTABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
-FOR_EACH_SHIFTABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
-FOR_EACH_SHIFTABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
+FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
+FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
+FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrlable_progmem_string);
 
 #undef enum_item
 #undef define_tagged_progmem_string
 #undef define_nomods_progmem_string
 #undef define_shifted_progmem_string
-#undef define_alted_progmem_string
+#undef define_ctrlable_progmem_string
 
 #define USE_SEND_STRING_KEYCODES_TABLE
 
@@ -160,37 +160,37 @@ FOR_EACH_SHIFTABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
 /* static const uint8_t shiftable_send_string_keycodes_size = ARRAY_SIZE(shiftable_send_string_keycodes); */
 /* #  undef shiftable_send_string_keycodes_row */
 
-#  define shiftable_or_altable_send_string_keycodes_row(kc, str, str2, altable_str) { kc, nomods_str_##kc, shifted_str_##kc, alted_str_##kc },
+#  define shiftable_or_ctrlable_send_string_keycodes_row(kc, str, str2, ctrlable_str) { kc, nomods_str_##kc, shifted_str_##kc, ctrlable_str_##kc },
 typedef struct {
   uint16_t kc;
   const char * str;
   const char * shifted_str;
-  const char * alted_str;
-} shiftable_or_altable_send_string_keycodes_table_row_t;
-static const shiftable_or_altable_send_string_keycodes_table_row_t shiftable_or_altable_send_string_keycodes[] = {
-  FOR_EACH_SHIFTABLE_OR_ALTABLE_SEND_STRING_KEYCODE(shiftable_or_altable_send_string_keycodes_row)
+  const char * ctrlable_str;
+} shiftable_or_ctrlable_send_string_keycodes_table_row_t;
+static const shiftable_or_ctrlable_send_string_keycodes_table_row_t shiftable_or_ctrlable_send_string_keycodes[] = {
+  FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(shiftable_or_ctrlable_send_string_keycodes_row)
 };
-static const uint8_t shiftable_or_altable_send_string_keycodes_size = ARRAY_SIZE(shiftable_or_altable_send_string_keycodes);
-#  undef shiftable_or_altable_send_string_keycodes_row
+static const uint8_t shiftable_or_ctrlable_send_string_keycodes_size = ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes);
+#  undef shiftable_or_ctrlable_send_string_keycodes_row
 
-bool process_shiftable_or_altable_send_string(
+bool process_shiftable_or_ctrlable_send_string(
   const uint16_t keycode,
   const keyrecord_t * const record,
   const uint8_t ix) {
-  if (shiftable_or_altable_send_string_keycodes[ix].kc == keycode) {      
+  if (shiftable_or_ctrlable_send_string_keycodes[ix].kc == keycode) {      
     if (record->event.pressed) {
       if (
-        (pgm_read_byte(shiftable_or_altable_send_string_keycodes[ix].shifted_str) != 0) &&
+        (pgm_read_byte(shiftable_or_ctrlable_send_string_keycodes[ix].shifted_str) != 0) &&
         (get_mods() & MOD_MASK_SHIFT)) {
-        SEND_STRING_WITHOUT_MODS_P(shiftable_or_altable_send_string_keycodes[ix].shifted_str);
+        SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].shifted_str);
       }
       else if (
-        (pgm_read_byte(shiftable_or_altable_send_string_keycodes[ix].alted_str) != 0) &&
-        (get_mods() & MOD_MASK_ALT)) {
-        SEND_STRING_WITHOUT_MODS_P(shiftable_or_altable_send_string_keycodes[ix].alted_str);
+        (pgm_read_byte(shiftable_or_ctrlable_send_string_keycodes[ix].ctrlable_str) != 0) &&
+        (get_mods() & MOD_MASK_CTRL)) {
+        SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].ctrlable_str);
       }
       else {
-        SEND_STRING_WITHOUT_MODS_P(shiftable_or_altable_send_string_keycodes[ix].str);
+        SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].str);
       }
     }
     return true;
@@ -269,8 +269,8 @@ KEYRECORD_FUN(process_record_user, bool) {
   /*   if (process_shiftable_send_string(keycode, record, ix)) */
   /*     return false; */
   /* } */
-  for (uint8_t ix = 0; ix < shiftable_or_altable_send_string_keycodes_size; ix++) {
-    if (process_shiftable_or_altable_send_string(keycode, record, ix))
+  for (uint8_t ix = 0; ix < shiftable_or_ctrlable_send_string_keycodes_size; ix++) {
+    if (process_shiftable_or_ctrlable_send_string(keycode, record, ix))
       return false;
   }
 #endif
@@ -289,7 +289,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     }
     return true;
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
-#  define kc_tap_case_shiftable_or_altable_send_string(kc, str, shifted_str, alted_str)                                 \
+#  define kc_tap_case_shiftable_or_ctrlable_send_string(kc, str, shifted_str, ctrlable_str)                             \
     case kc:                                                                                                            \
       if (record->event.pressed) {                                                                                      \
         if (                                                                                                            \
@@ -297,16 +297,16 @@ KEYRECORD_FUN(process_record_user, bool) {
           (get_mods() & MOD_MASK_CTRL)) {                                                                               \
           SEND_STRING_WITHOUT_MODS_P(shifted_str_##kc);                                                                 \
         } else if (                                                                                                     \
-          (alted_str_##kc[0] != '\0') &&                                                                                \
+          (ctrlable_str_##kc[0] != '\0') &&                                                                             \
           (get_mods() & MOD_MASK_ALT)) {                                                                                \
-          SEND_STRING_WITHOUT_MODS_P(alted_str_##kc);                                                                   \
+          SEND_STRING_WITHOUT_MODS_P(ctrlable_str_##kc);                                                                \
         } else {                                                                                                        \
           SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                                         \
         }                                                                                                               \
       }                                                                                                                 \
       return false;
-    FOR_EACH_SHIFTABLE_OR_ALTABLE_SEND_STRING_KEYCODE(kc_tap_case_shiftable_or_altable_send_string)
-#  undef  kc_tap_case_shiftable_or_altable_send_string
+    FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(kc_tap_case_shiftable_or_ctrlable_send_string)
+#  undef  kc_tap_case_shiftable_or_ctrlable_send_string
 /* #  define kc_tap_case_shiftable_send_string(kc, str, shifted_str)                                     \ */
 /*       case kc:                                                                                      \ */
 /*         if (record->event.pressed) {                                                                \ */
