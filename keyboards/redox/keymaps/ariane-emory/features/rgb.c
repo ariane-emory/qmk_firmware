@@ -1,7 +1,8 @@
-#include "rgb_fader.h"
+//#include "rgb_fader.h"
 
 #include <string.h>
 #include <stdio.h>
+#include "color.h"
 
 #define COLORS                                                                  \
   C(r)                                                                          \
