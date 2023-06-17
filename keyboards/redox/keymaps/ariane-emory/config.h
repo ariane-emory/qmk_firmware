@@ -49,7 +49,7 @@
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 #define PERMISSIVE_HOLD_PER_KEY
 
-#define TAPPING_TERM                         250
+#define TAPPING_TERM                         300
 // #define TAPPING_TERM_PER_KEY
 
 #define TOGGLED_LAYER                        6
@@ -108,6 +108,13 @@
 #undef EEPROM_ENABLE
 #undef EEPROM_DRIVER
 
+#ifdef DYNAMIC_MACRO_ENABLE
+#    define DYNAMIC_MACRO_DELAY              15
+#endif
+
+// #define STAGGERED_SHIFT
+#define TOP_SHIFT
+#define BOTTOM_SHIFT
 #ifdef DYNAMIC_MACRO_ENABLE
 #    define DYNAMIC_MACRO_DELAY              15
 #endif
