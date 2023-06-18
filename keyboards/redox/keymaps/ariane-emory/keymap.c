@@ -292,6 +292,7 @@ KEYRECORD_FUN(process_record_user, bool) {
       return false;
     }
     return true;
+    
 #ifndef USE_DUMMY_TABLE
   case RSFT_T(KC_DUMMY):
     if (record->tap.count && record->event.pressed) {
