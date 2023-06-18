@@ -130,7 +130,6 @@ FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string)
 #define USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
-
 #  define shiftable_or_ctrlable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, shifted_str_##kc, ctrled_str_##kc },
 typedef struct {
   uint16_t kc;
@@ -192,6 +191,17 @@ void tap_number(uint16_t num) {
   set_mods(current_mods);
 }
 
+typedef struct {
+  uint16_t match_keycode;
+  uint16_t tap_keycode;
+} dummy_row_t;
+
+static const dummy_row_t dummy_table[] = {
+  { RSFT_T(KC_DUMMY), VD_ALL        },
+  { LT(9,KC_DUMMY),   LSFT(KC_MINS) },
+};
+static const size_t dummy_table_length = ARRAY_SIZE(dummy_table);
+
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
@@ -213,28 +223,28 @@ KEYRECORD_FUN(process_record_user, bool) {
       tap_number(128);
     return false;
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
-#  define kc_tap_case_shiftable_or_ctrlable_send_string(kc, str, shifted_str, ctrled_str)                               \
-    case kc:                                                                                                            \
-      if (record->event.pressed) {                                                                                      \
-        if (                                                                                                            \
-          (shifted_str_##kc[0] != '\0') &&                                                                              \
-          (get_mods() & MOD_MASK_CTRL)) {                                                                               \
-          SEND_STRING_WITHOUT_MODS_P(shifted_str_##kc);                                                                 \
-        } else if (                                                                                                     \
-          (ctrled_str_##kc[0] != '\0') &&                                                                               \
-          (get_mods() & MOD_MASK_ALT)) {                                                                                \
-          SEND_STRING_WITHOUT_MODS_P(ctrled_str_##kc);                                                                  \
-        } else {                                                                                                        \
-          SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                                         \
-        }                                                                                                               \
-      }                                                                                                                 \
+#  define kc_tap_case_shiftable_or_ctrlable_send_string(kc, str, shifted_str, ctrled_str)                                       \
+    case kc:                                                                                                                    \
+      if (record->event.pressed) {                                                                                              \
+        if (                                                                                                                    \
+          (shifted_str_##kc[0] != '\0') &&                                                                                      \
+          (get_mods() & MOD_MASK_CTRL)) {                                                                                       \
+          SEND_STRING_WITHOUT_MODS_P(shifted_str_##kc);                                                                         \
+        } else if (                                                                                                             \
+          (ctrled_str_##kc[0] != '\0') &&                                                                                       \
+          (get_mods() & MOD_MASK_ALT)) {                                                                                        \
+          SEND_STRING_WITHOUT_MODS_P(ctrled_str_##kc);                                                                          \
+        } else {                                                                                                                \
+          SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                                                 \
+        }                                                                                                                       \
+      }                                                                                                                         \
       return false;
     FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(kc_tap_case_shiftable_or_ctrlable_send_string)
 #  undef  kc_tap_case_shiftable_or_ctrlable_send_string
-#  define kc_tap_case_send_string(kc, str)                                                                              \
-      case kc:                                                                                                          \
-        if (record->event.pressed)                                                                                      \
-          SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                                         \
+#  define kc_tap_case_send_string(kc, str)                                                                                      \
+      case kc:                                                                                                                  \
+        if (record->event.pressed)                                                                                              \
+          SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                                                 \
         return false;
       FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
 #  undef  kc_tap_case_send_string
