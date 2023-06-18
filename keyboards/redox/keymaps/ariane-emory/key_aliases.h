@@ -134,6 +134,9 @@
 #  define CRL_RGT MO(TRI_LAYER_UPPER_LAYER)
 #endif // TRI_LAYER_ENABLE
 //==============================================================================
+#define TH_LFT MT(MOD_LALT,KC_SPC)
+#define TH_RGT MT(MOD_RGUI,KC_BSPC)
+//==============================================================================
 #define EM_SHELL    LALT(LGUI(KC_S))
 #define KA_UNDO     LGUI(KC_Z)
 #define EM_ALL_BUF  LALT(LGUI(KC_A))
