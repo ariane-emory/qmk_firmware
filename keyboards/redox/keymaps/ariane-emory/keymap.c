@@ -107,14 +107,13 @@ static uint16_t idle_timer = 0;
 #define define_ctrled_progmem_string(kc, nomods_str, shifted_str, ctrled_str, ...)  define_tagged_progmem_string(ctrled, kc, ctrled_str, __VA_ARGS__)
 
 enum arianes_keycodes {
-  AE_DUMMY = SAFE_RANGE,
+  KC_DUMMY = SAFE_RANGE,
   HOLD_GUI,
   INSERT_UPP,
   RGB_TOGGLE_NOEE,
   SHOLD_GUI,
   VS_CLOSE,
   VS_FORMAT_DOC,
-  KC_DUMMY,
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
