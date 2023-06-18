@@ -191,8 +191,9 @@ void tap_number(uint16_t num) {
   set_mods(current_mods);
 }
 
+#ifdef USE_DUMMY_TABLE
 typedef struct {
-  uint16_t match_keycode;
+uint16_t match_keycode;
   uint16_t tap_keycode;
 } dummy_row_t;
 
@@ -201,6 +202,7 @@ static const dummy_row_t dummy_table[] = {
   { LT(9,KC_DUMMY),   LSFT(KC_MINS) },
 };
 static const size_t dummy_table_length = ARRAY_SIZE(dummy_table);
+#endif
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
@@ -217,6 +219,7 @@ KEYRECORD_FUN(process_record_user, bool) {
   }
 #endif
 
+#ifdef USE_DUMMY_TABLE
   for (uint8_t ix = 0; ix < dummy_table_length; ix++) {
     if (dummy_table[ix].match_keycode == keycode) {
       if (record->tap.count && record->event.pressed) {
@@ -226,7 +229,8 @@ KEYRECORD_FUN(process_record_user, bool) {
       return true;
     }
   }
-
+#endif
+  
   switch (keycode) {
   case VS_CLOSE:
     if (record->event.pressed)
@@ -288,6 +292,7 @@ KEYRECORD_FUN(process_record_user, bool) {
       return false;
     }
     return true;
+#ifndef USE_DUMMY_TABLE
   case RSFT_T(KC_DUMMY):
     if (record->tap.count && record->event.pressed) {
       tap_code16(VD_ALL);
@@ -300,6 +305,8 @@ KEYRECORD_FUN(process_record_user, bool) {
       return false;
     }
     return true;
+#endif
+    
 #ifdef INSERT_UPP_ENABLED
   case INSERT_UPP:
     if (record->event.pressed) {
