@@ -66,7 +66,7 @@
       "ANY(VD_ALL)",
       "KC_F24",
       "ANY(RGB_TOGGLE_NOEE)",
-      "KC_RGUI",
+      "ANY(HOLD_GUI)",
       "ANY(TH_LFT)",
       "ANY(MT(MOD_LALT,KC_SPC))",
       "LT(9,KC_MINS)",
