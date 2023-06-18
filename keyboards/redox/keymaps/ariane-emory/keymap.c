@@ -263,6 +263,7 @@ KEYRECORD_FUN(process_record_user, bool) {
       FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
 #  undef  kc_tap_case_send_string
 #endif // ! USE_SEND_STRING_KEYCODES_TABLE
+
   case QK_DYNAMIC_MACRO_PLAY_1:
   case QK_DYNAMIC_MACRO_PLAY_2:
     if (record->event.pressed) 
