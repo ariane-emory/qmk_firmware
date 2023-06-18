@@ -360,7 +360,7 @@ KEYRECORD_FUN(process_record_user, bool) {
       return false;
     }
     return true;
-  case LT(9,KC_MINS):
+  case LT(9,KC_DUMMY):
     if (record->tap.count && record->event.pressed) {
       tap_code16(LSFT(KC_MINS));
       return false;
