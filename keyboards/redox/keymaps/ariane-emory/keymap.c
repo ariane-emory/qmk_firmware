@@ -550,6 +550,7 @@ bool achordion_chord(
         other_keycode == SS_RBRACK ||
         other_keycode == SS_BRACKS ||
         other_keycode == QH_A ||
+        other_keycode == QH_D ||
         other_keycode == QT_E ||
         other_keycode == QT_T ||
         other_keycode == QT_W ||
