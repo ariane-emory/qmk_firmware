@@ -1,16 +1,6 @@
 #pragma once
 
-#define QT_Q    KC_Q
-#define QT_W    KC_W
-#define QT_E    KC_E
-#define QT_R    KC_R
-#define QT_T    KC_T
-#define QT_Y    KC_Y
-#define QT_U    KC_U
-#define QT_I    KC_I
-#define QT_O    KC_O
-#define QT_P    KC_P
-
+//==============================================================================
 #ifdef    TOP_SHIFT
 #    define QH_A    LSFT_T(KC_A)
 #    define QH_QUOT RSFT_T(KC_QUOT)
@@ -22,8 +12,10 @@
 #    define CH_A    KC_A
 #    define CH_QUOT KC_QUOT
 #endif // TOP_SHIFT
+//==============================================================================
 
-#if       defined(BOTTOM_SHIFT) && ! defined(BOTTOM_ROW_MODS)
+//==============================================================================
+#if defined(BOTTOM_SHIFT) && ! defined(BOTTOM_ROW_MODS)
 #    define QB_Z    LSFT_T(KC_Z)
 #    define QB_SLSH RSFT_T(KC_SLSH)
 #    define CB_Z    LSFT_T(KC_Z)
@@ -34,8 +26,22 @@
 #    define CB_Z    KC_Z
 #    define CB_SLSH KC_SLSH
 #endif // BOTTOM_SHIFT
+//==============================================================================
 
+//==============================================================================
+#define QT_Q    KC_Q
+#define QT_W    KC_W
+#define QT_E    KC_E
+#define QT_R    KC_R
+#define QT_T    KC_T
+#define QT_Y    KC_Y
+#define QT_U    KC_U
+#define QT_I    KC_I
+#define QT_O    KC_O
+#define QT_P    KC_P
+//==============================================================================
 
+//==============================================================================
 #ifdef    HOME_ROW_MODS
 //------------------------------
 #define QH_S    LGUI_T(KC_S)
@@ -123,19 +129,37 @@
 #define CB_DOT  KC_DOT
 //------------------------------
 #endif // BOTTOM_ROW_MODS
-
+//==============================================================================
 
 //==============================================================================
-#ifdef TRI_LAYER_ENABLE
-#  define CRL_LFT QK_TRI_LAYER_LOWER
-#  define CRL_RGT QK_TRI_LAYER_UPPER
-#else // TRI_LAYER_ENABLE
-#  define CRL_LFT MO(TRI_LAYER_LOWER_LAYER)
-#  define CRL_RGT MO(TRI_LAYER_UPPER_LAYER)
-#endif // TRI_LAYER_ENABLE
+#define NUM_1       KC_1
+#define NUM_2       KC_2
+#define NUM_3       KC_3
+#define NUM_4       KC_4
+#define NUM_5       KC_5
+#define NUM_6       KC_6
+#define NUM_7       KC_7
+#define NUM_8       KC_8
+#define NUM_9       KC_9
+#define NUM_0       KC_0
 //==============================================================================
-#define TH_LFT MT(MOD_LALT,KC_SPC)
-#define TH_RGT MT(MOD_RGUI,KC_BSPC)
+#define NUMP_0      LSFT(KC_0)
+#define NUMP_1      LSFT(KC_1)
+#define NUMP_2      LSFT(KC_2)
+#define NUMP_3      LSFT(KC_3)
+#define NUMP_4      LSFT(KC_4)
+#define NUMP_5      LSFT(KC_5)
+#define NUMP_6      LSFT(KC_6)
+#define NUMP_7      LSFT(KC_7)
+#define NUMP_8      LSFT(KC_8)
+#define NUMP_9      LSFT(KC_9)
+#define NUMP_0      LSFT(KC_0)
+//==============================================================================
+#define VD_LEFT     LALT(LCTL(KC_S))
+#define VD_RIGHT    LALT(LCTL(KC_D))
+#define VD_ALL      LALT(LCTL(KC_TAB))
+//==============================================================================
+
 //==============================================================================
 #define EM_SHELL    LALT(LGUI(KC_S))
 #define KA_UNDO     LGUI(KC_Z)
@@ -151,31 +175,15 @@
 #define RCTL_DQUO   RCTL_T(KC_DQUO)
 //==============================================================================
 
-#define NUM_1       KC_1
-#define NUM_2       KC_2
-#define NUM_3       KC_3
-#define NUM_4       KC_4
-#define NUM_5       KC_5
-#define NUM_6       KC_6
-#define NUM_7       KC_7
-#define NUM_8       KC_8
-#define NUM_9       KC_9
-#define NUM_0       KC_0
-
-#define NUMP_0      LSFT(KC_0)
-#define NUMP_1      LSFT(KC_1)
-#define NUMP_2      LSFT(KC_2)
-#define NUMP_3      LSFT(KC_3)
-#define NUMP_4      LSFT(KC_4)
-#define NUMP_5      LSFT(KC_5)
-#define NUMP_6      LSFT(KC_6)
-#define NUMP_7      LSFT(KC_7)
-#define NUMP_8      LSFT(KC_8)
-#define NUMP_9      LSFT(KC_9)
-#define NUMP_0      LSFT(KC_0)
-
-#define VD_LEFT     LALT(LCTL(KC_S))
-#define VD_RIGHT    LALT(LCTL(KC_D))
-#define VD_ALL      LALT(LCTL(KC_TAB))
-
-// #define KC_USCORE   LSFT(KC_MINS)
+//==============================================================================
+#define TH_LFT MT(MOD_LALT,KC_SPC)
+#define TH_RGT MT(MOD_RGUI,KC_BSPC)
+//==============================================================================
+#ifdef TRI_LAYER_ENABLE
+#  define CRL_LFT QK_TRI_LAYER_LOWER
+#  define CRL_RGT QK_TRI_LAYER_UPPER
+#else // TRI_LAYER_ENABLE
+#  define CRL_LFT MO(TRI_LAYER_LOWER_LAYER)
+#  define CRL_RGT MO(TRI_LAYER_UPPER_LAYER)
+#endif // TRI_LAYER_ENABLE
+//==============================================================================
