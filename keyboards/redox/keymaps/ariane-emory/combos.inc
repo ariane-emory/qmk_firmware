@@ -99,10 +99,10 @@ uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
 //========================================================================================
 
 bool combo_should_trigger(
-  uint16_t     combo_index,
-  combo_t *    combo,
-  uint16_t     keycode,
-  keyrecord_t *record) {
+  uint16_t      combo_index,
+  combo_t *     combo,
+  uint16_t      keycode,
+  keyrecord_t * record) {
   return (false
           || (combo->keycode == SS_DICT)
           || (combo->keycode == KC_HOME)
