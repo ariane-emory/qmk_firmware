@@ -217,6 +217,16 @@ KEYRECORD_FUN(process_record_user, bool) {
   }
 #endif
 
+  for (uint8_t ix = 0; ix < dummy_table_length; ix++) {
+    if (dummy_table[ix].match_keycode == keycode) {
+      if (record->tap.count && record->event.pressed) {
+        tap_code16(dummy_table[ix].tap_keycode);
+        return false;
+      }
+      return true;
+    }
+  }
+
   switch (keycode) {
   case VS_CLOSE:
     if (record->event.pressed)
