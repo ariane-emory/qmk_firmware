@@ -200,6 +200,7 @@ uint16_t match_keycode;
 static const dummy_row_t dummy_table[] = {
   { RSFT_T(KC_DUMMY), VD_ALL        },
   { LT(9,KC_DUMMY),   LSFT(KC_MINS) },
+  { RCTL_DQUO,        KC_DQUO       },
 };
 static const size_t dummy_table_length = ARRAY_SIZE(dummy_table);
 #endif
@@ -286,13 +287,6 @@ KEYRECORD_FUN(process_record_user, bool) {
   case QK_TRI_LAYER_LOWER:
     layer_off(6);
     return true;
-  case RCTL_DQUO:
-    // KC_DQUO is not "basic" so we have to tap it manually
-    if (record->tap.count && record->event.pressed) {
-      tap_code16(KC_DQUO);
-      return false;
-    }
-    return true;
     
 #ifndef USE_DUMMY_TABLE
   case RSFT_T(KC_DUMMY):
@@ -304,6 +298,13 @@ KEYRECORD_FUN(process_record_user, bool) {
   case LT(9,KC_DUMMY):
     if (record->tap.count && record->event.pressed) {
       tap_code16(LSFT(KC_MINS));
+      return false;
+    }
+    return true;
+  case RCTL_DQUO:
+    // KC_DQUO is not "basic" so we have to tap it manually
+    if (record->tap.count && record->event.pressed) {
+      tap_code16(KC_DQUO);
       return false;
     }
     return true;
