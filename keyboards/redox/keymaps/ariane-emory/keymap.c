@@ -341,7 +341,7 @@ KEYRECORD_FUN(process_record_user, bool) {
         cancel_deferred_exec(token);
         token = INVALID_DEFERRED_TOKEN;
       }
-      token = defer_exec(1000, release_lgui_callback, NULL);
+      token = defer_exec(400, release_lgui_callback, NULL);
     }
     return false;                                                                 
   case QK_TRI_LAYER_LOWER:
