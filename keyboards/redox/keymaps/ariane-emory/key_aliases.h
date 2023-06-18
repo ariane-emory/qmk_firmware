@@ -127,11 +127,11 @@
 
 //==============================================================================
 #ifdef TRI_LAYER_ENABLE
-#  define TH_LFT QK_TRI_LAYER_LOWER
-#  define TH_RGT QK_TRI_LAYER_UPPER
+#  define CRL_LFT QK_TRI_LAYER_LOWER
+#  define CRL_RGT QK_TRI_LAYER_UPPER
 #else // TRI_LAYER_ENABLE
-#  define TH_LFT MO(TRI_LAYER_LOWER_LAYER)
-#  define TH_RGT MO(TRI_LAYER_UPPER_LAYER)
+#  define CRL_LFT MO(TRI_LAYER_LOWER_LAYER)
+#  define CRL_RGT MO(TRI_LAYER_UPPER_LAYER)
 #endif // TRI_LAYER_ENABLE
 //==============================================================================
 #define EM_SHELL    LALT(LGUI(KC_S))
