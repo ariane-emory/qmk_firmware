@@ -49,8 +49,8 @@
   __(l_bot_trpm,    ____________,  QB_X,    QB_C,      QB_V                    ) \
   __(l_bot_trpo,    ____________,  QB_Z,    QB_X,      QB_C                    ) \
   ______________________________________________________________________________ \
-  DO(r_top_EXTR,    KC_HOME,       QT_P,    KC_BSLS                            ) \
-  DO(r_top_rech,    KC_END,        QT_O,    QT_P                               ) \
+  DO(r_top_EXTR,    KC_END,        QT_P,    KC_BSLS                            ) \
+  DO(r_top_rech,    KC_HOME,       QT_O,    QT_P                               ) \
   DO(r_top_innr,    SS_LBRACK,     QT_U,    QT_I                               ) \
   DO(r_top_outr,    SS_RBRACK,     QT_I,    QT_O                               ) \
   __(r_top_curl,    ____________,  QT_Y,    QT_U                               ) \
