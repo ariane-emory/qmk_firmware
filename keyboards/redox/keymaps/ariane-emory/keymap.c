@@ -79,9 +79,6 @@ uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
 
 static uint16_t idle_timer = 0;
 
-// #define FOR_EACH_SEND_STRING_KEYCODE(DO)                                                          
-// #define FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(DO)
-
 #define LL SS_TAP(X_LEFT)
 #define UU SS_TAP(X_UP)
 #define TB SS_TAP(X_TAB)
@@ -118,15 +115,8 @@ enum arianes_keycodes {
   VS_CLOSE,
   VS_FORMAT_DOC,
   KC_DUMMY,
-  // FOR_EACH_SEND_STRING_KEYCODE(enum_item)
-  // FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(enum_item)
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 };
-
-// FOR_EACH_SEND_STRING_KEYCODE(define_nomods_progmem_string);
-
-/* FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string); */
-/* FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string); */
 
 FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
 FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
@@ -141,28 +131,6 @@ FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string)
 #define USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
-/* #  define send_string_keycodes_row(kc, str) { kc, str_##kc }, */
-/* typedef struct { */
-/*   uint16_t kc; */
-/*   const char * str; */
-/* } send_string_keycodes_table_row_t; */
-/* static const send_string_keycodes_table_row_t send_string_keycodes[] = { */
-/*   FOR_EACH_SEND_STRING_KEYCODE(send_string_keycodes_row) */
-/* }; */
-/* static const uint8_t send_string_keycodes_size = ARRAY_SIZE(send_string_keycodes); */
-/* #  undef send_string_keycodes_row */
- 
-/* #  define shiftable_send_string_keycodes_row(kc, str, shiftable_str) { kc, str_##kc, shifted_str_##kc }, */
-/* typedef struct { */
-/*   uint16_t kc; */
-/*   const char * str; */
-/*   const char * shifted_str; */
-/* } shiftable_send_string_keycodes_table_row_t; */
-/* static const shiftable_send_string_keycodes_table_row_t shiftable_send_string_keycodes[] = { */
-/*   FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(shiftable_send_string_keycodes_row) */
-/* }; */
-/* static const uint8_t shiftable_send_string_keycodes_size = ARRAY_SIZE(shiftable_send_string_keycodes); */
-/* #  undef shiftable_send_string_keycodes_row */
 
 #  define shiftable_or_ctrlable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, shifted_str_##kc, ctrled_str_##kc },
 typedef struct {
@@ -201,37 +169,6 @@ bool process_shiftable_or_ctrlable_send_string(
   }
   return false;
 }
-
-/* bool process_shiftable_send_string( */
-/*   const uint16_t keycode, */
-/*   const keyrecord_t * const record, */
-/*   const uint8_t ix) { */
-/*   if (shiftable_send_string_keycodes[ix].kc == keycode) {       */
-/*     if (record->event.pressed) { */
-/*       if ( */
-/*         (pgm_read_byte(shiftable_send_string_keycodes[ix].shifted_str) != 0) && */
-/*         (get_mods() & MOD_MASK_CTRL)) { */
-/*         SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].shifted_str); */
-/*       } else { */
-/*         SEND_STRING_WITHOUT_MODS_P(shiftable_send_string_keycodes[ix].str); */
-/*       } */
-/*     } */
-/*     return true; */
-/*   } */
-/*   return false; */
-/* } */
-
-/* bool process_send_string( */
-/*   const uint16_t keycode, */
-/*   const keyrecord_t * const record, */
-/*   const uint8_t ix) { */
-/*   if (send_string_keycodes[ix].kc == keycode) { */
-/*     if (record->event.pressed)  */
-/*       SEND_STRING_WITHOUT_MODS_P(send_string_keycodes[ix].str); */
-/*     return true; */
-/*   } */
-/*   return false; */
-/* } */
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
 void tap_number(uint16_t num) {
@@ -265,14 +202,6 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
-  /* for (uint8_t ix = 0; ix < send_string_keycodes_size; ix++) { */
-  /*   if (process_send_string(keycode, record, ix)) */
-  /*     return false; */
-  /* } */
-  /* for (uint8_t ix = 0; ix < shiftable_send_string_keycodes_size; ix++) { */
-  /*   if (process_shiftable_send_string(keycode, record, ix)) */
-  /*     return false; */
-  /* } */
   for (uint8_t ix = 0; ix < shiftable_or_ctrlable_send_string_keycodes_size; ix++) {
     if (process_shiftable_or_ctrlable_send_string(keycode, record, ix))
       return false;
@@ -303,20 +232,6 @@ KEYRECORD_FUN(process_record_user, bool) {
       return false;
     FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(kc_tap_case_shiftable_or_ctrlable_send_string)
 #  undef  kc_tap_case_shiftable_or_ctrlable_send_string
-/* #  define kc_tap_case_shiftable_send_string(kc, str, shifted_str)                                     \ */
-/*       case kc:                                                                                      \ */
-/*         if (record->event.pressed) {                                                                \ */
-/*           if (                                                                                      \ */
-/*             (shifted_str_##kc[0] != '\0') &&                                                         \ */
-/*             (get_mods() & MOD_MASK_CTRL)) {                                                         \ */
-/*             SEND_STRING_WITHOUT_MODS_P(shifted_str_##kc);                                            \ */
-/*           } else {                                                                                  \ */
-/*             SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                   \ */
-/*           }                                                                                         \ */
-/*         }                                                                                           \ */
-/*         return false; */
-/*       FOR_EACH_SHIFTABLE_SEND_STRING_KEYCODE(kc_tap_case_shiftable_send_string) */
-/* #  undef  kc_tap_case_shiftable_send_string */
 #  define kc_tap_case_send_string(kc, str)                                                                              \
       case kc:                                                                                                          \
         if (record->event.pressed)                                                                                      \
