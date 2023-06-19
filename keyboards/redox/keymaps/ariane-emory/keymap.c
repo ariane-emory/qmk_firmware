@@ -62,7 +62,7 @@ void send_string_without_mods(const char * const string) {
   send_string_with_delay(string, MY_SS_DELAY);
   set_mods(current_mods);
 }
-#define SEND_STRING_WITHOUT_MODS(string) send_string_without_mods(string)
+#  define SEND_STRING_WITHOUT_MODS(string) send_string_without_mods(string)
 #else
 #  define SEND_STRING_WITHOUT_MODS_P(str) (((void)0))
 #  define SEND_STRING_WITHOUT_MODS(str) (((void)0))
