@@ -158,16 +158,14 @@ static const size_t tap_case_table_length = ARRAY_SIZE(tap_case_table);
 
 bool process_tap_case(
   const uint16_t keycode,
-  const keyrecord_t * const record,
-  const uint8_t ix) {
-  if (tap_case_table[ix].match_keycode == keycode) {
-    if (record->tap.count && record->event.pressed) {
-      tap_code16(tap_case_table[ix].tap_keycode);
+  const keyrecord_t * const record) {
+  for (uint8_t ix = 0; ix < tap_case_table_length; ix++) {
+    if (tap_case_table[ix].match_keycode == keycode) {
+      if (record->tap.count && record->event.pressed)
+        tap_code16(tap_case_table[ix].tap_keycode);
       return true;
     }
-    return false;
   }
-
   return false;
 }
 #endif
@@ -236,10 +234,8 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
 #ifdef USE_TAP_CASE_TABLE
-  for (uint8_t ix = 0; ix < tap_case_table_length; ix++) {
-    if (process_tap_case(keycode, record, ix))
-      return false;
-  }
+  if (process_tap_case(keycode, record))
+    return false;
 #endif
   
   switch (keycode) {
