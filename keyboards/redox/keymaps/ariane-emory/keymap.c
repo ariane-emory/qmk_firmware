@@ -610,10 +610,11 @@ bool achordion_eager_mod(uint8_t mod) {
 KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   switch (keycode) {
   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-    if (keycode == LCTL_T(KC_ESC)  ||
-        keycode == RCTL_T(KC_DQUO) ||
-        keycode == LSFT_T(KC_MINS) ||
-        keycode == RSFT_T(KC_MINS)) {
+    if (false
+        || keycode == LCTL_T(KC_ESC) 
+        || keycode == RCTL_T(KC_DQUO)
+        || keycode == LSFT_T(KC_MINS)
+        || keycode == RSFT_T(KC_MINS)) {
       return true;
     }
     else {
