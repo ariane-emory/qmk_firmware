@@ -223,14 +223,13 @@ KEYRECORD_FUN(process_record_user, bool) {
   if (false
 #ifdef USE_ACHORDION
       || (! process_achordion(keycode, record))
-#endif
+#endif // USE_ACHORDION
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
       || (! process_shiftable_or_ctrlable_send_string(keycode, record))
-#endif
-
+#endif // USE_SEND_STRING_KEYCODES_TABLE
 #ifdef USE_TAP_CASE_TABLE
       || (! process_tap_case(keycode, record))
-#endif
+#endif // USE_TAP_CASE_TABLE
       )
     return false;
   
