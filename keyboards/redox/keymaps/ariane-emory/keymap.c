@@ -143,6 +143,20 @@ static const shiftable_or_ctrlable_send_string_keycodes_table_row_t shiftable_or
 static const uint8_t shiftable_or_ctrlable_send_string_keycodes_size = ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes);
 #  undef shiftable_or_ctrlable_send_string_keycodes_row
 
+#ifdef USE_TAP_CASE_TABLE
+typedef struct {
+  uint16_t match_keycode;
+  uint16_t tap_keycode;
+} tap_case_row_t;
+
+static const tap_case_row_t tab_case_table[] = {
+  { RSFT_T(KC_DUMMY), VD_ALL        },
+  { LT(9,KC_DUMMY),   LSFT(KC_MINS) },
+  { RCTL_DQUO,        KC_DQUO       },
+};
+static const size_t tab_case_table_length = ARRAY_SIZE(tab_case_table);
+#endif
+
 bool process_shiftable_or_ctrlable_send_string(
   const uint16_t keycode,
   const keyrecord_t * const record,
@@ -190,20 +204,6 @@ void tap_number(uint16_t num) {
   
   set_mods(current_mods);
 }
-
-#ifdef USE_TAP_CASE_TABLE
-typedef struct {
-uint16_t match_keycode;
-  uint16_t tap_keycode;
-} tap_case_row_t;
-
-static const tap_case_row_t tab_case_table[] = {
-  { RSFT_T(KC_DUMMY), VD_ALL        },
-  { LT(9,KC_DUMMY),   LSFT(KC_MINS) },
-  { RCTL_DQUO,        KC_DQUO       },
-};
-static const size_t tab_case_table_length = ARRAY_SIZE(tab_case_table);
-#endif
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
