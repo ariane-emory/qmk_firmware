@@ -237,13 +237,8 @@ KEYRECORD_FUN(process_record_user, bool) {
 
 #ifdef USE_TAP_CASE_TABLE
   for (uint8_t ix = 0; ix < tap_case_table_length; ix++) {
-    if (tap_case_table[ix].match_keycode == keycode) {
-      if (record->tap.count && record->event.pressed) {
-        tap_code16(tap_case_table[ix].tap_keycode);
-        return false;
-      }
-      return true;
-    }
+    if (process_tap_case(keycode, record, ix))
+      return false;
   }
 #endif
   
