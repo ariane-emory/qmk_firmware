@@ -123,4 +123,4 @@
 #define TOP_SHIFT
 #define BOTTOM_SHIFT
 
-#define USE_DUMMY_TABLE
+#define USE_TAP_CASE_TABLE
