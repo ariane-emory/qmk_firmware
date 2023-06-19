@@ -195,14 +195,14 @@ void tap_number(uint16_t num) {
 typedef struct {
 uint16_t match_keycode;
   uint16_t tap_keycode;
-} dummy_row_t;
+} tap_case_row_t;
 
-static const dummy_row_t dummy_table[] = {
+static const tap_case_row_t tab_case_table[] = {
   { RSFT_T(KC_DUMMY), VD_ALL        },
   { LT(9,KC_DUMMY),   LSFT(KC_MINS) },
   { RCTL_DQUO,        KC_DQUO       },
 };
-static const size_t dummy_table_length = ARRAY_SIZE(dummy_table);
+static const size_t tab_case_table_length = ARRAY_SIZE(tab_case_table);
 #endif
 
 KEYRECORD_FUN(process_record_user, bool) {
@@ -221,10 +221,10 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
 #ifdef USE_TAP_CASE_TABLE
-  for (uint8_t ix = 0; ix < dummy_table_length; ix++) {
-    if (dummy_table[ix].match_keycode == keycode) {
+  for (uint8_t ix = 0; ix < tab_case_table_length; ix++) {
+    if (tab_case_table[ix].match_keycode == keycode) {
       if (record->tap.count && record->event.pressed) {
-        tap_code16(dummy_table[ix].tap_keycode);
+        tap_code16(tab_case_table[ix].tap_keycode);
         return false;
       }
       return true;
