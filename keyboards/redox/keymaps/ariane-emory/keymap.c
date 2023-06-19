@@ -629,7 +629,6 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
   if (IS_LAYER_ON(0)) {
     switch (keycode) {
     case MT(MOD_LALT,KC_SPC):
-    case MT(MOD_RGUI,KC_SPC):
 #ifdef HOME_ROW_MODS
     case QH_A: case QH_S: case QH_D: case QH_F:
       // case QH_G: case QH_H: // not mods currently
