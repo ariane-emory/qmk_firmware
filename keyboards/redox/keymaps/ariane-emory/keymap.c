@@ -220,20 +220,19 @@ void tap_number(uint16_t num) {
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
+  if (false
 #ifdef USE_ACHORDION
-  if (! process_achordion(keycode, record))
-    return false;
+      || (! process_achordion(keycode, record))
 #endif
-
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
-  if (! process_shiftable_or_ctrlable_send_string(keycode, record))
-    return false;
+      || (! process_shiftable_or_ctrlable_send_string(keycode, record))
 #endif
 
 #ifdef USE_TAP_CASE_TABLE
-  if (! process_tap_case(keycode, record))
-    return false;
+      || (! process_tap_case(keycode, record))
 #endif
+      )
+    return false;
   
   switch (keycode) {
   case VS_CLOSE:
