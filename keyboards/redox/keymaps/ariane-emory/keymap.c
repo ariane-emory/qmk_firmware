@@ -172,25 +172,26 @@ bool process_tap_case(
 
 bool process_shiftable_or_ctrlable_send_string(
   const uint16_t keycode,
-  const keyrecord_t * const record,
-  const uint8_t ix) {
-  if (shiftable_or_ctrlable_send_string_keycodes[ix].kc == keycode) {      
-    if (record->event.pressed) {
-      if (
-        (pgm_read_byte(shiftable_or_ctrlable_send_string_keycodes[ix].shifted_str) != 0) &&
-        (get_mods() & MOD_MASK_SHIFT)) {
-        SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].shifted_str);
-      }
-      else if (
-        (pgm_read_byte(shiftable_or_ctrlable_send_string_keycodes[ix].ctrled_str) != 0) &&
-        (get_mods() & MOD_MASK_CTRL)) {
-        SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].ctrled_str);
-      }
-      else {
-        SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].str);
+  const keyrecord_t * const record) {
+  for (uint8_t ix = 0; ix < shiftable_or_ctrlable_send_string_keycodes_length; ix++) {
+    if (shiftable_or_ctrlable_send_string_keycodes[ix].kc == keycode) {      
+      if (record->event.pressed) {
+        if (
+          (pgm_read_byte(shiftable_or_ctrlable_send_string_keycodes[ix].shifted_str) != 0) &&
+          (get_mods() & MOD_MASK_SHIFT)) {
+          SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].shifted_str);
+        }
+        else if (
+          (pgm_read_byte(shiftable_or_ctrlable_send_string_keycodes[ix].ctrled_str) != 0) &&
+          (get_mods() & MOD_MASK_CTRL)) {
+          SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].ctrled_str);
+        }
+        else {
+          SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].str);
+        }
+        return true;
       }
     }
-    return true;
   }
   return false;
 }
@@ -227,10 +228,8 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
-  for (uint8_t ix = 0; ix < shiftable_or_ctrlable_send_string_keycodes_length; ix++) {
-    if (process_shiftable_or_ctrlable_send_string(keycode, record, ix))
-      return false;
-  }
+  if (process_shiftable_or_ctrlable_send_string(keycode, record))
+    return false;
 #endif
 
 #ifdef USE_TAP_CASE_TABLE
