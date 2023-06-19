@@ -191,7 +191,7 @@ void tap_number(uint16_t num) {
   set_mods(current_mods);
 }
 
-#ifdef USE_DUMMY_TABLE
+#ifdef USE_TAP_CASE_TABLE
 typedef struct {
 uint16_t match_keycode;
   uint16_t tap_keycode;
@@ -220,7 +220,7 @@ KEYRECORD_FUN(process_record_user, bool) {
   }
 #endif
 
-#ifdef USE_DUMMY_TABLE
+#ifdef USE_TAP_CASE_TABLE
   for (uint8_t ix = 0; ix < dummy_table_length; ix++) {
     if (dummy_table[ix].match_keycode == keycode) {
       if (record->tap.count && record->event.pressed) {
@@ -288,7 +288,7 @@ KEYRECORD_FUN(process_record_user, bool) {
     layer_off(6);
     return true;
     
-#ifndef USE_DUMMY_TABLE
+#ifndef USE_TAP_CASE_TABLE
   case RSFT_T(KC_DUMMY):
     if (record->tap.count && record->event.pressed) {
       tap_code16(VD_ALL);
