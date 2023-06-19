@@ -121,12 +121,6 @@ FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string)
 FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
 FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
 
-#undef enum_item
-#undef define_tagged_progmem_string
-#undef define_nomods_progmem_string
-#undef define_shifted_progmem_string
-#undef define_ctrled_progmem_string
-
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
 #  define shiftable_or_ctrlable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, shifted_str_##kc, ctrled_str_##kc },
 typedef struct {
@@ -139,7 +133,6 @@ static const shiftable_or_ctrlable_send_string_keycodes_table_row_t shiftable_or
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(shiftable_or_ctrlable_send_string_keycodes_row)
 };
 static const uint8_t shiftable_or_ctrlable_send_string_keycodes_length = ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes);
-#  undef shiftable_or_ctrlable_send_string_keycodes_row
 
 bool process_shiftable_or_ctrlable_send_string(
   const uint16_t keycode,
@@ -296,14 +289,12 @@ KEYRECORD_FUN(process_record_user, bool) {
       }                                                                                                                         \
       return false;
     FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(kc_tap_case_shiftable_or_ctrlable_send_string)
-#  undef  kc_tap_case_shiftable_or_ctrlable_send_string
 #  define kc_tap_case_send_string(kc, str)                                                                                      \
       case kc:                                                                                                                  \
         if (record->event.pressed)                                                                                              \
           SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                                                 \
         return false;
       FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
-#  undef  kc_tap_case_send_string
 #endif // ! USE_SEND_STRING_KEYCODES_TABLE
 
 #ifndef USE_TAP_CASE_TABLE
