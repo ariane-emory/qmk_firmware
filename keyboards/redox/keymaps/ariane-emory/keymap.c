@@ -161,10 +161,10 @@ bool process_shiftable_or_ctrlable_send_string(
           SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].str);
         }
       }
-      return true;
+      return false;
     }
   }
-  return false;
+  return true;
 }
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
@@ -188,10 +188,10 @@ bool process_tap_case(
     if (tap_case_table[ix].match_keycode == keycode) {
       if (record->tap.count && record->event.pressed)
         tap_code16(tap_case_table[ix].tap_keycode);
-      return true;
+      return false;
     }
   }
-  return false;
+  return true;
 }
 #endif // USE_TAP_CASE_TABLE
  
@@ -221,17 +221,17 @@ KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
 
 #ifdef USE_ACHORDION
-  if (!process_achordion(keycode, record))
+  if (! process_achordion(keycode, record))
     return false;
 #endif
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
-  if (process_shiftable_or_ctrlable_send_string(keycode, record))
+  if (! process_shiftable_or_ctrlable_send_string(keycode, record))
     return false;
 #endif
 
 #ifdef USE_TAP_CASE_TABLE
-  if (process_tap_case(keycode, record))
+  if (! process_tap_case(keycode, record))
     return false;
 #endif
   
