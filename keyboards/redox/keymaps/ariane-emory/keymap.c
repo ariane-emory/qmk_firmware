@@ -127,8 +127,6 @@ FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string)
 #undef define_shifted_progmem_string
 #undef define_ctrled_progmem_string
 
-#define USE_SEND_STRING_KEYCODES_TABLE
-
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
 #  define shiftable_or_ctrlable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, shifted_str_##kc, ctrled_str_##kc },
 typedef struct {
@@ -142,33 +140,6 @@ static const shiftable_or_ctrlable_send_string_keycodes_table_row_t shiftable_or
 };
 static const uint8_t shiftable_or_ctrlable_send_string_keycodes_length = ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes);
 #  undef shiftable_or_ctrlable_send_string_keycodes_row
-
-#ifdef USE_TAP_CASE_TABLE
-typedef struct {
-  uint16_t match_keycode;
-  uint16_t tap_keycode;
-} tap_case_row_t;
-
-static const tap_case_row_t tap_case_table[] = {
-  { RSFT_T(KC_DUMMY), VD_ALL        },
-  { LT(9,KC_DUMMY),   LSFT(KC_MINS) },
-  { RCTL_DQUO,        KC_DQUO       },
-};
-static const size_t tap_case_table_length = ARRAY_SIZE(tap_case_table);
-
-bool process_tap_case(
-  const uint16_t keycode,
-  const keyrecord_t * const record) {
-  for (uint8_t ix = 0; ix < tap_case_table_length; ix++) {
-    if (tap_case_table[ix].match_keycode == keycode) {
-      if (record->tap.count && record->event.pressed)
-        tap_code16(tap_case_table[ix].tap_keycode);
-      return true;
-    }
-  }
-  return false;
-}
-#endif
 
 bool process_shiftable_or_ctrlable_send_string(
   const uint16_t keycode,
@@ -197,6 +168,33 @@ bool process_shiftable_or_ctrlable_send_string(
 }
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
+#ifdef USE_TAP_CASE_TABLE
+typedef struct {
+  uint16_t match_keycode;
+  uint16_t tap_keycode;
+} tap_case_row_t;
+
+static const tap_case_row_t tap_case_table[] = {
+  { RSFT_T(KC_DUMMY), VD_ALL        },
+  { LT(9,KC_DUMMY),   LSFT(KC_MINS) },
+  { RCTL_DQUO,        KC_DQUO       },
+};
+static const size_t tap_case_table_length = ARRAY_SIZE(tap_case_table);
+
+bool process_tap_case(
+  const uint16_t keycode,
+  const keyrecord_t * const record) {
+  for (uint8_t ix = 0; ix < tap_case_table_length; ix++) {
+    if (tap_case_table[ix].match_keycode == keycode) {
+      if (record->tap.count && record->event.pressed)
+        tap_code16(tap_case_table[ix].tap_keycode);
+      return true;
+    }
+  }
+  return false;
+}
+#endif
+ 
 void tap_number(uint16_t num) {
   static const uint8_t max_digits = 5;
   const uint8_t current_mods = get_mods();
@@ -242,6 +240,29 @@ KEYRECORD_FUN(process_record_user, bool) {
     if (record->event.pressed)
       tap_number(128);
     return false;
+  case QK_DYNAMIC_MACRO_PLAY_1:
+  case QK_DYNAMIC_MACRO_PLAY_2:
+    if (record->event.pressed) 
+      dynamic_macro_stop_recording();
+    return true;
+  case HOLD_GUI:
+    if (record->event.pressed)
+    {
+      register_code(KC_LGUI);
+    }
+    else {
+      static deferred_token token = INVALID_DEFERRED_TOKEN;
+      if (token != INVALID_DEFERRED_TOKEN) {
+        cancel_deferred_exec(token);
+        token = INVALID_DEFERRED_TOKEN;
+      }
+      token = defer_exec(400, release_lgui_callback, NULL);
+    }
+    return false;                                                                 
+  case QK_TRI_LAYER_LOWER:
+    layer_off(6);
+    return true;
+
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
 #  define kc_tap_case_shiftable_or_ctrlable_send_string(kc, str, shifted_str, ctrled_str)                                       \
     case kc:                                                                                                                    \
@@ -270,29 +291,6 @@ KEYRECORD_FUN(process_record_user, bool) {
 #  undef  kc_tap_case_send_string
 #endif // ! USE_SEND_STRING_KEYCODES_TABLE
 
-  case QK_DYNAMIC_MACRO_PLAY_1:
-  case QK_DYNAMIC_MACRO_PLAY_2:
-    if (record->event.pressed) 
-      dynamic_macro_stop_recording();
-    return true;
-  case HOLD_GUI:
-    if (record->event.pressed)
-    {
-      register_code(KC_LGUI);
-    }
-    else {
-      static deferred_token token = INVALID_DEFERRED_TOKEN;
-      if (token != INVALID_DEFERRED_TOKEN) {
-        cancel_deferred_exec(token);
-        token = INVALID_DEFERRED_TOKEN;
-      }
-      token = defer_exec(400, release_lgui_callback, NULL);
-    }
-    return false;                                                                 
-  case QK_TRI_LAYER_LOWER:
-    layer_off(6);
-    return true;
-    
 #ifndef USE_TAP_CASE_TABLE
   case RSFT_T(KC_DUMMY):
     if (record->tap.count && record->event.pressed) {
