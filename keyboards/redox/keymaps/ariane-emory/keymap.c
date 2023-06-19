@@ -660,8 +660,7 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
       // Do not select the hold action when another key is tapped.
       return false;
     }
-  }
-    
+  }    
   return true; // Select the hold action when another key is tapped.
 }
 
