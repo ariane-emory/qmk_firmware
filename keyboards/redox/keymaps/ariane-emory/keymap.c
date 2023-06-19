@@ -140,7 +140,7 @@ typedef struct {
 static const shiftable_or_ctrlable_send_string_keycodes_table_row_t shiftable_or_ctrlable_send_string_keycodes[] = {
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(shiftable_or_ctrlable_send_string_keycodes_row)
 };
-static const uint8_t shiftable_or_ctrlable_send_string_keycodes_size = ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes);
+static const uint8_t shiftable_or_ctrlable_send_string_keycodes_length = ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes);
 #  undef shiftable_or_ctrlable_send_string_keycodes_row
 
 #ifdef USE_TAP_CASE_TABLE
@@ -229,7 +229,7 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
 
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
-  for (uint8_t ix = 0; ix < shiftable_or_ctrlable_send_string_keycodes_size; ix++) {
+  for (uint8_t ix = 0; ix < shiftable_or_ctrlable_send_string_keycodes_length; ix++) {
     if (process_shiftable_or_ctrlable_send_string(keycode, record, ix))
       return false;
   }
