@@ -160,8 +160,8 @@ bool process_shiftable_or_ctrlable_send_string(
         else {
           SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].str);
         }
-        return true;
       }
+      return true;
     }
   }
   return false;
@@ -193,7 +193,7 @@ bool process_tap_case(
   }
   return false;
 }
-#endif
+#endif // USE_TAP_CASE_TABLE
  
 void tap_number(uint16_t num) {
   static const uint8_t max_digits = 5;
