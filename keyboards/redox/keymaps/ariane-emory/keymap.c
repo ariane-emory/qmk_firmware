@@ -411,8 +411,9 @@ typedef struct {
 } achordion_exception_t;
 
 static const uint16_t achordion_bilat_keys[] = {
-  QH_A, QH_S, QH_D, QH_F, QH_J, QH_K, QH_L, QH_QUOT,
-  QB_Z, QB_SLSH
+  QH_A, QH_QUOT,
+  QH_S, QH_D, QH_F, QH_J, QH_K, QH_L, 
+  QB_Z, QB_SLSH,
 };
 static const uint8_t achordion_bilat_keys_length = ARRAY_SIZE(achordion_bilat_keys);
 
@@ -469,6 +470,8 @@ static const achordion_exception_t achordion_exceptions[] PROGMEM = {
   // Right GUI
   { QH_L,    QH_K            }, // ???
   { QH_L,    KC_BSLS         }, // ???
+  // Dummy
+  { KC_NO,   KC_NO           }, // dummy
 };
 static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
 
