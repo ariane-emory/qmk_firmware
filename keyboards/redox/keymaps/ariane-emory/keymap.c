@@ -225,8 +225,12 @@ KEYRECORD_FUN(process_record_user, bool) {
       }
       token = defer_exec(400, release_lgui_callback, NULL);
     }
-    return false;                                                                 
+    return false;
+#ifdef FLIP_THUMBS
+  case TH_LFT:
+#else
   case KC_LOWER:
+#endif
     layer_off(6);
     return true;
 
