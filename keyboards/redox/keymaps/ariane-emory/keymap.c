@@ -445,22 +445,22 @@ static const achordion_exception_t achordion_exceptions[] PROGMEM = {
   { QH_S,    QB_V            }, // paste
   /* // Left Alt */
   { QH_D,    KC_TAB          }, // alt+tab
-  { QH_D,    SS_ARROW        }, //
-  { QH_D,    SS_DIR          }, //
-  { QH_D,    SS_LBRACK       }, //
-  { QH_D,    SS_RBRACK       }, //
-  { QH_D,    SS_BRACKS       }, //
+  /* { QH_D,    SS_ARROW        }, // */
+  /* { QH_D,    SS_DIR          }, // */
+  /* { QH_D,    SS_LBRACK       }, // */
+  /* { QH_D,    SS_RBRACK       }, // */
+  /* { QH_D,    SS_BRACKS       }, // */
   { QH_D,    QT_W            }, // close
   { QH_D,    QT_R            }, // refresh
   { QH_D,    QH_F            }, // forwards word
   { QH_D,    QB_B            }, // backwards word
   { QH_D,    QT_T            }, // new tab
   // Left Control
-  { QH_F,    SS_ARROW        }, //
-  { QH_F,    SS_DIR          }, //
-  { QH_F,    SS_LBRACK       }, //
-  { QH_F,    SS_RBRACK       }, //
-  { QH_F,    SS_BRACKS       }, //
+  /* { QH_F,    SS_ARROW        }, // */
+  /* { QH_F,    SS_DIR          }, // */
+  /* { QH_F,    SS_LBRACK       }, // */
+  /* { QH_F,    SS_RBRACK       }, // */
+  /* { QH_F,    SS_BRACKS       }, // */
   { QH_F,    QH_A            }, // beginning of line
   { QH_F,    QH_D            }, // delete forwards char
   { QH_F,    QT_E            }, // end of line
