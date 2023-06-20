@@ -129,9 +129,11 @@ typedef struct {
   const char * shifted_str;
   const char * ctrled_str;
 } shiftable_or_ctrlable_send_string_keycodes_t;
+
 static const shiftable_or_ctrlable_send_string_keycodes_t shiftable_or_ctrlable_send_string_keycodes[] = {
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(shiftable_or_ctrlable_send_string_keycodes_row)
 };
+
 static const uint8_t shiftable_or_ctrlable_send_string_keycodes_length = ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes);
 
 bool process_shiftable_or_ctrlable_send_string(
@@ -172,6 +174,7 @@ static const tap_case_t tap_cases[] = {
   { LT(9,KC_MINS),    LSFT(KC_MINS) },
   { RCTL_DQUO,        KC_DQUO       },
 };
+
 static const size_t tap_cases_length = ARRAY_SIZE(tap_cases);
 
 bool process_tap_case(
@@ -359,6 +362,7 @@ void rgb_fader_set_target_by_layer(rgb_fader_t * const this) {
     {TRI_LAYER_LOWER_LAYER,  MY_RGB_LOWER_LAYER_ON   },
     {TOGGLED_LAYER,          MY_RGB_TOGGLED_LAYER_ON },
   };
+
   static const size_t layer_to_rgbs_length = ARRAY_SIZE(layer_to_rgbs);
 
   const layer_to_rgb_t *row = &layer_to_rgbs[0];
