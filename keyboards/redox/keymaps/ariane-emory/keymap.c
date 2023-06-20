@@ -575,6 +575,21 @@ KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   }
 }
 
+static const uint16_t layer0_permissive_hold_keys[] = {
+MT(MOD_LALT,KC_SPC),
+#ifdef HOME_ROW_MODS
+  QH_A, QH_S, QH_D, QH_F,
+  QH_J, QH_K, QH_L, QH_QUOT,
+#endif
+#ifdef BOTTOM_ROW_MODS
+  QB_Z, QB_X, QB_C, QB_V,
+  QB_M, QB_COMM, QB_DOT, QB_SLSH,
+#endif
+  KC_NO,
+};
+
+static const uint8_t layer0_permissive_hold_keys_length = ARRAY_SIZE(layer0_permissive_hold_keys); 
+
 KEYRECORD_FUN(get_permissive_hold, bool) {
   if (IS_LAYER_ON(0)) {
     switch (keycode) {
