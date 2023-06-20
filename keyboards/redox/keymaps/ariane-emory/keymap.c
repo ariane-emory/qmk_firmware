@@ -410,11 +410,65 @@ typedef struct {
 } achordion_exception_t;
 
 static const achordion_exception_t achordion_exceptions[] = {
-  { QH_A,    LSFT_T(KC_MINS) },
-  { QH_QUOT, RSFT_T(KC_MINS) },
-  { QH_QUOT, KC_BSLS         },
-  { QB_Z,    LSFT_T(KC_MINS) },
-  { QB_SLSH, RSFT_T(KC_MINS) },
+  // Shift
+  { QH_A,    LSFT_T(KC_MINS) }, // underscore
+  { QH_QUOT, RSFT_T(KC_MINS) }, // underscore
+  { QH_QUOT, KC_BSLS         }, // pipe
+  { QB_Z,    LSFT_T(KC_MINS) }, // underscore
+  { QB_SLSH, RSFT_T(KC_MINS) }, // underscore
+
+  // Left GUI
+  { QH_S,    KC_TAB          }, // app switcher
+  { QH_S,    QB_Z            }, // undo
+  { QH_S,    QT_R            }, // refresh
+  { QH_S,    QT_T            }, // new tab
+  { QH_S,    QB_C            }, // copy
+  { QH_S,    QB_V            }, // paste
+
+  // Left Alt
+  { QH_D,    KC_TAB          }, // alt+tab
+  { QH_D,    SS_ARROW        }, //
+  { QH_D,    SS_DIR          }, //
+  { QH_D,    SS_LBRACK       }, //
+  { QH_D,    SS_RBRACK       }, //
+  { QH_D,    SS_BRACKS       }, //
+  { QH_D,    QT_W            }, // close
+  { QH_D,    QT_R            }, // refresh
+  { QH_D,    QH_F            }, // forwards word
+  { QH_D,    QB_B            }, // backwards word
+  { QH_D,    QT_T            }, // new tab
+
+  // Left Control
+  { QH_F,    SS_ARROW        }, //
+  { QH_F,    SS_DIR          }, //
+  { QH_F,    SS_LBRACK       }, //
+  { QH_F,    SS_RBRACK       }, //
+  { QH_F,    SS_BRACKS       }, //
+  { QH_F,    QH_A            }, // beginning of line
+  { QH_F,    QH_D            }, // delete forwards char
+  { QH_F,    QT_E            }, // end of line
+  { QH_F,    QT_T            }, // new tab
+  { QH_F,    QT_W            }, // close
+  { QH_F,    QH_S            }, // i-search
+
+  // Right control
+  { QH_J,    QH_H            }, // backspace
+  { QH_J,    QH_K            }, // kill line 
+  { QH_J,    QH_L            }, // recenter / address bar
+  { QH_J,    QT_Y            }, // yank
+  { QH_J,    QB_N            }, // next line
+  { QH_J,    QT_P            }, // prev line
+
+  // Right alt
+  { QH_K,    QH_L            }, // address bar?
+  { QH_K,    QT_P            }, // prev command
+  { QH_K,    KC_BSLS         }, // ???
+  { QH_K,    QB_N            }, // next command
+        
+  // Right GUI              
+  { QH_L,    QH_K            }, // ???
+  { QH_L,    KC_BSLS         }, // ???
+                
 };
 
 static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
@@ -448,57 +502,6 @@ static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptio
 
     // Exceptionally consider the following chords as holds, even though they
     // are on the same hand.
-    if (false
-        // Left side
-        || (tap_hold_keycode == QH_S &&
-            (other_keycode == KC_TAB ||
-             other_keycode == QB_Z ||
-             other_keycode == QT_R ||
-             other_keycode == QT_T ||
-             other_keycode == QB_C ||
-             other_keycode == QB_V))
-        || (tap_hold_keycode == QH_D &&
-            (other_keycode == KC_TAB ||
-             other_keycode == SS_ARROW ||
-             other_keycode == SS_DIR ||
-             other_keycode == SS_LBRACK ||
-             other_keycode == SS_RBRACK ||
-             other_keycode == SS_BRACKS ||
-             other_keycode == QT_W ||
-             other_keycode == QT_R ||
-             other_keycode == QH_F ||
-             other_keycode == QB_B ||
-             other_keycode == QT_T))
-        || (tap_hold_keycode == QH_F &&
-            (other_keycode == SS_ARROW ||
-             other_keycode == SS_DIR ||
-             other_keycode == SS_LBRACK ||
-             other_keycode == SS_RBRACK ||
-             other_keycode == SS_BRACKS ||
-             other_keycode == QH_A ||
-             other_keycode == QH_D ||
-             other_keycode == QT_E ||
-             other_keycode == QT_T ||
-             other_keycode == QT_W ||
-             other_keycode == QH_S))
-        // Right side
-        || (tap_hold_keycode == QH_J &&
-            (other_keycode == QH_H ||
-             other_keycode == QH_K ||
-             other_keycode == QH_L ||
-             other_keycode == QT_Y ||
-             other_keycode == QB_N ||
-             other_keycode == QT_P))
-        || (tap_hold_keycode == QH_K &&
-            (other_keycode == QH_L ||
-             other_keycode == QT_P ||
-             other_keycode == KC_BSLS ||
-             other_keycode == QB_N))
-        || (tap_hold_keycode == QH_L &&
-            (other_keycode == QH_K ||
-             other_keycode == KC_BSLS))
-        )
-      return true;
 
     if (false
         || tap_hold_keycode == QH_S
