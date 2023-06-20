@@ -19,7 +19,10 @@ TRI_LAYER_ENABLE   	 	 = yes
 DEFERRED_EXEC_ENABLE 	 = yes
 DYNAMIC_MACRO_ENABLE   = yes
 
-SRC                   += src/*.c
+SRC                   += src/achordion.c
+SRC                   += src/cRGB_functions.c
+SRC                   += src/rgb_fader.c
+SRC                   += src/util.c
 
 CFLAGS                += -funroll-loops
 
