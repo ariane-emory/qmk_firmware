@@ -491,12 +491,12 @@ bool achordion_chord(
     return true;
 
   // If it isn't a home row mod/shift, process normally.
-  if (!array_contains_keycode_P(achordion_bilat_keys, ARRAY_SIZE(achordion_bilat_keys), tap_hold_keycode))
+  if (!array_contains_keycode_P(tap_hold_keycode, achordion_bilat_keys, ARRAY_SIZE(achordion_bilat_keys)))
     return true;
   
   // Exceptionally consider the following chords as holds, even though they
   // are on the same hand.
-  if (array_contains_keycode_pair_P(achordion_exceptions, ARRAY_SIZE(achordion_exceptions), (keycode_pair_t){ tap_hold_keycode, other_keycode }))
+  if (array_contains_keycode_pair_P((keycode_pair_t){ tap_hold_keycode, other_keycode }, achordion_exceptions, ARRAY_SIZE(achordion_exceptions)))
     return true;
    
   return achordion_opposite_hands(tap_hold_record, other_record);
@@ -521,7 +521,7 @@ static const uint16_t hold_on_other_keypress_keys[] PROGMEM = {
 KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   switch (keycode) {
   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-    if (array_contains_keycode_P(hold_on_other_keypress_keys, ARRAY_SIZE(hold_on_other_keypress_keys), keycode)) {
+    if (array_contains_keycode_P(keycode, hold_on_other_keypress_keys, ARRAY_SIZE(hold_on_other_keypress_keys))) {
       return true;
     }
     else {
@@ -560,8 +560,8 @@ static const uint16_t layer1_permissive_hold_keys[] PROGMEM = {
 };
 
 KEYRECORD_FUN(get_permissive_hold, bool) {
-  if ((IS_LAYER_ON(0) && array_contains_keycode_P(layer0_permissive_hold_keys, ARRAY_SIZE(layer0_permissive_hold_keys), keycode)) ||
-      (IS_LAYER_ON(1) && array_contains_keycode_P(layer1_permissive_hold_keys, ARRAY_SIZE(layer1_permissive_hold_keys), keycode)))
+  if ((IS_LAYER_ON(0) && array_contains_keycode_P(keycode, layer0_permissive_hold_keys, ARRAY_SIZE(layer0_permissive_hold_keys))) ||
+      (IS_LAYER_ON(1) && array_contains_keycode_P(keycode, layer1_permissive_hold_keys, ARRAY_SIZE(layer1_permissive_hold_keys))))
     return false; // Do not select the hold action when another key is tapped.
   return true; // Select the hold action when another key is tapped.
 }
