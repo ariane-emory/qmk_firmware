@@ -503,7 +503,7 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
 
 static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
 
-bool is_achordion_exception(uint16_t tap_hold_keycode, uint16_t other_keycode) {
+bool array_contains_keycode_pair_P(const keycode_pair_t arr[], uint8_t len, uint16_t tap_hold_keycode, uint16_t other_keycode) {
   // Exceptionally consider the following chords as holds, even though they
   // are on the same hand.
 
@@ -533,7 +533,7 @@ bool achordion_chord(
   if (! array_contains_keycode(achordion_bilat_keys, achordion_bilat_keys_length, tap_hold_keycode))
     return true;
 
-  if (is_achordion_exception(tap_hold_keycode, other_keycode))
+  if (array_contains_keycode_pair_P(achordion_exceptions, achordion_exceptions_length, tap_hold_keycode, other_keycode))
     return true;
    
   return achordion_opposite_hands(tap_hold_record, other_record);
