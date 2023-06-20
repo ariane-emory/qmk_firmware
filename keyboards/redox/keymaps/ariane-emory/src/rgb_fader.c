@@ -44,7 +44,7 @@ bool rgb_fader_before_set_target (rgb_fader_t * const this, const cRGB * const r
 // Initializers
 ////////////////////////////////////////////////////////////////////////////////
 
-void rgb_fader_init(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b) {
+void rgb_fader_init(rgb_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
   cRGB rgb;
   cRGB_init(&rgb, r, g, b);
 #define copy_rgb(r) cRGB_copy(&this->r, &rgb);
@@ -150,7 +150,7 @@ bool rgb_fader_is_changing(const rgb_fader_t * const this) {
 // Setters
 ////////////////////////////////////////////////////////////////////////////////
 
-void rgb_fader_set_target(rgb_fader_t * const this, uint8_t r, uint8_t g, uint8_t b) {
+void rgb_fader_set_target(rgb_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
   cRGB rgb;
   cRGB_init(&rgb, r, g, b);
   // if rgb_fader_before_set_target returns false, no change is needed and we
