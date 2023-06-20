@@ -410,45 +410,36 @@ bool achordion_chord(
   keyrecord_t * tap_hold_record,
   uint16_t      other_keycode,
   keyrecord_t * other_record) {
+
+  // custom keycodes are not subject to achordion:
   if (other_keycode >= SAFE_RANGE)
     return true;
 
   if (IS_LAYER_ON(0) && (
-#ifndef HOME_SHIFT
         tap_hold_keycode == QH_A    ||
         tap_hold_keycode == QH_QUOT ||
-#endif
-#if defined(BOTTOM_SHIFT)
         tap_hold_keycode == QB_Z    ||
         tap_hold_keycode == QB_SLSH ||
-#endif
-#ifdef HOME_ROW_MODS
         tap_hold_keycode == QH_S    ||
         tap_hold_keycode == QH_D    ||
         tap_hold_keycode == QH_F    ||
         tap_hold_keycode == QH_J    ||
         tap_hold_keycode == QH_K    ||
         tap_hold_keycode == QH_L    ||
-#endif // HOME_ROW_MODS
         false))
   {
     // Exceptionally consider the following chords as holds, even though they
     // are on the same hand.
     if (
-#ifdef HOME_SHIFT
       (tap_hold_keycode == QH_A &&
        (other_keycode == LSFT_T(KC_MINS))) ||
       (tap_hold_keycode == QH_QUOT &&
        (other_keycode == RSFT_T(KC_MINS) ||
         other_keycode == KC_BSLS)) ||
-#endif
-#ifdef BOTTOM_SHIFT
       (tap_hold_keycode == QB_Z &&
        (other_keycode == LSFT_T(KC_MINS))) ||
       (tap_hold_keycode == QB_SLSH &&
        (other_keycode == RSFT_T(KC_MINS))) ||
-#endif
-#ifdef HOME_ROW_MODS
       // Left side
       (tap_hold_keycode == QH_S &&
        (other_keycode == KC_TAB ||
@@ -497,7 +488,6 @@ bool achordion_chord(
       (tap_hold_keycode == QH_L &&
        (other_keycode == QH_K ||
         other_keycode == LT(12,KC_BSLS))) ||
-#endif
       false)
       return true;
     
