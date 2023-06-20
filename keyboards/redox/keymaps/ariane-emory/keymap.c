@@ -434,11 +434,11 @@ bool array_contains_keycode(const uint16_t arr[], const uint8_t len, const uint1
 }
 
 typedef struct {
-  uint16_t tap_hold_keycode;
-  uint16_t other_keycode;
-} achordion_exception_t;
+  uint16_t first;
+  uint16_t second;
+} keycode_pair_t;
 
-static const achordion_exception_t achordion_exceptions[] PROGMEM = {
+static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // Both Shifts
 #  ifdef HOME_SHIFT
   { QH_A,    LSFT_T(KC_MINS) }, // underscore
@@ -508,8 +508,8 @@ bool is_achordion_exception(uint16_t tap_hold_keycode, uint16_t other_keycode) {
   // are on the same hand.
 
   for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) {
-    if (pgm_read_word(&achordion_exceptions[ix].tap_hold_keycode) == tap_hold_keycode &&
-        pgm_read_word(&achordion_exceptions[ix].other_keycode)    == other_keycode)
+    if (pgm_read_word(&achordion_exceptions[ix].first)  == tap_hold_keycode &&
+        pgm_read_word(&achordion_exceptions[ix].second) == other_keycode)
       return true;
   }
 
