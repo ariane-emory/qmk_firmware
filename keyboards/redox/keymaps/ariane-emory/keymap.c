@@ -426,11 +426,15 @@ static const uint8_t achordion_bilat_keys_length = ARRAY_SIZE(achordion_bilat_ke
 
 static const achordion_exception_t achordion_exceptions[] PROGMEM = {
   // Both Shifts
+#  ifdef HOME_SHIFT
   { QH_A,    LSFT_T(KC_MINS) }, // underscore
   { QH_QUOT, RSFT_T(KC_MINS) }, // underscore
+#  endif // HOME_SHIFT
+#  ifdef BOTTOM_SHIFT
   { QH_QUOT, KC_BSLS         }, // pipe
   { QB_Z,    LSFT_T(KC_MINS) }, // underscore
   { QB_SLSH, RSFT_T(KC_MINS) }, // underscore
+#  endif // BOTTOM_SHIFT
   /* // Left GUI */
   { QH_S,    KC_TAB          }, // app switcher
   { QH_S,    QB_Z            }, // undo
