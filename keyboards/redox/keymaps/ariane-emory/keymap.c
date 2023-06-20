@@ -351,21 +351,21 @@ void rgb_fader_set_target_by_layer(rgb_fader_t * const this) {
     uint8_t g;
     uint8_t b;
   } layer_to_rgb_t;
-
-  static const layer_to_rgb_t rgb_table[] = {
+  
+  static const layer_to_rgb_t layer_to_rgbs[] = {
     {TOGGLED_LAYER,          MY_RGB_DEFAULT          },
     {TRI_LAYER_ADJUST_LAYER, MY_RGB_ADJUST_LAYER_ON  },
     {TRI_LAYER_UPPER_LAYER,  MY_RGB_UPPER_LAYER_ON   },
     {TRI_LAYER_LOWER_LAYER,  MY_RGB_LOWER_LAYER_ON   },
     {TOGGLED_LAYER,          MY_RGB_TOGGLED_LAYER_ON },
   };
-  static const size_t rgb_table_length = ARRAY_SIZE(rgb_table);
+  static const size_t layer_to_rgbs_length = ARRAY_SIZE(layer_to_rgbs);
 
-  const layer_to_rgb_t *row = &rgb_table[0];
+  const layer_to_rgb_t *row = &layer_to_rgbs[0];
   
-  for (size_t ix = 1; ix < rgb_table_length; ix++) {
-    if (IS_LAYER_ON(rgb_table[ix].layer)) {
-      row = &rgb_table[ix];
+  for (size_t ix = 1; ix < layer_to_rgbs_length; ix++) {
+    if (IS_LAYER_ON(layer_to_rgbs[ix].layer)) {
+      row = &layer_to_rgbs[ix];
       break;
     }
   }
