@@ -34,6 +34,20 @@ bool array_contains_keycode(const uint16_t arr[], const uint8_t length, const ui
   return false;
 }
 
+typedef struct {
+  uint16_t first;
+  uint16_t second;
+} keycode_pair_t;
+
+bool array_contains_keycode_pair_P(const keycode_pair_t arr[], const uint8_t length, const keycode_pair_t pair) {
+  for (uint8_t ix = 0; ix < length; ix++) {
+    if (pgm_read_word(&arr[ix].first)  == pair.first &&
+        pgm_read_word(&arr[ix].second) == pair.second)
+      return true;
+  }
+  return false;
+}
+
 // ==============================================================================
 // Init
 // ==============================================================================
@@ -422,21 +436,6 @@ void matrix_scan_user(void) {
 // ==============================================================================
 
 #ifdef USE_ACHORDION
-
-typedef struct {
-  uint16_t first;
-  uint16_t second;
-} keycode_pair_t;
-
-bool array_contains_keycode_pair_P(const keycode_pair_t arr[], const uint8_t length, const keycode_pair_t pair) {
-  for (uint8_t ix = 0; ix < length; ix++) {
-    if (pgm_read_word(&arr[ix].first)  == pair.first &&
-        pgm_read_word(&arr[ix].second) == pair.second)
-      return true;
-  }
-  return false;
-}
-
 static const uint16_t achordion_bilat_keys[] = {
 #  ifdef HOME_SHIFT
   QH_A, QH_QUOT,
