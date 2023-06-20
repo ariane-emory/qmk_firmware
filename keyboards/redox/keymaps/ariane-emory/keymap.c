@@ -7,10 +7,10 @@
 #include "key_aliases.h"
 #include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
-#if defined(HOME_ROW_MODS) || defined(HOME_SHIFT) || defined(BOTTOM_SHIFT)
+// #if defined(HOME_ROW_MODS) || defined(HOME_SHIFT) || defined(BOTTOM_SHIFT)
 #  define USE_ACHORDION
 #  include "features/achordion.h"
-#endif
+// #endif
 
 #ifdef RGBLIGHT_ENABLE
 #  include "features/rgb_fader.h"
