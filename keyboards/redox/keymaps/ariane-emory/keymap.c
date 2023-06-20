@@ -416,7 +416,7 @@ static const uint16_t achordion_bilat_keys[] = {
 };
 static const uint8_t achordion_bilat_keys_length = ARRAY_SIZE(achordion_bilat_keys);
 
-static const achordion_exception_t achordion_exceptions[] = {
+static const achordion_exception_t achordion_exceptions[] PROGMEM = {
   // Both Shifts
   { QH_A,    LSFT_T(KC_MINS) }, // underscore
   { QH_QUOT, RSFT_T(KC_MINS) }, // underscore
@@ -504,8 +504,8 @@ bool achordion_chord(
   /* // Exceptionally consider the following chords as holds, even though they */
   /* // are on the same hand. */
   for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) {
-    if (achordion_exceptions[ix].tap_hold_keycode == tap_hold_keycode &&
-        achordion_exceptions[ix].other_keycode    == other_keycode)
+    if (pgm_read_word(&achordion_exceptions[ix].tap_hold_keycode) == tap_hold_keycode &&
+        pgm_read_word(&achordion_exceptions[ix].other_keycode)    == other_keycode)
       return true;
   }
   
