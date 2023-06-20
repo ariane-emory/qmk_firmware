@@ -404,6 +404,7 @@ void matrix_scan_user(void) {
 // Achordion
 // ==============================================================================
 
+#ifdef USE_ACHORDION
 typedef struct {
   uint16_t tap_hold_keycode;
   uint16_t othwe_keycode;
@@ -473,54 +474,42 @@ static const achordion_exception_t achordion_exceptions[] = {
 
 static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
 
+bool achordion_chord(
+  uint16_t      tap_hold_keycode,
+  keyrecord_t * tap_hold_record,
+  uint16_t      other_keycode,
+  keyrecord_t * other_record) {
 
-
-
-
-
-
-
-
-
-
-
-#ifdef USE_ACHORDION
-  bool achordion_chord(
-    uint16_t      tap_hold_keycode,
-    keyrecord_t * tap_hold_record,
-    uint16_t      other_keycode,
-    keyrecord_t * other_record) {
-
-    // custom keycodes are not subject to achordion:
-    if (other_keycode >= SAFE_RANGE)
-      return true;
-
-    // Allow same-hand holds when the other key is in the rows below the
-    // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
-    if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
-      return true;
-
-    // Exceptionally consider the following chords as holds, even though they
-    // are on the same hand.
-
-    if (false
-        || tap_hold_keycode == QH_S
-        || tap_hold_keycode == QH_D
-        || tap_hold_keycode == QH_F
-        || tap_hold_keycode == QH_J
-        || tap_hold_keycode == QH_K
-        || tap_hold_keycode == QH_L
-        ) {
-      // Require bilateral
-      return achordion_opposite_hands(tap_hold_record, other_record);
-    }
-
+  // custom keycodes are not subject to achordion:
+  if (other_keycode >= SAFE_RANGE)
     return true;
+
+  // Allow same-hand holds when the other key is in the rows below the
+  // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
+  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
+    return true;
+
+  // Exceptionally consider the following chords as holds, even though they
+  // are on the same hand.
+
+  if (false
+      || tap_hold_keycode == QH_S
+      || tap_hold_keycode == QH_D
+      || tap_hold_keycode == QH_F
+      || tap_hold_keycode == QH_J
+      || tap_hold_keycode == QH_K
+      || tap_hold_keycode == QH_L
+      ) {
+    // Require bilateral
+    return achordion_opposite_hands(tap_hold_record, other_record);
   }
 
-  bool achordion_eager_mod(uint8_t mod) {
-    return true;  // Eagerly apply all mods.
-  }
+  return true;
+}
+
+bool achordion_eager_mod(uint8_t mod) {
+  return true;  // Eagerly apply all mods.
+}
 #endif
 
 // ==============================================================================
