@@ -495,6 +495,16 @@ static const achordion_exception_t achordion_exceptions[] PROGMEM = {
 
 static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
 
+bool is_achordion_bilat_key(uint16_t keycode) {
+  for (uint8_t ix = 0; ix < achordion_bilat_keys_length; ix++) {
+    if (achordion_bilat_keys[ix] == keycode) {
+      return false;
+    }
+  }
+  
+  return true;
+}
+
 bool is_achordion_exception(uint16_t tap_hold_keycode, uint16_t other_keycode) {
   // Exceptionally consider the following chords as holds, even though they
   // are on the same hand.
@@ -522,20 +532,8 @@ bool achordion_chord(
   if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
     return true;
 
-  // if the tap_hold_key_isn't_in achordion_bilat_keys, process it normally.
-  {
-    bool is_achordion_bilat_key = false;
-  
-    for (uint8_t ix = 0; ix < achordion_bilat_keys_length; ix++) {
-      if (achordion_bilat_keys[ix] == tap_hold_keycode) {
-        is_achordion_bilat_key = true;
-        break;
-      }
-    }
-
-    if (! is_achordion_bilat_key)
-      return true;
-  }
+  if (! is_achordion_bilat_key(tap_hold_keycode))
+    return true;
 
   if (is_achordion_exception(tap_hold_keycode, other_keycode))
     return true;
