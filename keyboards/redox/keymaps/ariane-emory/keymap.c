@@ -384,18 +384,18 @@ void matrix_scan_user(void) {
   
 #ifdef USE_ACHORDION
   achordion_task();
-#endif
+#endif // USE_ACHORDION
 
 #ifdef TOGGLED_LAYER_TIMEOUT
   manage_toggled_layer_timeout(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
-#endif
+#endif // TOGGLED_LAYER_TIMEOUT
   
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
   if (!rgb_fader_set_target_if_recording_macro(&rgb_fader))
     rgb_fader_set_target_by_layer(&rgb_fader);
   rgb_fader_step(&rgb_fader);
   rgblight_setrgb(rgb_fader.current.r, rgb_fader.current.g, rgb_fader.current.b);
-#endif
+#endif // defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
 }
 
 // ==============================================================================
