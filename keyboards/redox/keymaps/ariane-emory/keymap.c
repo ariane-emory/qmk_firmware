@@ -428,14 +428,14 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QB_SLSH, RSFT_T(KC_MINS) }, // underscore
 #  endif // BOTTOM_SHIFT
 #  ifdef HOME_ROW_MODS
-  /* // Left GUI */
+  // Left GUI
   { QH_S,    KC_TAB          }, // app switcher
   { QH_S,    QB_Z            }, // undo
   { QH_S,    QT_R            }, // refresh
   { QH_S,    QT_T            }, // new tab
   { QH_S,    QB_C            }, // copy
   { QH_S,    QB_V            }, // paste
-  /* // Left Alt */
+  // Left Alt
   { QH_D,    KC_TAB          }, // alt+tab
   /* { QH_D,    SS_ARROW        }, // */
   /* { QH_D,    SS_DIR          }, // */
