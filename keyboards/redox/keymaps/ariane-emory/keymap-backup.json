@@ -69,7 +69,7 @@
       "ANY(HOLD_GUI)",
       "ANY(CRL_LFT)",
       "ANY(TH_LFT)",
-      "ANY(LT(9,KC_DUMMY))",
+      "LT(9,KC_MINS)",
       "LT(12,KC_TAB)",
       "ANY(TH_RGT)",
       "ANY(CRL_RGT)",

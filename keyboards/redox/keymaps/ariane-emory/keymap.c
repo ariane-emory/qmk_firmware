@@ -169,7 +169,7 @@ typedef struct {
 
 static const tap_case_row_t tap_case_table[] = {
   { RSFT_T(KC_DUMMY), VD_ALL        },
-  { LT(9,KC_DUMMY),   LSFT(KC_MINS) },
+  { LT(9,KC_MINS),    LSFT(KC_MINS) },
   { RCTL_DQUO,        KC_DQUO       },
 };
 static const size_t tap_case_table_length = ARRAY_SIZE(tap_case_table);
@@ -179,9 +179,11 @@ bool process_tap_case(
   const keyrecord_t * const record) {
   for (uint8_t ix = 0; ix < tap_case_table_length; ix++) {
     if (tap_case_table[ix].match_keycode == keycode) {
-      if (record->tap.count && record->event.pressed)
+      if (record->tap.count && record->event.pressed) {
         tap_code16(tap_case_table[ix].tap_keycode);
-      return false;
+        return false;
+      }
+      return true;
     }
   }
   return true;
@@ -298,15 +300,15 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif // ! USE_SEND_STRING_KEYCODES_TABLE
 
 #ifndef USE_TAP_CASE_TABLE
-  case RSFT_T(KC_DUMMY):
+  case LT(9,KC_MINS):
     if (record->tap.count && record->event.pressed) {
-      tap_code16(VD_ALL);
+      tap_code16(LSFT(KC_MINS));
       return false;
     }
     return true;
-  case LT(9,KC_DUMMY):
+  case RSFT_T(KC_DUMMY):
     if (record->tap.count && record->event.pressed) {
-      tap_code16(LSFT(KC_MINS));
+      tap_code16(VD_ALL);
       return false;
     }
     return true;
