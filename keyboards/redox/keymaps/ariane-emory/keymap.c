@@ -410,7 +410,11 @@ typedef struct {
 } achordion_exception_t;
 
 static const achordion_exception_t achordion_exceptions[] = {
-  { QH_A, LSFT_T(KC_MINS) }
+  { QH_A,    LSFT_T(KC_MINS) },
+  { QH_QUOT, RSFT_T(KC_MINS) },
+  { QH_QUOT, KC_BSLS         },
+  { QB_Z,    LSFT_T(KC_MINS) },
+  { QB_SLSH, RSFT_T(KC_MINS) },
 };
 
 static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
@@ -445,15 +449,6 @@ static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptio
     // Exceptionally consider the following chords as holds, even though they
     // are on the same hand.
     if (false
-        || (tap_hold_keycode == QH_A &&
-            (other_keycode == LSFT_T(KC_MINS)))
-        || (tap_hold_keycode == QH_QUOT &&
-            (other_keycode == RSFT_T(KC_MINS)
-             || other_keycode == KC_BSLS))
-        || (tap_hold_keycode == QB_Z &&
-            (other_keycode == LSFT_T(KC_MINS)))
-        || (tap_hold_keycode == QB_SLSH &&
-            (other_keycode == RSFT_T(KC_MINS)))
         // Left side
         || (tap_hold_keycode == QH_S &&
             (other_keycode == KC_TAB ||
