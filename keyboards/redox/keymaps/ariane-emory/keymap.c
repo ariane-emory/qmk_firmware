@@ -607,10 +607,8 @@ static const uint16_t layer1_permissive_hold_keys[] = {
 static const uint8_t layer1_permissive_hold_keys_length = ARRAY_SIZE(layer1_permissive_hold_keys); 
 
 KEYRECORD_FUN(get_permissive_hold, bool) {
-  if (IS_LAYER_ON(0) && array_contains_keycode(layer0_permissive_hold_keys, layer0_permissive_hold_keys_length, keycode))
-    return false; // Do not select the hold action when another key is tapped.
-  
-  if (IS_LAYER_ON(1) && array_contains_keycode(layer1_permissive_hold_keys, layer1_permissive_hold_keys_length, keycode))
+  if ((IS_LAYER_ON(0) && array_contains_keycode(layer0_permissive_hold_keys, layer0_permissive_hold_keys_length, keycode)) ||
+      (IS_LAYER_ON(1) && array_contains_keycode(layer1_permissive_hold_keys, layer1_permissive_hold_keys_length, keycode)))
     return false; // Do not select the hold action when another key is tapped.
 
   return true; // Select the hold action when another key is tapped.
