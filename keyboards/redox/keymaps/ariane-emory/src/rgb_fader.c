@@ -2,9 +2,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+
 #ifndef RGB_FADER_NO_STRINGS
 #include <string.h>
 #endif
+
+// ==============================================================================
+// RGB fader class
+// ==============================================================================
 
 #define FOR_EACH_COLOR(DO)                                                      \
   DO(r)                                                                         \

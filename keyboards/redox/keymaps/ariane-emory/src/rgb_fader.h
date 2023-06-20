@@ -5,6 +5,10 @@
 #include "cRGB_functions.h"
 #include "color.h"
 
+// ==============================================================================
+// RGB fader class
+// ==============================================================================
+
 typedef struct rgb_fader_t {
   cRGB   initial;
   cRGB   current;
