@@ -536,15 +536,10 @@ bool achordion_chord(
     if (! is_achordion_bilat_key)
       return true;
   }
-  
-  /* // Exceptionally consider the following chords as holds, even though they */
-  /* // are on the same hand. */
-  for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) {
-    if (pgm_read_word(&achordion_exceptions[ix].tap_hold_keycode) == tap_hold_keycode &&
-        pgm_read_word(&achordion_exceptions[ix].other_keycode)    == other_keycode)
-      return true;
-  }
-  
+
+  if (is_achordion_exception(tap_hold_keycode, other_keycode))
+    return true;
+   
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
