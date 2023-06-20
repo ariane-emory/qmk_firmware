@@ -52,7 +52,7 @@
 
 #define RGB_FADER_NO_STRINGS
 
-#define TAPPING_TERM                         250
+#define TAPPING_TERM                         200
 
 #define TOGGLED_LAYER                        6
 #define TOGGLED_LAYER_TIMEOUT                30000
