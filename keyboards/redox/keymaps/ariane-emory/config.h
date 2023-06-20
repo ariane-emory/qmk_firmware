@@ -1,35 +1,19 @@
 #pragma once
 
-/* Select hand configuration */
 #define MASTER_LEFT
-// #define MASTER_RIGHT
-// #define EE_HANDS
 
-#undef USE_CIE1931_CURVE
+#undef  USE_CIE1931_CURVE
 
-#undef RGBLED_NUM
-/* #define RGBLIGHT_EFFECT_BREATHING */
-/* #define RGBLIGHT_EFFECT_RAINBOW_MOOD */
-/* #define RGBLIGHT_EFFECT_RAINBOW_SWIRL */
-/* #define RGBLIGHT_EFFECT_SNAKE */
-/* #define RGBLIGHT_EFFECT_KNIGHT */
-/* #define RGBLIGHT_EFFECT_CHRISTMAS */
-/* #define RGBLIGHT_EFFECT_STATIC_GRADIENT */
-/* #define RGBLIGHT_EFFECT_RGB_TEST */
-/* #define RGBLIGHT_EFFECT_ALTERNATING */
-/* #define RGBLIGHT_EFFECT_TWINKLE */
+#undef  RGBLED_NUM
 #define RGBLED_NUM                           14
 #define RGBLIGHT_HUE_STEP                    8
 #define RGBLIGHT_SAT_STEP                    8
 #define RGBLIGHT_VAL_STEP                    8
 
-// #define AUTO_SHIFT_MODIFIERS
 #define AUTO_SHIFT_REPEAT
 #define AUTO_SHIFT_TIMEOUT                   180
-// #define AUTO_SHIFT_TIMEOUT_PER_KEY
 #define NO_AUTO_SHIFT_ALPHA
 #define NO_AUTO_SHIFT_SPECIAL
-// #define RETRO_TAPPING
 
 #define COMBO_ONLY_FROM_LAYER                0
 #define COMBO_SHOULD_TRIGGER
@@ -51,7 +35,6 @@
 #define PERMISSIVE_HOLD_PER_KEY
 
 #define TAPPING_TERM                         250
-// #define TAPPING_TERM_PER_KEY
 
 #define TOGGLED_LAYER                        6
 #define TOGGLED_LAYER_TIMEOUT                30000
@@ -68,7 +51,6 @@
 #define TRI_LAYER_ADJUST_LAYER               13
 
 #define HOME_ROW_MODS
-// #define BOTTOM_ROW_MODS
 #define MY_RGB_LAYERS
 
 #define NO_ACTION_ONESHOT
@@ -79,11 +61,8 @@
 #undef EEPROM_ENABLE
 #undef EEPROM_DRIVER
 
-#ifdef DYNAMIC_MACRO_ENABLE
-#    define DYNAMIC_MACRO_DELAY              15
-#endif
+#define DYNAMIC_MACRO_DELAY              15
 
-// #define STAGGERED_SHIFT
 #define TOP_SHIFT
 #define BOTTOM_SHIFT
 
@@ -98,7 +77,6 @@
 #define TRI_LAYER_ADJUST_LAYER               13
 
 #define HOME_ROW_MODS
-// #define BOTTOM_ROW_MODS
 #define MY_RGB_LAYERS
 
 #define NO_ACTION_ONESHOT
@@ -109,18 +87,12 @@
 #undef EEPROM_ENABLE
 #undef EEPROM_DRIVER
 
-#ifdef DYNAMIC_MACRO_ENABLE
-#    define DYNAMIC_MACRO_DELAY              15
-#endif
+#define DYNAMIC_MACRO_DELAY              15
 
-// #define STAGGERED_SHIFT
 #define TOP_SHIFT
 #define BOTTOM_SHIFT
-#ifdef DYNAMIC_MACRO_ENABLE
-#    define DYNAMIC_MACRO_DELAY              15
-#endif
+#define DYNAMIC_MACRO_DELAY              15
 
-// #define STAGGERED_SHIFT
 #define TOP_SHIFT
 #define BOTTOM_SHIFT
 
