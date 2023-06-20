@@ -23,6 +23,7 @@ SRC                   += src/achordion.c
 SRC                   += src/cRGB_functions.c
 SRC                   += src/rgb_fader.c
 SRC                   += src/util.c
+SRC                   += src/tap_number.c
 
 CFLAGS                += -funroll-loops
 
