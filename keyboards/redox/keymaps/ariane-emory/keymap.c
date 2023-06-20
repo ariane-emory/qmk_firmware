@@ -407,7 +407,7 @@ void matrix_scan_user(void) {
 #ifdef USE_ACHORDION
 typedef struct {
   uint16_t tap_hold_keycode;
-  uint16_t othwe_keycode;
+  uint16_t other_keycode;
 } achordion_exception_t;
 
 static const achordion_exception_t achordion_exceptions[] = {
@@ -484,7 +484,12 @@ bool achordion_chord(
 
   // Exceptionally consider the following chords as holds, even though they
   // are on the same hand.
-
+  /* for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) { */
+  /*   if (achordion_exceptions[ix].tap_hold_keycode == tap_hold_keycode && */
+  /*       achordion_exceptions[ix].other_keycode    == other_keycode) */
+  /*     return true; */
+  /* } */
+  
   if (false
       || tap_hold_keycode == QH_S
       || tap_hold_keycode == QH_D
