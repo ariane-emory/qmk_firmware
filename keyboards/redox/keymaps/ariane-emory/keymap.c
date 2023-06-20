@@ -483,8 +483,19 @@ bool achordion_chord(
     false)
     return true;
 
-// Require bilateral
-  return achordion_opposite_hands(tap_hold_record, other_record);
+  if (false
+      || tap_hold_keycode == QH_S
+      || tap_hold_keycode == QH_D
+      || tap_hold_keycode == QH_F
+      || tap_hold_keycode == QH_J
+      || tap_hold_keycode == QH_K
+      || tap_hold_keycode == QH_L
+      ) {
+    // Require bilateral
+    return achordion_opposite_hands(tap_hold_record, other_record);
+  }
+
+  return true;
 }
 
 bool achordion_eager_mod(uint8_t mod) {
