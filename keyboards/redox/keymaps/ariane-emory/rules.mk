@@ -26,4 +26,3 @@ CFLAGS                += -funroll-loops
 TOP_SYMBOLS            = 15
 
 # EEPROM_DRIVER          = transient
-

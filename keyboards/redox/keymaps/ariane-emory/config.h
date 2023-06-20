@@ -28,6 +28,7 @@
 #define AUTO_SHIFT_TIMEOUT                   180
 // #define AUTO_SHIFT_TIMEOUT_PER_KEY
 #define NO_AUTO_SHIFT_ALPHA
+#define NO_AUTO_SHIFT_SPECIAL
 // #define RETRO_TAPPING
 
 #define COMBO_ONLY_FROM_LAYER                0
