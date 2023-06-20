@@ -504,9 +504,9 @@ bool achordion_chord(
   /* // Exceptionally consider the following chords as holds, even though they */
   /* // are on the same hand. */
   for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) {
-    if (achordion_exceptions[ix].tap_hold_keycode == tap_hold_keycode &&
-        achordion_exceptions[ix].other_keycode    == other_keycode)
-      return true;
+    /* if (achordion_exceptions[ix].tap_hold_keycode == tap_hold_keycode && */
+    /*     achordion_exceptions[ix].other_keycode    == other_keycode) */
+    /*   return true; */
   }
   
   return achordion_opposite_hands(tap_hold_record, other_record);
