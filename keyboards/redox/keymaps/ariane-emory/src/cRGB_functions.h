@@ -2,7 +2,12 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+
 #include "color.h"
+
+// ==============================================================================
+// cRGB functions
+// ==============================================================================
 
 void cRGB_init         (cRGB * const this, uint8_t r, uint8_t g, uint8_t b);
 void cRGB_copy         (cRGB * const this, const cRGB * const that);
