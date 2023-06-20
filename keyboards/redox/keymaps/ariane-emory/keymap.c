@@ -166,12 +166,7 @@ bool process_shiftable_or_ctrlable_send_string(
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_TAP_CASE_TABLE
-typedef struct {
-  uint16_t match_keycode;
-  uint16_t tap_keycode;
-} tap_case_t;
-
-static const tap_case_t tap_cases[] = {
+static const keycode_pair_t tap_cases[] = {
   { RSFT_T(KC_DUMMY), VD_ALL        },
   { LT(9,KC_MINS),    LSFT(KC_MINS) },
   { RCTL_DQUO,        KC_DQUO       },
@@ -183,9 +178,9 @@ bool process_tap_case(
   const uint16_t keycode,
   const keyrecord_t * const record) {
   for (uint8_t ix = 0; ix < tap_cases_length; ix++) {
-    if (tap_cases[ix].match_keycode == keycode) {
+    if (tap_cases[ix].first == keycode) {
       if (record->tap.count && record->event.pressed) {
-        tap_code16(tap_cases[ix].tap_keycode);
+        tap_code16(tap_cases[ix].second);
         return false;
       }
       return true;
