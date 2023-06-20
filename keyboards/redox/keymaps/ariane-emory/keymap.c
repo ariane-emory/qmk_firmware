@@ -136,12 +136,10 @@ static const shiftable_or_ctrlable_send_string_keycodes_t shiftable_or_ctrlable_
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(shiftable_or_ctrlable_send_string_keycodes_row)
 };
 
-static const uint8_t shiftable_or_ctrlable_send_string_keycodes_length = ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes);
-
 bool process_shiftable_or_ctrlable_send_string(
   const uint16_t keycode,
   const keyrecord_t * const record) {
-  for (uint8_t ix = 0; ix < shiftable_or_ctrlable_send_string_keycodes_length; ix++) {
+  for (uint8_t ix = 0; ix < ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes); ix++) {
     if (shiftable_or_ctrlable_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed) {
         if (
@@ -414,8 +412,6 @@ static const uint16_t achordion_bilat_keys[] = {
 #  endif // HOME_ROW_MODS
   KC_NO
 };
-
-static const uint8_t achordion_bilat_keys_length = ARRAY_SIZE(achordion_bilat_keys);
 
 static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // Both Shifts
