@@ -422,65 +422,65 @@ bool achordion_chord(
 
   // Exceptionally consider the following chords as holds, even though they
   // are on the same hand.
-  if (
-    (tap_hold_keycode == QH_A &&
-     (other_keycode == LSFT_T(KC_MINS))) ||
-    (tap_hold_keycode == QH_QUOT &&
-     (other_keycode == RSFT_T(KC_MINS) ||
-      other_keycode == KC_BSLS)) ||
-    (tap_hold_keycode == QB_Z &&
-     (other_keycode == LSFT_T(KC_MINS))) ||
-    (tap_hold_keycode == QB_SLSH &&
-     (other_keycode == RSFT_T(KC_MINS))) ||
-    // Left side
-    (tap_hold_keycode == QH_S &&
-     (other_keycode == KC_TAB ||
-      other_keycode == QB_Z ||
-      other_keycode == QT_R ||
-      other_keycode == QT_T ||
-      other_keycode == QB_C ||
-      other_keycode == QB_V)) ||
-    (tap_hold_keycode == QH_D &&
-     (other_keycode == KC_TAB ||
-      other_keycode == SS_ARROW ||
-      other_keycode == SS_DIR ||
-      other_keycode == SS_LBRACK ||
-      other_keycode == SS_RBRACK ||
-      other_keycode == SS_BRACKS ||
-      other_keycode == QT_W ||
-      other_keycode == QT_R ||
-      other_keycode == QH_F ||
-      other_keycode == QB_B ||
-      other_keycode == QT_T)) ||
-    (tap_hold_keycode == QH_F &&
-     (other_keycode == SS_ARROW ||
-      other_keycode == SS_DIR ||
-      other_keycode == SS_LBRACK ||
-      other_keycode == SS_RBRACK ||
-      other_keycode == SS_BRACKS ||
-      other_keycode == QH_A ||
-      other_keycode == QH_D ||
-      other_keycode == QT_E ||
-      other_keycode == QT_T ||
-      other_keycode == QT_W ||
-      other_keycode == QH_S)) ||
-    // Right side
-    (tap_hold_keycode == QH_J &&
-     (other_keycode == QH_H ||
-      other_keycode == QH_K ||
-      other_keycode == QH_L ||
-      other_keycode == QT_Y ||
-      other_keycode == QB_N ||
-      other_keycode == QT_P)) ||
-    (tap_hold_keycode == QH_K &&
-     (other_keycode == QH_L ||
-      other_keycode == QT_P ||
-      other_keycode == LT(12,KC_BSLS) ||
-      other_keycode == QB_N)) ||
-    (tap_hold_keycode == QH_L &&
-     (other_keycode == QH_K ||
-      other_keycode == LT(12,KC_BSLS))) ||
-    false)
+  if (false
+      || (tap_hold_keycode == QH_A &&
+          (other_keycode == LSFT_T(KC_MINS)))
+      || (tap_hold_keycode == QH_QUOT &&
+          (other_keycode == RSFT_T(KC_MINS)
+           || other_keycode == KC_BSLS))
+      || (tap_hold_keycode == QB_Z &&
+          (other_keycode == LSFT_T(KC_MINS)))
+      || (tap_hold_keycode == QB_SLSH &&
+          (other_keycode == RSFT_T(KC_MINS)))
+      // Left side
+      || (tap_hold_keycode == QH_S &&
+          (other_keycode == KC_TAB ||
+           other_keycode == QB_Z ||
+           other_keycode == QT_R ||
+           other_keycode == QT_T ||
+           other_keycode == QB_C ||
+           other_keycode == QB_V))
+      || (tap_hold_keycode == QH_D &&
+          (other_keycode == KC_TAB ||
+           other_keycode == SS_ARROW ||
+           other_keycode == SS_DIR ||
+           other_keycode == SS_LBRACK ||
+           other_keycode == SS_RBRACK ||
+           other_keycode == SS_BRACKS ||
+           other_keycode == QT_W ||
+           other_keycode == QT_R ||
+           other_keycode == QH_F ||
+           other_keycode == QB_B ||
+           other_keycode == QT_T))
+      || (tap_hold_keycode == QH_F &&
+          (other_keycode == SS_ARROW ||
+           other_keycode == SS_DIR ||
+           other_keycode == SS_LBRACK ||
+           other_keycode == SS_RBRACK ||
+           other_keycode == SS_BRACKS ||
+           other_keycode == QH_A ||
+           other_keycode == QH_D ||
+           other_keycode == QT_E ||
+           other_keycode == QT_T ||
+           other_keycode == QT_W ||
+           other_keycode == QH_S))
+      // Right side
+      || (tap_hold_keycode == QH_J &&
+          (other_keycode == QH_H ||
+           other_keycode == QH_K ||
+           other_keycode == QH_L ||
+           other_keycode == QT_Y ||
+           other_keycode == QB_N ||
+           other_keycode == QT_P))
+      || (tap_hold_keycode == QH_K &&
+          (other_keycode == QH_L ||
+           other_keycode == QT_P ||
+           other_keycode == KC_BSLS ||
+           other_keycode == QB_N))
+      || (tap_hold_keycode == QH_L &&
+          (other_keycode == QH_K ||
+           other_keycode == KC_BSLS))
+      )
     return true;
 
   if (false
