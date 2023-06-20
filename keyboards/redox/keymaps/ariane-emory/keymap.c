@@ -210,7 +210,7 @@ void tap_number(uint16_t num) {
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
-
+  
   if (false
 #ifdef USE_ACHORDION
       || (! process_achordion(keycode, record))
@@ -379,6 +379,8 @@ void manage_toggled_layer_timeout(const uint8_t layer, const uint16_t idle_time_
 #endif
 
 void matrix_scan_user(void) {
+  update_tri_layer(get_tri_layer_lower_layer(), get_tri_layer_upper_layer(), get_tri_layer_adjust_layer());
+
 #ifdef USE_ACHORDION
   achordion_task();
 #endif
