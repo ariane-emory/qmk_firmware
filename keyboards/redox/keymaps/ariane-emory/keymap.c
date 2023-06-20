@@ -410,6 +410,9 @@ bool achordion_chord(
   keyrecord_t * tap_hold_record,
   uint16_t      other_keycode,
   keyrecord_t * other_record) {
+  if (other_keycode >= SAFE_RANGE)
+    return true;
+
   if (IS_LAYER_ON(0) && (
 #ifndef HOME_SHIFT
         tap_hold_keycode == QH_A    ||
@@ -501,55 +504,9 @@ bool achordion_chord(
     goto process_bilaterally;
   }
   
-/*   if (IS_LAYER_ON(1) && ( */
-/* #ifndef HOME_SHIFT */
-/*         tap_hold_keycode == CH_A    || */
-/*         tap_hold_keycode == CH_QUOT || */
-/* #endif */
-        
-/* #if defined(BOTTOM_SHIFT) */
-/*         tap_hold_keycode == CB_Z    || */
-/*         tap_hold_keycode == CB_SLSH || */
-/* #endif */
-        
-/* #ifdef HOME_ROW_MODS */
-/*         tap_hold_keycode == CH_R    || */
-/*         tap_hold_keycode == CH_S    || */
-/*         tap_hold_keycode == CH_T    || */
-/*         tap_hold_keycode == CH_N    || */
-/*         tap_hold_keycode == CH_E    || */
-/*         tap_hold_keycode == CH_I    || */
-/* #endif */
-/* #ifdef BOTTOM_ROW_MODS */
-/*         tap_hold_keycode == CB_Z    || */
-/*         tap_hold_keycode == CB_X    || */
-/*         tap_hold_keycode == CB_C    || */
-/*         tap_hold_keycode == CB_V    || */
-/*         tap_hold_keycode == CB_M    || */
-/*         tap_hold_keycode == CB_COMM || */
-/*         tap_hold_keycode == CB_DOT  || */
-/*         tap_hold_keycode == CB_SLSH || */
-/* #endif */
-/*         false)) */
-/*   { */
-/*     // Exceptionally consider the following chords as holds, even though they */
-/*     // are on the same hand. */
-/* #ifdef HOME_ROW_MODS */
-/*     if ((tap_hold_keycode == CH_T && */
-/*          other_keycode == CH_A) || */
-/*         false) */
-/*       return true; */
-/* #endif */
-    
-/*     goto process_bilaterally; */
-/*   } */
-
   return true; // process_normally
   
-process_bilaterally:
-  if (other_keycode >= SAFE_RANGE)
-    return true;
-  
+process_bilaterally:  
   // Also allow same-hand holds when the other key is in the rows below the
   // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
   if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
