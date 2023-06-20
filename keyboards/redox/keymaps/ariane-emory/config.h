@@ -68,21 +68,4 @@
 #define BOTTOM_SHIFT
 #define HOME_ROW_MODS
 
-#define FLIP_THUMBS
-
-
-#define TOGGLED_LAYER                        6
-#define TOGGLED_LAYER_TIMEOUT                30000
-
-#define TRI_LAYER_ADJUST_LAYER               13
-#define TRI_LAYER_LOWER_LAYER                7
-#define TRI_LAYER_UPPER_LAYER                8
-
-#define USE_SEND_STRING_KEYCODES_TABLE
-#define USE_TAP_CASE_TABLE
-
-#define HOME_SHIFT
-#define BOTTOM_SHIFT
-#define HOME_ROW_MODS
-
-#define FLIP_THUMBS
+// #define FLIP_THUMBS
