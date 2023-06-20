@@ -477,24 +477,37 @@ bool achordion_chord(
   keyrecord_t * tap_hold_record,
   uint16_t      other_keycode,
   keyrecord_t * other_record) {
-  return true;
-  
   // custom keycodes are not subject to achordion:
   if (other_keycode >= SAFE_RANGE)
     return true;
 
+  // if the tap_hold_key_isn't_in achordion_bilat_keys, process it normally.
+  {
+    bool is_achordion_bilat_key = false;
+  
+    for (uint8_t ix = 0; ix < achordion_bilat_keys_length; ix++) {
+      if (achordion_bilat_keys[ix] == tap_hold_keycode) {
+        is_achordion_bilat_key = true;
+        break;
+      }
+    }
+
+    if (! is_achordion_bilat_key)
+      return true;
+  }
+  
   // Allow same-hand holds when the other key is in the rows below the
   // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
   if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
     return true;
 
-  // Exceptionally consider the following chords as holds, even though they
-  // are on the same hand.
-  for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) {
-    if (achordion_exceptions[ix].tap_hold_keycode == tap_hold_keycode &&
-        achordion_exceptions[ix].other_keycode    == other_keycode)
-      return true;
-  }
+  /* // Exceptionally consider the following chords as holds, even though they */
+  /* // are on the same hand. */
+  /* for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) { */
+  /*   if (achordion_exceptions[ix].tap_hold_keycode == tap_hold_keycode && */
+  /*       achordion_exceptions[ix].other_keycode    == other_keycode) */
+  /*     return true; */
+  /* } */
   
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
