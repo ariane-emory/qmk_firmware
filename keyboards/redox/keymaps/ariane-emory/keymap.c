@@ -481,6 +481,11 @@ bool achordion_chord(
   if (other_keycode >= SAFE_RANGE)
     return true;
 
+  // Allow same-hand holds when the other key is in the rows below the
+  // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
+  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
+    return true;
+
   // if the tap_hold_key_isn't_in achordion_bilat_keys, process it normally.
   {
     bool is_achordion_bilat_key = false;
@@ -496,11 +501,6 @@ bool achordion_chord(
       return true;
   }
   
-  // Allow same-hand holds when the other key is in the rows below the
-  // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
-  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
-    return true;
-
   /* // Exceptionally consider the following chords as holds, even though they */
   /* // are on the same hand. */
   /* for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) { */
