@@ -4,8 +4,8 @@
 
 #include <stdbool.h>
 
-#include "key_aliases.h"
-#include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
+#include "src/key_aliases.h"
+#include "src/secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
 #if defined(HOME_ROW_MODS) || defined(HOME_SHIFT) || defined(BOTTOM_SHIFT)
 #  define USE_ACHORDION
@@ -596,7 +596,7 @@ uint16_t keycode_config(uint16_t keycode) {
 // Include combos 
 // ==============================================================================
 
-#include "combos.inc"
+#include "src/combos.inc"
 
 // ==============================================================================
 // Include keymap
