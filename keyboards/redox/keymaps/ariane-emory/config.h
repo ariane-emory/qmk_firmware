@@ -67,36 +67,3 @@
 #define HOME_SHIFT
 #define BOTTOM_SHIFT
 #define HOME_ROW_MODS
-0xFF, 0x50, 0x8F
-#define MY_RGB_LOWER_LAYER_ON                RGB_CYAN
-#define MY_RGB_RECORDING_MACRO               RGB_MAGENTA
-#define MY_RGB_TOGGLED_LAYER_ON              RGB_CHARTREUSE
-#define MY_RGB_UPPER_LAYER_ON                RGB_BLUE
-
-#define NO_ACTION_ONESHOT
-
-#define ONESHOT_TIMEOUT                      1000
-#define PERMISSIVE_HOLD_PER_KEY
-
-#define RGBLED_NUM                           14
-#define RGBLIGHT_HUE_STEP                    8
-#define RGBLIGHT_SAT_STEP                    8
-#define RGBLIGHT_VAL_STEP                    8
-
-#define RGB_FADER_NO_STRINGS
-
-#define TAPPING_TERM                         250
-
-#define TOGGLED_LAYER                        6
-#define TOGGLED_LAYER_TIMEOUT                30000
-
-#define TRI_LAYER_ADJUST_LAYER               13
-#define TRI_LAYER_LOWER_LAYER                7
-#define TRI_LAYER_UPPER_LAYER                8
-
-#define USE_SEND_STRING_KEYCODES_TABLE
-#define USE_TAP_CASE_TABLE
-
-#define HOME_SHIFT
-#define BOTTOM_SHIFT
-#define HOME_ROW_MODS
