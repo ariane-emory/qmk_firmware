@@ -226,7 +226,7 @@ KEYRECORD_FUN(process_record_user, bool) {
       token = defer_exec(400, release_lgui_callback, NULL);
     }
     return false;                                                                 
-  case QK_TRI_LAYER_LOWER:
+  case KC_LOWER:
     layer_off(6);
     return true;
 
@@ -357,9 +357,9 @@ void manage_toggled_layer_timeout(const uint8_t layer, const uint16_t idle_time_
 #endif
 
 void matrix_scan_user(void) {
-#ifdef TRI_LAYER_ENABLE
+#if defined(TRI_LAYER_ENABLE) && defined(FLIP_THUMBS)
   update_tri_layer(get_tri_layer_lower_layer(), get_tri_layer_upper_layer(), get_tri_layer_adjust_layer());
-#endif // TRI_LAYER_ENABLE
+#endif // defined(TRI_LAYER_ENABLE) && defined(FLIP_THUMBS)
   
 #ifdef USE_ACHORDION
   achordion_task();
