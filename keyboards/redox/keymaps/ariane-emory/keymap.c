@@ -590,6 +590,22 @@ MT(MOD_LALT,KC_SPC),
 
 static const uint8_t layer0_permissive_hold_keys_length = ARRAY_SIZE(layer0_permissive_hold_keys); 
 
+static const uint16_t layer1_permissive_hold_keys[] = {
+    MT(MOD_LALT,KC_SPC),
+    MT(MOD_RGUI,KC_SPC),
+#ifdef HOME_ROW_MODS
+    CH_A, CH_R, CH_S, CH_T,
+    CH_N, CH_E, CH_I, CH_QUOT,
+#endif
+#ifdef BOTTOM_ROW_MODS
+    CB_Z, CB_X, CB_C, CB_V,
+    CB_M, CB_COMM, CB_DOT, CB_SLSH,
+#endif
+    KC_NO,
+};
+
+static const uint8_t layer1_permissive_hold_keys_length = ARRAY_SIZE(layer1_permissive_hold_keys); 
+
 KEYRECORD_FUN(get_permissive_hold, bool) {
   if (IS_LAYER_ON(0)) {
     switch (keycode) {
