@@ -128,8 +128,8 @@ typedef struct {
   const char * str;
   const char * shifted_str;
   const char * ctrled_str;
-} shiftable_or_ctrlable_send_string_keycodes_table_row_t;
-static const shiftable_or_ctrlable_send_string_keycodes_table_row_t shiftable_or_ctrlable_send_string_keycodes[] = {
+} shiftable_or_ctrlable_send_string_keycodes_t;
+static const shiftable_or_ctrlable_send_string_keycodes_t shiftable_or_ctrlable_send_string_keycodes[] = {
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(shiftable_or_ctrlable_send_string_keycodes_row)
 };
 static const uint8_t shiftable_or_ctrlable_send_string_keycodes_length = ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes);
@@ -165,22 +165,22 @@ bool process_shiftable_or_ctrlable_send_string(
 typedef struct {
   uint16_t match_keycode;
   uint16_t tap_keycode;
-} tap_case_row_t;
+} tap_case_t;
 
-static const tap_case_row_t tap_case_table[] = {
+static const tap_case_t tap_cases[] = {
   { RSFT_T(KC_DUMMY), VD_ALL        },
   { LT(9,KC_MINS),    LSFT(KC_MINS) },
   { RCTL_DQUO,        KC_DQUO       },
 };
-static const size_t tap_case_table_length = ARRAY_SIZE(tap_case_table);
+static const size_t tap_cases_length = ARRAY_SIZE(tap_cases);
 
 bool process_tap_case(
   const uint16_t keycode,
   const keyrecord_t * const record) {
-  for (uint8_t ix = 0; ix < tap_case_table_length; ix++) {
-    if (tap_case_table[ix].match_keycode == keycode) {
+  for (uint8_t ix = 0; ix < tap_cases_length; ix++) {
+    if (tap_cases[ix].match_keycode == keycode) {
       if (record->tap.count && record->event.pressed) {
-        tap_code16(tap_case_table[ix].tap_keycode);
+        tap_code16(tap_cases[ix].tap_keycode);
         return false;
       }
       return true;
