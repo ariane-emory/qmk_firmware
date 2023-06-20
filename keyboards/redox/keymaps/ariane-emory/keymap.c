@@ -408,31 +408,28 @@ void matrix_scan_user(void) {
 // Achordion
 // ==============================================================================
 
-#ifdef USE_ACHORDION
-bool is_achordion_bilat_key(uint16_t keycode) {
-  typedef uint16_t achordion_bilat_key_t;
-
-  static const achordion_bilat_key_t achordion_bilat_keys[] = {
+static const uint16_t achordion_bilat_keys[] = {
 #  ifdef HOME_SHIFT
-    QH_A, QH_QUOT,
+  QH_A, QH_QUOT,
 #  endif // HOME_SHIFT
 #  ifdef BOTTOM_SHIFT
-    QB_Z, QB_SLSH,
+  QB_Z, QB_SLSH,
 #  endif // BOTTOM_SHIFT
 #  ifdef HOME_ROW_MODS
-    QH_S, QH_D, QH_F, QH_J, QH_K, QH_L,
+  QH_S, QH_D, QH_F, QH_J, QH_K, QH_L,
 #  endif // HOME_ROW_MODS
-    KC_NO
-  };
+  KC_NO
+};
 
-  static const uint8_t achordion_bilat_keys_length = ARRAY_SIZE(achordion_bilat_keys);
+static const uint8_t achordion_bilat_keys_length = ARRAY_SIZE(achordion_bilat_keys);
 
-  for (uint8_t ix = 0; ix < achordion_bilat_keys_length; ix++) {
-    if (achordion_bilat_keys[ix] == keycode) {
+#ifdef USE_ACHORDION
+bool array_contains_keycode(const uint16_t arr[], const uint8_t len, const uint16_t keycode) {
+  for (uint8_t ix = 0; ix < len; ix++) {
+    if (arr[ix] == keycode) {
       return true;
     }
   }
-
   return false;
 }
 
@@ -533,7 +530,7 @@ bool achordion_chord(
   if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
     return true;
 
-  if (! is_achordion_bilat_key(tap_hold_keycode))
+  if (! array_contains_keycode(achordion_bilat_keys, achordion_bilat_keys_length, tap_hold_keycode))
     return true;
 
   if (is_achordion_exception(tap_hold_keycode, other_keycode))
