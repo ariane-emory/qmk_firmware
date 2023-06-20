@@ -45,7 +45,6 @@ void keyboard_post_init_user(void) {
 // Define local macros
 // ==============================================================================
 
-#define KEYCODES(name, ...) static const uint16_t name[] = { __VA_ARGS__ };
 #define KEYRECORD_FUN(name, t) t name(uint16_t keycode, keyrecord_t *record)
 
 #ifdef SEND_STRING_ENABLE
@@ -512,11 +511,12 @@ bool achordion_eager_mod(uint8_t mod) {
 // Mod tap interrupt
 // ==============================================================================
 
-KEYCODES(hold_on_other_keypress_keys,
-         LCTL_T(KC_ESC),
-         RCTL_T(KC_DQUO),
-         LSFT_T(KC_MINS),
-         RSFT_T(KC_MINS),);
+static const uint16_t hold_on_other_keypress_keys[] = {
+  LCTL_T(KC_ESC),
+  RCTL_T(KC_DQUO),
+  LSFT_T(KC_MINS),
+  RSFT_T(KC_MINS),
+};
 
 KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   switch (keycode) {
