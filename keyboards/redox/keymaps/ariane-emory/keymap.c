@@ -607,41 +607,12 @@ static const uint16_t layer1_permissive_hold_keys[] = {
 static const uint8_t layer1_permissive_hold_keys_length = ARRAY_SIZE(layer1_permissive_hold_keys); 
 
 KEYRECORD_FUN(get_permissive_hold, bool) {
-  if (IS_LAYER_ON(0)) {
-    switch (keycode) {
-    case MT(MOD_LALT,KC_SPC):
-#ifdef HOME_ROW_MODS
-    case QH_A: case QH_S: case QH_D: case QH_F:
-      // case QH_G: case QH_H: // not mods currently
-    case QH_J: case QH_K: case QH_L: case QH_QUOT:
-#endif
-#ifdef BOTTOM_ROW_MODS
-    case QB_Z: case QB_X: case QB_C: case QB_V:
-      // case QB_B: case QB_N: // not mods currently
-    case QB_M: case QB_COMM: case QB_DOT: case QB_SLSH:
-#endif
-      return false; // Do not select the hold action when another key is tapped.
-    }
-  }
+  if (IS_LAYER_ON(0) && array_contains_keycode(layer0_permissive_hold_keys, layer0_permissive_hold_keys_length, keycode))
+    return false; // Do not select the hold action when another key is tapped.
+  
+  if (IS_LAYER_ON(1) && array_contains_keycode(layer1_permissive_hold_keys, layer1_permissive_hold_keys_length, keycode))
+    return false; // Do not select the hold action when another key is tapped.
 
-  if (IS_LAYER_ON(1)) {
-    switch (keycode) {
-    case MT(MOD_LALT,KC_SPC):
-    case MT(MOD_RGUI,KC_SPC):
-#ifdef HOME_ROW_MODS
-    case CH_A: case CH_R: case CH_S: case CH_T:
-      // case CH_D: case CH_H: // not mods currently
-    case CH_N: case CH_E: case CH_I: case CH_QUOT:
-#endif
-#ifdef BOTTOM_ROW_MODS
-    case CB_Z: case CB_X: case CB_C: case CB_V:
-      // case CB_B: case CB_K: // not mods currently
-    case CB_M: case CB_COMM: case CB_DOT: case CB_SLSH:
-#endif
-      // Do not select the hold action when another key is tapped.
-      return false;
-    }
-  }    
   return true; // Select the hold action when another key is tapped.
 }
 
