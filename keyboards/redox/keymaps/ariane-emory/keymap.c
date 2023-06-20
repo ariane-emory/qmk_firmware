@@ -432,6 +432,7 @@ bool is_achordion_bilat_key(uint16_t keycode) {
       return true;
     }
   }
+
   return false;
 }
 
@@ -514,6 +515,7 @@ bool is_achordion_exception(uint16_t tap_hold_keycode, uint16_t other_keycode) {
         pgm_read_word(&achordion_exceptions[ix].other_keycode)    == other_keycode)
       return true;
   }
+
   return false;
 }
 
