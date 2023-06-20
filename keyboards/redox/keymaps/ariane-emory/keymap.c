@@ -492,6 +492,7 @@ static const achordion_exception_t achordion_exceptions[] PROGMEM = {
   // Dummy
   { KC_NO,   KC_NO           }, // dummy
 };
+
 static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
 
 bool achordion_chord(
