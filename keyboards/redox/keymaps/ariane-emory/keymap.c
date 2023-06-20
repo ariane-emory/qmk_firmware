@@ -495,6 +495,19 @@ static const achordion_exception_t achordion_exceptions[] PROGMEM = {
 
 static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
 
+bool is_achordion_exception(uint16_t tap_hold_keycode, uint16_t other_keycode) {
+  // Exceptionally consider the following chords as holds, even though they
+  // are on the same hand.
+
+  for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) {
+    if (pgm_read_word(&achordion_exceptions[ix].tap_hold_keycode) == tap_hold_keycode &&
+        pgm_read_word(&achordion_exceptions[ix].other_keycode)    == other_keycode)
+      return true;
+  }
+
+  return false;
+}
+
 bool achordion_chord(
   uint16_t      tap_hold_keycode,
   keyrecord_t * tap_hold_record,
