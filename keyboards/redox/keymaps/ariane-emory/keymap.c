@@ -365,7 +365,7 @@ void rgb_fader_set_target_by_layer(rgb_fader_t * const this) {
     }
   }
 
-  rgb_fader_set_target(&rgb_fader, row->r, row->g, row->b);
+  rgb_fader_set_target(this, row->r, row->g, row->b);
 }
 #endif
 
