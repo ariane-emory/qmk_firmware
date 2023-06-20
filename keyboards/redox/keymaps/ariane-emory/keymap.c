@@ -380,7 +380,7 @@ void manage_toggled_layer_timeout(const uint8_t layer, const uint16_t idle_time_
 void matrix_scan_user(void) {
 #ifdef TRI_LAYER_ENABLE
   update_tri_layer(get_tri_layer_lower_layer(), get_tri_layer_upper_layer(), get_tri_layer_adjust_layer());
-#ifdef TRI_LAYER_ENABLE
+#endif // TRI_LAYER_ENABLE
   
 #ifdef USE_ACHORDION
   achordion_task();
