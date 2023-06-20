@@ -503,13 +503,13 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
 
 static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
 
-bool array_contains_keycode_pair_P(const keycode_pair_t arr[], uint8_t len, uint16_t tap_hold_keycode, uint16_t other_keycode) {
+bool array_contains_keycode_pair_P(const keycode_pair_t arr[], const uint8_t len, const keycode_pair_t pair) {
   // Exceptionally consider the following chords as holds, even though they
   // are on the same hand.
 
-  for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) {
-    if (pgm_read_word(&achordion_exceptions[ix].first)  == tap_hold_keycode &&
-        pgm_read_word(&achordion_exceptions[ix].second) == other_keycode)
+  for (uint8_t ix = 0; ix < len; ix++) {
+    if (pgm_read_word(&achordion_exceptions[ix].first)  == pair.first &&
+        pgm_read_word(&achordion_exceptions[ix].second) == pair.second)
       return true;
   }
 
@@ -533,7 +533,7 @@ bool achordion_chord(
   if (! array_contains_keycode(achordion_bilat_keys, achordion_bilat_keys_length, tap_hold_keycode))
     return true;
 
-  if (array_contains_keycode_pair_P(achordion_exceptions, achordion_exceptions_length, tap_hold_keycode, other_keycode))
+  if (array_contains_keycode_pair_P(achordion_exceptions, achordion_exceptions_length, (keycode_pair_t){ tap_hold_keycode, other_keycode }))
     return true;
    
   return achordion_opposite_hands(tap_hold_record, other_record);
