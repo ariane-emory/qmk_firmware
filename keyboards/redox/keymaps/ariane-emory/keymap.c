@@ -415,34 +415,18 @@ bool achordion_chord(
         tap_hold_keycode == QH_A    ||
         tap_hold_keycode == QH_QUOT ||
 #endif
-
 #if defined(BOTTOM_SHIFT)
         tap_hold_keycode == QB_Z    ||
         tap_hold_keycode == QB_SLSH ||
 #endif
-
 #ifdef HOME_ROW_MODS
         tap_hold_keycode == QH_S    ||
         tap_hold_keycode == QH_D    ||
         tap_hold_keycode == QH_F    ||
-        // tap_hold_keycode == QH_G    || // not a mod currently
-        // tap_hold_keycode == QH_H    || // not a mod currently
         tap_hold_keycode == QH_J    ||
         tap_hold_keycode == QH_K    ||
         tap_hold_keycode == QH_L    ||
-#endif // HreewwwOME_ROW_MODS
-#ifdef BOTTOM_ROW_MODS
-        tap_hold_keycode == QB_Z    ||
-        tap_hold_keycode == QB_X    ||
-        tap_hold_keycode == QB_C    ||
-        tap_hold_keycode == QB_V    ||
-        // tap_hold_keycode == QB_B    || // not a mod currently
-        // tap_hold_keycode == QB_N    || // not a mod currently
-        tap_hold_keycode == QB_M    ||
-        tap_hold_keycode == QB_COMM ||
-        tap_hold_keycode == QB_DOT  ||
-        tap_hold_keycode == QB_SLSH ||
-#endif
+#endif // HOME_ROW_MODS
         false))
   {
     // Exceptionally consider the following chords as holds, even though they
@@ -452,7 +436,8 @@ bool achordion_chord(
       (tap_hold_keycode == QH_A &&
        (other_keycode == LSFT_T(KC_MINS))) ||
       (tap_hold_keycode == QH_QUOT &&
-       (other_keycode == RSFT_T(KC_MINS))) ||
+       (other_keycode == RSFT_T(KC_MINS) ||
+        other_keycode == KC_BSLS)) ||
 #endif
 #ifdef BOTTOM_SHIFT
       (tap_hold_keycode == QB_Z &&
@@ -509,10 +494,6 @@ bool achordion_chord(
       (tap_hold_keycode == QH_L &&
        (other_keycode == QH_K ||
         other_keycode == LT(12,KC_BSLS))) ||
-#endif
-#ifdef BOTTOM_ROW_MODS
-      (tap_hold_keycode == QB_SLSH &&
-       other_keycode == QH_K) ||
 #endif
       false)
       return true;
