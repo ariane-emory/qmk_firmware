@@ -14,6 +14,7 @@ typedef struct rgb_fader_t {
   cRGB   current;
   cRGB   target;
   uint8_t step;
+
 #ifndef RGB_FADER_NO_STRINGS
   char    c_str[8];
 #endif
