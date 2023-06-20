@@ -172,12 +172,10 @@ static const keycode_pair_t tap_cases[] = {
   { RCTL_DQUO,        KC_DQUO       },
 };
 
-static const size_t tap_cases_length = ARRAY_SIZE(tap_cases);
-
 bool process_tap_case(
   const uint16_t keycode,
   const keyrecord_t * const record) {
-  for (uint8_t ix = 0; ix < tap_cases_length; ix++) {
+  for (uint8_t ix = 0; ix < ARRAY_SIZE(tap_cases); ix++) {
     if (tap_cases[ix].first == keycode) {
       if (record->tap.count && record->event.pressed) {
         tap_code16(tap_cases[ix].second);
@@ -360,11 +358,9 @@ void rgb_fader_set_target_by_layer(rgb_fader_t * const this) {
     {TOGGLED_LAYER,          MY_RGB_TOGGLED_LAYER_ON },
   };
 
-  static const size_t layer_to_rgbs_length = ARRAY_SIZE(layer_to_rgbs);
-
   const layer_to_rgb_t *row = &layer_to_rgbs[0];
   
-  for (size_t ix = 1; ix < layer_to_rgbs_length; ix++) {
+  for (size_t ix = 1; ix < ARRAY_SIZE(layer_to_rgbs); ix++) {
     if (IS_LAYER_ON(layer_to_rgbs[ix].layer)) {
       row = &layer_to_rgbs[ix];
       break;
