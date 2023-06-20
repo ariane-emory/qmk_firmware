@@ -9,11 +9,11 @@
 
 #if defined(HOME_ROW_MODS) || defined(HOME_SHIFT) || defined(BOTTOM_SHIFT)
 #  define USE_ACHORDION
-#  include "features/achordion.h"
+#  include "src/achordion.h"
 #endif
 
 #ifdef RGBLIGHT_ENABLE
-#  include "features/rgb_fader.h"
+#  include "src/rgb_fader.h"
 rgb_fader_t rgb_fader;
 #endif
 
@@ -21,7 +21,7 @@ rgb_fader_t rgb_fader;
 #  include "print.h"
 #endif
 
-#include "features/util.h"
+#include "src/util.h"
 
 // ==============================================================================
 // Init
