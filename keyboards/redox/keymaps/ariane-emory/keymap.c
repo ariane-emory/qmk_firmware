@@ -524,12 +524,7 @@ static const uint16_t hold_on_other_keypress_keys[] PROGMEM = {
 KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   switch (keycode) {
   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-    if (array_contains_keycode_P(keycode, hold_on_other_keypress_keys, ARRAY_SIZE(hold_on_other_keypress_keys))) {
-      return true;
-      }
-    else {
-      return false;
-    }
+    return (array_contains_keycode_P(keycode, hold_on_other_keypress_keys, ARRAY_SIZE(hold_on_other_keypress_keys)));
   default:
     return false;
   }
