@@ -7,7 +7,7 @@
 #include "key_aliases.h"
 #include "secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
-#if defined(HOME_ROW_MODS) || defined(TOP_SHIFT) || defined(BOTTOM_SHIFT)
+#if defined(HOME_ROW_MODS) || defined(HOME_SHIFT) || defined(BOTTOM_SHIFT)
 #  define USE_ACHORDION
 #  include "features/achordion.h"
 #endif
@@ -414,7 +414,7 @@ bool achordion_chord(
   uint16_t      other_keycode,
   keyrecord_t * other_record) {
   if (IS_LAYER_ON(0) && (
-#ifndef TOP_SHIFT
+#ifndef HOME_SHIFT
         tap_hold_keycode == QH_A    ||
         tap_hold_keycode == QH_QUOT ||
 #endif
@@ -451,7 +451,7 @@ bool achordion_chord(
     // Exceptionally consider the following chords as holds, even though they
     // are on the same hand.
     if (
-#ifdef TOP_SHIFT
+#ifdef HOME_SHIFT
       (tap_hold_keycode == QH_A &&
        (other_keycode == LSFT_T(KC_MINS))) ||
       (tap_hold_keycode == QH_QUOT &&
@@ -524,14 +524,16 @@ bool achordion_chord(
   }
   
   if (IS_LAYER_ON(1) && (
-#ifndef TOP_SHIFT
+#ifndef HOME_SHIFT
         tap_hold_keycode == CH_A    ||
         tap_hold_keycode == CH_QUOT ||
 #endif
-#if defined(BOTTOM_SHIFT) && ! defined(BOTTOM_ROW_MODS)
+        
+#if defined(BOTTOM_SHIFT)
         tap_hold_keycode == CB_Z    ||
         tap_hold_keycode == CB_SLSH ||
 #endif
+        
 #ifdef HOME_ROW_MODS
         tap_hold_keycode == CH_R    ||
         tap_hold_keycode == CH_S    ||

@@ -1,17 +1,17 @@
 #pragma once
 
 //==============================================================================
-#ifdef    TOP_SHIFT
+#ifdef    HOME_SHIFT
 #    define QH_A    LSFT_T(KC_A)
 #    define QH_QUOT RSFT_T(KC_QUOT)
 #    define CH_A    LSFT_T(KC_A)
 #    define CH_QUOT RSFT_T(KC_QUOT)
-#else  // TOP_SHIFT
+#else  // HOME_SHIFT
 #    define QH_A    KC_A
 #    define QH_QUOT KC_QUOT
 #    define CH_A    KC_A
 #    define CH_QUOT KC_QUOT
-#endif // TOP_SHIFT
+#endif // HOME_SHIFT
 //==============================================================================
 
 //==============================================================================

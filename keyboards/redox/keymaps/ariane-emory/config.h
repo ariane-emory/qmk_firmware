@@ -64,6 +64,6 @@
 #define USE_SEND_STRING_KEYCODES_TABLE
 #define USE_TAP_CASE_TABLE
 
-#define TOP_SHIFT
+#define HOME_SHIFT
 #define BOTTOM_SHIFT
 #define HOME_ROW_MODS
