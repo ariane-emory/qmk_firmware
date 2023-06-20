@@ -600,12 +600,6 @@ bool achordion_eager_mod(uint8_t mod) {
 #endif
 
 // ==============================================================================
-// Include combos 
-// ==============================================================================
-
-#include "combos.inc"
-
-// ==============================================================================
 // Mod tap interrupt
 // ==============================================================================
 
@@ -666,46 +660,18 @@ KEYRECORD_FUN(get_permissive_hold, bool) {
   return true; // Select the hold action when another key is tapped.
 }
 
-// ==============================================================================
-// Autoshift
-// ==============================================================================
-
-#ifdef AUTO_SHIFT_ENABLE
-/* KEYRECORD_FUN(get_autoshift_timeout, uint16_t) { */
-/*   if (keycode == KC_TAB) */
-/*     return 5000; */
-/*   return get_generic_autoshift_timeout(); */
-/*   switch(keycode) { */
-/*   case AUTO_SHIFT_ALPHA: */
-/*     return get_generic_autoshift_timeout() + 60; */
-/*   case AUTO_SHIFT_SPECIAL: */
-/*     return get_generic_autoshift_timeout() + 30; */
-/*   case AUTO_SHIFT_NUMERIC: */
-/*   default: */
-/*     return get_generic_autoshift_timeout(); */
-/*   } */
-/* } */
-#endif
+uint16_t keycode_config(uint16_t keycode) {
+  return keycode;
+}
 
 // ==============================================================================
-// Tapping term
+// Include combos 
 // ==============================================================================
 
-/* KEYRECORD_FUN(get_tapping_term, uint16_t) { */
-/*   switch (keycode) { */
-/*   case MT(MOD_LALT,KC_SPC): */
-/*     return TAPPING_TERM + 60; */
-/*   default: */
-/*     return TAPPING_TERM; */
-/*   } */
-/* } */
+#include "combos.inc"
 
 // ==============================================================================
 // Include keymap
 // ==============================================================================
-
-uint16_t keycode_config(uint16_t keycode) {
-  return keycode;
-}
 
 #include "keymap.inc"
