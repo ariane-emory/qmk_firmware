@@ -530,7 +530,7 @@ bool achordion_chord(
   if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
     return true;
 
-  if (! array_contains_keycode(achordion_bilat_keys, achordion_bilat_keys_length, tap_hold_keycode))
+  if (!array_contains_keycode(achordion_bilat_keys, achordion_bilat_keys_length, tap_hold_keycode))
     return true;
 
   if (array_contains_keycode_pair_P(achordion_exceptions, achordion_exceptions_length, (keycode_pair_t){ tap_hold_keycode, other_keycode }))
