@@ -409,112 +409,111 @@ void matrix_scan_user(void) {
 // ==============================================================================
 
 #ifdef USE_ACHORDION
-typedef struct {
-  uint16_t tap_hold_keycode;
-  uint16_t other_keycode;
-} achordion_exception_t;
-
-typedef uint16_t achordion_bilat_key_t;
-
-static const achordion_bilat_key_t achordion_bilat_keys[] = {
-#  ifdef HOME_SHIFT
-  QH_A, QH_QUOT,
-#  endif // HOME_SHIFT
-#  ifdef BOTTOM_SHIFT
-  QB_Z, QB_SLSH,
-#  endif // BOTTOM_SHIFT
-#  ifdef HOME_ROW_MODS
-  QH_S, QH_D, QH_F, QH_J, QH_K, QH_L,
-#  endif // HOME_ROW_MODS
-  KC_NO
-};
-static const uint8_t achordion_bilat_keys_length = ARRAY_SIZE(achordion_bilat_keys);
-
-static const achordion_exception_t achordion_exceptions[] PROGMEM = {
-  // Both Shifts
-#  ifdef HOME_SHIFT
-  { QH_A,    LSFT_T(KC_MINS) }, // underscore
-  { QH_QUOT, RSFT_T(KC_MINS) }, // underscore
-#  endif // HOME_SHIFT
-#  ifdef BOTTOM_SHIFT
-  { QH_QUOT, KC_BSLS         }, // pipe
-  { QB_Z,    LSFT_T(KC_MINS) }, // underscore
-  { QB_SLSH, RSFT_T(KC_MINS) }, // underscore
-#  endif // BOTTOM_SHIFT
-#  ifdef HOME_ROW_MODS
-  /* // Left GUI */
-  { QH_S,    KC_TAB          }, // app switcher
-  { QH_S,    QB_Z            }, // undo
-  { QH_S,    QT_R            }, // refresh
-  { QH_S,    QT_T            }, // new tab
-  { QH_S,    QB_C            }, // copy
-  { QH_S,    QB_V            }, // paste
-  /* // Left Alt */
-  { QH_D,    KC_TAB          }, // alt+tab
-  /* { QH_D,    SS_ARROW        }, // */
-  /* { QH_D,    SS_DIR          }, // */
-  /* { QH_D,    SS_LBRACK       }, // */
-  /* { QH_D,    SS_RBRACK       }, // */
-  /* { QH_D,    SS_BRACKS       }, // */
-  { QH_D,    QT_W            }, // close
-  { QH_D,    QT_R            }, // refresh
-  { QH_D,    QH_F            }, // forwards word
-  { QH_D,    QB_B            }, // backwards word
-  { QH_D,    QT_T            }, // new tab
-  // Left Control
-  /* { QH_F,    SS_ARROW        }, // */
-  /* { QH_F,    SS_DIR          }, // */
-  /* { QH_F,    SS_LBRACK       }, // */
-  /* { QH_F,    SS_RBRACK       }, // */
-  /* { QH_F,    SS_BRACKS       }, // */
-  { QH_F,    QH_A            }, // beginning of line
-  { QH_F,    QH_D            }, // delete forwards char
-  { QH_F,    QT_E            }, // end of line
-  { QH_F,    QT_T            }, // new tab
-  { QH_F,    QT_W            }, // close
-  { QH_F,    QH_S            }, // i-search
-  // Right Control
-  { QH_J,    QH_H            }, // backspace
-  { QH_J,    QH_K            }, // kill line
-  { QH_J,    QH_L            }, // recenter / address bar
-  { QH_J,    QT_Y            }, // yank
-  { QH_J,    QB_N            }, // next line
-  { QH_J,    QT_P            }, // prev line
-  // Right Alt
-  { QH_K,    QH_L            }, // address bar?
-  { QH_K,    QT_P            }, // prev command
-  { QH_K,    KC_BSLS         }, // ???
-  { QH_K,    QB_N            }, // next command
-  // Right GUI
-  { QH_L,    QH_K            }, // ???
-  { QH_L,    KC_BSLS         }, // ???
-#  endif // HOME_ROW_MODS
-  // Dummy
-  { KC_NO,   KC_NO           }, // dummy
-};
-
-static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
-
 bool is_achordion_bilat_key(uint16_t keycode) {
+  typedef uint16_t achordion_bilat_key_t;
+
+  static const achordion_bilat_key_t achordion_bilat_keys[] = {
+#  ifdef HOME_SHIFT
+    QH_A, QH_QUOT,
+#  endif // HOME_SHIFT
+#  ifdef BOTTOM_SHIFT
+    QB_Z, QB_SLSH,
+#  endif // BOTTOM_SHIFT
+#  ifdef HOME_ROW_MODS
+    QH_S, QH_D, QH_F, QH_J, QH_K, QH_L,
+#  endif // HOME_ROW_MODS
+    KC_NO
+  };
+
+  static const uint8_t achordion_bilat_keys_length = ARRAY_SIZE(achordion_bilat_keys);
+
   for (uint8_t ix = 0; ix < achordion_bilat_keys_length; ix++) {
     if (achordion_bilat_keys[ix] == keycode) {
-      return false;
+      return true;
     }
   }
-  
-  return true;
+  return false;
 }
 
 bool is_achordion_exception(uint16_t tap_hold_keycode, uint16_t other_keycode) {
-  // Exceptionally consider the following chords as holds, even though they
-  // are on the same hand.
+  typedef struct {
+    uint16_t tap_hold_keycode;
+    uint16_t other_keycode;
+  } achordion_exception_t;
+
+  static const achordion_exception_t achordion_exceptions[] PROGMEM = {
+    // Both Shifts
+#  ifdef HOME_SHIFT
+    { QH_A,    LSFT_T(KC_MINS) }, // underscore
+    { QH_QUOT, RSFT_T(KC_MINS) }, // underscore
+#  endif // HOME_SHIFT
+#  ifdef BOTTOM_SHIFT
+    { QH_QUOT, KC_BSLS         }, // pipe
+    { QB_Z,    LSFT_T(KC_MINS) }, // underscore
+    { QB_SLSH, RSFT_T(KC_MINS) }, // underscore
+#  endif // BOTTOM_SHIFT
+#  ifdef HOME_ROW_MODS
+    /* // Left GUI */
+    { QH_S,    KC_TAB          }, // app switcher
+    { QH_S,    QB_Z            }, // undo
+    { QH_S,    QT_R            }, // refresh
+    { QH_S,    QT_T            }, // new tab
+    { QH_S,    QB_C            }, // copy
+    { QH_S,    QB_V            }, // paste
+    /* // Left Alt */
+    { QH_D,    KC_TAB          }, // alt+tab
+    /* { QH_D,    SS_ARROW        }, // */
+    /* { QH_D,    SS_DIR          }, // */
+    /* { QH_D,    SS_LBRACK       }, // */
+    /* { QH_D,    SS_RBRACK       }, // */
+    /* { QH_D,    SS_BRACKS       }, // */
+    { QH_D,    QT_W            }, // close
+    { QH_D,    QT_R            }, // refresh
+    { QH_D,    QH_F            }, // forwards word
+    { QH_D,    QB_B            }, // backwards word
+    { QH_D,    QT_T            }, // new tab
+    // Left Control
+    /* { QH_F,    SS_ARROW        }, // */
+    /* { QH_F,    SS_DIR          }, // */
+    /* { QH_F,    SS_LBRACK       }, // */
+    /* { QH_F,    SS_RBRACK       }, // */
+    /* { QH_F,    SS_BRACKS       }, // */
+    { QH_F,    QH_A            }, // beginning of line
+    { QH_F,    QH_D            }, // delete forwards char
+    { QH_F,    QT_E            }, // end of line
+    { QH_F,    QT_T            }, // new tab
+    { QH_F,    QT_W            }, // close
+    { QH_F,    QH_S            }, // i-search
+    // Right Control
+    { QH_J,    QH_H            }, // backspace
+    { QH_J,    QH_K            }, // kill line
+    { QH_J,    QH_L            }, // recenter / address bar
+    { QH_J,    QT_Y            }, // yank
+    { QH_J,    QB_N            }, // next line
+    { QH_J,    QT_P            }, // prev line
+    // Right Alt
+    { QH_K,    QH_L            }, // address bar?
+    { QH_K,    QT_P            }, // prev command
+    { QH_K,    KC_BSLS         }, // ???
+    { QH_K,    QB_N            }, // next command
+    // Right GUI
+    { QH_L,    QH_K            }, // ???
+    { QH_L,    KC_BSLS         }, // ???
+#  endif // HOME_ROW_MODS
+    // Dummy
+    { KC_NO,   KC_NO           }, // dummy
+  };
+
+  static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
+
+// Exceptionally consider the following chords as holds, even though they
+// are on the same hand.
 
   for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) {
     if (pgm_read_word(&achordion_exceptions[ix].tap_hold_keycode) == tap_hold_keycode &&
         pgm_read_word(&achordion_exceptions[ix].other_keycode)    == other_keycode)
       return true;
   }
-
   return false;
 }
 
