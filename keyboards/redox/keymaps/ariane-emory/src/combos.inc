@@ -43,7 +43,7 @@
   __(l_bot_rech,    ____________,  QB_Z,    QB_X                               ) \
   DO(l_bot_innr,    EM_CTL_C,      QB_C,    QB_V                               ) \
   DO(l_bot_outr,    EM_CTL_X,      QB_X,    QB_C                               ) \
-  __(l_bot_curl,    ____________,  QB_V,    QB_B                               ) \
+  DO(l_bot_curl,    KC_ENT,        QB_V,    QB_B                               ) \
   __(l_bot_sprd,    ____________,  QB_X,    QB_V                               ) \
   __(l_bot_trpi,    ____________,  QB_C,    QB_V,      QB_B                    ) \
   __(l_bot_trpm,    ____________,  QB_X,    QB_C,      QB_V                    ) \
