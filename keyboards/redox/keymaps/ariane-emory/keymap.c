@@ -410,7 +410,9 @@ typedef struct {
   uint16_t other_keycode;
 } achordion_exception_t;
 
-static const uint16_t achordion_bilat_keys[] = {
+typedef uint16_t achordion_bilat_key_t;
+
+static const achordion_bilat_key_t achordion_bilat_keys[] = {
 #  ifdef HOME_SHIFT
   QH_A, QH_QUOT,
 #  endif // HOME_SHIFT
