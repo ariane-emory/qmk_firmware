@@ -148,6 +148,7 @@
 #define RCTL_DQUO   RCTL_T(KC_DQUO)
 //==============================================================================
 
+#ifndef FLIP_THUMBS
 //==============================================================================
 #define TH_LFT MT(MOD_LALT,KC_SPC)
 #define TH_RGT MT(MOD_RGUI,KC_BSPC)
@@ -160,3 +161,17 @@
 #  define CRL_RGT MO(TRI_LAYER_UPPER_LAYER)
 #endif // TRI_LAYER_ENABLE
 //==============================================================================
+#else
+//==============================================================================
+#define TH_LFT LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
+#define TH_RGT MT(MOD_RGUI,KC_BSPC)
+//==============================================================================
+#ifdef TRI_LAYER_ENABLE
+#  define CRL_LFT KC_LALT
+#  define CRL_RGT QK_TRI_LAYER_UPPER
+#else // TRI_LAYER_ENABLE
+#  define CRL_LFT MO(TRI_LAYER_LOWER_LAYER)
+#  define CRL_RGT MO(TRI_LAYER_UPPER_LAYER)
+#endif // TRI_LAYER_ENABLE
+//==============================================================================
+#endif
