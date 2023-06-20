@@ -1,13 +1,18 @@
 #include <string.h>
 #include <stdio.h>
+
 #include "cRGB_functions.h"
+
+// ==============================================================================
+// cRGB functions
+// ==============================================================================
 
 #define COLORS                                                                  \
   C(r)                                                                          \
   C(g)                                                                          \
   C(b)
 
-void cRGB_init(cRGB * const this, uint8_t r, uint8_t g, uint8_t b) {
+void cRGB_init(cRGB * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
 #define C(n) this->n = n;
   COLORS;
 #undef C
