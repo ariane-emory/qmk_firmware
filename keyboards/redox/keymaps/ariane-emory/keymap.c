@@ -409,6 +409,30 @@ void matrix_scan_user(void) {
 // ==============================================================================
 
 #ifdef USE_ACHORDION
+
+typedef struct {
+  uint16_t first;
+  uint16_t second;
+} keycode_pair_t;
+
+bool array_contains_keycode(const uint16_t arr[], const uint8_t length, const uint16_t keycode) {
+  for (uint8_t ix = 0; ix < length; ix++) {
+    if (arr[ix] == keycode) {
+      return true;
+    }
+  }
+  return false;
+}
+
+bool array_contains_keycode_pair_P(const keycode_pair_t arr[], const uint8_t length, const keycode_pair_t pair) {
+  for (uint8_t ix = 0; ix < length; ix++) {
+    if (pgm_read_word(&arr[ix].first)  == pair.first &&
+        pgm_read_word(&arr[ix].second) == pair.second)
+      return true;
+  }
+  return false;
+}
+
 static const uint16_t achordion_bilat_keys[] = {
 #  ifdef HOME_SHIFT
   QH_A, QH_QUOT,
@@ -423,20 +447,6 @@ static const uint16_t achordion_bilat_keys[] = {
 };
 
 static const uint8_t achordion_bilat_keys_length = ARRAY_SIZE(achordion_bilat_keys);
-
-bool array_contains_keycode(const uint16_t arr[], const uint8_t len, const uint16_t keycode) {
-  for (uint8_t ix = 0; ix < len; ix++) {
-    if (arr[ix] == keycode) {
-      return true;
-    }
-  }
-  return false;
-}
-
-typedef struct {
-  uint16_t first;
-  uint16_t second;
-} keycode_pair_t;
 
 static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // Both Shifts
@@ -503,19 +513,6 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
 
 static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
 
-bool array_contains_keycode_pair_P(const keycode_pair_t arr[], const uint8_t len, const keycode_pair_t pair) {
-  // Exceptionally consider the following chords as holds, even though they
-  // are on the same hand.
-
-  for (uint8_t ix = 0; ix < len; ix++) {
-    if (pgm_read_word(&achordion_exceptions[ix].first)  == pair.first &&
-        pgm_read_word(&achordion_exceptions[ix].second) == pair.second)
-      return true;
-  }
-
-  return false;
-}
-
 bool achordion_chord(
   uint16_t      tap_hold_keycode,
   keyrecord_t * tap_hold_record,
@@ -530,9 +527,12 @@ bool achordion_chord(
   if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
     return true;
 
+  // If it isn't a home row mod/shift, process normally.
   if (!array_contains_keycode(achordion_bilat_keys, achordion_bilat_keys_length, tap_hold_keycode))
     return true;
-
+  
+  // Exceptionally consider the following chords as holds, even though they
+  // are on the same hand.
   if (array_contains_keycode_pair_P(achordion_exceptions, achordion_exceptions_length, (keycode_pair_t){ tap_hold_keycode, other_keycode }))
     return true;
    
