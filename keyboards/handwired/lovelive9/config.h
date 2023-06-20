@@ -2,8 +2,6 @@
 
 #pragma once
 
-#define RGBLED_NUM 9    // Number of LEDs
-
 #define RGBLIGHT_EFFECT_BREATHING
 #define RGBLIGHT_EFFECT_RAINBOW_MOOD
 #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
@@ -18,5 +16,3 @@
 #define RGBLIGHT_HUE_STEP 10
 #define RGBLIGHT_SAT_STEP 17
 #define RGBLIGHT_VAL_STEP 17
-
-#define TAPPING_TERM 200
