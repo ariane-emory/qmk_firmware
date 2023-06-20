@@ -164,7 +164,7 @@ bool process_shiftable_or_ctrlable_send_string(
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_TAP_CASE_TABLE
-static const keycode_pair_t tap_cases[] = {
+static const keycode_pair_t tap_cases[] PROGMEM = {
   { RSFT_T(KC_DUMMY), VD_ALL        },
   { LT(9,KC_MINS),    LSFT(KC_MINS) },
   { RCTL_DQUO,        KC_DQUO       },
@@ -174,9 +174,9 @@ bool process_tap_case(
   const uint16_t keycode,
   const keyrecord_t * const record) {
   for (uint8_t ix = 0; ix < ARRAY_SIZE(tap_cases); ix++) {
-    if (tap_cases[ix].first == keycode) {
+    if (pgm_read_word(&tap_cases[ix].first) == keycode) {
       if (record->tap.count && record->event.pressed) {
-        tap_code16(tap_cases[ix].second);
+        tap_code16(pgm_read_word(&tap_cases[ix].second));
         return false;
       }
       return true;
@@ -400,7 +400,7 @@ void matrix_scan_user(void) {
 // ==============================================================================
 
 #ifdef USE_ACHORDION
-static const uint16_t achordion_bilat_keys[] = {
+static const uint16_t achordion_bilat_keys[] PROGMEM = {
 #  ifdef HOME_SHIFT
   QH_A, QH_QUOT,
 #  endif // HOME_SHIFT
@@ -491,7 +491,7 @@ bool achordion_chord(
     return true;
 
   // If it isn't a home row mod/shift, process normally.
-  if (!array_contains_keycode(achordion_bilat_keys, ARRAY_SIZE(achordion_bilat_keys), tap_hold_keycode))
+  if (!array_contains_keycode_P(achordion_bilat_keys, ARRAY_SIZE(achordion_bilat_keys), tap_hold_keycode))
     return true;
   
   // Exceptionally consider the following chords as holds, even though they
@@ -511,7 +511,7 @@ bool achordion_eager_mod(uint8_t mod) {
 // Mod tap interrupt
 // ==============================================================================
 
-static const uint16_t hold_on_other_keypress_keys[] = {
+static const uint16_t hold_on_other_keypress_keys[] PROGMEM = {
   LCTL_T(KC_ESC),
   RCTL_T(KC_DQUO),
   LSFT_T(KC_MINS),
@@ -521,7 +521,7 @@ static const uint16_t hold_on_other_keypress_keys[] = {
 KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   switch (keycode) {
   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-    if (array_contains_keycode(hold_on_other_keypress_keys, ARRAY_SIZE(hold_on_other_keypress_keys), keycode)) {
+    if (array_contains_keycode_P(hold_on_other_keypress_keys, ARRAY_SIZE(hold_on_other_keypress_keys), keycode)) {
       return true;
     }
     else {
@@ -532,8 +532,8 @@ KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   }
 }
 
-static const uint16_t layer0_permissive_hold_keys[] = {
-MT(MOD_LALT,KC_SPC),
+static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
+  MT(MOD_LALT,KC_SPC),
 #ifdef HOME_ROW_MODS
   QH_A, QH_S, QH_D, QH_F,
   QH_J, QH_K, QH_L, QH_QUOT,
@@ -545,12 +545,12 @@ MT(MOD_LALT,KC_SPC),
   KC_NO,
 };
 
-static const uint16_t layer1_permissive_hold_keys[] = {
-    MT(MOD_LALT,KC_SPC),
-    MT(MOD_RGUI,KC_SPC),
+static const uint16_t layer1_permissive_hold_keys[] PROGMEM = {
+  MT(MOD_LALT,KC_SPC),
+  MT(MOD_RGUI,KC_SPC),
 #ifdef HOME_ROW_MODS
-    CH_A, CH_R, CH_S, CH_T,
-    CH_N, CH_E, CH_I, CH_QUOT,
+  CH_A, CH_R, CH_S, CH_T,
+  CH_N, CH_E, CH_I, CH_QUOT,
 #endif
 #ifdef BOTTOM_ROW_MODS
     CB_Z, CB_X, CB_C, CB_V,
@@ -560,8 +560,8 @@ static const uint16_t layer1_permissive_hold_keys[] = {
 };
 
 KEYRECORD_FUN(get_permissive_hold, bool) {
-  if ((IS_LAYER_ON(0) && array_contains_keycode(layer0_permissive_hold_keys, ARRAY_SIZE(layer0_permissive_hold_keys), keycode)) ||
-      (IS_LAYER_ON(1) && array_contains_keycode(layer1_permissive_hold_keys, ARRAY_SIZE(layer1_permissive_hold_keys), keycode)))
+  if ((IS_LAYER_ON(0) && array_contains_keycode_P(layer0_permissive_hold_keys, ARRAY_SIZE(layer0_permissive_hold_keys), keycode)) ||
+      (IS_LAYER_ON(1) && array_contains_keycode_P(layer1_permissive_hold_keys, ARRAY_SIZE(layer1_permissive_hold_keys), keycode)))
     return false; // Do not select the hold action when another key is tapped.
   return true; // Select the hold action when another key is tapped.
 }
