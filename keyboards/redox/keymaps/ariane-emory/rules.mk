@@ -16,7 +16,7 @@ RGBLIGHT_ENABLE    	 	 = yes
 SEND_STRING_ENABLE 	 	 = yes
 TRI_LAYER_ENABLE   	 	 = yes
 DEFERRED_EXEC_ENABLE 	 = yes
-DYNAMIC_MACRO_ENABLE   = no
+DYNAMIC_MACRO_ENABLE   = yes
 
 SRC                   += features/achordion.c
 SRC                   += features/cRGB_functions.c

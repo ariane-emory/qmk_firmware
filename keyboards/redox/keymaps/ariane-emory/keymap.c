@@ -235,8 +235,8 @@ KEYRECORD_FUN(process_record_user, bool) {
     return false;
   case QK_DYNAMIC_MACRO_PLAY_1:
   case QK_DYNAMIC_MACRO_PLAY_2:
-    /* if (record->event.pressed)  */
-    /*   dynamic_macro_stop_recording(); */
+    if (record->event.pressed)
+      dynamic_macro_stop_recording();
     return true;
   case HOLD_GUI:
     if (record->event.pressed)
