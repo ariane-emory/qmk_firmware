@@ -435,6 +435,7 @@ static const achordion_exception_t achordion_exceptions[] PROGMEM = {
   { QB_Z,    LSFT_T(KC_MINS) }, // underscore
   { QB_SLSH, RSFT_T(KC_MINS) }, // underscore
 #  endif // BOTTOM_SHIFT
+#  ifdef HOME_ROW_MODS
   /* // Left GUI */
   { QH_S,    KC_TAB          }, // app switcher
   { QH_S,    QB_Z            }, // undo
@@ -481,6 +482,7 @@ static const achordion_exception_t achordion_exceptions[] PROGMEM = {
   // Right GUI
   { QH_L,    QH_K            }, // ???
   { QH_L,    KC_BSLS         }, // ???
+#  endif // HOME_ROW_MODS
   // Dummy
   { KC_NO,   KC_NO           }, // dummy
 };
