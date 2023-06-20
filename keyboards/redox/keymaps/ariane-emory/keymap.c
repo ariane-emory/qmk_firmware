@@ -480,8 +480,6 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { KC_NO,   KC_NO           }, // dummy
 };
 
-static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
-
 bool achordion_chord(
   uint16_t      tap_hold_keycode,
   keyrecord_t * tap_hold_record,
@@ -497,12 +495,12 @@ bool achordion_chord(
     return true;
 
   // If it isn't a home row mod/shift, process normally.
-  if (!array_contains_keycode(achordion_bilat_keys, achordion_bilat_keys_length, tap_hold_keycode))
+  if (!array_contains_keycode(achordion_bilat_keys, ARRAY_SIZE(achordion_bilat_keys), tap_hold_keycode))
     return true;
   
   // Exceptionally consider the following chords as holds, even though they
   // are on the same hand.
-  if (array_contains_keycode_pair_P(achordion_exceptions, achordion_exceptions_length, (keycode_pair_t){ tap_hold_keycode, other_keycode }))
+  if (array_contains_keycode_pair_P(achordion_exceptions, ARRAY_SIZE(achordion_exceptions), (keycode_pair_t){ tap_hold_keycode, other_keycode }))
     return true;
    
   return achordion_opposite_hands(tap_hold_record, other_record);
@@ -524,12 +522,10 @@ static const uint16_t hold_on_other_keypress_keys[] = {
   RSFT_T(KC_MINS),
 };
 
-static const uint16_t hold_on_other_keypress_keys_length = ARRAY_SIZE(hold_on_other_keypress_keys);
-
 KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   switch (keycode) {
   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-    if (array_contains_keycode(hold_on_other_keypress_keys, hold_on_other_keypress_keys_length, keycode)) {
+    if (array_contains_keycode(hold_on_other_keypress_keys, ARRAY_SIZE(hold_on_other_keypress_keys), keycode)) {
       return true;
     }
     else {
@@ -553,8 +549,6 @@ MT(MOD_LALT,KC_SPC),
   KC_NO,
 };
 
-static const uint8_t layer0_permissive_hold_keys_length = ARRAY_SIZE(layer0_permissive_hold_keys); 
-
 static const uint16_t layer1_permissive_hold_keys[] = {
     MT(MOD_LALT,KC_SPC),
     MT(MOD_RGUI,KC_SPC),
@@ -569,13 +563,10 @@ static const uint16_t layer1_permissive_hold_keys[] = {
     KC_NO,
 };
 
-static const uint8_t layer1_permissive_hold_keys_length = ARRAY_SIZE(layer1_permissive_hold_keys); 
-
 KEYRECORD_FUN(get_permissive_hold, bool) {
-  if ((IS_LAYER_ON(0) && array_contains_keycode(layer0_permissive_hold_keys, layer0_permissive_hold_keys_length, keycode)) ||
-      (IS_LAYER_ON(1) && array_contains_keycode(layer1_permissive_hold_keys, layer1_permissive_hold_keys_length, keycode)))
+  if ((IS_LAYER_ON(0) && array_contains_keycode(layer0_permissive_hold_keys, ARRAY_SIZE(layer0_permissive_hold_keys), keycode)) ||
+      (IS_LAYER_ON(1) && array_contains_keycode(layer1_permissive_hold_keys, ARRAY_SIZE(layer1_permissive_hold_keys), keycode)))
     return false; // Do not select the hold action when another key is tapped.
-
   return true; // Select the hold action when another key is tapped.
 }
 
