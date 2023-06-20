@@ -370,7 +370,7 @@ void rgb_fader_set_target_by_layer(rgb_fader_t * const this) {
 #endif
 
 #ifdef TOGGLED_LAYER_TIMEOUT
-void manage_toggled_layer_timeout(uint8_t layer, uint16_t idle_time_limit_ms, uint16_t timer)
+void manage_toggled_layer_timeout(const uint8_t layer, const uint16_t idle_time_limit_ms, const uint16_t timer)
 {
   if (layer_state_is(layer) &&
       timer_elapsed(timer) >= idle_time_limit_ms)
