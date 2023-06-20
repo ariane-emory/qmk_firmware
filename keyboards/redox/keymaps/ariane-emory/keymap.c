@@ -564,11 +564,7 @@ static const uint16_t hold_on_other_keypress_keys_length = ARRAY_SIZE(hold_on_ot
 KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   switch (keycode) {
   case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-    if (false
-        || keycode == LCTL_T(KC_ESC) 
-        || keycode == RCTL_T(KC_DQUO)
-        || keycode == LSFT_T(KC_MINS)
-        || keycode == RSFT_T(KC_MINS)) {
+    if (array_contains_keycode(hold_on_other_keypress_keys, hold_on_other_keypress_keys_length, keycode)) {
       return true;
     }
     else {
