@@ -40,7 +40,7 @@ DYNAMIC_MACRO_ENABLE   = yes
 SRC                   += features/achordion.c
 SRC                   += features/cRGB_functions.c
 SRC                   += features/rgb_fader.c
-SRC                   += util.c
+SRC                   += features/util.c
 CFLAGS                += -funroll-loops
 
 # INTROSPECTION_KEYMAP_C += util.c

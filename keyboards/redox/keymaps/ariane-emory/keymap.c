@@ -21,7 +21,7 @@ rgb_fader_t rgb_fader;
 #  include "print.h"
 #endif
 
-#include "util.h"
+#include "features/util.h"
 
 // ==============================================================================
 // Init
