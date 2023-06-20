@@ -32,7 +32,7 @@
 
 #define COMBO_ONLY_FROM_LAYER                0
 #define COMBO_SHOULD_TRIGGER
-#define COMBO_TERM                           66
+#define COMBO_TERM                           50
 
 #define MOUSEKEY_DELAY                       0
 #define MOUSEKEY_INTERVAL                    21 // 20
@@ -49,13 +49,13 @@
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 #define PERMISSIVE_HOLD_PER_KEY
 
-#define TAPPING_TERM                         200
+#define TAPPING_TERM                         250
 // #define TAPPING_TERM_PER_KEY
 
 #define TOGGLED_LAYER                        6
 #define TOGGLED_LAYER_TIMEOUT                30000
 
-#define MY_RGB_DEFAULT                       RGB_ORANGE
+#define MY_RGB_DEFAULT                       0xFF, 0x50, 0x8F
 #define MY_RGB_RECORDING_MACRO               RGB_MAGENTA
 #define MY_RGB_TOGGLED_LAYER_ON              RGB_CHARTREUSE
 #define MY_RGB_LOWER_LAYER_ON                RGB_CYAN
