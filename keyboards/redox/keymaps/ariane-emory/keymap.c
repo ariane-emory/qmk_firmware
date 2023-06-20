@@ -211,18 +211,17 @@ void tap_number(uint16_t num) {
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
   
-  if (false
 #ifdef USE_ACHORDION
-      || (! process_achordion(keycode, record))
+  if (! process_achordion(keycode, record)) return false;
 #endif // USE_ACHORDION
+
 #ifdef USE_SEND_STRING_KEYCODES_TABLE
-      || (! process_shiftable_or_ctrlable_send_string(keycode, record))
+  if (! process_shiftable_or_ctrlable_send_string(keycode, record)) return false;
 #endif // USE_SEND_STRING_KEYCODES_TABLE
+
 #ifdef USE_TAP_CASE_TABLE
-      || (! process_tap_case(keycode, record))
+  if (! process_tap_case(keycode, record)) return false;
 #endif // USE_TAP_CASE_TABLE
-      )
-    return false;
   
   switch (keycode) {
   case VS_CLOSE:
