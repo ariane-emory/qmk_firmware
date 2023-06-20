@@ -22,6 +22,19 @@ rgb_fader_t rgb_fader;
 #endif
 
 // ==============================================================================
+// Utility functions
+// ==============================================================================
+
+bool array_contains_keycode(const uint16_t arr[], const uint8_t length, const uint16_t keycode) {
+  for (uint8_t ix = 0; ix < length; ix++) {
+    if (arr[ix] == keycode) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// ==============================================================================
 // Init
 // ==============================================================================
 
@@ -415,15 +428,6 @@ typedef struct {
   uint16_t second;
 } keycode_pair_t;
 
-bool array_contains_keycode(const uint16_t arr[], const uint8_t length, const uint16_t keycode) {
-  for (uint8_t ix = 0; ix < length; ix++) {
-    if (arr[ix] == keycode) {
-      return true;
-    }
-  }
-  return false;
-}
-
 bool array_contains_keycode_pair_P(const keycode_pair_t arr[], const uint8_t length, const keycode_pair_t pair) {
   for (uint8_t ix = 0; ix < length; ix++) {
     if (pgm_read_word(&arr[ix].first)  == pair.first &&
@@ -547,6 +551,15 @@ bool achordion_eager_mod(uint8_t mod) {
 // ==============================================================================
 // Mod tap interrupt
 // ==============================================================================
+
+static const uint16_t hold_on_other_keypress_keys[] = {
+  LCTL_T(KC_ESC),
+  RCTL_T(KC_DQUO),
+  LSFT_T(KC_MINS),
+  RSFT_T(KC_MINS),
+};
+
+static const uint16_t hold_on_other_keypress_keys_length = ARRAY_SIZE(hold_on_other_keypress_keys);
 
 KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
   switch (keycode) {
