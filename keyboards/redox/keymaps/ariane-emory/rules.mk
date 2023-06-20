@@ -7,7 +7,7 @@ TAP_DANCE_ENABLE   	 	 = no
 
 AVR_USE_MINIMAL_PRINTF = yes
 
-AUTO_SHIFT_ENABLE  	 	 = yes
+AUTO_SHIFT_ENABLE  	 	 = no
 CAPS_WORD_ENABLE   	 	 = yes
 COMBO_ENABLE       	 	 = yes
 LTO_ENABLE         	 	 = yes
