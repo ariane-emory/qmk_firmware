@@ -47,7 +47,7 @@
 
 //==============================================================================
 #ifdef    HOME_ROW_MODS
-//------------------------------
+//------------------------------------------------------------------------------
 #define QH_S    LGUI_T(KC_S)
 #define QH_D    LALT_T(KC_D)
 #define QH_F    LCTL_T(KC_F)
@@ -56,7 +56,7 @@
 #define QH_J    RCTL_T(KC_J)
 #define QH_K    RALT_T(KC_K)
 #define QH_L    RGUI_T(KC_L)
-//------------------------------
+//------------------------------------------------------------------------------
 #define CH_R    LGUI_T(KC_R)
 #define CH_S    LALT_T(KC_S)
 #define CH_T    LCTL_T(KC_T)
@@ -65,9 +65,9 @@
 #define CH_N    RCTL_T(KC_N)
 #define CH_E    RALT_T(KC_E)
 #define CH_I    RGUI_T(KC_I)
-//------------------------------
+//------------------------------------------------------------------------------
 #else // HOME_ROW_MODS
-//------------------------------
+//------------------------------------------------------------------------------
 #define QH_S    KC_S
 #define QH_D    KC_D
 #define QH_F    KC_F
@@ -76,7 +76,7 @@
 #define QH_J    KC_J
 #define QH_K    KC_K
 #define QH_L    KC_L
-//------------------------------
+//------------------------------------------------------------------------------
 #define CH_R    KC_R
 #define CH_S    KC_S
 #define CH_T    KC_T
@@ -85,7 +85,7 @@
 #define CH_N    KC_N
 #define CH_E    KC_E
 #define CH_I    KC_I
-//------------------------------
+//------------------------------------------------------------------------------
 #endif // HOME_ROW_MODS
 
 //==============================================================================
@@ -97,7 +97,7 @@
 #define QB_M    KC_M
 #define QB_COMM KC_COMM
 #define QB_DOT  KC_DOT
-//------------------------------
+//------------------------------------------------------------------------------
 #define CB_X    KC_X
 #define CB_C    KC_C
 #define CB_V    KC_V
@@ -153,25 +153,26 @@
 //==============================================================================
 
 //==============================================================================
-#define TH_RGT MT(MOD_RGUI,KC_BSPC)
-//==============================================================================
 #ifdef TRI_LAYER_ENABLE
-#  define CRL_RGT QK_TRI_LAYER_UPPER
+#  define KC_LOWER QK_TRI_LAYER_LOWER
+#  define KC_UPPER QK_TRI_LAYER_UPPER
 #else // TRI_LAYER_ENABLE
-#  define CRL_RGT MO(TRI_LAYER_UPPER_LAYER)
+#  define KC_LOWER MO(TRI_LAYER_LOWER_LAYER)
+#  define KC_UPPER MO(TRI_LAYER_UPPER_LAYER)
 #endif // TRI_LAYER_ENABLE
 //==============================================================================
 
 //==============================================================================
+#define TH_RGT     MT(MOD_RGUI,KC_BSPC)
+#define CRL_RGT    KC_UPPER
+//==============================================================================
+
+//==============================================================================
 #ifdef FLIP_THUMBS
-#  define TH_LFT LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
-#  define CRL_LFT KC_LALT
+#  define TH_LFT   LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
+#  define CRL_LFT  KC_LALT
 #else // FLIP_THUMBS
-#  define TH_LFT MT(MOD_LALT,KC_SPC)
-#  ifdef TRI_LAYER_ENABLE
-#    define CRL_LFT MO(TRI_LAYER_LOWER_LAYER)
-#  else // TRI_LAYER_ENABLE
-#    define CRL_LFT QK_TRI_LAYER_LOWER
-#  endif // TRI_LAYER_ENABLE
+#  define TH_LFT   MT(MOD_LALT,KC_SPC)
+#  define CRL_LFT  KC_LOWER
 #endif // FLIP_THUMBS
 //==============================================================================
