@@ -410,6 +410,12 @@ typedef struct {
   uint16_t other_keycode;
 } achordion_exception_t;
 
+static const uint16_t achordion_bilat_keys[] = {
+  QH_A, QH_S, QH_D, QH_F, QH_J, QH_K, QH_L, QH_QUOT,
+  QB_Z, QB_SLSH
+};
+static const uint8_t achordion_bilat_keys_length = ARRAY_SIZE(achordion_bilat_keys);
+
 static const achordion_exception_t achordion_exceptions[] = {
   // Both Shifts
   { QH_A,    LSFT_T(KC_MINS) }, // underscore
@@ -464,7 +470,6 @@ static const achordion_exception_t achordion_exceptions[] = {
   { QH_L,    QH_K            }, // ???
   { QH_L,    KC_BSLS         }, // ???
 };
-
 static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
 
 bool achordion_chord(
@@ -472,7 +477,8 @@ bool achordion_chord(
   keyrecord_t * tap_hold_record,
   uint16_t      other_keycode,
   keyrecord_t * other_record) {
-
+  return true;
+  
   // custom keycodes are not subject to achordion:
   if (other_keycode >= SAFE_RANGE)
     return true;
@@ -484,25 +490,13 @@ bool achordion_chord(
 
   // Exceptionally consider the following chords as holds, even though they
   // are on the same hand.
-  /* for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) { */
-  /*   if (achordion_exceptions[ix].tap_hold_keycode == tap_hold_keycode && */
-  /*       achordion_exceptions[ix].other_keycode    == other_keycode) */
-  /*     return true; */
-  /* } */
-  
-  if (false
-      || tap_hold_keycode == QH_S
-      || tap_hold_keycode == QH_D
-      || tap_hold_keycode == QH_F
-      || tap_hold_keycode == QH_J
-      || tap_hold_keycode == QH_K
-      || tap_hold_keycode == QH_L
-      ) {
-    // Require bilateral
-    return achordion_opposite_hands(tap_hold_record, other_record);
+  for (uint8_t ix = 0; ix < achordion_exceptions_length; ix++) {
+    if (achordion_exceptions[ix].tap_hold_keycode == tap_hold_keycode &&
+        achordion_exceptions[ix].other_keycode    == other_keycode)
+      return true;
   }
-
-  return true;
+  
+  return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
 bool achordion_eager_mod(uint8_t mod) {
