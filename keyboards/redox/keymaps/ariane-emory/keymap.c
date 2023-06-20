@@ -404,103 +404,125 @@ void matrix_scan_user(void) {
 // Achordion
 // ==============================================================================
 
+typedef struct {
+  uint16_t tap_hold_keycode;
+  uint16_t othwe_keycode;
+} achordion_exception_t;
+
+static const achordion_exception_t achordion_exceptions[] = {
+  { QH_A, LSFT_T(KC_MINS) }
+};
+
+static const uint8_t achordion_exceptions_length = ARRAY_SIZE(achordion_exceptions);
+
+
+
+
+
+
+
+
+
+
+
+
 #ifdef USE_ACHORDION
-bool achordion_chord(
-  uint16_t      tap_hold_keycode,
-  keyrecord_t * tap_hold_record,
-  uint16_t      other_keycode,
-  keyrecord_t * other_record) {
+  bool achordion_chord(
+    uint16_t      tap_hold_keycode,
+    keyrecord_t * tap_hold_record,
+    uint16_t      other_keycode,
+    keyrecord_t * other_record) {
 
-  // custom keycodes are not subject to achordion:
-  if (other_keycode >= SAFE_RANGE)
+    // custom keycodes are not subject to achordion:
+    if (other_keycode >= SAFE_RANGE)
+      return true;
+
+    // Allow same-hand holds when the other key is in the rows below the
+    // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
+    if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
+      return true;
+
+    // Exceptionally consider the following chords as holds, even though they
+    // are on the same hand.
+    if (false
+        || (tap_hold_keycode == QH_A &&
+            (other_keycode == LSFT_T(KC_MINS)))
+        || (tap_hold_keycode == QH_QUOT &&
+            (other_keycode == RSFT_T(KC_MINS)
+             || other_keycode == KC_BSLS))
+        || (tap_hold_keycode == QB_Z &&
+            (other_keycode == LSFT_T(KC_MINS)))
+        || (tap_hold_keycode == QB_SLSH &&
+            (other_keycode == RSFT_T(KC_MINS)))
+        // Left side
+        || (tap_hold_keycode == QH_S &&
+            (other_keycode == KC_TAB ||
+             other_keycode == QB_Z ||
+             other_keycode == QT_R ||
+             other_keycode == QT_T ||
+             other_keycode == QB_C ||
+             other_keycode == QB_V))
+        || (tap_hold_keycode == QH_D &&
+            (other_keycode == KC_TAB ||
+             other_keycode == SS_ARROW ||
+             other_keycode == SS_DIR ||
+             other_keycode == SS_LBRACK ||
+             other_keycode == SS_RBRACK ||
+             other_keycode == SS_BRACKS ||
+             other_keycode == QT_W ||
+             other_keycode == QT_R ||
+             other_keycode == QH_F ||
+             other_keycode == QB_B ||
+             other_keycode == QT_T))
+        || (tap_hold_keycode == QH_F &&
+            (other_keycode == SS_ARROW ||
+             other_keycode == SS_DIR ||
+             other_keycode == SS_LBRACK ||
+             other_keycode == SS_RBRACK ||
+             other_keycode == SS_BRACKS ||
+             other_keycode == QH_A ||
+             other_keycode == QH_D ||
+             other_keycode == QT_E ||
+             other_keycode == QT_T ||
+             other_keycode == QT_W ||
+             other_keycode == QH_S))
+        // Right side
+        || (tap_hold_keycode == QH_J &&
+            (other_keycode == QH_H ||
+             other_keycode == QH_K ||
+             other_keycode == QH_L ||
+             other_keycode == QT_Y ||
+             other_keycode == QB_N ||
+             other_keycode == QT_P))
+        || (tap_hold_keycode == QH_K &&
+            (other_keycode == QH_L ||
+             other_keycode == QT_P ||
+             other_keycode == KC_BSLS ||
+             other_keycode == QB_N))
+        || (tap_hold_keycode == QH_L &&
+            (other_keycode == QH_K ||
+             other_keycode == KC_BSLS))
+        )
+      return true;
+
+    if (false
+        || tap_hold_keycode == QH_S
+        || tap_hold_keycode == QH_D
+        || tap_hold_keycode == QH_F
+        || tap_hold_keycode == QH_J
+        || tap_hold_keycode == QH_K
+        || tap_hold_keycode == QH_L
+        ) {
+      // Require bilateral
+      return achordion_opposite_hands(tap_hold_record, other_record);
+    }
+
     return true;
-
-  // Allow same-hand holds when the other key is in the rows below the
-  // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
-  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
-    return true;
-
-  // Exceptionally consider the following chords as holds, even though they
-  // are on the same hand.
-  if (false
-      || (tap_hold_keycode == QH_A &&
-          (other_keycode == LSFT_T(KC_MINS)))
-      || (tap_hold_keycode == QH_QUOT &&
-          (other_keycode == RSFT_T(KC_MINS)
-           || other_keycode == KC_BSLS))
-      || (tap_hold_keycode == QB_Z &&
-          (other_keycode == LSFT_T(KC_MINS)))
-      || (tap_hold_keycode == QB_SLSH &&
-          (other_keycode == RSFT_T(KC_MINS)))
-      // Left side
-      || (tap_hold_keycode == QH_S &&
-          (other_keycode == KC_TAB ||
-           other_keycode == QB_Z ||
-           other_keycode == QT_R ||
-           other_keycode == QT_T ||
-           other_keycode == QB_C ||
-           other_keycode == QB_V))
-      || (tap_hold_keycode == QH_D &&
-          (other_keycode == KC_TAB ||
-           other_keycode == SS_ARROW ||
-           other_keycode == SS_DIR ||
-           other_keycode == SS_LBRACK ||
-           other_keycode == SS_RBRACK ||
-           other_keycode == SS_BRACKS ||
-           other_keycode == QT_W ||
-           other_keycode == QT_R ||
-           other_keycode == QH_F ||
-           other_keycode == QB_B ||
-           other_keycode == QT_T))
-      || (tap_hold_keycode == QH_F &&
-          (other_keycode == SS_ARROW ||
-           other_keycode == SS_DIR ||
-           other_keycode == SS_LBRACK ||
-           other_keycode == SS_RBRACK ||
-           other_keycode == SS_BRACKS ||
-           other_keycode == QH_A ||
-           other_keycode == QH_D ||
-           other_keycode == QT_E ||
-           other_keycode == QT_T ||
-           other_keycode == QT_W ||
-           other_keycode == QH_S))
-      // Right side
-      || (tap_hold_keycode == QH_J &&
-          (other_keycode == QH_H ||
-           other_keycode == QH_K ||
-           other_keycode == QH_L ||
-           other_keycode == QT_Y ||
-           other_keycode == QB_N ||
-           other_keycode == QT_P))
-      || (tap_hold_keycode == QH_K &&
-          (other_keycode == QH_L ||
-           other_keycode == QT_P ||
-           other_keycode == KC_BSLS ||
-           other_keycode == QB_N))
-      || (tap_hold_keycode == QH_L &&
-          (other_keycode == QH_K ||
-           other_keycode == KC_BSLS))
-      )
-    return true;
-
-  if (false
-      || tap_hold_keycode == QH_S
-      || tap_hold_keycode == QH_D
-      || tap_hold_keycode == QH_F
-      || tap_hold_keycode == QH_J
-      || tap_hold_keycode == QH_K
-      || tap_hold_keycode == QH_L
-      ) {
-    // Require bilateral
-    return achordion_opposite_hands(tap_hold_record, other_record);
   }
 
-  return true;
-}
-
-bool achordion_eager_mod(uint8_t mod) {
-  return true;  // Eagerly apply all mods.
-}
+  bool achordion_eager_mod(uint8_t mod) {
+    return true;  // Eagerly apply all mods.
+  }
 #endif
 
 // ==============================================================================
