@@ -153,26 +153,25 @@
 //==============================================================================
 
 //==============================================================================
-#ifdef FLIP_THUMBS
-#define TH_LFT LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
-#else
-#define TH_LFT MT(MOD_LALT,KC_SPC)
-#endif
 #define TH_RGT MT(MOD_RGUI,KC_BSPC)
 //==============================================================================
 #ifdef TRI_LAYER_ENABLE
-#  ifdef FLIP_THUMBS
-#    define CRL_LFT KC_LALT
-#  else
-#    define CRL_LFT QK_TRI_LAYER_LOWER
-#  endif
 #  define CRL_RGT QK_TRI_LAYER_UPPER
 #else // TRI_LAYER_ENABLE
-#  ifdef FLIP_THUMBS
-#    define CRL_LFT KC_LALT
-#  else
-#    define CRL_LFT MO(TRI_LAYER_LOWER_LAYER)
-#  endif
 #  define CRL_RGT MO(TRI_LAYER_UPPER_LAYER)
 #endif // TRI_LAYER_ENABLE
+//==============================================================================
+
+//==============================================================================
+#ifdef FLIP_THUMBS
+#  define TH_LFT LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
+#  define CRL_LFT KC_LALT
+#else // FLIP_THUMBS
+#  define TH_LFT MT(MOD_LALT,KC_SPC)
+#  ifdef TRI_LAYER_ENABLE
+#    define CRL_LFT MO(TRI_LAYER_LOWER_LAYER)
+#  else // TRI_LAYER_ENABLE
+#    define CRL_LFT QK_TRI_LAYER_LOWER
+#  endif // TRI_LAYER_ENABLE
+#endif // FLIP_THUMBS
 //==============================================================================
