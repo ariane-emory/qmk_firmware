@@ -414,14 +414,16 @@ bool achordion_chord(
   uint16_t      other_keycode,
   keyrecord_t * other_record) {
   if (IS_LAYER_ON(0) && (
-#ifndef HOME_SHIFT
+#ifndef TOP_SHIFT
         tap_hold_keycode == QH_A    ||
         tap_hold_keycode == QH_QUOT ||
 #endif
-#if defined(BOTTOM_SHIFT) && ! defined(BOTTOM_ROW_MODS)
-        /* tap_hold_keycode == QB_Z    || */
-        /* tap_hold_keycode == QB_SLSH || */
+
+#if defined(BOTTOM_SHIFT)
+        tap_hold_keycode == QB_Z    ||
+        tap_hold_keycode == QB_SLSH ||
 #endif
+
 #ifdef HOME_ROW_MODS
         tap_hold_keycode == QH_S    ||
         tap_hold_keycode == QH_D    ||
@@ -522,7 +524,7 @@ bool achordion_chord(
   }
   
   if (IS_LAYER_ON(1) && (
-#ifndef HOME_SHIFT
+#ifndef TOP_SHIFT
         tap_hold_keycode == CH_A    ||
         tap_hold_keycode == CH_QUOT ||
 #endif
