@@ -176,3 +176,6 @@
 #  define CRL_LFT  KC_LOWER
 #endif // FLIP_THUMBS
 //==============================================================================
+
+#define STR_LFT LT(9,KC_MINS)
+#define STR_RGT LT(12,KC_TAB)
