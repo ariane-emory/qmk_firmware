@@ -22,11 +22,11 @@
 #    define CH_QUOT RSFT_T(KC_QUOT)
 #elif      defined(HOME_ARROWS_RIGHT)
 #    define QH_QUOT LT(13,KC_QUOT)
-#    define CH_QUOT LT(13,KC_QUOT)
-#else  // HOME_SHIFT_RIGHT
+#    efine CH_QUOT LT(13,KC_QUOT)
+#else  
 #    define QH_QUOT KC_QUOT
 #    define CH_QUOT KC_QUOT
-#endif // HOME_SHIFT_RIGHT
+#endif  // defined(HOME_SHIFT_RIGHT) && defined(HOME_ARROWS_RIGHT)
 //==============================================================================
 
 //==============================================================================
