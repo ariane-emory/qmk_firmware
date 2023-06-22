@@ -178,7 +178,7 @@
 #define THU_RGT  KC_LGUI_OR_BSPC
 #define CRL_RGT  KC_UPPER
 //==============================================================================
-#define STR_MS   KC_BTN1
-#define THU_MS   KC_BTN2
+#define STR_MS   KC_BTN2
+#define THU_MS   KC_BTN1
 #define CRL_MS   KC_TRNS
 //==============================================================================
