@@ -387,9 +387,12 @@ void matrix_scan_user(void) {
 
 #ifdef USE_ACHORDION
 static const uint16_t achordion_bilat_keys[] PROGMEM = {
-#  ifdef HOME_SHIFT
-  QH_A, QH_QUOT,
-#  endif // HOME_SHIFT
+#  ifdef    HOME_SHIFT_LEFT
+  QH_A,
+#  endif // HOME_SHIFT_LEFT
+#  ifdef    HOME_SHIFT_LEFT
+  QH_QUOT,
+#  endif // HOME_SHIFT_RIGHT
 #  ifdef BOTTOM_SHIFT
   QB_Z, QB_SLSH,
 #  endif // BOTTOM_SHIFT
@@ -401,12 +404,14 @@ static const uint16_t achordion_bilat_keys[] PROGMEM = {
 
 static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // Both Shifts
-#  ifdef HOME_SHIFT
+#  ifdef    HOME_SHIFT_LEFT
   { QH_A,    LSFT_T(KC_MINS) }, // underscore
+#  endig // HOME_SHIFT_LEFT
+#  ifdef    HOME_SHIFT_RIGHT
   { QH_QUOT, RSFT_T(KC_MINS) }, // underscore
-#  endif // HOME_SHIFT
-#  ifdef BOTTOM_SHIFT
   { QH_QUOT, KC_BSLS         }, // pipe
+#  endif // HOME_SHIFT_right
+#  ifdef BOTTOM_SHIFT
   { QB_Z,    LSFT_T(KC_MINS) }, // underscore
   { QB_SLSH, RSFT_T(KC_MINS) }, // underscore
 #  endif // BOTTOM_SHIFT
