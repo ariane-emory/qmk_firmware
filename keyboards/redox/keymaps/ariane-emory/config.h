@@ -69,4 +69,5 @@
 #define BOTTOM_SHIFT
 #define HOME_ROW_MODS
 
+#define HOME_ARROWS_RIGHT
 // #define FLIP_THUMBS
