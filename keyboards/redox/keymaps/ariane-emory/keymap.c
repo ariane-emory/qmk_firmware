@@ -48,6 +48,8 @@ void keyboard_post_init_user(void) {
 
 #define KEYRECORD_FUN(name, t) t name(uint16_t keycode, keyrecord_t *record)
 
+#define KEYRECORD_C_FUN(name, t) t name(uint16_t keycode, const keyrecord_t const *record)
+
 #ifdef SEND_STRING_ENABLE
 #  define MY_SS_DELAY 25
 #  define SEND_STRING_WITHOUT_MODS(string) send_string_without_mods(string)
@@ -187,6 +189,68 @@ bool process_tap_case(
 }
 #endif // USE_TAP_CASE_TABLE
 
+typedef bool(*keycode_handler_fun_t)(const uint16_t keycode, const keyrecord_t * const record);
+
+typedef struct {
+  uint16_t keycode;
+  keycode_handler_fun_t handler;
+} keycode_handler_t;
+
+KEYRECORD_C_FUN(dynamic_macros_handler, bool) {
+  if (record->event.pressed)
+    dynamic_macro_stop_recording();
+  return true;
+}
+
+KEYRECORD_C_FUN(vs_close_handler, bool) {
+  if (record->event.pressed)
+    tap_number(128);
+  return false;
+};
+
+KEYRECORD_C_FUN(hold_gui_handler, bool) {
+  if (record->event.pressed)
+  {
+    register_code(KC_LGUI);
+  }
+  else {
+    static deferred_token token = INVALID_DEFERRED_TOKEN;
+    if (token != INVALID_DEFERRED_TOKEN) {
+      cancel_deferred_exec(token);
+      token = INVALID_DEFERRED_TOKEN;
+    }
+    token = defer_exec(600, release_lgui_callback, NULL);
+  }
+  return false;
+};
+
+KEYRECORD_C_FUN(insert_upp_handler, bool) {
+  if (record->event.pressed) {
+    for (uint8_t ix = 0; ix < 6; ix++) {
+      static const uint16_t hex_keycodes[] = {
+        KC_2, KC_3, KC_4, KC_5, KC_6, KC_7,
+        KC_8, KC_9, KC_A, KC_B, QB_C, 
+      };
+      const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
+      const uint16_t hex_kc = LSFT(hex_keycodes[roll - 2]);
+      tap_code16(hex_kc);
+    }
+    tap_code(KC_ENTER);
+  }
+  return false;
+}
+
+static const keycode_handler_t keycode_handlers[] = {
+  { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler },
+  { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler },
+  { VS_CLOSE, vs_close_handler },
+  { HOLD_GUI, hold_gui_handler },
+#ifdef INSERT_UPP_ENABLED
+  { INSERT_UPP, insert_upp_handler },
+#endif // INSERT_UPP_ENABLED
+
+};
+
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
   
@@ -203,29 +267,6 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif // USE_TAP_CASE_TABLE
   
   switch (keycode) {
-  case VS_CLOSE:
-    if (record->event.pressed)
-      tap_number(128);
-    return false;
-  case QK_DYNAMIC_MACRO_PLAY_1:
-  case QK_DYNAMIC_MACRO_PLAY_2:
-    if (record->event.pressed)
-      dynamic_macro_stop_recording();
-    return true;
-  case HOLD_GUI:
-    if (record->event.pressed)
-    {
-      register_code(KC_LGUI);
-    }
-    else {
-      static deferred_token token = INVALID_DEFERRED_TOKEN;
-      if (token != INVALID_DEFERRED_TOKEN) {
-        cancel_deferred_exec(token);
-        token = INVALID_DEFERRED_TOKEN;
-      }
-      token = defer_exec(600, release_lgui_callback, NULL);
-    }
-    return false;
 #ifdef FLIP_THUMBS
   case TH_LFT:
 #else
@@ -233,23 +274,6 @@ KEYRECORD_FUN(process_record_user, bool) {
 #endif
     layer_off(6);
     return true;
-
-#ifdef INSERT_UPP_ENABLED
-  case INSERT_UPP:
-    if (record->event.pressed) {
-      for (uint8_t ix = 0; ix < 6; ix++) {
-        static const uint16_t hex_keycodes[] = {
-          KC_2, KC_3, KC_4, KC_5, KC_6, KC_7,
-          KC_8, KC_9, KC_A, KC_B, QB_C, 
-        };
-        const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
-        const uint16_t hex_kc = LSFT(hex_keycodes[roll - 2]);
-        tap_code16(hex_kc);
-      }
-      tap_code(KC_ENTER);
-    }
-    return false;
-#endif // INSERT_UPP_ENABLED
 
 #ifndef USE_SEND_STRING_KEYCODES_TABLE
 #  define kc_tap_case_shiftable_or_ctrlable_send_string(kc, str, shifted_str, ctrled_str)                                       \
