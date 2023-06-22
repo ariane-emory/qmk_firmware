@@ -250,17 +250,14 @@ static const keycode_handler_t keycode_handlers[] = {
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler },
   { VS_CLOSE, vs_close_handler },
   { HOLD_GUI, hold_gui_handler },
-
 #ifdef INSERT_UPP_ENABLED
   { INSERT_UPP, insert_upp_handler },
 #endif // INSERT_UPP_ENABLED
-
 #ifdef FLIP_THUMBS
   { TH_LFT, disable_mouse_layer_handler },
 #else
   { KC_LOWER, disable_mouse_layer_handler },
-#endif
-
+#endif // FLIP_THUMBS
 };
 
 KEYRECORD_FUN(process_record_user, bool) {
