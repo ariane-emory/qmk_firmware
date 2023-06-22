@@ -245,7 +245,7 @@ KEYRECORD_C_FUN(disable_mouse_layer_handler, bool) {
   return true;
 };
 
-static const keycode_handler_t keycode_handlers[] = {
+static const keycode_handler_t keycode_handlers[] PROGMEM = {
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler },
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler },
   { VS_CLOSE, vs_close_handler },
@@ -277,7 +277,8 @@ KEYRECORD_FUN(process_record_user, bool) {
 
   for (uint8_t ix = 0; ix < ARRAY_SIZE(keycode_handlers); ix++) {
     if (keycode_handlers[ix].keycode == keycode) {
-      return (*keycode_handlers[ix].handler)(keycode, record);
+      keycode_handler_fun_t handler = (keycode_handler_fun_t)(pgm_read_ptr(&keycode_handlers[ix].handler));
+      return (*handler)(keycode, record);
     }
   }
   
