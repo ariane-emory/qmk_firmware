@@ -561,4 +561,4 @@ uint16_t keycode_config(uint16_t keycode) {
 // Include keymap
 // ==============================================================================
 
-#include "src/keymap.inc"
+#include "keymap.inc"
