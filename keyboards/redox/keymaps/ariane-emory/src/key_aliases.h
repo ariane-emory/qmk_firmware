@@ -170,15 +170,15 @@
 //==============================================================================
 
 //==============================================================================
-#define CRL_LFT  KC_L9_OR_USCORE
-#define THU_LFT  KC_LOWER
-#define STR_LFT  KC_LALT_OR_SPC 
+#define CRL_LFT  KC_LOWER
+#define THU_LFT  KC_LALT_OR_SPC
+#define STR_LFT  KC_L9_OR_USCORE
 //==============================================================================
-#define STR_RGT  KC_LGUI_OR_BSPC
-#define THU_RGT  KC_UPPER
-#define CRL_RGT  KC_L12_OR_TAB
+#define STR_RGT  KC_L12_OR_TAB
+#define THU_RGT  KC_LGUI_OR_BSPC
+#define CRL_RGT  KC_UPPER
 //==============================================================================
-#define STR_MS   KC_BTN1
-#define THU_MS   KC_TRNS
-#define CRL_MS   KC_BTN2
+#define STR_MS   KC_BTN2
+#define THU_MS   KC_BTN1
+#define CRL_MS   KC_TRNS
 //==============================================================================
