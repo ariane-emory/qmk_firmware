@@ -149,7 +149,7 @@
 #define EM_END_MAC  LALT(LGUI(KC_E))
 #define EM_CTL_X    LCTL(KC_X)
 #define EM_CTL_C    LCTL(KC_C)
-#define RCTL_DQUO   RCTL_T(KC_DQUO)
+#define RCTL_DQUO   LT(13,KC_DQUO)
 //==============================================================================
 
 //==============================================================================
