@@ -167,6 +167,7 @@
 #define KC_LALT_OR_SPC  MT(MOD_LALT,KC_SPC)
 #define KC_LGUI_OR_BSPC MT(MOD_RGUI,KC_BSPC)
 #define KC_L12_OR_TAB   LT(12,KC_TAB)
+#define KC_L12_OR_BTN2  LT(12,KC_BTN2)
 #define KC_LOWER_OR_SPC LT(TRI_LAYER_LOWER_LAYER)
 //==============================================================================
 
@@ -184,7 +185,7 @@
 #define THU_RGT         KC_LGUI_OR_BSPC
 #define CRL_RGT         KC_UPPER
 //==============================================================================
-#define STR_MS          LT(12,KC_BTN2)
+#define STR_MS          KC_L12_OR_BTN2
 #define THU_MS          KC_BTN1
 #define CRL_MS          KC_TRNS
 //==============================================================================
