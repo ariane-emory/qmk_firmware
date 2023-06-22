@@ -34,9 +34,9 @@
 
 #define MY_RGB_LAYERS
 #define MY_RGB_ADJUST_LAYER_ON               RGB_PURPLE
-#define MY_RGB_DEFAULT                       0xFF, 0x48, 0x80
+#define MY_RGB_DEFAULT                       RGB_MAGENTA
 #define MY_RGB_LOWER_LAYER_ON                RGB_CYAN
-#define MY_RGB_RECORDING_MACRO               RGB_MAGENTA
+#define MY_RGB_RECORDING_MACRO               0xFF, 0x48, 0x80
 #define MY_RGB_TOGGLED_LAYER_ON              RGB_CHARTREUSE
 #define MY_RGB_UPPER_LAYER_ON                RGB_BLUE
 
