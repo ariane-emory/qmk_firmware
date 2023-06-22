@@ -9,33 +9,33 @@
 // RGB fader class
 // ==============================================================================
 
-typedef struct rgb_fader_t {
+typedef struct cRGB_fader_t {
   cRGB   initial;
   cRGB   current;
   cRGB   target;
   uint8_t step;
 
-#ifndef RGB_FADER_NO_STRINGS
+#ifndef CRGB_FADER_NO_STRINGS
   char    c_str[8];
 #endif
-} rgb_fader_t;
+} cRGB_fader_t;
 
-void rgb_fader_init               (      rgb_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b);
-void rgb_fader_set_target         (      rgb_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b);
-bool rgb_fader_is_changing        (const rgb_fader_t * const this);
-void rgb_fader_step               (      rgb_fader_t * const this);
-void rgb_fader_stop               (      rgb_fader_t * const this);
+void cRGB_fader_init               (      cRGB_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b);
+void cRGB_fader_set_target         (      cRGB_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b);
+bool cRGB_fader_is_changing        (const cRGB_fader_t * const this);
+void cRGB_fader_step               (      cRGB_fader_t * const this);
+void cRGB_fader_stop               (      cRGB_fader_t * const this);
 
-#define rgb_fader_set_target_from_rgb(rgb_fader_p, rgb_p)                                                                                   \
-  rgb_fader_set_target(rgb_fader_p, ((rgb_p)->r), ((rgb_p)->g), ((rgb_p)->b))
+#define cRGB_fader_set_target_from_rgb(cRGB_fader_p, rgb_p)                                                                                   \
+  cRGB_fader_set_target(cRGB_fader_p, ((rgb_p)->r), ((rgb_p)->g), ((rgb_p)->b))
 
-#define rgb_fader_init_from_rgb(rgb_fader_p, rgb_p)                             \
-  rgb_fader_init(rgb_fader_p, ((rgb_p)->r), ((rgb_p)->g), ((rgb_p)->b))
+#define cRGB_fader_init_from_rgb(cRGB_fader_p, rgb_p)                             \
+  cRGB_fader_init(cRGB_fader_p, ((rgb_p)->r), ((rgb_p)->g), ((rgb_p)->b))
 
-#ifndef RGB_FADER_NO_STRINGS
-bool rgb_fader_init_from_str      (      rgb_fader_t * const this, const char * const str);
-bool rgb_fader_set_target_from_str(      rgb_fader_t * const this, const char * const str);
-void rgb_fader_printf             (const rgb_fader_t * const this);
-void rgb_fader_describe           (const rgb_fader_t * const this);
+#ifndef CRGB_FADER_NO_STRINGS
+bool cRGB_fader_init_from_str      (      cRGB_fader_t * const this, const char * const str);
+bool cRGB_fader_set_target_from_str(      cRGB_fader_t * const this, const char * const str);
+void cRGB_fader_printf             (const cRGB_fader_t * const this);
+void cRGB_fader_describe           (const cRGB_fader_t * const this);
 #endif
 

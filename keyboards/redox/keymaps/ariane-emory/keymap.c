@@ -14,7 +14,7 @@
 
 #ifdef RGBLIGHT_ENABLE
 #  include "src/cRGB_fader.h"
-rgb_fader_t rgb_fader;
+cRGB_fader_t cRGB_fader;
 #endif
 
 #if CONSOLE_ENABLE
@@ -38,7 +38,7 @@ void keyboard_post_init_user(void) {
 
 #ifdef RGBLIGHT_ENABLE
   rgblight_enable_noeeprom();
-  rgb_fader_init(&rgb_fader, MY_RGB_DEFAULT);
+  cRGB_fader_init(&cRGB_fader, MY_RGB_DEFAULT);
 #endif
 }
 
@@ -315,14 +315,14 @@ void dynamic_macro_record_end_user(int8_t direction) {
 }
 
 #ifdef RGBLIGHT_ENABLE
-bool rgb_fader_set_target_if_recording_macro(rgb_fader_t * const this) {
+bool cRGB_fader_set_target_if_recording_macro(cRGB_fader_t * const this) {
   if (! currently_recording_macro)
     return false;
-  rgb_fader_set_target(this, MY_RGB_RECORDING_MACRO);
+  cRGB_fader_set_target(this, MY_RGB_RECORDING_MACRO);
   return true;
 }
 
-void rgb_fader_set_target_by_layer(rgb_fader_t * const this) {
+void cRGB_fader_set_target_by_layer(cRGB_fader_t * const this) {
   typedef struct {
     uint8_t layer;
     uint8_t r;
@@ -347,7 +347,7 @@ void rgb_fader_set_target_by_layer(rgb_fader_t * const this) {
     }
   }
 
-  rgb_fader_set_target(this, row->r, row->g, row->b);
+  cRGB_fader_set_target(this, row->r, row->g, row->b);
 }
 #endif
 
@@ -374,10 +374,10 @@ void matrix_scan_user(void) {
 #endif // TOGGLED_LAYER_TIMEOUT
   
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-  if (!rgb_fader_set_target_if_recording_macro(&rgb_fader))
-    rgb_fader_set_target_by_layer(&rgb_fader);
-  rgb_fader_step(&rgb_fader);
-  rgblight_setrgb(rgb_fader.current.r, rgb_fader.current.g, rgb_fader.current.b);
+  if (!cRGB_fader_set_target_if_recording_macro(&cRGB_fader))
+    cRGB_fader_set_target_by_layer(&cRGB_fader);
+  cRGB_fader_step(&cRGB_fader);
+  rgblight_setrgb(cRGB_fader.current.r, cRGB_fader.current.g, cRGB_fader.current.b);
 #endif // defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
 }
 
