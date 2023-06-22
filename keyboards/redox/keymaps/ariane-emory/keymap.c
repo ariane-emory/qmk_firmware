@@ -359,15 +359,19 @@ static const uint16_t achordion_bilat_keys[] PROGMEM = {
 #  ifdef    HOME_SHIFT_LEFT
   QH_A,
 #  endif // HOME_SHIFT_LEFT
+
 #  ifdef    HOME_SHIFT_RIGHT
   QH_QUOT,
 #  endif // HOME_SHIFT_RIGHT
-#  ifdef BOTTOM_SHIFT
-  QB_Z, QB_SLSH,
-#  endif // BOTTOM_SHIFT
+
+/* #  ifdef BOTTOM_SHIFT */
+/*   QB_Z, QB_SLSH, */
+/* #  endif // BOTTOM_SHIFT */
+
 #  ifdef HOME_ROW_MODS
   QH_S, QH_D, QH_F, QH_J, QH_K, QH_L,
 #  endif // HOME_ROW_MODS
+
   KC_NO
 };
 
