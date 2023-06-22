@@ -162,6 +162,7 @@
 #endif // TRI_LAYER_ENABLE
 //==============================================================================
 
+#define LT11_OR_BSLS LT(11,KC_BSLS)
 //==============================================================================
 #define KC_L9_OR_USCORE LT(9,KC_MINS)
 #define KC_LALT_OR_SPC  MT(MOD_LALT,KC_SPC)
