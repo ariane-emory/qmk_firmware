@@ -46,7 +46,7 @@
       "ANY(QH_K)",
       "ANY(QH_L)",
       "ANY(QH_QUOT)",
-      "RCTL_T(KC_DQUO)",
+      "ANY(RCTL_DQUO)",
       "LSFT_T(KC_MINS)",
       "ANY(QB_Z)",
       "ANY(QB_X)",
