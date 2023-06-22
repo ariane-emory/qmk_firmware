@@ -240,14 +240,26 @@ KEYRECORD_C_FUN(insert_upp_handler, bool) {
   return false;
 }
 
+KEYRECORD_C_FUN(disable_mouse_layer_handler, bool) {
+  layer_off(6);
+  return true;
+};
+
 static const keycode_handler_t keycode_handlers[] = {
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler },
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler },
   { VS_CLOSE, vs_close_handler },
   { HOLD_GUI, hold_gui_handler },
+
 #ifdef INSERT_UPP_ENABLED
   { INSERT_UPP, insert_upp_handler },
 #endif // INSERT_UPP_ENABLED
+
+#ifdef FLIP_THUMBS
+  { TH_LFT, disable_mouse_layer_handler },
+#else
+  { KC_LOWER, disable_mouse_layer_handler },
+#endif
 
 };
 
@@ -265,67 +277,14 @@ KEYRECORD_FUN(process_record_user, bool) {
 #ifdef USE_TAP_CASE_TABLE
   if (! process_tap_case(keycode, record)) return false;
 #endif // USE_TAP_CASE_TABLE
-  
-  switch (keycode) {
-#ifdef FLIP_THUMBS
-  case TH_LFT:
-#else
-  case KC_LOWER:
-#endif
-    layer_off(6);
-    return true;
 
-#ifndef USE_SEND_STRING_KEYCODES_TABLE
-#  define kc_tap_case_shiftable_or_ctrlable_send_string(kc, str, shifted_str, ctrled_str)                                       \
-    case kc:                                                                                                                    \
-      if (record->event.pressed) {                                                                                              \
-        if (                                                                                                                    \
-          (shifted_str_##kc[0] != '\0') &&                                                                                      \
-          (get_mods() & MOD_MASK_CTRL)) {                                                                                       \
-          SEND_STRING_WITHOUT_MODS_P(shifted_str_##kc);                                                                         \
-        } else if (                                                                                                             \
-          (ctrled_str_##kc[0] != '\0') &&                                                                                       \
-          (get_mods() & MOD_MASK_ALT)) {                                                                                        \
-          SEND_STRING_WITHOUT_MODS_P(ctrled_str_##kc);                                                                          \
-        } else {                                                                                                                \
-          SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                                                 \
-        }                                                                                                                       \
-      }                                                                                                                         \
-      return false;
-    FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(kc_tap_case_shiftable_or_ctrlable_send_string)
-#  define kc_tap_case_send_string(kc, str)                                                                                      \
-      case kc:                                                                                                                  \
-        if (record->event.pressed)                                                                                              \
-          SEND_STRING_WITHOUT_MODS_P(str_##kc);                                                                                 \
-        return false;
-      FOR_EACH_SEND_STRING_KEYCODE(kc_tap_case_send_string)
-#endif // ! USE_SEND_STRING_KEYCODES_TABLE
-
-#ifndef USE_TAP_CASE_TABLE
-  case LT(9,KC_MINS):
-    if (record->tap.count && record->event.pressed) {
-      tap_code16(LSFT(KC_MINS));
-      return false;
+  for (uint8_t ix = 0; ix < ARRAY_SIZE(keycode_handlers); ix++) {
+    if (keycode_handlers[ix].keycode == keycode) {
+      return (*keycode_handlers[ix].handler)(keycode, record);
     }
-    return true;
-  case RSFT_T(KC_DUMMY):
-    if (record->tap.count && record->event.pressed) {
-      tap_code16(VD_ALL);
-      return false;
-    }
-    return true;
-  case RCTL_DQUO:
-    // KC_DQUO is not "basic" so we have to tap it manually
-    if (record->tap.count && record->event.pressed) {
-      tap_code16(KC_DQUO);
-      return false;
-    }
-    return true;
-#endif
-    
-  default:
-    return true;
   }
+  
+  return true;
 }
 
 static bool currently_recording_macro = false;
