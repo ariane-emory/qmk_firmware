@@ -406,11 +406,11 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // Both Shifts
 #  ifdef    HOME_SHIFT_LEFT
   { QH_A,    LSFT_T(KC_MINS) }, // underscore
-#  endig // HOME_SHIFT_LEFT
+#  endif // HOME_SHIFT_LEFT
 #  ifdef    HOME_SHIFT_RIGHT
   { QH_QUOT, RSFT_T(KC_MINS) }, // underscore
   { QH_QUOT, KC_BSLS         }, // pipe
-#  endif // HOME_SHIFT_right
+#  endif // HOME_SHIFT_RIGH
 #  ifdef BOTTOM_SHIFT
   { QB_Z,    LSFT_T(KC_MINS) }, // underscore
   { QB_SLSH, RSFT_T(KC_MINS) }, // underscore
