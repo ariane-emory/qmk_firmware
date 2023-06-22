@@ -154,11 +154,11 @@
 
 //==============================================================================
 #ifdef TRI_LAYER_ENABLE
-#  define KC_LOWER QK_TRI_LAYER_LOWER
-#  define KC_UPPER QK_TRI_LAYER_UPPER
+#  define KC_LOWER      QK_TRI_LAYER_LOWER
+#  define KC_UPPER      QK_TRI_LAYER_UPPER
 #else // TRI_LAYER_ENABLE
-#  define KC_LOWER MO(TRI_LAYER_LOWER_LAYER)
-#  define KC_UPPER MO(TRI_LAYER_UPPER_LAYER)
+#  define KC_LOWER      MO(TRI_LAYER_LOWER_LAYER)
+#  define KC_UPPER      MO(TRI_LAYER_UPPER_LAYER)
 #endif // TRI_LAYER_ENABLE
 //==============================================================================
 
@@ -167,18 +167,24 @@
 #define KC_LALT_OR_SPC  MT(MOD_LALT,KC_SPC)
 #define KC_LGUI_OR_BSPC MT(MOD_RGUI,KC_BSPC)
 #define KC_L12_OR_TAB   LT(12,KC_TAB)
+#define KC_LOWER_OR_SPC LT(TRI_LAYER_LOWER_LAYER)
 //==============================================================================
 
 //==============================================================================
-#define CRL_LFT  KC_LOWER
-#define THU_LFT  KC_LALT_OR_SPC
-#define STR_LFT  KC_L9_OR_USCORE
+#ifdef FLIP_THUMBS
+#  define CRL_LFT       KC_LALT
+#  define THU_LFT       KC_LOWER_OR_SPC
+#else
+#  define CRL_LFT       KC_LOWER
+#  define THU_LFT       KC_LALT_OR_SPC
+#endif
+#define STR_LFT       KC_L9_OR_USCORE
 //==============================================================================
-#define STR_RGT  KC_L12_OR_TAB
-#define THU_RGT  KC_LGUI_OR_BSPC
-#define CRL_RGT  KC_UPPER
+#define STR_RGT         KC_L12_OR_TAB
+#define THU_RGT         KC_LGUI_OR_BSPC
+#define CRL_RGT         KC_UPPER
 //==============================================================================
-#define STR_MS   LT(12,KC_BTN2)
-#define THU_MS   KC_BTN1
-#define CRL_MS   KC_TRNS
+#define STR_MS          LT(12,KC_BTN2)
+#define THU_MS          KC_BTN1
+#define CRL_MS          KC_TRNS
 //==============================================================================
