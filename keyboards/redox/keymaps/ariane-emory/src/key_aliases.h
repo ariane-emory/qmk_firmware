@@ -163,19 +163,12 @@
 //==============================================================================
 
 //==============================================================================
-#define TH_RGT     MT(MOD_RGUI,KC_BSPC)
-#define CRL_RGT    KC_UPPER
+#define STR_LFT   MT(MOD_LALT,KC_SPC)
+#define STR_RGT   MT(MOD_RGUI,KC_BSPC)
 //==============================================================================
-
+#define THU_LFT  KC_LOWER
+#define THU_RGT  KC_UPPER
 //==============================================================================
-#ifdef FLIP_THUMBS
-#  define TH_LFT   LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
-#  define CRL_LFT  KC_LALT
-#else // FLIP_THUMBS
-#  define TH_LFT   MT(MOD_LALT,KC_SPC)
-#  define CRL_LFT  KC_LOWER
-#endif // FLIP_THUMBS
+#define CRL_LFT  LT(9,KC_MINS)
+#define CRL_RGT  LT(12,KC_TAB)
 //==============================================================================
-
-#define STR_LFT LT(9,KC_MINS)
-#define STR_RGT LT(12,KC_TAB)
