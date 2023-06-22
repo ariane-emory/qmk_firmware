@@ -242,12 +242,12 @@ static const keycode_handler_t keycode_handlers[] PROGMEM = {
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler },
   { VS_CLOSE, vs_close_handler },
   { HOLD_GUI, hold_gui_handler },
-#ifdef INSERT_UPP_ENABLED
+#ifdef    INSERT_UPP_ENABLED
   { INSERT_UPP, insert_upp_handler },
 #endif // INSERT_UPP_ENABLED
-#ifdef FLIP_THUMBS
+#ifdef    FLIP_THUMBS
   { TH_LFT, disable_mouse_layer_handler },
-#else
+#else //  FLIP_THUMBS
   { KC_LOWER, disable_mouse_layer_handler },
 #endif // FLIP_THUMBS
 };
