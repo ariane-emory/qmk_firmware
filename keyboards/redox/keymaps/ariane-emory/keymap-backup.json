@@ -7,7 +7,7 @@
   "layout": "LAYOUT",
   "layers": [
     [
-      "LT(10,KC_GRV)",
+      "KC_GRV",
       "ANY(NUM_1)",
       "ANY(NUM_2)",
       "ANY(NUM_3)",
@@ -19,7 +19,7 @@
       "ANY(NUM_9)",
       "ANY(NUM_0)",
       "TG(6)",
-      "KC_TAB",
+      "LT(10,KC_TAB)",
       "ANY(QT_Q)",
       "ANY(QT_W)",
       "ANY(QT_E)",
