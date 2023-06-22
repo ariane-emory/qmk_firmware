@@ -139,9 +139,7 @@ static const shiftable_or_ctrlable_send_string_keycodes_t shiftable_or_ctrlable_
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(shiftable_or_ctrlable_send_string_keycodes_row)
 };
 
-bool process_shiftable_or_ctrlable_send_string(
-  const uint16_t keycode,
-  const keyrecord_t * const record) {
+KEYRECORD_C_FUN(process_shiftable_or_ctrlable_send_string, bool) {
   for (uint8_t ix = 0; ix < ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes); ix++) {
     if (shiftable_or_ctrlable_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed) {
@@ -163,7 +161,7 @@ bool process_shiftable_or_ctrlable_send_string(
     }
   }
   return true;
-}
+  }
 #endif // USE_SEND_STRING_KEYCODES_TABLE
 
 #ifdef USE_TAP_CASE_TABLE
@@ -173,9 +171,7 @@ static const keycode_pair_t tap_cases[] PROGMEM = {
   { RCTL_DQUO,        KC_DQUO       },
 };
 
-bool process_tap_case(
-  const uint16_t keycode,
-  const keyrecord_t * const record) {
+KEYRECORD_C_FUN(process_tap_case, bool) {
   for (uint8_t ix = 0; ix < ARRAY_SIZE(tap_cases); ix++) {
     if (pgm_read_word(&tap_cases[ix].first) == keycode) {
       if (record->tap.count && record->event.pressed) {
