@@ -65,7 +65,7 @@
 #define USE_TAP_CASE_TABLE
 
 #define HOME_SHIFT_LEFT
-#define HOME_SHIFT_RIGHT
+// #define HOME_SHIFT_RIGHT
 #define BOTTOM_SHIFT
 #define HOME_ROW_MODS
 
