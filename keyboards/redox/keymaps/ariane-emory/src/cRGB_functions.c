@@ -38,9 +38,9 @@ bool cRGB_init_from_str(cRGB * const this, const char * const str) {
   unsigned int r, g, b;
 
   if (3 == sscanf(str, "#%02x%02x%02x", &r, &g, &b)) {
-#define C(n) this->n = n & 0xff;
+#  define C(n) this->n = n & 0xff;
     COLORS;
-#undef C
+#  undef C
     
     return true;
   }
