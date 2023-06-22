@@ -118,7 +118,7 @@
       "ANY(CH_E)",
       "ANY(CH_I)",
       "ANY(CH_QUOT)",
-      "RCTL_T(KC_DQUO)",
+      "ANY(RCTL_DQUO)",
       "KC_TRNS",
       "ANY(CB_Z)",
       "ANY(CB_X)",
