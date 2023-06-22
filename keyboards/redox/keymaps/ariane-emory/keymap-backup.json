@@ -621,7 +621,7 @@
       "ANY(VD_LEFT)",
       "ANY(VD_RIGHT)",
       "ANY(VD_ALL)",
-      "KC_NO",
+      "RSFT(KC_DEL)",
       "KC_ESC",
       "ANY(QK_CAPS_WORD_TOGGLE)",
       "LSA(KC_LCBR)",
