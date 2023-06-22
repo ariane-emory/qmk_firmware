@@ -5,17 +5,23 @@
 //==============================================================================
 
 //==============================================================================
-#ifdef    HOME_SHIFT
+#ifdef    HOME_SHIFT_LEFT
 #    define QH_A    LSFT_T(KC_A)
-#    define QH_QUOT RSFT_T(KC_QUOT)
 #    define CH_A    LSFT_T(KC_A)
-#    define CH_QUOT RSFT_T(KC_QUOT)
-#else  // HOME_SHIFT
+#else  // HOME_SHIFT_LEFT
 #    define QH_A    KC_A
-#    define QH_QUOT KC_QUOT
 #    define CH_A    KC_A
+#endif // HOME_SHIFT_LEFT
+//==============================================================================
+
+//==============================================================================
+#ifdef    HOME_SHIFT_RIGHT
+#    define QH_QUOT RSFT_T(KC_QUOT)
+#    define CH_QUOT RSFT_T(KC_QUOT)
+#else  // HOME_SHIFT_RIGHT
+#    define QH_QUOT KC_QUOT
 #    define CH_QUOT KC_QUOT
-#endif // HOME_SHIFT
+#endif // HOME_SHIFT_RIGHT
 //==============================================================================
 
 //==============================================================================

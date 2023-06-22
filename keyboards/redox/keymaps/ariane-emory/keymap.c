@@ -7,7 +7,7 @@
 #include "src/key_aliases.h"
 #include "src/secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
-#if defined(HOME_ROW_MODS) || defined(HOME_SHIFT) || defined(BOTTOM_SHIFT)
+#if defined(HOME_ROW_MODS) || defined(HOME_SHIFT_LEFT) || defined(HOME_SHIFT_RIGHT) || defined(BOTTOM_SHIFT)
 #  define USE_ACHORDION
 #  include "src/achordion.h"
 #endif
