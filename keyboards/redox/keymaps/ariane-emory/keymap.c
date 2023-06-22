@@ -126,8 +126,7 @@ FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string)
 FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
 FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
 
-#ifdef USE_SEND_STRING_KEYCODES_TABLE
-#  define shiftable_or_ctrlable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, shifted_str_##kc, ctrled_str_##kc },
+#define shiftable_or_ctrlable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, shifted_str_##kc, ctrled_str_##kc },
 typedef struct {
   uint16_t kc;
   const char * str;
@@ -161,10 +160,8 @@ KEYRECORD_C_FUN(process_shiftable_or_ctrlable_send_string, bool) {
     }
   }
   return true;
-  }
-#endif // USE_SEND_STRING_KEYCODES_TABLE
+}
 
-#ifdef USE_TAP_CASE_TABLE
 static const keycode_pair_t tap_cases[] PROGMEM = {
   { RSFT_T(KC_DUMMY), VD_ALL        },
   { LT(9,KC_MINS),    LSFT(KC_MINS) },
@@ -183,7 +180,6 @@ KEYRECORD_C_FUN(process_tap_case, bool) {
   }
   return true;
 }
-#endif // USE_TAP_CASE_TABLE
 
 typedef bool(*keycode_handler_fun_t)(const uint16_t keycode, const keyrecord_t * const record);
 
@@ -262,14 +258,10 @@ KEYRECORD_FUN(process_record_user, bool) {
 #ifdef USE_ACHORDION
   if (! process_achordion(keycode, record)) return false;
 #endif // USE_ACHORDION
-
-#ifdef USE_SEND_STRING_KEYCODES_TABLE
+ 
   if (! process_shiftable_or_ctrlable_send_string(keycode, record)) return false;
-#endif // USE_SEND_STRING_KEYCODES_TABLE
 
-#ifdef USE_TAP_CASE_TABLE
   if (! process_tap_case(keycode, record)) return false;
-#endif // USE_TAP_CASE_TABLE
 
   for (uint8_t ix = 0; ix < ARRAY_SIZE(keycode_handlers); ix++) {
     if (keycode_handlers[ix].keycode == keycode) {

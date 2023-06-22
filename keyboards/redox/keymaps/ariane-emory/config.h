@@ -61,9 +61,6 @@
 #define TRI_LAYER_LOWER_LAYER                7
 #define TRI_LAYER_UPPER_LAYER                8
 
-#define USE_SEND_STRING_KEYCODES_TABLE
-#define USE_TAP_CASE_TABLE
-
 #define HOME_SHIFT_LEFT
 // #define HOME_SHIFT_RIGHT
 #define HOME_ARROWS_RIGHT
