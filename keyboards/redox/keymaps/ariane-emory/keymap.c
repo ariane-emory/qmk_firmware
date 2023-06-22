@@ -356,13 +356,13 @@ void matrix_scan_user(void) {
 
 #ifdef USE_ACHORDION
 static const uint16_t achordion_bilat_keys[] PROGMEM = {
-#  ifdef    HOME_SHIFT_LEFT
-  QH_A,
-#  endif // HOME_SHIFT_LEFT
+/* #  ifdef    HOME_SHIFT_LEFT */
+/*   QH_A, */
+/* #  endif // HOME_SHIFT_LEFT */
 
-#  ifdef    HOME_SHIFT_RIGHT
-  QH_QUOT,
-#  endif // HOME_SHIFT_RIGHT
+/* #  ifdef    HOME_SHIFT_RIGHT */
+/*   QH_QUOT, */
+/* #  endif // HOME_SHIFT_RIGHT */
 
 /* #  ifdef BOTTOM_SHIFT */
 /*   QB_Z, QB_SLSH, */
