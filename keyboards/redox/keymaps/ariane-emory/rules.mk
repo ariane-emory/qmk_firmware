@@ -1,3 +1,5 @@
+AUTO_SHIFT_ENABLE  	 	 = no
+BOOTMAGIC_ENABLE       = no
 COMMAND_ENABLE     	 	 = no
 CONSOLE_ENABLE     	 	 = no
 GRAVE_ESC_ENABLE   	 	 = no 
@@ -6,9 +8,6 @@ SPACE_CADET_ENABLE 	 	 = no
 TAP_DANCE_ENABLE   	 	 = no
 
 AVR_USE_MINIMAL_PRINTF = yes
-
-AUTO_SHIFT_ENABLE  	 	 = no
-BOOTMAGIC_ENABLE       = no
 CAPS_WORD_ENABLE   	 	 = yes
 COMBO_ENABLE       	 	 = yes
 LTO_ENABLE         	 	 = yes
@@ -21,7 +20,7 @@ DYNAMIC_MACRO_ENABLE   = yes
 
 SRC                   += src/achordion.c
 SRC                   += src/cRGB_functions.c
-SRC                   += src/rgb_fader.c
+SRC                   += src/cRGB_fader.c
 SRC                   += src/util.c
 SRC                   += src/tap_number.c
 
@@ -30,3 +29,4 @@ CFLAGS                += -funroll-loops
 TOP_SYMBOLS            = 15
 
 # EEPROM_DRIVER          = transient
+

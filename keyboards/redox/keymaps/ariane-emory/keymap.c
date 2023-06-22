@@ -13,7 +13,7 @@
 #endif
 
 #ifdef RGBLIGHT_ENABLE
-#  include "src/rgb_fader.h"
+#  include "src/cRGB_fader.h"
 rgb_fader_t rgb_fader;
 #endif
 

@@ -1,4 +1,4 @@
-#include "rgb_fader.h"
+#include "cRGB_fader.h"
 
 #include <stdio.h>
 #include <stdlib.h>
