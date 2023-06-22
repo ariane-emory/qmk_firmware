@@ -21,13 +21,13 @@
 //==============================================================================
 #if defined(BOTTOM_SHIFT)
 #    define QB_Z    LSFT_T(KC_Z)
-#    define QB_SLSH RSFT_T(KC_SLSH)
 #    define CB_Z    LSFT_T(KC_Z)
+#    define QB_SLSH RSFT_T(KC_SLSH)
 #    define CB_SLSH RSFT_T(KC_SLSH)
 #else  // BOTTOM_SHIFT
 #    define QB_Z    KC_Z
-#    define QB_SLSH KC_SLSH
 #    define CB_Z    KC_Z
+#    define QB_SLSH KC_SLSH
 #    define CB_SLSH KC_SLSH
 #endif // BOTTOM_SHIFT
 //==============================================================================
