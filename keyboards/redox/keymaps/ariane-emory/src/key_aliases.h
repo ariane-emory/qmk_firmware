@@ -187,7 +187,19 @@
 #if        defined(FLIP_THUMBS) && defined(SPREAD_THUMBS)
 #    error "FLIP_THUMBS and SPREAD_THUMBS are mutually exclusive."
 #elif      defined(SPREAD_THUMBS)
-#    error "SPREAD_THUMBS is not yet implemented."
+//==============================================================================
+#  define STR_LFT         KC_LALT_OR_SPC
+#  define THU_LFT         KC_LOWER
+#  define CRL_LFT         KC_L9_OR_USCORE
+//------------------------------------------------------------------------------
+#  define STR_RGT         KC_LGUI_OR_BSPC
+#  define THU_RGT         KC_UPPER
+#  define CRL_RGT         KC_L12_OR_TAB
+//------------------------------------------------------------------------------
+#  define STR_MS          KC_BTN1
+#  define THU_MS          KC_TRNS
+#  define CRL_MS          KC_L12_OR_BTN2
+//==============================================================================
 #elif      defined(FLIP_THUMBS)
 //==============================================================================
 #  define CRL_LFT         KC_LALT
