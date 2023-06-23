@@ -61,8 +61,9 @@
 #define TRI_LAYER_LOWER_LAYER                7
 #define TRI_LAYER_UPPER_LAYER                8
 
-#define HOME_SHIFT_LEFT
+// #define HOME_SHIFT_LEFT
 // #define HOME_SHIFT_RIGHT
+#define HOME_ARROWS_LEFT
 #define HOME_ARROWS_RIGHT
 #define BOTTOM_SHIFT
 #define HOME_ROW_MODS
