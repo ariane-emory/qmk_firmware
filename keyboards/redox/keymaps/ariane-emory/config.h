@@ -68,3 +68,4 @@
 #define HOME_ROW_MODS
 
 // #define FLIP_THUMBS
+#define SPREAD_THUMBS
