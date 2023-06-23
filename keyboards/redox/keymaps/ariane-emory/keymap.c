@@ -491,6 +491,7 @@ KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
 
 static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
   KC_LALT_OR_SPC,
+  KC_LGUI_OR_BSPC,
 #ifdef HOME_ROW_MODS
   QH_A, QH_S, QH_D, QH_F,
   QH_J, QH_K, QH_L, QH_QUOT,
@@ -503,17 +504,17 @@ static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
 };
 
 static const uint16_t layer1_permissive_hold_keys[] PROGMEM = {
-  MT(MOD_LALT,KC_SPC),
-  MT(MOD_RGUI,KC_SPC),
+  KC_LALT_OR_SPC,
+  KC_LGUI_OR_BSPC,
 #ifdef HOME_ROW_MODS
   CH_A, CH_R, CH_S, CH_T,
   CH_N, CH_E, CH_I, CH_QUOT,
 #endif
 #ifdef BOTTOM_ROW_MODS
-    CB_Z, CB_X, CB_C, CB_V,
-    CB_M, CB_COMM, CB_DOT, CB_SLSH,
+  CB_Z, CB_X, CB_C, CB_V,
+  CB_M, CB_COMM, CB_DOT, CB_SLSH,
 #endif
-    KC_NO,
+  KC_NO,
 };
 
 KEYRECORD_FUN(get_permissive_hold, bool) {
