@@ -189,21 +189,32 @@
 #elif      defined(SPREAD_THUMBS)
 #    error "SPREAD_THUMBS is not yet implemented."
 #elif      defined(FLIP_THUMBS)
+//==============================================================================
 #  define CRL_LFT         KC_LALT
 #  define THU_LFT         KC_LOWER_OR_SPC
 #  define STR_LFT         KC_L9_OR_USCORE
+//------------------------------------------------------------------------------
+#  define STR_RGT         KC_L12_OR_TAB
+#  define THU_RGT         KC_LGUI_OR_BSPC
+#  define CRL_RGT         KC_UPPER
+//------------------------------------------------------------------------------
+#  define STR_MS          KC_L12_OR_BTN2
+#  define THU_MS          KC_BTN1
+#  define CRL_MS          KC_TRNS
+//==============================================================================
 #else
+//==============================================================================
 #  define STR_LFT         KC_L9_OR_USCORE
 #  define THU_LFT         KC_LALT_OR_SPC
 #  define CRL_LFT         KC_LOWER
+//------------------------------------------------------------------------------
+#  define STR_RGT         KC_L12_OR_TAB
+#  define THU_RGT         KC_LGUI_OR_BSPC
+#  define CRL_RGT         KC_UPPER
+//------------------------------------------------------------------------------
+#  define STR_MS          KC_L12_OR_BTN2
+#  define THU_MS          KC_BTN1
+#  define CRL_MS          KC_TRNS
 #endif
+//==============================================================================
 
-//==============================================================================
-#define STR_RGT         KC_L12_OR_TAB
-#define THU_RGT         KC_LGUI_OR_BSPC
-#define CRL_RGT         KC_UPPER
-//==============================================================================
-#define STR_MS          KC_L12_OR_BTN2
-#define THU_MS          KC_BTN1
-#define CRL_MS          KC_TRNS
-//==============================================================================
