@@ -180,7 +180,7 @@
 #define KC_LGUI_OR_BSPC MT(MOD_RGUI,KC_BSPC)
 #define KC_L12_OR_TAB   LT(12,KC_TAB)
 #define KC_L12_OR_BTN2  LT(12,KC_BTN2)
-#define KC_LOWER_OR_SPC LT(TRI_LAYER_LOWER_LAYER)
+#define KC_LOWER_OR_SPC LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
 //==============================================================================
 
 //==============================================================================

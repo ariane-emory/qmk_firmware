@@ -246,7 +246,7 @@ static const keycode_handler_t keycode_handlers[] PROGMEM = {
   { INSERT_UPP, insert_upp_handler },
 #endif // INSERT_UPP_ENABLED
 #ifdef    FLIP_THUMBS
-  { TH_LFT, disable_mouse_layer_handler },
+  { THU_LFT, disable_mouse_layer_handler },
 #else //  FLIP_THUMBS
   { KC_LOWER, disable_mouse_layer_handler },
 #endif // FLIP_THUMBS
