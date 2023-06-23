@@ -189,14 +189,15 @@
 #elif      defined(SPREAD_THUMBS)
 #    error "SPREAD_THUMBS is not yet implemented."
 #elif      defined(FLIP_THUMBS)
-#  define CRL_LFT       KC_LALT
-#  define THU_LFT       KC_LOWER_OR_SPC
+#  define CRL_LFT         KC_LALT
+#  define THU_LFT         KC_LOWER_OR_SPC
+#  define STR_LFT         KC_L9_OR_USCORE
 #else
-#  define CRL_LFT       KC_LOWER
-#  define THU_LFT       KC_LALT_OR_SPC
+#  define STR_LFT         KC_L9_OR_USCORE
+#  define THU_LFT         KC_LALT_OR_SPC
+#  define CRL_LFT         KC_LOWER
 #endif
 
-#define STR_LFT         KC_L9_OR_USCORE
 //==============================================================================
 #define STR_RGT         KC_L12_OR_TAB
 #define THU_RGT         KC_LGUI_OR_BSPC
