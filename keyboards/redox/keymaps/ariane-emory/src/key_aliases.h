@@ -5,13 +5,18 @@
 //==============================================================================
 
 //==============================================================================
-#ifdef    HOME_SHIFT_LEFT
-#    define QH_A    LSFT_T(KC_A)
-#    define CH_A    LSFT_T(KC_A)
-#else  // HOME_SHIFT_LEFT
-#    define QH_A    KC_A
-#    define CH_A    KC_A
-#endif // HOME_SHIFT_LEFT
+#if        defined(HOME_SHIFT_LEFT) && defined(HOME_ARROWS_LEFT)
+#    error "HOME_SHIFT_LEFT and HOME_ARROWS_LEFT are mutually exclusive."
+#elif      defined(HOME_SHIFT_LEFT)
+#    define QH_A RSFT_T(KC_A)
+#    define CH_A RSFT_T(KC_A)
+#elif      defined(HOME_ARROWS_LEFT)
+#    define QH_A LT(13,KC_A)
+#    define CH_A LT(13,KC_A)
+#else  
+#    define QH_A KC_A
+#    define CH_A KC_A
+#endif  // defined(HOME_SHIFT_LEFT) && defined(HOME_ARROWS_LEFT)
 //==============================================================================
 
 //==============================================================================
