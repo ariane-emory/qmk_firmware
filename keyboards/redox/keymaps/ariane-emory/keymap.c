@@ -484,12 +484,9 @@ static const uint16_t hold_on_other_keypress_keys[] PROGMEM = {
 };
 
 KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
-  switch (keycode) {
-  case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-    return (array_contains_keycode_P(keycode, hold_on_other_keypress_keys, ARRAY_SIZE(hold_on_other_keypress_keys)));
-  default:
-    return false;
-  }
+  return ((keycode >= QK_MOD_TAP) &&
+          (keycode <= QK_MOD_TAP_MAX) &&
+          array_contains_keycode_P(keycode, hold_on_other_keypress_keys, ARRAY_SIZE(hold_on_other_keypress_keys)));
 }
 
 static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
