@@ -166,7 +166,11 @@
 #define EM_CTL_X    LCTL(KC_X)
 #define EM_CTL_C    LCTL(KC_C)
 #define RCTL_DQUO   LT(13,KC_DUMMY)
+#ifdef FAR_LEFT_ARROWS
 #define LCTL_ESC    LT(13,KC_ESC)
+#else)
+#define LCTL_ESC    RCTL_T(KC_ESC)
+#endif
 //==============================================================================
 
 //==============================================================================
