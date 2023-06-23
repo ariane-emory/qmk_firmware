@@ -864,9 +864,9 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
+      "KC_NO",
       "ANY(SS_PIN1)",
-      "KC_NO",
-      "KC_NO",
+      "ANY(SS_PIN2)",
       "ANY(QK_REBOOT)",
       "QK_BOOT"
     ],
