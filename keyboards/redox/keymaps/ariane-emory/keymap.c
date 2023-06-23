@@ -477,8 +477,8 @@ bool achordion_eager_mod(uint8_t mod) {
 // ==============================================================================
 
 static const uint16_t hold_on_other_keypress_keys[] PROGMEM = {
-  LCTL_T(KC_ESC),
-  RCTL_T(KC_DQUO),
+  LCTL_ESC,
+  RCTL_DQUO,
   LSFT_T(KC_MINS),
   RSFT_T(KC_MINS),
 };
