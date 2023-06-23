@@ -45,7 +45,6 @@
 #define ONESHOT_TIMEOUT                      1000
 #define PERMISSIVE_HOLD_PER_KEY
 
-#define RGBLED_NUM                           7
 #define RGBLIGHT_HUE_STEP                    8
 #define RGBLIGHT_SAT_STEP                    8
 #define RGBLIGHT_VAL_STEP                    8
@@ -70,3 +69,10 @@
 
 // #define FLIP_THUMBS
 #define SPREAD_THUMBS
+#define RGB_ONE_HAND
+
+#ifdef RGB_ONE_HAND
+#  define RGBLED_NUM                         7
+#else
+#  define RGBLED_NUM                         14
+#endif
