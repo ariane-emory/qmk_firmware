@@ -191,7 +191,7 @@
 #  define CRL_LFT       KC_LOWER
 #  define THU_LFT       KC_LALT_OR_SPC
 #endif
-#define STR_LFT       KC_L9_OR_USCORE
+#define STR_LFT         KC_L9_OR_USCORE
 //==============================================================================
 #define STR_RGT         KC_L12_OR_TAB
 #define THU_RGT         KC_LGUI_OR_BSPC
