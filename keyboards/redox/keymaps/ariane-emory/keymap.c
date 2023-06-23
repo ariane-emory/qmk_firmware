@@ -490,7 +490,7 @@ KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
 }
 
 static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
-  MT(MOD_LALT,KC_SPC),
+  KC_LALT_OR_SPC,
 #ifdef HOME_ROW_MODS
   QH_A, QH_S, QH_D, QH_F,
   QH_J, QH_K, QH_L, QH_QUOT,
