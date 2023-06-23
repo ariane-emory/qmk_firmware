@@ -551,7 +551,7 @@
       "KC_MS_R",
       "ANY(HOLD_GUI)",
       "LT(13,KC_ESC)",
-      "ANY(QK_CAPS_WORD_TOGGLE)",
+      "KC_TRNS",
       "LSA(KC_LCBR)",
       "LSA(KC_RCBR)",
       "LALT(KC_LEFT)",
