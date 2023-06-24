@@ -77,3 +77,7 @@
 #else
 #  define RGBLED_NUM                         14
 #endif
+
+#ifndef DIM_RGBS
+#  define DIM_RGBs                           0
+#endif
