@@ -210,10 +210,10 @@
 #  define THU_MS         KC_TRNS
 #  define CRL_MS         KC_L12_OR_BTN2
 //------------------------------------------------------------------------------
-#  define BU             KC_VOLU
-#  define BD             KC_VOLD
-#  define VU             KC_F20
-#  define VD             KC_F19
+#  define BRTU             KC_VOLU
+#  define BRTD             KC_VOLD
+#  define VOLU             KC_F20
+#  define VOLD             KC_F19
 //==============================================================================
 #elif      defined(FLIP_THUMBS)
 //==============================================================================
@@ -229,10 +229,10 @@
 #  define THU_MS         KC_BTN1
 #  define CRL_MS         KC_TRNS
 //------------------------------------------------------------------------------
-#  define BU             KC_F20
-#  define BD             KC_F19
-#  define VU             KC_VOLU
-#  define VD             KC_VOLD
+#  define BRTU             KC_F20
+#  define BRTD             KC_F19
+#  define VOLU             KC_VOLU
+#  define VOLD             KC_VOLD
 //==============================================================================
 #else
 //==============================================================================
@@ -248,10 +248,10 @@
 #  define THU_MS         KC_BTN1
 #  define CRL_MS         KC_TRNS
 //------------------------------------------------------------------------------
-#  define BU             KC_F20
-#  define BD             KC_F19
-#  define VU             KC_VOLU
-#  define VD             KC_VOLD
+#  define BRTU             KC_F20
+#  define BRTD             KC_F19
+#  define VOLU             KC_VOLU
+#  define VOLD             KC_VOLD
 //==============================================================================
 #endif
 //==============================================================================
