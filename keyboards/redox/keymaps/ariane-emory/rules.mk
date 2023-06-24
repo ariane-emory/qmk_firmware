@@ -17,7 +17,7 @@ SEND_STRING_ENABLE 	 	 = yes
 TRI_LAYER_ENABLE   	 	 = yes
 DEFERRED_EXEC_ENABLE 	 = yes
 DYNAMIC_MACRO_ENABLE   = yes
-DYNAMIC_TAPPING_TERM_ENABLE = yes
+DYNAMIC_TAPPING_TERM_ENABLE = no
 
 SRC                   += src/achordion.c
 SRC                   += src/cRGB_functions.c
