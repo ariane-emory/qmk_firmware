@@ -108,8 +108,9 @@ static uint16_t idle_timer = 0;
   DO(SS_LBRACK,    ("9"),                                   ("["),                                                   ("{"))     \
   DO(SS_RBRACK,    ("0"),                                   ("]"),                                                   ("}"))     \
   DO(SS_BRACKS,    ("90" LL),                               ("[" CR CR "]" UU TB),                                   ("{}" LL)) \
-  DO(SS_SMILEY,    (":0"),                                  (";0"),                                                  (":P"))  
-
+  DO(SS_SMILEY,    (":0"),                                  (";0"),                                                  (":/"))    \
+  DO(SS_SMILEY2,   (":P"),                                  (":("),                                                  (":D"))
+  
 #define enum_item(kc, str, ...)                                                     kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                             static const char tag##_str_##kc[] PROGMEM = str;
 #define define_nomods_progmem_string(kc, nomods_str, ...)                           define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
