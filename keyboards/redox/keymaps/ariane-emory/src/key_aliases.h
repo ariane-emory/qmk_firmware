@@ -175,22 +175,22 @@
 
 //==============================================================================
 #ifdef TRI_LAYER_ENABLE
-#  define KC_LOWER      QK_TRI_LAYER_LOWER
-#  define KC_UPPER      QK_TRI_LAYER_UPPER
+#  define KC_LOWER       QK_TRI_LAYER_LOWER
+#  define KC_UPPER       QK_TRI_LAYER_UPPER
 #else // TRI_LAYER_ENABLE
-#  define KC_LOWER      MO(TRI_LAYER_LOWER_LAYER)
-#  define KC_UPPER      MO(TRI_LAYER_UPPER_LAYER)
+#  define KC_LOWER       MO(TRI_LAYER_LOWER_LAYER)
+#  define KC_UPPER       MO(TRI_LAYER_UPPER_LAYER)
 #endif // TRI_LAYER_ENABLE
 //==============================================================================
 
-#define KC_LT11_OR_BSLS LT(11,KC_BSLS)
+#define KC_LT11_OR_BSLS  LT(11,KC_BSLS)
 //==============================================================================
-#define KC_L9_OR_USCORE LT(9,KC_MINS)
-#define KC_LALT_OR_SPC  MT(MOD_LALT,KC_SPC)
-#define KC_LGUI_OR_BSPC MT(MOD_RGUI,KC_BSPC)
-#define KC_L12_OR_TAB   LT(12,KC_TAB)
-#define KC_L12_OR_BTN2  LT(12,KC_BTN2)
-#define KC_LOWER_OR_SPC LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
+#define KC_L9_OR_USCORE  LT(9,KC_MINS)
+#define KC_LALT_OR_SPC   MT(MOD_LALT,KC_SPC)
+#define KC_LGUI_OR_BSPC  MT(MOD_RGUI,KC_BSPC)
+#define KC_L12_OR_USCORE LT(12,KC_MINS)
+#define KC_L12_OR_BTN2   LT(12,KC_BTN2)
+#define KC_LOWER_OR_SPC  LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
 //==============================================================================
 
 //==============================================================================
@@ -198,60 +198,60 @@
 #    error "FLIP_THUMBS and SPREAD_THUMBS are mutually exclusive."
 #elif      defined(SPREAD_THUMBS)
 //==============================================================================
-#  define STR_LFT         KC_LALT_OR_SPC
-#  define THU_LFT         KC_LOWER
-#  define CRL_LFT         KC_L9_OR_USCORE
+#  define STR_LFT        KC_LALT_OR_SPC
+#  define THU_LFT        KC_LOWER
+#  define CRL_LFT        KC_L9_OR_USCORE
 //------------------------------------------------------------------------------
-#  define STR_RGT         KC_LGUI_OR_BSPC
-#  define THU_RGT         KC_UPPER
-#  define CRL_RGT         KC_L12_OR_TAB
+#  define STR_RGT        KC_LGUI_OR_BSPC
+#  define THU_RGT        KC_UPPER
+#  define CRL_RGT        KC_L12_OR_USCORE
 //------------------------------------------------------------------------------
-#  define STR_MS          KC_BTN1
-#  define THU_MS          KC_TRNS
-#  define CRL_MS          KC_L12_OR_BTN2
+#  define STR_MS         KC_BTN1
+#  define THU_MS         KC_TRNS
+#  define CRL_MS         KC_L12_OR_BTN2
 //------------------------------------------------------------------------------
-#  define BU              KC_VOLU
-#  define BD              KC_VOLD
-#  define VU              KC_F20
-#  define VD              KC_F19
+#  define BU             KC_VOLU
+#  define BD             KC_VOLD
+#  define VU             KC_F20
+#  define VD             KC_F19
 //==============================================================================
 #elif      defined(FLIP_THUMBS)
 //==============================================================================
-#  define CRL_LFT         KC_LALT
-#  define THU_LFT         KC_LOWER_OR_SPC
-#  define STR_LFT         KC_L9_OR_USCORE
+#  define CRL_LFT        KC_LALT
+#  define THU_LFT        KC_LOWER_OR_SPC
+#  define STR_LFT        KC_L9_OR_USCORE
 //------------------------------------------------------------------------------
-#  define STR_RGT         KC_L12_OR_TAB
-#  define THU_RGT         KC_LGUI_OR_BSPC
-#  define CRL_RGT         KC_UPPER
+#  define STR_RGT        KC_L12_OR_USCORE
+#  define THU_RGT        KC_LGUI_OR_BSPC
+#  define CRL_RGT        KC_UPPER
 //------------------------------------------------------------------------------
-#  define STR_MS          KC_L12_OR_BTN2
-#  define THU_MS          KC_BTN1
-#  define CRL_MS          KC_TRNS
+#  define STR_MS         KC_L12_OR_BTN2
+#  define THU_MS         KC_BTN1
+#  define CRL_MS         KC_TRNS
 //------------------------------------------------------------------------------
-#  define BU              KC_F20
-#  define BD              KC_F19
-#  define VU              KC_VOLU
-#  define VD              KC_VOLD
+#  define BU             KC_F20
+#  define BD             KC_F19
+#  define VU             KC_VOLU
+#  define VD             KC_VOLD
 //==============================================================================
 #else
 //==============================================================================
-#  define STR_LFT         KC_L9_OR_USCORE
-#  define THU_LFT         KC_LALT_OR_SPC
-#  define CRL_LFT         KC_LOWER
+#  define STR_LFT        KC_L9_OR_USCORE
+#  define THU_LFT        KC_LALT_OR_SPC
+#  define CRL_LFT        KC_LOWER
 //------------------------------------------------------------------------------
-#  define STR_RGT         KC_L12_OR_TAB
-#  define THU_RGT         KC_LGUI_OR_BSPC
-#  define CRL_RGT         KC_UPPER
+#  define STR_RGT        KC_L12_OR_USCORE
+#  define THU_RGT        KC_LGUI_OR_BSPC
+#  define CRL_RGT        KC_UPPER
 //------------------------------------------------------------------------------
-#  define STR_MS          KC_L12_OR_BTN2
-#  define THU_MS          KC_BTN1
-#  define CRL_MS          KC_TRNS
+#  define STR_MS         KC_L12_OR_BTN2
+#  define THU_MS         KC_BTN1
+#  define CRL_MS         KC_TRNS
 //------------------------------------------------------------------------------
-#  define BU              KC_F20
-#  define BD              KC_F19
-#  define VU              KC_VOLU
-#  define VD              KC_VOLD
+#  define BU             KC_F20
+#  define BD             KC_F19
+#  define VU             KC_VOLU
+#  define VD             KC_VOLD
 //==============================================================================
 #endif
 //==============================================================================
