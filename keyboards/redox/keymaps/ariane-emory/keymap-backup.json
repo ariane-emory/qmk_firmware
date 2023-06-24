@@ -650,8 +650,8 @@
       "KC_TRNS",
       "KC_TRNS",
       "RALT(KC_LEFT)",
-      "RCTL(KC_A)",
-      "RCTL(KC_E)",
+      "RALT(KC_DOWN)",
+      "RALT(KC_UP)",
       "RALT(KC_RGHT)"
     ],
     [
