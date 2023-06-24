@@ -69,7 +69,7 @@
 
 // #define FLIP_THUMBS
 #define SPREAD_THUMBS
-#define SPREAD_THUMBS_WIDE
+// #define SPREAD_THUMBS_WIDE
 #define RGB_ONE_HAND
 #define DIM_RGBS                             1
 
