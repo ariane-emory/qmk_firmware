@@ -197,24 +197,45 @@
 #if        defined(FLIP_THUMBS) && defined(SPREAD_THUMBS)
 #    error "FLIP_THUMBS and SPREAD_THUMBS are mutually exclusive."
 #elif      defined(SPREAD_THUMBS)
+#  ifdef SPREAD_THUMBS_WIDE
 //==============================================================================
-#  define STR_LFT        KC_LALT_OR_SPC
-#  define THU_LFT        KC_LOWER
-#  define CRL_LFT        KC_L9_OR_USCORE
+#    define STR_LFT        KC_LOWER
+#    define THU_LFT        KC_LALT_OR_SPC
+#    define CRL_LFT        KC_L9_OR_USCORE
 //------------------------------------------------------------------------------
-#  define STR_RGT        KC_LGUI_OR_BSPC
-#  define THU_RGT        KC_UPPER
-#  define CRL_RGT        KC_L12_OR_USCORE
+#    define STR_RGT        KC_UPPER
+#    define THU_RGT        KC_LGUI_OR_BSPC
+#    define CRL_RGT        KC_L12_OR_USCORE
 //------------------------------------------------------------------------------
-#  define STR_MS         KC_BTN1
-#  define THU_MS         KC_TRNS
-#  define CRL_MS         KC_L12_OR_BTN2
+#    define STR_MS         KC_TRNS
+#    define THU_MS         KC_BTN1
+#    define CRL_MS         KC_L12_OR_BTN2
 //------------------------------------------------------------------------------
-#  define BRTU             KC_VOLU
-#  define BRTD             KC_VOLD
-#  define VOLU             KC_F20
-#  define VOLD             KC_F19
+#    define BRTU             KC_VOLU
+#    define BRTD             KC_VOLD
+#    define VOLU             KC_F20
+#    define VOLD             KC_F19
 //==============================================================================
+#  else
+//==============================================================================
+#    define STR_LFT        KC_LALT_OR_SPC
+#    define THU_LFT        KC_LOWER
+#    define CRL_LFT        KC_L9_OR_USCORE
+//------------------------------------------------------------------------------
+#    define STR_RGT        KC_LGUI_OR_BSPC
+#    define THU_RGT        KC_UPPER
+#    define CRL_RGT        KC_L12_OR_USCORE
+//------------------------------------------------------------------------------
+#    define STR_MS         KC_BTN1
+#    define THU_MS         KC_TRNS
+#    define CRL_MS         KC_L12_OR_BTN2
+//------------------------------------------------------------------------------
+#    define BRTU             KC_VOLU
+#    define BRTD             KC_VOLD
+#    define VOLU             KC_F20
+#    define VOLD             KC_F19
+//==============================================================================
+#  endif
 #elif      defined(FLIP_THUMBS)
 //==============================================================================
 #  define CRL_LFT        KC_LALT
