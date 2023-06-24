@@ -984,7 +984,7 @@
       "LALT(KC_N)",
       "KC_ESC",
       "KC_LSFT",
-      "KC_END",
+      "KC_NO",
       "KC_NO",
       "RCTL(KC_A)",
       "RCTL(KC_E)",
