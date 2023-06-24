@@ -347,6 +347,8 @@ void matrix_scan_user(void) {
   if (!cRGB_fader_set_target_if_recording_macro(&cRGB_fader))
     cRGB_fader_set_target_by_layer(&cRGB_fader);
   cRGB_fader_step(&cRGB_fader);
+  cRGB tmp;
+  cRGB_copy(&cRGB_fader.current, &tmp);
   rgblight_setrgb(cRGB_fader.current.r, cRGB_fader.current.g, cRGB_fader.current.b);
 #endif // defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
 }
