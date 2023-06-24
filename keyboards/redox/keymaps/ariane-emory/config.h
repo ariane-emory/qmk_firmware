@@ -72,7 +72,7 @@
 #define RGB_ONE_HAND
 
 #ifdef RGB_ONE_HAND
-#  define RGBLED_NUM                         8
+#  define RGBLED_NUM                         8 // one LED on right half.
 #else
 #  define RGBLED_NUM                         14
 #endif
