@@ -187,13 +187,6 @@ KEYRECORD_C_FUN(process_tap_case, bool) {
   return true;
 }
 
-typedef bool(*keycode_handler_fun_t)(const uint16_t keycode, const keyrecord_t * const record);
-
-typedef struct {
-  uint16_t keycode;
-  keycode_handler_fun_t handler;
-} keycode_handler_t;
-
 KEYRECORD_C_FUN(dynamic_macros_handler, bool) {
   if (record->event.pressed)
     dynamic_macro_stop_recording();
@@ -243,7 +236,10 @@ KEYRECORD_C_FUN(disable_mouse_layer_handler, bool) {
   return true;
 };
 
-static const keycode_handler_t keycode_handlers[] PROGMEM = {
+typedef bool(*keycode_handler_fun_t)(const uint16_t keycode, const keyrecord_t * const record);
+
+static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode_handlers[] PROGMEM = {
+// static const keycode_handler_t keycode_handlers[] PROGMEM = {
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler },
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler },
   { VS_CLOSE, vs_close_handler },
