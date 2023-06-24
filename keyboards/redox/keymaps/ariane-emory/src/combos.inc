@@ -56,9 +56,9 @@
   DO(r_top_outr,    SS_RBRACK,     QT_I,    QT_O                               ) \
   DO(r_top_curl,    KC_END,        QT_Y,    QT_U                               ) \
   DO(r_top_sprd,    SS_BRACKS,     QT_U,    QT_O                               ) \
-  DO(r_top_trpi,    SS_SMILEY,     QT_Y,    QT_U,      QT_I                    ) \
+  DO(r_top_trpi,    SS_SMILEY2,    QT_Y,    QT_U,      QT_I                    ) \
   DO(r_top_trpm,    EM_REVERT,     QT_U,    QT_I,      QT_O                    ) \
-  DO(r_top_trpo,    SS_SMILEY2,    QT_I,    QT_O,      QT_P                    ) \
+  DO(r_top_trpo,    SS_SMILEY,     QT_I,    QT_O,      QT_P                    ) \
   ______________________________________________________________________________ \
   DO(r_mid_EXTR,    EM_LWRAP,      QH_QUOT, RCTL_DQUO                          ) \
   DO(r_mid_rech,    LSFT(KC_SCLN), QH_L,    QH_QUOT                            ) \
