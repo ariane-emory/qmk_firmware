@@ -169,8 +169,8 @@ KEYRECORD_C_FUN(process_shiftable_or_ctrlable_send_string, bool) {
 static const keycode_pair_t tap_cases[] PROGMEM = {
   { RSFT_T(VD_ALL),   VD_ALL        },
   { RSFT_T(VD_RIGHT), VD_RIGHT      },
-  { LT(9,KC_MINS),    LSFT(KC_MINS) },
-  { LT(12,KC_MINS),   LSFT(KC_MINS) },
+  { KC_L9_OR_USCORE,  LSFT(KC_MINS) },
+  { KC_L12_OR_USCORE, LSFT(KC_MINS) },
   { RCTL_DQUO,        KC_DQUO       },
 };
 
