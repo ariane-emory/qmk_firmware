@@ -350,7 +350,7 @@ void matrix_scan_user(void) {
 #  ifdef DIM_RGBS
   cRGB tmp;
   cRGB_copy(&tmp, &cRGB_fader.current);
-  cRGB_dim_by_half(&tmp);
+  cRGB_dim_to_half(&tmp);
   rgblight_setrgb(tmp.r, tmp.g, tmp.b);
 #  else
   rgblight_setrgb(cRGB_fader.current.r, cRGB_fader.current.g, cRGB_fader.current.b);

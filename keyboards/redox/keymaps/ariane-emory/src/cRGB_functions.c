@@ -55,8 +55,14 @@ void cRGB_sprintf(const cRGB * const this, char * const str) {
 
 #undef COLORS
 
-void cRGB_dim_by_half  (cRGB * const this) {
-  this->r = this->r * 3 >> 2;
-  this->g = this->g * 3 >> 2;
-  this->b = this->b * 3 >> 2;
+void cRGB_dim_to_1_quarter(cRGB * const this) {
+  this->r = this->r >> 2;
+  this->g = this->g >> 2;
+  this->b = this->b >> 2;
+}
+
+void cRGB_dim_to_half(cRGB * const this) {
+  this->r = this->r >> 1;
+  this->g = this->g >> 1;
+  this->b = this->b >> 1;
 }
