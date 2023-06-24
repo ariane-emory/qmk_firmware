@@ -1,5 +1,9 @@
 // -*- c-backslash-column: 128; c-backslash-max-column: 128 -*-
 
+#ifndef DIM_RGBS
+#  define DIM_RGBs                           0
+#endif
+
 #include QMK_KEYBOARD_H
 
 #include <stdbool.h>

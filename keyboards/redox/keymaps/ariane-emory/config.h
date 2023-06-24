@@ -33,12 +33,12 @@
 #define MOUSEKEY_WHEEL_TIME_TO_MAX           52
 
 #define MY_RGB_LAYERS
-#define MY_RGB_ADJUST_LAYER_ON               RGB_PURPLE
 #define MY_RGB_DEFAULT                       RGB_MAGENTA
 #define MY_RGB_LOWER_LAYER_ON                RGB_CYAN
+#define MY_RGB_UPPER_LAYER_ON                RGB_BLUE
+#define MY_RGB_ADJUST_LAYER_ON               RGB_ORANGE
 #define MY_RGB_RECORDING_MACRO               RGB_YELLOW
 #define MY_RGB_TOGGLED_LAYER_ON              RGB_CHARTREUSE
-#define MY_RGB_UPPER_LAYER_ON                RGB_BLUE
 
 #define NO_ACTION_ONESHOT
 
@@ -78,6 +78,3 @@
 #  define RGBLED_NUM                         14
 #endif
 
-#ifndef DIM_RGBS
-#  define DIM_RGBs                           0
-#endif
