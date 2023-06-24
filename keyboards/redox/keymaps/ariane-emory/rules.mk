@@ -17,6 +17,7 @@ SEND_STRING_ENABLE 	 	 = yes
 TRI_LAYER_ENABLE   	 	 = yes
 DEFERRED_EXEC_ENABLE 	 = yes
 DYNAMIC_MACRO_ENABLE   = yes
+DYNAMIC_TAPPING_TERM_ENABLE = yes
 
 SRC                   += src/achordion.c
 SRC                   += src/cRGB_functions.c
@@ -25,6 +26,12 @@ SRC                   += src/util.c
 SRC                   += src/tap_number.c
 
 CFLAGS                += -funroll-loops
+
+TOP_SYMBOLS            = 15
+
+# EEPROM_DRIVER          = transient
+
+
 
 TOP_SYMBOLS            = 15
 
