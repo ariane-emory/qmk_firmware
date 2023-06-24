@@ -191,6 +191,7 @@
 #define KC_L12_OR_USCORE LT(12,KC_MINS)
 #define KC_L12_OR_BTN2   LT(12,KC_BTN2)
 #define KC_LOWER_OR_SPC  LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
+#define KC_UPPER_OR_BSPC LT(TRI_LAYER_UPPER_LAYER,KC_BSPC)
 //==============================================================================
 
 //==============================================================================
@@ -199,28 +200,28 @@
 #elif      defined(SPREAD_THUMBS)
 #  ifdef SPREAD_THUMBS_WIDE
 //==============================================================================
-#    define STR_LFT        KC_LOWER
-#    define THU_LFT        KC_LALT_OR_SPC
 #    define CRL_LFT        KC_L9_OR_USCORE
+#    define THU_LFT        KC_LALT
+#    define STR_LFT        KC_LOWER_OR_SPC
 //------------------------------------------------------------------------------
-#    define STR_RGT        KC_UPPER
-#    define THU_RGT        KC_LGUI_OR_BSPC
+#    define STR_RGT        KC_UPPER_OR_BSPC
+#    define THU_RGT        KC_LGUI
 #    define CRL_RGT        KC_L12_OR_USCORE
 //------------------------------------------------------------------------------
 #    define STR_MS         KC_TRNS
 #    define THU_MS         KC_BTN1
 #    define CRL_MS         KC_L12_OR_BTN2
 //------------------------------------------------------------------------------
-#    define BRTU             KC_VOLU
-#    define BRTD             KC_VOLD
-#    define VOLU             KC_F20
-#    define VOLD             KC_F19
+#    define BRTU           KC_VOLU
+#    define BRTD           KC_VOLD
+#    define VOLU           KC_F20
+#    define VOLD           KC_F19
 //==============================================================================
 #  else
 //==============================================================================
-#    define STR_LFT        KC_LALT_OR_SPC
-#    define THU_LFT        KC_LOWER
 #    define CRL_LFT        KC_L9_OR_USCORE
+#    define THU_LFT        KC_LOWER
+#    define STR_LFT        KC_LALT_OR_SPC
 //------------------------------------------------------------------------------
 #    define STR_RGT        KC_LGUI_OR_BSPC
 #    define THU_RGT        KC_UPPER
@@ -230,10 +231,10 @@
 #    define THU_MS         KC_TRNS
 #    define CRL_MS         KC_L12_OR_BTN2
 //------------------------------------------------------------------------------
-#    define BRTU             KC_VOLU
-#    define BRTD             KC_VOLD
-#    define VOLU             KC_F20
-#    define VOLD             KC_F19
+#    define BRTU           KC_VOLU
+#    define BRTD           KC_VOLD
+#    define VOLU           KC_F20
+#    define VOLD           KC_F19
 //==============================================================================
 #  endif
 #elif      defined(FLIP_THUMBS)
@@ -250,16 +251,16 @@
 #  define THU_MS         KC_BTN1
 #  define CRL_MS         KC_TRNS
 //------------------------------------------------------------------------------
-#  define BRTU             KC_F20
-#  define BRTD             KC_F19
-#  define VOLU             KC_VOLU
-#  define VOLD             KC_VOLD
+#  define BRTU           KC_F20
+#  define BRTD           KC_F19
+#  define VOLU           KC_VOLU
+#  define VOLD           KC_VOLD
 //==============================================================================
 #else
 //==============================================================================
-#  define STR_LFT        KC_L9_OR_USCORE
-#  define THU_LFT        KC_LALT_OR_SPC
 #  define CRL_LFT        KC_LOWER
+#  define THU_LFT        KC_LALT_OR_SPC
+#  define STR_LFT        KC_L9_OR_USCORE
 //------------------------------------------------------------------------------
 #  define STR_RGT        KC_L12_OR_USCORE
 #  define THU_RGT        KC_LGUI_OR_BSPC
