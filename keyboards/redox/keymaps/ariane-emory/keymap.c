@@ -347,7 +347,11 @@ void matrix_scan_user(void) {
   if (!cRGB_fader_set_target_if_recording_macro(&cRGB_fader))
     cRGB_fader_set_target_by_layer(&cRGB_fader);
   cRGB_fader_step(&cRGB_fader);
+#  ifdef DIM_RGBS
+  rgblight_setrgb(cRGB_fader.current.r >> DIM_RGBS, cRGB_fader.current.g >> DIM_RGBS, cRGB_fader.current.b >> DIM_RGBS);
+#  else
   rgblight_setrgb(cRGB_fader.current.r, cRGB_fader.current.g, cRGB_fader.current.b);
+#  endif
 #endif // defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
 }
 
