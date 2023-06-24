@@ -190,7 +190,7 @@
       "KC_E",
       "KC_O",
       "KC_Y",
-      "RCTL_T(KC_QUOT)",
+      "ANY(RCTL_DQUO)",
       "KC_TRNS",
       "KC_Z",
       "KC_X",
