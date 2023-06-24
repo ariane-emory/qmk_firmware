@@ -23,8 +23,8 @@
   __(l_num_trpo,    ____________,  KC_1,    KC_2,      KC_3                    ) \
   ______________________________________________________________________________ \
   DO(l_top_rech,    KC_HOME,       QT_Q,    QT_W                               ) \
-  DO(l_top_innr,    LSFT(KC_GRV),  QT_E,    QT_R                               ) \
-  __(l_top_outr,    ____________,  QT_W,    QT_E                               ) \
+  __(l_top_innr,    ____________,  QT_E,    QT_R                               ) \
+  DO(l_top_outr,    LSFT(KC_GRV),  QT_W,    QT_E                               ) \
   DO(l_top_curl,    KC_END,        QT_T,    QT_R                               ) \
   __(l_top_sprd,    ____________,  QT_W,    QT_R                               ) \
   __(l_top_trpi,    ____________,  QT_E,    QT_R,      QT_T                    ) \
