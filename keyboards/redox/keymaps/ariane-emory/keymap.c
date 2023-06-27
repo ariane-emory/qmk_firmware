@@ -391,6 +391,8 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
 #  ifdef BOTTOM_SHIFT
   { QB_Z,    LSFT_T(KC_MINS) }, // underscore
   { QB_SLSH, RSFT_T(KC_MINS) }, // underscore
+  { QB_Z,    KC_EQL          }, // equals/plus
+  { QB_SLSH, KC_EQL          }, // equals/plus
 #  endif // BOTTOM_SHIFT
 #  ifdef HOME_ROW_MODS
   // Left GUI
