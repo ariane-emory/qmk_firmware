@@ -210,7 +210,7 @@
 //------------------------------------------------------------------------------
 #    define STR_MS         KC_TRNS
 #    define THU_MS         KC_BTN1
-#    define CRL_MS         KC_L12_OR_BTN2
+#    define CRL_MS         KC_BTN2 // KC_L12_OR_BTN2
 //------------------------------------------------------------------------------
 #    define BRTU           KC_VOLU
 #    define BRTD           KC_VOLD
@@ -229,7 +229,7 @@
 //------------------------------------------------------------------------------
 #    define STR_MS         KC_BTN1
 #    define THU_MS         KC_TRNS
-#    define CRL_MS         KC_L12_OR_BTN2
+#    define CRL_MS         KC_BTN2 // KC_L12_OR_BTN2
 //------------------------------------------------------------------------------
 #    define BRTU           KC_VOLU
 #    define BRTD           KC_VOLD
