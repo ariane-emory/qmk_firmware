@@ -311,7 +311,7 @@ void cRGB_fader_set_target_by_layer(cRGB_fader_t * const this) {
     {TOGGLED_LAYER,          MY_RGB_TOGGLED_LAYER_ON },
   };
 
-  const layer_to_rgb_t *row = &layer_to_rgbs[0];
+  const layer_to_rgb_t * row = &layer_to_rgbs[0];
   
   for (size_t ix = 1; ix < ARRAY_SIZE(layer_to_rgbs); ix++) {
     if (IS_LAYER_ON(layer_to_rgbs[ix].layer)) {
@@ -371,7 +371,7 @@ static const uint16_t achordion_bilat_keys[] PROGMEM = {
 /* #  ifdef BOTTOM_SHIFT */
 /*   QB_Z, QB_SLSH, */
 /* #  endif // BOTTOM_SHIFT */
-
+  
 #  ifdef HOME_ROW_MODS
   QH_S, QH_D, QH_F, QH_J, QH_K, QH_L,
 #  endif // HOME_ROW_MODS
