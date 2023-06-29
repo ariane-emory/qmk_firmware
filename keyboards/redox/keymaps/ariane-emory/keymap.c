@@ -330,7 +330,7 @@ void manage_toggled_layer_timeout(const uint8_t layer, const uint16_t idle_time_
   if (layer_state_is(layer) &&
       timer_elapsed(timer) >= idle_time_limit_ms)
     layer_off(layer);
-}                                                                             
+}
 #endif
 
 void matrix_scan_user(void) {
