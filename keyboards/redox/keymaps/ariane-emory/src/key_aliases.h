@@ -165,8 +165,8 @@
 #define EM_END_MAC  LALT(LGUI(KC_E))
 #define EM_CTL_X    LCTL(KC_X)
 #define EM_CTL_C    LCTL(KC_C)
-#define RCTL_DQUO   LT(13,KC_DUMMY) // KC_DQUO 
-#define LCTL_ESC    RCTL_T(KC_ESC)  // KC_ESC
+#define RCTL_DQUO   LT(13,KC_DUMMY) // RCTL_T(KC_DUMMY) // KC_DQUO 
+#define LCTL_ESC    LCTL_T(KC_ESC)  // KC_ESC
 //==============================================================================
 
 //==============================================================================
