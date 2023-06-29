@@ -19,7 +19,7 @@
       "ANY(NUM_9)",
       "ANY(NUM_0)",
       "TG(6)",
-      "LT(10,KC_TAB)",
+      "ANY(QT_TAB)",
       "ANY(QT_Q)",
       "ANY(QT_W)",
       "ANY(QT_E)",
