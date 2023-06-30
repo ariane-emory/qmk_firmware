@@ -23,7 +23,7 @@
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
 #define MOUSEKEY_DELAY                       0
-#define MOUSEKEY_INTERVAL                    25
+#define MOUSEKEY_INTERVAL                    24
 #define MOUSEKEY_MAX_SPEED                   10
 #define MOUSEKEY_MOVE_DELTA                  8
 #define MOUSEKEY_TIME_TO_MAX                 75
