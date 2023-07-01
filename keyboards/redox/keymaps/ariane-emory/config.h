@@ -74,8 +74,9 @@
 #define DIM_RGBS                             1
 
 #ifdef RGB_ONE_HAND
-#  define RGBLED_NUM                         11 // one LED on right half.
+#  define RGBLED_NUM                         10 // one LED on right half.
 #else
 #  define RGBLED_NUM                         14
 #endif
+
 
