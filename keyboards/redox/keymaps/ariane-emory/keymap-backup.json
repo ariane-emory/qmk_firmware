@@ -505,10 +505,10 @@
       "ANY(STR_MS)",
       "ANY(THU_MS)",
       "ANY(CRL_MS)",
-      "RALT(KC_LEFT)",
-      "RALT(KC_DOWN)",
-      "RALT(KC_UP)",
-      "RALT(KC_RGHT)"
+      "KC_LEFT",
+      "KC_DOWN",
+      "KC_UP",
+      "KC_RGHT"
     ],
     [
       "KC_HOME",
