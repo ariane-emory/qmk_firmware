@@ -505,10 +505,10 @@
       "ANY(STR_MS)",
       "ANY(THU_MS)",
       "ANY(CRL_MS)",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS"
+      "RALT(KC_LEFT)",
+      "RALT(KC_DOWN)",
+      "RALT(KC_UP)",
+      "RALT(KC_RGHT)"
     ],
     [
       "KC_HOME",
@@ -577,10 +577,10 @@
       "ANY(STR_MS)",
       "ANY(THU_MS)",
       "ANY(CRL_MS)",
-      "ANY(S(A(G(KC_A))))",
-      "ANY(S(A(G(KC_E))))",
-      "ANY(S(A(G(KC_R))))",
-      "ANY(S(A(G(KC_S))))"
+      "RALT(KC_LEFT)",
+      "RALT(KC_DOWN)",
+      "RALT(KC_UP)",
+      "RALT(KC_RGHT)"
     ],
     [
       "KC_HOME",
