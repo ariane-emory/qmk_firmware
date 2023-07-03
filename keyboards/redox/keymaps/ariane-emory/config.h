@@ -24,9 +24,9 @@
 
 #define MOUSEKEY_DELAY                       0
 #define MOUSEKEY_INTERVAL                    23
-#define MOUSEKEY_MAX_SPEED                   15
+#define MOUSEKEY_MAX_SPEED                   16
 #define MOUSEKEY_MOVE_DELTA                  8
-#define MOUSEKEY_TIME_TO_MAX                 110
+#define MOUSEKEY_TIME_TO_MAX                 120
 #define MOUSEKEY_WHEEL_DELAY                 0
 #define MOUSEKEY_WHEEL_INTERVAL              85
 #define MOUSEKEY_WHEEL_MAX_SPEED             13
