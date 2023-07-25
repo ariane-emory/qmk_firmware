@@ -70,8 +70,9 @@
 // #define FLIP_THUMBS
 #define SPREAD_THUMBS
 // #define SPREAD_THUMBS_WIDE
-#define RGB_ONE_HAND
 #define DIM_RGBS                             1
+
+// #define RGB_ONE_HAND
 
 #ifdef RGB_ONE_HAND
 #  define RGBLED_NUM                         10 // one LED on right half.
