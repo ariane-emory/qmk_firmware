@@ -267,10 +267,10 @@
 #  define THU_MS         KC_BTN1
 #  define CRL_MS         KC_TRNS
 //------------------------------------------------------------------------------
-#  define BRTU             KC_F20
-#  define BRTD             KC_F19
-#  define VOLU             KC_VOLU
-#  define VOLD             KC_VOLD
+#  define BRTU           KC_F20
+#  define BRTD           KC_F19
+#  define VOLU           KC_VOLU
+#  define VOLD           KC_VOLD
 //==============================================================================
 #endif
 //==============================================================================
