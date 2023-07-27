@@ -216,6 +216,7 @@
 //==============================================================================
 #define KC_LT11_OR_BSLS  LT(11,KC_BSLS)
 #define KC_L9_OR_USCORE  LT(9,KC_MINS)
+#define KC_L9_OR_TAB     LT(9,KC_TAB)
 #define KC_LALT_OR_SPC   MT(MOD_LALT,KC_SPC)
 #define KC_LGUI_OR_BSPC  MT(MOD_RGUI,KC_BSPC)
 #define KC_L12_OR_USCORE LT(12,KC_MINS)
@@ -227,30 +228,16 @@
 //==============================================================================
 // Thumb key assignments
 //==============================================================================
-#ifdef FLIP_THUMBS
-#  define CRL_LFT        KC_L9_OR_USCORE
-#  define THU_LFT        KC_LALT
-#  define STR_LFT        KC_LOWER_OR_SPC
+#define CRL_LFT        KC_L9_OR_TAB // KC_L9_OR_USCORE
+#define THU_LFT        KC_LOWER
+#define STR_LFT        KC_LALT_OR_SPC
 //------------------------------------------------------------------------------
-#  define STR_RGT        KC_UPPER_OR_BSPC
-#  define THU_RGT        KC_LGUI
-#  define CRL_RGT        KC_L12_OR_USCORE
+#define STR_RGT        KC_LGUI_OR_BSPC
+#define THU_RGT        KC_UPPER
+#define CRL_RGT        KC_L12_OR_USCORE
 //------------------------------------------------------------------------------
-#  define STR_MS         KC_BTN1
-#  define THU_MS         KC_TRNS
-#  define CRL_MS         KC_L12_OR_BTN2
-#else
-#  define CRL_LFT        KC_L9_OR_USCORE
-#  define THU_LFT        KC_LOWER
-#  define STR_LFT        KC_LALT_OR_SPC
-//------------------------------------------------------------------------------
-#  define STR_RGT        KC_LGUI_OR_BSPC
-#  define THU_RGT        KC_UPPER
-#  define CRL_RGT        KC_L12_OR_USCORE
-//------------------------------------------------------------------------------
-#  define STR_MS         KC_BTN1
-#  define THU_MS         KC_TRNS
-#  define CRL_MS         KC_L12_OR_BTN2
-#endif
+#define STR_MS         KC_BTN1
+#define THU_MS         KC_TRNS
+#define CRL_MS         KC_L12_OR_BTN2
 //==============================================================================
 
