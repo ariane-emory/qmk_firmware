@@ -68,11 +68,13 @@
 #define BOTTOM_SHIFT
 #define HOME_ROW_MODS
 
-#define FLIP_THUMBS
+// #define FLIP_THUMBS
 
 #define DIM_RGBS                             1
 
 // #define RGB_ONE_HAND
+
+//==============================================================================
 
 #ifndef DIM_RGBS
 #  define DIM_RGBs                           0
