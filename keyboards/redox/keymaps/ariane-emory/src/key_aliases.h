@@ -195,26 +195,6 @@
 #if        defined(FLIP_THUMBS) && defined(SPREAD_THUMBS)
 #    error "FLIP_THUMBS and SPREAD_THUMBS are mutually exclusive."
 #elif      defined(SPREAD_THUMBS)
-#  ifdef SPREAD_THUMBS_WIDE
-//==============================================================================
-#    define CRL_LFT        KC_L9_OR_USCORE
-#    define THU_LFT        KC_LALT
-#    define STR_LFT        KC_LOWER_OR_SPC
-//------------------------------------------------------------------------------
-#    define STR_RGT        KC_UPPER_OR_BSPC
-#    define THU_RGT        KC_LGUI
-#    define CRL_RGT        KC_L12_OR_USCORE
-//------------------------------------------------------------------------------
-#    define STR_MS         KC_TRNS
-#    define THU_MS         KC_BTN1
-#    define CRL_MS         KC_L12_OR_BTN2
-//------------------------------------------------------------------------------
-#    define BRTU           KC_VOLU
-#    define BRTD           KC_VOLD
-#    define VOLU           KC_F20
-#    define VOLD           KC_F19
-//==============================================================================
-#  else
 //==============================================================================
 #    define CRL_LFT        KC_L9_OR_USCORE
 #    define THU_LFT        KC_LOWER
@@ -233,7 +213,6 @@
 #    define VOLU           KC_F20
 #    define VOLD           KC_F19
 //==============================================================================
-#  endif
 #elif      defined(FLIP_THUMBS)
 //==============================================================================
 #  define CRL_LFT        KC_LALT
