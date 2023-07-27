@@ -1,10 +1,16 @@
 // -*- c-backslash-column: 128; c-backslash-max-column: 128 -*-
 
+#include QMK_KEYBOARD_H
+
 #ifndef DIM_RGBS
 #  define DIM_RGBs                           0
 #endif
 
-#include QMK_KEYBOARD_H
+#ifdef RGB_ONE_HAND
+#  define RGBLED_NUM                         10 // one LED on right half.
+#else
+#  define RGBLED_NUM                         14
+#endif
 
 #include <stdbool.h>
 

@@ -41,15 +41,12 @@
 #define MY_RGB_TOGGLED_LAYER_ON              RGB_CHARTREUSE
 
 #define NO_ACTION_ONESHOT
-
 #define ONESHOT_TIMEOUT                      1000
 #define PERMISSIVE_HOLD_PER_KEY
 
 #define RGBLIGHT_HUE_STEP                    8
 #define RGBLIGHT_SAT_STEP                    8
 #define RGBLIGHT_VAL_STEP                    8
-
-#define CRGB_FADER_NO_STRINGS
 
 #define TAPPING_TERM                         250
 
@@ -60,6 +57,10 @@
 #define TRI_LAYER_LOWER_LAYER                7
 #define TRI_LAYER_UPPER_LAYER                8
 
+//==============================================================================
+
+#define CRGB_FADER_NO_STRINGS
+
 // #define HOME_SHIFT_LEFT
 // #define HOME_SHIFT_RIGHT
 #define HOME_ARROWS_LEFT
@@ -67,18 +68,9 @@
 #define BOTTOM_SHIFT
 #define HOME_ROW_MODS
 
-// #define FLIP_THUMBS
-#define SPREAD_THUMBS
-// #define SPREAD_THUMBS_WIDE
+#define FLIP_THUMBS
+
 #define DIM_RGBS                             1
 
 // #define RGB_ONE_HAND
-
-#ifdef RGB_ONE_HAND
-#  define RGBLED_NUM                         10 // one LED on right half.
-#else
-#  define RGBLED_NUM                         14
-#endif
-
-
 

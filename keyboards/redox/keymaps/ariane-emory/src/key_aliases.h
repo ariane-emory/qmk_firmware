@@ -5,49 +5,57 @@
 //==============================================================================
 
 //==============================================================================
+// Home shift or home arrows (left)
+//==============================================================================
 #if        defined(HOME_SHIFT_LEFT) && defined(HOME_ARROWS_LEFT)
-#    error "HOME_SHIFT_LEFT and HOME_ARROWS_LEFT are mutually exclusive."
+#  error "HOME_SHIFT_LEFT and HOME_ARROWS_LEFT are mutually exclusive."
 #elif      defined(HOME_SHIFT_LEFT)
-#    define QH_A RSFT_T(KC_A)
-#    define CH_A RSFT_T(KC_A)
+#  define QH_A RSFT_T(KC_A)
+#  define CH_A RSFT_T(KC_A)
 #elif      defined(HOME_ARROWS_LEFT)
-#    define QH_A LT(13,KC_A)
-#    define CH_A LT(13,KC_A)
+#  define QH_A LT(13,KC_A)
+#  define CH_A LT(13,KC_A)
 #else  
-#    define QH_A KC_A
-#    define CH_A KC_A
+#  define QH_A KC_A
+#  define CH_A KC_A
 #endif  // defined(HOME_SHIFT_LEFT) && defined(HOME_ARROWS_LEFT)
 //==============================================================================
 
 //==============================================================================
+// Home shift or home arrows (right)
+//==============================================================================
 #if        defined(HOME_SHIFT_RIGHT) && defined(HOME_ARROWS_RIGHT)
-#    error "HOME_SHIFT_RIGHT and HOME_ARROWS_RIGHT are mutually exclusive."
+#  error "HOME_SHIFT_RIGHT and HOME_ARROWS_RIGHT are mutually exclusive."
 #elif      defined(HOME_SHIFT_RIGHT)
-#    define QH_QUOT RSFT_T(KC_QUOT)
-#    define CH_QUOT RSFT_T(KC_QUOT)
+#  define QH_QUOT RSFT_T(KC_QUOT)
+#  define CH_QUOT RSFT_T(KC_QUOT)
 #elif      defined(HOME_ARROWS_RIGHT)
-#    define QH_QUOT LT(13,KC_QUOT)
-#    define CH_QUOT LT(13,KC_QUOT)
+#  define QH_QUOT LT(13,KC_QUOT)
+#  define CH_QUOT LT(13,KC_QUOT)
 #else  
-#    define QH_QUOT KC_QUOT
-#    define CH_QUOT KC_QUOT
+#  define QH_QUOT KC_QUOT
+#  define CH_QUOT KC_QUOT
 #endif  // defined(HOME_SHIFT_RIGHT) && defined(HOME_ARROWS_RIGHT)
 //==============================================================================
 
 //==============================================================================
+// Bottom shift
+//==============================================================================
 #if defined(BOTTOM_SHIFT)
-#    define QB_Z    LSFT_T(KC_Z)
-#    define CB_Z    LSFT_T(KC_Z)
-#    define QB_SLSH RSFT_T(KC_SLSH)
-#    define CB_SLSH RSFT_T(KC_SLSH)
+#  define QB_Z    LSFT_T(KC_Z)
+#  define CB_Z    LSFT_T(KC_Z)
+#  define QB_SLSH RSFT_T(KC_SLSH)
+#  define CB_SLSH RSFT_T(KC_SLSH)
 #else  // BOTTOM_SHIFT
-#    define QB_Z    KC_Z
-#    define CB_Z    KC_Z
-#    define QB_SLSH KC_SLSH
-#    define CB_SLSH KC_SLSH
+#  define QB_Z    KC_Z
+#  define CB_Z    KC_Z
+#  define QB_SLSH KC_SLSH
+#  define CB_SLSH KC_SLSH
 #endif // BOTTOM_SHIFT
 //==============================================================================
 
+//==============================================================================
+// Top row
 //==============================================================================
 #define QT_TAB  LT(10,KC_TAB)
 #define QT_Q    KC_Q
@@ -63,48 +71,53 @@
 //==============================================================================
 
 //==============================================================================
+// Middle row
+//==============================================================================
 #ifdef    HOME_ROW_MODS
 //------------------------------------------------------------------------------
-#define QH_S    LGUI_T(KC_S)
-#define QH_D    LALT_T(KC_D)
-#define QH_F    LCTL_T(KC_F)
-#define QH_G    KC_G
-#define QH_H    KC_H
-#define QH_J    RCTL_T(KC_J)
-#define QH_K    RALT_T(KC_K)
-#define QH_L    RGUI_T(KC_L)
+#  define QH_S    LGUI_T(KC_S)
+#  define QH_D    LALT_T(KC_D)
+#  define QH_F    LCTL_T(KC_F)
+#  define QH_G    KC_G
+#  define QH_H    KC_H
+#  define QH_J    RCTL_T(KC_J)
+#  define QH_K    RALT_T(KC_K)
+#  define QH_L    RGUI_T(KC_L)
 //------------------------------------------------------------------------------
-#define CH_R    LGUI_T(KC_R)
-#define CH_S    LALT_T(KC_S)
-#define CH_T    LCTL_T(KC_T)
-#define CH_D    KC_D
-#define CH_H    KC_H
-#define CH_N    RCTL_T(KC_N)
-#define CH_E    RALT_T(KC_E)
-#define CH_I    RGUI_T(KC_I)
+#  define CH_R    LGUI_T(KC_R)
+#  define CH_S    LALT_T(KC_S)
+#  define CH_T    LCTL_T(KC_T)
+#  define CH_D    KC_D
+#  define CH_H    KC_H
+#  define CH_N    RCTL_T(KC_N)
+#  define CH_E    RALT_T(KC_E)
+#  define CH_I    RGUI_T(KC_I)
 //------------------------------------------------------------------------------
 #else // HOME_ROW_MODS
 //------------------------------------------------------------------------------
-#define QH_S    KC_S
-#define QH_D    KC_D
-#define QH_F    KC_F
-#define QH_G    KC_G
-#define QH_H    KC_H
-#define QH_J    KC_J
-#define QH_K    KC_K
-#define QH_L    KC_L
+#  define QH_S    KC_S
+#  define QH_D    KC_D
+#  define QH_F    KC_F
+#  define QH_G    KC_G
+#  define QH_H    KC_H
+#  define QH_J    KC_J
+#  define QH_K    KC_K
+#  define QH_L    KC_L
 //------------------------------------------------------------------------------
-#define CH_R    KC_R
-#define CH_S    KC_S
-#define CH_T    KC_T
-#define CH_D    KC_D
-#define CH_H    KC_H
-#define CH_N    KC_N
-#define CH_E    KC_E
-#define CH_I    KC_I
+#  define CH_R    KC_R
+#  define CH_S    KC_S
+#  define CH_T    KC_T
+#  define CH_D    KC_D
+#  define CH_H    KC_H
+#  define CH_N    KC_N
+#  define CH_E    KC_E
+#  define CH_I    KC_I
 //------------------------------------------------------------------------------
 #endif // HOME_ROW_MODS
+//==============================================================================
 
+//==============================================================================
+// Bottom row
 //==============================================================================
 #define QB_X    KC_X
 #define QB_C    KC_C
@@ -126,6 +139,8 @@
 //==============================================================================
 
 //==============================================================================
+// Number row
+//==============================================================================
 #define NUM_1       KC_1
 #define NUM_2       KC_2
 #define NUM_3       KC_3
@@ -136,6 +151,10 @@
 #define NUM_8       KC_8
 #define NUM_9       KC_9
 #define NUM_0       KC_0
+//==============================================================================
+
+//==============================================================================
+// Numpad keys
 //==============================================================================
 #define NUMP_0      LSFT(KC_0)
 #define NUMP_1      LSFT(KC_1)
@@ -149,11 +168,17 @@
 #define NUMP_9      LSFT(KC_9)
 #define NUMP_0      LSFT(KC_0)
 //==============================================================================
+
+//==============================================================================
+// Virtual desktops
+//==============================================================================
 #define VD_LEFT     LALT(LCTL(KC_S))
 #define VD_RIGHT    LALT(LCTL(KC_D))
 #define VD_ALL      LALT(LCTL(KC_TAB))
 //==============================================================================
 
+//==============================================================================
+// Misc special functions
 //==============================================================================
 #define EM_SHELL    LALT(LGUI(KC_S))
 #define KA_UNDO     LGUI(KC_Z)
@@ -166,10 +191,16 @@
 #define EM_END_MAC  LALT(LGUI(KC_E))
 #define EM_CTL_X    LCTL(KC_X)
 #define EM_CTL_C    LCTL(KC_C)
-#define RCTL_DQUO   LT(13,KC_DUMMY) // RCTL_T(KC_DUMMY) // KC_DQUO 
-#define LCTL_ESC    LCTL_T(KC_ESC)  // KC_ESC
+#define RCTL_DQUO   LT(13,KC_DUMMY)
+#define LCTL_ESC    LCTL_T(KC_ESC)
+#define BRTU        KC_VOLU
+#define BRTD        KC_VOLD
+#define VOLU        KC_F20
+#define VOLD        KC_F19
 //==============================================================================
 
+//==============================================================================
+// Tri layer keys
 //==============================================================================
 #ifdef TRI_LAYER_ENABLE
 #  define KC_LOWER       QK_TRI_LAYER_LOWER
@@ -180,8 +211,10 @@
 #endif // TRI_LAYER_ENABLE
 //==============================================================================
 
-#define KC_LT11_OR_BSLS  LT(11,KC_BSLS)
 //==============================================================================
+// Thumb key aliases
+//==============================================================================
+#define KC_LT11_OR_BSLS  LT(11,KC_BSLS)
 #define KC_L9_OR_USCORE  LT(9,KC_MINS)
 #define KC_LALT_OR_SPC   MT(MOD_LALT,KC_SPC)
 #define KC_LGUI_OR_BSPC  MT(MOD_RGUI,KC_BSPC)
@@ -192,65 +225,32 @@
 //==============================================================================
 
 //==============================================================================
-#if        defined(FLIP_THUMBS) && defined(SPREAD_THUMBS)
-#    error "FLIP_THUMBS and SPREAD_THUMBS are mutually exclusive."
-#elif      defined(SPREAD_THUMBS)
+// Thumb key assignments
 //==============================================================================
-#    define CRL_LFT        KC_L9_OR_USCORE
-#    define THU_LFT        KC_LOWER
-#    define STR_LFT        KC_LALT_OR_SPC
+#ifdef FLIP_THUMBS
+#  define CRL_LFT        KC_L9_OR_USCORE
+#  define THU_LFT        KC_LOWER
+#  define STR_LFT        KC_LALT_OR_SPC
 //------------------------------------------------------------------------------
-#    define STR_RGT        KC_LGUI_OR_BSPC
-#    define THU_RGT        KC_UPPER
-#    define CRL_RGT        KC_L12_OR_USCORE
+#  define STR_RGT        KC_LGUI_OR_BSPC
+#  define THU_RGT        KC_UPPER
+#  define CRL_RGT        KC_L12_OR_USCORE
 //------------------------------------------------------------------------------
-#    define STR_MS         KC_BTN1
-#    define THU_MS         KC_TRNS
-#    define CRL_MS         KC_L12_OR_BTN2
-//------------------------------------------------------------------------------
-#    define BRTU           KC_VOLU
-#    define BRTD           KC_VOLD
-#    define VOLU           KC_F20
-#    define VOLD           KC_F19
-//==============================================================================
-#elif      defined(FLIP_THUMBS)
-//==============================================================================
-#  define CRL_LFT        KC_LALT
-#  define THU_LFT        KC_LOWER_OR_SPC
-#  define STR_LFT        KC_L9_OR_USCORE
-//------------------------------------------------------------------------------
-#  define STR_RGT        KC_L12_OR_USCORE
-#  define THU_RGT        KC_LGUI_OR_BSPC
-#  define CRL_RGT        KC_UPPER
-//------------------------------------------------------------------------------
-#  define STR_MS         KC_L12_OR_BTN2
-#  define THU_MS         KC_BTN1
-#  define CRL_MS         KC_TRNS
-//------------------------------------------------------------------------------
-#  define BRTU           KC_F20
-#  define BRTD           KC_F19
-#  define VOLU           KC_VOLU
-#  define VOLD           KC_VOLD
-//==============================================================================
+#  define STR_MS         KC_BTN1
+#  define THU_MS         KC_TRNS
+#  define CRL_MS         KC_L12_OR_BTN2
 #else
-//==============================================================================
-#  define CRL_LFT        KC_LOWER
-#  define THU_LFT        KC_LALT_OR_SPC
-#  define STR_LFT        KC_L9_OR_USCORE
+#  define CRL_LFT        KC_L9_OR_USCORE
+#  define THU_LFT        KC_LOWER
+#  define STR_LFT        KC_LALT_OR_SPC
 //------------------------------------------------------------------------------
-#  define STR_RGT        KC_L12_OR_USCORE
-#  define THU_RGT        KC_LGUI_OR_BSPC
-#  define CRL_RGT        KC_UPPER
+#  define STR_RGT        KC_LGUI_OR_BSPC
+#  define THU_RGT        KC_UPPER
+#  define CRL_RGT        KC_L12_OR_USCORE
 //------------------------------------------------------------------------------
-#  define STR_MS         KC_L12_OR_BTN2
-#  define THU_MS         KC_BTN1
-#  define CRL_MS         KC_TRNS
-//------------------------------------------------------------------------------
-#  define BRTU           KC_F20
-#  define BRTD           KC_F19
-#  define VOLU           KC_VOLU
-#  define VOLD           KC_VOLD
-//==============================================================================
+#  define STR_MS         KC_BTN1
+#  define THU_MS         KC_TRNS
+#  define CRL_MS         KC_L12_OR_BTN2
 #endif
 //==============================================================================
 
