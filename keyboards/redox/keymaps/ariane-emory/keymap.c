@@ -1,6 +1,7 @@
 // -*- c-backslash-column: 128; c-backslash-max-column: 128 -*-
 
 #include QMK_KEYBOARD_H
+#include <quantum/mousekey.h>
 #include <stdbool.h>
 
 #include "src/key_aliases.h"
@@ -262,6 +263,53 @@ KEYRECORD_FUN(process_record_user, bool) {
 
   if (! process_tap_case(keycode, record)) return false;
 
+  {
+    static bool m_l, m_r, m_u, m_d = false;
+  
+    switch (keycode) {
+    case KC_MS_L:
+      if (record->event.pressed) {
+        m_l = true;
+      } else {
+        if (m_r) {
+          mousekey_on(KC_MS_R);
+        }
+        m_l = false;
+      }
+      return true;
+    case KC_MS_R:
+      if (record->event.pressed) {
+        m_r = true;
+      } else {
+        if (m_l) {
+          mousekey_on(KC_MS_L);
+        }
+        m_r = false;
+      }
+      return true;
+    case KC_MS_U:
+      if (record->event.pressed) {
+        m_u = true;
+      } else {
+        if (m_d) {
+          mousekey_on(KC_MS_D);
+        }
+        m_u = false;
+      }
+      return true;
+    case KC_MS_D:
+      if (record->event.pressed) {
+        m_d = true;
+      } else {
+        if (m_u) {
+          mousekey_on(KC_MS_U);
+        }
+        m_d = false;
+      }
+      return true;
+    }
+  }
+  
   for (uint8_t ix = 0; ix < ARRAY_SIZE(keycode_handlers); ix++) {
     if (keycode_handlers[ix].keycode == keycode) {
       keycode_handler_fun_t handler = (keycode_handler_fun_t)(pgm_read_ptr(&keycode_handlers[ix].handler));
