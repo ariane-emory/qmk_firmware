@@ -238,17 +238,17 @@ typedef bool(*keycode_handler_fun_t)(const uint16_t keycode, const keyrecord_t *
 
 static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode_handlers[] PROGMEM = {
 // static const keycode_handler_t keycode_handlers[] PROGMEM = {
-  { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler },
-  { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler },
-  { VS_CLOSE, vs_close_handler },
-  { HOLD_GUI, hold_gui_handler },
+  { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler      },
+  { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler      },
+  { VS_CLOSE,                vs_close_handler            },
+  { HOLD_GUI,                hold_gui_handler            },
 #ifdef    INSERT_UPP_ENABLED
-  { INSERT_UPP, insert_upp_handler },
+  { INSERT_UPP,              insert_upp_handler          },
 #endif // INSERT_UPP_ENABLED
 #ifdef    FLIP_THUMBS
-  { THU_LFT, disable_mouse_layer_handler },
+  { THU_LFT,                 disable_mouse_layer_handler },
 #else //  FLIP_THUMBS
-  { KC_LOWER, disable_mouse_layer_handler },
+  { KC_LOWER,                disable_mouse_layer_handler },
 #endif // FLIP_THUMBS
 };
 
