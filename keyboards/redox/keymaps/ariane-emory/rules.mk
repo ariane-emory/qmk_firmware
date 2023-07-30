@@ -25,7 +25,10 @@ SRC                         += src/cRGB_fader.c
 SRC                         += src/util.c
 SRC                         += src/tap_number.c
 
-CFLAGS                      += -funroll-loops
+CFLAGS                      += -funroll-loops -Wno-unknown-pragmas
 TOP_SYMBOLS                  = 15
+# EEPROM_DRIVER              = transient
+
+
 # EEPROM_DRIVER              = transient
 
