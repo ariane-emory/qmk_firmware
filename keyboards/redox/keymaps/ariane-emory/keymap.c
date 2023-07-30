@@ -252,17 +252,7 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 #endif // FLIP_THUMBS
 };
 
-KEYRECORD_FUN(process_record_user, bool) {
-  idle_timer = timer_read();
-  
-#ifdef USE_ACHORDION
-  if (! process_achordion(keycode, record)) return false;
-#endif // USE_ACHORDION
- 
-  if (! process_shiftable_or_ctrlable_send_string(keycode, record)) return false;
-
-  if (! process_tap_case(keycode, record)) return false;
-
+KEYRECORD_FUN(process_mouse_keys, bool) {
   {
     static bool m_l, m_r, m_u, m_d = false;
   
@@ -307,9 +297,25 @@ KEYRECORD_FUN(process_record_user, bool) {
         m_d = false;
       }
       return true;
+    default:
+      return false;
     }
   }
+}
+
+KEYRECORD_FUN(process_record_user, bool) {
+  idle_timer = timer_read();
   
+#ifdef USE_ACHORDION
+  if (! process_achordion(keycode, record)) return false;
+#endif // USE_ACHORDION
+ 
+  if (! process_shiftable_or_ctrlable_send_string(keycode, record)) return false;
+
+  if (! process_tap_case(keycode, record)) return false;
+
+  if (process_mouse_keys(keycode, record)) return true;
+    
   for (uint8_t ix = 0; ix < ARRAY_SIZE(keycode_handlers); ix++) {
     if (keycode_handlers[ix].keycode == keycode) {
       keycode_handler_fun_t handler = (keycode_handler_fun_t)(pgm_read_ptr(&keycode_handlers[ix].handler));
@@ -318,17 +324,17 @@ KEYRECORD_FUN(process_record_user, bool) {
   }
   
   return true;
-}
+  }
 
-static bool currently_recording_macro = false;
+  static bool currently_recording_macro = false;
 
-void dynamic_macro_record_start_user(int8_t direction) {
-  currently_recording_macro = true;
-}
+  void dynamic_macro_record_start_user(int8_t direction) {
+    currently_recording_macro = true;
+  }
 
-void dynamic_macro_record_end_user(int8_t direction) {
-  currently_recording_macro = false;
-}
+  void dynamic_macro_record_end_user(int8_t direction) {
+    currently_recording_macro = false;
+  }
 
 #ifdef RGBLIGHT_ENABLE
 bool cRGB_fader_set_target_if_recording_macro(cRGB_fader_t * const this) {
