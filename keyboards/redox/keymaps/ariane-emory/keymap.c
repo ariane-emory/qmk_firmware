@@ -324,17 +324,17 @@ KEYRECORD_FUN(process_record_user, bool) {
   }
   
   return true;
-  }
+}
 
-  static bool currently_recording_macro = false;
+static bool currently_recording_macro = false;
 
-  void dynamic_macro_record_start_user(int8_t direction) {
-    currently_recording_macro = true;
-  }
+void dynamic_macro_record_start_user(int8_t direction) {
+  currently_recording_macro = true;
+}
 
-  void dynamic_macro_record_end_user(int8_t direction) {
-    currently_recording_macro = false;
-  }
+void dynamic_macro_record_end_user(int8_t direction) {
+  currently_recording_macro = false;
+}
 
 #ifdef RGBLIGHT_ENABLE
 bool cRGB_fader_set_target_if_recording_macro(cRGB_fader_t * const this) {
