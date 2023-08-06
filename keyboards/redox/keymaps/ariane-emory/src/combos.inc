@@ -24,7 +24,7 @@
   ______________________________________________________________________________ \
   DO(l_top_extr,    KC_END,        QT_TAB,  QT_Q                               ) \
   DO(l_top_rech,    KC_HOME,       QT_Q,    QT_W                               ) \
-  __(l_top_innr,    ____________,  QT_E,    QT_R                               ) \
+  DO(l_top_innr,    KC_GRV,        QT_E,    QT_R                               ) \
   DO(l_top_outr,    LSFT(KC_GRV),  QT_W,    QT_E                               ) \
   DO(l_top_curl,    KC_END,        QT_T,    QT_R                               ) \
   __(l_top_sprd,    ____________,  QT_W,    QT_R                               ) \

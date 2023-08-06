@@ -1,4 +1,4 @@
-// -*- c-backslash-column: 128; c-backslash-max-column: 128 -*-
+// -*- c-backslash-column: 136; c-backslash-max-column: 136 -*-
 
 #include QMK_KEYBOARD_H
 #include <quantum/mousekey.h>
@@ -91,21 +91,21 @@ static uint16_t idle_timer = 0;
 
 #define REPEAT_SHELL_CMD (SS_DOWN(X_LGUI)SS_TAP(X_A)SS_UP(X_LGUI)SS_TAP(X_BSPC)SS_TAP(X_ENT)"11"SS_TAP(X_ENT))
 
-#define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                  \
-  DO(SS_DICT,      (SS_TAP(X_F24)SS_TAP(X_F24)),            (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)),   (""))      \
-  DO(EM_CHG_BUF,   (SS_LCTL("x")SS_DELAY(50)"b"),           (""),                                                    (""))      \
-  DO(EM_KIL_BUF,   (SS_LCTL("x")SS_DELAY(50)SS_LCTL("k")),  (""),                                                    (""))      \
-  DO(EM_REVERT,    (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")),  (""),                                                    (""))      \
-  DO(EM_LASTARG,   (" "SS_LCTL("c")SS_DELAY(50)"."),        (""),                                                    (""))      \
-  DO(SS_BANGBANG,  REPEAT_SHELL_CMD,                        ("11"SS_TAP(X_ENT)),                                     (""))      \
-  DO(SS_PIN1,      (AE_PIN1),                               (AE_PIN2),                                               (ROUTER_PWD)) \
-  DO(SS_ARROW,     ("->"),                                  ("490"LL), /* $() */                                     ("``"LL))  \
-  DO(SS_DIR,       ("~/"),                                  ("../"),                                                 ("./"))    \
-  DO(SS_LBRACK,    ("9"),                                   ("["),                                                   ("{"))     \
-  DO(SS_RBRACK,    ("0"),                                   ("]"),                                                   ("}"))     \
-  DO(SS_BRACKS,    ("90" LL),                               ("[" CR CR "]" UU TB),                                   ("{}" LL)) \
-  DO(SS_SMILEY,    (" :0"),                                  (" :/"),                                                (" >_>"))  \
-  DO(SS_SMILEY2,   (" ;0"),                                  (" :P"),                                                (" :D"))
+#define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                   \
+  DO(SS_DICT,      (SS_TAP(X_F24)SS_TAP(X_F24)),            (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)), (""))                         \
+  DO(EM_CHG_BUF,   (SS_LCTL("x")SS_DELAY(50)"b"),           (""),                                                  (""))                         \
+  DO(EM_KIL_BUF,   (SS_LCTL("x")SS_DELAY(50)SS_LCTL("k")),  (""),                                                  (""))                         \
+  DO(EM_REVERT,    (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")),  (""),                                                  (""))                         \
+  DO(EM_LASTARG,   (" "SS_LCTL("c")SS_DELAY(50)"."),        (""),                                                  (""))                         \
+  DO(SS_BANGBANG,  REPEAT_SHELL_CMD,                        ("11"SS_TAP(X_ENT)),                                   (""))                         \
+  DO(SS_PIN1,      (AE_PIN1),                               (AE_PIN2),                                             (ROUTER_PWD))                 \
+  DO(SS_ARROW,     ("->"),                                  ("490"LL), /* $() */                                   ("``"LL))                     \
+  DO(SS_DIR,       ("~/"),                                  ("../"),                                               ("./"))                       \
+  DO(SS_LBRACK,    ("9"),                                   ("["),                                                 ("{"))                        \
+  DO(SS_RBRACK,    ("0"),                                   ("]"),                                                 ("}"))                        \
+  DO(SS_BRACKS,    ("90" LL),                               ("[" CR CR "]" UU TB),                                 ("{}" LL))                    \
+  DO(SS_SMILEY,    (" :0"),                                 (" :/"),                                               (" >_>"))                     \
+  DO(SS_SMILEY2,   (" ;0"),                                 (" :P"),                                               (" :D"))
   
 #define enum_item(kc, str, ...)                                                     kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                             static const char tag##_str_##kc[] PROGMEM = str;
