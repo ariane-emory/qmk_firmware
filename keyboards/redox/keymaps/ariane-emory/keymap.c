@@ -165,12 +165,13 @@ KEYRECORD_C_FUN(process_shiftable_or_ctrlable_send_string, bool) {
 }
 
 static const keycode_pair_t tap_cases[] PROGMEM = {
-  { RSFT_T(VD_ALL),   VD_ALL        },
-  // { RSFT_T(VD_RIGHT), VD_RIGHT      },
-  { RGUI_T(VD_RIGHT), VD_RIGHT      },
-  { KC_L9_OR_USCORE,  LSFT(KC_MINS) },
-  { KC_L12_OR_USCORE, LSFT(KC_MINS) },
-  { RCTL_DQUO,        KC_DQUO       },
+  { RSFT_T(VD_ALL),        VD_ALL        },
+  // { RSFT_T(VD_RIGHT),   VD_RIGHT      },
+  { RGUI_T(VD_RIGHT),      VD_RIGHT      },
+  { L9_OR_USCORE,          LSFT(KC_MINS) },
+  { L12_OR_USCORE,         LSFT(KC_MINS) },
+  { RCTL_DQUO,             KC_DQUO       },
+  { LSFT_T(LSA(KC_LBRC)),  KC_LBRC        },
 };
 
 KEYRECORD_C_FUN(process_tap_case, bool) {
@@ -551,8 +552,8 @@ KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
 }
 
 static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
-  KC_LALT_OR_SPC,
-  KC_LGUI_OR_BSPC,
+  LALT_OR_SPC,
+  LGUI_OR_BSPC,
 #ifdef HOME_ROW_MODS
   QH_A, QH_S, QH_D, QH_F,
   QH_J, QH_K, QH_L, QH_QUOT,
@@ -565,8 +566,8 @@ static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
 };
 
 static const uint16_t layer1_permissive_hold_keys[] PROGMEM = {
-  KC_LALT_OR_SPC,
-  KC_LGUI_OR_BSPC,
+  LALT_OR_SPC,
+  LGUI_OR_BSPC,
 #ifdef HOME_ROW_MODS
   CH_A, CH_R, CH_S, CH_T,
   CH_N, CH_E, CH_I, CH_QUOT,

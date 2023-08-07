@@ -214,30 +214,29 @@
 //==============================================================================
 // Thumb key aliases
 //==============================================================================
-#define KC_LT11_OR_BSLS  LT(11,KC_BSLS)
-#define KC_L9_OR_USCORE  LT(9,KC_MINS)
-#define KC_L9_OR_TAB     LT(9,KC_TAB)
-#define KC_LALT_OR_SPC   MT(MOD_LALT,KC_SPC)
-#define KC_LGUI_OR_BSPC  MT(MOD_RGUI,KC_BSPC)
-#define KC_L12_OR_USCORE LT(12,KC_MINS)
-#define KC_L12_OR_BTN2   LT(12,KC_BTN2)
-#define KC_LOWER_OR_SPC  LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
-#define KC_UPPER_OR_BSPC LT(TRI_LAYER_UPPER_LAYER,KC_BSPC)
+#define LT11_OR_BSLS  LT(11,KC_BSLS)
+#define L9_OR_USCORE  LT(9,KC_MINS)
+#define L9_OR_TAB     LT(9,KC_TAB)
+#define LALT_OR_SPC   MT(MOD_LALT,KC_SPC)
+#define LGUI_OR_BSPC  MT(MOD_RGUI,KC_BSPC)
+#define L12_OR_USCORE LT(12,KC_MINS)
+#define L12_OR_BTN2   LT(12,KC_BTN2)
+#define LOWER_OR_SPC  LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
+#define UPPER_OR_BSPC LT(TRI_LAYER_UPPER_LAYER,KC_BSPC)
 //==============================================================================
 
 //==============================================================================
 // Thumb key assignments
 //==============================================================================
-#define CRL_LFT        KC_L9_OR_TAB // KC_L9_OR_USCORE
+#define CRL_LFT        L9_OR_TAB // L9_OR_USCORE
 #define THU_LFT        KC_LOWER
-#define STR_LFT        KC_LALT_OR_SPC
+#define STR_LFT        LALT_OR_SPC
 //------------------------------------------------------------------------------
-#define STR_RGT        KC_LGUI_OR_BSPC
+#define STR_RGT        LGUI_OR_BSPC
 #define THU_RGT        KC_UPPER
-#define CRL_RGT        KC_L12_OR_USCORE
+#define CRL_RGT        L12_OR_USCORE
 //------------------------------------------------------------------------------
 #define STR_MS         KC_BTN1
 #define THU_MS         KC_TRNS
-#define CRL_MS         KC_L12_OR_BTN2
+#define CRL_MS         L12_OR_BTN2
 //==============================================================================
-
