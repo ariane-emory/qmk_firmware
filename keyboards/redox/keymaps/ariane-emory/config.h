@@ -85,3 +85,6 @@
 #else
 #  define RGBLED_NUM                         14
 #endif
+
+#undef PRODUCT
+#define PRODUCT "Ariane's Redox"
