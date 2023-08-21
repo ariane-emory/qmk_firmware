@@ -19,6 +19,7 @@
 #define COMBO_TERM                           40
 
 #define DYNAMIC_MACRO_DELAY                  15
+#define DYNAMIC_MACRO_SIZE                   64
 
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
