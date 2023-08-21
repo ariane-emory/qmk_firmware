@@ -129,6 +129,7 @@
 //==============================================================================
 // Misc special functions
 //==============================================================================
+#define LT11_CMD_W  LT(11,RGUI(KC_W))
 #define EM_SHELL    LALT(LGUI(KC_S))
 #define KA_UNDO     LGUI(KC_Z)
 #define EM_ALL_BUF  LALT(LGUI(KC_A))

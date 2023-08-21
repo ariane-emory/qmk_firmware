@@ -552,7 +552,7 @@
       "MO(13)",
       "LT(13,KC_ESC)",
       "KC_LSFT",
-      "LSA(KC_LCBR)",
+      "ANY(LSFT_T(LSA(KC_LBRC)))",
       "LSA(KC_RCBR)",
       "LALT(KC_LEFT)",
       "LALT(KC_RGHT)",

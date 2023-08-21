@@ -116,10 +116,9 @@ enum arianes_keycodes {
   KC_DUMMY = SAFE_RANGE,
   HOLD_GUI,
   INSERT_UPP,
+  GUI_CLICK,
   RGB_TOGGLE_NOEE,
   SHOLD_GUI,
-  VS_CLOSE,
-  VS_FORMAT_DOC,
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
@@ -170,7 +169,8 @@ static const keycode_pair_t tap_cases[] PROGMEM = {
   { L9_OR_USCORE,          LSFT(KC_MINS) },
   { L12_OR_USCORE,         LSFT(KC_MINS) },
   { RCTL_DQUO,             KC_DQUO       },
-  { LSFT_T(LSA(KC_LBRC)),  KC_LBRC        },
+  { LSFT_T(LSA(KC_LBRC)),  LSA(KC_LBRC)  },
+  { LT11_CMD_W,            LGUI(KC_W)    },
 };
 
 KEYRECORD_C_FUN(process_tap_case, bool) {
@@ -191,12 +191,6 @@ KEYRECORD_C_FUN(dynamic_macros_handler, bool) {
     dynamic_macro_stop_recording();
   return true;
 }
-
-KEYRECORD_C_FUN(vs_close_handler, bool) {
-  if (record->event.pressed)
-    tap_number(128);
-  return false;
-};
 
 KEYRECORD_C_FUN(hold_gui_handler, bool) {
   if (record->event.pressed)
@@ -241,7 +235,6 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 // static const keycode_handler_t keycode_handlers[] PROGMEM = {
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler      },
-  { VS_CLOSE,                vs_close_handler            },
   { HOLD_GUI,                hold_gui_handler            },
 #ifdef    INSERT_UPP_ENABLED
   { INSERT_UPP,              insert_upp_handler          },
