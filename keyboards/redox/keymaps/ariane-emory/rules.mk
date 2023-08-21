@@ -10,6 +10,7 @@ TAP_DANCE_ENABLE   	 	 			 = no
 AVR_USE_MINIMAL_PRINTF 			 = yes
 CAPS_WORD_ENABLE   	 	 			 = yes
 COMBO_ENABLE       	 	 			 = yes
+LEADER_ENABLE                = yes
 LTO_ENABLE         	 	 			 = yes
 NKRO_ENABLE        	 	 			 = yes
 RGBLIGHT_ENABLE    	 	 			 = yes 
