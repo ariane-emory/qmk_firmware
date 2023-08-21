@@ -189,6 +189,18 @@ KEYRECORD_C_FUN(dynamic_macros_handler, bool) {
   return true;
 }
 
+KEYRECORD_C_FUN(gui_click_handler, bool) {
+  if (record->event.pressed) {
+    // SEND_STRING_WITHOUT_MODS(SS_DOWN(X_RGUI) SS_DELAY(100) SS_TAP(X_MS_BTN1) SS_DELAY(100) SS_UP(X_RGUI));
+    register_code(KC_RGUI);
+    wait_ms(50);
+    tap_code(KC_MS_BTN1);
+    wait_ms(50);
+    unregister_code(KC_RGUI);
+  }
+  return false;
+};
+
 KEYRECORD_C_FUN(hold_gui_handler, bool) {
   if (record->event.pressed)
   {
@@ -232,6 +244,7 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 // static const keycode_handler_t keycode_handlers[] PROGMEM = {
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler      },
+  { GUI_CLICK,               gui_click_handler           },
   { HOLD_GUI,                hold_gui_handler            },
 #ifdef    INSERT_UPP_ENABLED
   { INSERT_UPP,              insert_upp_handler          },
