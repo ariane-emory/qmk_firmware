@@ -7,6 +7,7 @@
 #include "src/key_aliases.h"
 #include "src/secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
+#define USE_ACHORDION
 #include "src/achordion.h"
 
 #ifdef RGBLIGHT_ENABLE
@@ -248,15 +249,12 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler      },
   { GUI_CLICK,               gui_click_handler           },
+#ifdef    HOLD_GUI_ENABLED
   { HOLD_GUI,                hold_gui_handler            },
+#endif    // HOLD_GUI_ENABLED
 #ifdef    INSERT_UPP_ENABLED
   { INSERT_UPP,              insert_upp_handler          },
 #endif // INSERT_UPP_ENABLED
-#ifdef    FLIP_THUMBS
-  { THU_LFT,                 disable_mouse_layer_handler },
-#else //  FLIP_THUMBS
-  { KC_LOWER,                disable_mouse_layer_handler },
-#endif // FLIP_THUMBS
 };
 
 KEYRECORD_FUN(process_mouse_keys, bool) {
