@@ -7,51 +7,24 @@
 //==============================================================================
 // Home shift or home arrows (left)
 //==============================================================================
-#if        defined(HOME_SHIFT_LEFT) && defined(HOME_ARROWS_LEFT)
-#  error "HOME_SHIFT_LEFT and HOME_ARROWS_LEFT are mutually exclusive."
-#elif      defined(HOME_SHIFT_LEFT)
-#  define QH_A RSFT_T(KC_A)
-#  define CH_A RSFT_T(KC_A)
-#elif      defined(HOME_ARROWS_LEFT)
-#  define QH_A LT(13,KC_A)
-#  define CH_A LT(13,KC_A)
-#else  
-#  define QH_A KC_A
-#  define CH_A KC_A
-#endif  // defined(HOME_SHIFT_LEFT) && defined(HOME_ARROWS_LEFT)
+#define QH_A LT(13,KC_A)
+#define CH_A LT(13,KC_A)
 //==============================================================================
 
 //==============================================================================
 // Home shift or home arrows (right)
 //==============================================================================
-#if        defined(HOME_SHIFT_RIGHT) && defined(HOME_ARROWS_RIGHT)
-#  error "HOME_SHIFT_RIGHT and HOME_ARROWS_RIGHT are mutually exclusive."
-#elif      defined(HOME_SHIFT_RIGHT)
-#  define QH_QUOT RSFT_T(KC_QUOT)
-#  define CH_QUOT RSFT_T(KC_QUOT)
-#elif      defined(HOME_ARROWS_RIGHT)
-#  define QH_QUOT LT(13,KC_QUOT)
-#  define CH_QUOT LT(13,KC_QUOT)
-#else  
-#  define QH_QUOT KC_QUOT
-#  define CH_QUOT KC_QUOT
-#endif  // defined(HOME_SHIFT_RIGHT) && defined(HOME_ARROWS_RIGHT)
+#define QH_QUOT LT(13,KC_QUOT)
+#define CH_QUOT LT(13,KC_QUOT)
 //==============================================================================
 
 //==============================================================================
 // Bottom shift
 //==============================================================================
-#if defined(BOTTOM_SHIFT)
-#  define QB_Z    LSFT_T(KC_Z)
-#  define CB_Z    LSFT_T(KC_Z)
-#  define QB_SLSH RSFT_T(KC_SLSH)
-#  define CB_SLSH RSFT_T(KC_SLSH)
-#else  // BOTTOM_SHIFT
-#  define QB_Z    KC_Z
-#  define CB_Z    KC_Z
-#  define QB_SLSH KC_SLSH
-#  define CB_SLSH KC_SLSH
-#endif // BOTTOM_SHIFT
+#define QB_Z    LSFT_T(KC_Z)
+#define CB_Z    LSFT_T(KC_Z)
+#define QB_SLSH RSFT_T(KC_SLSH)
+#define CB_SLSH RSFT_T(KC_SLSH)
 //==============================================================================
 
 //==============================================================================
@@ -73,47 +46,23 @@
 //==============================================================================
 // Middle row
 //==============================================================================
-#ifdef    HOME_ROW_MODS
+#define QH_S    LGUI_T(KC_S)
+#define QH_D    LALT_T(KC_D)
+#define QH_F    LCTL_T(KC_F)
+#define QH_G    LSFT_T(KC_G)
+#define QH_H    RSFT_T(KC_H)
+#define QH_J    RCTL_T(KC_J)
+#define QH_K    RALT_T(KC_K)
+#define QH_L    RGUI_T(KC_L)
 //------------------------------------------------------------------------------
-#  define QH_S    LGUI_T(KC_S)
-#  define QH_D    LALT_T(KC_D)
-#  define QH_F    LCTL_T(KC_F)
-#  define QH_G    LSFT_T(KC_G)
-#  define QH_H    RSFT_T(KC_H)
-#  define QH_J    RCTL_T(KC_J)
-#  define QH_K    RALT_T(KC_K)
-#  define QH_L    RGUI_T(KC_L)
-//------------------------------------------------------------------------------
-#  define CH_R    LGUI_T(KC_R)
-#  define CH_S    LALT_T(KC_S)
-#  define CH_T    LCTL_T(KC_T)
-#  define CH_D    LSFT_T(KC_D)
-#  define CH_H    RSFT_T(KC_H)
-#  define CH_N    RCTL_T(KC_N)
-#  define CH_E    RALT_T(KC_E)
-#  define CH_I    RGUI_T(KC_I)
-//------------------------------------------------------------------------------
-#else // HOME_ROW_MODS
-//------------------------------------------------------------------------------
-#  define QH_S    KC_S
-#  define QH_D    KC_D
-#  define QH_F    KC_F
-#  define QH_G    KC_G
-#  define QH_H    KC_H
-#  define QH_J    KC_J
-#  define QH_K    KC_K
-#  define QH_L    KC_L
-//------------------------------------------------------------------------------
-#  define CH_R    KC_R
-#  define CH_S    KC_S
-#  define CH_T    KC_T
-#  define CH_D    KC_D
-#  define CH_H    KC_H
-#  define CH_N    KC_N
-#  define CH_E    KC_E
-#  define CH_I    KC_I
-//------------------------------------------------------------------------------
-#endif // HOME_ROW_MODS
+#define CH_R    LGUI_T(KC_R)
+#define CH_S    LALT_T(KC_S)
+#define CH_T    LCTL_T(KC_T)
+#define CH_D    LSFT_T(KC_D)
+#define CH_H    RSFT_T(KC_H)
+#define CH_N    RCTL_T(KC_N)
+#define CH_E    RALT_T(KC_E)
+#define CH_I    RGUI_T(KC_I)
 //==============================================================================
 
 //==============================================================================

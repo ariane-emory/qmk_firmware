@@ -61,16 +61,7 @@
 
 #define CRGB_FADER_NO_STRINGS
 
-#define HOME_ARROWS_LEFT
-#define HOME_ARROWS_RIGHT
-#define BOTTOM_SHIFT
-#define HOME_ROW_MODS
-
-// #define FLIP_THUMBS
-
 #define DIM_RGBS                             1
-
-// #define RGB_ONE_HAND
 
 //==============================================================================
 
