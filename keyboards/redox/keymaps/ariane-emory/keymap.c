@@ -98,7 +98,7 @@ static uint16_t idle_timer = 0;
   DO(EM_LASTARG,   (" "SS_LCTL("c")SS_DELAY(50)"."),        (""),                                                  (""))                         \
   DO(SS_BANGBANG,  REPEAT_SHELL_CMD,                        ("11"SS_TAP(X_ENT)),                                   (""))                         \
   DO(SS_PIN1,      (AE_PIN1),                               (AE_PIN2),                                             (ROUTER_PWD))                 \
-  DO(SS_ARROW,     ("->"),                                  ("490"LL), /* $() */                                   ("``"LL))                     \
+  DO(SS_ARROW,     ("->"),                                  (" => "),                                              ("490"LL))                    \
   DO(SS_DIR,       ("~/"),                                  ("../"),                                               ("./"))                       \
   DO(SS_LBRACK,    ("9"),                                   ("["),                                                 ("{"))                        \
   DO(SS_RBRACK,    ("0"),                                   ("]"),                                                 ("}"))                        \
