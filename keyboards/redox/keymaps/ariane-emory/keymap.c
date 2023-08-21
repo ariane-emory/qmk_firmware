@@ -160,7 +160,7 @@ KEYRECORD_C_FUN(process_shiftable_or_ctrlable_send_string, bool) {
   return true;
 }
 
-static const keycode_pair_t tap_cases[] PROGMEM = {
+static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM = {
   { RSFT_T(VD_ALL),        VD_ALL        },
   { RGUI_T(VD_RIGHT),      VD_RIGHT      },
   { L9_OR_USCORE,          LSFT(KC_MINS) },
@@ -172,9 +172,9 @@ static const keycode_pair_t tap_cases[] PROGMEM = {
 
 KEYRECORD_C_FUN(process_tap_case, bool) {
   for (uint8_t ix = 0; ix < ARRAY_SIZE(tap_cases); ix++) {
-    if (pgm_read_word(&tap_cases[ix].first) == keycode) {
+    if (pgm_read_word(&tap_cases[ix].matched) == keycode) {
       if (record->tap.count && record->event.pressed) {
-        tap_code16(pgm_read_word(&tap_cases[ix].second));
+        tap_code16(pgm_read_word(&tap_cases[ix].tapped));
         return false;
       }
       return true;
