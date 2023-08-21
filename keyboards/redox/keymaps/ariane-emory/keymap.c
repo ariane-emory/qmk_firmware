@@ -184,8 +184,10 @@ bool process_tap_case(uint16_t keycode, keyrecord_t const * const record)  {
 }
 
 KEYRECORD_C_FUN(dynamic_macros_handler, bool) {
+#ifdef   DYNAMIC_MACRO_ENABLE
   if (record->event.pressed)
     dynamic_macro_stop_recording();
+#endif // DYNAMIC_MACRO_ENABLE
   return true;
 }
 
@@ -202,7 +204,7 @@ KEYRECORD_C_FUN(gui_click_handler, bool) {
 };
 
 KEYRECORD_C_FUN(hold_gui_handler, bool) {
-#ifdef HOLD_GUI_HANDLER
+#if defined(HOLD_GUI_HANDLER) && defined(DEFERRRED_EXEC_ENABLE)
   if (record->event.pressed)
   {
     register_code(KC_LGUI);
@@ -558,6 +560,7 @@ uint16_t keycode_config(uint16_t keycode) {
 // Leader key
 // ==============================================================================
 
+#ifdef LEADER_ENABLE
 void leader_end_user(void) {
   if (leader_sequence_two_keys(KC_C, KC_D)) {
     SEND_STRING("D:");
@@ -601,6 +604,7 @@ void leader_end_user(void) {
     SEND_STRING("git reset ");
   }
 }
+#endif // LEADER_ENABLE
 
 // ==============================================================================
 // Include combos 
