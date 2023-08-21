@@ -5,29 +5,6 @@
 //==============================================================================
 
 //==============================================================================
-// Home shift or home arrows (left)
-//==============================================================================
-#define QH_A LT(13,KC_A)
-#define CH_A LT(13,KC_A)
-//==============================================================================
-
-//==============================================================================
-// Home shift or home arrows (right)
-//==============================================================================
-#define QH_QUOT LT(13,KC_QUOT)
-#define CH_QUOT LT(13,KC_QUOT)
-//==============================================================================
-
-//==============================================================================
-// Bottom shift
-//==============================================================================
-#define QB_Z    LSFT_T(KC_Z)
-#define CB_Z    LSFT_T(KC_Z)
-#define QB_SLSH RSFT_T(KC_SLSH)
-#define CB_SLSH RSFT_T(KC_SLSH)
-//==============================================================================
-
-//==============================================================================
 // Top row
 //==============================================================================
 #define QT_TAB  LT(10,KC_TAB)
@@ -41,6 +18,17 @@
 #define QT_I    KC_I
 #define QT_O    KC_O
 #define QT_P    KC_P
+//------------------------------------------------------------------------------
+#define MT_Q    KC_Q
+#define MT_W    KC_W
+#define MT_E    KC_D
+#define MT_R    KC_F
+#define MT_T    KC_G
+#define MT_Y    KC_J
+#define MT_U    KC_U
+#define MT_I    KC_K
+#define MT_O    KC_L
+#define MT_P    KC_P
 //------------------------------------------------------------------------------
 #ifdef COLEMAK_DH
 #  define CT_Q    KC_Q
@@ -70,6 +58,7 @@
 //==============================================================================
 // Middle row
 //==============================================================================
+#define QH_A    LT(13,KC_A)
 #define QH_S    LGUI_T(KC_S)
 #define QH_D    LALT_T(KC_D)
 #define QH_F    LCTL_T(KC_F)
@@ -78,20 +67,48 @@
 #define QH_J    RCTL_T(KC_J)
 #define QH_K    RALT_T(KC_K)
 #define QH_L    RGUI_T(KC_L)
+#define QH_QUOT LT(13,KC_QUOT)
 //------------------------------------------------------------------------------
-#define CH_R    LGUI_T(KC_R)
-#define CH_S    LALT_T(KC_S)
-#define CH_T    LCTL_T(KC_T)
-#define CH_D    LSFT_T(KC_D)
-#define CH_H    RSFT_T(KC_H)
-#define CH_N    RCTL_T(KC_N)
-#define CH_E    RALT_T(KC_E)
-#define CH_I    RGUI_T(KC_I)
+#define MH_A    LT(13,KC_A)
+#define MH_S    LGUI_T(KC_S)
+#define MH_D    LALT_T(KC_E)
+#define MH_F    LCTL_T(KC_R)
+#define MH_G    LSFT_T(KC_T)
+#define MH_H    RSFT_T(KC_H)
+#define MH_J    RCTL_T(KC_N)
+#define MH_K    RALT_T(KC_I)
+#define MH_L    RGUI_T(KC_O)
+#define MH_QUOT LT(13,KC_QUOT)
+//------------------------------------------------------------------------------
+#ifdef COLEMAK_DH
+#  define CH_A    LT(13,KC_A)
+#  define CH_R    LGUI_T(KC_R)
+#  define CH_S    LALT_T(KC_S)
+#  define CH_T    LCTL_T(KC_T)
+#  define CH_D    LSFT_T(KC_G)
+#  define CH_H    RSFT_T(KC_M)
+#  define CH_N    RCTL_T(KC_N)
+#  define CH_E    RALT_T(KC_E)
+#  define CH_I    RGUI_T(KC_I)
+#  define CH_QUOT LT(13,KC_QUOT)
+#else
+#  define CH_A    LT(13,KC_A)
+#  define CH_R    LGUI_T(KC_R)
+#  define CH_S    LALT_T(KC_S)
+#  define CH_T    LCTL_T(KC_T)
+#  define CH_D    LSFT_T(KC_D)
+#  define CH_H    RSFT_T(KC_H)
+#  define CH_N    RCTL_T(KC_N)
+#  define CH_E    RALT_T(KC_E)
+#  define CH_I    RGUI_T(KC_I)
+#  define CH_QUOT LT(13,KC_QUOT)
+#endif
 //==============================================================================
 
 //==============================================================================
 // Bottom row
 //==============================================================================
+#define QB_Z    LSFT_T(KC_Z)
 #define QB_X    KC_X
 #define QB_C    KC_C
 #define QB_V    KC_V
@@ -100,15 +117,42 @@
 #define QB_M    KC_M
 #define QB_COMM KC_COMM
 #define QB_DOT  KC_DOT
+#define QB_SLSH RSFT_T(KC_SLSH)
 //------------------------------------------------------------------------------
-#define CB_X    KC_X
-#define CB_C    KC_C
-#define CB_V    KC_V
-#define CB_B    KC_B
-#define CB_K    KC_K
-#define CB_M    KC_M
-#define CB_COMM KC_COMM
-#define CB_DOT  KC_DOT
+#define MB_Z    LSFT_T(KC_Z)
+#define MB_X    KC_X
+#define MB_C    KC_C
+#define MB_V    KC_V
+#define MB_B    KC_B
+#define MB_N    KC_Y
+#define MB_M    KC_M
+#define MB_COMM KC_COMM
+#define MB_DOT  KC_DOT
+#define MB_SLSH RSFT_T(KC_SLSH)
+//------------------------------------------------------------------------------
+#ifdef COLEMAK_DH
+#  define CB_Z    LSFT_T(KC_Z)
+#  define CB_X    KC_X
+#  define CB_C    KC_C
+#  define CB_V    KC_D
+#  define CB_B    KC_V
+#  define CB_K    KC_K
+#  define CB_M    KC_H
+#  define CB_COMM KC_COMM
+#  define CB_DOT  KC_DOT
+#  define CB_SLSH RSFT_T(KC_SLSH)
+#else
+#  define CB_Z    LSFT_T(KC_Z)
+#  define CB_X    KC_X
+#  define CB_C    KC_C
+#  define CB_V    KC_V
+#  define CB_B    KC_B
+#  define CB_K    KC_K
+#  define CB_M    KC_M
+#  define CB_COMM KC_COMM
+#  define CB_DOT  KC_DOT
+#  define CB_SLSH RSFT_T(KC_SLSH)
+#endif
 //==============================================================================
 
 //==============================================================================
