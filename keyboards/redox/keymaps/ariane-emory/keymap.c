@@ -220,6 +220,7 @@ KEYRECORD_C_FUN(hold_gui_handler, bool) {
 };
 
 KEYRECORD_C_FUN(insert_upp_handler, bool) {
+#ifdef INSERT_UPP_ENABLED
   if (record->event.pressed) {
     for (uint8_t ix = 0; ix < 6; ix++) {
       static const uint16_t hex_keycodes[] = {
@@ -232,6 +233,7 @@ KEYRECORD_C_FUN(insert_upp_handler, bool) {
     }
     tap_code(KC_ENTER);
   }
+#endif // INSERT_UPP_ENABLED
   return false;
 }
 
