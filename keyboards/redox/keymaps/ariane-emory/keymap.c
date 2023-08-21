@@ -255,11 +255,6 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 #ifdef    INSERT_UPP_ENABLED
   { INSERT_UPP,              insert_upp_handler          },
 #endif // INSERT_UPP_ENABLED
-#ifdef    FLIP_THUMBS
-  { THU_LFT,                 disable_mouse_layer_handler },
-#else //  FLIP_THUMBS
-  { KC_LOWER,                disable_mouse_layer_handler },
-#endif // FLIP_THUMBS
 };
 
 KEYRECORD_FUN(process_mouse_keys, bool) {
