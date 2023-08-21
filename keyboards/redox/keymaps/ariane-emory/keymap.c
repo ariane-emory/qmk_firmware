@@ -170,7 +170,7 @@ static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM =
   { LT11_CMD_W,            LGUI(KC_W)    },
 };
 
-KEYRECORD_C_FUN(process_tap_case, bool) {
+bool process_tap_case(uint16_t keycode, keyrecord_t const * const record)  {
   for (uint8_t ix = 0; ix < ARRAY_SIZE(tap_cases); ix++) {
     if (pgm_read_word(&tap_cases[ix].matched) == keycode) {
       if (record->tap.count && record->event.pressed) {
