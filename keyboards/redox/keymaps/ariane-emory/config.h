@@ -23,7 +23,7 @@
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
 #define MOUSEKEY_DELAY                       0
-#define MOUSEKEY_INTERVAL                    23
+#define MOUSEKEY_INTERVAL                    22
 #define MOUSEKEY_MAX_SPEED                   14
 #define MOUSEKEY_MOVE_DELTA                  8
 #define MOUSEKEY_TIME_TO_MAX                 115
@@ -60,8 +60,8 @@
 //==============================================================================
 
 #define CRGB_FADER_NO_STRINGS
-
 #define DIM_RGBS                             1
+// #define RGB_ONE_HAND
 
 //==============================================================================
 
@@ -76,4 +76,9 @@
 #endif
 
 #undef PRODUCT
-#define PRODUCT "Ariane's Redox"
+#define PRODUCT "K's Redox"
+
+#define COLEMAK_DH
+
+#define LEADER_TIMEOUT 650
+#define LEADER_PER_KEY_TIMING
