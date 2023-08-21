@@ -202,6 +202,7 @@ KEYRECORD_C_FUN(gui_click_handler, bool) {
 };
 
 KEYRECORD_C_FUN(hold_gui_handler, bool) {
+#ifdef HOLD_GUI_HANDLER
   if (record->event.pressed)
   {
     register_code(KC_LGUI);
@@ -214,6 +215,7 @@ KEYRECORD_C_FUN(hold_gui_handler, bool) {
     }
     token = defer_exec(600, release_lgui_callback, NULL);
   }
+#endif
   return false;
 };
 
