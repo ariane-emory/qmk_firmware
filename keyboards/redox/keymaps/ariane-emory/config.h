@@ -61,8 +61,6 @@
 
 #define CRGB_FADER_NO_STRINGS
 
-// #define HOME_SHIFT_LEFT
-// #define HOME_SHIFT_RIGHT
 #define HOME_ARROWS_LEFT
 #define HOME_ARROWS_RIGHT
 #define BOTTOM_SHIFT

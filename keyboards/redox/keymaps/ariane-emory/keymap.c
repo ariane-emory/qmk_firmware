@@ -7,10 +7,8 @@
 #include "src/key_aliases.h"
 #include "src/secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
-#if defined(HOME_ROW_MODS) || defined(HOME_SHIFT_LEFT) || defined(HOME_SHIFT_RIGHT) || defined(HOME_ARROWS_RIGHT) || defined(HOME_ARROWS_RIGHT) || defined(BOTTOM_SHIFT)
-#  define USE_ACHORDION
-#  include "src/achordion.h"
-#endif
+#define USE_ACHORDION
+#include "src/achordion.h"
 
 #ifdef RGBLIGHT_ENABLE
 #  include "src/cRGB_fader.h"
@@ -417,41 +415,15 @@ void matrix_scan_user(void) {
 
 #ifdef USE_ACHORDION
 static const uint16_t achordion_bilat_keys[] PROGMEM = {
-/* #  ifdef    HOME_SHIFT_LEFT */
-/*   QH_A, */
-/* #  endif // HOME_SHIFT_LEFT */
-
-/* #  ifdef    HOME_SHIFT_RIGHT */
-/*   QH_QUOT, */
-/* #  endif // HOME_SHIFT_RIGHT */
-
-/* #  ifdef BOTTOM_SHIFT */
-/*   QB_Z, QB_SLSH, */
-/* #  endif // BOTTOM_SHIFT */
-  
-#  ifdef HOME_ROW_MODS
   QH_S, QH_D, QH_F, QH_J, QH_K, QH_L,
-#  endif // HOME_ROW_MODS
-
-  KC_NO
 };
 
 static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // Both Shifts
-#  ifdef    HOME_SHIFT_LEFT
-  { QH_A,    LSFT_T(KC_MINS) }, // underscore
-#  endif // HOME_SHIFT_LEFT
-#  ifdef    HOME_SHIFT_RIGHT
-  { QH_QUOT, RSFT_T(KC_MINS) }, // underscore
-  { QH_QUOT, KC_BSLS         }, // pipe
-#  endif // HOME_SHIFT_RIGH
-#  ifdef BOTTOM_SHIFT
   { QB_Z,    LSFT_T(KC_MINS) }, // underscore
   { QB_SLSH, RSFT_T(KC_MINS) }, // underscore
   { QB_Z,    KC_EQL          }, // equals/plus
   { QB_SLSH, KC_EQL          }, // equals/plus
-#  endif // BOTTOM_SHIFT
-#  ifdef HOME_ROW_MODS
   // Left GUI
   { QH_S,    KC_TAB          }, // app switcher
   { QH_S,    QB_Z            }, // undo
@@ -498,9 +470,6 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // Right GUI
   { QH_L,    QH_K            }, // ???
   { QH_L,    KC_BSLS         }, // ???
-#  endif // HOME_ROW_MODS
-  // Dummy
-  { KC_NO,   KC_NO           }, // dummy
 };
 
 bool achordion_chord(
@@ -554,29 +523,15 @@ KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
 static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
   LALT_OR_SPC,
   LGUI_OR_BSPC,
-#ifdef HOME_ROW_MODS
   QH_A, QH_S, QH_D, QH_F,
-  QH_J, QH_K, QH_L, QH_QUOT,
-#endif
-#ifdef BOTTOM_ROW_MODS
-  QB_Z, QB_X, QB_C, QB_V,
-  QB_M, QB_COMM, QB_DOT, QB_SLSH,
-#endif
-  KC_NO,
+  QH_J, QH_K, QH_L, QH_QUOT,  
 };
 
 static const uint16_t layer1_permissive_hold_keys[] PROGMEM = {
   LALT_OR_SPC,
   LGUI_OR_BSPC,
-#ifdef HOME_ROW_MODS
   CH_A, CH_R, CH_S, CH_T,
   CH_N, CH_E, CH_I, CH_QUOT,
-#endif
-#ifdef BOTTOM_ROW_MODS
-  CB_Z, CB_X, CB_C, CB_V,
-  CB_M, CB_COMM, CB_DOT, CB_SLSH,
-#endif
-  KC_NO,
 };
 
 KEYRECORD_FUN(get_permissive_hold, bool) {
