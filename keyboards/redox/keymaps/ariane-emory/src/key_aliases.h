@@ -41,6 +41,30 @@
 #define QT_I    KC_I
 #define QT_O    KC_O
 #define QT_P    KC_P
+//------------------------------------------------------------------------------
+#ifdef COLEMAK_DH
+#  define CT_Q    KC_Q
+#  define CT_W    KC_W
+#  define CT_F    KC_F
+#  define CT_P    KC_P
+#  define CT_G    KC_B
+#  define CT_J    KC_J
+#  define CT_L    KC_L
+#  define CT_U    KC_U
+#  define CT_O    KC_O
+#  define CT_Y    KC_Y
+#else
+#  define CT_Q    KC_Q
+#  define CT_W    KC_W
+#  define CT_F    KC_F
+#  define CT_P    KC_P
+#  define CT_G    KC_G
+#  define CT_J    KC_J
+#  define CT_L    KC_L
+#  define CT_U    KC_U
+#  define CT_O    KC_O
+#  define CT_Y    KC_Y
+#endif
 //==============================================================================
 
 //==============================================================================
