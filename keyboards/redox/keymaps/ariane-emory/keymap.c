@@ -554,6 +554,54 @@ uint16_t keycode_config(uint16_t keycode) {
 }
 
 // ==============================================================================
+// Leader key
+// ==============================================================================
+
+void leader_end_user(void) {
+  if (leader_sequence_two_keys(KC_C, KC_D)) {
+    SEND_STRING("D:");
+    tap_code(KC_ENT);
+    SEND_STRING(AE_CD);
+    tap_code(KC_ENT);
+  }
+  else if (leader_sequence_two_keys(KC_G, KC_D)) {
+    SEND_STRING("git diff ");
+  }
+  else if (leader_sequence_two_keys(KC_G, KC_S)) {
+    SEND_STRING("git status ");
+  }
+  else if (leader_sequence_two_keys(KC_G, KC_C)) {
+    SEND_STRING("git commit ");
+  }
+  else if (leader_sequence_three_keys(KC_G, KC_C, KC_M)) {
+    SEND_STRING("git commit -m \"\"");
+    tap_code(KC_LEFT);
+  }
+  else if (leader_sequence_four_keys(KC_G, KC_C, KC_A, KC_M)) {
+    SEND_STRING("git commit -a -m \"\"");
+    tap_code(KC_LEFT);
+  }
+  else if (leader_sequence_two_keys(KC_G, KC_H)) {
+    SEND_STRING("git checkout ");
+  }
+  else if (leader_sequence_two_keys(KC_G, KC_M)) {
+    SEND_STRING("git merge ");
+  }
+  else if (leader_sequence_two_keys(KC_G, KC_P)) {
+    SEND_STRING("git push ");
+  }
+  else if (leader_sequence_two_keys(KC_G, KC_U)) {
+    SEND_STRING("git pull ");
+  }
+  else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {
+    SEND_STRING("git reset --hard ");
+  }
+  else if (leader_sequence_two_keys(KC_G, KC_R)) {
+    SEND_STRING("git reset ");
+  }
+}
+
+// ==============================================================================
 // Include combos 
 // ==============================================================================
 
