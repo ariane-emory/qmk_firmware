@@ -17,11 +17,11 @@ RGBLIGHT_ENABLE    	 	 			 = yes
 SEND_STRING_ENABLE 	 	 			 = yes
 
 # Unimportant 
-CAPS_WORD_ENABLE   	 	 			 = no
+CAPS_WORD_ENABLE   	 	 			 = yes
 DEFERRED_EXEC_ENABLE 	 			 = no
 DYNAMIC_MACRO_ENABLE   			 = no
 LEADER_ENABLE                = no
-NKRO_ENABLE        	 	 			 = no
+NKRO_ENABLE        	 	 			 = yes
 
 SRC                         += src/achordion.c
 SRC                         += src/cRGB_functions.c
