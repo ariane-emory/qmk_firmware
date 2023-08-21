@@ -7,7 +7,6 @@
 #include "src/key_aliases.h"
 #include "src/secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
-#define USE_ACHORDION
 #include "src/achordion.h"
 
 #ifdef RGBLIGHT_ENABLE
@@ -314,9 +313,7 @@ KEYRECORD_FUN(process_mouse_keys, bool) {
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
   
-#ifdef USE_ACHORDION
   if (! process_achordion(keycode, record)) return false;
-#endif // USE_ACHORDION
  
   if (! process_shiftable_or_ctrlable_send_string(keycode, record)) return false;
 
@@ -398,9 +395,7 @@ void matrix_scan_user(void) {
   update_tri_layer(get_tri_layer_lower_layer(), get_tri_layer_upper_layer(), get_tri_layer_adjust_layer());
 #endif // defined(TRI_LAYER_ENABLE) && defined(FLIP_THUMBS)
   
-#ifdef USE_ACHORDION
   achordion_task();
-#endif // USE_ACHORDION
 
 #ifdef TOGGLED_LAYER_TIMEOUT
   manage_toggled_layer_timeout(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
@@ -421,7 +416,6 @@ void matrix_scan_user(void) {
 // Achordion
 // ==============================================================================
 
-#ifdef USE_ACHORDION
 static const uint16_t achordion_bilat_keys[] PROGMEM = {
   QH_S, QH_D, QH_F, QH_J, QH_K, QH_L,
 };
@@ -509,7 +503,6 @@ bool achordion_chord(
 bool achordion_eager_mod(uint8_t mod) {
   return true;  // Eagerly apply all mods.
 }
-#endif
 
 // ==============================================================================
 // Mod tap interrupt
