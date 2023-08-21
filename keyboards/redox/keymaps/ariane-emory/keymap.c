@@ -118,7 +118,6 @@ enum arianes_keycodes {
   INSERT_UPP,
   GUI_CLICK,
   RGB_TOGGLE_NOEE,
-  SHOLD_GUI,
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
