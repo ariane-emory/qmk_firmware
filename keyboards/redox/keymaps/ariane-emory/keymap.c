@@ -46,7 +46,7 @@ void keyboard_post_init_user(void) {
 
 #define KEYRECORD_FUN(name, t) t name(uint16_t keycode, keyrecord_t *record)
 
-#define KEYRECORD_C_FUN(name, t) t name(uint16_t keycode, const keyrecord_t const *record)
+#define KEYRECORD_C_FUN(name, t) t name(uint16_t keycode, keyrecord_t const * const record)
 
 #ifdef SEND_STRING_ENABLE
 #  define MY_SS_DELAY 25
