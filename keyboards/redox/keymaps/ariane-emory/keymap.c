@@ -389,10 +389,6 @@ void manage_toggled_layer_timeout(const uint8_t layer, const uint16_t idle_time_
 // #define DIM(x) ((((uint16_t)(x)) * 3 >> 2) & 0xFF)
 
 void matrix_scan_user(void) {
-#if defined(TRI_LAYER_ENABLE) && defined(FLIP_THUMBS)
-  update_tri_layer(get_tri_layer_lower_layer(), get_tri_layer_upper_layer(), get_tri_layer_adjust_layer());
-#endif // defined(TRI_LAYER_ENABLE) && defined(FLIP_THUMBS)
-  
   achordion_task();
 
 #ifdef TOGGLED_LAYER_TIMEOUT
