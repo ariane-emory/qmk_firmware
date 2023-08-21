@@ -255,6 +255,11 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 #ifdef    INSERT_UPP_ENABLED
   { INSERT_UPP,              insert_upp_handler          },
 #endif // INSERT_UPP_ENABLED
+#ifdef    FLIP_THUMBS
+  { THU_LFT,                 disable_mouse_layer_handler },
+#else //  FLIP_THUMBS
+  { KC_LOWER,                disable_mouse_layer_handler },
+#endif // FLIP_THUMBS
 };
 
 KEYRECORD_FUN(process_mouse_keys, bool) {
@@ -310,9 +315,11 @@ KEYRECORD_FUN(process_mouse_keys, bool) {
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
-  
+
+#ifdef USE_ACHORDION
   if (! process_achordion(keycode, record)) return false;
- 
+#endif // USE_ACHORDION
+  
   if (! process_shiftable_or_ctrlable_send_string(keycode, record)) return false;
 
   if (! process_tap_case(keycode, record)) return false;
