@@ -558,7 +558,7 @@ uint16_t keycode_config(uint16_t keycode) {
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
   if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING("qmkc" SS_TAP(X_ENT));
+    SEND_STRING("qmk compile" SS_TAP(X_ENT));
   }
   else if (leader_sequence_two_keys(KC_C, KC_D)) {
     SEND_STRING("D:");
