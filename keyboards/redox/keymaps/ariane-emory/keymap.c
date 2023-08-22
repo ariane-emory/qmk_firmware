@@ -97,15 +97,15 @@ static uint16_t idle_timer = 0;
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                               \
   DO(GUI_CLICK,    GUI_CLICK_STR,                                       TELEPORT_STR,                                          (""))                         \
   DO(SS_TELEPORT,  TELEPORT_STR,                                        (""),                                                  (""))                         \
-  DO(SS_FULLSCR,   (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_F)SS_UP(X_F24)), (""),                                                  (""))                         \
-  DO(SS_DICT,      (SS_TAP(X_F24)SS_TAP(X_F24)),                        (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)), (""))                         \
-  DO(EM_CHG_BUF,   (SS_LCTL("x")SS_DELAY(50)"b"),                       (""),                                                  (""))                         \
-  DO(EM_KIL_BUF,   (SS_LCTL("x")SS_DELAY(50)SS_LCTL("k")),              (""),                                                  (""))                         \
-  DO(EM_REVERT,    (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")),              (""),                                                  (""))                         \
-  DO(EM_LASTARG,   (" "SS_LCTL("c")SS_DELAY(50)"."),                    (""),                                                  (""))                         \
-  DO(SS_BANGBANG,  REPEAT_SHELL_STR,                                    ("11"SS_TAP(X_ENT)),                                   (""))                         \
+  DO(SS_FULLSCR,   (SS_DOWN(X_F24) DD SS_TAP(X_F) SS_UP(X_F24)),        (""),                                                  (""))                         \
+  DO(SS_DICT,      (SS_TAP(X_F24) SS_TAP(X_F24)),                       (SS_DOWN(X_F24) DD SS_TAP(X_SPC) SS_UP(X_F24)),        (""))                         \
+  DO(EM_CHG_BUF,   (SS_LCTL("x") DD "b"),                               (""),                                                  (""))                         \
+  DO(EM_KIL_BUF,   (SS_LCTL("x") DD SS_LCTL("k")),                      (""),                                                  (""))                         \
+  DO(EM_REVERT,    (SS_LCTL("x") DD SS_LCTL("r")),                      (""),                                                  (""))                         \
+  DO(EM_LASTARG,   (" " SS_LCTL("c") DD "."),                           (""),                                                  (""))                         \
+  DO(SS_BANGBANG,  REPEAT_SHELL_STR,                                    ("11" SS_TAP(X_ENT)),                                  (""))                         \
   DO(SS_PIN1,      (AE_PIN1),                                           (AE_PIN2),                                             (ROUTER_PWD))                 \
-  DO(SS_ARROW,     ("->"),                                              (" => "),                                              ("490"LL))                    \
+  DO(SS_ARROW,     ("->"),                                              (" => "),                                              ("490" LL))                   \
   DO(SS_DIR,       ("~/"),                                              ("../"),                                               ("./"))                       \
   DO(SS_LBRACK,    ("9"),                                               ("["),                                                 ("{"))                        \
   DO(SS_RBRACK,    ("0"),                                               ("]"),                                                 ("}"))                        \
