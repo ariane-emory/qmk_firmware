@@ -90,9 +90,11 @@ static uint16_t idle_timer = 0;
 #define REPEAT_SHELL_CMD (SS_DOWN(X_LGUI)SS_TAP(X_A)SS_UP(X_LGUI)SS_TAP(X_BSPC)SS_TAP(X_ENT)"11"SS_TAP(X_ENT))
 
 //#define TELEPORT (SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("x") DD SS_LGUI("w") DD SS_LGUI("`") DD SS_TAP(X_ESC) DD SS_LGUI("t") DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("v") DD SS_TAP(X_ENT) DD SS_TAP(X_F) DD SS_LGUI("`"))
-#define TELEPORT (SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("x") DD SS_LGUI("w") DD SS_LGUI("`") DD SS_TAP(X_ESC) DD SS_LGUI("t") DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("v") DD SS_TAP(X_ENT) DD SS_TAP(X_F) SS_DELAY(500) SS_TAP(X_F) SS_DELAY(500) SS_TAP(X_F) SS_DELAY(500) SS_TAP(X_F))
+#define TELEPORT (SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("x") DD SS_LGUI("w") DD SS_LGUI("`") DD SS_TAP(X_ESC) DD SS_LGUI("t") DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("v") DD SS_TAP(X_ENT) DD SS_TAP(X_F) DD SS_DELAY(500) DD SS_TAP(X_F) DD SS_DELAY(500) DD  SS_TAP(X_F) DD SS_DELAY(500) DD SS_TAP(X_F))
+#define GUI_CLICK_STR (SS_DOWN(X_LGUI) DD SS_TAP(X_BTN1) DD SS_DOWN(X_LGUI))
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                               \
+  DO(GUI_CLICK,    GUI_CLICK_STR,                                       GUI_CLICK_STR,                                         GUI_CLICK_STR)                \
   DO(SS_TELEPORT,  TELEPORT,                                            (""),                                                  (""))                         \
   DO(SS_FULLSCR,   (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_F)SS_UP(X_F24)), (""),                                                  (""))                         \
   DO(SS_DICT,      (SS_TAP(X_F24)SS_TAP(X_F24)),                        (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)), (""))                         \
@@ -120,7 +122,7 @@ enum arianes_keycodes {
   KC_DUMMY = SAFE_RANGE,
   HOLD_GUI,
   INSERT_UPP,
-  GUI_CLICK,
+  // GUI_CLICK,
   RGB_TOGGLE_NOEE,
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 };
@@ -255,7 +257,7 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 // static const keycode_handler_t keycode_handlers[] PROGMEM = {
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler      },
-  { GUI_CLICK,               gui_click_handler           },
+  /* { GUI_CLICK,               gui_click_handler           }, */
 #ifdef    HOLD_GUI_ENABLED
   { HOLD_GUI,                hold_gui_handler            },
 #endif    // HOLD_GUI_ENABLED
