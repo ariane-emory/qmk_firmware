@@ -556,21 +556,27 @@ uint16_t keycode_config(uint16_t keycode) {
 // ==============================================================================
 
 #ifdef LEADER_ENABLE
+#define ENT SS_TAP(X_ENT)
+
 void leader_end_user(void) {
   if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING("qmk compile" SS_TAP(X_ENT));
+    SEND_STRING("qmk compile" ENT);
+  }
+  if (leader_sequence_two_keys(KC_Q, KC_S)) {
+    SEND_STRING("qmk compile" ENT "shove" ENT);
+  }
+  else if (leader_sequence_one_key(KC_S)) {
+    SEND_STRING("shove" ENT);
   }
   else if (leader_sequence_two_keys(KC_C, KC_D)) {
-    SEND_STRING("D:");
-    tap_code(KC_ENT);
-    SEND_STRING(AE_CD);
-    tap_code(KC_ENT);
+    SEND_STRING("D:" ENT);
+    SEND_STRING(AE_CD ENT);
   }
   else if (leader_sequence_two_keys(KC_G, KC_D)) {
-    SEND_STRING("git diff ");
+    SEND_STRING("git diff " ENT);
   }
   else if (leader_sequence_two_keys(KC_G, KC_S)) {
-    SEND_STRING("git status ");
+    SEND_STRING("git status " ENT);
   }
   else if (leader_sequence_two_keys(KC_G, KC_C)) {
     SEND_STRING("git commit ");
