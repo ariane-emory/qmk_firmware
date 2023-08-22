@@ -86,9 +86,10 @@ void send_string_without_mods_P(const char * const string) {
 #define GUI_CLICK_STR (GUI_CLICK_RAW)
 #define TELEPORT_RAW SS_DOWN(X_LGUI) DD SS_TAP(X_BTN1) DD SS_UP(X_LGUI) DD SS_LCTL(SS_TAP(X_TAB)) DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("x") DD SS_LGUI("w") DD SS_LGUI("`") DD SS_TAP(X_ESC) DD SS_LGUI("t") DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("v") DD SS_TAP(X_ENT) DD SS_TAP(X_F) DD SS_DELAY(600) DD SS_TAP(X_F) DD SS_DELAY(600) DD  SS_TAP(X_F) DD SS_LGUI("`") DD
 #define TELEPORT_STR (TELEPORT_RAW)
+#define GUI_CLICK_AND_TAB_STR (GUI_CLICK_RAW SS_LCTL(SS_TAP(X_TAB)))
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                               \
-  DO(GUI_CLICK,    GUI_CLICK_STR,                                       TELEPORT_STR,                                          (""))                         \
+  DO(GUI_CLICK,    GUI_CLICK_STR,                                       TELEPORT_STR,                                          GUI_CLICK_AND_TAB_STR)        \
   DO(SS_TELEPORT,  TELEPORT_STR,                                        (""),                                                  (""))                         \
   DO(SS_FULLSCR,   (SS_DOWN(X_F24) DD SS_TAP(X_F) SS_UP(X_F24)),        (""),                                                  (""))                         \
   DO(SS_DICT,      (SS_TAP(X_F24) SS_TAP(X_F24)),                       (SS_DOWN(X_F24) DD SS_TAP(X_SPC) SS_UP(X_F24)),        (""))                         \
@@ -225,6 +226,8 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM = {
   { RSFT_T(VD_ALL),        VD_ALL        },
   { RGUI_T(VD_RIGHT),      VD_RIGHT      },
+  { LALT_T(VD_LEFT),       VD_LEFT       },
+  { LCTL_T(VD_RIGHT),      VD_RIGHT      },
   { L9_OR_USCORE,          LSFT(KC_MINS) },
   { L12_OR_USCORE,         LSFT(KC_MINS) },
   { RCTL_DQUO,             KC_DQUO       },
