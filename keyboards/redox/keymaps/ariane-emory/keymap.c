@@ -161,29 +161,6 @@ KEYRECORD_C_FUN(process_shiftable_or_ctrlable_send_string, bool) {
   return true;
 }
 
-static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM = {
-  { RSFT_T(VD_ALL),        VD_ALL        },
-  { RGUI_T(VD_RIGHT),      VD_RIGHT      },
-  { L9_OR_USCORE,          LSFT(KC_MINS) },
-  { L12_OR_USCORE,         LSFT(KC_MINS) },
-  { RCTL_DQUO,             KC_DQUO       },
-  { LSFT_T(LSA(KC_LBRC)),  LSA(KC_LBRC)  },
-  { LT11_CMD_W,            LGUI(KC_W)    },
-};
-
-bool process_tap_case(uint16_t keycode, keyrecord_t const * const record)  {
-  for (uint8_t ix = 0; ix < ARRAY_SIZE(tap_cases); ix++) {
-    if (pgm_read_word(&tap_cases[ix].matched) == keycode) {
-      if (record->tap.count && record->event.pressed) {
-        tap_code16(pgm_read_word(&tap_cases[ix].tapped));
-        return false;
-      }
-      return true;
-    }
-  }
-  return true;
-}
-
 KEYRECORD_C_FUN(dynamic_macros_handler, bool) {
 #ifdef   DYNAMIC_MACRO_ENABLE
   if (record->event.pressed)
@@ -241,6 +218,37 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 #endif // INSERT_UPP_ENABLED
 };
 
+// ==============================================================================
+// Tap handling
+// ==============================================================================
+
+static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM = {
+  { RSFT_T(VD_ALL),        VD_ALL        },
+  { RGUI_T(VD_RIGHT),      VD_RIGHT      },
+  { L9_OR_USCORE,          LSFT(KC_MINS) },
+  { L12_OR_USCORE,         LSFT(KC_MINS) },
+  { RCTL_DQUO,             KC_DQUO       },
+  { LSFT_T(LSA(KC_LBRC)),  LSA(KC_LBRC)  },
+  { LT11_CMD_W,            LGUI(KC_W)    },
+};
+
+bool process_tap_case(uint16_t keycode, keyrecord_t const * const record)  {
+  for (uint8_t ix = 0; ix < ARRAY_SIZE(tap_cases); ix++) {
+    if (pgm_read_word(&tap_cases[ix].matched) == keycode) {
+      if (record->tap.count && record->event.pressed) {
+        tap_code16(pgm_read_word(&tap_cases[ix].tapped));
+        return false;
+      }
+      return true;
+    }
+  }
+  return true;
+}
+
+// ==============================================================================
+// Mouse key overlap fixer function
+// ==============================================================================
+
 KEYRECORD_FUN(process_mouse_keys, bool) {
   {
     static bool m_l, m_r, m_u, m_d = false;
@@ -292,6 +300,10 @@ KEYRECORD_FUN(process_mouse_keys, bool) {
   }
 }
 
+// ==============================================================================
+// process_record_user and co.
+// ==============================================================================
+
 static uint16_t idle_timer = 0;
 
 KEYRECORD_FUN(process_record_user, bool) {
@@ -317,6 +329,10 @@ KEYRECORD_FUN(process_record_user, bool) {
   return true;
 }
 
+// ==============================================================================
+// Dynamic macro related
+// ==============================================================================
+
 static bool currently_recording_macro = false;
 
 void dynamic_macro_record_start_user(int8_t direction) {
@@ -326,6 +342,10 @@ void dynamic_macro_record_start_user(int8_t direction) {
 void dynamic_macro_record_end_user(int8_t direction) {
   currently_recording_macro = false;
 }
+
+// ==============================================================================
+// RGB fades
+// ==============================================================================
 
 #ifdef RGBLIGHT_ENABLE
 bool cRGB_fader_set_target_if_recording_macro(cRGB_fader_t * const this) {
@@ -364,6 +384,10 @@ void cRGB_fader_set_target_by_layer(cRGB_fader_t * const this) {
 }
 #endif
 
+// ==============================================================================
+// Toggled mouse layer management
+// ==============================================================================
+
 #ifdef TOGGLED_LAYER_TIMEOUT
 void manage_toggled_layer_timeout(const uint8_t layer, const uint16_t idle_time_limit_ms, const uint16_t timer)
 {
@@ -373,8 +397,9 @@ void manage_toggled_layer_timeout(const uint8_t layer, const uint16_t idle_time_
 }
 #endif
 
-#define DIM(x) (x >> DIM_RGBS)
-// #define DIM(x) ((((uint16_t)(x)) * 3 >> 2) & 0xFF)
+// ==============================================================================
+// Toggled mouse layer management
+// ==============================================================================
 
 void matrix_scan_user(void) {  
 #ifdef USE_ACHORDION
@@ -386,6 +411,7 @@ void matrix_scan_user(void) {
 #endif // TOGGLED_LAYER_TIMEOUT
   
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
+#  define DIM(x) (x >> DIM_RGBS)
   if (!cRGB_fader_set_target_if_recording_macro(&cRGB_fader))
     cRGB_fader_set_target_by_layer(&cRGB_fader);
   cRGB_fader_step(&cRGB_fader);
@@ -480,7 +506,7 @@ bool achordion_eager_mod(uint8_t mod) {
 }
 
 // ==============================================================================
-// Mod tap interrupt
+// Mod-tap interrupt
 // ==============================================================================
 
 static const uint16_t hold_on_other_keypress_keys[] PROGMEM = {
