@@ -119,6 +119,10 @@ static uint16_t idle_timer = 0;
 #define define_shifted_progmem_string(kc, nomods_str, shifted_str, ...)             define_tagged_progmem_string(shifted, kc, shifted_str, __VA_ARGS__)
 #define define_ctrled_progmem_string(kc, nomods_str, shifted_str, ctrled_str, ...)  define_tagged_progmem_string(ctrled, kc, ctrled_str, __VA_ARGS__)
 
+FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
+FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
+FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
+
 enum arianes_keycodes {
   KC_DUMMY = SAFE_RANGE,
   HOLD_GUI,
@@ -127,10 +131,6 @@ enum arianes_keycodes {
   RGB_TOGGLE_NOEE,
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 };
-
-FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
-FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
-FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
 
 #define shiftable_or_ctrlable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, shifted_str_##kc, ctrled_str_##kc },
 typedef struct {
