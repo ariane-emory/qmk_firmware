@@ -2,6 +2,7 @@ AUTO_SHIFT_ENABLE  	 	 			 = no
 BOOTMAGIC_ENABLE       			 = no
 COMMAND_ENABLE     	 	 			 = no
 CONSOLE_ENABLE     	 	 			 = no
+DEFERRED_EXEC_ENABLE 	 			 = no
 DYNAMIC_TAPPING_TERM_ENABLE  = no
 GRAVE_ESC_ENABLE   	 	 			 = no 
 MAGIC_ENABLE       	 	 			 = no
@@ -18,7 +19,6 @@ SEND_STRING_ENABLE 	 	 			 = yes
 
 # Unimportant 
 CAPS_WORD_ENABLE   	 	 			 = yes
-DEFERRED_EXEC_ENABLE 	 			 = no
 DYNAMIC_MACRO_ENABLE   			 = no
 LEADER_ENABLE                = yes
 NKRO_ENABLE        	 	 			 = yes
