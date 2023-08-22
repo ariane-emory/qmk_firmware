@@ -89,10 +89,10 @@ static uint16_t idle_timer = 0;
 
 #define REPEAT_SHELL_STR (SS_DOWN(X_LGUI)SS_TAP(X_A)SS_UP(X_LGUI)SS_TAP(X_BSPC)SS_TAP(X_ENT)"11"SS_TAP(X_ENT))
 
+#define GUI_CLICK_RAW SS_DOWN(X_LGUI) DD SS_TAP(X_BTN1) DD SS_UP(X_LGUI)
+#define GUI_CLICK_STR (GUI_CLICK_RAW)
 #define TELEPORT_RAW SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("x") DD SS_LGUI("w") DD SS_LGUI("`") DD SS_TAP(X_ESC) DD SS_LGUI("t") DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("v") DD SS_TAP(X_ENT) DD SS_TAP(X_F) DD SS_DELAY(500) DD SS_TAP(X_F) DD SS_DELAY(500) DD  SS_TAP(X_F) DD SS_DELAY(500) DD SS_TAP(X_F) DD SS_LGUI("`") DD
 #define TELEPORT_STR (TELEPORT_RAW)
-#define GUI_CLICK_RAW SS_DOWN(X_LGUI) DD SS_TAP(X_BTN1) DD SS_UP(X_LGUI) DD SS_LCTL(SS_TAP(X_TAB))
-#define GUI_CLICK_STR (GUI_CLICK_RAW)
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                               \
   DO(GUI_CLICK,    GUI_CLICK_STR,                                       GUI_CLICK_STR,                                         GUI_CLICK_STR)                \
