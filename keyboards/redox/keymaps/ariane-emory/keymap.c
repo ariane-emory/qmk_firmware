@@ -228,6 +228,7 @@ static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM =
   { RGUI_T(VD_RIGHT),      VD_RIGHT      },
   { LALT_T(VD_LEFT),       VD_LEFT       },
   { LCTL_T(VD_RIGHT),      VD_RIGHT      },
+  { LGUI_T(LCA(KC_RIGHT)), LCA(KC_RIGHT) }, 
   { L9_OR_USCORE,          LSFT(KC_MINS) },
   { L12_OR_USCORE,         LSFT(KC_MINS) },
   { RCTL_DQUO,             KC_DQUO       },

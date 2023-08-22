@@ -539,7 +539,7 @@
       "ANY(LT11_CMD_W)",
       "LALT(KC_TAB)",
       "LCA(KC_LEFT)",
-      "LCA(KC_RGHT)",
+      "ANY(LGUI_T(LCA(KC_RIGHT)))",
       "ANY(LALT_T(VD_LEFT))",
       "ANY(LCTL_T(VD_RIGHT))",
       "KC_PGDN",
