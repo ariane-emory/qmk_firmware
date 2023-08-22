@@ -235,7 +235,7 @@ KEYRECORD_C_FUN(insert_upp_handler, bool) {
     for (uint8_t ix = 0; ix < 6; ix++) {
       static const uint16_t hex_keycodes[] = {
         KC_2, KC_3, KC_4, KC_5, KC_6, KC_7,
-        KC_8, KC_9, KC_A, KC_B, QB_C, 
+        KC_8, KC_9, KC_A, KC_B, QB_C,
       };
       const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
       const uint16_t hex_kc = LSFT(hex_keycodes[roll - 2]);
@@ -255,7 +255,6 @@ KEYRECORD_C_FUN(disable_mouse_layer_handler, bool) {
 typedef bool(*keycode_handler_fun_t)(const uint16_t keycode, const keyrecord_t * const record);
 
 static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode_handlers[] PROGMEM = {
-// static const keycode_handler_t keycode_handlers[] PROGMEM = {
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler      },
   /* { GUI_CLICK,               gui_click_handler           }, */
