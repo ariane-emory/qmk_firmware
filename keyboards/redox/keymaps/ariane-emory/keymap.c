@@ -74,11 +74,6 @@ void send_string_without_mods_P(const char * const string) {
 // Custom keycodes
 // ==============================================================================
 
-uint32_t release_lgui_callback(uint32_t trigger_time, void *cb_arg) {
-  unregister_code(KC_LGUI);
-  return 0;
-}
-
 static uint16_t idle_timer = 0;
 
 #define LL SS_TAP(X_LEFT)
@@ -208,24 +203,6 @@ KEYRECORD_C_FUN(gui_click_handler, bool) {
     wait_ms(50);
     unregister_code(KC_RGUI);
   }
-  return false;
-};
-
-KEYRECORD_C_FUN(hold_gui_handler, bool) {
-#if defined(HOLD_GUI_HANDLER) && defined(DEFERRRED_EXEC_ENABLE)
-  if (record->event.pressed)
-  {
-    register_code(KC_LGUI);
-  }
-  else {
-    static deferred_token token = INVALID_DEFERRED_TOKEN;
-    if (token != INVALID_DEFERRED_TOKEN) {
-      cancel_deferred_exec(token);
-      token = INVALID_DEFERRED_TOKEN;
-    }
-    token = defer_exec(600, release_lgui_callback, NULL);
-  }
-#endif
   return false;
 };
 
