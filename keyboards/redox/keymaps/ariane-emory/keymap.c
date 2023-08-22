@@ -85,9 +85,11 @@ static uint16_t idle_timer = 0;
 #define UU SS_TAP(X_UP)
 #define TB SS_TAP(X_TAB)
 #define CR SS_TAP(X_ENT)
+#define DD SS_DELAY(50)
 
 #define REPEAT_SHELL_CMD (SS_DOWN(X_LGUI)SS_TAP(X_A)SS_UP(X_LGUI)SS_TAP(X_BSPC)SS_TAP(X_ENT)"11"SS_TAP(X_ENT))
-#define TELEPORT (SS_LGUI("l") SS_LGUI("a") SS_LGUI("x") SS_LGUI("w") SS_LGUI("`") SS_TAP(X_ESC) SS_LGUI("t") SS_LGUI("l") SS_LGUI("a") SS_LGUI("v")  SS_TAP(X_ENT) SS_DELAY(1000) SS_TAP(X_F) SS_LGUI("`"))
+
+#define TELEPORT (SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("x") DD SS_LGUI("w") DD SS_LGUI("`") DD SS_TAP(X_ESC) DD SS_LGUI("t") DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("v") DD SS_TAP(X_ENT) DD SS_TAP(X_F) DD SS_LGUI("`"))
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                               \
   DO(SS_TELEPORT,  TELEPORT,                                            (""),                                                  (""))                         \
