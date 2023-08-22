@@ -20,7 +20,7 @@ SEND_STRING_ENABLE 	 	 			 = yes
 CAPS_WORD_ENABLE   	 	 			 = yes
 DEFERRED_EXEC_ENABLE 	 			 = no
 DYNAMIC_MACRO_ENABLE   			 = no
-LEADER_ENABLE                = no
+LEADER_ENABLE                = yes
 NKRO_ENABLE        	 	 			 = yes
 
 SRC                         += src/achordion.c
