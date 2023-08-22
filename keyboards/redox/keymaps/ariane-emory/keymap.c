@@ -74,8 +74,6 @@ void send_string_without_mods_P(const char * const string) {
 // Custom keycodes
 // ==============================================================================
 
-static uint16_t idle_timer = 0;
-
 #define LL SS_TAP(X_LEFT)
 #define UU SS_TAP(X_UP)
 #define TB SS_TAP(X_TAB)
@@ -293,6 +291,8 @@ KEYRECORD_FUN(process_mouse_keys, bool) {
     }
   }
 }
+
+static uint16_t idle_timer = 0;
 
 KEYRECORD_FUN(process_record_user, bool) {
   idle_timer = timer_read();
