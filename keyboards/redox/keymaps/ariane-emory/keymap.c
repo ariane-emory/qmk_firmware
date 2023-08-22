@@ -87,7 +87,7 @@ static uint16_t idle_timer = 0;
 #define CR SS_TAP(X_ENT)
 #define DD SS_DELAY(50)
 
-#define REPEAT_SHELL_CMD (SS_DOWN(X_LGUI)SS_TAP(X_A)SS_UP(X_LGUI)SS_TAP(X_BSPC)SS_TAP(X_ENT)"11"SS_TAP(X_ENT))
+#define REPEAT_SHELL_STR (SS_DOWN(X_LGUI)SS_TAP(X_A)SS_UP(X_LGUI)SS_TAP(X_BSPC)SS_TAP(X_ENT)"11"SS_TAP(X_ENT))
 
 #define TELEPORT_RAW SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("x") DD SS_LGUI("w") DD SS_LGUI("`") DD SS_TAP(X_ESC) DD SS_LGUI("t") DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("v") DD SS_TAP(X_ENT) DD SS_TAP(X_F) DD SS_DELAY(500) DD SS_TAP(X_F) DD SS_DELAY(500) DD  SS_TAP(X_F) DD SS_DELAY(500) DD SS_TAP(X_F)
 #define TELEPORT_STR (TELEPORT_RAW)
@@ -103,7 +103,7 @@ static uint16_t idle_timer = 0;
   DO(EM_KIL_BUF,   (SS_LCTL("x")SS_DELAY(50)SS_LCTL("k")),              (""),                                                  (""))                         \
   DO(EM_REVERT,    (SS_LCTL("x")SS_DELAY(50)SS_LCTL("r")),              (""),                                                  (""))                         \
   DO(EM_LASTARG,   (" "SS_LCTL("c")SS_DELAY(50)"."),                    (""),                                                  (""))                         \
-  DO(SS_BANGBANG,  REPEAT_SHELL_CMD,                                    ("11"SS_TAP(X_ENT)),                                   (""))                         \
+  DO(SS_BANGBANG,  REPEAT_SHELL_STR,                                    ("11"SS_TAP(X_ENT)),                                   (""))                         \
   DO(SS_PIN1,      (AE_PIN1),                                           (AE_PIN2),                                             (ROUTER_PWD))                 \
   DO(SS_ARROW,     ("->"),                                              (" => "),                                              ("490"LL))                    \
   DO(SS_DIR,       ("~/"),                                              ("../"),                                               ("./"))                       \
