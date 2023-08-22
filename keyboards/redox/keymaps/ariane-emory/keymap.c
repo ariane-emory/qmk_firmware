@@ -95,7 +95,7 @@ static uint16_t idle_timer = 0;
 #define TELEPORT_STR (TELEPORT_RAW)
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                               \
-  DO(GUI_CLICK,    GUI_CLICK_STR,                                       GUI_CLICK_STR,                                         GUI_CLICK_STR)                \
+  DO(GUI_CLICK,    GUI_CLICK_STR,                                       GUI_CLICK_STR,                                         TELEPORT_STR)                 \
   DO(SS_TELEPORT,  TELEPORT_STR,                                        (""),                                                  (""))                         \
   DO(SS_FULLSCR,   (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_F)SS_UP(X_F24)), (""),                                                  (""))                         \
   DO(SS_DICT,      (SS_TAP(X_F24)SS_TAP(X_F24)),                        (SS_DOWN(X_F24)SS_DELAY(50)SS_TAP(X_SPC)SS_UP(X_F24)), (""))                         \
