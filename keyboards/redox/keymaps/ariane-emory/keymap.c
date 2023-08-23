@@ -549,7 +549,7 @@ void leader_end_user(void) {
     SEND_STRING("qmk compile" ENT);
   }
   else if (leader_sequence_two_keys(KC_Q, KC_S)) {
-    SEND_STRING("qmk compile" ENT "shove" ENT);
+    SEND_STRING("qmk compile; shove" ENT);
   }
   else if (leader_sequence_one_key(KC_S)) {
     SEND_STRING("shove" ENT);
