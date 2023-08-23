@@ -78,7 +78,7 @@ void send_string_without_mods_P(const char * const string) {
 #define UU SS_TAP(X_UP)
 #define TB SS_TAP(X_TAB)
 #define CR SS_TAP(X_ENT)
-#define DD SS_DELAY(50)
+#define DD SS_DELAY(25)
 
 #define REPEAT_SHELL_STR (SS_DOWN(X_LGUI) SS_TAP(X_A) SS_UP(X_LGUI) SS_TAP(X_BSPC) SS_TAP(X_ENT) "11" SS_TAP(X_ENT))
 
