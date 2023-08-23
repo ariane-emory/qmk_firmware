@@ -546,52 +546,51 @@ uint16_t keycode_config(uint16_t keycode) {
 
 void leader_end_user(void) {
   if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING("qmk compile" ENT);
+    SEND_STRING_WITHOUT_MODS_P(PSTR("qmk compile" ENT));
   }
   else if (leader_sequence_two_keys(KC_Q, KC_S)) {
-    SEND_STRING("qmk compile; shove" ENT);
+    SEND_STRING_WITHOUT_MODS_P(PSTR("qmk compile; shove" ENT));
   }
   else if (leader_sequence_one_key(KC_S)) {
-    SEND_STRING("shove" ENT);
+    SEND_STRING_WITHOUT_MODS_P(PSTR("shove" ENT));
   }
   else if (leader_sequence_two_keys(KC_C, KC_D)) {
-    SEND_STRING("D:" ENT);
-    SEND_STRING(AE_CD ENT);
+    SEND_STRING_WITHOUT_MODS_P(PSTR("D:" ENT AE_CD ENT));
   }
   else if (leader_sequence_two_keys(KC_G, KC_D)) {
-    SEND_STRING("git diff " ENT);
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " ENT));
   }
   else if (leader_sequence_two_keys(KC_G, KC_S)) {
-    SEND_STRING("git status " ENT);
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git status " ENT));
   }
   else if (leader_sequence_two_keys(KC_G, KC_C)) {
-    SEND_STRING("git commit ");
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit "));
   }
   else if (leader_sequence_three_keys(KC_G, KC_C, KC_M)) {
-    SEND_STRING("git commit -m \"\"");
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\""));
     tap_code(KC_LEFT);
   }
   else if (leader_sequence_four_keys(KC_G, KC_C, KC_A, KC_M)) {
-    SEND_STRING("git commit -a -m \"\"");
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\""));
     tap_code(KC_LEFT);
   }
   else if (leader_sequence_two_keys(KC_G, KC_H)) {
-    SEND_STRING("git checkout ");
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git checkout "));
   }
   else if (leader_sequence_two_keys(KC_G, KC_M)) {
-    SEND_STRING("git merge ");
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git merge "));
   }
   else if (leader_sequence_two_keys(KC_G, KC_P)) {
-    SEND_STRING("git push ");
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git push "));
   }
   else if (leader_sequence_two_keys(KC_G, KC_U)) {
-    SEND_STRING("git pull ");
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git pull "));
   }
   else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {
-    SEND_STRING("git reset --hard ");
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard "));
   }
   else if (leader_sequence_two_keys(KC_G, KC_R)) {
-    SEND_STRING("git reset ");
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset "));
   }
 }
 #endif // LEADER_ENABLE
