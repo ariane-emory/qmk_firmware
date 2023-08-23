@@ -48,7 +48,7 @@ void keyboard_post_init_user(void) {
 #define KEYRECORD_C_FUN(name, t) t name(uint16_t keycode, keyrecord_t const * const record)
 
 #ifdef SEND_STRING_ENABLE
-#  define MY_SS_DELAY 25
+#  define MY_SS_DELAY 20
 #  define SEND_STRING_WITHOUT_MODS(string) send_string_without_mods(string)
 #  define SEND_STRING_WITHOUT_MODS_P(string) send_string_without_mods_P(string)
 void send_string_without_mods(const char * const string) {
@@ -120,7 +120,6 @@ enum arianes_keycodes {
   KC_DUMMY = SAFE_RANGE,
   HOLD_GUI,
   INSERT_UPP,
-  // GUI_CLICK,
   RGB_TOGGLE_NOEE,
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 };
@@ -168,18 +167,6 @@ KEYRECORD_C_FUN(dynamic_macros_handler, bool) {
 #endif // DYNAMIC_MACRO_ENABLE
   return true;
 }
-
-KEYRECORD_C_FUN(gui_click_handler, bool) {
-  if (record->event.pressed) {
-    // SEND_STRING_WITHOUT_MODS(SS_DOWN(X_RGUI) SS_DELAY(100) SS_TAP(X_MS_BTN1) SS_DELAY(100) SS_UP(X_RGUI));
-    register_code(KC_RGUI);
-    wait_ms(50);
-    tap_code(KC_MS_BTN1);
-    wait_ms(50);
-    unregister_code(KC_RGUI);
-  }
-  return false;
-};
 
 KEYRECORD_C_FUN(insert_upp_handler, bool) {
 #ifdef INSERT_UPP_ENABLED
@@ -561,7 +548,7 @@ void leader_end_user(void) {
   if (leader_sequence_one_key(KC_Q)) {
     SEND_STRING("qmk compile" ENT);
   }
-  if (leader_sequence_two_keys(KC_Q, KC_S)) {
+  else if (leader_sequence_two_keys(KC_Q, KC_S)) {
     SEND_STRING("qmk compile" ENT "shove" ENT);
   }
   else if (leader_sequence_one_key(KC_S)) {
