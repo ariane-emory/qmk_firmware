@@ -993,7 +993,7 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "KC_NO",
+      "ANY(GUI_CLICK_AND_TAB)",
       "RCTL(KC_A)",
       "RCTL(KC_E)",
       "KC_NO",
