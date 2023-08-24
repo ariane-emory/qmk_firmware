@@ -89,7 +89,7 @@ void send_string_without_mods_P(const char * const string) {
 #define GUI_CLICK_AND_TAB_STR (GUI_CLICK_RAW SS_LCTL(SS_TAP(X_TAB)))
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                                       \
-  DO(GUI_CLICK,            GUI_CLICK_STR,                                       TELEPORT_STR,                                          GUI_CLICK_AND_TAB_STR)        \
+  DO(GUI_CLICK,            GUI_CLICK_STR,                                       TELEPORT_STR,                                          (""))                         \
   DO(GUI_CLICK_AND_TAB,    GUI_CLICK_AND_TAB_STR,                               (""),                                                  (""))                         \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) DD SS_TAP(X_F) SS_UP(X_F24)),        (""),                                                  (""))                         \
   DO(SS_DICT,              (SS_TAP(X_F24) SS_TAP(X_F24)),                       (SS_DOWN(X_F24) DD SS_TAP(X_SPC) SS_UP(X_F24)),        (""))                         \
