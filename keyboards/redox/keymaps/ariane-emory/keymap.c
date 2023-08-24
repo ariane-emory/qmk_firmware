@@ -566,12 +566,10 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git commit "));
   }
   else if (leader_sequence_three_keys(KC_G, KC_C, KC_M)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\""));
-    tap_code(KC_LEFT);
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\"" LL));
   }
   else if (leader_sequence_four_keys(KC_G, KC_C, KC_A, KC_M)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\""));
-    tap_code(KC_LEFT);
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\"" LL));
   }
   else if (leader_sequence_two_keys(KC_G, KC_H)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git checkout "));
