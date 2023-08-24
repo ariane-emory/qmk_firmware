@@ -83,15 +83,13 @@ void send_string_without_mods_P(const char * const string) {
 #define REPEAT_SHELL_STR (SS_DOWN(X_LGUI) SS_TAP(X_A) SS_UP(X_LGUI) SS_TAP(X_BSPC) SS_TAP(X_ENT) "11" SS_TAP(X_ENT))
 
 #define GUI_CLICK_RAW SS_DOWN(X_LGUI) DD SS_TAP(X_BTN1) DD SS_UP(X_LGUI)
-#define GUI_CLICK_STR (GUI_CLICK_RAW)
 #define TELEPORT_RAW  GUI_CLICK_RAW DD SS_LCTL(SS_TAP(X_TAB)) DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("x") DD SS_LGUI("w") DD SS_LGUI("`") DD SS_TAP(X_ESC) DD SS_LGUI("t") DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("v") DD SS_TAP(X_ENT) DD SS_TAP(X_F) DD SS_DELAY(600) DD SS_TAP(X_F) DD SS_DELAY(600) DD  SS_TAP(X_F) DD SS_LGUI("`") DD
-#define TELEPORT_STR  (TELEPORT_RAW)
-#define GUI_CLICK_AND_TAB_STR (GUI_CLICK_RAW SS_LCTL(SS_TAP(X_TAB)))
+#define GUI_CLICK_AND_TAB_STR GUI_CLICK_RAW SS_LCTL(SS_TAP(X_TAB))
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                                       \
-  DO(TELEPORT,             TELEPORT_STR,                                        (""),                                                  (""))                         \
-  DO(GUI_CLICK,            GUI_CLICK_STR,                                       TELEPORT_STR,                                          (""))                         \
-  DO(GUI_CLICK_AND_TAB,    GUI_CLICK_AND_TAB_STR,                               (""),                                                  (""))                         \
+  DO(TELEPORT,             (TELEPORT_RAW),                                      (""),                                                  (""))                         \
+  DO(GUI_CLICK,            (GUI_CLICK_RAW),                                     (TELEPORT_RAW),                                        (""))                         \
+  DO(GUI_CLICK_AND_TAB,    (GUI_CLICK_AND_TAB_STR),                             (""),                                                  (""))                         \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) DD SS_TAP(X_F) SS_UP(X_F24)),        (""),                                                  (""))                         \
   DO(SS_DICT,              (SS_TAP(X_F24) SS_TAP(X_F24)),                       (SS_DOWN(X_F24) DD SS_TAP(X_SPC) SS_UP(X_F24)),        (""))                         \
   DO(EM_CHG_BUF,           (SS_LCTL("x") DD "b"),                               (""),                                                  (""))                         \
