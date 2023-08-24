@@ -615,7 +615,7 @@
       "ANY(VD_LEFT)",
       "ANY(VD_RIGHT)",
       "KC_PGDN",
-      "KC_TRNS",
+      "KC_NO",
       "ANY(BRTD)",
       "KC_PGDN",
       "ANY(VD_LEFT)",
