@@ -1008,7 +1008,7 @@
       "KC_TRNS",
       "ANY(GUI_CLICK_AND_TAB)",
       "ANY(TELEPORT)",
-      "KC_TRNS",
+      "ANY(TELEPORT)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
