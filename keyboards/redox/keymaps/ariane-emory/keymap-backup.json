@@ -633,7 +633,7 @@
       "ANY(QK_DYNAMIC_MACRO_RECORD_START_1)",
       "ANY(QK_DYNAMIC_MACRO_RECORD_START_2)",
       "ANY(QK_DYNAMIC_MACRO_PLAY_2)",
-      "RALT(KC_X)",
+      "ANY(GUI_CLICK_AND_TAB)",
       "RCTL(KC_X)",
       "RCTL(KC_C)",
       "RALT(KC_LEFT)",

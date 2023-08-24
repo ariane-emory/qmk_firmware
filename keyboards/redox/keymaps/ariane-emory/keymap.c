@@ -88,23 +88,24 @@ void send_string_without_mods_P(const char * const string) {
 #define TELEPORT_STR  (TELEPORT_RAW)
 #define GUI_CLICK_AND_TAB_STR (GUI_CLICK_RAW SS_LCTL(SS_TAP(X_TAB)))
 
-#define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                               \
-  DO(GUI_CLICK,    GUI_CLICK_STR,                                       TELEPORT_STR,                                          GUI_CLICK_AND_TAB_STR)        \
-  DO(SS_FULLSCR,   (SS_DOWN(X_F24) DD SS_TAP(X_F) SS_UP(X_F24)),        (""),                                                  (""))                         \
-  DO(SS_DICT,      (SS_TAP(X_F24) SS_TAP(X_F24)),                       (SS_DOWN(X_F24) DD SS_TAP(X_SPC) SS_UP(X_F24)),        (""))                         \
-  DO(EM_CHG_BUF,   (SS_LCTL("x") DD "b"),                               (""),                                                  (""))                         \
-  DO(EM_KIL_BUF,   (SS_LCTL("x") DD SS_LCTL("k")),                      (""),                                                  (""))                         \
-  DO(EM_REVERT,    (SS_LCTL("x") DD SS_LCTL("r")),                      (""),                                                  (""))                         \
-  DO(EM_LASTARG,   (" " SS_LCTL("c") DD "."),                           (""),                                                  (""))                         \
-  DO(SS_BANGBANG,  REPEAT_SHELL_STR,                                    ("11" SS_TAP(X_ENT)),                                  (""))                         \
-  DO(SS_PIN1,      (AE_PIN1),                                           (AE_PIN2),                                             (ROUTER_PWD))                 \
-  DO(SS_ARROW,     ("->"),                                              (" => "),                                              ("490" LL))                   \
-  DO(SS_DIR,       ("~/"),                                              ("../"),                                               ("./"))                       \
-  DO(SS_LBRACK,    ("9"),                                               ("["),                                                 ("{"))                        \
-  DO(SS_RBRACK,    ("0"),                                               ("]"),                                                 ("}"))                        \
-  DO(SS_BRACKS,    ("90" LL),                                           ("[" CR CR "]" UU TB),                                 ("{}" LL))                    \
-  DO(SS_SMILEY,    (" :0"),                                             (" :/"),                                               (" >_>"))                     \
-  DO(SS_SMILEY2,   (" ;0"),                                             (" :P"),                                               (" :D"))
+#define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                                       \
+  DO(GUI_CLICK,            GUI_CLICK_STR,                                       TELEPORT_STR,                                          GUI_CLICK_AND_TAB_STR)        \
+  DO(GUI_CLICK_AND_TAB,    GUI_CLICK_AND_TAB_STR,                               (""),                                                  (""))                         \
+  DO(SS_FULLSCR,           (SS_DOWN(X_F24) DD SS_TAP(X_F) SS_UP(X_F24)),        (""),                                                  (""))                         \
+  DO(SS_DICT,              (SS_TAP(X_F24) SS_TAP(X_F24)),                       (SS_DOWN(X_F24) DD SS_TAP(X_SPC) SS_UP(X_F24)),        (""))                         \
+  DO(EM_CHG_BUF,           (SS_LCTL("x") DD "b"),                               (""),                                                  (""))                         \
+  DO(EM_KIL_BUF,           (SS_LCTL("x") DD SS_LCTL("k")),                      (""),                                                  (""))                         \
+  DO(EM_REVERT,            (SS_LCTL("x") DD SS_LCTL("r")),                      (""),                                                  (""))                         \
+  DO(EM_LASTARG,           (" " SS_LCTL("c") DD "."),                           (""),                                                  (""))                         \
+  DO(SS_BANGBANG,          REPEAT_SHELL_STR,                                    ("11" SS_TAP(X_ENT)),                                  (""))                         \
+  DO(SS_PIN1,              (AE_PIN1),                                           (AE_PIN2),                                             (ROUTER_PWD))                 \
+  DO(SS_ARROW,             ("->"),                                              (" => "),                                              ("490" LL))                   \
+  DO(SS_DIR,               ("~/"),                                              ("../"),                                               ("./"))                       \
+  DO(SS_LBRACK,            ("9"),                                               ("["),                                                 ("{"))                        \
+  DO(SS_RBRACK,            ("0"),                                               ("]"),                                                 ("}"))                        \
+  DO(SS_BRACKS,            ("90" LL),                                           ("[" CR CR "]" UU TB),                                 ("{}" LL))                    \
+  DO(SS_SMILEY,            (" :0"),                                             (" :/"),                                               (" >_>"))                     \
+  DO(SS_SMILEY2,           (" ;0"),                                             (" :P"),                                               (" :D"))
   
 #define enum_item(kc, str, ...)                                                     kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                             static const char tag##_str_##kc[] PROGMEM = str;
