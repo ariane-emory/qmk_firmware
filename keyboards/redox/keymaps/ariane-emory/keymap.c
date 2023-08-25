@@ -82,7 +82,7 @@ void send_string_without_mods_P(const char * const string) {
 
 #define REPEAT_SHELL SS_DOWN(X_LGUI) SS_TAP(X_A) SS_UP(X_LGUI) SS_TAP(X_BSPC) SS_TAP(X_ENT) "11" SS_TAP(X_ENT)
 #define GUI_CLICK SS_DOWN(X_LGUI) DD SS_TAP(X_BTN1) DD SS_UP(X_LGUI)
-#define TELEPORT  GUI_CLICK DD SS_LCTL(SS_TAP(X_TAB)) DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("x") DD SS_LGUI("w") DD SS_LGUI("`") DD SS_TAP(X_ESC) DD SS_LGUI("t") DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("v") DD SS_TAP(X_ENT) DD SS_TAP(X_F) DD SS_DELAY(600) DD SS_TAP(X_F) DD SS_DELAY(600) DD  SS_TAP(X_F) DD SS_LGUI("`") DD
+#define TELEPORT  GUI_CLICK DD SS_LCTL(SS_TAP(X_TAB)) DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("x") DD SS_LGUI("w") DD SS_LGUI("`") DD SS_TAP(X_ESC) DD SS_LGUI("t") DD SS_LGUI("l") DD SS_LGUI("a") DD SS_LGUI("v") DD SS_TAP(X_ENT) DD SS_TAP(X_F) DD SS_DELAY(1200) DD SS_TAP(X_F) DD SS_LGUI("`") DD
 #define GUI_CLICK_AND_TAB GUI_CLICK SS_LCTL(SS_TAP(X_TAB))
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                                       \
