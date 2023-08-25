@@ -579,10 +579,10 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git merge "));
   }
   else if (leader_sequence_two_keys(KC_G, KC_P)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git push "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git push " ENT));
   }
   else if (leader_sequence_two_keys(KC_G, KC_U)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git pull "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " ENT));
   }
   else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard "));
