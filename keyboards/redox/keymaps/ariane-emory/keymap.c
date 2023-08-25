@@ -587,7 +587,7 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " ENT));
   }
   else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " ENT));
   }
   else if (leader_sequence_two_keys(KC_G, KC_R)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git reset "));
