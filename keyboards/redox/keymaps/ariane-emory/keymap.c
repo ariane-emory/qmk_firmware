@@ -95,7 +95,7 @@ void send_string_without_mods_P(const char * const string) {
 #define TELEPORT(_)                                                                                                                                   \
   GUI_CLICK() dd() SS_LCTL(T(X_TAB)) dd() SS_LGUI("l") dd() SS_LGUI("a") dd() SS_LGUI("x") dd() SS_LGUI("w") dd()                                     \
   SS_LGUI("`") dd() SCR_R() dd() SS_DELAY(500) T(X_BTN1)                                                                                              \
-  ESC() dd() SS_LGUI("t") dd() SS_LGUI("l") dd() SS_LGUI("a") dd() SS_LGUI("v") dd() T(X_ENT) SS_DELAY(1500)                                          \
+  ESC() dd() SS_LGUI("t") dd() SS_LGUI("l") dd() SS_LGUI("a") dd() SS_LGUI("v") dd() T(X_ENT) SS_DELAY(2000)                                          \
   T(X_F) DD() RR() RR() RR() RR() RR() RR() RR() DD()                                                                                                 \
   SS_LGUI("`") DD() SCR_L() DD()
 
