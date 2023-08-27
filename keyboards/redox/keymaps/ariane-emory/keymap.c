@@ -91,11 +91,11 @@ void send_string_without_mods_P(const char * const string) {
 #define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" T(X_ENT)
 #define TELEPORT(_)                                                                                                                                   \
   GUI_CLICK() DD() SS_LCTL(T(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                     \
-  SS_LGUI("`") SCR_R() SS_DELAY(100)                                                                                                                  \
+  SS_LGUI("`") DD() SCR_R() DD() SS_DELAY(100)                                                                                                        \
   ESC() DD() SS_LGUI("t") DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(1000)                                          \
-  SPC() T(X_F) SPC()                                                                                                                                  \
-  SS_DELAY(300) RR() RR() RR() RR() RR() RR() RR()                                                                                                    \
-  SS_LGUI("`") SCR_L() DD()
+  SPC() DD() T(X_F) DD() SPC() DD()                                                                                                                   \
+  SS_DELAY(300) RR() RR() RR() RR() RR() RR() RR() DD()                                                                                               \
+  SS_LGUI("`") DD() SCR_L() DD()
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                        \
   DO(SS_TELEPORT,          (TELEPORT()),                              (""),                                        (""))                              \
