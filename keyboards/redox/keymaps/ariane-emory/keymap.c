@@ -554,16 +554,18 @@ uint16_t keycode_config(uint16_t keycode) {
 // Leader key
 // ==============================================================================
 
+#define LINE() SS_LCTL(SS_TAP(X_SPC)) SS_LCTL("a") SS_TAP(X_BSPC)
+
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
   if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR()"qmkc" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() CR() "qmkc" CR()));
   }
   else if (leader_sequence_two_keys(KC_Q, KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "qmkc; shove" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() CR() "qmkc; shove" CR()));
   }
   else if (leader_sequence_one_key(KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("shove" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(LINE() "shove" CR()));
   }
   else if (leader_sequence_two_keys(KC_C, KC_D)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("D:" CR() AE_CD CR()));
