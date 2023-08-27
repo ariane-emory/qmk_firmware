@@ -89,8 +89,10 @@ void send_string_without_mods_P(const char * const string) {
 #define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) SS_TAP(X_A) SS_UP(X_LGUI) SS_TAP(X_BSPC) SS_TAP(X_ENT) "11" SS_TAP(X_ENT)
 #define TELEPORT(_)                                                                                                                                   \
   GUI_CLICK() DD() SS_LCTL(SS_TAP(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                \
-  SS_LGUI("`") DD() \
-  ESC() DD() SS_LGUI("t") DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() SS_TAP(X_ENT) DD() SS_TAP(X_F) DD() SS_DELAY(1200) DD() SCR_R() SS_TAP(X_BTN1) SS_TAP(X_F) SS_TAP(X_BTN1) SS_DELAY(300) RR() RR() RR() RR() RR() RR() RR() SS_LGUI("`") SCR_L() DD()
+  SS_LGUI("`") DD()                                                                                                                                   \
+  ESC() DD() SS_LGUI("t") DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() SS_TAP(X_ENT) DD()                                               \
+  SS_TAP(X_F) DD() SS_DELAY(1200) DD() SCR_R() SS_TAP(X_BTN1) SS_TAP(X_F) SS_TAP(X_BTN1)                                                              \
+  SS_DELAY(300) RR() RR() RR() RR() RR() RR() RR() SS_LGUI("`") SCR_L() DD()
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                        \
   DO(SS_TELEPORT,          (TELEPORT()),                                        (""),                                                  (""))          \
