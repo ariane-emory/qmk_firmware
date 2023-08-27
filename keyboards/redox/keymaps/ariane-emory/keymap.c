@@ -75,7 +75,7 @@ void send_string_without_mods_P(const char * const string) {
 // ==============================================================================
 
 #define DD(_)              SS_DELAY(0)
-#define LL                 SS_TAP(X_LEFT)
+#define LL(_)              SS_TAP(X_LEFT)
 #define RR                 SS_TAP(X_RIGHT)
 #define UU                 SS_TAP(X_UP) 
 #define TB                 SS_TAP(X_TAB)
@@ -100,11 +100,11 @@ void send_string_without_mods_P(const char * const string) {
   DO(EM_LASTARG,           (" " SS_LCTL("c") DD() "."),                         (""),                                                  (""))          \
   DO(SS_BANGBANG,          (REPEAT_SHELL_CMD),                                  ("11" SS_TAP(X_ENT)),                                  (""))          \
   DO(SS_PIN1,              (AE_PIN1),                                           (AE_PIN2),                                             (ROUTER_PWD))  \
-  DO(SS_ARROW,             ("->"),                                              (" => "),                                              ("490" LL))    \
+  DO(SS_ARROW,             ("->"),                                              (" => "),                                              ("490" LL()))  \
   DO(SS_DIR,               ("~/"),                                              ("../"),                                               ("./"))        \
   DO(SS_LBRACK,            ("9"),                                               ("["),                                                 ("{"))         \
   DO(SS_RBRACK,            ("0"),                                               ("]"),                                                 ("}"))         \
-  DO(SS_BRACKS,            ("90" LL),                                           ("[" CR CR "]" UU TB),                                 ("{}" LL))     \
+  DO(SS_BRACKS,            ("90" LL()),                                           ("[" CR CR "]" UU TB),                                 ("{}" LL())) \
   DO(SS_SMILEY,            (" :0"),                                             (" :/"),                                               (" >_>"))      \
   DO(SS_SMILEY2,           (" ;0"),                                             (" :P"),                                               (" :D"))
   
@@ -569,10 +569,10 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git commit "));
   }
   else if (leader_sequence_three_keys(KC_G, KC_C, KC_M)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\"" LL));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\"" LL()));
   }
   else if (leader_sequence_four_keys(KC_G, KC_C, KC_A, KC_M)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\"" LL));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\"" LL()));
   }
   else if (leader_sequence_two_keys(KC_G, KC_H)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git checkout "));
