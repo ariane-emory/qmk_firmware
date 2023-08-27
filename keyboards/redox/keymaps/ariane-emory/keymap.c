@@ -554,7 +554,7 @@ uint16_t keycode_config(uint16_t keycode) {
 // Leader key
 // ==============================================================================
 
-#define LINE() SS_LCTL(SS_TAP(X_SPC)) SS_LCTL("a") SS_TAP(X_BSPC)
+#define LINE() SS_LCTL("e") SS_LCTL(SS_TAP(X_SPC)) SS_LCTL("a") SS_TAP(X_BSPC)
 
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
