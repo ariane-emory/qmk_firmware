@@ -79,7 +79,7 @@ void send_string_without_mods_P(const char * const string) {
 #define RR(_)              SS_TAP(X_RIGHT)
 #define UU(_)              SS_TAP(X_UP) 
 #define TB(_)              SS_TAP(X_TAB)
-#define CR                 SS_TAP(X_ENT)
+#define CR(_)              SS_TAP(X_ENT)
 #define SCR_L()            SS_LCTL(SS_TAP(X_F13))
 #define SCR_R()            SS_LCTL(SS_TAP(X_F14))
 
@@ -104,7 +104,7 @@ void send_string_without_mods_P(const char * const string) {
   DO(SS_DIR,               ("~/"),                                              ("../"),                                               ("./"))        \
   DO(SS_LBRACK,            ("9"),                                               ("["),                                                 ("{"))         \
   DO(SS_RBRACK,            ("0"),                                               ("]"),                                                 ("}"))         \
-  DO(SS_BRACKS,            ("90" LL()),                                           ("[" CR CR "]" UU() TB()),                                 ("{}" LL())) \
+  DO(SS_BRACKS,            ("90" LL()),                                         ("[" CR() CR() "]" UU() TB()),                             ("{}" LL())) \
   DO(SS_SMILEY,            (" :0"),                                             (" :/"),                                               (" >_>"))      \
   DO(SS_SMILEY2,           (" ;0"),                                             (" :P"),                                               (" :D"))
   
@@ -544,26 +544,24 @@ uint16_t keycode_config(uint16_t keycode) {
 // ==============================================================================
 
 #ifdef LEADER_ENABLE
-#define ENT SS_TAP(X_ENT)
-
 void leader_end_user(void) {
   if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("qmkc" ENT));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("qmkc" CR()));
   }
   else if (leader_sequence_two_keys(KC_Q, KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("qmkc; shove" ENT));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("qmkc; shove" CR()));
   }
   else if (leader_sequence_one_key(KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("shove" ENT));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("shove" CR()));
   }
   else if (leader_sequence_two_keys(KC_C, KC_D)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("D:" ENT AE_CD ENT));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("D:" CR() AE_CD CR()));
   }
   else if (leader_sequence_two_keys(KC_G, KC_D)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " ENT));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " CR()));
   }
   else if (leader_sequence_two_keys(KC_G, KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git status " ENT));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git status " CR()));
   }
   else if (leader_sequence_two_keys(KC_G, KC_C)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git commit "));
@@ -581,13 +579,13 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git merge "));
   }
   else if (leader_sequence_two_keys(KC_G, KC_P)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git push " ENT));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git push " CR()));
   }
   else if (leader_sequence_two_keys(KC_G, KC_U)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " ENT));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " CR()));
   }
   else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " ENT));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " CR()));
   }
   else if (leader_sequence_two_keys(KC_G, KC_R)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git reset "));
