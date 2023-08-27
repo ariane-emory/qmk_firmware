@@ -75,7 +75,6 @@ void send_string_without_mods_P(const char * const string) {
 // ==============================================================================
 
 #define T(x)                 SS_TAP(x)
-#define DD(_)                SS_DELAY(0)
 #define LL(_)                T(X_LEFT)
 #define RR(_)                T(X_RIGHT)
 #define UU(_)                T(X_UP) 
@@ -85,6 +84,9 @@ void send_string_without_mods_P(const char * const string) {
 #define SCR_R()              SS_LCTL(T(X_F14))
 #define ESC()                T(X_ESC)
 #define SPC()                T(X_SPC)
+#define CLR()                SS_LGUI("a") SS_TAP(X_BSPC)
+
+#define DD(_)                SS_DELAY(0)
 
 #define GUI_CLICK(_)         SS_DOWN(X_LGUI) DD() T(X_BTN1) DD() SS_UP(X_LGUI)
 #define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(T(X_TAB))
@@ -555,10 +557,10 @@ uint16_t keycode_config(uint16_t keycode) {
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
   if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("qmkc" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR()"qmkc" CR()));
   }
   else if (leader_sequence_two_keys(KC_Q, KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("qmkc; shove" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "qmkc; shove" CR()));
   }
   else if (leader_sequence_one_key(KC_S)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("shove" CR()));
