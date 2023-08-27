@@ -86,7 +86,7 @@ void send_string_without_mods_P(const char * const string) {
 #define SPC()                T(X_SPC)
 #define CLR()                SS_LGUI("a") SS_TAP(X_BSPC)
 
-#define DD(_)                SS_DELAY(0)
+#define DD(_)                SS_DELAY(700)
 
 #define GUI_CLICK(_)         SS_DOWN(X_LGUI) DD() T(X_BTN1) DD() SS_UP(X_LGUI)
 #define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(T(X_TAB))
@@ -95,7 +95,7 @@ void send_string_without_mods_P(const char * const string) {
   GUI_CLICK() DD() SS_LCTL(T(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                     \
   SS_LGUI("`") DD() SCR_R() DD() SS_DELAY(100)                                                                                                        \
   ESC() DD() SS_LGUI("t") DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(1000)                                          \
-  SPC() DD() T(X_F) DD() SPC() DD()                                                                                                                   \
+  SPC() DD() T(X_F) DD()                                                                                                                              \
   SS_DELAY(300) RR() RR() RR() RR() RR() RR() RR() DD()                                                                                               \
   SS_LGUI("`") DD() SCR_L() DD()
 
