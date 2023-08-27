@@ -86,15 +86,16 @@ void send_string_without_mods_P(const char * const string) {
 #define SPC()                T(X_SPC)
 #define CLR()                SS_LGUI("a") SS_TAP(X_BSPC) CR()
 
+#define dd(_)                SS_DELAY(20)
 #define DD(_)                SS_DELAY(300)
 
 #define GUI_CLICK(_)         SS_DOWN(X_LGUI) DD() T(X_BTN1) DD() SS_UP(X_LGUI)
 #define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(T(X_TAB))
 #define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" T(X_ENT)
 #define TELEPORT(_)                                                                                                                                   \
-  GUI_CLICK() DD() SS_LCTL(T(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                     \
-  SS_LGUI("`") DD() SCR_R() DD() SS_DELAY(100)                                                                                                        \
-  ESC() DD() SS_LGUI("t") DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(500)                                           \
+  GUI_CLICK() dd() SS_LCTL(T(X_TAB)) dd() SS_LGUI("l") dd() SS_LGUI("a") dd() SS_LGUI("x") dd() SS_LGUI("w") dd()                                     \
+  SS_LGUI("`") dd() SCR_R() dd() SS_DELAY(100)                                                                                                        \
+  ESC() dd() SS_LGUI("t") dd() SS_LGUI("l") dd() SS_LGUI("a") dd() SS_LGUI("v") dd() T(X_ENT) SS_DELAY(500)                                           \
   SPC() DD() T(X_F) DD()                                                                                                                              \
   SS_DELAY(300) RR() RR() RR() RR() RR() RR() RR() DD()                                                                                               \
   SS_LGUI("`") DD() SCR_L() DD()
