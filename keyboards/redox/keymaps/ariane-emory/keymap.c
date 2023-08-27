@@ -84,7 +84,7 @@ void send_string_without_mods_P(const char * const string) {
 #define SCR_R()              SS_LCTL(T(X_F14))
 #define ESC()                T(X_ESC)
 #define SPC()                T(X_SPC)
-#define CLR()                SS_LGUI("a") SS_TAP(X_BSPC)
+#define CLR()                SS_LGUI("a") SS_TAP(X_BSPC) CR()
 
 #define DD(_)                SS_DELAY(100)
 
@@ -94,7 +94,7 @@ void send_string_without_mods_P(const char * const string) {
 #define TELEPORT(_)                                                                                                                                   \
   GUI_CLICK() DD() SS_LCTL(T(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                     \
   SS_LGUI("`") DD() SCR_R() DD() SS_DELAY(100)                                                                                                        \
-  ESC() DD() SS_LGUI("t") DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(1000)                                          \
+  ESC() DD() SS_LGUI("t") DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(500)                                           \
   SPC() DD() T(X_F) DD()                                                                                                                              \
   SS_DELAY(300) RR() RR() RR() RR() RR() RR() RR() DD()                                                                                               \
   SS_LGUI("`") DD() SCR_L() DD()
@@ -558,11 +558,14 @@ uint16_t keycode_config(uint16_t keycode) {
 
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
-  if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() CR() "qmkc" CR()));
+  if (leader_sequence_one_key(NUM_1)) {
+      SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "11" CR()));
+  }
+  else if (leader_sequence_one_key(KC_Q)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "qmkc" CR()));
   }
   else if (leader_sequence_two_keys(KC_Q, KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() CR() "qmkc; shove" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "qmkc; shove" CR()));
   }
   else if (leader_sequence_one_key(KC_S)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(LINE() "shove" CR()));
