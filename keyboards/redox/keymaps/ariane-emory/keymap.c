@@ -74,45 +74,48 @@ void send_string_without_mods_P(const char * const string) {
 // Custom keycodes
 // ==============================================================================
 
+#define T(x)                 SS_TAP(x)
 #define DD(_)                SS_DELAY(0)
-#define LL(_)                SS_TAP(X_LEFT)
-#define RR(_)                SS_TAP(X_RIGHT)
-#define UU(_)                SS_TAP(X_UP) 
-#define TB(_)                SS_TAP(X_TAB)
-#define CR(_)                SS_TAP(X_ENT)
-#define SCR_L()              SS_LCTL(SS_TAP(X_F13))
-#define SCR_R()              SS_LCTL(SS_TAP(X_F14))
-#define ESC()                SS_TAP(X_ESC)
+#define LL(_)                T(X_LEFT)
+#define RR(_)                T(X_RIGHT)
+#define UU(_)                T(X_UP) 
+#define TB(_)                T(X_TAB)
+#define CR(_)                T(X_ENT)
+#define SCR_L()              SS_LCTL(T(X_F13))
+#define SCR_R()              SS_LCTL(T(X_F14))
+#define ESC()                T(X_ESC)
+#define SPC()                T(X_SPC)
 
-#define GUI_CLICK(_)         SS_DOWN(X_LGUI) DD() SS_TAP(X_BTN1) DD() SS_UP(X_LGUI)
-#define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(SS_TAP(X_TAB))
-#define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) SS_TAP(X_A) SS_UP(X_LGUI) SS_TAP(X_BSPC) SS_TAP(X_ENT) "11" SS_TAP(X_ENT)
+#define GUI_CLICK(_)         SS_DOWN(X_LGUI) DD() T(X_BTN1) DD() SS_UP(X_LGUI)
+#define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(T(X_TAB))
+#define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" T(X_ENT)
 #define TELEPORT(_)                                                                                                                                   \
-  GUI_CLICK() DD() SS_LCTL(SS_TAP(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                \
-  SS_LGUI("`") DD()                                                                                                                                   \
-  ESC() DD() SS_LGUI("t") DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() SS_TAP(X_ENT) DD()                                               \
-  SS_TAP(X_F) DD() SS_DELAY(1200) DD() SCR_R() SS_TAP(X_BTN1) SS_TAP(X_F) SS_TAP(X_BTN1)                                                              \
-  SS_DELAY(300) RR() RR() RR() RR() RR() RR() RR() SS_LGUI("`") SCR_L() DD()
+  GUI_CLICK() DD() SS_LCTL(T(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                     \
+  SS_LGUI("`") SCR_R() SS_DELAY(100)                                                                                                                  \
+  ESC() DD() SS_LGUI("t") DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(1200)                                          \
+  SPC() T(X_F) SPC()                                                                                                                                  \
+  SS_DELAY(300) RR() RR() RR() RR() RR() RR() RR()                                                                                                    \
+  SS_LGUI("`") SCR_L() DD()
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                        \
-  DO(SS_TELEPORT,          (TELEPORT()),                                        (""),                                                  (""))          \
-  DO(SS_GUI_CLICK,         (GUI_CLICK()),                                       (TELEPORT()),                                          (""))          \
-  DO(SS_GUI_CLICK_AND_TAB, (GUI_CLICK_AND_TAB()),                               (""),                                                  (""))          \
-  DO(SS_FULLSCR,           (SS_DOWN(X_F24) DD() SS_TAP(X_F) SS_UP(X_F24)),      (""),                                                  (""))          \
-  DO(SS_DICT,              (SS_TAP(X_F24) SS_TAP(X_F24)),                       (SS_DOWN(X_F24) DD() SS_TAP(X_SPC) SS_UP(X_F24)),      (""))          \
-  DO(EM_CHG_BUF,           (SS_LCTL("x") DD() "b"),                             (""),                                                  (""))          \
-  DO(EM_KIL_BUF,           (SS_LCTL("x") DD() SS_LCTL("k")),                    (""),                                                  (""))          \
-  DO(EM_REVERT,            (SS_LCTL("x") DD() SS_LCTL("r")),                    (""),                                                  (""))          \
-  DO(EM_LASTARG,           (" " SS_LCTL("c") DD() "."),                         (""),                                                  (""))          \
-  DO(SS_BANGBANG,          (REPEAT_SHELL_CMD()),                                ("11" SS_TAP(X_ENT)),                                  (""))          \
-  DO(SS_PIN1,              (AE_PIN1),                                           (AE_PIN2),                                             (ROUTER_PWD))  \
-  DO(SS_ARROW,             ("->"),                                              (" => "),                                              ("490" LL()))  \
-  DO(SS_DIR,               ("~/"),                                              ("../"),                                               ("./"))        \
-  DO(SS_LBRACK,            ("9"),                                               ("["),                                                 ("{"))         \
-  DO(SS_RBRACK,            ("0"),                                               ("]"),                                                 ("}"))         \
-  DO(SS_BRACKS,            ("90" LL()),                                         ("[" CR() CR() "]" UU() TB()),                         ("{}" LL()))   \
-  DO(SS_SMILEY,            (" :0"),                                             (" :/"),                                               (" >_>"))     \
-  DO(SS_SMILEY2,           (" ;0"),                                             (" :P"),                                               (" :D"))
+  DO(SS_TELEPORT,          (TELEPORT()),                              (""),                                        (""))                              \
+  DO(SS_GUI_CLICK,         (GUI_CLICK()),                             (TELEPORT()),                                (""))                              \
+  DO(SS_GUI_CLICK_AND_TAB, (GUI_CLICK_AND_TAB()),                     (""),                                        (""))                              \
+  DO(SS_FULLSCR,           (SS_DOWN(X_F24) DD() T(X_F) SS_UP(X_F24)), (""),                                        (""))                              \
+  DO(SS_DICT,              (T(X_F24) T(X_F24)),                       (SS_DOWN(X_F24) DD() T(X_SPC) SS_UP(X_F24)), (""))                              \
+  DO(EM_CHG_BUF,           (SS_LCTL("x") DD() "b"),                   (""),                                        (""))                              \
+  DO(EM_KIL_BUF,           (SS_LCTL("x") DD() SS_LCTL("k")),          (""),                                        (""))                              \
+  DO(EM_REVERT,            (SS_LCTL("x") DD() SS_LCTL("r")),          (""),                                        (""))                              \
+  DO(EM_LASTARG,           (" " SS_LCTL("c") DD() "."),               (""),                                        (""))                              \
+  DO(SS_BANGBANG,          (REPEAT_SHELL_CMD()),                      ("11" T(X_ENT)),                             (""))                              \
+  DO(SS_PIN1,              (AE_PIN1),                                 (AE_PIN2),                                   (ROUTER_PWD))                      \
+  DO(SS_ARROW,             ("->"),                                    (" => "),                                    ("490" LL()))                      \
+  DO(SS_DIR,               ("~/"),                                    ("../"),                                     ("./"))                            \
+  DO(SS_LBRACK,            ("9"),                                     ("["),                                       ("{"))                             \
+  DO(SS_RBRACK,            ("0"),                                     ("]"),                                       ("}"))                             \
+  DO(SS_BRACKS,            ("90" LL()),                               ("[" CR() CR() "]" UU() TB()),               ("{}" LL()))                       \
+  DO(SS_SMILEY,            (" :0"),                                   (" :/"),                                     (" >_>"))                          \
+  DO(SS_SMILEY2,           (" ;0"),                                   (" :P"),                                     (" :D"))
   
 #define enum_item(kc, str, ...)                                                     kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                             static const char tag##_str_##kc[] PROGMEM = str;
