@@ -86,7 +86,7 @@ void send_string_without_mods_P(const char * const string) {
 #define SPC()                T(X_SPC)
 #define CLR()                SS_LGUI("a") SS_TAP(X_BSPC) CR()
 
-#define dd(_)                SS_DELAY(20)
+#define dd(_)                SS_DELAY(10)
 #define DD(_)                SS_DELAY(100)
 
 #define GUI_CLICK(_)         SS_DOWN(X_LGUI) DD() T(X_BTN1) DD() SS_UP(X_LGUI)
@@ -562,10 +562,10 @@ void leader_end_user(void) {
       SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "11" CR()));
   }
   else if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "qmkc" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkml; qmkc" CR()));
   }
   else if (leader_sequence_two_keys(KC_Q, KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "qmkc; shove" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkml; qmkc; shove" CR()));
   }
   else if (leader_sequence_one_key(KC_S)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(LINE() "shove" CR()));
