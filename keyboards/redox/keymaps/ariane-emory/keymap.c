@@ -48,7 +48,7 @@ void keyboard_post_init_user(void) {
 #define KEYRECORD_C_FUN(name, t) t name(uint16_t keycode, keyrecord_t const * const record)
 
 #ifdef SEND_STRING_ENABLE
-#  define MY_SS_DELAY 20
+#  define MY_SS_DELAY 10
 #  define SEND_STRING_WITHOUT_MODS(string) send_string_without_mods(string)
 #  define SEND_STRING_WITHOUT_MODS_P(string) send_string_without_mods_P(string)
 void send_string_without_mods(const char * const string) {
@@ -86,7 +86,7 @@ void send_string_without_mods_P(const char * const string) {
 #define SPC()                T(X_SPC)
 #define CLR()                SS_LGUI("a") SS_TAP(X_BSPC) CR()
 
-#define dd(_)                SS_DELAY(10)
+#define dd(_)                SS_DELAY(0)
 #define DD(_)                SS_DELAY(100)
 
 #define GUI_CLICK(_)         SS_DOWN(X_LGUI) dd() T(X_BTN1) dd() SS_UP(X_LGUI)
