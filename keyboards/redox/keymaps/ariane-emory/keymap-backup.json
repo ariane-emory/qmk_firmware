@@ -609,7 +609,7 @@
       "RGUI(KC_LBRC)",
       "RGUI(KC_RBRC)",
       "RGUI(KC_W)",
-      "LALT(KC_TAB)",
+      "LGUI(KC_GRV)",
       "LCA(KC_LEFT)",
       "LCA(KC_RGHT)",
       "ANY(VD_LEFT)",

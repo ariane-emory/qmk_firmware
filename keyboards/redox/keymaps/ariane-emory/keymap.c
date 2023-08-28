@@ -562,10 +562,10 @@ void leader_end_user(void) {
       SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "11" CR()));
   }
   else if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkc" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkupd" CR()));
   }
   else if (leader_sequence_two_keys(KC_Q, KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkc; shove" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkupd; shove" CR()));
   }
   else if (leader_sequence_one_key(KC_S)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(LINE() "shove" CR()));
