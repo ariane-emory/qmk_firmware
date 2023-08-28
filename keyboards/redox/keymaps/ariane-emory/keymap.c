@@ -86,38 +86,35 @@ void send_string_without_mods_P(const char * const string) {
 #define SPC()                T(X_SPC)
 #define CLR()                SS_LGUI("a") SS_TAP(X_BSPC) CR()
 
-#define dd(_)                SS_DELAY(0)
-#define DD(_)                SS_DELAY(100)
-
-#define GUI_CLICK(_)         SS_DOWN(X_LGUI) dd() T(X_BTN1) dd() SS_UP(X_LGUI)
+#define GUI_CLICK(_)         SS_DOWN(X_LGUI) T(X_BTN1) SS_UP(X_LGUI)
 #define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(T(X_TAB))
 #define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" T(X_ENT)
 #define TELEPORT(_)                                                                                                                                   \
-  GUI_CLICK() dd() SS_LCTL(T(X_TAB)) dd() SS_LGUI("l") dd() SS_LGUI("a") dd() SS_LGUI("x") dd() SS_LGUI("w") dd()                                     \
-  SS_LGUI("`") dd() SCR_R() dd() SS_DELAY(200) T(X_BTN1) dd() T(X_MEDIA_STOP)                                                                         \
-  ESC() dd() SS_LGUI("l") dd() SS_LGUI("a") dd() SS_LGUI("v") dd() T(X_ENT) SS_DELAY(2000)                                                            \
-  T(X_F) dd() RR() RR() dd()                                                                                                                          \
-  SS_LGUI("`") dd() SCR_L() dd()
+  GUI_CLICK() SS_LCTL(T(X_TAB)) SS_LGUI("l") SS_LGUI("a") SS_LGUI("x") SS_LGUI("w")                                                                   \
+  SS_LGUI("`") SCR_R() SS_DELAY(200) T(X_BTN1) T(X_MEDIA_STOP)                                                                                        \
+  ESC() SS_LGUI("l") SS_LGUI("a") SS_LGUI("v") T(X_ENT) SS_DELAY(2000)                                                                                \
+  T(X_F) RR() RR()                                                                                                                                    \
+  SS_LGUI("`") SCR_L()
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                        \
-  DO(SS_TELEPORT,          (TELEPORT()),                              (""),                                        (""))                              \
-  DO(SS_GUI_CLICK,         (GUI_CLICK()),                             (TELEPORT()),                                (""))                              \
-  DO(SS_GUI_CLICK_AND_TAB, (GUI_CLICK_AND_TAB()),                     (""),                                        (""))                              \
-  DO(SS_FULLSCR,           (SS_DOWN(X_F24) dd() T(X_F) SS_UP(X_F24)), (""),                                        (""))                              \
-  DO(SS_DICT,              (T(X_F24) T(X_F24)),                       (SS_DOWN(X_F24) dd() T(X_SPC) SS_UP(X_F24)), (""))                              \
-  DO(EM_CHG_BUF,           (SS_LCTL("x") dd() "b"),                   (""),                                        (""))                              \
-  DO(EM_KIL_BUF,           (SS_LCTL("x") dd() SS_LCTL("k")),          (""),                                        (""))                              \
-  DO(EM_REVERT,            (SS_LCTL("x") dd() SS_LCTL("r")),          (""),                                        (""))                              \
-  DO(EM_LASTARG,           (" " SS_LCTL("c") dd() "."),               (""),                                        (""))                              \
-  DO(SS_BANGBANG,          (REPEAT_SHELL_CMD()),                      ("11" T(X_ENT)),                             (""))                              \
-  DO(SS_PIN1,              (AE_PIN1),                                 (AE_PIN2),                                   (ROUTER_PWD))                      \
-  DO(SS_ARROW,             ("->"),                                    (" => "),                                    ("490" LL()))                      \
-  DO(SS_DIR,               ("~/"),                                    ("../"),                                     ("./"))                            \
-  DO(SS_LBRACK,            ("9"),                                     ("["),                                       ("{"))                             \
-  DO(SS_RBRACK,            ("0"),                                     ("]"),                                       ("}"))                             \
-  DO(SS_BRACKS,            ("90" LL()),                               ("[" CR() CR() "]" UU() TB()),               ("{}" LL()))                       \
-  DO(SS_SMILEY,            (" :0"),                                   (" :/"),                                     (" >_>"))                          \
-  DO(SS_SMILEY2,           (" ;0"),                                   (" :P"),                                     (" :D"))
+  DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""))                                        \
+  DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (TELEPORT()),                           (""))                                        \
+  DO(SS_GUI_CLICK_AND_TAB, (GUI_CLICK_AND_TAB()),                (""),                                   (""))                                        \
+  DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""))                                        \
+  DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""))                                        \
+  DO(EM_CHG_BUF,           (SS_LCTL("x") "b"),                   (""),                                   (""))                                        \
+  DO(EM_KIL_BUF,           (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""))                                        \
+  DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),          (""),                                   (""))                                        \
+  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (""),                                   (""))                                        \
+  DO(SS_BANGBANG,          (REPEAT_SHELL_CMD()),                 ("11" T(X_ENT)),                        (""))                                        \
+  DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD))                                \
+  DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" LL()))                                \
+  DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"))                                      \
+  DO(SS_LBRACK,            ("9"),                                ("["),                                  ("{"))                                       \
+  DO(SS_RBRACK,            ("0"),                                ("]"),                                  ("}"))                                       \
+  DO(SS_BRACKS,            ("90" LL()),                          ("[" CR() CR() "]" UU() TB()),          ("{}" LL()))                                 \
+  DO(SS_SMILEY,            (" :0"),                              (" :/"),                                (" >_>"))                                    \
+  DO(SS_SMILEY2,           (" ;0"),                              (" :P"),                                (" :D"))
   
 #define enum_item(kc, str, ...)                                                     kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                             static const char tag##_str_##kc[] PROGMEM = str;
