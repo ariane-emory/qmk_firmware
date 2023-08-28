@@ -103,12 +103,12 @@ void send_string_without_mods_P(const char * const string) {
   DO(SS_TELEPORT,          (TELEPORT()),                              (""),                                        (""))                              \
   DO(SS_GUI_CLICK,         (GUI_CLICK()),                             (TELEPORT()),                                (""))                              \
   DO(SS_GUI_CLICK_AND_TAB, (GUI_CLICK_AND_TAB()),                     (""),                                        (""))                              \
-  DO(SS_FULLSCR,           (SS_DOWN(X_F24) DD() T(X_F) SS_UP(X_F24)), (""),                                        (""))                              \
-  DO(SS_DICT,              (T(X_F24) T(X_F24)),                       (SS_DOWN(X_F24) DD() T(X_SPC) SS_UP(X_F24)), (""))                              \
-  DO(EM_CHG_BUF,           (SS_LCTL("x") DD() "b"),                   (""),                                        (""))                              \
-  DO(EM_KIL_BUF,           (SS_LCTL("x") DD() SS_LCTL("k")),          (""),                                        (""))                              \
-  DO(EM_REVERT,            (SS_LCTL("x") DD() SS_LCTL("r")),          (""),                                        (""))                              \
-  DO(EM_LASTARG,           (" " SS_LCTL("c") DD() "."),               (""),                                        (""))                              \
+  DO(SS_FULLSCR,           (SS_DOWN(X_F24) dd() T(X_F) SS_UP(X_F24)), (""),                                        (""))                              \
+  DO(SS_DICT,              (T(X_F24) T(X_F24)),                       (SS_DOWN(X_F24) dd() T(X_SPC) SS_UP(X_F24)), (""))                              \
+  DO(EM_CHG_BUF,           (SS_LCTL("x") dd() "b"),                   (""),                                        (""))                              \
+  DO(EM_KIL_BUF,           (SS_LCTL("x") dd() SS_LCTL("k")),          (""),                                        (""))                              \
+  DO(EM_REVERT,            (SS_LCTL("x") dd() SS_LCTL("r")),          (""),                                        (""))                              \
+  DO(EM_LASTARG,           (" " SS_LCTL("c") dd() "."),               (""),                                        (""))                              \
   DO(SS_BANGBANG,          (REPEAT_SHELL_CMD()),                      ("11" T(X_ENT)),                             (""))                              \
   DO(SS_PIN1,              (AE_PIN1),                                 (AE_PIN2),                                   (ROUTER_PWD))                      \
   DO(SS_ARROW,             ("->"),                                    (" => "),                                    ("490" LL()))                      \
@@ -562,10 +562,10 @@ void leader_end_user(void) {
       SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "11" CR()));
   }
   else if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkml; qmkc" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkc" CR()));
   }
   else if (leader_sequence_two_keys(KC_Q, KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkml; qmkc; shove" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkc; shove" CR()));
   }
   else if (leader_sequence_one_key(KC_S)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(LINE() "shove" CR()));
