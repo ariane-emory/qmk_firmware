@@ -45,6 +45,7 @@
 #define ONESHOT_TIMEOUT                      1000
 #define PERMISSIVE_HOLD_PER_KEY
 
+#define RGBLED_NUM                           14
 #define RGBLIGHT_HUE_STEP                    8
 #define RGBLIGHT_SAT_STEP                    8
 #define RGBLIGHT_VAL_STEP                    8
@@ -61,8 +62,7 @@
 //==============================================================================
 
 #define CRGB_FADER_NO_STRINGS
-#define DIM_RGBS                             1
-// #define RGB_ONE_HAND
+#define DIM_RGBS                             0
 
 //==============================================================================
 
@@ -70,11 +70,6 @@
 #  define DIM_RGBs                           0
 #endif
 
-#ifdef RGB_ONE_HAND
-#  define RGBLED_NUM                         10 // one LED on right half.
-#else
-#  define RGBLED_NUM                         14
-#endif
 
 #undef PRODUCT
 #define PRODUCT "K's Redox"
