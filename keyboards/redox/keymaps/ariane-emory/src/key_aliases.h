@@ -232,7 +232,7 @@
 //==============================================================================
 // Thumb key aliases
 //==============================================================================
-#define LT11_OR_BSLS  LT(11,KC_BSLS)
+#define QT_BSLS  LT(11,KC_BSLS)
 #define L9_OR_USCORE  LT(9,KC_MINS)
 #define L9_OR_TAB     LT(9,KC_TAB)
 #define LALT_OR_SPC   MT(MOD_LALT,KC_SPC)

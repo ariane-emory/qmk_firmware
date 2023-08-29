@@ -32,7 +32,7 @@
       "ANY(QT_I)",
       "ANY(QT_O)",
       "ANY(QT_P)",
-      "ANY(LT11_OR_BSLS)",
+      "ANY(QT_BSLS)",
       "ANY(LCTL_ESC)",
       "ANY(QH_A)",
       "ANY(QH_S)",
