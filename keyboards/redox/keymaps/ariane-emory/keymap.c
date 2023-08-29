@@ -432,11 +432,6 @@ static const uint16_t achordion_bilat_keys[] PROGMEM = {
 };
 
 static const keycode_pair_t achordion_exceptions[] PROGMEM = {
-  // Both Shifts
-  { QB_Z,    LSFT_T(KC_MINS) }, // underscore
-  { QB_SLSH, RSFT_T(KC_MINS) }, // underscore
-  { QB_Z,    KC_EQL          }, // equals/plus
-  { QB_SLSH, KC_EQL          }, // equals/plus
   // Left GUI
   { QH_S,    KC_TAB          }, // app switcher
   { QH_S,    QB_Z            }, // undo
