@@ -19,6 +19,8 @@
 #define QT_O    KC_O
 #define QT_P    KC_P
 //------------------------------------------------------------------------------
+#define QT_BSLS LT(11,KC_BSLS)
+//------------------------------------------------------------------------------
 #define MT_Q    KC_Q
 #define MT_W    KC_W
 #define MT_E    KC_D
@@ -235,7 +237,6 @@
 //==============================================================================
 // Thumb key aliases
 //==============================================================================
-#define QT_BSLS  LT(11,KC_BSLS)
 #define L9_OR_USCORE  LT(9,KC_MINS)
 #define L9_OR_TAB     LT(9,KC_TAB)
 #define LALT_OR_SPC   MT(MOD_LALT,KC_SPC)
