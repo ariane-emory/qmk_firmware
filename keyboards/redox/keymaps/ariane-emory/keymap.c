@@ -95,9 +95,16 @@ void send_string_without_mods_P(const char * const string) {
   ESC() SS_LGUI("l") SS_LGUI("a") SS_LGUI("v") T(X_ENT) SS_DELAY(2000)                                                                                \
   T(X_F) RR() RR()                                                                                                                                    \
   SS_LGUI("`") SCR_L()
+#define TELEPORT2(_)                                                                                                                                  \
+  GUI_CLICK() SS_LCTL(T(X_TAB)) SS_LGUI("l") SS_LGUI("a") SS_LGUI("x") SS_LGUI("w")                                                                   \
+  SS_LGUI("`") SCR_R() SS_DELAY(200) T(X_BTN1) T(X_MEDIA_STOP)                                                                                        \
+  ESC() SS_LGUI("l") SS_LGUI("a") SS_LGUI("v") T(X_ENT) SS_DELAY(2000)                                                                                \
+  T(X_F) RR() RR()                                                                                                                                    \
+  SS_LGUI("`") SCR_L()
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                        \
   DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""))                                        \
+  DO(SS_TELEPORT2,         (TELEPORT2()),                        (""),                                   (""))                                        \
   DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (TELEPORT()),                           (GUI_CLICK_AND_TAB()))                       \
   DO(SS_GUI_CLICK_AND_TAB, (GUI_CLICK_AND_TAB()),                (""),                                   (""))                                        \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""))                                        \
