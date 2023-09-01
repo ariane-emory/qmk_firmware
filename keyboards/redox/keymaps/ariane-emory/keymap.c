@@ -103,7 +103,6 @@ void send_string_without_mods_P(const char * const string) {
   SS_LGUI("`") SCR_L()
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                        \
-  DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""))                                        \
   DO(SS_TELEPORT2,         (TELEPORT2()),                        (""),                                   (""))                                        \
   DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (TELEPORT()),                           (GUI_CLICK_AND_TAB()))                       \
   DO(SS_GUI_CLICK_AND_TAB, (GUI_CLICK_AND_TAB()),                (""),                                   (""))                                        \
