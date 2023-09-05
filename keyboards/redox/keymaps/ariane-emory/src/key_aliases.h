@@ -59,17 +59,19 @@
 //==============================================================================
 // HRM Assignments
 //==============================================================================
+#define LHRM_4(x) LT(13,x)
 #define LHRM_3(x) LGUI_T(x)
 #define LHRM_2(x) LALT_T(x)
 #define LHRM_1(x) LCTL_T(x)
 #define RHRM_1(x) RCTL_T(x)
 #define RHRM_2(x) RALT_T(x)
 #define RHRM_3(x) RGUI_T(x)
+#define RHRM_4(x) LT(13,x)
 
 //==============================================================================
 // Middle row
 //==============================================================================
-#define QH_A    LT(13,KC_A)
+#define QH_A    RHRM_4(KC_A)
 #define QH_S    LHRM_3(KC_S)
 #define QH_D    LHRM_2(KC_D)
 #define QH_F    LHRM_1(KC_F)
@@ -78,9 +80,9 @@
 #define QH_J    RHRM_1(KC_J)
 #define QH_K    RHRM_2(KC_K)
 #define QH_L    RHRM_3(KC_L)
-#define QH_QUOT LT(13,KC_QUOT)
+#define QH_QUOT RHRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
-#define MH_A    LT(13,KC_A)
+#define MH_A    RHRM_4(KC_A)
 #define MH_S    LHRM_3(KC_S)
 #define MH_D    LHRM_2(KC_E)
 #define MH_F    LHRM_1(KC_R)
@@ -89,10 +91,10 @@
 #define MH_J    RHRM_1(KC_N)
 #define MH_K    RHRM_2(KC_I)
 #define MH_L    RHRM_3(KC_O)
-#define MH_QUOT LT(13,KC_QUOT)
+#define MH_QUOT RHRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
 #ifdef COLEMAK_DH
-#  define CH_A    LT(13,KC_A)
+#  define CH_A    RHRM_4(KC_A)
 #  define CH_R    LHRM_3(KC_R)
 #  define CH_S    LHRM_2(KC_S)
 #  define CH_T    LHRM_1(KC_T)
@@ -101,9 +103,9 @@
 #  define CH_N    RHRM_1(KC_N)
 #  define CH_E    RHRM_2(KC_E)
 #  define CH_I    RHRM_3(KC_I)
-#  define CH_QUOT LT(13,KC_QUOT)
+#  define CH_QUOT RHRM_4(KC_QUOT)
 #else
-#  define CH_A    LT(13,KC_A)
+#  define CH_A    RHRM_4(KC_A)
 #  define CH_R    LHRM_3(KC_R)
 #  define CH_S    LHRM_2(KC_S)
 #  define CH_T    LHRM_1(KC_T)
@@ -112,7 +114,7 @@
 #  define CH_N    RHRM_1(KC_N)
 #  define CH_E    RHRM_2(KC_E)
 #  define CH_I    RHRM_3(KC_I)
-#  define CH_QUOT LT(13,KC_QUOT)
+#  define CH_QUOT RHRM_4(KC_QUOT)
 #endif
 //==============================================================================
 
@@ -223,7 +225,7 @@
 #define EM_END_MAC  LALT(LGUI(KC_E))
 #define EM_CTL_X    LCTL(KC_X)
 #define EM_CTL_C    LCTL(KC_C)
-#define RCTL_DQUO   LT(13,KC_DUMMY)
+#define RCTL_DQUO   RCTL_T(KC_DUMMY)
 #define LCTL_ESC    LCTL_T(KC_ESC)
 #define BRTU        KC_VOLU
 #define BRTD        KC_VOLD
