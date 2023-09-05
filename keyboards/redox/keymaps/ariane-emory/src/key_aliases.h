@@ -59,12 +59,12 @@
 //==============================================================================
 // HRM Assignments
 //==============================================================================
-#define LHRM_3 LGUI_T
-#define LHRM_2 LALT_T
-#define LHRM_1 LCTL_T
-#define RHRM_1 RCTL_T
-#define RHRM_2 RALT_T
-#define RHRM_3 RGUI_T
+#define LHRM_3(x) LGUI_T(x)
+#define LHRM_2(x) LALT_T(x)
+#define LHRM_1(x) LCTL_T(x)
+#define RHRM_1(x) RCTL_T(x)
+#define RHRM_2(x) RALT_T(x)
+#define RHRM_3(x) RGUI_T(x)
 
 //==============================================================================
 // Middle row
