@@ -57,51 +57,61 @@
 //==============================================================================
 
 //==============================================================================
+// HRM Assignments
+//==============================================================================
+#define LHRM_3 LGUI_T
+#define LHRM_2 LALT_T
+#define LHRM_1 LCTL_T
+#define RHRM_1 RCTL_T
+#define RHRM_2 RALT_T
+#define RHRM_3 RGUI_T
+
+//==============================================================================
 // Middle row
 //==============================================================================
 #define QH_A    LT(13,KC_A)
-#define QH_S    LGUI_T(KC_S)
-#define QH_D    LALT_T(KC_D)
-#define QH_F    LCTL_T(KC_F)
+#define QH_S    LHRM_3(KC_S)
+#define QH_D    LHRM_2(KC_D)
+#define QH_F    LHRM_1(KC_F)
 #define QH_G    LSFT_T(KC_G)
 #define QH_H    RSFT_T(KC_H)
-#define QH_J    RCTL_T(KC_J)
-#define QH_K    RALT_T(KC_K)
-#define QH_L    RGUI_T(KC_L)
+#define QH_J    RHRM_1(KC_J)
+#define QH_K    RHRM_2(KC_K)
+#define QH_L    RHRM_3(KC_L)
 #define QH_QUOT LT(13,KC_QUOT)
 //------------------------------------------------------------------------------
 #define MH_A    LT(13,KC_A)
-#define MH_S    LGUI_T(KC_S)
-#define MH_D    LALT_T(KC_E)
-#define MH_F    LCTL_T(KC_R)
+#define MH_S    LHRM_3(KC_S)
+#define MH_D    LHRM_2(KC_E)
+#define MH_F    LHRM_1(KC_R)
 #define MH_G    LSFT_T(KC_T)
 #define MH_H    RSFT_T(KC_H)
-#define MH_J    RCTL_T(KC_N)
-#define MH_K    RALT_T(KC_I)
-#define MH_L    RGUI_T(KC_O)
+#define MH_J    RHRM_1(KC_N)
+#define MH_K    RHRM_2(KC_I)
+#define MH_L    RHRM_3(KC_O)
 #define MH_QUOT LT(13,KC_QUOT)
 //------------------------------------------------------------------------------
 #ifdef COLEMAK_DH
 #  define CH_A    LT(13,KC_A)
-#  define CH_R    LGUI_T(KC_R)
-#  define CH_S    LALT_T(KC_S)
-#  define CH_T    LCTL_T(KC_T)
+#  define CH_R    LHRM_3(KC_R)
+#  define CH_S    LHRM_2(KC_S)
+#  define CH_T    LHRM_1(KC_T)
 #  define CH_D    LSFT_T(KC_G)
 #  define CH_H    RSFT_T(KC_M)
-#  define CH_N    RCTL_T(KC_N)
-#  define CH_E    RALT_T(KC_E)
-#  define CH_I    RGUI_T(KC_I)
+#  define CH_N    RHRM_1(KC_N)
+#  define CH_E    RHRM_2(KC_E)
+#  define CH_I    RHRM_3(KC_I)
 #  define CH_QUOT LT(13,KC_QUOT)
 #else
 #  define CH_A    LT(13,KC_A)
-#  define CH_R    LGUI_T(KC_R)
-#  define CH_S    LALT_T(KC_S)
-#  define CH_T    LCTL_T(KC_T)
+#  define CH_R    LHRM_3(KC_R)
+#  define CH_S    LHRM_2(KC_S)
+#  define CH_T    LHRM_1(KC_T)
 #  define CH_D    LSFT_T(KC_D)
 #  define CH_H    RSFT_T(KC_H)
-#  define CH_N    RCTL_T(KC_N)
-#  define CH_E    RALT_T(KC_E)
-#  define CH_I    RGUI_T(KC_I)
+#  define CH_N    RHRM_1(KC_N)
+#  define CH_E    RHRM_2(KC_E)
+#  define CH_I    RHRM_3(KC_I)
 #  define CH_QUOT LT(13,KC_QUOT)
 #endif
 //==============================================================================
