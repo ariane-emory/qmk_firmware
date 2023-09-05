@@ -1,4 +1,4 @@
-#include "cRGB_fader.h"
+#include "rgb_led_t_fader.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,43 +22,43 @@
   DO(target)
 
 #ifndef CRGB_FADER_NO_STRINGS
-void cRGB_fader_update_c_str(cRGB_fader_t * const this);
+void rgb_led_t_fader_update_c_str(rgb_led_t_fader_t * const this);
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////
 // Before
 ////////////////////////////////////////////////////////////////////////////////
 
-void cRGB_fader_finish_init(cRGB_fader_t * const this) {
+void rgb_led_t_fader_finish_init(rgb_led_t_fader_t * const this) {
 #  ifndef CRGB_FADER_NO_STRINGS
-  cRGB_fader_update_c_str(this);
+  rgb_led_t_fader_update_c_str(this);
 #  endif
   this->step = 0;
 }
 
-bool cRGB_fader_before_set_target (cRGB_fader_t * const this, const cRGB * const rgb) {
-  return ! cRGB_equal(&this->target, rgb);
+bool rgb_led_t_fader_before_set_target (rgb_led_t_fader_t * const this, const rgb_led_t * const rgb) {
+  return ! rgb_led_t_equal(&this->target, rgb);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // Initializers
 ////////////////////////////////////////////////////////////////////////////////
 
-void cRGB_fader_init(cRGB_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
-  cRGB rgb;
-  cRGB_init(&rgb, r, g, b);
-#define copy_rgb(r) cRGB_copy(&this->r, &rgb);
+void rgb_led_t_fader_init(rgb_led_t_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
+  rgb_led_t rgb;
+  rgb_led_t_init(&rgb, r, g, b);
+#define copy_rgb(r) rgb_led_t_copy(&this->r, &rgb);
   FOR_EACH_RGB(copy_rgb);
 #undef copy_rgb
-  cRGB_fader_finish_init(this);
+  rgb_led_t_fader_finish_init(this);
 }
 
 #ifndef CRGB_FADER_NO_STRINGS
-bool cRGB_fader_init_from_str(cRGB_fader_t * const this, const char * const str) {
-  cRGB tmp;
-  if (! cRGB_init_from_str(&tmp, str))
+bool rgb_led_t_fader_init_from_str(rgb_led_t_fader_t * const this, const char * const str) {
+  rgb_led_t tmp;
+  if (! rgb_led_t_init_from_str(&tmp, str))
     return false;
-  cRGB_fader_init(this, tmp.r, tmp.g, tmp.b);
+  rgb_led_t_fader_init(this, tmp.r, tmp.g, tmp.b);
   return true;
 }
 #endif
@@ -68,8 +68,8 @@ bool cRGB_fader_init_from_str(cRGB_fader_t * const this, const char * const str)
 ////////////////////////////////////////////////////////////////////////////////
 
 #ifndef CRGB_FADER_NO_STRINGS
-void cRGB_fader_update_c_str(cRGB_fader_t * const this) {
-  cRGB_sprintf(&this->current, this->c_str);
+void rgb_led_t_fader_update_c_str(rgb_led_t_fader_t * const this) {
+  rgb_led_t_sprintf(&this->current, this->c_str);
 }
 #endif
 
@@ -81,9 +81,9 @@ int max(int x, int y) {
   return x > y ? x : y;
 }
 
-void cRGB_fader_step(cRGB_fader_t * const this) {
+void rgb_led_t_fader_step(rgb_led_t_fader_t * const this) {
   if (UINT8_MAX == this->step) {
-    cRGB_fader_init(this, this->target.r, this->target.g, this->target.b);
+    rgb_led_t_fader_init(this, this->target.r, this->target.g, this->target.b);
   } else {
 #define define_color_delta(color) const int color ## _delta = (this->target. color - this->initial. color);
     FOR_EACH_COLOR(define_color_delta);
@@ -101,7 +101,7 @@ void cRGB_fader_step(cRGB_fader_t * const this) {
 #undef set_current_color
 
 #ifndef CRGB_FADER_NO_STRINGS
-    cRGB_fader_update_c_str(this);
+    rgb_led_t_fader_update_c_str(this);
 #endif
   }
 }
@@ -110,8 +110,8 @@ void cRGB_fader_step(cRGB_fader_t * const this) {
 // Stop
 ////////////////////////////////////////////////////////////////////////////////
 
-void cRGB_fader_stop(cRGB_fader_t * const this) {
-  cRGB_fader_init(this, this->current.r, this->current.g, this->current.b);
+void rgb_led_t_fader_stop(rgb_led_t_fader_t * const this) {
+  rgb_led_t_fader_init(this, this->current.r, this->current.g, this->current.b);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -119,11 +119,11 @@ void cRGB_fader_stop(cRGB_fader_t * const this) {
 ////////////////////////////////////////////////////////////////////////////////
 
 #ifndef CRGB_FADER_NO_STRINGS
-void cRGB_fader_printf(const cRGB_fader_t * const this) {
+void rgb_led_t_fader_printf(const rgb_led_t_fader_t * const this) {
   printf("%s\n", this->c_str);
 }
 
-void cRGB_fader_describe(const cRGB_fader_t * const this) {
+void rgb_led_t_fader_describe(const rgb_led_t_fader_t * const this) {
 #define print_rgb_info(rgb)                                                     \
   printf("------------------------------\n");                                   \
   printf(#rgb ".r   = %3d\n", this->rgb.r);                                     \
@@ -142,31 +142,31 @@ void cRGB_fader_describe(const cRGB_fader_t * const this) {
 // Is changing
 ////////////////////////////////////////////////////////////////////////////////
 
-bool cRGB_fader_is_changing(const cRGB_fader_t * const this) {
-  return ! cRGB_equal(&this->current, &this->target);
+bool rgb_led_t_fader_is_changing(const rgb_led_t_fader_t * const this) {
+  return ! rgb_led_t_equal(&this->current, &this->target);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // Setters
 ////////////////////////////////////////////////////////////////////////////////
 
-void cRGB_fader_set_target(cRGB_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
-  cRGB rgb;
-  cRGB_init(&rgb, r, g, b);
-  // if cRGB_fader_before_set_target returns false, no change is needed and we
+void rgb_led_t_fader_set_target(rgb_led_t_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
+  rgb_led_t rgb;
+  rgb_led_t_init(&rgb, r, g, b);
+  // if rgb_led_t_fader_before_set_target returns false, no change is needed and we
   // return success
-  if (! cRGB_fader_before_set_target(this, &rgb))
+  if (! rgb_led_t_fader_before_set_target(this, &rgb))
     return;
-  cRGB_fader_stop(this);
-  cRGB_copy(&this->target, &rgb);
+  rgb_led_t_fader_stop(this);
+  rgb_led_t_copy(&this->target, &rgb);
 }
 
 #ifndef CRGB_FADER_NO_STRINGS
-bool cRGB_fader_set_target_from_str(cRGB_fader_t * const this, const char * const str) {
-  cRGB rgb;
+bool rgb_led_t_fader_set_target_from_str(rgb_led_t_fader_t * const this, const char * const str) {
+  rgb_led_t rgb;
   return ! rgb_init_from_str(&rgb, str)
     ? false
-    : cRGB_fader_set_target_from_rgb(this, &rgb);
+    : rgb_led_t_fader_set_target_from_rgb(this, &rgb);
 }
 #endif
 

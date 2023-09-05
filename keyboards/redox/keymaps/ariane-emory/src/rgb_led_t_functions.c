@@ -1,10 +1,10 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "cRGB_functions.h"
+#include "rgb_led_t_functions.h"
 
 // ==============================================================================
-// cRGB functions
+// rgb_led_t functions
 // ==============================================================================
 
 #define COLORS                                                                  \
@@ -12,26 +12,26 @@
   C(g)                                                                          \
   C(b)
 
-void cRGB_init(cRGB * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
+void rgb_led_t_init(rgb_led_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
 #define C(n) this->n = n;
   COLORS;
 #undef C
 }
 
-void cRGB_copy(cRGB * const this, const cRGB * const that) {
+void rgb_led_t_copy(rgb_led_t * const this, const rgb_led_t * const that) {
 #define C(n) this->n = that->n;
   COLORS;
 #undef C
 }
 
-bool cRGB_equal(const cRGB * const this, const cRGB * const that) {
+bool rgb_led_t_equal(const rgb_led_t * const this, const rgb_led_t * const that) {
   return ((this->r == that->r) &&
           (this->g == that->g) &&
           (this->b == that->b));
 }
 
 #ifndef RGB_FADER_NO_STRINGS
-bool cRGB_init_from_str(cRGB * const this, const char * const str) {
+bool rgb_led_t_init_from_str(rgb_led_t * const this, const char * const str) {
   if (7 != strlen(str))
     return false;
   
@@ -48,7 +48,7 @@ bool cRGB_init_from_str(cRGB * const this, const char * const str) {
   return false;
 }
 
-void cRGB_sprintf(const cRGB * const this, char * const str) {
+void rgb_led_t_sprintf(const rgb_led_t * const this, char * const str) {
   snprintf(str, 8, "#%02X%02X%02X", this->r, this->g, this->b);
 }
 #endif

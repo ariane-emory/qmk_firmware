@@ -11,8 +11,8 @@
 #include "src/achordion.h"
 
 #ifdef RGBLIGHT_ENABLE
-#  include "src/cRGB_fader.h"
-cRGB_fader_t cRGB_fader;
+#  include "src/rgb_led_t_fader.h"
+rgb_led_t_fader_t rgb_led_t_fader;
 #endif
 
 #if CONSOLE_ENABLE
@@ -36,7 +36,7 @@ void keyboard_post_init_user(void) {
 
 #ifdef RGBLIGHT_ENABLE
   rgblight_enable_noeeprom();
-  cRGB_fader_init(&cRGB_fader, MY_RGB_DEFAULT);
+  rgb_led_t_fader_init(&rgb_led_t_fader, MY_RGB_DEFAULT);
 #endif
 }
 
@@ -354,14 +354,14 @@ void dynamic_macro_record_end_user(int8_t direction) {
 // ==============================================================================
 
 #ifdef RGBLIGHT_ENABLE
-bool cRGB_fader_set_target_if_recording_macro(cRGB_fader_t * const this) {
+bool rgb_led_t_fader_set_target_if_recording_macro(rgb_led_t_fader_t * const this) {
   if (! currently_recording_macro)
     return false;
-  cRGB_fader_set_target(this, MY_RGB_RECORDING_MACRO);
+  rgb_led_t_fader_set_target(this, MY_RGB_RECORDING_MACRO);
   return true;
 }
 
-void cRGB_fader_set_target_by_layer(cRGB_fader_t * const this) {
+void rgb_led_t_fader_set_target_by_layer(rgb_led_t_fader_t * const this) {
   typedef struct {
     uint8_t layer;
     uint8_t r;
@@ -386,7 +386,7 @@ void cRGB_fader_set_target_by_layer(cRGB_fader_t * const this) {
     }
   }
 
-  cRGB_fader_set_target(this, row->r, row->g, row->b);
+  rgb_led_t_fader_set_target(this, row->r, row->g, row->b);
 }
 #endif
 
@@ -418,13 +418,13 @@ void matrix_scan_user(void) {
   
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
 #  define DIM(x) (x >> DIM_RGBS)
-  if (!cRGB_fader_set_target_if_recording_macro(&cRGB_fader))
-    cRGB_fader_set_target_by_layer(&cRGB_fader);
-  cRGB_fader_step(&cRGB_fader);
+  if (!rgb_led_t_fader_set_target_if_recording_macro(&rgb_led_t_fader))
+    rgb_led_t_fader_set_target_by_layer(&rgb_led_t_fader);
+  rgb_led_t_fader_step(&rgb_led_t_fader);
   rgblight_setrgb(
-    DIM(cRGB_fader.current.r),
-    DIM(cRGB_fader.current.g),
-    DIM(cRGB_fader.current.b));
+    DIM(rgb_led_t_fader.current.r),
+    DIM(rgb_led_t_fader.current.g),
+    DIM(rgb_led_t_fader.current.b));
 #endif // defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
 }
 
