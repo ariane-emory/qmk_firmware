@@ -1,7 +1,7 @@
 // -*- c-backslash-column: 90; c-backslash-max-column: 90 -*-
 
 #ifdef COMBO_ENABLE
-#include "key_aliases.h"
+#include "key-aliases.h"
 
 // =======================================================================================
 // Combos

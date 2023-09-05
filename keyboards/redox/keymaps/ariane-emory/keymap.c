@@ -4,7 +4,7 @@
 #include <quantum/mousekey.h>
 #include <stdbool.h>
 
-#include "src/key_aliases.h"
+#include "src/key-aliases.h"
 #include "src/secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
 #define USE_ACHORDION
