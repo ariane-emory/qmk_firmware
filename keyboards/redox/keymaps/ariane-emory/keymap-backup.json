@@ -64,7 +64,7 @@
       "ANY(QB_SLSH)",
       "ANY(QB_RSFT)",
       "KC_F24",
-      "KC_NO",
+      "ANY(VD_ALL)",
       "KC_NO",
       "ANY(VD_ALL)",
       "ANY(CRL_LFT)",
