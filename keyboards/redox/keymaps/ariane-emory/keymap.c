@@ -85,7 +85,7 @@ void send_string_without_mods_P(const char * const string) {
 #define ESC()                T(X_ESC)
 #define SPC()                T(X_SPC)
 #define CLR()                SS_LGUI("a") SS_TAP(X_BSPC) CR()
-#define DD()                 SS_DELAY(1000)
+#define DD()                 SS_DELAY(500)
 
 #define GUI_CLICK(_)         SS_DOWN(X_LGUI) T(X_BTN1) SS_UP(X_LGUI)
 #define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(T(X_TAB))
