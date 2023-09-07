@@ -50,7 +50,7 @@
 #define RGBLIGHT_SAT_STEP                    8
 #define RGBLIGHT_VAL_STEP                    8
 
-#define TAPPING_TERM                         300
+#define TAPPING_TERM                         250
 
 #define TOGGLED_LAYER                        6
 #define TOGGLED_LAYER_TIMEOUT                30000
