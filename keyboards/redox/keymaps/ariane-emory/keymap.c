@@ -84,25 +84,23 @@ void send_string_without_mods_P(const char * const string) {
 #define SCR_R()              SS_LCTL(T(X_F14))
 #define ESC()                T(X_ESC)
 #define SPC()                T(X_SPC)
-#define DD()                 SS_DELAY(100)
+#define CLR()                SS_LGUI("a") SS_TAP(X_BSPC) CR()
 
 #define GUI_CLICK(_)         SS_DOWN(X_LGUI) T(X_BTN1) SS_UP(X_LGUI)
 #define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(T(X_TAB))
 #define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" T(X_ENT)
 #define TELEPORT(_)                                                                                                                                   \
-  GUI_CLICK() DD() SS_LCTL(T(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                     \
-  SS_LGUI("`") DD() SCR_R() DD() SS_DELAY(200) DD() T(X_BTN1) DD() ESC() DD()                                                                         \
-  SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(2000)                                                                       \
-  SCR_R() DD() SS_DELAY(200) T(X_BTN1) DD() T(X_BTN1) DD() ESC() DD()                                                                                 \
-  T(X_F) DD() RR() DD() RR()                                                                                                                          \
-  SS_LGUI("`") DD() SCR_L()
+  GUI_CLICK() SS_LCTL(T(X_TAB)) SS_LGUI("l") SS_LGUI("a") SS_LGUI("x") SS_LGUI("w")                                                                   \
+  SS_LGUI("`") SCR_R() SS_DELAY(200) T(X_BTN1) ESC()                                                                                                  \
+  SS_LGUI("l") SS_LGUI("a") SS_LGUI("v") T(X_ENT) SS_DELAY(2000)                                                                                      \
+  T(X_F) RR() RR()                                                                                                                                    \
+  SS_LGUI("`") SCR_L()
 #define TELEPORT2(_)                                                                                                                                  \
-  GUI_CLICK() DD() SS_LCTL(T(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                     \
-  SS_LGUI("`") DD() SCR_R() DD() SS_DELAY(200) DD() T(X_BTN1) DD() ESC() DD()                                                                         \
-  SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(2000)                                                                       \
-  SCR_R() DD() SS_DELAY(200) T(X_BTN1) DD() T(X_BTN1) DD() ESC() DD()                                                                                 \
-  T(X_F) DD() RR() DD() RR()                                                                                                                          \
-  SS_LGUI("`") DD() SCR_L()
+  GUI_CLICK() SS_LCTL(T(X_TAB)) SS_LGUI("l") SS_LGUI("a") SS_LGUI("x") SS_LGUI("w")                                                                   \
+  SS_LGUI("`") SCR_R() SS_DELAY(200) T(X_BTN1) ESC()                                                                                                  \
+  SS_LGUI("l") SS_LGUI("a") SS_LGUI("v") T(X_ENT) SS_DELAY(2000)                                                                                      \
+  T(X_F) RR() RR()                                                                                                                                    \
+  SS_LGUI("`") SCR_L()
 
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                        \
   DO(SS_TELEPORT2,         (TELEPORT2()),                        (""),                                   (""))                                        \
