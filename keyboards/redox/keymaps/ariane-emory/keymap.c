@@ -88,7 +88,7 @@ void send_string_without_mods_P(const char * const string) {
 
 #define GUI_CLICK(_)         SS_DOWN(X_LGUI) T(X_BTN1) SS_UP(X_LGUI)
 #define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(T(X_TAB))
-#define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" T(X_ENT)
+#define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" CR() T(X_HOME)
 #define TELEPORT(_)                                                                                                                                   \
   GUI_CLICK() SS_LCTL(T(X_TAB)) SS_LGUI("l") SS_LGUI("a") SS_LGUI("x") SS_LGUI("w")                                                                   \
   SS_LGUI("`") SCR_R() SS_DELAY(200) T(X_BTN1) ESC()                                                                                                  \
