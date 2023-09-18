@@ -562,6 +562,9 @@ void leader_end_user(void) {
   if (leader_sequence_one_key(NUM_1)) {
       SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "11" CR()));
   }
+  else if (leader_sequence_one_key(KC_0)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_)));
+  }
   else if (leader_sequence_one_key(KC_Q)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkc" CR()));
   }
