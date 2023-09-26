@@ -33,8 +33,8 @@
   __(l_top_trpo,    ____________,  QT_Q,    QT_W,      QT_E                    ) \
   ______________________________________________________________________________ \
   DO(l_mid_rech,    EM_END_MAC,    QH_A,    QH_S                               ) \
-  DO(l_mid_innr,    EM_BGN_MAC,    QH_D,    QH_F                               ) \
-  DO(l_mid_outr,    EM_RPT_MAC,    QH_S,    QH_D                               ) \
+  DO(l_mid_innr,    EM_RPG_MAC,    QH_D,    QH_F                               ) \
+  DO(l_mid_outr,    EM_BGN_MAC,    QH_S,    QH_D                               ) \
   DO(l_mid_curl,    SS_BANGBANG,   QH_F,    QH_G                               ) \
   __(l_mid_sprd,    ____________,  QH_S,    QH_F                               ) \
   __(l_mid_trpi,    ____________,  QH_D,    QH_F,      QH_G                    ) \
