@@ -453,6 +453,8 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_D,    QH_F            }, // forwards word
   { QH_D,    QB_B            }, // backwards word
   { QH_D,    QT_T            }, // new tab
+  { QH_D,    KC_ENT          }, // M-<return>
+
   // Left Control
   { QH_F,    QH_A            }, // beginning of line
   { QH_F,    QH_D            }, // delete forwards char
