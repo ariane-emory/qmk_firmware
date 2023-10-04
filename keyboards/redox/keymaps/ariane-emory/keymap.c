@@ -460,6 +460,8 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_F,    QT_T            }, // new tab
   { QH_F,    QT_W            }, // close
   { QH_F,    QH_S            }, // i-search
+  { QH_F,    KC_ENT          }, // C-<return>
+  
   // Right Control
   { QH_J,    QH_H            }, // backspace
   { QH_J,    QH_K            }, // kill line

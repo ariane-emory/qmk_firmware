@@ -511,7 +511,7 @@
       "KC_TRNS"
     ],
     [
-      "LGUI(KC_Q)",
+      "KC_NO",
       "DF(0)",
       "DF(1)",
       "DF(2)",
@@ -523,7 +523,7 @@
       "RGUI(KC_MINS)",
       "RGUI(KC_EQL)",
       "LCA(KC_X)",
-      "LGUI(KC_W)",
+      "LGUI(KC_GRV)",
       "LCTL(KC_A)",
       "LCTL(KC_E)",
       "RCS(KC_TAB)",
@@ -583,7 +583,7 @@
       "KC_TRNS"
     ],
     [
-      "LGUI(KC_Q)",
+      "KC_NO",
       "DF(0)",
       "DF(1)",
       "DF(2)",
@@ -595,7 +595,7 @@
       "RGUI(KC_MINS)",
       "RGUI(KC_EQL)",
       "RGUI(KC_Q)",
-      "LGUI(KC_W)",
+      "LGUI(KC_GRV)",
       "LCTL(KC_A)",
       "LCTL(KC_E)",
       "RCS(KC_TAB)",
@@ -938,9 +938,9 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_SPC"
+      "LAG(KC_E)",
+      "LAG(KC_W)",
+      "LAG(KC_R)"
     ],
     [
       "KC_NO",
