@@ -542,7 +542,7 @@
       "ANY(LGUI_T(LCA(KC_RIGHT)))",
       "ANY(LALT_T(VD_LEFT))",
       "ANY(LCTL_T(VD_RIGHT))",
-      "KC_PGDN",
+      "ANY(LSFT_T(KC_PGDN))",
       "KC_NO",
       "KC_VOLD",
       "KC_PGDN",
