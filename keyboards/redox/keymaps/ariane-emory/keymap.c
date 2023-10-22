@@ -121,7 +121,8 @@ void send_string_without_mods_P(const char * const string) {
   DO(SS_RBRACK,            ("0"),                                ("]"),                                  ("}"))                                       \
   DO(SS_BRACKS,            ("90" LL()),                          ("[" CR() CR() "]" UU() TB()),          ("{}" LL()))                                 \
   DO(SS_SMILEY,            (" :0"),                              (" :/"),                                (" >_>"))                                    \
-  DO(SS_SMILEY2,           (" ;0"),                              (" :P"),                                (" :D"))
+  DO(SS_SMILEY2,           (" ;0"),                              (" :P"),                                (" :D"))                                     \
+  DO(SS_AND_AND,           (" && "),                             (" || "),                               (" 2>&1 "))                                  \
   
 #define enum_item(kc, str, ...)                                                     kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                             static const char tag##_str_##kc[] PROGMEM = str;
