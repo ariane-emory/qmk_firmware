@@ -435,8 +435,8 @@ void matrix_scan_user(void) {
 // ==============================================================================
 
 static const uint16_t achordion_bilat_keys[] PROGMEM = {
-  QH_S, QH_D, QH_F, QH_K, QH_L,
-  MH_S, MH_D, MH_F, MH_J, MH_K, MH_L,
+  QH_S, QH_D, QH_F, QH_G, QH_H, QH_J, QH_K, QH_L, 
+  MH_S, MH_D, MH_F, MH_G, MH_H, MH_J, MH_K, MH_L,
 };
 
 static const keycode_pair_t achordion_exceptions[] PROGMEM = {
@@ -447,6 +447,7 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_S,    QT_T            }, // new tab
   { QH_S,    QB_C            }, // copy
   { QH_S,    QB_V            }, // paste
+
   // Left Alt
   { QH_D,    KC_TAB          }, // alt+tab
   { QH_D,    QT_W            }, // close
@@ -464,6 +465,12 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_F,    QT_W            }, // close
   { QH_F,    QH_S            }, // i-search
   { QH_F,    KC_ENT          }, // C-<return>
+
+  // Left shift
+  { QH_G,    KC_SPC },
+
+  // Right  shift
+  { QH_H,    KC_SPC },
   
   // Right Control
   { QH_J,    QH_H            }, // backspace
@@ -472,11 +479,13 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_J,    QT_Y            }, // yank
   { QH_J,    QB_N            }, // next line
   { QH_J,    QT_P            }, // prev line
+
   // Right Alt
   { QH_K,    QH_L            }, // address bar?
   { QH_K,    QT_P            }, // prev command
   { QH_K,    KC_BSLS         }, // ???
   { QH_K,    QB_N            }, // next command
+
   // Right GUI
   { QH_L,    QH_K            }, // ???
   { QH_L,    KC_BSLS         }, // ???
