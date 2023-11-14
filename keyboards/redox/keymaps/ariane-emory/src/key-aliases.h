@@ -167,8 +167,8 @@
 #  define CB_SLSH RSFT_T(KC_SLSH)
 #endif
 //------------------------------------------------------------------------------
-#define   QB_LSFT L9_OR_USCORE
-#define   QB_RSFT L12_OR_USCORE
+#define   QB_LSFT L9_OR_DASH
+#define   QB_RSFT L12_OR_DASH
 //==============================================================================
 
 //==============================================================================
@@ -248,11 +248,11 @@
 //==============================================================================
 // Thumb key aliases
 //==============================================================================
-#define L9_OR_USCORE  LT(9,KC_MINS)
+#define L9_OR_DASH  LT(9,KC_MINS)
 #define L9_OR_TAB     LT(9,KC_TAB)
 #define LALT_OR_SPC   MT(MOD_LALT,KC_SPC)
 #define LGUI_OR_BSPC  MT(MOD_RGUI,KC_BSPC)
-#define L12_OR_USCORE LT(12,KC_MINS)
+#define L12_OR_DASH LT(12,KC_MINS)
 #define L12_OR_BTN2   LT(12,KC_BTN2)
 #define LOWER_OR_SPC  LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
 #define UPPER_OR_BSPC LT(TRI_LAYER_UPPER_LAYER,KC_BSPC)
@@ -261,13 +261,13 @@
 //==============================================================================
 // Thumb key assignments
 //==============================================================================
-#define CRL_LFT        L9_OR_TAB // L9_OR_USCORE
+#define CRL_LFT        L9_OR_TAB // L9_OR_DASH
 #define THU_LFT        KC_LOWER
 #define STR_LFT        LALT_OR_SPC
 //------------------------------------------------------------------------------
 #define STR_RGT        LGUI_OR_BSPC
 #define THU_RGT        KC_UPPER
-#define CRL_RGT        L12_OR_USCORE
+#define CRL_RGT        L12_OR_DASH
 //------------------------------------------------------------------------------
 #define STR_MS         KC_BTN1
 #define THU_MS         KC_TRNS
