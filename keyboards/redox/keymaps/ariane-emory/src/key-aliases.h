@@ -258,18 +258,27 @@
 #define UPPER_OR_BSPC LT(TRI_LAYER_UPPER_LAYER,KC_BSPC)
 #define L13_OR_TAB    LT(13, KC_TAB)
 #define L13_OR_USCORE LT(13, KC_MINS)
+#define L12_OR_USCORE LT(12, KC_MINS)
 //==============================================================================
 
 //==============================================================================
 // Thumb key assignments
 //==============================================================================
-#define CRL_LFT        L13_OR_TAB // L9_OR_TAB // L9_OR_DASH
+#ifdef ALT_FLIPPY
+#  define CRL_LFT        L13_OR_TAB 
+#else
+#  define CRL_LFT        L9_OR_TAB
+#endif
 #define THU_LFT        KC_LOWER
 #define STR_LFT        LALT_OR_SPC
 //------------------------------------------------------------------------------
 #define STR_RGT        LGUI_OR_BSPC
 #define THU_RGT        KC_UPPER
-#define CRL_RGT        L13_OR_USCORE
+#ifdef ALT_FLIPPY
+#  define CRL_RGT        L13_OR_USCORE
+#else
+#  define CRL_RGT        L12_OR_USCORE
+#endif 
 //------------------------------------------------------------------------------
 #define STR_MS         KC_BTN1
 #define THU_MS         KC_TRNS
