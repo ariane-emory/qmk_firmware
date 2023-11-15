@@ -443,7 +443,14 @@ void matrix_scan_user(void) {
 // ==============================================================================
 
 static const uint16_t achordion_bilat_keys[] PROGMEM = {
-  QH_A, QH_S, QH_D, QH_F, QH_G, QH_H, QH_J, QH_K, QH_L, QH_QUOT,
+  /* QH_A, */
+  QH_S, QH_D, QH_F,
+  /* QH_G, */
+
+  /* QH_H, */
+  QH_J, QH_K, QH_L,
+  /* QH_QUOT, */
+
   MH_S, MH_D, MH_F, MH_G, MH_H, MH_J, MH_K, MH_L,
 };
 
