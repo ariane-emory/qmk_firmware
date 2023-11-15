@@ -167,8 +167,13 @@
 #  define CB_SLSH RSFT_T(KC_SLSH)
 #endif
 //------------------------------------------------------------------------------
-#define   QB_LSFT L9_OR_DASH
-#define   QB_RSFT L12_OR_DASH
+#ifdef ALT_FLIPPY
+#  define   QB_LSFT L9_OR_DASH
+#  define   QB_RSFT L12_OR_DASH
+#else
+#  define   QB_LSFT L13_OR_DASH
+#  define   QB_RSFT L13_OR_DASH
+#endif
 //==============================================================================
 
 //==============================================================================
@@ -253,6 +258,7 @@
 #define LALT_OR_SPC   MT(MOD_LALT,KC_SPC)
 #define LGUI_OR_BSPC  MT(MOD_RGUI,KC_BSPC)
 #define L12_OR_DASH   LT(12,KC_MINS)
+#define L13_OR_DASH   LT(13,KC_MINS)
 #define L12_OR_BTN2   LT(12,KC_BTN2)
 #define LOWER_OR_SPC  LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
 #define UPPER_OR_BSPC LT(TRI_LAYER_UPPER_LAYER,KC_BSPC)
