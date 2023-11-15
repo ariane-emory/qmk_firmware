@@ -167,13 +167,8 @@
 #  define CB_SLSH RSFT_T(KC_SLSH)
 #endif
 //------------------------------------------------------------------------------
-#ifdef ALT_FLIPPY
-#  define   QB_LSFT L9_OR_DASH
-#  define   QB_RSFT L12_OR_DASH
-#else
-#  define   QB_LSFT L13_OR_DASH
-#  define   QB_RSFT L13_OR_DASH
-#endif
+#define   QB_LSFT L13_OR_DASH
+#define   QB_RSFT L13_OR_DASH
 //==============================================================================
 
 //==============================================================================
@@ -270,21 +265,13 @@
 //==============================================================================
 // Thumb key assignments
 //==============================================================================
-#ifdef ALT_FLIPPY
-#  define CRL_LFT        L13_OR_TAB 
-#else
-#  define CRL_LFT        L9_OR_TAB
-#endif
+#define CRL_LFT        L9_OR_TAB
 #define THU_LFT        KC_LOWER
 #define STR_LFT        LALT_OR_SPC
 //------------------------------------------------------------------------------
 #define STR_RGT        LGUI_OR_BSPC
 #define THU_RGT        KC_UPPER
-#ifdef ALT_FLIPPY
-#  define CRL_RGT        L13_OR_USCORE
-#else
-#  define CRL_RGT        L12_OR_USCORE
-#endif 
+#define CRL_RGT        L12_OR_USCORE
 //------------------------------------------------------------------------------
 #define STR_MS         KC_BTN1
 #define THU_MS         KC_TRNS
