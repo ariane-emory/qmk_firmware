@@ -649,7 +649,7 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "ANY(SS_FULLSCR)",
+      "KC_NO",
       "LAG(KC_W)",
       "LAG(KC_E)",
       "LAG(KC_R)"
@@ -939,8 +939,8 @@
       "ANY(CRL_LFT)",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
-      "KC_NO"
+      "ANY(SS_FULLSCR)",
+      "KC_SPC"
     ],
     [
       "KC_NO",
