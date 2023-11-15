@@ -649,10 +649,10 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "KC_NO",
-      "KC_NO",
       "ANY(SS_FULLSCR)",
-      "KC_SPC"
+      "LAG(KC_W)",
+      "LAG(KC_E)",
+      "LAG(KC_R)"
     ],
     [
       "KC_NO",
