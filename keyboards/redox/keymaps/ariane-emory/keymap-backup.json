@@ -538,7 +538,7 @@
       "RGUI(KC_R)",
       "MO(11)",
       "LGUI(KC_GRV)",
-      "LCA(KC_LEFT)",
+      "ANY(LSFT_T(LCA(KC_LEFT)))",
       "ANY(LGUI_T(LCA(KC_RIGHT)))",
       "ANY(LALT_T(VD_LEFT))",
       "ANY(LCTL_T(VD_RIGHT))",
