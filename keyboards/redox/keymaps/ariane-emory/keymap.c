@@ -228,24 +228,21 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 // ==============================================================================
 
 static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM = {
-  /* { RSFT_T(VD_ALL),        VD_ALL        }, */
-  /* { RSFT_T(VD_RIGHT),      VD_RIGHT      }, */
   { LALT_T(VD_LEFT),       VD_LEFT       },
   { LCTL_T(VD_RIGHT),      VD_RIGHT      },
   { LGUI_T(LCA(KC_RIGHT)), LCA(KC_RIGHT) }, 
-  { L9_OR_DASH,            KC_MINS       },
 
 #ifdef ALT_FLIPPY
+  { L9_OR_DASH,            KC_MINS       },
   { L13_OR_USCORE,         LSFT(KC_MINS) },
 #else
   { L12_OR_USCORE,         LSFT(KC_MINS) },
-//  { L12_OR_DASH,           KC_MINS       },
   { L13_OR_DASH,           KC_MINS       },
 #endif
   
   { RCTL_DQUO,             KC_DQUO       },
+  { LSFT_T(LCA(KC_LEFT)),  LCA(KC_LEFT)  },
   { LSFT_T(LSA(KC_LBRC)),  LSA(KC_LBRC)  },
-  { LT11_OR_CMD_W,         LGUI(KC_W)    },
 };
 
 bool process_tap_case(uint16_t keycode, keyrecord_t const * const record)  {
