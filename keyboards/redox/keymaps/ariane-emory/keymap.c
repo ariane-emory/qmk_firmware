@@ -436,7 +436,7 @@ void matrix_scan_user(void) {
 // ==============================================================================
 
 static const uint16_t achordion_bilat_keys[] PROGMEM = {
-  QH_S, QH_D, QH_F, QH_G, QH_H, QH_J, QH_K, QH_L, 
+  QH_A, QH_S, QH_D, QH_F, QH_G, QH_H, QH_J, QH_K, QH_L, QH_QUOT,
   MH_S, MH_D, MH_F, MH_G, MH_H, MH_J, MH_K, MH_L,
 };
 
@@ -472,6 +472,12 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
 
   // Right  shift
   { QH_H,    KC_SPC },
+  
+  // Left shift
+  { QH_A,    KC_SPC },
+
+  // Right  shift
+  { QH_QUOT, KC_SPC },
   
   // Right Control
   { QH_J,    QH_H            }, // backspace
