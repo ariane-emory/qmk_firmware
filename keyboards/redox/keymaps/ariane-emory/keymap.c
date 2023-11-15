@@ -228,8 +228,8 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 // ==============================================================================
 
 static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM = {
-  { RSFT_T(VD_ALL),        VD_ALL        },
-  { RSFT_T(VD_RIGHT),      VD_RIGHT      },
+  /* { RSFT_T(VD_ALL),        VD_ALL        }, */
+  /* { RSFT_T(VD_RIGHT),      VD_RIGHT      }, */
   { LALT_T(VD_LEFT),       VD_LEFT       },
   { LCTL_T(VD_RIGHT),      VD_RIGHT      },
   { LGUI_T(LCA(KC_RIGHT)), LCA(KC_RIGHT) }, 
