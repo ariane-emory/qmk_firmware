@@ -121,7 +121,7 @@
 //==============================================================================
 // Bottom row
 //==============================================================================
-#define QB_Z    LSFT_T(KC_Z)
+#define QB_Z    LT(13, KC_Z) // LSFT_T(KC_Z)
 #define QB_X    KC_X
 #define QB_C    KC_C
 #define QB_V    KC_V
@@ -130,7 +130,7 @@
 #define QB_M    KC_M
 #define QB_COMM KC_COMM
 #define QB_DOT  KC_DOT
-#define QB_SLSH RSFT_T(KC_SLSH)
+#define QB_SLSH LT(13, KC_SLSH) // RSFT_T(KC_SLSH)
 //------------------------------------------------------------------------------
 #define MB_Z    LSFT_T(KC_Z)
 #define MB_X    KC_X
@@ -167,8 +167,8 @@
 #  define CB_SLSH RSFT_T(KC_SLSH)
 #endif
 //------------------------------------------------------------------------------
-#define   QB_LSFT L13_OR_DASH
-#define   QB_RSFT L13_OR_DASH
+#define   QB_LSFT LSFT_T(KC_MINS) // L13_OR_DASH
+#define   QB_RSFT RSFT_T(KC_MINS) // L13_OR_DASH
 //==============================================================================
 
 //==============================================================================
