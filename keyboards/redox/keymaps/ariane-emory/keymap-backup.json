@@ -993,7 +993,7 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "ANY(SS_TELEPORT2)",
+      "KC_NO",
       "LALT(KC_LEFT)",
       "LALT(KC_RGHT)",
       "KC_NO",
