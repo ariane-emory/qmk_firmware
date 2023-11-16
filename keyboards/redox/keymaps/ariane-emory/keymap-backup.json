@@ -650,8 +650,8 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_NO",
-      "LAG(KC_W)",
       "LAG(KC_E)",
+      "LAG(KC_W)",
       "LAG(KC_R)"
     ],
     [
