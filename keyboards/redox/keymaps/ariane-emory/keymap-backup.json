@@ -595,7 +595,7 @@
       "RGUI(KC_MINS)",
       "RGUI(KC_EQL)",
       "RGUI(KC_Q)",
-      "LGUI(KC_GRV)",
+      "KC_NO",
       "LCTL(KC_A)",
       "LCTL(KC_E)",
       "RCS(KC_TAB)",
