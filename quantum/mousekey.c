@@ -391,7 +391,7 @@ void mousekey_on(uint8_t code) {
     }
 #    endif
 
-#    ifndef MOUSEKEY_INERTIA
+#    if defined(MOUSEKEY_INERTIA) && !defined(AE_NO_DIAGONAL_MOUSE_ACCEL_RESET)
     // If mouse report is not zero, the current mousekey press is overlapping
     // with another. Restart acceleration for smoother directional transition.
     if (mouse_report.x || mouse_report.y || mouse_report.h || mouse_report.v) {
