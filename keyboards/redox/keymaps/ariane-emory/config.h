@@ -27,7 +27,8 @@
 #define MOUSEKEY_INTERVAL                    22
 #define MOUSEKEY_MAX_SPEED                   14
 #define MOUSEKEY_MOVE_DELTA                  8
-#define MOUSEKEY_TIME_TO_MAX                 115
+#define MOUSEKEY_TIME_TO_MAX                 95
+
 #define MOUSEKEY_WHEEL_DELAY                 0
 #define MOUSEKEY_WHEEL_INTERVAL              85
 #define MOUSEKEY_WHEEL_MAX_SPEED             13
@@ -78,3 +79,6 @@
 
 #define LEADER_TIMEOUT 666
 #define LEADER_PER_KEY_TIMING
+
+#define AE_NO_DIAGONAL_MOUSE_ACCEL_RESET
+// #    if defined(MOUSEKEY_INERTIA) && !defined(AE_NO_DIAGONAL_MOUSE_ACCEL_RESET)
