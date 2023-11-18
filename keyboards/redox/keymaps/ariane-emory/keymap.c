@@ -44,7 +44,7 @@ void keyboard_post_init_user(void) {
 // Define local macros
 // ==============================================================================
 
-#define KEYRECORD_FUN(name, t) t name(uint16_t keycode, keyrecord_t *record)
+#define KEYRECORD_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t *record)
 #define KEYRECORD_C_FUN(name, t) t name(uint16_t keycode, keyrecord_t const * const record)
 
 #ifdef SEND_STRING_ENABLE
@@ -257,7 +257,7 @@ bool process_tap_case(uint16_t keycode, keyrecord_t const * const record)  {
 // Mouse key overlap fixer function
 // ==============================================================================
 
-KEYRECORD_FUN(process_mouse_keys, bool) {
+KEYRECORD_FUN(bool process_mouse_keys) {
   {
     static bool m_l, m_r, m_u, m_d = false;
   
@@ -314,7 +314,7 @@ KEYRECORD_FUN(process_mouse_keys, bool) {
 
 static uint16_t idle_timer = 0;
 
-KEYRECORD_FUN(process_record_user, bool) {
+KEYRECORD_FUN(bool process_record_user) {
   idle_timer = timer_read();
 
 #ifdef USE_ACHORDION
@@ -545,7 +545,7 @@ static const uint16_t hold_on_other_keypress_keys[] PROGMEM = {
   RSFT_T(KC_MINS),
 };
 
-KEYRECORD_FUN(get_hold_on_other_key_press, bool) {
+KEYRECORD_FUN(bool get_hold_on_other_key_press) {
   return ((keycode >= QK_MOD_TAP) &&
           (keycode <= QK_MOD_TAP_MAX) &&
           array_contains_keycode_P(keycode, hold_on_other_keypress_keys, ARRAY_SIZE(hold_on_other_keypress_keys)));
@@ -565,7 +565,7 @@ static const uint16_t layer1_permissive_hold_keys[] PROGMEM = {
   CH_N, CH_E, CH_I, CH_QUOT,
 };
 
-KEYRECORD_FUN(get_permissive_hold, bool) {
+KEYRECORD_FUN(bool get_permissive_hold) {
   if ((IS_LAYER_ON(0) && array_contains_keycode_P(keycode, layer0_permissive_hold_keys, ARRAY_SIZE(layer0_permissive_hold_keys))) ||
       (IS_LAYER_ON(1) && array_contains_keycode_P(keycode, layer1_permissive_hold_keys, ARRAY_SIZE(layer1_permissive_hold_keys))))
     return false; // Do not select the hold action when another key is tapped.
