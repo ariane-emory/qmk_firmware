@@ -440,8 +440,18 @@ static const uint16_t achordion_bilat_keys[] PROGMEM = {
   QH_S, QH_D, QH_F,
   QH_J, QH_K, QH_L,
 
+  CH_S, CH_D, CH_F,
+  CH_J, CH_K, CH_L,
+
   MH_S, MH_D, MH_F,
   MH_J, MH_K, MH_L,
+
+  SH_S, SH_D, SH_F,
+  SH_J, SH_K, SH_L,
+
+  WH_S, WH_D, WH_F,
+  WH_J, WH_K, WH_L,
+
 };
 
 static const keycode_pair_t achordion_exceptions[] PROGMEM = {
