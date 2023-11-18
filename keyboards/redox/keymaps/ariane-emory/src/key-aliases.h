@@ -39,7 +39,7 @@
 #define QT_I    KC_I
 #define QT_O    KC_O
 #define QT_P    KC_P
-#define QT_BSLS LT(11,KC_BSLS)
+#define QT_BSLS LT(10,KC_BSLS)
 //------------------------------------------------------------------------------
 #define QH_A    LHRM_4(KC_A)
 #define QH_S    LHRM_3(KC_S)
@@ -309,7 +309,7 @@
 //==============================================================================
 // Misc special functions
 //==============================================================================
-#define LT11_OR_CMD_W  LT(11,RGUI(KC_W))
+#define LT10_OR_CMD_W  LT(10,RGUI(KC_W))
 #define EM_SHELL    LALT(LGUI(KC_S))
 #define KA_UNDO     LGUI(KC_Z)
 #define EM_ALL_BUF  LALT(LGUI(KC_A))
