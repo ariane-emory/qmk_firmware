@@ -13,10 +13,10 @@
 
 #define FOR_EACH_COMBO(DO)                                                       \
   ______________________________________________________________________________ \
-  DO(l_num_rech,    DF(0),         KC_1,    KC_2                               ) \
-  DO(l_num_innr,    DF(2),         KC_3,    KC_4                               ) \
-  DO(l_num_outr,    DF(1),         KC_2,    KC_3                               ) \
-  DO(l_num_curl,    DF(3),         KC_4,    KC_5                               ) \
+  __(l_num_rech,    DF(0),         KC_1,    KC_2                               ) \
+  __(l_num_innr,    DF(2),         KC_3,    KC_4                               ) \
+  __(l_num_outr,    DF(1),         KC_2,    KC_3                               ) \
+  __(l_num_curl,    DF(3),         KC_4,    KC_5                               ) \
   __(l_num_sprd,    ____________,  KC_2,    KC_4                               ) \
   __(l_num_trpi,    ____________,  KC_3,    KC_4,      KC_5                    ) \
   __(l_num_trpm,    ____________,  KC_2,    KC_3,      KC_4                    ) \
@@ -51,7 +51,7 @@
   __(l_bot_trpo,    ____________,  QB_Z,    QB_X,      QB_C                    ) \
   ______________________________________________________________________________ \
   DO(r_top_extr,    KC_END,        QT_P,    KC_BSLS                            ) \
-  DO(r_top_extr2,   KC_END,        QT_P,    QT_BSLS                       ) \
+  DO(r_top_extr2,   KC_END,        QT_P,    QT_BSLS                            ) \
   DO(r_top_rech,    KC_HOME,       QT_O,    QT_P                               ) \
   DO(r_top_innr,    SS_LBRACK,     QT_U,    QT_I                               ) \
   DO(r_top_outr,    SS_RBRACK,     QT_I,    QT_O                               ) \
