@@ -563,8 +563,8 @@ static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
 static const uint16_t layer1_permissive_hold_keys[] PROGMEM = {
   LALT_OR_SPC,
   LGUI_OR_BSPC,
-  CH_A, CH_R, CH_S, CH_T,
-  CH_N, CH_E, CH_I, CH_QUOT,
+  CH_A, CH_S, CH_D, CH_F,
+  CH_J, CH_K, CH_L, CH_QUOT,
 };
 
 KEYRECORD_FUN(bool get_permissive_hold) {
