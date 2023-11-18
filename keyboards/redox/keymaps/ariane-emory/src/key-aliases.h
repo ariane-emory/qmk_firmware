@@ -339,6 +339,7 @@
 #define BRTD           KC_VOLD
 #define VOLU           KC_F20
 #define VOLD           KC_F19
+#define TG_MOUSE       TG(LN_MOUSE)
 //==============================================================================
 
 
