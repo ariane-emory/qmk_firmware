@@ -71,7 +71,7 @@
 //==============================================================================
 // Middle row
 //==============================================================================
-#define QH_A    RHRM_4(KC_A)
+#define QH_A    LHRM_4(KC_A)
 #define QH_S    LHRM_3(KC_S)
 #define QH_D    LHRM_2(KC_D)
 #define QH_F    LHRM_1(KC_F)
@@ -82,7 +82,7 @@
 #define QH_L    RHRM_3(KC_L)
 #define QH_QUOT RHRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
-#define MH_A    RHRM_4(KC_A)
+#define MH_A    LHRM_4(KC_A)
 #define MH_S    LHRM_3(KC_S)
 #define MH_D    LHRM_2(KC_E)
 #define MH_F    LHRM_1(KC_R)
@@ -94,7 +94,7 @@
 #define MH_QUOT RHRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
 #ifdef COLEMAK_DH
-#  define CH_A    RHRM_4(KC_A)
+#  define CH_A    LHRM_4(KC_A)
 #  define CH_R    LHRM_3(KC_R)
 #  define CH_S    LHRM_2(KC_S)
 #  define CH_T    LHRM_1(KC_T)
