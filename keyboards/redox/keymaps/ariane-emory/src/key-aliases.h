@@ -97,14 +97,14 @@
 #  define CH_S    LHRM_3(KC_R)
 #  define CH_D    LHRM_2(KC_S)
 #  define CH_F    LHRM_1(KC_T)
-#  define CH_G    LSFT_T(KC_G)
-#  define CH_H    RSFT_T(KC_M)
+#  define CH_G    LHRM_0(KC_G)
+#  define CH_H    RHRM_0(KC_M)
 #  define CH_J    RHRM_1(KC_N)
 #  define CH_K    RHRM_2(KC_E)
 #  define CH_L    RHRM_3(KC_I)
 #  define CH_QUOT RHRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
-#  define CB_Z    LSFT_T(KC_Z)
+#  define CB_Z    LBRM_4(KC_Z)
 #  define CB_X    KC_X
 #  define CB_C    KC_C
 #  define CB_V    KC_D
@@ -113,7 +113,7 @@
 #  define CB_M    KC_H
 #  define CB_COMM KC_COMM
 #  define CB_DOT  KC_DOT
-#  define CB_SLSH RSFT_T(KC_SLSH)
+#  define CB_SLSH RBRM_4(KC_SLSH)
 //==============================================================================
 #else // COLEMAK_DH
 //==============================================================================
@@ -132,23 +132,23 @@
 #  define CH_S    LHRM_3(KC_R)
 #  define CH_D    LHRM_2(KC_S)
 #  define CH_F    LHRM_1(KC_T)
-#  define CH_G    LSFT_T(KC_D)
-#  define CH_H    RSFT_T(KC_H)
+#  define CH_G    LHRM_0(KC_D)
+#  define CH_H    RHRM_0(KC_H)
 #  define CH_J    RHRM_1(KC_N)
 #  define CH_K    RHRM_2(KC_E)
 #  define CH_L    RHRM_3(KC_I)
 #  define CH_QUOT RHRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
-#  define CB_Z    LSFT_T(KC_Z)
+#  define CB_Z    LBRM_4(KC_Z)
 #  define CB_X    KC_X
 #  define CB_C    KC_C
 #  define CB_V    KC_V
 #  define CB_B    KC_B
-#  define CB_N    KC_K
-#  define CB_M    KC_M
+#  define CB_N    KC_M // modified, normally KC_K
+#  define CB_M    KC_K // modified, normally KC_M
 #  define CB_COMM KC_COMM
 #  define CB_DOT  KC_DOT
-#  define CB_SLSH RSFT_T(KC_SLSH)
+#  define CB_SLSH RBRM_4(KC_SLSH)
 //------------------------------------------------------------------------------
 #endif // COLEMAK_DH
 //==============================================================================
@@ -272,34 +272,34 @@
 // Norman
 //==============================================================================
 #define NT_Q    KC_Q
-#define NT_W    KC_D
-#define NT_E    KC_R
-#define NT_R    KC_W
-#define NT_T    KC_B
+#define NT_W    KC_W
+#define NT_E    KC_D
+#define NT_R    KC_F
+#define NT_T    KC_K
 #define NT_Y    KC_J
-#define NT_U    KC_F
-#define NT_I    KC_U
-#define NT_O    KC_P
+#define NT_U    KC_U
+#define NT_I    KC_R
+#define NT_O    KC_L
 #define NT_P    KC_QUOT
 //------------------------------------------------------------------------------
 #define NH_A    LHRM_4(KC_A)
 #define NH_S    LHRM_3(KC_S)
-#define NH_D    LHRM_2(KC_H)
+#define NH_D    LHRM_2(KC_E)
 #define NH_F    LHRM_1(KC_T)
 #define NH_G    LHRM_0(KC_G)
 #define NH_H    RHRM_0(KC_Y)
 #define NH_J    RHRM_1(KC_N)
-#define NH_K    RHRM_2(KC_E)
+#define NH_K    RHRM_2(KC_I)
 #define NH_L    RHRM_3(KC_O)
-#define NH_QUOT RHRM_4(KC_I)   
+#define NH_QUOT RHRM_4(KC_H)   
 //------------------------------------------------------------------------------
 #define NB_Z    LBRM_4(KC_Z)
 #define NB_X    KC_X
-#define NB_C    KC_M
-#define NB_V    KC_C
-#define NB_B    KC_V
-#define NB_N    KC_K
-#define NB_M    KC_L
+#define NB_C    KC_C
+#define NB_V    KC_V
+#define NB_B    KC_B
+#define NB_N    KC_P
+#define NB_M    KC_M
 #define NB_COMM KC_COMM
 #define NB_DOT  KC_DOT
 #define NB_SLSH LBRM_4(KC_SLSH)

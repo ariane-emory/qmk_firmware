@@ -71,7 +71,7 @@
 #undef PRODUCT
 #define PRODUCT "K's Redox"
 
-#define COLEMAK_DH
+//#define COLEMAK_DH
 
 #define LEADER_TIMEOUT 666
 #define LEADER_PER_KEY_TIMING
