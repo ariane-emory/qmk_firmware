@@ -378,7 +378,7 @@ void rgb_led_t_fader_set_target_by_layer(rgb_led_t_fader_t * const this) {
     { LN_ARROWS,     MY_RGB_ADJUST_LAYER_ON  },
     { LN_LOWER,      MY_RGB_LOWER_LAYER_ON   },
     { LN_UPPER,      MY_RGB_UPPER_LAYER_ON   },
-    { TOGGLED_LAYER, MY_RGB_TOGGLED_LAYER_ON },
+    { LN_MOUSE,      MY_RGB_TOGGLED_LAYER_ON },
   };
 
   const layer_to_rgb_t * row = &layer_to_rgbs[0];
