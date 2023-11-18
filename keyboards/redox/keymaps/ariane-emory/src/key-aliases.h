@@ -4,6 +4,7 @@
 // Key alias macros
 //==============================================================================
 
+
 //==============================================================================
 // HRM Assignments
 //==============================================================================
@@ -15,9 +16,11 @@
 #define RHRM_2(x) RALT_T(x)
 #define RHRM_3(x) RGUI_T(x)
 #define RHRM_4(x) LSFT_T(x) // LT(13,x)
+//==============================================================================
+
 
 //==============================================================================
-// Top row
+// QWERTY
 //==============================================================================
 #define QT_TAB  LT(10,KC_TAB)
 #define QT_Q    KC_Q
@@ -32,7 +35,34 @@
 #define QT_P    KC_P
 #define QT_BSLS LT(11,KC_BSLS)
 //------------------------------------------------------------------------------
-#define MT_Q    KC_Q // M layout is minimak.
+#define QH_A    LHRM_4(KC_A)
+#define QH_S    LHRM_3(KC_S)
+#define QH_D    LHRM_2(KC_D)
+#define QH_F    LHRM_1(KC_F)
+#define QH_G    LSFT_T(KC_G)
+#define QH_H    RSFT_T(KC_H)
+#define QH_J    RHRM_1(KC_J)
+#define QH_K    RHRM_2(KC_K)
+#define QH_L    RHRM_3(KC_L)
+#define QH_QUOT RHRM_4(KC_QUOT)
+//------------------------------------------------------------------------------
+#define QB_Z    LT(13, KC_Z) // LSFT_T(KC_Z)
+#define QB_X    KC_X
+#define QB_C    KC_C
+#define QB_V    KC_V
+#define QB_B    KC_B
+#define QB_N    KC_N
+#define QB_M    KC_M
+#define QB_COMM KC_COMM
+#define QB_DOT  KC_DOT
+#define QB_SLSH LT(13, KC_SLSH) // RSFT_T(KC_SLSH)
+//==============================================================================
+
+
+//==============================================================================
+// Minimak
+//==============================================================================
+#define MT_Q    KC_Q
 #define MT_W    KC_W
 #define MT_E    KC_D
 #define MT_R    KC_R
@@ -43,7 +73,34 @@
 #define MT_O    KC_O
 #define MT_P    KC_P
 //------------------------------------------------------------------------------
-#define ST_Q    KC_F // S layout is semimak
+#define MH_A    LHRM_4(KC_A)
+#define MH_S    LHRM_3(KC_S)
+#define MH_D    LHRM_2(KC_T)
+#define MH_F    LHRM_1(KC_F)
+#define MH_G    LSFT_T(KC_G)
+#define MH_H    RSFT_T(KC_H)
+#define MH_J    RHRM_1(KC_J)
+#define MH_K    RHRM_2(KC_E)
+#define MH_L    RHRM_3(KC_L)
+#define MH_QUOT RHRM_4(KC_QUOT)
+//------------------------------------------------------------------------------
+#define MB_Z    LSFT_T(KC_Z)
+#define MB_X    KC_X
+#define MB_C    KC_C
+#define MB_V    KC_V
+#define MB_B    KC_B
+#define MB_N    KC_N
+#define MB_M    KC_M
+#define MB_COMM KC_COMM
+#define MB_DOT  KC_DOT
+#define MB_SLSH RSFT_T(KC_SLSH)
+//==============================================================================
+
+
+//==============================================================================
+// Semimak
+//==============================================================================
+#define ST_Q    KC_F
 #define ST_W    KC_L
 #define ST_E    KC_H
 #define ST_R    KC_V
@@ -54,6 +111,33 @@
 #define ST_O    KC_O
 #define ST_P    KC_Y
 //------------------------------------------------------------------------------
+#define SH_A    LHRM_4(KC_S)
+#define SH_S    LHRM_3(KC_R)
+#define SH_D    LHRM_2(KC_N)
+#define SH_F    LHRM_1(KC_T)
+#define SH_G    LSFT_T(KC_K)
+#define SH_H    RSFT_T(KC_C)
+#define SH_J    RHRM_1(KC_D)
+#define SH_K    RHRM_2(KC_E)
+#define SH_L    RHRM_3(KC_A)
+#define SH_QUOT RHRM_4(KC_I)
+//------------------------------------------------------------------------------
+#define SB_Z    LSFT_T(KC_X)
+#define SB_X    KC_QUOT
+#define SB_C    KC_B
+#define SB_V    KC_M
+#define SB_B    KC_J
+#define SB_N    KC_P
+#define SB_M    KC_G
+#define SB_COMM KC_COMM
+#define SB_DOT  KC_DOT
+#define SB_SLSH RSFT_T(KC_SLSH)
+//==============================================================================
+
+
+//==============================================================================
+// Colemak
+//==============================================================================
 #ifdef COLEMAK_DH
 #  define CT_Q    KC_Q
 #  define CT_W    KC_W
@@ -77,43 +161,6 @@
 #  define CT_O    KC_O
 #  define CT_P    KC_Y
 #endif       
-//==============================================================================
-             
-//==============================================================================
-// Middle row
-//==============================================================================
-#define QH_A    LHRM_4(KC_A)
-#define QH_S    LHRM_3(KC_S)
-#define QH_D    LHRM_2(KC_D)
-#define QH_F    LHRM_1(KC_F)
-#define QH_G    LSFT_T(KC_G)
-#define QH_H    RSFT_T(KC_H)
-#define QH_J    RHRM_1(KC_J)
-#define QH_K    RHRM_2(KC_K)
-#define QH_L    RHRM_3(KC_L)
-#define QH_QUOT RHRM_4(KC_QUOT)
-//------------------------------------------------------------------------------
-#define MH_A    LHRM_4(KC_A)
-#define MH_S    LHRM_3(KC_S)
-#define MH_D    LHRM_2(KC_T)
-#define MH_F    LHRM_1(KC_F)
-#define MH_G    LSFT_T(KC_G)
-#define MH_H    RSFT_T(KC_H)
-#define MH_J    RHRM_1(KC_J)
-#define MH_K    RHRM_2(KC_E)
-#define MH_L    RHRM_3(KC_L)
-#define MH_QUOT RHRM_4(KC_QUOT)
-//------------------------------------------------------------------------------
-#define SH_A    LHRM_4(KC_S)
-#define SH_S    LHRM_3(KC_R)
-#define SH_D    LHRM_2(KC_N)
-#define SH_F    LHRM_1(KC_T)
-#define SH_G    LSFT_T(KC_K)
-#define SH_H    RSFT_T(KC_C)
-#define SH_J    RHRM_1(KC_D)
-#define SH_K    RHRM_2(KC_E)
-#define SH_L    RHRM_3(KC_A)
-#define SH_QUOT RHRM_4(KC_I)
 //------------------------------------------------------------------------------
 #ifdef COLEMAK_DH
 #  define CH_A    LHRM_4(KC_A)
@@ -138,43 +185,6 @@
 #  define CH_L    RHRM_3(KC_I)
 #  define CH_QUOT RHRM_4(KC_QUOT)
 #endif       
-//==============================================================================
-             
-//==============================================================================
-// Bottom row
-//==============================================================================
-#define QB_Z    LT(13, KC_Z) // LSFT_T(KC_Z)
-#define QB_X    KC_X
-#define QB_C    KC_C
-#define QB_V    KC_V
-#define QB_B    KC_B
-#define QB_N    KC_N
-#define QB_M    KC_M
-#define QB_COMM KC_COMM
-#define QB_DOT  KC_DOT
-#define QB_SLSH LT(13, KC_SLSH) // RSFT_T(KC_SLSH)
-//------------------------------------------------------------------------------
-#define MB_Z    LSFT_T(KC_Z)
-#define MB_X    KC_X
-#define MB_C    KC_C
-#define MB_V    KC_V
-#define MB_B    KC_B
-#define MB_N    KC_N
-#define MB_M    KC_M
-#define MB_COMM KC_COMM
-#define MB_DOT  KC_DOT
-#define MB_SLSH RSFT_T(KC_SLSH)
-//------------------------------------------------------------------------------
-#define SB_Z    LSFT_T(KC_X)
-#define SB_X    KC_QUOT
-#define SB_C    KC_B
-#define SB_V    KC_M
-#define SB_B    KC_J
-#define SB_N    KC_P
-#define SB_M    KC_G
-#define SB_COMM KC_COMM
-#define SB_DOT  KC_DOT
-#define SB_SLSH RSFT_T(KC_SLSH)
 //------------------------------------------------------------------------------
 #ifdef COLEMAK_DH
 #  define CB_Z    LSFT_T(KC_Z)
@@ -199,10 +209,13 @@
 #  define CB_DOT  KC_DOT
 #  define CB_SLSH RSFT_T(KC_SLSH)
 #endif
+//==============================================================================
+
 //------------------------------------------------------------------------------
 #define   QB_LSFT LSFT_T(KC_MINS) // L13_OR_DASH
 #define   QB_RSFT RSFT_T(KC_MINS) // L13_OR_DASH
 //==============================================================================
+
 
 //==============================================================================
 // Number row
@@ -218,6 +231,7 @@
 #define NUM_9       KC_9
 #define NUM_0       KC_0
 //==============================================================================
+
 
 //==============================================================================
 // Numpad keys
@@ -235,6 +249,7 @@
 #define NUMP_0      LSFT(KC_0)
 //==============================================================================
 
+
 //==============================================================================
 // Virtual desktops
 //==============================================================================
@@ -242,6 +257,7 @@
 #define VD_RIGHT    LALT(LCTL(KC_D))
 #define VD_ALL      LALT(LCTL(KC_TAB))
 //==============================================================================
+
 
 //==============================================================================
 // Misc special functions
@@ -266,6 +282,7 @@
 #define VOLD        KC_F19
 //==============================================================================
 
+
 //==============================================================================
 // Tri layer keys
 //==============================================================================
@@ -277,6 +294,7 @@
 #  define KC_UPPER       MO(TRI_LAYER_UPPER_LAYER)
 #endif // TRI_LAYER_ENABLE
 //==============================================================================
+
 
 //==============================================================================
 // Thumb key aliases
@@ -294,6 +312,7 @@
 #define L13_OR_USCORE LT(13, KC_MINS)
 #define L12_OR_USCORE LT(12, KC_MINS)
 //==============================================================================
+
 
 //==============================================================================
 // Thumb key assignments
