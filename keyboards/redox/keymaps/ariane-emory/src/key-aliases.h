@@ -12,10 +12,16 @@
 #define LHRM_3(x) LGUI_T(x)
 #define LHRM_2(x) LALT_T(x)
 #define LHRM_1(x) LCTL_T(x)
+#define LHRM_0(x) LSFT_T(x)
+//------------------------------------------------------------------------------
+#define RHRM_0(x) RSFT_T(x)
 #define RHRM_1(x) RCTL_T(x)
 #define RHRM_2(x) RALT_T(x)
 #define RHRM_3(x) RGUI_T(x)
 #define RHRM_4(x) LSFT_T(x) // LT(13,x)
+//------------------------------------------------------------------------------
+#define LBRM_4(x) LT(13, x)
+#define RBRM_4(x) LT(13, x)
 //==============================================================================
 
 
@@ -39,14 +45,14 @@
 #define QH_S    LHRM_3(KC_S)
 #define QH_D    LHRM_2(KC_D)
 #define QH_F    LHRM_1(KC_F)
-#define QH_G    LSFT_T(KC_G)
-#define QH_H    RSFT_T(KC_H)
+#define QH_G    LHRM_0(KC_G)
+#define QH_H    RHRM_0(KC_H)
 #define QH_J    RHRM_1(KC_J)
 #define QH_K    RHRM_2(KC_K)
 #define QH_L    RHRM_3(KC_L)
 #define QH_QUOT RHRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
-#define QB_Z    LT(13, KC_Z) // LSFT_T(KC_Z)
+#define QB_Z    LBRM_4(KC_Z)
 #define QB_X    KC_X
 #define QB_C    KC_C
 #define QB_V    KC_V
@@ -55,7 +61,45 @@
 #define QB_M    KC_M
 #define QB_COMM KC_COMM
 #define QB_DOT  KC_DOT
-#define QB_SLSH LT(13, KC_SLSH) // RSFT_T(KC_SLSH)
+#define QB_SLSH LBRM_4(KC_SLSH)
+//==============================================================================
+
+
+//==============================================================================
+// Workman
+//==============================================================================
+#define WT_Q    KC_Q
+#define WT_W    KC_D
+#define WT_E    KC_R
+#define WT_R    KC_W
+#define WT_T    KC_B
+#define WT_Y    KC_J
+#define WT_U    KC_F
+#define WT_I    KC_U
+#define WT_O    KC_P
+#define WT_P    KC_QUOT
+//------------------------------------------------------------------------------
+#define WH_A    LHRM_4(KC_A)
+#define WH_S    LHRM_3(KC_S)
+#define WH_D    LHRM_2(KC_H)
+#define WH_F    LHRM_1(KC_T)
+#define WH_G    LSFT_T(KC_G)
+#define WH_H    RSFT_T(KC_Y)
+#define WH_J    RHRM_1(KC_N)
+#define WH_K    RHRM_2(KC_E)
+#define WH_L    RHRM_3(KC_O)
+#define WH_QUOT RHRM_4(KC_I)   
+//------------------------------------------------------------------------------
+#define WB_Z    LSFT_T(KC_Z)
+#define WB_X    KC_X
+#define WB_C    KC_M
+#define WB_V    KC_C
+#define WB_B    KC_V
+#define WB_N    KC_K
+#define WB_M    KC_L
+#define WB_COMM KC_COMM
+#define WB_DOT  KC_DOT
+#define WB_SLSH RSFT_T(KC_SLSH)
 //==============================================================================
 
 
