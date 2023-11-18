@@ -110,7 +110,7 @@ bool combo_should_trigger(
           || (combo->keycode == SS_DICT)
           || (combo->keycode == KC_HOME)
           || (combo->keycode == KC_END)
-          || (layer_state_is(13) && combo->keycode == KC_ENT)
+          || (layer_state_is(13)) // && combo->keycode == KC_ENT)
           || layer_state_is(0)
           || layer_state_is(1)
           || layer_state_is(2)
