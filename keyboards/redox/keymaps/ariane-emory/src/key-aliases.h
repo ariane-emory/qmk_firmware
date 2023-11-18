@@ -8,8 +8,8 @@
 // Layer names
 //==============================================================================
 #define LN_FLIPL  9
-#define LN_UTIL   10
-#define LN_FLIPR  11
+#define LN_FLIPR  10
+#define LN_UTIL   11
 #define LN_ARROWS 12
 #define LN_LOWER  TRI_LAYER_LOWER_LAYER
 #define LN_UPPER  TRI_LAYER_UPPER_LAYER

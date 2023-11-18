@@ -230,16 +230,16 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 // ==============================================================================
 
 static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM = {
-  { LALT_T(VD_LEFT_ALT),   VD_LEFT       },
-  { LCTL_T(VD_RIGHT_ALT),  VD_RIGHT      },
-  { LGUI_T(LCA(KC_RIGHT)), LCA(KC_RIGHT) }, 
-  { FLIPR_OR_USCORE,      LSFT(KC_MINS) },
-  { LARROWS_OR_DASH,           KC_MINS       },
-  { LSFT_T(LALT(KC_N)),    LALT(KC_N)    },
-  { RCTL_DQUO,             KC_DQUO       },
-  { LSFT_T(LCA(KC_LEFT)),  LCA(KC_LEFT)  },
+  { LALT_T(VD_LEFT_ALT),         VD_LEFT        },
+  { LCTL_T(VD_RIGHT_ALT),        VD_RIGHT       },
+  { LGUI_T(LCA(KC_RIGHT)),       LCA(KC_RIGHT)  }, 
+  { FLIPR_OR_USCORE,             LSFT(KC_MINS)  },
+  { LARROWS_OR_DASH,             KC_MINS        },
+  { LSFT_T(LALT(KC_N)),          LALT(KC_N)     },
+  { RCTL_DQUO,                   KC_DQUO        },
+  { LSFT_T(LCA(KC_LEFT)),        LCA(KC_LEFT)   },
+  { LT(LN_ARROWS, LSA(KC_LBRC)), LSA(KC_LBRC)   },
   /* { LSFT_T(LSA(KC_LBRC)),  LSA(KC_LBRC)  }, */
-  { LT(LN_ARROWS, LSA(KC_LBRC)),  LSA(KC_LBRC)  },
 };
 
 bool process_tap_case(uint16_t keycode, keyrecord_t const * const record)  {
