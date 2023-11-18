@@ -83,14 +83,14 @@
 #define WH_S    LHRM_3(KC_S)
 #define WH_D    LHRM_2(KC_H)
 #define WH_F    LHRM_1(KC_T)
-#define WH_G    LSFT_T(KC_G)
-#define WH_H    RSFT_T(KC_Y)
+#define WH_G    LHRM_0(KC_G)
+#define WH_H    RHRM_0(KC_Y)
 #define WH_J    RHRM_1(KC_N)
 #define WH_K    RHRM_2(KC_E)
 #define WH_L    RHRM_3(KC_O)
 #define WH_QUOT RHRM_4(KC_I)   
 //------------------------------------------------------------------------------
-#define WB_Z    LSFT_T(KC_Z)
+#define WB_Z    LBRM_4(KC_Z)
 #define WB_X    KC_X
 #define WB_C    KC_M
 #define WB_V    KC_C
@@ -99,7 +99,7 @@
 #define WB_M    KC_L
 #define WB_COMM KC_COMM
 #define WB_DOT  KC_DOT
-#define WB_SLSH RSFT_T(KC_SLSH)
+#define WB_SLSH LBRM_4(KC_SLSH)
 //==============================================================================
 
 
@@ -121,14 +121,14 @@
 #define MH_S    LHRM_3(KC_S)
 #define MH_D    LHRM_2(KC_T)
 #define MH_F    LHRM_1(KC_F)
-#define MH_G    LSFT_T(KC_G)
-#define MH_H    RSFT_T(KC_H)
+#define MH_G    LHRM_0(KC_G)
+#define MH_H    LHRM_0(KC_H)
 #define MH_J    RHRM_1(KC_J)
 #define MH_K    RHRM_2(KC_E)
 #define MH_L    RHRM_3(KC_L)
 #define MH_QUOT RHRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
-#define MB_Z    LSFT_T(KC_Z)
+#define MB_Z    LBRM_4(KC_Z)
 #define MB_X    KC_X
 #define MB_C    KC_C
 #define MB_V    KC_V
@@ -137,7 +137,7 @@
 #define MB_M    KC_M
 #define MB_COMM KC_COMM
 #define MB_DOT  KC_DOT
-#define MB_SLSH RSFT_T(KC_SLSH)
+#define MB_SLSH RBRM_4(KC_SLSH)
 //==============================================================================
 
 
@@ -159,14 +159,14 @@
 #define SH_S    LHRM_3(KC_R)
 #define SH_D    LHRM_2(KC_N)
 #define SH_F    LHRM_1(KC_T)
-#define SH_G    LSFT_T(KC_K)
-#define SH_H    RSFT_T(KC_C)
+#define SH_G    LHRM_0(KC_K)
+#define SH_H    RHRM_0(KC_C)
 #define SH_J    RHRM_1(KC_D)
 #define SH_K    RHRM_2(KC_E)
 #define SH_L    RHRM_3(KC_A)
 #define SH_QUOT RHRM_4(KC_I)
 //------------------------------------------------------------------------------
-#define SB_Z    LSFT_T(KC_X)
+#define SB_Z    LBRM_4(KC_X)
 #define SB_X    KC_QUOT
 #define SB_C    KC_B
 #define SB_V    KC_M
@@ -175,7 +175,7 @@
 #define SB_M    KC_G
 #define SB_COMM KC_COMM
 #define SB_DOT  KC_DOT
-#define SB_SLSH RSFT_T(KC_SLSH)
+#define SB_SLSH RBRM_4(KC_SLSH)
 //==============================================================================
 
 
