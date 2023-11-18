@@ -7,13 +7,13 @@
 //==============================================================================
 // Layer names
 //==============================================================================
-#define LN_MOUSE  6
-#define LN_LOWER  TRI_LAYER_LOWER_LAYER // 7
-#define LN_UPPER  TRI_LAYER_UPPER_LAYER // 8
-#define LN_FLIPL  9
-#define LN_FLIPR  10
-#define LN_ARROWS 11
-#define LN_UTIL   12
+#define LN_MOUSE  9
+#define LN_LOWER  10
+#define LN_UPPER  11
+#define LN_FLIPL  12
+#define LN_FLIPR  13
+#define LN_ARROWS 14
+#define LN_UTIL   15
 //==============================================================================
 
 
@@ -345,13 +345,8 @@
 //==============================================================================
 // Tri layer keys
 //==============================================================================
-#ifdef TRI_LAYER_ENABLE
-#  define KC_LOWER       QK_TRI_LAYER_LOWER
-#  define KC_UPPER       QK_TRI_LAYER_UPPER
-#else // TRI_LAYER_ENABLE
-#  define KC_LOWER       MO(LN_LOWER)
-#  define KC_UPPER       MO(LN_UPPER)
-#endif // TRI_LAYER_ENABLE
+#define KC_LOWER       MO(LN_LOWER)
+#define KC_UPPER       MO(LN_UPPER)
 //==============================================================================
 
 

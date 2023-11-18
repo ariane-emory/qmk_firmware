@@ -374,11 +374,11 @@ void rgb_led_t_fader_set_target_by_layer(rgb_led_t_fader_t * const this) {
   } layer_to_rgb_t;
   
   static const layer_to_rgb_t layer_to_rgbs[] = {
-    {TOGGLED_LAYER,          MY_RGB_DEFAULT          },
-    {TRI_LAYER_ADJUST_LAYER, MY_RGB_ADJUST_LAYER_ON  },
-    {TRI_LAYER_UPPER_LAYER,  MY_RGB_UPPER_LAYER_ON   },
-    {TRI_LAYER_LOWER_LAYER,  MY_RGB_LOWER_LAYER_ON   },
-    {TOGGLED_LAYER,          MY_RGB_TOGGLED_LAYER_ON },
+    { TOGGLED_LAYER, MY_RGB_DEFAULT          },
+    { LN_ARROWS,     MY_RGB_ADJUST_LAYER_ON  },
+    { LN_LOWER,      MY_RGB_LOWER_LAYER_ON   },
+    { LN_UPPER,      MY_RGB_UPPER_LAYER_ON   },
+    { TOGGLED_LAYER, MY_RGB_TOGGLED_LAYER_ON },
   };
 
   const layer_to_rgb_t * row = &layer_to_rgbs[0];
