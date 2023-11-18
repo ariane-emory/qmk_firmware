@@ -43,6 +43,17 @@
 #define MT_O    KC_O
 #define MT_P    KC_P
 //------------------------------------------------------------------------------
+#define ST_Q    KC_F // S layout is semimak
+#define ST_W    KC_L
+#define ST_E    KC_H
+#define ST_R    KC_V
+#define ST_T    KC_Z
+#define ST_Y    KC_Q
+#define ST_U    KC_W
+#define ST_I    KC_U
+#define ST_O    KC_O
+#define ST_P    KC_Y
+//------------------------------------------------------------------------------
 #ifdef COLEMAK_DH
 #  define CT_Q    KC_Q
 #  define CT_W    KC_W
@@ -93,6 +104,17 @@
 #define MH_L    RHRM_3(KC_L)
 #define MH_QUOT RHRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
+#define SH_A    LHRM_4(KC_S)
+#define SH_S    LHRM_3(KC_R)
+#define SH_D    LHRM_2(KC_N)
+#define SH_F    LHRM_1(KC_T)
+#define SH_G    LSFT_T(KC_K)
+#define SH_H    RSFT_T(KC_C)
+#define SH_J    RHRM_1(KC_D)
+#define SH_K    RHRM_2(KC_E)
+#define SH_L    RHRM_3(KC_A)
+#define SH_QUOT RHRM_4(KC_I)
+//------------------------------------------------------------------------------
 #ifdef COLEMAK_DH
 #  define CH_A    LHRM_4(KC_A)
 #  define CH_R    LHRM_3(KC_R)
@@ -142,6 +164,17 @@
 #define MB_COMM KC_COMM
 #define MB_DOT  KC_DOT
 #define MB_SLSH RSFT_T(KC_SLSH)
+//------------------------------------------------------------------------------
+#define SB_Z    LSFT_T(KC_X)
+#define SB_X    KC_QUOT
+#define SB_C    KC_B
+#define SB_V    KC_M
+#define SB_B    KC_J
+#define SB_N    KC_P
+#define SB_M    KC_G
+#define SB_COMM KC_COMM
+#define SB_DOT  KC_DOT
+#define SB_SLSH RSFT_T(KC_SLSH)
 //------------------------------------------------------------------------------
 #ifdef COLEMAK_DH
 #  define CB_Z    LSFT_T(KC_Z)
