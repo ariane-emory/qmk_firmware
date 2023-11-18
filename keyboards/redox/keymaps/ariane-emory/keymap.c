@@ -207,7 +207,7 @@ KEYRECORD_C_FUN(bool insert_upp_handler) {
 }
 
 KEYRECORD_C_FUN(bool disable_mouse_layer_handler) {
-  layer_off(6);
+  layer_off(LN_MOUSE);
   return true;
 };
 
