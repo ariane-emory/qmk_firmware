@@ -269,6 +269,44 @@
 
 
 //==============================================================================
+// Norman
+//==============================================================================
+#define NT_Q    KC_Q
+#define NT_W    KC_D
+#define NT_E    KC_R
+#define NT_R    KC_W
+#define NT_T    KC_B
+#define NT_Y    KC_J
+#define NT_U    KC_F
+#define NT_I    KC_U
+#define NT_O    KC_P
+#define NT_P    KC_QUOT
+//------------------------------------------------------------------------------
+#define NH_A    LHRM_4(KC_A)
+#define NH_S    LHRM_3(KC_S)
+#define NH_D    LHRM_2(KC_H)
+#define NH_F    LHRM_1(KC_T)
+#define NH_G    LHRM_0(KC_G)
+#define NH_H    RHRM_0(KC_Y)
+#define NH_J    RHRM_1(KC_N)
+#define NH_K    RHRM_2(KC_E)
+#define NH_L    RHRM_3(KC_O)
+#define NH_QUOT RHRM_4(KC_I)   
+//------------------------------------------------------------------------------
+#define NB_Z    LBRM_4(KC_Z)
+#define NB_X    KC_X
+#define NB_C    KC_M
+#define NB_V    KC_C
+#define NB_B    KC_V
+#define NB_N    KC_K
+#define NB_M    KC_L
+#define NB_COMM KC_COMM
+#define NB_DOT  KC_DOT
+#define NB_SLSH LBRM_4(KC_SLSH)
+//==============================================================================
+
+
+//==============================================================================
 // Shift keys
 //==============================================================================
 #define   QB_LSFT LSFT_T(KC_MINS)
