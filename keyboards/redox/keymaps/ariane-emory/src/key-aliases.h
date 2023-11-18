@@ -352,18 +352,18 @@
 //==============================================================================
 // Thumr key aliases
 //==============================================================================
-#define FLIPL_OR_DASH   LT(LN_FLIPL,KC_MINS)
-#define FLIPL_OR_TAB    LT(LN_FLIPL,KC_TAB)
-#define LALT_OR_SPC      MT(MOD_LALT,KC_SPC)
-#define LGUI_OR_BSPC     MT(MOD_RGUI,KC_BSPC)
-#define FLIPR_OR_DASH   LT(LN_FLIPR,KC_MINS)
-#define L13_OR_DASH      LT(13,KC_MINS)
-#define FLIPR_OR_BTN2   LT(LN_FLIPR,KC_BTN2)
-#define LOWER_OR_SPC     LT(TRI_LAYER_LOWER_LAYER,KC_SPC)
-#define UPPER_OR_BSPC    LT(TRI_LAYER_UPPER_LAYER,KC_BSPC)
-#define L13_OR_TAB       LT(13, KC_TAB)
-#define L13_OR_USCORE    LT(13, KC_MINS)
-#define FLIPR_OR_USCORE LT(LN_FLIPR, KC_MINS)
+#define FLIPL_OR_DASH    LT(LN_FLIPL,              KC_MINS)
+#define FLIPL_OR_TAB     LT(LN_FLIPL,              KC_TAB)
+#define LALT_OR_SPC      MT(MOD_LALT,              KC_SPC)
+#define LGUI_OR_BSPC     MT(MOD_RGUI,              KC_BSPC)
+#define FLIPR_OR_DASH    LT(LN_FLIPR,              KC_MINS)
+#define L13_OR_DASH      LT(13,                    KC_MINS)
+#define FLIPR_OR_BTN2    LT(LN_FLIPR,              KC_BTN2)
+#define LOWER_OR_SPC     LT(TRI_LAYER_LOWER_LAYER, KC_SPC)
+#define UPPER_OR_BSPC    LT(TRI_LAYER_UPPER_LAYER, KC_BSPC)
+#define L13_OR_TAB       LT(13,                    KC_TAB)
+#define L13_OR_USCORE    LT(13,                    KC_MINS)
+#define FLIPR_OR_USCORE  LT(LN_FLIPR,              KC_MINS)
 //==============================================================================
 
 
