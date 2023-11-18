@@ -510,6 +510,9 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // Right GUI
   { QH_L,    QH_K            }, // ???
   { QH_L,    KC_BSLS         }, // ???
+
+  // COLAMAK-alt
+  { CH_J,    CH_M            }, // ???
 };
 
 bool achordion_chord(
