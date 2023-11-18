@@ -7,16 +7,17 @@
 //==============================================================================
 // Layer names
 //==============================================================================
-#define LN_FLIPL 9
-#define LN_FLIPR 12
-#define LN_LOWER TRI_LAYER_LOWER_LAYER
-#define LN_UPPER TRI_LAYER_UPPER_LAYER
+#define LN_FLIPL  9
+#define LN_FLIPR  12
+#define LN_ARROWS 13
+#define LN_LOWER  TRI_LAYER_LOWER_LAYER
+#define LN_UPPER  TRI_LAYER_UPPER_LAYER
 //==============================================================================
 
 //==============================================================================
 // HRM Assignments
 //==============================================================================
-#define LHRM_4(x) LSFT_T(x) // LT(13,x)
+#define LHRM_4(x) LSFT_T(x) // LT(LN_ARROWS,x)
 #define LHRM_3(x) LGUI_T(x)
 #define LHRM_2(x) LALT_T(x)
 #define LHRM_1(x) LCTL_T(x)
@@ -26,10 +27,10 @@
 #define RHRM_1(x) RCTL_T(x)
 #define RHRM_2(x) RALT_T(x)
 #define RHRM_3(x) RGUI_T(x)
-#define RHRM_4(x) LSFT_T(x) // LT(13,x)
+#define RHRM_4(x) LSFT_T(x) // LT(LN_ARROWS,x)
 //------------------------------------------------------------------------------
-#define LBRM_4(x) LT(13, x)
-#define RBRM_4(x) LT(13, x)
+#define LBRM_4(x) LT(LN_ARROWS, x)
+#define RBRM_4(x) LT(LN_ARROWS, x)
 //==============================================================================
 
 
@@ -267,8 +268,8 @@
 //==============================================================================
 // Shift keys
 //==============================================================================
-#define   QB_LSFT LSFT_T(KC_MINS) // L13_OR_DASH
-#define   QB_RSFT RSFT_T(KC_MINS) // L13_OR_DASH
+#define   QB_LSFT LSFT_T(KC_MINS)
+#define   QB_RSFT RSFT_T(KC_MINS)
 //==============================================================================
 
 
@@ -354,18 +355,18 @@
 //==============================================================================
 // Thumr key aliases
 //==============================================================================
-#define FLIPL_OR_DASH    LT(LN_FLIPL,    KC_MINS)
-#define FLIPL_OR_TAB     LT(LN_FLIPL,    KC_TAB)
-#define LALT_OR_SPC      MT(MOD_LALT,    KC_SPC)
-#define LGUI_OR_BSPC     MT(MOD_RGUI,    KC_BSPC)
-#define FLIPR_OR_DASH    LT(LN_FLIPR,    KC_MINS)
-#define L13_OR_DASH      LT(13,          KC_MINS)
-#define FLIPR_OR_BTN2    LT(LN_FLIPR,    KC_BTN2)
-#define LOWER_OR_SPC     LT(LN_LOWER,    KC_SPC)
-#define UPPER_OR_BSPC    LT(LN_UPPER,    KC_BSPC)
-#define L13_OR_TAB       LT(13,          KC_TAB)
-#define L13_OR_USCORE    LT(13,          KC_MINS)
-#define FLIPR_OR_USCORE  LT(LN_FLIPR,    KC_MINS)
+#define FLIPL_OR_DASH      LT(LN_FLIPL,    KC_MINS)
+#define FLIPL_OR_TAB       LT(LN_FLIPL,    KC_TAB)
+#define LALT_OR_SPC        MT(MOD_LALT,    KC_SPC)
+#define LGUI_OR_BSPC       MT(MOD_RGUI,    KC_BSPC)
+#define FLIPR_OR_DASH      LT(LN_FLIPR,    KC_MINS)
+#define LARROWS_OR_DASH    LT(LN_ARROWS,   KC_MINS)
+#define FLIPR_OR_BTN2      LT(LN_FLIPR,    KC_BTN2)
+#define LOWER_OR_SPC       LT(LN_LOWER,    KC_SPC)
+#define UPPER_OR_BSPC      LT(LN_UPPER,    KC_BSPC)
+#define LARROWS_OR_TAB     LT(LN_ARROWS,   KC_TAB)
+#define LARROWS_OR_USCORE  LT(LN_ARROWS,   KC_MINS)
+#define FLIPR_OR_USCORE    LT(LN_FLIPR,    KC_MINS)
 //==============================================================================
 
 
