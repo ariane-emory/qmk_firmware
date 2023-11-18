@@ -8,6 +8,7 @@
 // Layer names
 //==============================================================================
 #define LN_FLIPL  9
+#define LN_UTIL   10
 #define LN_FLIPR  12
 #define LN_ARROWS 13
 #define LN_LOWER  TRI_LAYER_LOWER_LAYER
@@ -37,7 +38,7 @@
 //==============================================================================
 // QWERTY
 //==============================================================================
-#define QT_TAB  LT(10,KC_TAB)
+#define QT_TAB  LT(LN_UTIL,KC_TAB)
 #define QT_Q    KC_Q
 #define QT_W    KC_W
 #define QT_E    KC_E
@@ -48,7 +49,7 @@
 #define QT_I    KC_I
 #define QT_O    KC_O
 #define QT_P    KC_P
-#define QT_BSLS LT(10,KC_BSLS)
+#define QT_BSLS LT(LN_UTIL,KC_BSLS)
 //------------------------------------------------------------------------------
 #define QH_A    LHRM_4(KC_A)
 #define QH_S    LHRM_3(KC_S)
@@ -318,24 +319,24 @@
 //==============================================================================
 // Misc special functions
 //==============================================================================
-#define LT10_OR_CMD_W  LT(10,RGUI(KC_W))
-#define EM_SHELL    LALT(LGUI(KC_S))
-#define KA_UNDO     LGUI(KC_Z)
-#define EM_ALL_BUF  LALT(LGUI(KC_A))
-#define EM_PRV_BUF  LALT(LGUI(KC_V))
-#define EM_DIRED    LALT(LGUI(KC_D))
-#define EM_LWRAP    LALT(LGUI(KC_L))
-#define EM_BGN_MAC  LALT(LGUI(KC_W))
-#define EM_RPT_MAC  LALT(LGUI(KC_R))
-#define EM_END_MAC  LALT(LGUI(KC_E))
-#define EM_CTL_X    LCTL(KC_X)
-#define EM_CTL_C    LCTL(KC_C)
-#define RCTL_DQUO   RCTL_T(KC_DUMMY)
-#define LCTL_ESC    LCTL_T(KC_ESC)
-#define BRTU        KC_VOLU
-#define BRTD        KC_VOLD
-#define VOLU        KC_F20
-#define VOLD        KC_F19
+#define LUTIL_OR_CMD_W LT(LN_UTIL,RGUI(KC_W))
+#define EM_SHELL       LALT(LGUI(KC_S))
+#define KA_UNDO        LGUI(KC_Z)
+#define EM_ALL_BUF     LALT(LGUI(KC_A))
+#define EM_PRV_BUF     LALT(LGUI(KC_V))
+#define EM_DIRED       LALT(LGUI(KC_D))
+#define EM_LWRAP       LALT(LGUI(KC_L))
+#define EM_BGN_MAC     LALT(LGUI(KC_W))
+#define EM_RPT_MAC     LALT(LGUI(KC_R))
+#define EM_END_MAC     LALT(LGUI(KC_E))
+#define EM_CTL_X       LCTL(KC_X)
+#define EM_CTL_C       LCTL(KC_C)
+#define RCTL_DQUO      RCTL_T(KC_DUMMY)
+#define LCTL_ESC       LCTL_T(KC_ESC)
+#define BRTU           KC_VOLU
+#define BRTD           KC_VOLD
+#define VOLU           KC_F20
+#define VOLD           KC_F19
 //==============================================================================
 
 
