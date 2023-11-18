@@ -32,18 +32,18 @@
   __(l_top_trpm,    ____________,  QT_W,    QT_E,      QT_R                    ) \
   __(l_top_trpo,    ____________,  QT_Q,    QT_W,      QT_E                    ) \
   ______________________________________________________________________________ \
-  DO(l_mid_rech,    EM_END_MAC,    QH_A,    QH_S                               ) \
-  DO(l_mid_innr,    EM_RPT_MAC,    QH_D,    QH_F                               ) \
-  DO(l_mid_outr,    EM_BGN_MAC,    QH_S,    QH_D                               ) \
-  DO(l_mid_curl,    SS_BANGBANG,   QH_F,    QH_G                               ) \
+  __(l_mid_rech,    ____________,  QH_A,    QH_S                               ) \
+  DO(l_mid_innr,    KC_ENT,        QH_D,    QH_F                               ) \
+  DO(l_mid_outr,    SS_BANGBANG,   QH_S,    QH_D                               ) \
+  __(l_mid_curl,    ____________,  QH_F,    QH_G                               ) \
   __(l_mid_sprd,    ____________,  QH_S,    QH_F                               ) \
   __(l_mid_trpi,    ____________,  QH_D,    QH_F,      QH_G                    ) \
   __(l_mid_trpm,    ____________,  QH_S,    QH_D,      QH_F                    ) \
   __(l_mid_trpo,    ____________,  QH_A,    QH_S,      QH_D                    ) \
   ______________________________________________________________________________ \
-  DO(l_bot_rech,    EM_CTL_X,      QB_Z,    QB_X                               ) \
-  DO(l_bot_innr,    KC_ENT,        QB_C,    QB_V                               ) \
-  DO(l_bot_outr,    EM_CTL_C,      QB_X,    QB_C                               ) \
+  __(l_bot_rech,    ____________,  QB_Z,    QB_X                               ) \
+  DO(l_bot_innr,    KA_UNDO,       QB_C,    QB_V                               ) \
+  __(l_bot_outr,    ____________,  QB_X,    QB_C                               ) \
   __(l_bot_curl,    ____________,  QB_V,    QB_B                               ) \
   __(l_bot_sprd,    ____________,  QB_X,    QB_V                               ) \
   __(l_bot_trpi,    ____________,  QB_C,    QB_V,      QB_B                    ) \
