@@ -512,7 +512,7 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_L,    KC_BSLS         }, // ???
 
   // COLAMAK-alt
-  { CH_J,    CH_M            }, // ???
+  { CH_J,    CB_M            }, // ???
 };
 
 bool achordion_chord(
