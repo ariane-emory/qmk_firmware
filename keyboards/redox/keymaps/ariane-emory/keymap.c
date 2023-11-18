@@ -45,7 +45,7 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #define KEYRECORD_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t *record)
-#define KEYRECORD_C_FUN(name, t) t name(uint16_t keycode, keyrecord_t const * const record)
+#define KEYRECORD_C_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t const * const record)
 
 #ifdef SEND_STRING_ENABLE
 #  define MY_SS_DELAY 10
@@ -154,7 +154,7 @@ static const shiftable_or_ctrlable_send_string_keycodes_t shiftable_or_ctrlable_
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(shiftable_or_ctrlable_send_string_keycodes_row)
 };
 
-KEYRECORD_C_FUN(process_shiftable_or_ctrlable_send_string, bool) {
+KEYRECORD_C_FUN(bool process_shiftable_or_ctrlable_send_string) {
   for (uint8_t ix = 0; ix < ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes); ix++) {
     if (shiftable_or_ctrlable_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed) {
@@ -178,7 +178,7 @@ KEYRECORD_C_FUN(process_shiftable_or_ctrlable_send_string, bool) {
   return true;
 }
 
-KEYRECORD_C_FUN(dynamic_macros_handler, bool) {
+KEYRECORD_C_FUN(bool dynamic_macros_handler) {
 #ifdef   DYNAMIC_MACRO_ENABLE
   if (record->event.pressed)
     dynamic_macro_stop_recording();
@@ -186,7 +186,7 @@ KEYRECORD_C_FUN(dynamic_macros_handler, bool) {
   return true;
 }
 
-KEYRECORD_C_FUN(insert_upp_handler, bool) {
+KEYRECORD_C_FUN(bool insert_upp_handler) {
 #ifdef INSERT_UPP_ENABLED
   if (record->event.pressed) {
     for (uint8_t ix = 0; ix < 6; ix++) {
@@ -204,7 +204,7 @@ KEYRECORD_C_FUN(insert_upp_handler, bool) {
   return false;
 }
 
-KEYRECORD_C_FUN(disable_mouse_layer_handler, bool) {
+KEYRECORD_C_FUN(bool disable_mouse_layer_handler) {
   layer_off(6);
   return true;
 };
