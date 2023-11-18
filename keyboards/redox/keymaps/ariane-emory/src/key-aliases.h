@@ -139,6 +139,7 @@
 // Colemak
 //==============================================================================
 #ifdef COLEMAK_DH
+//------------------------------------------------------------------------------
 #  define CT_Q    KC_Q
 #  define CT_W    KC_W
 #  define CT_E    KC_F
@@ -149,20 +150,7 @@
 #  define CT_I    KC_U
 #  define CT_O    KC_O
 #  define CT_P    KC_Y
-#else        
-#  define CT_Q    KC_Q
-#  define CT_W    KC_W
-#  define CT_E    KC_F
-#  define CT_R    KC_P
-#  define CT_T    KC_G
-#  define CT_Y    KC_J
-#  define CT_U    KC_L
-#  define CT_I    KC_U
-#  define CT_O    KC_O
-#  define CT_P    KC_Y
-#endif       
 //------------------------------------------------------------------------------
-#ifdef COLEMAK_DH
 #  define CH_A    LHRM_4(KC_A)
 #  define CH_S    LHRM_3(KC_R)
 #  define CH_D    LHRM_2(KC_S)
@@ -173,20 +161,7 @@
 #  define CH_K    RHRM_2(KC_E)
 #  define CH_L    RHRM_3(KC_I)
 #  define CH_QUOT RHRM_4(KC_QUOT)
-#else        
-#  define CH_A    RHRM_4(KC_A)
-#  define CH_S    LHRM_3(KC_R)
-#  define CH_D    LHRM_2(KC_S)
-#  define CH_F    LHRM_1(KC_T)
-#  define CH_G    LSFT_T(KC_D)
-#  define CH_H    RSFT_T(KC_H)
-#  define CH_J    RHRM_1(KC_N)
-#  define CH_K    RHRM_2(KC_E)
-#  define CH_L    RHRM_3(KC_I)
-#  define CH_QUOT RHRM_4(KC_QUOT)
-#endif       
 //------------------------------------------------------------------------------
-#ifdef COLEMAK_DH
 #  define CB_Z    LSFT_T(KC_Z)
 #  define CB_X    KC_X
 #  define CB_C    KC_C
@@ -197,7 +172,31 @@
 #  define CB_COMM KC_COMM
 #  define CB_DOT  KC_DOT
 #  define CB_SLSH RSFT_T(KC_SLSH)
+//==============================================================================
 #else        
+//==============================================================================
+#  define CT_Q    KC_Q
+#  define CT_W    KC_W
+#  define CT_E    KC_F
+#  define CT_R    KC_P
+#  define CT_T    KC_G
+#  define CT_Y    KC_J
+#  define CT_U    KC_L
+#  define CT_I    KC_U
+#  define CT_O    KC_O
+#  define CT_P    KC_Y
+//------------------------------------------------------------------------------
+#  define CH_A    RHRM_4(KC_A)
+#  define CH_S    LHRM_3(KC_R)
+#  define CH_D    LHRM_2(KC_S)
+#  define CH_F    LHRM_1(KC_T)
+#  define CH_G    LSFT_T(KC_D)
+#  define CH_H    RSFT_T(KC_H)
+#  define CH_J    RHRM_1(KC_N)
+#  define CH_K    RHRM_2(KC_E)
+#  define CH_L    RHRM_3(KC_I)
+#  define CH_QUOT RHRM_4(KC_QUOT)
+//------------------------------------------------------------------------------
 #  define CB_Z    LSFT_T(KC_Z)
 #  define CB_X    KC_X
 #  define CB_C    KC_C
@@ -208,6 +207,7 @@
 #  define CB_COMM KC_COMM
 #  define CB_DOT  KC_DOT
 #  define CB_SLSH RSFT_T(KC_SLSH)
+//------------------------------------------------------------------------------
 #endif
 //==============================================================================
 
