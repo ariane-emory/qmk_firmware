@@ -133,11 +133,11 @@
 #  define CH_D    LHRM_2(KC_S)
 #  define CH_F    LHRM_1(KC_T)
 #  define CH_G    LHRM_0(KC_D)
-#  define CH_H    RHRM_0(KC_H)
-#  define CH_J    RHRM_1(KC_N)
+#  define CH_H    RHRM_0(KC_N) // modified, normally KC_H
+#  define CH_J    RHRM_1(KC_H) // modified, normally KC_N
 #  define CH_K    RHRM_2(KC_E)
 #  define CH_L    RHRM_3(KC_I)
-#  define CH_QUOT RHRM_4(KC_QUOT) // modified, normally KC_O
+#  define CH_QUOT RHRM_4(KC_QUOT) // (modified, normally KC_O)
 //------------------------------------------------------------------------------
 #  define CB_Z    LBRM_4(KC_Z)
 #  define CB_X    KC_X
