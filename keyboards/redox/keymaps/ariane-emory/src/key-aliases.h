@@ -32,15 +32,15 @@
 #define QT_P    KC_P
 #define QT_BSLS LT(11,KC_BSLS)
 //------------------------------------------------------------------------------
-#define MT_Q    KC_Q // M layout is Workman.
+#define MT_Q    KC_Q // M layout is minimak.
 #define MT_W    KC_W
 #define MT_E    KC_D
-#define MT_R    KC_F
-#define MT_T    KC_G
-#define MT_Y    KC_J
+#define MT_R    KC_R
+#define MT_T    KC_K
+#define MT_Y    KC_Y
 #define MT_U    KC_U
-#define MT_I    KC_K
-#define MT_O    KC_L
+#define MT_I    KC_I
+#define MT_O    KC_O
 #define MT_P    KC_P
 //------------------------------------------------------------------------------
 #ifdef COLEMAK_DH
@@ -84,13 +84,13 @@
 //------------------------------------------------------------------------------
 #define MH_A    LHRM_4(KC_A)
 #define MH_S    LHRM_3(KC_S)
-#define MH_D    LHRM_2(KC_E)
-#define MH_F    LHRM_1(KC_R)
-#define MH_G    LSFT_T(KC_T)
+#define MH_D    LHRM_2(KC_T)
+#define MH_F    LHRM_1(KC_F)
+#define MH_G    LSFT_T(KC_G)
 #define MH_H    RSFT_T(KC_H)
-#define MH_J    RHRM_1(KC_N)
-#define MH_K    RHRM_2(KC_I)
-#define MH_L    RHRM_3(KC_O)
+#define MH_J    RHRM_1(KC_J)
+#define MH_K    RHRM_2(KC_E)
+#define MH_L    RHRM_3(KC_L)
 #define MH_QUOT RHRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
 #ifdef COLEMAK_DH
@@ -137,7 +137,7 @@
 #define MB_C    KC_C
 #define MB_V    KC_V
 #define MB_B    KC_B
-#define MB_N    KC_Y
+#define MB_N    KC_N
 #define MB_M    KC_M
 #define MB_COMM KC_COMM
 #define MB_DOT  KC_DOT
