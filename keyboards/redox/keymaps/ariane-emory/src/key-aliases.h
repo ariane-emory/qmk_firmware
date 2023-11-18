@@ -5,6 +5,18 @@
 //==============================================================================
 
 //==============================================================================
+// HRM Assignments
+//==============================================================================
+#define LHRM_4(x) LSFT_T(x) // LT(13,x)
+#define LHRM_3(x) LGUI_T(x)
+#define LHRM_2(x) LALT_T(x)
+#define LHRM_1(x) LCTL_T(x)
+#define RHRM_1(x) RCTL_T(x)
+#define RHRM_2(x) RALT_T(x)
+#define RHRM_3(x) RGUI_T(x)
+#define RHRM_4(x) LSFT_T(x) // LT(13,x)
+
+//==============================================================================
 // Top row
 //==============================================================================
 #define QT_TAB  LT(10,KC_TAB)
@@ -20,7 +32,7 @@
 #define QT_P    KC_P
 #define QT_BSLS LT(11,KC_BSLS)
 //------------------------------------------------------------------------------
-#define MT_Q    KC_Q
+#define MT_Q    KC_Q // M layout is Workman.
 #define MT_W    KC_W
 #define MT_E    KC_D
 #define MT_R    KC_F
@@ -55,18 +67,6 @@
 #  define CT_Y    KC_Y
 #endif
 //==============================================================================
-
-//==============================================================================
-// HRM Assignments
-//==============================================================================
-#define LHRM_4(x) LSFT_T(x) // LT(13,x)
-#define LHRM_3(x) LGUI_T(x)
-#define LHRM_2(x) LALT_T(x)
-#define LHRM_1(x) LCTL_T(x)
-#define RHRM_1(x) RCTL_T(x)
-#define RHRM_2(x) RALT_T(x)
-#define RHRM_3(x) RGUI_T(x)
-#define RHRM_4(x) LSFT_T(x) // LT(13,x)
 
 //==============================================================================
 // Middle row
