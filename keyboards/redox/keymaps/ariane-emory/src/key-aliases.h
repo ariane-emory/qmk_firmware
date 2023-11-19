@@ -373,6 +373,8 @@
 #define EM_CTL_C       LCTL(KC_C)
 #define RCTL_SQUO      RCTL_T(KC_SQUO_TAP)
 #define RCTL_DQUO      RCTL_T(KC_DQUO_TAP)
+#define RSFT_SQUO      RSFT_T(KC_SQUO_TAP)
+#define RSFT_DQUO      RSFT_T(KC_DQUO_TAP)
 #define LCTL_ESC       LCTL_T(KC_ESC)
 #define BRTU           KC_VOLU
 #define BRTD           KC_VOLD
