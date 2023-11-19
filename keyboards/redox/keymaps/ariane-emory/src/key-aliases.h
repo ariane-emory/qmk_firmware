@@ -62,8 +62,13 @@
 #define QH_J    RHRM_1(KC_J)
 #define QH_K    RHRM_2(KC_K)
 #define QH_L    RHRM_3(KC_L)
-#define QH_QUOT RHRM_4(KC_DQUO_TAP)
-#define QH_ENT  RCTL_SQUO
+#ifdef DQUOTE_LEFT
+#  define QH_QUOT RHRM_4(KC_DQUO_TAP)
+#  define QH_ENT  RCTL_SQUO
+#else
+#  define QH_QUOT RHRM_4(KC_QUOT)
+#  define QH_ENT  RCTL_DQUO
+#endif
 //------------------------------------------------------------------------------
 #define QB_Z    LBRM_4(KC_Z)
 #define QB_X    KC_X
@@ -103,7 +108,7 @@
 #  define CH_J    RHRM_1(KC_N)
 #  define CH_K    RHRM_2(KC_E)
 #  define CH_L    RHRM_3(KC_I)
-#  define CH_QUOT RHRM_4(KC_DQUO_TAP)
+#  define CH_QUOT QH_QUOT
 //------------------------------------------------------------------------------
 #  define CB_Z    LBRM_4(KC_Z)
 #  define CB_X    KC_X
@@ -138,7 +143,7 @@
 #  define CH_J    RHRM_1(KC_H) // modified, normally KC_N
 #  define CH_K    RHRM_2(KC_E)
 #  define CH_L    RHRM_3(KC_I)
-#  define CH_QUOT RHRM_4(KC_DQUO_TAP)  // (modified, normally KC_O)
+#  define CH_QUOT QH_QUOT  // (modified, normally KC_O)
 //------------------------------------------------------------------------------
 #  define CB_Z    LBRM_4(KC_Z)
 #  define CB_X    KC_X
@@ -178,7 +183,7 @@
 #define WH_J    RHRM_1(KC_N)
 #define WH_K    RHRM_2(KC_E)
 #define WH_L    RHRM_3(KC_O)
-#define WH_QUOT RHRM_4(KC_DQUO_TAP) // modified, normally KC_I
+#define WH_QUOT QH_QUOT // modified, normally KC_I
 //------------------------------------------------------------------------------
 #define WB_Z    LBRM_4(KC_Z)
 #define WB_X    KC_X
@@ -216,7 +221,7 @@
 #define MH_J    RHRM_1(KC_J)
 #define MH_K    RHRM_2(KC_E)
 #define MH_L    RHRM_3(KC_L)
-#define MH_QUOT RHRM_4(KC_DQUO_TAP)
+#define MH_QUOT QH_QUOT
 //------------------------------------------------------------------------------
 #define MB_Z    LBRM_4(KC_Z)
 #define MB_X    KC_X
