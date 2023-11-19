@@ -197,7 +197,7 @@
 //==============================================================================
 
 
- //==============================================================================
+//==============================================================================
 // Workman
 //==============================================================================
 #define WT_Q    KC_Q
@@ -236,7 +236,7 @@
 
 
 //==============================================================================
-// Custom
+// Workmanlike custom
 //==============================================================================
 #define XT_Q    KC_Q
 #define XT_W    KC_W
@@ -270,6 +270,44 @@
 #define XB_COMM KC_COMM
 #define XB_DOT  KC_DOT
 #define XB_SLSH LBRM_4(KC_SLSH)
+//==============================================================================
+
+
+//==============================================================================
+// Original custom
+//==============================================================================
+#define KT_Q    KC_Q
+#define KT_W    KC_W
+#define KT_E    KC_D
+#define KT_R    KC_R
+#define KT_T    KC_B
+#define KT_Y    KC_J
+#define KT_U    KC_U
+#define KT_I    KC_L
+#define KT_O    KC_O
+#define KT_P    KC_P
+//------------------------------------------------------------------------------
+#define KH_A    LHRM_4(KC_A)
+#define KH_S    LHRM_3(KC_S)
+#define KH_D    LHRM_2(KC_H)
+#define KH_F    LHRM_1(KC_T)
+#define KH_G    LHRM_0(KC_G)
+#define KH_H    RHRM_0(KC_Y)
+#define KH_J    RHRM_1(KC_N)
+#define KH_K    RHRM_2(KC_E)
+#define KH_L    RHRM_3(KC_I)
+#define KH_QUOT QH_QUOT
+//------------------------------------------------------------------------------
+#define KB_Z    LBRM_4(KC_Z)
+#define KB_X    KC_X
+#define KB_C    KC_C
+#define KB_V    KC_M
+#define KB_B    KC_V
+#define KB_N    KC_F
+#define KB_M    KC_K
+#define KB_COMM KC_COMM
+#define KB_DOT  KC_DOT
+#define KB_SLSH LBRM_4(KC_SLSH)
 //==============================================================================
 
 
