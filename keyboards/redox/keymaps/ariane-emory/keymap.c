@@ -237,7 +237,6 @@ static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM =
   { RCTL_SQUO,                   KC_QUOT        },
   { RCTL_DQUO,                   KC_DQUO        },
 
-
   { LALT_T(VD_LEFT_ALT),         VD_LEFT        },
   { LCTL_T(VD_RIGHT_ALT),        VD_RIGHT       },
   { LGUI_T(LCA(KC_RIGHT)),       LCA(KC_RIGHT)  }, 
@@ -246,7 +245,6 @@ static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM =
 
   { FLIPR_OR_USCORE,             LSFT(KC_MINS)  },
   { LSFT_T(LALT(KC_N)),          LALT(KC_N)     },
-
 
   /* { LSFT_T(LSA(KC_LBRC)),  LSA(KC_LBRC)  }, */
 };
