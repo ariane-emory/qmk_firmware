@@ -63,6 +63,7 @@
 #define QH_K    RHRM_2(KC_K)
 #define QH_L    RHRM_3(KC_L)
 #define QH_QUOT RHRM_4(KC_DQUO_TAP)
+#define QH_ENT  RCTL_SQUO
 //------------------------------------------------------------------------------
 #define QB_Z    LBRM_4(KC_Z)
 #define QB_X    KC_X
@@ -166,7 +167,7 @@
 #define WT_U    KC_F
 #define WT_I    KC_U
 #define WT_O    KC_P
-#define WT_P    KC_I // modified, normally KC_QUOTE / KC_SCLN
+#define WT_P    KC_I // KC_DQUO // modified, normally KC_SCLN
 //------------------------------------------------------------------------------
 #define WH_A    LHRM_4(KC_A)
 #define WH_S    LHRM_3(KC_S)
