@@ -514,6 +514,9 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // COLAMAK-alt
   { CH_J,    CB_M            }, // kill line
   { CH_J,    CT_P            }, // yank
+
+  // Workman
+  { WH_J,    WH_H            }, // yank
 };
 
 bool achordion_chord(

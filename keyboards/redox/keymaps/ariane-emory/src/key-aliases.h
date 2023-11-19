@@ -166,7 +166,7 @@
 #define WT_U    KC_F
 #define WT_I    KC_U
 #define WT_O    KC_P
-#define WT_P    KC_QUOT
+#define WT_P    KC_I // modified, normally KC_QUOTE / KC_SCLN
 //------------------------------------------------------------------------------
 #define WH_A    LHRM_4(KC_A)
 #define WH_S    LHRM_3(KC_S)
@@ -177,7 +177,7 @@
 #define WH_J    RHRM_1(KC_N)
 #define WH_K    RHRM_2(KC_E)
 #define WH_L    RHRM_3(KC_O)
-#define WH_QUOT RHRM_4(KC_I)   
+#define WH_QUOT RHRM_4(KC_QUOT) // modified, normally KC_I
 //------------------------------------------------------------------------------
 #define WB_Z    LBRM_4(KC_Z)
 #define WB_X    KC_X
