@@ -371,7 +371,8 @@
 #define EM_END_MAC     LALT(LGUI(KC_E))
 #define EM_CTL_X       LCTL(KC_X)
 #define EM_CTL_C       LCTL(KC_C)
-#define RCTL_DQUO      RCTL_T(KC_DUMMY)
+#define RCTL_SQUO      RCTL_T(KC_SQUO_TAP)
+#define RCTL_DQUO      RCTL_T(KC_DQUO_TAP)
 #define LCTL_ESC       LCTL_T(KC_ESC)
 #define BRTU           KC_VOLU
 #define BRTD           KC_VOLD
@@ -397,7 +398,6 @@
 #define LALT_OR_SPC        MT(MOD_LALT,    KC_SPC)
 #define LGUI_OR_BSPC       MT(MOD_RGUI,    KC_BSPC)
 #define FLIPR_OR_DASH      LT(LN_FLIPR,    KC_MINS)
-#define LARROWS_OR_DASH    LT(LN_ARROWS,   KC_MINS)
 #define FLIPR_OR_BTN2      LT(LN_FLIPR,    KC_BTN2)
 #define LOWER_OR_SPC       LT(LN_LOWER,    KC_SPC)
 #define UPPER_OR_BSPC      LT(LN_UPPER,    KC_BSPC)
