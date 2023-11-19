@@ -282,8 +282,8 @@
 #define KT_R    KC_F
 #define KT_T    KC_B
 #define KT_Y    KC_Y
-#define KT_U    KC_O
-#define KT_I    KC_I
+#define KT_U    KC_I
+#define KT_I    KC_O
 #define KT_O    KC_U
 #define KT_P    KC_P
 //------------------------------------------------------------------------------
