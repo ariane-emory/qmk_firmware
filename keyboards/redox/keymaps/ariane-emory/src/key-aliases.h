@@ -282,17 +282,17 @@
 #define KT_R    KC_F
 #define KT_T    KC_B
 #define KT_Y    KC_Y
-#define KT_U    KC_U
-#define KT_I    KC_I
-#define KT_O    KC_O
+#define KT_U    KC_I
+#define KT_I    KC_O
+#define KT_O    KC_U
 #define KT_P    KC_P
 //------------------------------------------------------------------------------
 #define KH_A    LHRM_4(KC_A)
 #define KH_S    LHRM_3(KC_S)
 #define KH_D    LHRM_2(KC_R)
 #define KH_F    LHRM_1(KC_T)
-#define KH_G    LHRM_0(KC_M)
-#define KH_H    RHRM_0(KC_G)
+#define KH_G    LHRM_0(KC_G)
+#define KH_H    RHRM_0(KC_M)
 #define KH_J    RHRM_1(KC_H)
 #define KH_K    RHRM_2(KC_E)
 #define KH_L    RHRM_3(KC_N)
