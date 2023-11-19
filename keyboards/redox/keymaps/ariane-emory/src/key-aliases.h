@@ -63,11 +63,13 @@
 #define QH_K    RHRM_2(KC_K)
 #define QH_L    RHRM_3(KC_L)
 #ifdef DQUOTE_LEFT
-#  define QH_QUOT RHRM_4(KC_DQUO_TAP)
-#  define QH_ENTR RCTL_SQUO
+#  define DEF_QUOT KC_DQUO
+#  define QH_QUOT  RHRM_4(KC_DQUO_TAP)
+#  define QH_ENTR  RCTL_SQUO
 #else
-#  define QH_QUOT RHRM_4(KC_QUOT)
-#  define QH_ENTR RCTL_DQUO
+#  define DEF_QUOT KC_QUOT
+#  define QH_QUOT  RHRM_4(KC_QUOT)
+#  define QH_ENTR  RCTL_DQUO
 #endif
 //------------------------------------------------------------------------------
 #define QB_Z    LBRM_4(KC_Z)
@@ -262,7 +264,7 @@
 #define SH_QUOT RHRM_4(KC_I)
 //------------------------------------------------------------------------------
 #define SB_Z    LBRM_4(KC_X)
-#define SB_X    KC_QUOT
+#define SB_X    DEF_QUOT
 #define SB_C    KC_B
 #define SB_V    KC_M
 #define SB_B    KC_J
@@ -286,7 +288,7 @@
 #define NT_U    KC_U
 #define NT_I    KC_R
 #define NT_O    KC_L
-#define NT_P    KC_QUOT
+#define NT_P    DEF_QUOT
 //------------------------------------------------------------------------------
 #define NH_A    LHRM_4(KC_A)
 #define NH_S    LHRM_3(KC_S)
