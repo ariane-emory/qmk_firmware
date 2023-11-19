@@ -244,9 +244,9 @@
 #define XT_R    KC_R
 #define XT_T    KC_B
 #define XT_Y    KC_J
-#define XT_U    KC_L
-#define XT_I    KC_O
-#define XT_O    KC_U
+#define XT_U    KC_U
+#define XT_I    KC_L
+#define XT_O    KC_O
 #define XT_P    KC_P
 //------------------------------------------------------------------------------
 #define XH_A    LHRM_4(KC_A)
