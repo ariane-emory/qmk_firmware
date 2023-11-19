@@ -232,12 +232,10 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 // ==============================================================================
 
 static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM = {
-  { RHRM_4(KC_DQUO),             KC_DQUO },
+  { RHRM_4(KC_DQUO_TAP),         KC_DQUO },
 
   { RCTL_SQUO,                   KC_QUOT        },
-  /* { RSFT_SQUO,                   KC_QUOT        }, */
   { RCTL_DQUO,                   KC_DQUO        },
-  /* { RSFT_DQUO,                   KC_DQUO        }, */
 
 
   { LALT_T(VD_LEFT_ALT),         VD_LEFT        },
