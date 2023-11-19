@@ -64,10 +64,10 @@
 #define QH_L    RHRM_3(KC_L)
 #ifdef DQUOTE_LEFT
 #  define QH_QUOT RHRM_4(KC_DQUO_TAP)
-#  define QH_ENT  RCTL_SQUO
+#  define QH_ENTR RCTL_SQUO
 #else
 #  define QH_QUOT RHRM_4(KC_QUOT)
-#  define QH_ENT  RCTL_DQUO
+#  define QH_ENTR RCTL_DQUO
 #endif
 //------------------------------------------------------------------------------
 #define QB_Z    LBRM_4(KC_Z)
