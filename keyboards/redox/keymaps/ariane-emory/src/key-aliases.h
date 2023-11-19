@@ -62,7 +62,7 @@
 #define QH_J    RHRM_1(KC_J)
 #define QH_K    RHRM_2(KC_K)
 #define QH_L    RHRM_3(KC_L)
-#define QH_QUOT RSFT_DQUO // RHRM_4(KC_QUOT)
+#define QH_QUOT RHRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
 #define QB_Z    LBRM_4(KC_Z)
 #define QB_X    KC_X
@@ -372,8 +372,8 @@
 #define EM_CTL_X       LCTL(KC_X)
 #define EM_CTL_C       LCTL(KC_C)
 #define RCTL_SQUO      RCTL_T(KC_SQUO_TAP)
-#define RSFT_SQUO      RSFT_T(KC_SQUO_TAP)
-#define RSFT_DQUO      RSFT_T(KC_DQUO_TAP)
+/* #define RSFT_SQUO      RSFT_T(KC_SQUO_TAP) */
+/* #define RSFT_DQUO      RSFT_T(KC_DQUO_TAP) */
 #define RCTL_DQUO      RCTL_T(KC_DQUO_TAP)
 #define LCTL_ESC       LCTL_T(KC_ESC)
 #define BRTU           KC_VOLU
