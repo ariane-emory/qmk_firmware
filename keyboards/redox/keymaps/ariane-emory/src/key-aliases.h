@@ -207,9 +207,9 @@
 #define WT_T    KC_B
 #define WT_Y    KC_J
 #define WT_U    KC_F
-#define WT_I    KC_U
-#define WT_O    KC_P
-#define WT_P    KC_I // KC_DQUO // modified, normally KC_SCLN
+#define WT_I    KC_I // modified, normally KC_U
+#define WT_O    KC_U // modified, normally KC_P
+#define WT_P    KC_P // modified, normally KC_SCLN
 //------------------------------------------------------------------------------
 #define WH_A    LHRM_4(KC_A)
 #define WH_S    LHRM_3(KC_S)
