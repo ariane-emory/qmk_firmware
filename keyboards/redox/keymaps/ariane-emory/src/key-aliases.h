@@ -160,7 +160,7 @@
 //------------------------------------------------------------------------------
 #else // COLEMAK_DH
 //------------------------------------------------------------------------------
-#  define CT_Q    KC_Q
+#  define CT_Q    KC_SLSH
 #  define CT_W    KC_W
 #  define CT_E    KC_F
 #  define CT_R    KC_P
@@ -182,7 +182,7 @@
 #  define CH_L    RHRM_3(KC_I)
 #  define CH_QUOT QH_QUOT  // (modified, normally KC_O)
 //------------------------------------------------------------------------------
-#  define CB_Z    LBRM_4(KC_Z)
+#  define CB_Z    LBRM_4(KC_Q)
 #  define CB_X    KC_X
 #  define CB_C    KC_C
 #  define CB_V    KC_V
