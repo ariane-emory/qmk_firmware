@@ -96,6 +96,7 @@ void send_string_without_mods_P(const char * const string) {
   SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(2500)                                                                       \
   T(X_F) DD() RR() DD() RR() DD()                                                                                                                     \
   SS_LGUI("`") DD() SCR_L()
+// v This might be able to replace TELEPORT entirely?
 #define TELEPORT2(_)                                                                                                                                  \
   GUI_CLICK() SS_LCTL(T(X_TAB)) SS_LGUI("l") SS_LGUI("a") SS_LGUI("x") SS_LGUI("w")                                                                   \
   SS_LGUI("`") SCR_R() SS_DELAY(200) T(X_BTN1) ESC()                                                                                                  \
