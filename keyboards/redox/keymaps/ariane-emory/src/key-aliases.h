@@ -145,7 +145,7 @@
 #  define CH_J    RHRM_1(KC_H)
 #  define CH_K    RHRM_2(KC_E)
 #  define CH_L    RHRM_3(KC_I)
-#  define CH_QUOT QH_QUOT
+#  define CH_QUOT RHRM_4(KC_O) // QH_QUOT
 //------------------------------------------------------------------------------
 #  define CB_Z    LBRM_4(KC_SLSH)
 #  define CB_X    KC_X
@@ -156,7 +156,7 @@
 #  define CB_M    KC_N
 #  define CB_COMM KC_COMM
 #  define CB_DOT  KC_DOT
-#  define CB_SLSH RBRM_4(KC_O)
+#  define CB_SLSH RBRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
 #else // COLEMAK_DH
 //------------------------------------------------------------------------------
