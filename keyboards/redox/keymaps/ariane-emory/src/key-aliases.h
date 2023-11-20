@@ -280,7 +280,7 @@
 #define KT_W    KC_W
 #define KT_E    KC_D
 #define KT_R    KC_F
-#define KT_T    KC_V
+#define KT_T    KC_J
 #define KT_Y    KC_Y
 #define KT_U    KC_U
 #define KT_I    KC_I
@@ -300,7 +300,7 @@
 //------------------------------------------------------------------------------
 #define KB_Z    LBRM_4(KC_Z)
 #define KB_X    KC_X       
-#define KB_C    KC_J
+#define KB_C    KC_V
 #define KB_V    KC_L      
 #define KB_B    KC_B
 #define KB_N    KC_K
