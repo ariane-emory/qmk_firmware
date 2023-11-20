@@ -134,7 +134,7 @@
 #  define CT_U    KC_L
 #  define CT_I    KC_U
 #  define CT_O    KC_Y
-#  define CT_P    KC_O // KC_QUOT
+#  define CT_P    KC_SLSH // KC_O // KC_QUOT
 //------------------------------------------------------------------------------
 #  define CH_A    LHRM_4(KC_A)
 #  define CH_S    LHRM_3(KC_R)
@@ -156,7 +156,7 @@
 #  define CB_M    KC_N
 #  define CB_COMM KC_COMM
 #  define CB_DOT  KC_DOT
-#  define CB_SLSH RBRM_4(KC_SLSH)
+#  define CB_SLSH RBRM_4(KC_O)
 //------------------------------------------------------------------------------
 #else // COLEMAK_DH
 //------------------------------------------------------------------------------

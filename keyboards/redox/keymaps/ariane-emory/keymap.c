@@ -106,7 +106,6 @@ void send_string_without_mods_P(const char * const string) {
 #define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                        \
   DO(SS_TELEPORT2,         (TELEPORT2()),                        (""),                                   (""))                                        \
   DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (TELEPORT()),                           (GUI_CLICK_AND_TAB()))                       \
-  DO(SS_GUI_CLICK_AND_TAB, (GUI_CLICK_AND_TAB()),                (""),                                   (""))                                        \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""))                                        \
   DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""))                                        \
   DO(EM_CHG_BUF,           (SS_LCTL("x") "b"),                   (""),                                   (""))                                        \
@@ -518,9 +517,9 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_L,    QH_K            }, // ???
   { QH_L,    KC_BSLS         }, // ???
 
-  // COLAMAK-alt
-  { CH_J,    CB_M            }, // kill line
-  { CH_J,    CT_P            }, // yank
+  // COLAMAK_CUSTOM
+  { CH_J,    CT_O            }, // yank
+  { CH_J,    CB_M            }, // kill
 
   // Workman
   { WH_J,    WB_M            }, // kill line
