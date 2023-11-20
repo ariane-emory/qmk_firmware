@@ -134,18 +134,18 @@
 #  define CT_U    KC_L
 #  define CT_I    KC_U
 #  define CT_O    KC_Y
-#  define CT_P    KC_QUOT
+#  define CT_P    KC_O // KC_QUOT
 //------------------------------------------------------------------------------
 #  define CH_A    LHRM_4(KC_A)
-#  define CH_S    LHRM_3(KC_S)
-#  define CH_D    LHRM_2(KC_R)
+#  define CH_S    LHRM_3(KC_R)
+#  define CH_D    LHRM_2(KC_S)
 #  define CH_F    LHRM_1(KC_T)
 #  define CH_G    LHRM_0(KC_G)
 #  define CH_H    RHRM_0(KC_M)
 #  define CH_J    RHRM_1(KC_H)
 #  define CH_K    RHRM_2(KC_E)
 #  define CH_L    RHRM_3(KC_I)
-#  define CH_QUOT RHRM_4(KC_O)
+#  define CH_QUOT QH_QUOT // RHRM_4(KC_O)
 //------------------------------------------------------------------------------
 #  define CB_Z    LBRM_4(KC_Z)
 #  define CB_X    KC_X
