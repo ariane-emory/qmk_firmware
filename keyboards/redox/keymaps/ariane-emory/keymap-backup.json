@@ -1065,7 +1065,7 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "KC_NO",
+      "ANY(SS_TELEPORT)",
       "LALT(KC_LEFT)",
       "LALT(KC_RGHT)",
       "KC_NO",
