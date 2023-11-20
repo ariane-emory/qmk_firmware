@@ -280,7 +280,7 @@
 #define KT_W    KC_W
 #define KT_E    KC_D
 #define KT_R    KC_F
-#define KT_T    KC_B
+#define KT_T    KC_V
 #define KT_Y    KC_Y
 #define KT_U    KC_U
 #define KT_I    KC_I
@@ -288,8 +288,8 @@
 #define KT_P    KC_P
 //------------------------------------------------------------------------------
 #define KH_A    LHRM_4(KC_A)
-#define KH_S    LHRM_3(KC_S)
-#define KH_D    LHRM_2(KC_R)
+#define KH_S    LHRM_3(KC_R)
+#define KH_D    LHRM_2(KC_S)
 #define KH_F    LHRM_1(KC_T)
 #define KH_G    LHRM_0(KC_G)
 #define KH_H    RHRM_0(KC_C)
@@ -300,11 +300,11 @@
 //------------------------------------------------------------------------------
 #define KB_Z    LBRM_4(KC_Z)
 #define KB_X    KC_X       
-#define KB_C    KC_L       
-#define KB_V    KC_M      
-#define KB_B    KC_V
-#define KB_N    KC_J
-#define KB_M    KC_K 
+#define KB_C    KC_J
+#define KB_V    KC_L      
+#define KB_B    KC_B
+#define KB_N    KC_K
+#define KB_M    KC_M 
 #define KB_COMM KC_COMM
 #define KB_DOT  KC_DOT
 #define KB_SLSH LBRM_4(KC_SLSH)
