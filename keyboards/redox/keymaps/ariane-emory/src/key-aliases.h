@@ -137,8 +137,8 @@
 #  define CT_P    KC_Z
 //------------------------------------------------------------------------------
 #  define CH_A    LHRM_4(KC_A)
-#  define CH_S    LHRM_3(KC_S)
-#  define CH_D    LHRM_2(KC_R)
+#  define CH_S    LHRM_3(KC_R)
+#  define CH_D    LHRM_2(KC_S)
 #  define CH_F    LHRM_1(KC_T)
 #  define CH_G    LHRM_0(KC_G)
 #  define CH_H    RHRM_0(KC_M)
