@@ -241,7 +241,7 @@
 #define XT_Q    KC_SLSH
 #define XT_W    KC_F
 #define XT_E    KC_W
-#define XT_R    KC_D
+#define XT_R    KC_P
 #define XT_T    KC_B
 #define XT_Y    KC_J
 #define XT_U    KC_L
@@ -263,7 +263,7 @@
 #define XB_Z    LBRM_4(KC_Q)
 #define XB_X    KC_X
 #define XB_C    KC_C
-#define XB_V    KC_P
+#define XB_V    KC_D
 #define XB_B    KC_V
 #define XB_N    KC_K
 #define XB_M    KC_N
