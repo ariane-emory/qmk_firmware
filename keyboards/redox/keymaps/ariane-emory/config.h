@@ -70,7 +70,7 @@
 #undef PRODUCT
 #define PRODUCT "K's Redox"
 
-#define DROP_O
+#define BOTTOM_O
 // #define DQUOTE_LEFT
 
 #define LEADER_TIMEOUT 666
