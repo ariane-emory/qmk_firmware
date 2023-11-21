@@ -123,7 +123,7 @@
 #  define CB_DOT  KC_DOT
 #  define CB_SLSH RBRM_4(KC_SLSH)
 //------------------------------------------------------------------------------
-#elif defined(COLEMAK_CUSTOM)
+#elif defined(COLEMAK_CUSTOM) // ARTS
 //------------------------------------------------------------------------------
 #  define CT_Q    KC_SLSH
 #  define CT_W    KC_W
@@ -202,8 +202,8 @@
 //==============================================================================
 #define KT_Q    KC_SLSH
 #define KT_W    KC_W
-#define KT_E    KC_F
-#define KT_R    KC_D
+#define KT_E    KC_C
+#define KT_R    KC_P
 #define KT_T    KC_B
 #define KT_Y    KC_J
 #define KT_U    KC_L
@@ -224,8 +224,8 @@
 //------------------------------------------------------------------------------
 #define KB_Z    LBRM_4(KC_Q)
 #define KB_X    KC_X
-#define KB_C    KC_C
-#define KB_V    KC_P
+#define KB_C    KC_F
+#define KB_V    KC_D
 #define KB_B    KC_V
 #define KB_N    KC_K
 #define KB_M    KC_N
