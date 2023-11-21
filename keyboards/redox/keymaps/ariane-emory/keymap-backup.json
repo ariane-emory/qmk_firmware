@@ -709,7 +709,7 @@
       "KC_WH_U",
       "KC_WH_D",
       "LCA(KC_X)",
-      "MO(LN_ARROWS)",
+      "ANY(MO(LN_ARROWS))",
       "KC_RSFT",
       "KC_NO",
       "KC_NO",
@@ -721,10 +721,10 @@
       "ANY(STR_MS)",
       "ANY(THU_MS)",
       "ANY(CRL_MS)",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS"
+      "RCTL(KC_K)",
+      "LAG(KC_E)",
+      "LAG(KC_W)",
+      "LAG(KC_R)"
     ],
     [
       "KC_NO",
@@ -781,7 +781,7 @@
       "KC_WH_U",
       "KC_WH_D",
       "LCA(KC_X)",
-      "MO(LN_ARROWS)",
+      "ANY(MO(LN_ARROWS))",
       "KC_RSFT",
       "KC_TRNS",
       "ANY(SS_FULLSCR)",
