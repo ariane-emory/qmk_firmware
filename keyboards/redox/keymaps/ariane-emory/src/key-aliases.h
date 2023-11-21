@@ -85,7 +85,10 @@
 //==============================================================================
 
 
-#ifndef DROP_O
+#ifdef DROP_O
+# define RIGHT_OUTER_H KC_QUOT
+# define RIGHT_OUTER_B KC_O
+#else
 # define RIGHT_OUTER_H KC_O
 # define RIGHT_OUTER_B KC_QUOT
 #endif

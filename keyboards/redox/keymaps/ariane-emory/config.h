@@ -71,10 +71,11 @@
 #undef PRODUCT
 #define PRODUCT "K's Redox"
 
+#define DROP_O
 // #define DQUOTE_LEFT
 
 #define LEADER_TIMEOUT 666
 #define LEADER_PER_KEY_TIMING
 
 #define AE_NO_DIAGONAL_MOUSE_ACCEL_RESET
-// #    if defined(MOUSEKEY_INERTIA) && !defined(AE_NO_DIAGONAL_MOUSE_ACCEL_RESET)
+
