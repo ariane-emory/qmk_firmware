@@ -97,7 +97,7 @@
 //==============================================================================
 // Colemak-like, ARTS
 //==============================================================================
-#  define CT_Q    KC_SLSH
+#  define CT_Q    KC_Q
 #  define CT_W    KC_W
 #  define CT_E    KC_D
 #  define CT_R    KC_C
@@ -119,7 +119,7 @@
 #  define CH_L    RHRM_3(KC_I)
 #  define CH_QUOT RHRM_4(RIGHT_OUTER_H)
 //------------------------------------------------------------------------------
-#  define CB_Z    LBRM_4(KC_Q)
+#  define CB_Z    LBRM_4(KC_SLSH)
 #  define CB_X    KC_X
 #  define CB_C    KC_P
 #  define CB_V    KC_F
@@ -137,7 +137,7 @@
 //==============================================================================
 // Colemak-like, ARST
 //==============================================================================
-#define KT_Q    KC_SLSH
+#define KT_Q    KC_Q
 #define KT_W    KC_W
 #define KT_E    KC_F
 #define KT_R    KC_P
@@ -159,7 +159,7 @@
 #define KH_L    RHRM_3(KC_I)
 #define KH_QUOT RHRM_4(RIGHT_OUTER_H)
 //------------------------------------------------------------------------------
-#define KB_Z    LBRM_4(KC_Q)
+#define KB_Z    LBRM_4(KC_SLSH)
 #define KB_X    KC_X
 #define KB_C    KC_C
 #define KB_V    KC_D
@@ -175,7 +175,7 @@
 //==============================================================================
 // Colemak-like, ASRT
 //==============================================================================
-#define XT_Q    KC_SLSH
+#define XT_Q    KC_Q
 #define XT_W    KC_F
 #define XT_E    KC_W
 #define XT_R    KC_P
@@ -197,7 +197,7 @@
 #define XH_L    RHRM_3(KC_I)
 #define XH_QUOT RHRM_4(RIGHT_OUTER_H)
 //------------------------------------------------------------------------------
-#define XB_Z    LBRM_4(KC_Q)
+#define XB_Z    LBRM_4(KC_SLSH)
 #define XB_X    KC_X
 #define XB_C    KC_C
 #define XB_V    KC_D
@@ -213,7 +213,7 @@
 //==============================================================================
 // Colemak-like, ASTR
 //==============================================================================
-#define WT_Q    KC_SLSH
+#define WT_Q    KC_Q
 #define WT_W    KC_F
 #define WT_E    KC_D
 #define WT_R    KC_C
@@ -235,7 +235,7 @@
 #define WH_L    RHRM_3(KC_I)
 #define WH_QUOT RHRM_4(RIGHT_OUTER_H)
 //------------------------------------------------------------------------------
-#define WB_Z    LBRM_4(KC_Q)
+#define WB_Z    LBRM_4(KC_SLSH)
 #define WB_X    KC_X
 #define WB_C    KC_P
 #define WB_V    KC_W
