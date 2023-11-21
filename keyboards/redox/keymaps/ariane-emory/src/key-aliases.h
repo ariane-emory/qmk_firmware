@@ -86,45 +86,8 @@
 
 
 //==============================================================================
-// Colemak
+// Colemak-like, ARTS
 //==============================================================================
-#ifdef COLEMAK_DH
-//==============================================================================
-#  define CT_Q    KC_Q
-#  define CT_W    KC_W
-#  define CT_E    KC_F
-#  define CT_R    KC_P
-#  define CT_T    KC_B
-#  define CT_Y    KC_J
-#  define CT_U    KC_L
-#  define CT_I    KC_U
-#  define CT_O    KC_Y
-#  define CT_P    KC_QUOT
-//------------------------------------------------------------------------------
-#  define CH_A    LHRM_4(KC_A)
-#  define CH_S    LHRM_3(KC_R)
-#  define CH_D    LHRM_2(KC_S)
-#  define CH_F    LHRM_1(KC_T)
-#  define CH_G    LHRM_0(KC_G)
-#  define CH_H    RHRM_0(KC_M)
-#  define CH_J    RHRM_1(KC_N)
-#  define CH_K    RHRM_2(KC_E)
-#  define CH_L    RHRM_3(KC_)
-#  define CH_QUOT RHRM_4(KC_O)
-//------------------------------------------------------------------------------
-#  define CB_Z    LBRM_4(KC_Z)
-#  define CB_X    KC_X
-#  define CB_C    KC_C
-#  define CB_V    KC_D
-#  define CB_B    KC_V
-#  define CB_N    KC_K
-#  define CB_M    KC_H
-#  define CB_COMM KC_COMM
-#  define CB_DOT  KC_DOT
-#  define CB_SLSH RBRM_4(KC_SLSH)
-//------------------------------------------------------------------------------
-#elif defined(COLEMAK_CUSTOM) // ARTS
-//------------------------------------------------------------------------------
 #  define CT_Q    KC_SLSH
 #  define CT_W    KC_W
 #  define CT_E    KC_D
@@ -145,7 +108,7 @@
 #  define CH_J    RHRM_1(KC_H)
 #  define CH_K    RHRM_2(KC_E)
 #  define CH_L    RHRM_3(KC_I)
-#  define CH_QUOT RHRM_4(KC_O) // QH_QUOT // 
+#  define CH_QUOT RHRM_4(KC_O)
 //------------------------------------------------------------------------------
 #  define CB_Z    LBRM_4(KC_Q)
 #  define CB_X    KC_X
@@ -156,44 +119,9 @@
 #  define CB_M    KC_N
 #  define CB_COMM KC_COMM
 #  define CB_DOT  KC_DOT
-#  define CB_SLSH RBRM_4(KC_QUOT) // RBRM_4(KC_QUOT)
+#  define CB_SLSH RBRM_4(KC_QUOT)
 //------------------------------------------------------------------------------
-#else // COLEMAK_DH
-//------------------------------------------------------------------------------
-#  define CT_Q    KC_Q
-#  define CT_W    KC_W
-#  define CT_E    KC_F
-#  define CT_R    KC_P
-#  define CT_T    KC_G
-#  define CT_Y    KC_J
-#  define CT_U    KC_L
-#  define CT_I    KC_U
-#  define CT_O    KC_O // modified, normally KC_Y
-#  define CT_P    KC_Y // modified, normally KC_QUOT / KC_SCLN
-//------------------------------------------------------------------------------
-#  define CH_A    RHRM_4(KC_A)
-#  define CH_S    LHRM_3(KC_R)
-#  define CH_D    LHRM_2(KC_S)
-#  define CH_F    LHRM_1(KC_T)
-#  define CH_G    LHRM_0(KC_D)
-#  define CH_H    RHRM_0(KC_N) // modified, normally KC_H
-#  define CH_J    RHRM_1(KC_H) // modified, normally KC_N
-#  define CH_K    RHRM_2(KC_E)
-#  define CH_L    RHRM_3(KC_I)
-#  define CH_QUOT QH_QUOT  // (modified, normally KC_O)
-//------------------------------------------------------------------------------
-#  define CB_Z    LBRM_4(KC_Q)
-#  define CB_X    KC_X
-#  define CB_C    KC_C
-#  define CB_V    KC_V
-#  define CB_B    KC_B
-#  define CB_N    KC_M // modified, normally KC_K
-#  define CB_M    KC_K // modified, normally KC_M
-#  define CB_COMM KC_COMM
-#  define CB_DOT  KC_DOT
-#  define CB_SLSH RBRM_4(KC_SLSH)
-//------------------------------------------------------------------------------
-#endif // COLEMAK_DH
+
 //==============================================================================
 
 
@@ -236,7 +164,7 @@
 
 
 //==============================================================================
-// Another colemak-like, ASRT
+// Colemak-like, ASRT
 //==============================================================================
 #define XT_Q    KC_SLSH
 #define XT_W    KC_F
