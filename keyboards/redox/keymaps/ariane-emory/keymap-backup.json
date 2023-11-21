@@ -721,10 +721,10 @@
       "ANY(STR_MS)",
       "ANY(THU_MS)",
       "ANY(CRL_MS)",
-      "KC_LEFT",
-      "KC_DOWN",
-      "KC_UP",
-      "KC_RGHT"
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS"
     ],
     [
       "KC_NO",
@@ -793,10 +793,10 @@
       "ANY(STR_MS)",
       "ANY(THU_MS)",
       "ANY(CRL_MS)",
-      "RCTL(KC_K)",
-      "LAG(KC_E)",
-      "LAG(KC_W)",
-      "LAG(KC_R)"
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS",
+      "KC_TRNS"
     ],
     [
       "KC_NO",
