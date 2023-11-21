@@ -100,7 +100,7 @@
 #  define CT_Q    KC_SLSH
 #  define CT_W    KC_W
 #  define CT_E    KC_D
-#  define CT_R    KC_F
+#  define CT_R    KC_C
 #  define CT_T    KC_B
 #  define CT_Y    KC_J
 #  define CT_U    KC_L
@@ -122,7 +122,7 @@
 #  define CB_Z    LBRM_4(KC_Q)
 #  define CB_X    KC_X
 #  define CB_C    KC_P
-#  define CB_V    KC_C
+#  define CB_V    KC_F
 #  define CB_B    KC_V
 #  define CB_N    KC_K
 #  define CB_M    KC_N
@@ -139,7 +139,7 @@
 //==============================================================================
 #define KT_Q    KC_SLSH
 #define KT_W    KC_W
-#define KT_E    KC_C
+#define KT_E    KC_F
 #define KT_R    KC_P
 #define KT_T    KC_B
 #define KT_Y    KC_J
@@ -161,7 +161,7 @@
 //------------------------------------------------------------------------------
 #define KB_Z    LBRM_4(KC_Q)
 #define KB_X    KC_X
-#define KB_C    KC_F
+#define KB_C    KC_C
 #define KB_V    KC_D
 #define KB_B    KC_V
 #define KB_N    KC_K
@@ -216,7 +216,7 @@
 #define WT_Q    KC_SLSH
 #define WT_W    KC_F
 #define WT_E    KC_D
-#define WT_R    KC_W
+#define WT_R    KC_C
 #define WT_T    KC_B
 #define WT_Y    KC_J
 #define WT_U    KC_L
@@ -238,7 +238,7 @@
 #define WB_Z    LBRM_4(KC_Q)
 #define WB_X    KC_X
 #define WB_C    KC_P
-#define WB_V    KC_C
+#define WB_V    KC_W
 #define WB_B    KC_V
 #define WB_N    KC_K
 #define WB_M    KC_N
