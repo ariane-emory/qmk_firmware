@@ -67,7 +67,6 @@
 #  define DIM_RGBs                           0
 #endif
 
-
 #undef PRODUCT
 #define PRODUCT "K's Redox"
 
