@@ -71,6 +71,8 @@
 #define PRODUCT "K's Redox"
 
 #define BOTTOM_O
+// #define BOTTOM_V
+
 // #define DQUOTE_LEFT
 
 #define LEADER_TIMEOUT 666

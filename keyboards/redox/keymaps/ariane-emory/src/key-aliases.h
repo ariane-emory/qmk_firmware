@@ -93,8 +93,13 @@
 # define RIGHT_OUTER_B KC_QUOT
 #endif
 
-#define LEFT_INNER_T KC_V
-#define LEFT_INNER_B KC_B
+#ifdef BOTTOM_V
+# define LEFT_INNER_T KC_B
+# define LEFT_INNER_B KC_V
+#else
+# define LEFT_INNER_T KC_V
+# define LEFT_INNER_B KC_B
+#endif
 
 //==============================================================================
 // Colemak-like, ARTS
