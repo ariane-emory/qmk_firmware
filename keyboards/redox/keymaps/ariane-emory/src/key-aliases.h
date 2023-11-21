@@ -85,6 +85,12 @@
 //==============================================================================
 
 
+#ifndef DROP_O
+# define RIGHT_OUTER_H RHRM_4(KC_O)
+# define RIGHT_OUTER_B RBRM_4(KC_QUOT)
+#endif
+
+
 //==============================================================================
 // Colemak-like, ARTS
 //==============================================================================
@@ -108,7 +114,7 @@
 #  define CH_J    RHRM_1(KC_H)
 #  define CH_K    RHRM_2(KC_E)
 #  define CH_L    RHRM_3(KC_I)
-#  define CH_QUOT RHRM_4(KC_O)
+#  define CH_QUOT RIGHT_OUTER_H
 //------------------------------------------------------------------------------
 #  define CB_Z    LBRM_4(KC_Q)
 #  define CB_X    KC_X
@@ -119,7 +125,7 @@
 #  define CB_M    KC_N
 #  define CB_COMM KC_COMM
 #  define CB_DOT  KC_DOT
-#  define CB_SLSH RBRM_4(KC_QUOT)
+#  define CB_SLSH RIGHT_OUTER_B
 //------------------------------------------------------------------------------
 
 //==============================================================================
@@ -148,7 +154,7 @@
 #define KH_J    RHRM_1(KC_H)
 #define KH_K    RHRM_2(KC_E)
 #define KH_L    RHRM_3(KC_I)
-#define KH_QUOT RHRM_4(KC_O) // QH_QUOT // 
+#define KH_QUOT RIGHT_OUTER_H
 //------------------------------------------------------------------------------
 #define KB_Z    LBRM_4(KC_Q)
 #define KB_X    KC_X
@@ -159,7 +165,7 @@
 #define KB_M    KC_N
 #define KB_COMM KC_COMM
 #define KB_DOT  KC_DOT
-#define KB_SLSH RBRM_4(KC_QUOT)
+#define KB_SLSH RIGHT_OUTER_B
 //==============================================================================
 
 
@@ -186,7 +192,7 @@
 #define XH_J    RHRM_1(KC_H)
 #define XH_K    RHRM_2(KC_E)
 #define XH_L    RHRM_3(KC_I)
-#define XH_QUOT RHRM_4(KC_O)
+#define XH_QUOT RIGHT_OUTER_H
 //------------------------------------------------------------------------------
 #define XB_Z    LBRM_4(KC_Q)
 #define XB_X    KC_X
@@ -197,7 +203,7 @@
 #define XB_M    KC_N
 #define XB_COMM KC_COMM
 #define XB_DOT  KC_DOT
-#define XB_SLSH RBRM_4(KC_QUOT)
+#define XB_SLSH RIGHT_OUTER_B
 //==============================================================================
 
 
@@ -224,7 +230,7 @@
 #define WH_J    RHRM_1(KC_H)
 #define WH_K    RHRM_2(KC_E)
 #define WH_L    RHRM_3(KC_I)
-#define WH_QUOT RHRM_4(KC_O)
+#define WH_QUOT RIGHT_OUTER_H
 //------------------------------------------------------------------------------
 #define WB_Z    LBRM_4(KC_Q)
 #define WB_X    KC_X
@@ -235,7 +241,7 @@
 #define WB_M    KC_N
 #define WB_COMM KC_COMM
 #define WB_DOT  KC_DOT
-#define WB_SLSH RBRM_4(KC_QUOT)
+#define WB_SLSH RIGHT_OUTER_B
 //==============================================================================
 
 
