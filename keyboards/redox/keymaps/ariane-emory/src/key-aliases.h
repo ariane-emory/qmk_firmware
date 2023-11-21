@@ -198,6 +198,82 @@
 
 
 //==============================================================================
+// Colemak-like, ARST
+//==============================================================================
+#define KT_Q    KC_SLSH
+#define KT_W    KC_W
+#define KT_E    KC_F
+#define KT_R    KC_D
+#define KT_T    KC_B
+#define KT_Y    KC_J
+#define KT_U    KC_L
+#define KT_I    KC_U
+#define KT_O    KC_Y
+#define KT_P    KC_Z
+//------------------------------------------------------------------------------
+#define KH_A    LHRM_4(KC_A)
+#define KH_S    LHRM_3(KC_R)
+#define KH_D    LHRM_2(KC_S)
+#define KH_F    LHRM_1(KC_T)
+#define KH_G    LHRM_0(KC_G)
+#define KH_H    RHRM_0(KC_M)
+#define KH_J    RHRM_1(KC_H)
+#define KH_K    RHRM_2(KC_E)
+#define KH_L    RHRM_3(KC_I)
+#define KH_QUOT RHRM_4(KC_O) // QH_QUOT // 
+//------------------------------------------------------------------------------
+#define KB_Z    LBRM_4(KC_Q)
+#define KB_X    KC_X
+#define KB_C    KC_C
+#define KB_V    KC_P
+#define KB_B    KC_V
+#define KB_N    KC_K
+#define KB_M    KC_N
+#define KB_COMM KC_COMM
+#define KB_DOT  KC_DOT
+#define KB_SLSH RBRM_4(KC_QUOT)
+//==============================================================================
+
+
+//==============================================================================
+// Another colemak-like, ASRT
+//==============================================================================
+#define XT_Q    KC_SLSH
+#define XT_W    KC_W
+#define XT_E    KC_F
+#define XT_R    KC_D
+#define XT_T    KC_B
+#define XT_Y    KC_J
+#define XT_U    KC_L
+#define XT_I    KC_U
+#define XT_O    KC_Y
+#define XT_P    KC_Z
+//------------------------------------------------------------------------------
+#define XH_A    LHRM_4(KC_A)
+#define XH_S    LHRM_3(KC_S)
+#define XH_D    LHRM_2(KC_R)
+#define XH_F    LHRM_1(KC_T)
+#define XH_G    LHRM_0(KC_G)
+#define XH_H    RHRM_0(KC_M)
+#define XH_J    RHRM_1(KC_H)
+#define XH_K    RHRM_2(KC_E)
+#define XH_L    RHRM_3(KC_I)
+#define XH_QUOT RHRM_4(KC_O)
+//------------------------------------------------------------------------------
+#define XB_Z    LBRM_4(KC_Q)
+#define XB_X    KC_X
+#define XB_C    KC_C
+#define XB_V    KC_P
+#define XB_B    KC_V
+#define XB_N    KC_K
+#define XB_M    KC_N
+#define XB_COMM KC_COMM
+#define XB_DOT  KC_DOT
+#define XB_SLSH RBRM_4(KC_QUOT)
+//==============================================================================
+
+
+//==============================================================================
 // Workman
 //==============================================================================
 #define WT_Q    KC_Q
@@ -232,82 +308,6 @@
 #define WB_COMM KC_COMM
 #define WB_DOT  KC_DOT
 #define WB_SLSH LBRM_4(KC_SLSH)
-//==============================================================================
-
-
-//==============================================================================
-// Workmanlike custom
-//==============================================================================
-#define XT_Q    KC_Q
-#define XT_W    KC_W
-#define XT_E    KC_D
-#define XT_R    KC_R
-#define XT_T    KC_B
-#define XT_Y    KC_J
-#define XT_U    KC_U
-#define XT_I    KC_L
-#define XT_O    KC_O
-#define XT_P    KC_P
-//------------------------------------------------------------------------------
-#define XH_A    LHRM_4(KC_A)
-#define XH_S    LHRM_3(KC_S)
-#define XH_D    LHRM_2(KC_H)
-#define XH_F    LHRM_1(KC_T)
-#define XH_G    LHRM_0(KC_G)
-#define XH_H    RHRM_0(KC_Y)
-#define XH_J    RHRM_1(KC_N)
-#define XH_K    RHRM_2(KC_E)
-#define XH_L    RHRM_3(KC_I)
-#define XH_QUOT QH_QUOT
-//------------------------------------------------------------------------------
-#define XB_Z    LBRM_4(KC_Z)
-#define XB_X    KC_X
-#define XB_C    KC_C
-#define XB_V    KC_M
-#define XB_B    KC_V
-#define XB_N    KC_F
-#define XB_M    KC_K
-#define XB_COMM KC_COMM
-#define XB_DOT  KC_DOT
-#define XB_SLSH LBRM_4(KC_SLSH)
-//==============================================================================
-
-
-//==============================================================================
-// Original custom
-//==============================================================================
-#define KT_Q    KC_Q
-#define KT_W    KC_W
-#define KT_E    KC_M
-#define KT_R    KC_F
-#define KT_T    KC_J
-#define KT_Y    KC_Y
-#define KT_U    KC_U
-#define KT_I    KC_I
-#define KT_O    KC_O
-#define KT_P    KC_P
-//------------------------------------------------------------------------------
-#define KH_A    LHRM_4(KC_A)
-#define KH_S    LHRM_3(KC_S)
-#define KH_D    LHRM_2(KC_R)
-#define KH_F    LHRM_1(KC_T)
-#define KH_G    LHRM_0(KC_G)
-#define KH_H    RHRM_0(KC_C)
-#define KH_J    RHRM_1(KC_H)
-#define KH_K    RHRM_2(KC_E)
-#define KH_L    RHRM_3(KC_N)
-#define KH_QUOT QH_QUOT    
-//------------------------------------------------------------------------------
-#define KB_Z    LBRM_4(KC_Z)
-#define KB_X    KC_X       
-#define KB_C    KC_V
-#define KB_V    KC_D      
-#define KB_B    KC_B
-#define KB_N    KC_K
-#define KB_M    KC_L 
-#define KB_COMM KC_COMM
-#define KB_DOT  KC_DOT
-#define KB_SLSH LBRM_4(KC_SLSH)
 //==============================================================================
 
 
