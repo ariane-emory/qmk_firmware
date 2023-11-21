@@ -101,7 +101,7 @@
 #  define CT_W    KC_W
 #  define CT_E    KC_D
 #  define CT_R    KC_C
-#  define CT_T    KC_B
+#  define CT_T    KC_V
 #  define CT_Y    KC_J
 #  define CT_U    KC_L
 #  define CT_I    KC_U
@@ -123,7 +123,7 @@
 #  define CB_X    KC_X
 #  define CB_C    KC_P
 #  define CB_V    KC_F
-#  define CB_B    KC_V
+#  define CB_B    KC_B
 #  define CB_N    KC_K
 #  define CB_M    KC_N
 #  define CB_COMM KC_COMM
@@ -141,7 +141,7 @@
 #define KT_W    KC_W
 #define KT_E    KC_F
 #define KT_R    KC_P
-#define KT_T    KC_B
+#define KT_T    KC_V
 #define KT_Y    KC_J
 #define KT_U    KC_L
 #define KT_I    KC_U
@@ -163,7 +163,7 @@
 #define KB_X    KC_X
 #define KB_C    KC_C
 #define KB_V    KC_D
-#define KB_B    KC_V
+#define KB_B    KC_B
 #define KB_N    KC_K
 #define KB_M    KC_N
 #define KB_COMM KC_COMM
@@ -179,7 +179,7 @@
 #define XT_W    KC_F
 #define XT_E    KC_W
 #define XT_R    KC_P
-#define XT_T    KC_B
+#define XT_T    KC_V
 #define XT_Y    KC_J
 #define XT_U    KC_L
 #define XT_I    KC_U
@@ -201,7 +201,7 @@
 #define XB_X    KC_X
 #define XB_C    KC_C
 #define XB_V    KC_D
-#define XB_B    KC_V
+#define XB_B    KC_B
 #define XB_N    KC_K
 #define XB_M    KC_N
 #define XB_COMM KC_COMM
@@ -217,7 +217,7 @@
 #define WT_W    KC_F
 #define WT_E    KC_D
 #define WT_R    KC_C
-#define WT_T    KC_B
+#define WT_T    KC_V
 #define WT_Y    KC_J
 #define WT_U    KC_L
 #define WT_I    KC_U
@@ -239,7 +239,7 @@
 #define WB_X    KC_X
 #define WB_C    KC_P
 #define WB_V    KC_W
-#define WB_B    KC_V
+#define WB_B    KC_B
 #define WB_N    KC_K
 #define WB_M    KC_N
 #define WB_COMM KC_COMM
