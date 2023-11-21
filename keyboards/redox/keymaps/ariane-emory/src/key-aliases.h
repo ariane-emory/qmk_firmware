@@ -239,8 +239,8 @@
 // Another colemak-like, ASRT
 //==============================================================================
 #define XT_Q    KC_SLSH
-#define XT_W    KC_W
-#define XT_E    KC_F
+#define XT_W    KC_F
+#define XT_E    KC_W
 #define XT_R    KC_D
 #define XT_T    KC_B
 #define XT_Y    KC_J
@@ -274,40 +274,40 @@
 
 
 //==============================================================================
-// Workman
+// Colemak-like, ASTR
 //==============================================================================
-#define WT_Q    KC_Q
-#define WT_W    KC_D
-#define WT_E    KC_R
+#define WT_Q    KC_SLSH
+#define WT_W    KC_F
+#define WT_E    KC_D
 #define WT_R    KC_W
 #define WT_T    KC_B
 #define WT_Y    KC_J
-#define WT_U    KC_F
-#define WT_I    KC_I // modified, normally KC_U
-#define WT_O    KC_U // modified, normally KC_P
-#define WT_P    KC_P // modified, normally KC_SCLN
+#define WT_U    KC_L
+#define WT_I    KC_U
+#define WT_O    KC_Y
+#define WT_P    KC_Z
 //------------------------------------------------------------------------------
 #define WH_A    LHRM_4(KC_A)
 #define WH_S    LHRM_3(KC_S)
-#define WH_D    LHRM_2(KC_H)
-#define WH_F    LHRM_1(KC_T)
+#define WH_D    LHRM_2(KC_T)
+#define WH_F    LHRM_1(KC_R)
 #define WH_G    LHRM_0(KC_G)
-#define WH_H    RHRM_0(KC_Y)
-#define WH_J    RHRM_1(KC_N)
+#define WH_H    RHRM_0(KC_M)
+#define WH_J    RHRM_1(KC_H)
 #define WH_K    RHRM_2(KC_E)
-#define WH_L    RHRM_3(KC_O)
-#define WH_QUOT QH_QUOT // modified, normally KC_I
+#define WH_L    RHRM_3(KC_I)
+#define WH_QUOT RHRM_4(KC_O)
 //------------------------------------------------------------------------------
-#define WB_Z    LBRM_4(KC_Z)
+#define WB_Z    LBRM_4(KC_Q)
 #define WB_X    KC_X
-#define WB_C    KC_M
+#define WB_C    KC_P
 #define WB_V    KC_C
 #define WB_B    KC_V
-#define WB_N    KC_L // modified, normally KC_K
-#define WB_M    KC_K // modifier, normally KC_L
+#define WB_N    KC_K
+#define WB_M    KC_N
 #define WB_COMM KC_COMM
 #define WB_DOT  KC_DOT
-#define WB_SLSH LBRM_4(KC_SLSH)
+#define WB_SLSH RBRM_4(KC_QUOT)
 //==============================================================================
 
 
