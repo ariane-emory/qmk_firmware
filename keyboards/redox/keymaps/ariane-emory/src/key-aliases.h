@@ -254,40 +254,40 @@
 
 
 //==============================================================================
-// Colemak-like, ASTR
+// Workman
 //==============================================================================
 #define WT_Q    KC_Q
-#define WT_W    KC_F
-#define WT_E    KC_D
-#define WT_R    KC_C
-#define WT_T    LEFT_INNER_T
+#define WT_W    KC_D
+#define WT_E    KC_R
+#define WT_R    KC_W
+#define WT_T    KC_B
 #define WT_Y    KC_J
-#define WT_U    KC_L
+#define WT_U    KC_F
 #define WT_I    KC_U
-#define WT_O    KC_Y
-#define WT_P    KC_Z
+#define WT_O    KC_P
+#define WT_P    KC_SLSH
 //------------------------------------------------------------------------------
 #define WH_A    LHRM_4(KC_A)
 #define WH_S    LHRM_3(KC_S)
-#define WH_D    LHRM_2(KC_T)
-#define WH_F    LHRM_1(KC_R)
+#define WH_D    LHRM_2(KC_H)
+#define WH_F    LHRM_1(KC_T)
 #define WH_G    LHRM_0(KC_G)
-#define WH_H    RHRM_0(KC_M)
-#define WH_J    RHRM_1(KC_H)
+#define WH_H    RHRM_0(KC_Y)
+#define WH_J    RHRM_1(KC_N)
 #define WH_K    RHRM_2(KC_E)
-#define WH_L    RHRM_3(KC_I)
-#define WH_QUOT RHRM_4(RIGHT_OUTER_H)
+#define WH_L    RHRM_3(KC_O)
+#define WH_QUOT RHRM_4(KC_I)
 //------------------------------------------------------------------------------
-#define WB_Z    LBRM_4(KC_SLSH)
+#define WB_Z    LBRM_4(KC_Z)
 #define WB_X    KC_X
-#define WB_C    KC_P
-#define WB_V    KC_W
-#define WB_B    LEFT_INNER_B
+#define WB_C    KC_M
+#define WB_V    KC_C
+#define WB_B    KC_V
 #define WB_N    KC_K
-#define WB_M    KC_N
+#define WB_M    KC_L
 #define WB_COMM KC_COMM
 #define WB_DOT  KC_DOT
-#define WB_SLSH RBRM_4(RIGHT_OUTER_B)
+#define WB_SLSH RBRM_4(KC_QUOT)
 //==============================================================================
 
 
