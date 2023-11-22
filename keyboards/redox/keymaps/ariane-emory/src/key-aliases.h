@@ -292,6 +292,44 @@
 
 
 //==============================================================================
+// Workman Variant
+//==============================================================================
+#define YT_Q    KC_Q
+#define YT_W    KC_W
+#define YT_E    KC_R
+#define YT_R    KC_D
+#define YT_T    KC_B
+#define YT_Y    KC_J
+#define YT_U    KC_F
+#define YT_I    KC_U
+#define YT_O    KC_P
+#define YT_P    KC_SLSH
+//------------------------------------------------------------------------------
+#define YH_A    LHRM_4(KC_A)
+#define YH_S    LHRM_3(KC_S)
+#define YH_D    LHRM_2(KC_H)
+#define YH_F    LHRM_1(KC_T)
+#define YH_G    LHRM_0(KC_G)
+#define YH_H    RHRM_0(KC_Y)
+#define YH_J    RHRM_1(KC_N)
+#define YH_K    RHRM_2(KC_E)
+#define YH_L    RHRM_3(KC_I)
+#define YH_QUOT RHRM_4(KC_O)
+//------------------------------------------------------------------------------
+#define YB_Z    LBRM_4(KC_Z)
+#define YB_X    KC_X
+#define YB_C    KC_M
+#define YB_V    KC_C
+#define YB_B    KC_V
+#define YB_N    KC_K
+#define YB_M    KC_L
+#define YB_COMM KC_COMM
+#define YB_DOT  KC_DOT
+#define YB_SLSH RBRM_4(KC_QUOT)
+//==============================================================================
+
+
+//==============================================================================
 // Minimak
 //==============================================================================
 #define MT_Q    KC_Q
