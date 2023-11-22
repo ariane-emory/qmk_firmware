@@ -6,7 +6,6 @@
 
 #include "src/key-aliases.h"
 #include "src/layouts.h"
-#include "src/other-layouts.h"
 #include "src/secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
 #define USE_ACHORDION
@@ -449,18 +448,8 @@ static const uint16_t achordion_bilat_keys[] PROGMEM = {
   QH_S, QH_D, QH_F,
   QH_J, QH_K, QH_L,
 
-  AH_S, AH_D, AH_F,
-  AH_J, AH_K, AH_L,
-
-  MH_S, MH_D, MH_F,
-  MH_J, MH_K, MH_L,
-
-  SH_S, SH_D, SH_F,
-  SH_J, SH_K, SH_L,
-
   WH_S, WH_D, WH_F,
   WH_J, WH_K, WH_L,
-
 };
 
 static const keycode_pair_t achordion_exceptions[] PROGMEM = {
@@ -519,10 +508,6 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // Right GUI
   { QH_L,    QH_K            }, // ???
   { QH_L,    KC_BSLS         }, // ???
-
-  // COLAMAK (ARTS)
-  { AH_J,    AT_O            }, // yank
-  { AH_J,    AB_M            }, // kill
 
   // Workman
   { WH_J,    WB_M            }, // kill line
@@ -586,8 +571,6 @@ static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
 static const uint16_t layer1_permissive_hold_keys[] PROGMEM = {
   LALT_OR_SPC,
   LGUI_OR_BSPC,
-  AH_A, AH_S, AH_D, AH_F,
-  AH_J, AH_K, AH_L, AH_QUOT,
 };
 
 KEYRECORD_FUN(bool get_permissive_hold) {
