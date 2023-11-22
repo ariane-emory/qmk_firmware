@@ -131,6 +131,10 @@
 //==============================================================================
 // Colemak-DN
 //==============================================================================
+#define KT_RT   KC_QUOT
+#define KT_RH   KC_I
+#define KT_RB   KC_SLSH
+//------------------------------------------------------------------------------
 #define KT_Q    KC_Q
 #define KT_W    KC_W
 #define KT_E    KC_F
@@ -140,7 +144,7 @@
 #define KT_U    KC_L
 #define KT_I    KC_U
 #define KT_O    KC_Y
-#define KT_P    KC_SLSH
+#define KT_P    KT_RT
 //------------------------------------------------------------------------------
 #define KH_A    LHRM_4(KC_A)
 #define KH_S    LHRM_3(KC_R)
@@ -151,7 +155,7 @@
 #define KH_J    RHRM_1(KC_H)
 #define KH_K    RHRM_2(KC_E)
 #define KH_L    RHRM_3(KC_I)
-#define KH_QUOT RHRM_4(KC_O)
+#define KH_QUOT RHRM_4(KT_RH)
 //------------------------------------------------------------------------------
 #define KB_Z    LBRM_4(KC_Z)
 #define KB_X    KC_X
@@ -162,7 +166,7 @@
 #define KB_M    KC_N
 #define KB_COMM KC_COMM
 #define KB_DOT  KC_DOT
-#define KB_SLSH RBRM_4(KC_QUOT)
+#define KB_SLSH RBRM_4(KT_RB)
 //==============================================================================
 
 
