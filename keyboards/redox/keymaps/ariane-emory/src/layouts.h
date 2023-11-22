@@ -47,9 +47,15 @@
 //==============================================================================
 // 'Workmak', Workman with s/W/D/, s/I/O/ and some kind of CMD rotation.
 //==============================================================================
-#define YT_RT   KC_QUOT
-#define YT_RH   KC_O 
-#define YT_RB   KC_SLSH
+#ifndef ROTATE_RIGHT
+# define YT_RT  KC_QUOT
+# define YT_RH  KC_O 
+# define YT_RB  KC_SLSH
+#else
+# define YT_RT  KC_QUOT
+# define YT_RH  KC_O 
+# define YT_RB  KC_SLSH
+#endif
 //------------------------------------------------------------------------------
 #define YT_Q    KC_Q
 #define YT_W    KC_W
@@ -89,9 +95,15 @@
 //==============================================================================
 // Workman
 //==============================================================================
-#define WT_RT   KC_QUOT
-#define WT_RH   KC_I
-#define WT_RB   KC_SLSH
+#ifndef ROTATE_RIGHT
+# define WT_RT  KC_QUOT
+# define WT_RH  KC_I
+# define WT_RB  KC_SLSH
+#else
+# define WT_RT  KC_QUOT
+# define WT_RH  KC_I
+# define WT_RB  KC_SLSH
+#endif
 //------------------------------------------------------------------------------
 #define WT_Q    KC_Q
 #define WT_W    KC_D
@@ -131,9 +143,15 @@
 //==============================================================================
 // Colemak-DN
 //==============================================================================
-#define KT_RT   KC_QUOT
-#define KT_RH   KC_I
-#define KT_RB   KC_SLSH
+#ifndef ROTATE_RIGHT
+# define KT_RT  KC_QUOT
+# define KT_RH  KC_I
+# define KT_RB  KC_SLSH
+#else
+# define KT_RT  KC_QUOT
+# define KT_RH  KC_I
+# define KT_RB  KC_SLSH
+#endif
 //------------------------------------------------------------------------------
 #define KT_Q    KC_Q
 #define KT_W    KC_W
@@ -173,9 +191,15 @@
 //==============================================================================
 // Colemak-DH
 //==============================================================================
-#define CT_RT   KC_QUOT
-#define CT_RH   KC_O
-#define CT_RB   KC_SLSH
+#ifndef ROTATE_RIGHT
+# define CT_RT  KC_QUOT
+# define CT_RH  KC_O
+# define CT_RB  KC_SLSH
+#else
+# define CT_RT  KC_QUOT
+# define CT_RH  KC_O
+# define CT_RB  KC_SLSH
+#endif
 //------------------------------------------------------------------------------
 #define CT_Q    KC_Q
 #define CT_W    KC_W
