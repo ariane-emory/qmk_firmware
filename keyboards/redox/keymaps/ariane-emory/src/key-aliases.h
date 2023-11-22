@@ -197,7 +197,7 @@
 #define CH_F    LHRM_1(KC_T)
 #define CH_G    LHRM_0(KC_G)
 #define CH_H    RHRM_0(KC_M)
-#define CH_J    RHRM_1(KC_H)
+#define CH_J    RHRM_1(KC_N)
 #define CH_K    RHRM_2(KC_E)
 #define CH_L    RHRM_3(KC_I)
 #define CH_QUOT RHRM_4(RIGHT_OUTER_H)
@@ -207,7 +207,7 @@
 #define CB_C    KC_C
 #define CB_V    KC_D
 #define CB_B    LEFT_INNER_B
-#define CB_N    KC_K
+#define CB_N    KC_H
 #define CB_M    KC_N
 #define CB_COMM KC_COMM
 #define CB_DOT  KC_DOT
