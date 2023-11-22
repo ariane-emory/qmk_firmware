@@ -70,7 +70,7 @@
 #undef PRODUCT
 #define PRODUCT "K's Redox"
 
-#define BOTTOM_O
+#define ROTATE_RIGHT_COLUMN
 #define BOTTOM_V
 
 // #define DQUOTE_LEFT
