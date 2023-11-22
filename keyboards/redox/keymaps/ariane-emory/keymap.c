@@ -5,6 +5,7 @@
 #include <stdbool.h>
 
 #include "src/key-aliases.h"
+#include "src/layouts.h"
 #include "src/other-layouts.h"
 #include "src/secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
