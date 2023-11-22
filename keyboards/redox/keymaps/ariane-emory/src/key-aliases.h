@@ -276,7 +276,11 @@
 #define WH_J    RHRM_1(KC_N)
 #define WH_K    RHRM_2(KC_E)
 #define WH_L    RHRM_3(KC_O)
-#define WH_QUOT RHRM_4(KC_I)
+#ifdef BOTTOM_O
+# define WH_QUOT RHRM_4(KC_QUOT)
+#else
+# define WH_QUOT RHRM_4(KC_I)
+#endif
 //------------------------------------------------------------------------------
 #define WB_Z    LBRM_4(KC_Z)
 #define WB_X    KC_X
@@ -287,12 +291,16 @@
 #define WB_M    KC_L
 #define WB_COMM KC_COMM
 #define WB_DOT  KC_DOT
-#define WB_SLSH RBRM_4(KC_QUOT)
+#ifdef BOTTOM_O
+# define WB_SLSH RBRM_4(KC_I)
+#else
+# define WB_SLSH RBRM_4(KC_QUOT)
+#endif
 //==============================================================================
 
 
 //==============================================================================
-// Workman Variant
+// 'Workmak', Workman with s/W/D/  and s/I/O/
 //==============================================================================
 #define YT_Q    KC_Q
 #define YT_W    KC_W
@@ -313,8 +321,8 @@
 #define YH_H    RHRM_0(KC_Y)
 #define YH_J    RHRM_1(KC_N)
 #define YH_K    RHRM_2(KC_E)
-#define YH_L    RHRM_3(KC_O)
-#define YH_QUOT RHRM_4(KC_I)
+#define YH_L    RHRM_3(KC_I)
+#define YH_QUOT RHRM_4(RIGHT_OUTER_H)
 //------------------------------------------------------------------------------
 #define YB_Z    LBRM_4(KC_Z)
 #define YB_X    KC_X
@@ -325,7 +333,7 @@
 #define YB_M    KC_L
 #define YB_COMM KC_COMM
 #define YB_DOT  KC_DOT
-#define YB_SLSH RBRM_4(KC_QUOT)
+#define YB_SLSH RBRM_4(RIGHT_OUTER_B)
 //==============================================================================
 
 
