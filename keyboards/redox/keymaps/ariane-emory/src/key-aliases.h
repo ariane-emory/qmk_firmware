@@ -104,40 +104,38 @@
 //==============================================================================
 // Colemak-like, ARTS
 //==============================================================================
-#  define CT_Q    KC_Q
-#  define CT_W    KC_W
-#  define CT_E    KC_D
-#  define CT_R    KC_C
-#  define CT_T    LEFT_INNER_T
-#  define CT_Y    KC_J
-#  define CT_U    KC_L
-#  define CT_I    KC_U
-#  define CT_O    KC_Y
-#  define CT_P    KC_Z
+#  define AT_Q    KC_Q
+#  define AT_W    KC_W
+#  define AT_E    KC_D
+#  define AT_R    KC_C
+#  define AT_T    LEFT_INNER_T
+#  define AT_Y    KC_J
+#  define AT_U    KC_L
+#  define AT_I    KC_U
+#  define AT_O    KC_Y
+#  define AT_P    KC_SLSH
 //------------------------------------------------------------------------------
-#  define CH_A    LHRM_4(KC_A)
-#  define CH_S    LHRM_3(KC_R)
-#  define CH_D    LHRM_2(KC_T)
-#  define CH_F    LHRM_1(KC_S)
-#  define CH_G    LHRM_0(KC_G)
-#  define CH_H    RHRM_0(KC_M)
-#  define CH_J    RHRM_1(KC_H)
-#  define CH_K    RHRM_2(KC_E)
-#  define CH_L    RHRM_3(KC_I)
-#  define CH_QUOT RHRM_4(RIGHT_OUTER_H)
+#  define AH_A    LHRM_4(KC_A)
+#  define AH_S    LHRM_3(KC_R)
+#  define AH_D    LHRM_2(KC_T)
+#  define AH_F    LHRM_1(KC_S)
+#  define AH_G    LHRM_0(KC_G)
+#  define AH_H    RHRM_0(KC_M)
+#  define AH_J    RHRM_1(KC_H)
+#  define AH_K    RHRM_2(KC_E)
+#  define AH_L    RHRM_3(KC_I)
+#  define AH_QUOT RHRM_4(RIGHT_OUTER_H)
 //------------------------------------------------------------------------------
-#  define CB_Z    LBRM_4(KC_SLSH)
-#  define CB_X    KC_X
-#  define CB_C    KC_P
-#  define CB_V    KC_F
-#  define CB_B    LEFT_INNER_B
-#  define CB_N    KC_K
-#  define CB_M    KC_N
-#  define CB_COMM KC_COMM
-#  define CB_DOT  KC_DOT
-#  define CB_SLSH RBRM_4(RIGHT_OUTER_B)
-//------------------------------------------------------------------------------
-
+#  define AB_Z    LBRM_4(KC_Z)
+#  define AB_X    KC_X
+#  define AB_C    KC_P
+#  define AB_V    KC_F
+#  define AB_B    LEFT_INNER_B
+#  define AB_N    KC_K
+#  define AB_M    KC_N
+#  define AB_COMM KC_COMM
+#  define AB_DOT  KC_DOT
+#  define AB_SLSH RBRM_4(RIGHT_OUTER_B)
 //==============================================================================
 
 
@@ -153,7 +151,7 @@
 #define KT_U    KC_L
 #define KT_I    KC_U
 #define KT_O    KC_Y
-#define KT_P    KC_Z
+#define KT_P    KC_SLSH
 //------------------------------------------------------------------------------
 #define KH_A    LHRM_4(KC_A)
 #define KH_S    LHRM_3(KC_R)
@@ -166,7 +164,7 @@
 #define KH_L    RHRM_3(KC_I)
 #define KH_QUOT RHRM_4(RIGHT_OUTER_H)
 //------------------------------------------------------------------------------
-#define KB_Z    LBRM_4(KC_SLSH)
+#define KB_Z    LBRM_4(KC_Z)
 #define KB_X    KC_X
 #define KB_C    KC_C
 #define KB_V    KC_D
@@ -176,6 +174,44 @@
 #define KB_COMM KC_COMM
 #define KB_DOT  KC_DOT
 #define KB_SLSH RBRM_4(RIGHT_OUTER_B)
+//==============================================================================
+
+
+//==============================================================================
+// Colemak-DH
+//==============================================================================
+#define CT_Q    KC_Q
+#define CT_W    KC_W
+#define CT_E    KC_F
+#define CT_R    KC_P
+#define CT_T    LEFT_INNER_T
+#define CT_Y    KC_J
+#define CT_U    KC_L
+#define CT_I    KC_U
+#define CT_O    KC_Y
+#define CT_P    KC_SLSH
+//------------------------------------------------------------------------------
+#define CH_A    LHRM_4(KC_A)
+#define CH_S    LHRM_3(KC_R)
+#define CH_D    LHRM_2(KC_S)
+#define CH_F    LHRM_1(KC_T)
+#define CH_G    LHRM_0(KC_G)
+#define CH_H    RHRM_0(KC_M)
+#define CH_J    RHRM_1(KC_H)
+#define CH_K    RHRM_2(KC_E)
+#define CH_L    RHRM_3(KC_I)
+#define CH_QUOT RHRM_4(RIGHT_OUTER_H)
+//------------------------------------------------------------------------------
+#define CB_Z    LBRM_4(KC_Z)
+#define CB_X    KC_X
+#define CB_C    KC_C
+#define CB_V    KC_D
+#define CB_B    LEFT_INNER_B
+#define CB_N    KC_K
+#define CB_M    KC_N
+#define CB_COMM KC_COMM
+#define CB_DOT  KC_DOT
+#define CB_SLSH RBRM_4(RIGHT_OUTER_B)
 //==============================================================================
 
 

@@ -447,8 +447,8 @@ static const uint16_t achordion_bilat_keys[] PROGMEM = {
   QH_S, QH_D, QH_F,
   QH_J, QH_K, QH_L,
 
-  CH_S, CH_D, CH_F,
-  CH_J, CH_K, CH_L,
+  AH_S, AH_D, AH_F,
+  AH_J, AH_K, AH_L,
 
   MH_S, MH_D, MH_F,
   MH_J, MH_K, MH_L,
@@ -518,9 +518,9 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_L,    QH_K            }, // ???
   { QH_L,    KC_BSLS         }, // ???
 
-  // COLAMAK_CUSTOM
-  { CH_J,    CT_O            }, // yank
-  { CH_J,    CB_M            }, // kill
+  // COLAMAK (ARTS)
+  { AH_J,    AT_O            }, // yank
+  { AH_J,    AB_M            }, // kill
 
   // Workman
   { WH_J,    WB_M            }, // kill line
@@ -584,8 +584,8 @@ static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
 static const uint16_t layer1_permissive_hold_keys[] PROGMEM = {
   LALT_OR_SPC,
   LGUI_OR_BSPC,
-  CH_A, CH_S, CH_D, CH_F,
-  CH_J, CH_K, CH_L, CH_QUOT,
+  AH_A, AH_S, AH_D, AH_F,
+  AH_J, AH_K, AH_L, AH_QUOT,
 };
 
 KEYRECORD_FUN(bool get_permissive_hold) {
