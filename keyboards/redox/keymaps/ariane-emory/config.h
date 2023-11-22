@@ -53,8 +53,8 @@
 
 #define TAPPING_TERM                         250
 
-#define TOGGLED_LAYER                        6
-#define TOGGLED_LAYER_TIMEOUT                30000
+#define TOGGLED_LAYER                        9
+#define TOGGLED_LAYER_TIMEOUT                20000
 
 //==============================================================================
 
