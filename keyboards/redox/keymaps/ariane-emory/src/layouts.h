@@ -47,7 +47,7 @@
 //==============================================================================
 // 'Workmak', Workman with s/W/D/, s/I/O/ and some kind of CMD rotation.
 //==============================================================================
-#ifndef ROTATE_RIGHT_COL
+#ifdef ROTATE_RIGHT_COL
 # define YT_RT  KC_SLSH
 # define YT_RH  KC_QUOT
 # define YT_RB  KC_O
@@ -95,7 +95,7 @@
 //==============================================================================
 // Workman
 //==============================================================================
-#ifndef ROTATE_RIGHT_COL
+#ifdef ROTATE_RIGHT_COL
 # define WT_RT  KC_SLSH
 # define WT_RH  KC_QUOT
 # define WT_RB  KC_I
@@ -143,7 +143,7 @@
 //==============================================================================
 // Colemak-DN
 //==============================================================================
-#ifndef ROTATE_RIGHT_COL
+#ifdef ROTATE_RIGHT_COL
 # define KT_RT  KC_SLSH
 # define KT_RH  KC_QUOT
 # define KT_RB  KC_I
@@ -191,7 +191,7 @@
 //==============================================================================
 // Colemak-DH
 //==============================================================================
-#ifndef ROTATE_RIGHT_COL
+#ifdef ROTATE_RIGHT_COL
 # define CT_RT  KC_SLSH
 # define CT_RH  KC_QUOT
 # define CT_RB  KC_O
