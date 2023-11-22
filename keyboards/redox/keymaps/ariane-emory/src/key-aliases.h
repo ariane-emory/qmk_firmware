@@ -207,8 +207,8 @@
 #define CB_C    KC_C
 #define CB_V    KC_D
 #define CB_B    LEFT_INNER_B
-#define CB_N    KC_H
-#define CB_M    KC_N
+#define CB_N    KC_K
+#define CB_M    KC_H
 #define CB_COMM KC_COMM
 #define CB_DOT  KC_DOT
 #define CB_SLSH RBRM_4(RIGHT_OUTER_B)
