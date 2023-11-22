@@ -47,9 +47,9 @@
 //==============================================================================
 // 'Workmak', Workman with s/W/D/, s/I/O/ and some kind of CMD rotation.
 //==============================================================================
-#define YT_RT KC_QUOT
-#define YT_RH KC_O 
-#define YT_RB KC_SLSH
+#define YT_RT   KC_QUOT
+#define YT_RH   KC_O 
+#define YT_RB   KC_SLSH
 //------------------------------------------------------------------------------
 #define YT_Q    KC_Q
 #define YT_W    KC_W
@@ -89,6 +89,10 @@
 //==============================================================================
 // Workman
 //==============================================================================
+#define WT_RT   KC_QUOT
+#define WT_RH   KC_I
+#define WT_RB   KC_SLSH
+//------------------------------------------------------------------------------
 #define WT_Q    KC_Q
 #define WT_W    KC_D
 #define WT_E    KC_R
@@ -98,7 +102,7 @@
 #define WT_U    KC_F
 #define WT_I    KC_U
 #define WT_O    KC_P
-#define WT_P    KC_SLSH
+#define WT_P    WT_RT
 //------------------------------------------------------------------------------
 #define WH_A    LHRM_4(KC_A)
 #define WH_S    LHRM_3(KC_S)
@@ -109,7 +113,7 @@
 #define WH_J    RHRM_1(KC_N)
 #define WH_K    RHRM_2(KC_E)
 #define WH_L    RHRM_3(KC_O)
-#define WH_QUOT RHRM_4(KC_I)
+#define WH_QUOT RHRM_4(WT_RH)
 //------------------------------------------------------------------------------
 #define WB_Z    LBRM_4(KC_Z)
 #define WB_X    KC_X
@@ -120,7 +124,7 @@
 #define WB_M    KC_L
 #define WB_COMM KC_COMM
 #define WB_DOT  KC_DOT
-#define WB_SLSH RBRM_4(KC_QUOT)
+#define WB_SLSH RBRM_4(WT_RB)
 //==============================================================================
 
 
