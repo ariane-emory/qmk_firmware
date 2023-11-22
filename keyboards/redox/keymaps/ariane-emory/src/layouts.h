@@ -173,6 +173,10 @@
 //==============================================================================
 // Colemak-DH
 //==============================================================================
+#define CT_RT   KC_QUOT
+#define CT_RH   KC_O
+#define CT_RB   KC_SLSH
+//------------------------------------------------------------------------------
 #define CT_Q    KC_Q
 #define CT_W    KC_W
 #define CT_E    KC_F
@@ -182,7 +186,7 @@
 #define CT_U    KC_L
 #define CT_I    KC_U
 #define CT_O    KC_Y
-#define CT_P    KC_SLSH
+#define CT_P    CT_RT
 //------------------------------------------------------------------------------
 #define CH_A    LHRM_4(KC_A)
 #define CH_S    LHRM_3(KC_R)
@@ -193,7 +197,7 @@
 #define CH_J    RHRM_1(KC_N)
 #define CH_K    RHRM_2(KC_E)
 #define CH_L    RHRM_3(KC_I)
-#define CH_QUOT RHRM_4(KC_O)
+#define CH_QUOT RHRM_4(CT_RH)
 //------------------------------------------------------------------------------
 #define CB_Z    LBRM_4(KC_Z)
 #define CB_X    KC_X
@@ -204,7 +208,7 @@
 #define CB_M    KC_H
 #define CB_COMM KC_COMM
 #define CB_DOT  KC_DOT
-#define CB_SLSH RBRM_4(KC_QUOTE)
+#define CB_SLSH RBRM_4(CT_RB)
 //==============================================================================
 
 
