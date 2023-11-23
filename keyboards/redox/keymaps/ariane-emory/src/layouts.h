@@ -240,13 +240,13 @@
 // Dvorak
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
-# define DT_RT  KC_Z
-# define DT_RH  KC_L
-# define DT_RB  KC_S
-#else
 # define DT_RT  KC_L
 # define DT_RH  KC_S
 # define DT_RB  KC_Z
+#else
+# define DT_RT  KC_Z
+# define DT_RH  KC_L
+# define DT_RB  KC_S
 #endif
 //------------------------------------------------------------------------------
 #define DT_Q    KC_SLSH
