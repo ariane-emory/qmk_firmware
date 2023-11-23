@@ -236,3 +236,53 @@
 //==============================================================================
 
 
+//==============================================================================
+// Dvorak
+//==============================================================================
+/* #ifdef ROTATE_RIGHT_COL */
+/* # define DT_RT  KC_SLSH */
+/* # define DT_RH  KC_QUOT */
+/* # define DT_RB  KC_I */
+/* #else */
+/* # define DT_RT  KC_QUOT */
+/* # define DT_RH  KC_I */
+/* # define DT_RB  KC_SLSH */
+/* #endif */
+//------------------------------------------------------------------------------
+#define DT_Q    KC_QUOT
+#define DT_W    KC_COMM
+#define DT_E    KC_DOT
+#define DT_R    KC_P
+#define DT_T    KC_Y
+#define DT_Y    KC_F
+#define DT_U    KC_G
+#define DT_I    KC_C
+#define DT_O    KC_R
+#define DT_P    KC_L
+//------------------------------------------------------------------------------
+#define DH_A    LHRM_4(KC_A)
+#define DH_S    LHRM_3(KC_O)
+#define DH_D    LHRM_2(KC_E)
+#define DH_F    LHRM_1(KC_I)
+#define DH_G    LHRM_0(KC_U)
+#define DH_H    RHRM_0(KC_D)
+#define DH_J    RHRM_1(KC_H)
+#define DH_K    RHRM_2(KC_T)
+#define DH_L    RHRM_3(KC_N)
+#define DH_QUOT RHRM_4(KC_S)
+//------------------------------------------------------------------------------
+#define DB_Z    LBRM_4(KC_SLSH)
+#define DB_X    KC_Z
+#define DB_C    KC_J
+#define DB_V    KC_K
+#define DB_B    KC_X
+#define DB_N    KC_B
+#define DB_M    KC_M
+#define DB_COMM KC_W
+#define DB_DOT  KC_V
+#define DB_SLSH RBRM_4(KC_Q)
+//==============================================================================
+
+
+
+
