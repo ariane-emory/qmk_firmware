@@ -52,9 +52,9 @@
 # define YT_RH  KC_QUOT
 # define YT_RB  KC_O
 #else
-# define YT_RT  KC_QUOT
+# define YT_RT  KC_SLSH
 # define YT_RH  KC_O 
-# define YT_RB  KC_SLSH
+# define YT_RB  KC_QUOT
 #endif
 //------------------------------------------------------------------------------
 #define YT_Q    KC_Q
@@ -100,9 +100,9 @@
 # define WT_RH  KC_QUOT
 # define WT_RB  KC_I
 #else
-# define WT_RT  KC_QUOT
+# define WT_RT  KC_SLSH
 # define WT_RH  KC_I
-# define WT_RB  KC_SLSH
+# define WT_RB  KC_QUOT
 #endif
 //------------------------------------------------------------------------------
 #define WT_Q    KC_Q
@@ -148,9 +148,9 @@
 # define KT_RH  KC_QUOT
 # define KT_RB  KC_I
 #else
-# define KT_RT  KC_QUOT
+# define KT_RT  KC_SLSH
 # define KT_RH  KC_I
-# define KT_RB  KC_SLSH
+# define KT_RB  KC_QUOT
 #endif
 //------------------------------------------------------------------------------
 #define KT_Q    KC_Q
@@ -196,9 +196,9 @@
 # define CT_RH  KC_QUOT
 # define CT_RB  KC_O
 #else
-# define CT_RT  KC_QUOT
+# define CT_RT  KC_SLSH
 # define CT_RH  KC_O
-# define CT_RB  KC_SLSH
+# define CT_RB  KC_QUOT
 #endif
 //------------------------------------------------------------------------------
 #define CT_Q    KC_Q
