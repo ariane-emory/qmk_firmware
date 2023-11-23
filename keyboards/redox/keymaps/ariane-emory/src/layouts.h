@@ -146,10 +146,10 @@
 #ifdef ROTATE_RIGHT_COL
 # define KT_RT  KC_SLSH
 # define KT_RH  KC_QUOT
-# define KT_RB  KC_I
+# define KT_RB  KC_O
 #else
 # define KT_RT  KC_SLSH
-# define KT_RH  KC_I
+# define KT_RH  KC_O
 # define KT_RB  KC_QUOT
 #endif
 //------------------------------------------------------------------------------
@@ -172,7 +172,7 @@
 #define KH_H    RHRM_0(KC_M)
 #define KH_J    RHRM_1(KC_H)
 #define KH_K    RHRM_2(KC_E)
-#define KH_L    RHRM_3(KC_O)
+#define KH_L    RHRM_3(KC_I)
 #define KH_QUOT RHRM_4(KT_RH)
 //------------------------------------------------------------------------------
 #define KB_Z    LBRM_4(KC_Z)
