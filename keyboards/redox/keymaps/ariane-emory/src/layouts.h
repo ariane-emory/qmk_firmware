@@ -172,7 +172,7 @@
 #define KH_H    RHRM_0(KC_M)
 #define KH_J    RHRM_1(KC_H)
 #define KH_K    RHRM_2(KC_E)
-#define KH_L    RHRM_3(KC_I)
+#define KH_L    RHRM_3(KC_O)
 #define KH_QUOT RHRM_4(KT_RH)
 //------------------------------------------------------------------------------
 #define KB_Z    LBRM_4(KC_Z)
