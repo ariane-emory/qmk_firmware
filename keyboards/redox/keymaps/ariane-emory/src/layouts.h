@@ -239,15 +239,15 @@
 //==============================================================================
 // Dvorak
 //==============================================================================
-/* #ifdef ROTATE_RIGHT_COL */
-/* # define DT_RT  KC_SLSH */
-/* # define DT_RH  KC_QUOT */
-/* # define DT_RB  KC_I */
-/* #else */
-/* # define DT_RT  KC_QUOT */
-/* # define DT_RH  KC_I */
-/* # define DT_RB  KC_SLSH */
-/* #endif */
+#ifdef ROTATE_RIGHT_COL
+# define DT_RT  KC_Z
+# define DT_RH  KC_L
+# define DT_RB  KC_S
+#else
+# define DT_RT  KC_L
+# define DT_RH  KC_S
+# define DT_RB  KC_Z
+#endif
 //------------------------------------------------------------------------------
 #define DT_Q    KC_SLSH
 #define DT_W    KC_COMM
