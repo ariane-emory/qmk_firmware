@@ -60,7 +60,7 @@
 #define YT_Q    KC_Q
 #define YT_W    KC_W
 #define YT_E    KC_R
-#define YT_R    KC_M
+#define YT_R    KC_D
 #define YT_T    KC_B
 #define YT_Y    KC_J
 #define YT_U    KC_F
@@ -81,8 +81,8 @@
 //------------------------------------------------------------------------------
 #define YB_Z    LBRM_4(KC_Z)
 #define YB_X    KC_X
-#define YB_C    KC_C
-#define YB_V    KC_D
+#define YB_C    KC_M
+#define YB_V    KC_C
 #define YB_B    KC_V
 #define YB_N    KC_K
 #define YB_M    KC_L
