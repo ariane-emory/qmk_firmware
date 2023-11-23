@@ -249,7 +249,7 @@
 /* # define DT_RB  KC_SLSH */
 /* #endif */
 //------------------------------------------------------------------------------
-#define DT_Q    KC_QUOT
+#define DT_Q    KC_SLSH
 #define DT_W    KC_COMM
 #define DT_E    KC_DOT
 #define DT_R    KC_P
@@ -271,7 +271,7 @@
 #define DH_L    RHRM_3(KC_N)
 #define DH_QUOT RHRM_4(KC_S)
 //------------------------------------------------------------------------------
-#define DB_Z    LBRM_4(KC_SLSH)
+#define DB_Z    LBRM_4(KC_QUOT)
 #define DB_X    KC_Z
 #define DB_C    KC_J
 #define DB_V    KC_K
