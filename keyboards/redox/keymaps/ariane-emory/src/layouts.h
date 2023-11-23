@@ -240,13 +240,13 @@
 // Dvorak
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
-# define DT_RT  KC_L
-# define DT_RH  KC_S
-# define DT_RB  KC_Z
-#else
 # define DT_RT  KC_Z
 # define DT_RH  KC_L
 # define DT_RB  KC_S
+#else
+# define DT_RT  KC_L
+# define DT_RH  KC_S
+# define DT_RB  KC_Z
 #endif
 //------------------------------------------------------------------------------
 #define DT_Q    KC_SLSH
@@ -258,7 +258,7 @@
 #define DT_U    KC_G
 #define DT_I    KC_C
 #define DT_O    KC_R
-#define DT_P    KC_L
+#define DT_P    DT_RT
 //------------------------------------------------------------------------------
 #define DH_A    LHRM_4(KC_A)
 #define DH_S    LHRM_3(KC_O)
@@ -269,7 +269,7 @@
 #define DH_J    RHRM_1(KC_H)
 #define DH_K    RHRM_2(KC_T)
 #define DH_L    RHRM_3(KC_N)
-#define DH_QUOT RHRM_4(KC_S)
+#define DH_QUOT RHRM_4(DT_RH)
 //------------------------------------------------------------------------------
 #define DB_Z    LBRM_4(KC_QUOT)
 #define DB_X    KC_Z
@@ -280,9 +280,6 @@
 #define DB_M    KC_M
 #define DB_COMM KC_W
 #define DB_DOT  KC_V
-#define DB_SLSH RBRM_4(KC_Q)
+#define DB_SLSH RBRM_4(DT_RB)
 //==============================================================================
-
-
-
 
