@@ -510,7 +510,9 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_L,    KC_BSLS         }, // ???
 
   // Workman
+  
   { WH_J,    WB_N            }, // kill line
+  { WH_J,    WH_K            }, // end of line
   { WH_J,    WH_H            }, // yank
 };
 
