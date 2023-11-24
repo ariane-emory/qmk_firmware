@@ -42,7 +42,7 @@
   __(l_mid_trpo,    ____________,  QH_A,    QH_S,      QH_D                    ) \
   ______________________________________________________________________________ \
   __(l_bot_rech,    ____________,  QB_Z,    QB_X                               ) \
-  DO(l_bot_innr,    KA_UNDO,       QB_C,    QB_V                               ) \
+  DO(l_bot_innr,    SS_CD,         QB_C,    QB_V                               ) \
   __(l_bot_outr,    ____________,  QB_X,    QB_C                               ) \
   __(l_bot_curl,    ____________,  QB_V,    QB_B                               ) \
   __(l_bot_sprd,    ____________,  QB_X,    QB_V                               ) \
