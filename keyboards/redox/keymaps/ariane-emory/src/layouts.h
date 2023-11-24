@@ -5,6 +5,16 @@
 //==============================================================================
 // Qwerty
 //==============================================================================
+#ifdef ROTATE_RIGHT_COL
+# define QT_RT  KC_SLSH
+# define QT_RH  KC_P
+# define QT_RB  KC_QUOT
+#else
+# define QT_RT  KC_P
+# define QT_RH  KC_QUOT
+# define QT_RB  KC_SLSH
+#endif
+//------------------------------------------------------------------------------
 #define QT_TAB   LT(LN_UTIL,KC_TAB)
 #define QT_Q     KC_Q
 #define QT_W     KC_W
@@ -15,7 +25,7 @@
 #define QT_U     KC_U
 #define QT_I     KC_I
 #define QT_O     KC_O
-#define QT_P     KC_SLSH // P
+#define QT_P     QT_RT
 #define QT_BSLS  LT(LN_UTIL,KC_BSLS)
 //------------------------------------------------------------------------------
 #define QH_A     LHRM_4(KC_A)
@@ -27,7 +37,7 @@
 #define QH_J     RHRM_1(KC_J)
 #define QH_K     RHRM_2(KC_K)
 #define QH_L     RHRM_3(KC_L)
-#define QH_QUOT  RHRM_4(KC_QUOT)
+#define QH_QUOT  RHRM_4(QT_RH)
 #define QH_ENTR  RCTL_DQUO
 //------------------------------------------------------------------------------
 #define QB_Z     LBRM_4(KC_Z)
@@ -39,7 +49,7 @@
 #define QB_M     KC_M
 #define QB_COMM  KC_COMM
 #define QB_DOT   KC_DOT
-#define QB_SLSH  LBRM_4(KC_P)
+#define QB_SLSH  LBRM_4(QT_RB)
 //==============================================================================
 
 
