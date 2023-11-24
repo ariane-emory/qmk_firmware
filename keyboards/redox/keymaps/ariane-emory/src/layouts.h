@@ -282,7 +282,7 @@
 #define DH_QUOT RHRM_4(DH_RC)
 //------------------------------------------------------------------------------
 #define DB_Z    LBRM_4(KC_QUOT)
-#define DB_X    KC_Z
+#define DB_X    KC_Q
 #define DB_C    KC_J
 #define DB_V    KC_K
 #define DB_B    KC_X
