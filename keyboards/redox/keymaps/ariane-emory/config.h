@@ -91,7 +91,7 @@
 #undef PRODUCT
 #define PRODUCT "K's Redox"
 
-#define ROTATE_RIGHT_COL
+// #define ROTATE_RIGHT_COL
 // #define BOTTOM_V
 
 #define LEADER_TIMEOUT 666

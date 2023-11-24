@@ -60,10 +60,10 @@
 #ifdef ROTATE_RIGHT_COL
 # define YT_RC  KC_SLSH
 # define YH_RC  KC_QUOT
-# define YB_RC  KC_O
+# define YB_RC  KC_I
 #else
 # define YT_RC  KC_SLSH
-# define YH_RC  KC_O 
+# define YH_RC  KC_I 
 # define YB_RC  KC_QUOT
 #endif
 //------------------------------------------------------------------------------
@@ -86,7 +86,7 @@
 #define YH_H    RHRM_0(KC_Y)
 #define YH_J    RHRM_1(KC_N)
 #define YH_K    RHRM_2(KC_E)
-#define YH_L    RHRM_3(KC_I)
+#define YH_L    RHRM_3(KC_O)
 #define YH_QUOT RHRM_4(YH_RC)
 //------------------------------------------------------------------------------
 #define YB_Z    LBRM_4(KC_Z)
