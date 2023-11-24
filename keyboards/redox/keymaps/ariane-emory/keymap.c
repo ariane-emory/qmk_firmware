@@ -653,9 +653,9 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_G, KC_R)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git reset "));
   }
-  else if (leader_sequence_one_key(0)) {
-    tap_code16(LCA(KC_X));
-  }
+  /* else if (leader_sequence_one_key(0)) { */
+  /*   tap_code16(LCA(KC_X)); */
+  /* } */
 }
 #endif // LEADER_ENABLE
 
