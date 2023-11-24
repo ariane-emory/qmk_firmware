@@ -56,7 +56,7 @@
 
 #define MY_RGB_LAYERS
 #define MY_RGB_DEFAULT                       RGB_RED
-#define MY_RGB_LOWER_LAYER_ON                RGB_CYAN
+#define MY_RGB_LOWER_LAYER_ON                RGB_MAGENTA
 #define MY_RGB_UPPER_LAYER_ON                RGB_BLUE
 #define MY_RGB_ADJUST_LAYER_ON               RGB_ORANGE
 #define MY_RGB_RECORDING_MACRO               RGB_ORANGE
