@@ -34,10 +34,30 @@
 #define MOUSEKEY_WHEEL_MAX_SPEED             13
 #define MOUSEKEY_WHEEL_TIME_TO_MAX           52
 
+/* #define RGB_AZURE       0x99, 0xF5, 0xFF */
+/* #define RGB_BLACK       0x00, 0x00, 0x00 */
+/* #define RGB_BLUE        0x00, 0x00, 0xFF */
+/* #define RGB_CHARTREUSE  0x80, 0xFF, 0x00 */
+/* #define RGB_CORAL       0xFF, 0x7C, 0x4D */
+/* #define RGB_CYAN        0x00, 0xFF, 0xFF */
+/* #define RGB_GOLD        0xFF, 0xD9, 0x00 */
+/* #define RGB_GOLDENROD   0xD9, 0xA5, 0x21 */
+/* #define RGB_GREEN       0x00, 0xFF, 0x00 */
+/* #define RGB_MAGENTA     0xFF, 0x00, 0xFF */
+/* #define RGB_ORANGE      0xFF, 0x80, 0x00 */
+/* #define RGB_PINK        0xFF, 0x80, 0xBF */
+/* #define RGB_PURPLE      0x7A, 0x00, 0xFF */
+/* #define RGB_RED         0xFF, 0x00, 0x00 */
+/* #define RGB_SPRINGGREEN 0x00, 0xFF, 0x80 */
+/* #define RGB_TEAL        0x00, 0x80, 0x80 */
+/* #define RGB_TURQUOISE   0x47, 0x6E, 0x6A */
+/* #define RGB_WHITE       0xFF, 0xFF, 0xFF */
+/* #define RGB_YELLOW      0xFF, 0xFF, 0x00 */
+
 #define MY_RGB_LAYERS
-#define MY_RGB_DEFAULT                       RGB_MAGENTA
+#define MY_RGB_DEFAULT                       RGB_BLUE
 #define MY_RGB_LOWER_LAYER_ON                RGB_CYAN
-#define MY_RGB_UPPER_LAYER_ON                RGB_BLUE
+#define MY_RGB_UPPER_LAYER_ON                RGB_MAGENTA
 #define MY_RGB_ADJUST_LAYER_ON               RGB_RED
 #define MY_RGB_RECORDING_MACRO               RGB_ORANGE
 #define MY_RGB_TOGGLED_LAYER_ON              RGB_CHARTREUSE
