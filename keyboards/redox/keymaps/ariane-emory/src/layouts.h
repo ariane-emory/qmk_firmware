@@ -91,8 +91,8 @@
 //------------------------------------------------------------------------------
 #define YB_Z    LBRM_4(KC_Z)
 #define YB_X    KC_X
-#define YB_C    KC_D
-#define YB_V    KC_C
+#define YB_C    KC_C
+#define YB_V    KC_D
 #define YB_B    KC_V
 #define YB_N    KC_K
 #define YB_M    KC_L
