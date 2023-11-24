@@ -454,7 +454,8 @@ static const uint16_t achordion_bilat_keys[] PROGMEM = {
 
 static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // Left GUI
-  { QH_S,    KC_TAB          }, // app switcher
+  { QH_S,    QT_TAB          }, // app switcher, one of these is redundant but I haven't figured out which one yet.
+  { QH_S,    KC_TAB          }, // app switcher, one of these is redundant but I haven't figured out which one yet.
   { QH_S,    QB_Z            }, // undo
   { QH_S,    QT_R            }, // refresh
   { QH_S,    QT_T            }, // new tab
@@ -510,7 +511,6 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_L,    KC_BSLS         }, // ???
 
   // Workman
-  
   { WH_J,    WB_N            }, // kill line
   { WH_J,    WH_K            }, // end of line
   { WH_J,    WH_H            }, // yank
