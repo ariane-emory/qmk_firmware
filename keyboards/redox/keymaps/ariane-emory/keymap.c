@@ -456,26 +456,27 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // Left GUI
   { QH_S,    QT_TAB          }, // app switcher, one of these is redundant but I haven't figured out which one yet.
   { QH_S,    KC_TAB          }, // app switcher, one of these is redundant but I haven't figured out which one yet.
-  { QH_S,    QB_Z            }, // undo
+  /* { QH_S,    QB_Z            }, // undo */
   { QH_S,    QT_R            }, // refresh
   { QH_S,    QT_T            }, // new tab
-  { QH_S,    QB_C            }, // copy
-  { QH_S,    QB_V            }, // paste
+  /* { QH_S,    QB_C            }, // copy */
+  /* { QH_S,    QB_V            }, // paste */
+  
 
   // Left Alt
   { QH_D,    KC_TAB          }, // alt+tab
   { QH_D,    QT_W            }, // close
-  { QH_D,    QT_R            }, // refresh
+  /* { QH_D,    QT_R            }, // refresh */
   { QH_D,    QH_F            }, // forwards word
   { QH_D,    QB_B            }, // backwards word
-  { QH_D,    QT_T            }, // new tab
+  /* { QH_D,    QT_T            }, // new tab */
   { QH_D,    KC_ENT          }, // M-<return>
 
   // Left Control
   { QH_F,    QH_A            }, // beginning of line
   { QH_F,    QH_D            }, // delete forwards char
-  { QH_F,    QT_E            }, // end of line
-  { QH_F,    QT_T            }, // new tab
+  /* { QH_F,    QT_E            }, // end of line */
+  /* { QH_F,    QT_T            }, // new tab */
   { QH_F,    QT_W            }, // close
   { QH_F,    QH_S            }, // i-search
   { QH_F,    KC_ENT          }, // C-<return>
