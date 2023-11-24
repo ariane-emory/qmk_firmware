@@ -27,7 +27,7 @@
 #define QH_J     RHRM_1(KC_J)
 #define QH_K     RHRM_2(KC_K)
 #define QH_L     RHRM_3(KC_L)
-#define QH_QUOT  RHRM_4(KC_P) // KC_QUOT)
+#define QH_QUOT  RHRM_4(KC_QUOT)
 #define QH_ENTR  RCTL_DQUO
 //------------------------------------------------------------------------------
 #define QB_Z     LBRM_4(KC_Z)
@@ -39,7 +39,7 @@
 #define QB_M     KC_M
 #define QB_COMM  KC_COMM
 #define QB_DOT   KC_DOT
-#define QB_SLSH  LBRM_4(KC_QUOT) // KC_SLSH)
+#define QB_SLSH  LBRM_4(KC_P)
 //==============================================================================
 
 
