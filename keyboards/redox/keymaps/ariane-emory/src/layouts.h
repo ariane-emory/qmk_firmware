@@ -55,7 +55,7 @@
 
 
 //==============================================================================
-// 'Workmak', Workman with s/W/D/, s/I/O/ and some kind of CMD rotation.
+// 'Workmak', my modified Workman layout
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
 # define YT_RC  KC_SLSH
@@ -70,10 +70,10 @@
 #define YT_Q    KC_Q
 #define YT_W    KC_W
 #define YT_E    KC_R
-#define YT_R    KC_D
+#define YT_R    KC_F
 #define YT_T    KC_B
 #define YT_Y    KC_J
-#define YT_U    KC_F
+#define YT_U    KC_W
 #define YT_I    KC_U
 #define YT_O    KC_P
 #define YT_P    YT_RC
