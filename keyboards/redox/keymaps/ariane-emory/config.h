@@ -23,6 +23,9 @@
 
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
+#define LEADER_TIMEOUT 666
+#define LEADER_PER_KEY_TIMING
+
 #define MOUSEKEY_DELAY                       0
 #define MOUSEKEY_INTERVAL                    22
 #define MOUSEKEY_MAX_SPEED                   14
@@ -55,8 +58,8 @@
 /* #define RGB_YELLOW      0xFF, 0xFF, 0x00 */
 
 #define MY_RGB_LAYERS
-#define MY_RGB_DEFAULT                       RGB_RED
-#define MY_RGB_LOWER_LAYER_ON                RGB_BLUE
+#define MY_RGB_DEFAULT                       RGB_BLUE
+#define MY_RGB_LOWER_LAYER_ON                RGB_RED
 #define MY_RGB_UPPER_LAYER_ON                RGB_MAGENTA
 #define MY_RGB_ADJUST_LAYER_ON               0xFF, 0x40, 0x00 // orange-y
 #define MY_RGB_TOGGLED_LAYER_ON              RGB_CHARTREUSE
@@ -80,21 +83,19 @@
 //==============================================================================
 
 #define CRGB_FADER_NO_STRINGS
-#define DIM_RGBS                             1
-
-//==============================================================================
+#define DIM_RGBS                             0
+#define SLOW_RGBS
 
 #ifndef DIM_RGBS
-#  define DIM_RGBs                           0
+#  define DIM_RGBS                           0
 #endif
+
+//==============================================================================
 
 #undef PRODUCT
 #define PRODUCT "K's Redox"
 
 // #define ROTATE_RIGHT_COL
-
-#define LEADER_TIMEOUT 666
-#define LEADER_PER_KEY_TIMING
 
 #define AE_NO_DIAGONAL_MOUSE_ACCEL_RESET
 
