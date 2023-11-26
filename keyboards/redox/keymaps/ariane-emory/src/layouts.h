@@ -102,7 +102,7 @@
 
 
 //==============================================================================
-// X: 'Workmak', half curvy version, w/f normal
+// X: 'Workmak', half-curvy version, w/f normal
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
 # define XT_RC  KC_SLSH
@@ -122,7 +122,7 @@
 #define XT_Y    KC_J
 #define XT_U    KC_F
 #define XT_I    KC_E
-#define XT_O    KC_O 
+#define XT_O    KC_P
 #define XT_P    YT_RC
 //------------------------------------------------------------------------------
 #define XH_A    LHRM_4(KC_A)
@@ -133,7 +133,7 @@
 #define XH_H    RHRM_0(KC_Y)
 #define XH_J    RHRM_1(KC_N)
 #define XH_K    RHRM_2(KC_U)
-#define XH_L    RHRM_3(KC_P)
+#define XH_L    RHRM_3(KC_O)
 #define XH_QUOT RHRM_4(YH_RC)
 //------------------------------------------------------------------------------
 #define XB_Z    LBRM_4(KC_Z)
