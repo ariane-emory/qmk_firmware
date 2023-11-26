@@ -63,6 +63,7 @@
 #define MY_RGB_UPPER_LAYER_ON                RGB_MAGENTA
 #define MY_RGB_ADJUST_LAYER_ON               0xFF, 0x38, 0x00 // orange-y
 #define MY_RGB_TOGGLED_LAYER_ON              RGB_CHARTREUSE
+#define MY_RGB_BOOT                          RGB_TURQUOISE
 
 #define MY_RGB_RECORDING_MACRO               RGB_ORANGE
 

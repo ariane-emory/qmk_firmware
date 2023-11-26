@@ -220,6 +220,7 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler      },
   { KC_LOWER,                disable_mouse_layer_handler },
+  { MY_BOOT,                 my_boot_handler },
 #ifdef    HOLD_GUI_ENABLED
   { HOLD_GUI,                hold_gui_handler            },
 #endif    // HOLD_GUI_ENABLED
