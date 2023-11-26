@@ -24,24 +24,6 @@ rgb_led_t_fader_t rgb_led_fader;
 #include "src/tap_number.h"
 
 // ==============================================================================
-// Init
-// ==============================================================================
-
-void keyboard_post_init_user(void) {
-#if CONSOLE_ENABLE
-  debug_enable   = false;
-  debug_matrix   = false;
-  debug_keyboard = false;
-  debug_mouse    = false;
-#endif
-
-#ifdef RGBLIGHT_ENABLE
-  rgblight_enable_noeeprom();
-  rgb_led_t_fader_init(&rgb_led_fader, MY_RGB_DEFAULT);
-#endif
-}
-
-// ==============================================================================
 // Define local macros
 // ==============================================================================
 
@@ -78,6 +60,27 @@ void send_string_without_mods_P(const char * const string) {
 #  define SEND_STRING_WITHOUT_MODS(str) (((void)0))
 #  define SEND_STRING_WITHOUT_MODS_P(str) (((void)0))
 #endif
+
+// ==============================================================================
+// Init
+// ==============================================================================
+
+void keyboard_post_init_user(void) {
+#if CONSOLE_ENABLE
+  debug_enable   = false;
+  debug_matrix   = false;
+  debug_keyboard = false;
+  debug_mouse    = false;
+#endif
+
+#ifdef RGBLIGHT_ENABLE
+  rgblight_enable_noeeprom();
+
+  rgb_led_t_fader_init(&rgb_led_fader, MY_RGB_BOOT);
+
+  RGB_SETRGB_FROM_FADER(rgb_led_fader);
+#endif
+}
 
 // ==============================================================================
 // Custom keycodes
