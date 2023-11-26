@@ -83,7 +83,7 @@
 //==============================================================================
 
 #define CRGB_FADER_NO_STRINGS
-#define DIM_RGBS                             0
+#define DIM_RGBS                             1
 #define SLOW_RGBS
 
 #ifndef DIM_RGBS
