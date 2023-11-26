@@ -46,6 +46,13 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #define DIM_RGB_LED_T(x) (x >> DIM_RGBS)
+
+#define RGB_SETRGB_FROM_FADER(f)                                                                                                                      \
+  rgblight_setrgb(                                                                                                                                    \
+    DIM_RGB_LED_T(f.current.r),                                                                                                                       \
+    DIM_RGB_LED_T(f.current.g),                                                                                                                       \
+    DIM_RGB_LED_T(f.current.b));                                                                                                            
+
 #define KEYRECORD_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t *record)
 #define KEYRECORD_C_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t const * const record)
 
