@@ -45,6 +45,7 @@ void keyboard_post_init_user(void) {
 // Define local macros
 // ==============================================================================
 
+#define DIM_RGB_LED_T(x) (x >> DIM_RGBS)
 #define KEYRECORD_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t *record)
 #define KEYRECORD_C_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t const * const record)
 
@@ -192,8 +193,15 @@ KEYRECORD_C_FUN(bool dynamic_macros_handler) {
 }
 
 KEYRECORD_C_FUN(bool my_boot_handler) {
+  rgb_led_t_fader_init(&rgb_led_fader, MY_RGB_BOOT);
+  
+  rgblight_setrgb(
+    DIM_RGB_LED_T(rgb_led_fader.current.r),
+    DIM_RGB_LED_T(rgb_led_fader.current.g),
+    DIM_RGB_LED_T(rgb_led_fader.current.b));
+  
   reset_keyboard();
-                  
+  
   return false;
 }
 
@@ -447,11 +455,10 @@ void matrix_scan_user(void) {
 #  endif
     rgb_led_t_fader_step(&rgb_led_fader);
 
-#  define DIM(x) (x >> DIM_RGBS)
   rgblight_setrgb(
-    DIM(rgb_led_fader.current.r),
-    DIM(rgb_led_fader.current.g),
-    DIM(rgb_led_fader.current.b));
+    DIM_RGB_LED_T(rgb_led_fader.current.r),
+    DIM_RGB_LED_T(rgb_led_fader.current.g),
+    DIM_RGB_LED_T(rgb_led_fader.current.b));
 #endif // defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
 }
 
