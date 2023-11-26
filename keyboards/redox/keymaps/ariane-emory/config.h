@@ -62,9 +62,9 @@
 #define MY_RGB_DEFAULT                       RGB_RED
 #define MY_RGB_LOWER_LAYER_ON                RGB_BLUE
 #define MY_RGB_UPPER_LAYER_ON                RGB_MAGENTA
-#define MY_RGB_ADJUST_LAYER_ON               0xFF, 0x38, 0x00 // orange-y
+#define MY_RGB_ADJUST_LAYER_ON               0xFF, 0x28, 0x00 // orange-y
 #define MY_RGB_TOGGLED_LAYER_ON              RGB_CHARTREUSE
-#define MY_RGB_BOOT                          0x0,  0xFF, 0x28
+#define MY_RGB_BOOT                          RGB_GOLD // 0x0,  0xFF, 0x20
 
 #define NO_ACTION_ONESHOT
 #define ONESHOT_TIMEOUT                      1000
@@ -83,7 +83,7 @@
 //==============================================================================
 
 #define CRGB_FADER_NO_STRINGS
-#define DIM_RGBS                             1
+#define DIM_RGBS                             0
 #define SLOW_RGBS
 
 #ifndef DIM_RGBS
