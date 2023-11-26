@@ -104,26 +104,26 @@
 //==============================================================================
 // X: 'Workmak', half-curvy version, w/f normal
 //==============================================================================
-#ifdef ROTATE_RIGHT_COL
-# define XT_RC  KC_SLSH
-# define XH_RC  KC_I 
-# define XB_RC  KC_QUOT
-#else
-# define XT_RC  KC_SLSH
-# define XH_RC  KC_I 
-# define XB_RC  KC_QUOT
-#endif
+/* #ifdef ROTATE_RIGHT_COL */
+/* # define XT_RC  KC_SLSH */
+/* # define XH_RC  KC_I  */
+/* # define XB_RC  KC_QUOT */
+/* #else */
+/* # define XT_RC  KC_SLSH */
+/* # define XH_RC  KC_I  */
+/* # define XB_RC  KC_QUOT */
+/* #endif */
 //------------------------------------------------------------------------------
 #define XT_Q    KC_Q
 #define XT_W    KC_S
 #define XT_E    KC_H
-#define XT_R    KC_W
+#define XT_R    KC_F // KC_W
 #define XT_T    KC_B
 #define XT_Y    KC_J
-#define XT_U    KC_F
+#define XT_U    KC_W // KC_F
 #define XT_I    KC_E
 #define XT_O    KC_P
-#define XT_P    YT_RC
+#define XT_P    KC_SLSH // YT_RC
 //------------------------------------------------------------------------------
 #define XH_A    LHRM_4(KC_A)
 #define XH_S    LHRM_3(KC_D)
@@ -133,8 +133,8 @@
 #define XH_H    RHRM_0(KC_Y)
 #define XH_J    RHRM_1(KC_N)
 #define XH_K    RHRM_2(KC_U)
-#define XH_L    RHRM_3(KC_O)
-#define XH_QUOT RHRM_4(YH_RC)
+#define XH_L    RHRM_3(KC_I) // O)
+#define XH_QUOT RHRM_4(KC_O) // I)
 //------------------------------------------------------------------------------
 #define XB_Z    LBRM_4(KC_Z)
 #define XB_X    KC_X
@@ -145,7 +145,7 @@
 #define XB_M    LBRM_4(KC_L)
 #define XB_COMM KC_COMM
 #define XB_DOT  KC_DOT
-#define XB_SLSH RBRM_4(YB_RC)
+#define XB_SLSH RBRM_4(KC_QUOT) // YB_RC)
 //==============================================================================
 
 
