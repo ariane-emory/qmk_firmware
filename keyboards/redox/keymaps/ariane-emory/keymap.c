@@ -429,17 +429,17 @@ void matrix_scan_user(void) {
 #endif // TOGGLED_LAYER_TIMEOUT
   
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-#  define DIM(x) (x >> DIM_RGBS)
   if (!rgb_led_t_fader_set_target_if_recording_macro(&rgb_led_t_fader))
     rgb_led_t_fader_set_target_by_layer(&rgb_led_t_fader);
 
-#ifdef SLOW_RGBS
+#  ifdef SLOW_RGBS
   static uint8_t ticker = 0;
 
   if (! (++ticker % 2))
-#endif
+#  endif
     rgb_led_t_fader_step(&rgb_led_t_fader);
 
+#  define DIM(x) (x >> DIM_RGBS)
   rgblight_setrgb(
     DIM(rgb_led_t_fader.current.r),
     DIM(rgb_led_t_fader.current.g),
