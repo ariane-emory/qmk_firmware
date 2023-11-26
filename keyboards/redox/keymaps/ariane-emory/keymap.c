@@ -119,8 +119,8 @@ void send_string_without_mods_P(const char * const string) {
   DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"))                                      \
   DO(SS_LBRACK,            ("9"),                                ("["),                                  ("{"))                                       \
   DO(SS_RBRACK,            ("0"),                                ("]"),                                  ("}"))                                       \
-  DO(SS_SMILEY,            (" :0"),                              (" :/"),                                (" >_>"))                                    \
-  DO(SS_SMILEY2,           (" ;0"),                              (" :P"),                                (" :D"))                                     \
+  DO(SS_SMILEY,            (" ;0"),                              (" :/"),                                (" >_>"))                                    \
+  DO(SS_SMILEY2,           (" :0"),                              (" :P"),                                (" :D"))                                     \
   DO(SS_AND_AND,           (" 77 "),                             (" || "),                               (" @>7! "))                                  \
   DO(SS_CD,                ("cd "),                              ("cd .."),                              ("cd ~"))                                    \
   
