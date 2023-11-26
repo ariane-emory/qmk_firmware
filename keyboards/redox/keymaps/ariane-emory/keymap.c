@@ -191,6 +191,12 @@ KEYRECORD_C_FUN(bool dynamic_macros_handler) {
   return true;
 }
 
+KEYRECORD_C_FUN(bool my_boot_handler) {
+  reset_keyboard();
+                  
+  return false;
+}
+
 KEYRECORD_C_FUN(bool insert_upp_handler) {
 #ifdef INSERT_UPP_ENABLED
   if (record->event.pressed) {
