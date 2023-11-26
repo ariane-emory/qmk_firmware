@@ -1149,14 +1149,14 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "ANY(MY_BOOT)",
+      "KC_NO",
       "ANY(SS_PIN1)",
       "ANY(SS_PIN1)",
       "ANY(SS_PIN1)",
       "KC_NO",
       "KC_NO",
       "ANY(QK_REBOOT)",
-      "QK_BOOT"
+      "ANY(MY_BOOT)"
     ]
   ],
   "author": ""
