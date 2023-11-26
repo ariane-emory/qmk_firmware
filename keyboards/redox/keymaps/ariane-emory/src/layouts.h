@@ -3,7 +3,7 @@
 //==============================================================================
 
 //==============================================================================
-// Qwerty
+// Q: Qwerty
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
 # define QT_RC  KC_P
@@ -53,9 +53,8 @@
 //==============================================================================
 
 
-
 //==============================================================================
-// 'Workmak', my modified Workman layout
+// Y: 'Workmak', my modified Workman layout
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
 # define YT_RC  KC_SLSH
@@ -103,7 +102,55 @@
 
 
 //==============================================================================
-// Workman
+// X: 'Workmak', curvy version
+//==============================================================================
+#ifdef ROTATE_RIGHT_COL
+# define XT_RC  KC_SLSH
+# define XH_RC  KC_I 
+# define XB_RC  KC_QUOT
+#else
+# define XT_RC  KC_SLSH
+# define XH_RC  KC_I 
+# define XB_RC  KC_QUOT
+#endif
+//------------------------------------------------------------------------------
+#define XT_Q    KC_Q
+#define XT_W    KC_S
+#define XT_E    KC_H
+#define XT_R    KC_F
+#define XT_T    KC_B
+#define XT_Y    KC_J
+#define XT_U    KC_W
+#define XT_I    KC_E
+#define XT_O    KC_O
+#define XT_P    YT_RC
+//------------------------------------------------------------------------------
+#define XH_A    LHRM_4(KC_A)
+#define XH_S    LHRM_3(KC_D)
+#define XH_D    LHRM_2(KC_R)
+#define XH_F    LHRM_1(KC_T)
+#define XH_G    LHRM_0(KC_G)
+#define XH_H    RHRM_0(KC_Y)
+#define XH_J    RHRM_1(KC_N)
+#define XH_K    RHRM_2(KC_U)
+#define XH_L    RHRM_3(KC_Pl)
+#define XH_QUOT RHRM_4(YH_RC)
+//------------------------------------------------------------------------------
+#define XB_Z    LBRM_4(KC_Z)
+#define XB_X    KC_X
+#define XB_C    KC_M
+#define XB_V    LBRM_4(KC_C)
+#define XB_B    KC_V
+#define XB_N    KC_K
+#define XB_M    LBRM_4(KC_L)
+#define XB_COMM KC_COMM
+#define XB_DOT  KC_DOT
+#define XB_SLSH RBRM_4(YB_RC)
+//==============================================================================
+
+
+//==============================================================================
+// W: Workman
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
 # define WT_RC  KC_SLSH
@@ -151,7 +198,7 @@
 
 
 //==============================================================================
-// Colemak-DN
+// K: Colemak-DN
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
 # define KT_RC  KC_SLSH
@@ -199,7 +246,7 @@
 
 
 //==============================================================================
-// Colemak-DH
+// C: Colemak-DH
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
 # define CT_RC  KC_SLSH
@@ -247,7 +294,7 @@
 
 
 //==============================================================================
-// Dvorak
+// D: Dvorak
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
 # define DT_RC  KC_Z
