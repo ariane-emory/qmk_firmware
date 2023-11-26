@@ -95,7 +95,7 @@
 #undef PRODUCT
 #define PRODUCT "K's Redox"
 
-// #define ROTATE_RIGHT_COL
+//#define ROTATE_RIGHT_COL
 
 #define AE_NO_DIAGONAL_MOUSE_ACCEL_RESET
 

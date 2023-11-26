@@ -1149,7 +1149,7 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
+      "ANY(MY_BOOT)",
       "ANY(SS_PIN1)",
       "ANY(SS_PIN1)",
       "ANY(SS_PIN1)",

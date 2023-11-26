@@ -143,6 +143,7 @@ enum arianes_keycodes {
   RGB_TOGGLE_NOEE,
   VD_LEFT_ALT,
   VD_RIGHT_ALT,
+  MY_BOOT,
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
