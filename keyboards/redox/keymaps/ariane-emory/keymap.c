@@ -201,11 +201,8 @@ KEYRECORD_C_FUN(bool dynamic_macros_handler) {
 
 KEYRECORD_C_FUN(bool my_boot_handler) {
   rgb_led_t_fader_init(&rgb_led_fader, MY_RGB_BOOT);
-  
-  rgblight_setrgb(
-    DIM_RGB_LED_T(rgb_led_fader.current.r),
-    DIM_RGB_LED_T(rgb_led_fader.current.g),
-    DIM_RGB_LED_T(rgb_led_fader.current.b));
+
+  RGB_SETRGB_FROM_FADER(rgb_led_fader);
   
   reset_keyboard();
   
@@ -461,11 +458,8 @@ void matrix_scan_user(void) {
   if (! (++ticker % 2))
 #  endif
     rgb_led_t_fader_step(&rgb_led_fader);
-
-  rgblight_setrgb(
-    DIM_RGB_LED_T(rgb_led_fader.current.r),
-    DIM_RGB_LED_T(rgb_led_fader.current.g),
-    DIM_RGB_LED_T(rgb_led_fader.current.b));
+  
+  RGB_SETRGB_FROM_FADER(rgb_led_fader);
 #endif // defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
 }
 
