@@ -133,7 +133,7 @@
 #define XH_H    RHRM_0(KC_Y)
 #define XH_J    RHRM_1(KC_N)
 #define XH_K    RHRM_2(KC_U)
-#define XH_L    RHRM_3(KC_Pl)
+#define XH_L    RHRM_3(KC_P)
 #define XH_QUOT RHRM_4(YH_RC)
 //------------------------------------------------------------------------------
 #define XB_Z    LBRM_4(KC_Z)
