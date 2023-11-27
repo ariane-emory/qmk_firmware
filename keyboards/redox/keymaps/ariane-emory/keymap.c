@@ -607,8 +607,12 @@ static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
 };
 
 static const uint16_t layer1_permissive_hold_keys[] PROGMEM = {
-  LALT_OR_SPC,
-  LGUI_OR_BSPC,
+  CRL_LFT,
+  CRL_RGT,
+  THU_LFT,
+  THU_RGT,
+  YH_A, YH_S, YH_D, YH_F,
+  YH_J, YH_K, YH_L, QH_QUOT,  
 };
 
 KEYRECORD_FUN(bool get_permissive_hold) {
