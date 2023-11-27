@@ -13,8 +13,8 @@
 #endif
 
 #ifdef RGBLIGHT_ENABLE
-#  include "src/rgb_led_t_fader.h"
-rgb_led_t_fader_t rgb_led_fader;
+#  include "src/rgb_led_fader.h"
+rgb_led_fader_t rgb_led_fader;
 #endif
 
 #if CONSOLE_ENABLE
@@ -77,7 +77,7 @@ void keyboard_post_init_user(void) {
 #ifdef RGBLIGHT_ENABLE
   rgblight_enable_noeeprom();
 
-  rgb_led_t_fader_init(&rgb_led_fader, MY_RGB_BOOT);
+  rgb_led_fader_init(&rgb_led_fader, MY_RGB_BOOT);
 
   RGB_SETRGB_FROM_FADER(rgb_led_fader);
 #endif
@@ -204,7 +204,7 @@ KEYRECORD_C_FUN(bool dynamic_macros_handler) {
 }
 
 KEYRECORD_C_FUN(bool my_boot_handler) {
-  rgb_led_t_fader_init(&rgb_led_fader, MY_RGB_BOOT);
+  rgb_led_fader_init(&rgb_led_fader, MY_RGB_BOOT);
 
   RGB_SETRGB_FROM_FADER(rgb_led_fader);
   
@@ -391,14 +391,14 @@ void dynamic_macro_record_end_user(int8_t direction) {
 // ==============================================================================
 
 #ifdef RGBLIGHT_ENABLE
-bool rgb_led_t_fader_set_target_if_recording_macro(rgb_led_t_fader_t * const this) {
+bool rgb_led_fader_set_target_if_recording_macro(rgb_led_fader_t * const this) {
   if (! currently_recording_macro)
     return false;
-  rgb_led_t_fader_set_target(this, MY_RGB_RECORDING_MACRO);
+  rgb_led_fader_set_target(this, MY_RGB_RECORDING_MACRO);
   return true;
 }
 
-void rgb_led_t_fader_set_target_by_layer(rgb_led_t_fader_t * const this) {
+void rgb_led_fader_set_target_by_layer(rgb_led_fader_t * const this) {
   typedef struct {
     uint8_t layer;
     uint8_t r;
@@ -425,7 +425,7 @@ void rgb_led_t_fader_set_target_by_layer(rgb_led_t_fader_t * const this) {
     }
   }
 
-  rgb_led_t_fader_set_target(this, row->r, row->g, row->b);
+  rgb_led_fader_set_target(this, row->r, row->g, row->b);
 }
 #endif
 
@@ -456,8 +456,8 @@ void matrix_scan_user(void) {
 #endif // TOGGLED_LAYER_TIMEOUT
   
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-  if (!rgb_led_t_fader_set_target_if_recording_macro(&rgb_led_fader))
-    rgb_led_t_fader_set_target_by_layer(&rgb_led_fader);
+  if (!rgb_led_fader_set_target_if_recording_macro(&rgb_led_fader))
+    rgb_led_fader_set_target_by_layer(&rgb_led_fader);
 
 #  ifdef SLOW_RGBS
   static uint8_t ticker = 0;
@@ -467,7 +467,7 @@ void matrix_scan_user(void) {
   
   if (ticker)
 #  endif
-    rgb_led_t_fader_step(&rgb_led_fader);
+    rgb_led_fader_step(&rgb_led_fader);
 
   ;
   RGB_SETRGB_FROM_FADER(rgb_led_fader);

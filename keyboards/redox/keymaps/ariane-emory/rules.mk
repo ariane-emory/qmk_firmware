@@ -24,8 +24,8 @@ LEADER_ENABLE                = yes
 NKRO_ENABLE        	 	 			 = yes
 
 SRC                         += src/achordion.c
-SRC                         += src/rgb_led_t_functions.c
-SRC                         += src/rgb_led_t_fader.c
+SRC                         += src/rgb_led_functions.c
+SRC                         += src/rgb_led_fader.c
 SRC                         += src/util.c
 SRC                         += src/tap_number.c
 

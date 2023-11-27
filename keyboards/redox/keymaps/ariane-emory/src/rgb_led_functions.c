@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "rgb_led_t_functions.h"
+#include "rgb_led_functions.h"
 
 // ==============================================================================
 // rgb_led_t functions
