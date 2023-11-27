@@ -98,5 +98,7 @@
 
 //#define ROTATE_RIGHT_COL
 
+#define USE_ACHORDION
+
 #define AE_NO_DIAGONAL_MOUSE_ACCEL_RESET
 

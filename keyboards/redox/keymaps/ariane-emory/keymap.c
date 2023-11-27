@@ -8,8 +8,9 @@
 #include "src/layouts.h"
 #include "src/secrets.h" // #define AE_PIN1 and AE_PIN2 in this file.
 
-#define USE_ACHORDION
-#include "src/achordion.h"
+#ifdef USE_ACHORDION
+#  include "src/achordion.h"
+#endif
 
 #ifdef RGBLIGHT_ENABLE
 #  include "src/rgb_led_t_fader.h"
@@ -477,6 +478,7 @@ void matrix_scan_user(void) {
 // Achordion
 // ==============================================================================
 
+#ifdef USE_ACHORDION
 static const uint16_t achordion_bilat_keys[] PROGMEM = {
   QH_S, QH_D, QH_F,
   QH_J, QH_K, QH_L,
@@ -579,6 +581,7 @@ bool achordion_chord(
 bool achordion_eager_mod(uint8_t mod) {
   return true;  // Eagerly apply all mods.
 }
+#endif
 
 // ==============================================================================
 // Mod-tap interrupt
