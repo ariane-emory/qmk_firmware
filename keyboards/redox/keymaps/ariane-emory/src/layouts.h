@@ -90,7 +90,7 @@
 //------------------------------------------------------------------------------
 #define YB_Z    LBRM_4(KC_Z)
 #define YB_X    KC_X
-#define YB_C    KC_C
+#define YB_C    KC_M
 #define YB_V    LBRM_4(KC_C)
 #define YB_B    KC_V
 #define YB_N    KC_K
