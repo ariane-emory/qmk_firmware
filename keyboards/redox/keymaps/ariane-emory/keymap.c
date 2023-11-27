@@ -146,7 +146,7 @@ FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string)
 FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
 FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
 
-enum arianes_keycodes {
+enum arianes_custom_keycodes {
   KC_DUMMY = SAFE_RANGE,
   KC_SQUO_TAP,
   KC_DQUO_TAP,
@@ -156,6 +156,7 @@ enum arianes_keycodes {
   VD_LEFT_ALT,
   VD_RIGHT_ALT,
   MY_BOOT,
+  DISCORD_MUTE,
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
@@ -174,7 +175,7 @@ static const shiftable_or_ctrlable_send_string_keycodes_t shiftable_or_ctrlable_
 KEYRECORD_C_FUN(bool process_shiftable_or_ctrlable_send_string) {
   for (uint8_t ix = 0; ix < ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes); ix++) {
     if (shiftable_or_ctrlable_send_string_keycodes[ix].kc == keycode) {      
-      if (record->event.pressed) {
+      if (record->event.pressed)  {
         if (
           (pgm_read_byte(shiftable_or_ctrlable_send_string_keycodes[ix].shifted_str) != 0) &&
           (get_mods() & MOD_MASK_SHIFT)) {
@@ -203,6 +204,16 @@ KEYRECORD_C_FUN(bool dynamic_macros_handler) {
   return true;
 }
 
+KEYRECORD_C_FUN(bool discord_mute_handler) {
+  if (record->event.pressed) {
+    register_code16(LGUI(LSFT(KC_D)));
+    wait_ms(100);
+    unregister_code16(LGUI(LSFT(KC_D)));
+  }
+
+  return false;
+}
+              
 KEYRECORD_C_FUN(bool my_boot_handler) {
   rgb_led_fader_init(&rgb_led_fader, MY_RGB_BOOT);
 
@@ -242,7 +253,8 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler      },
   { KC_LOWER,                disable_mouse_layer_handler },
-  { MY_BOOT,                 my_boot_handler },
+  { MY_BOOT,                 my_boot_handler             },
+  { DISCORD_MUTE,            discord_mute_handler        },
 #ifdef    HOLD_GUI_ENABLED
   { HOLD_GUI,                hold_gui_handler            },
 #endif    // HOLD_GUI_ENABLED
@@ -270,7 +282,7 @@ static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM =
 
   { FLIPR_OR_USCORE,             LSFT(KC_MINS)  },
   { LSFT_T(LALT(KC_N)),          LALT(KC_N)     },
-
+  
   /* { LSFT_T(LSA(KC_LBRC)),  LSA(KC_LBRC)  }, */
 };
 
@@ -290,6 +302,7 @@ bool process_tap_case(uint16_t keycode, keyrecord_t const * const record)  {
 // ==============================================================================
 // Mouse key overlap fixer function
 // ==============================================================================
+
 
 KEYRECORD_FUN(bool process_mouse_keys) {
   {
