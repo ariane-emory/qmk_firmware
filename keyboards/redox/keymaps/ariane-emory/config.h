@@ -60,10 +60,10 @@
 #define MY_RGB_LAYERS
 #define MY_RGB_RECORDING_MACRO               RGB_ORANGE
 #define MY_RGB_DEFAULT                       RGB_RED
-#define MY_RGB_LOWER_LAYER_ON                0x00, 0xFF, 0x28 // blue-ish green
-#define MY_RGB_UPPER_LAYER_ON                0xFF, 0x00, 0x50 // magenta-ish
-#define MY_RGB_ADJUST_LAYER_ON               0x20, 0x00, 0xFF // RGB_GOLD // 0x0,  0xFF, 0x20
-#define MY_RGB_TOGGLED_LAYER_ON              0x28, 0xFF, 0x00 // RGB_CHARTREUSE
+#define MY_RGB_LOWER_LAYER_ON                0x00, 0x60, 0x13 // blue-ish green
+#define MY_RGB_UPPER_LAYER_ON                0xFF, 0x00, 0x40 // magenta-ish
+#define MY_RGB_ADJUST_LAYER_ON               0x10, 0x00, 0x80 // RGB_GOLD // 0x0,  0xFF, 0x20
+#define MY_RGB_TOGGLED_LAYER_ON              0x10, 0x80, 0x00 // RGB_CHARTREUSE
 #define MY_RGB_BOOT                          0xFF, 0x20, 0x00 // orange-ish
 
 #define NO_ACTION_ONESHOT
