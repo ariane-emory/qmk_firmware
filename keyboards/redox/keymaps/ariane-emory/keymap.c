@@ -621,9 +621,19 @@ static const uint16_t layer1_permissive_hold_keys[] PROGMEM = {
   YH_J, YH_K, YH_L, QH_QUOT,  
 };
 
+static const uint16_t layer2_permissive_hold_keys[] PROGMEM = {
+  CRL_LFT,
+  CRL_RGT,
+  THU_LFT,
+  THU_RGT,
+  XH_A, XH_S, XH_D, XH_F,
+  XH_J, XH_K, XH_L, QH_QUOT,  
+};
+
 KEYRECORD_FUN(bool get_permissive_hold) {
   if ((IS_LAYER_ON(0) && array_contains_keycode_P(keycode, layer0_permissive_hold_keys, ARRAY_SIZE(layer0_permissive_hold_keys))) ||
-      (IS_LAYER_ON(1) && array_contains_keycode_P(keycode, layer1_permissive_hold_keys, ARRAY_SIZE(layer1_permissive_hold_keys))))
+      (IS_LAYER_ON(1) && array_contains_keycode_P(keycode, layer1_permissive_hold_keys, ARRAY_SIZE(layer1_permissive_hold_keys))) ||
+      (IS_LAYER_ON(2) && array_contains_keycode_P(keycode, layer2_permissive_hold_keys, ARRAY_SIZE(layer2_permissive_hold_keys))))
     return false; // Do not select the hold action when another key is tapped.
   return true; // Select the hold action when another key is tapped.
 }
