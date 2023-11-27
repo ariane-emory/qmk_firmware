@@ -90,9 +90,9 @@
 //------------------------------------------------------------------------------
 #define YB_Z    LBRM_4(KC_Z)
 #define YB_X    KC_X
-#define YB_C    KC_V
+#define YB_C    KC_C
 #define YB_V    LBRM_4(KC_C)
-#define YB_B    KC_M
+#define YB_B    KC_V
 #define YB_N    KC_K
 #define YB_M    LBRM_4(KC_L)
 #define YB_COMM KC_COMM
@@ -138,9 +138,9 @@
 //------------------------------------------------------------------------------
 #define XB_Z    LBRM_4(KC_Z)
 #define XB_X    KC_X
-#define XB_C    KC_V
+#define XB_C    KC_M
 #define XB_V    LBRM_4(KC_C)
-#define XB_B    KC_M
+#define XB_B    KC_V
 #define XB_N    KC_K
 #define XB_M    LBRM_4(KC_L)
 #define XB_COMM KC_COMM
