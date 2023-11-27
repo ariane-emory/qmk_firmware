@@ -458,10 +458,14 @@ void matrix_scan_user(void) {
 #  ifdef SLOW_RGBS
   static uint8_t ticker = 0;
 
-  if (! (++ticker % 2))
+  ticker++;
+  ticker %= 3;
+  
+  if (ticker)
 #  endif
     rgb_led_t_fader_step(&rgb_led_fader);
-  
+
+  ;
   RGB_SETRGB_FROM_FADER(rgb_led_fader);
 #endif // defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
 }
