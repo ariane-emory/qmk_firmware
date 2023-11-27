@@ -255,7 +255,8 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
 // ==============================================================================
 
 static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM = {
-  { RHRM_4(KC_DQUO_TAP),         KC_DQUO },
+  { LT(15, LGUI(KC_W)),          LGUI(KC_W)     },
+  { RHRM_4(KC_DQUO_TAP),         KC_DQUO        },
 
   { RCTL_SQUO,                   KC_QUOT        },
   { RCTL_DQUO,                   KC_DQUO        },
