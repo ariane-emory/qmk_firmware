@@ -190,9 +190,11 @@ KEYRECORD_C_FUN(bool process_shiftable_or_ctrlable_send_string) {
           SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].str);
         }
       }
+
       return false;
     }
   }
+
   return true;
 }
 
@@ -201,15 +203,13 @@ KEYRECORD_C_FUN(bool dynamic_macros_handler) {
   if (record->event.pressed)
     dynamic_macro_stop_recording();
 #endif // DYNAMIC_MACRO_ENABLE
+
   return true;
 }
 
 KEYRECORD_C_FUN(bool discord_mute_handler) {
-  if (record->event.pressed) {
-    register_code16(LGUI(LSFT(KC_D)));
-    wait_ms(100);
-    unregister_code16(LGUI(LSFT(KC_D)));
-  }
+  if (record->event.pressed)
+    tap_code16(LGUI(LSFT(KC_D)));
 
   return false;
 }
@@ -239,11 +239,13 @@ KEYRECORD_C_FUN(bool insert_upp_handler) {
     tap_code(KC_ENTER);
   }
 #endif // INSERT_UPP_ENABLED
+
   return false;
 }
 
 KEYRECORD_C_FUN(bool disable_mouse_layer_handler) {
   layer_off(LN_MOUSE);
+
   return true;
 };
 
@@ -291,11 +293,14 @@ bool process_tap_case(uint16_t keycode, keyrecord_t const * const record)  {
     if (pgm_read_word(&tap_cases[ix].matched) == keycode) {
       if (record->tap.count && record->event.pressed) {
         tap_code16(pgm_read_word(&tap_cases[ix].tapped));
+
         return false;
       }
+
       return true;
     }
   }
+
   return true;
 }
 
@@ -318,6 +323,7 @@ KEYRECORD_FUN(bool process_mouse_keys) {
         }
         m_l = false;
       }
+
       return true;
     case KC_MS_R:
       if (record->event.pressed) {
@@ -328,6 +334,7 @@ KEYRECORD_FUN(bool process_mouse_keys) {
         }
         m_r = false;
       }
+
       return true;
     case KC_MS_U:
       if (record->event.pressed) {
@@ -338,6 +345,7 @@ KEYRECORD_FUN(bool process_mouse_keys) {
         }
         m_u = false;
       }
+
       return true;
     case KC_MS_D:
       if (record->event.pressed) {
@@ -348,6 +356,7 @@ KEYRECORD_FUN(bool process_mouse_keys) {
         }
         m_d = false;
       }
+
       return true;
     default:
       return false;
@@ -408,6 +417,7 @@ bool rgb_led_fader_set_target_if_recording_macro(rgb_led_fader_t * const this) {
   if (! currently_recording_macro)
     return false;
   rgb_led_fader_set_target(this, MY_RGB_RECORDING_MACRO);
+
   return true;
 }
 
@@ -434,6 +444,7 @@ void rgb_led_fader_set_target_by_layer(rgb_led_fader_t * const this) {
   for (size_t ix = 1; ix < ARRAY_SIZE(layer_to_rgbs); ix++) {
     if (IS_LAYER_ON(layer_to_rgbs[ix].layer)) {
       row = &layer_to_rgbs[ix];
+
       break;
     }
   }
@@ -449,8 +460,7 @@ void rgb_led_fader_set_target_by_layer(rgb_led_fader_t * const this) {
 #ifdef TOGGLED_LAYER_TIMEOUT
 void manage_toggled_layer_timeout(const uint8_t layer, const uint16_t idle_time_limit_ms, const uint16_t timer)
 {
-  if (layer_state_is(layer) &&
-      timer_elapsed(timer) >= idle_time_limit_ms)
+  if (layer_state_is(layer) && (timer_elapsed(timer) >= idle_time_limit_ms))
     layer_off(layer);
 }
 #endif
@@ -648,6 +658,7 @@ KEYRECORD_FUN(bool get_permissive_hold) {
       (IS_LAYER_ON(1) && array_contains_keycode_P(keycode, layer1_permissive_hold_keys, ARRAY_SIZE(layer1_permissive_hold_keys))) ||
       (IS_LAYER_ON(2) && array_contains_keycode_P(keycode, layer2_permissive_hold_keys, ARRAY_SIZE(layer2_permissive_hold_keys))))
     return false; // Do not select the hold action when another key is tapped.
+
   return true; // Select the hold action when another key is tapped.
 }
 
