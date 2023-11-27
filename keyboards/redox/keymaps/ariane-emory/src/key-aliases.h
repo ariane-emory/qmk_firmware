@@ -30,7 +30,7 @@
 #define RHRM_1(x) RCTL_T(x)
 #define RHRM_2(x) RALT_T(x)
 #define RHRM_3(x) RGUI_T(x)
-#define RHRM_4(x) LSFT_T(x) // LT(LN_ARROWS,x)
+#define RHRM_4(x) RSFT_T(x) // LT(LN_ARROWS,x)
 //------------------------------------------------------------------------------
 #define LBRM_4(x) LT(LN_ARROWS, x)
 #define RBRM_4(x) LT(LN_ARROWS, x)
