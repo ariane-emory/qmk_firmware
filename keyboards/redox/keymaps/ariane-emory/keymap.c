@@ -713,7 +713,9 @@ void leader_end_user(void) {
 // Include combos 
 // ==============================================================================
 
-#include "src/combos.inc"
+#ifdef COMBO_ENABLE
+#  include "src/combos.inc"
+#endif
 
 // ==============================================================================
 // Include keymap

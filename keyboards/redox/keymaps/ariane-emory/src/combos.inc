@@ -1,6 +1,5 @@
 // -*- c-backslash-column: 90; c-backslash-max-column: 90 -*-
 
-#ifdef COMBO_ENABLE
 #include "key-aliases.h"
 
 // =======================================================================================
@@ -129,5 +128,3 @@ bool combo_should_trigger(
 #undef ____________
 #undef _______________________________________________________________________________
 #undef FOR_EACH_COMBO
-
-#endif
