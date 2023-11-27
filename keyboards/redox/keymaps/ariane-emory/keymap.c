@@ -407,6 +407,8 @@ void rgb_led_t_fader_set_target_by_layer(rgb_led_t_fader_t * const this) {
   
   static const layer_to_rgb_t layer_to_rgbs[] = {
     { TOGGLED_LAYER, MY_RGB_DEFAULT          },
+    { LN_FLIPR,      MY_RGB_FLIP_LAYER_ON    },
+    { LN_FLIPL,      MY_RGB_FLIP_LAYER_ON    },
     { LN_ARROWS,     MY_RGB_ADJUST_LAYER_ON  },
     { LN_UPPER,      MY_RGB_UPPER_LAYER_ON   },
     { LN_LOWER,      MY_RGB_LOWER_LAYER_ON   },
@@ -596,8 +598,10 @@ KEYRECORD_FUN(bool get_hold_on_other_key_press) {
 }
 
 static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
-  LALT_OR_SPC,
-  LGUI_OR_BSPC,
+  CRL_LFT,
+  CRL_RGT,
+  THU_LFT,
+  THU_RGT,
   QH_A, QH_S, QH_D, QH_F,
   QH_J, QH_K, QH_L, QH_QUOT,  
 };
