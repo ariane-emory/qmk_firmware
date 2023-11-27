@@ -849,7 +849,7 @@
       "ANY(QK_DYNAMIC_MACRO_RECORD_START_1)",
       "ANY(QK_DYNAMIC_MACRO_RECORD_START_2)",
       "ANY(QK_DYNAMIC_MACRO_PLAY_2)",
-      "RCTL(KC_K)",
+      "RSG(KC_D)",
       "RALT(KC_LEFT)",
       "RALT(KC_RGHT)",
       "RCTL(KC_C)",
