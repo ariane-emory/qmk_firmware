@@ -563,8 +563,11 @@ bool achordion_chord(
 
   // Allow same-hand holds when the other key is in the rows below the
   // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
-  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
-    return true;
+  //
+  // NOTE-AE: This is probably unnecesary due to the following check.
+  //
+  // if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
+  //  return true;
 
   // If it isn't a home row mod/shift, process normally.
   if (!array_contains_keycode_P(tap_hold_keycode, achordion_bilat_keys, ARRAY_SIZE(achordion_bilat_keys)))
