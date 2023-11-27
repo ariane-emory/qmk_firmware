@@ -60,7 +60,7 @@
 #define MY_RGB_LAYERS
 #define MY_RGB_RECORDING_MACRO               RGB_ORANGE
 #define MY_RGB_DEFAULT                       RGB_RED
-#define MY_RGB_FLIP_LAYER_ON                 0x90, 0x00, 0xC0
+#define MY_RGB_FLIP_LAYER_ON                 0x88, 0x00, 0xC0
 #define MY_RGB_LOWER_LAYER_ON                0x00, 0x60, 0x13 // blue-ish green
 #define MY_RGB_UPPER_LAYER_ON                0xFF, 0x00, 0x40 // magenta-ish
 #define MY_RGB_ADJUST_LAYER_ON               0x10, 0x00, 0x80 // RGB_GOLD // 0x0,  0xFF, 0x20
