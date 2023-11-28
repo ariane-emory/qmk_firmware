@@ -94,6 +94,8 @@
 #define EM_SHELL       LALT(LGUI(KC_S))
 #define KA_UNDO        LGUI(KC_Z)
 #define EM_ALL_BUF     LALT(LGUI(KC_A))
+#define EM_BOL         LCTL(KC_A)
+#define EM_EOL         LCTL(KC_E)
 #define EM_PRV_BUF     LALT(LGUI(KC_V))
 #define EM_DIRED       LALT(LGUI(KC_D))
 #define EM_LWRAP       LALT(LGUI(KC_L))
@@ -122,7 +124,7 @@
 
 
 //==============================================================================
-// Thumr key aliases
+// Thumb key aliases
 //==============================================================================
 #define FLIPL_OR_DASH      LT(LN_FLIPL,    KC_MINS)
 #define FLIPL_OR_TAB       LT(LN_FLIPL,    KC_TAB)
