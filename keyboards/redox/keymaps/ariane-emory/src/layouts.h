@@ -67,8 +67,8 @@
 #endif
 //------------------------------------------------------------------------------
 #define YT_Q    KC_Q
-#define YT_W    KC_R
-#define YT_E    KC_D
+#define YT_W    KC_D
+#define YT_E    KC_R
 #define YT_R    KC_F
 #define YT_T    KC_B
 #define YT_Y    KC_J
