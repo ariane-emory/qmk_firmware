@@ -31,11 +31,11 @@
   __(l_top_trpm,    ____________,  QT_W,    QT_E,      QT_R                    ) \
   __(l_top_trpo,    ____________,  QT_Q,    QT_W,      QT_E                    ) \
   ______________________________________________________________________________ \
-  __(l_mid_rech,    ____________,  QH_A,    QH_S                               ) \
-  DO(l_mid_innr,    EM_BOL,        QH_D,    QH_F                               ) \
-  DO(l_mid_outr,    EM_EOL,        QH_S,    QH_D                               ) \
-  __(l_mid_curl,    ____________,  QH_F,    QH_G                               ) \
-  __(l_mid_sprd,    ____________,  QH_S,    QH_F                               ) \
+  DO(l_mid_rech,    EM_EOL,        QH_A,    QH_S                               ) \
+  DO(l_mid_innr,    LGUI(KC_GRV),  QH_D,    QH_F                               ) \
+  DO(l_mid_outr,    EM_BOL,        QH_S,    QH_D                               ) \
+  DO(l_mid_curl,    DF(0),         QH_F,    QH_G                               ) \
+  __(l_mid_sprd,    DF(1),         QH_S,    QH_F                               ) \
   __(l_mid_trpi,    ____________,  QH_D,    QH_F,      QH_G                    ) \
   __(l_mid_trpm,    ____________,  QH_S,    QH_D,      QH_F                    ) \
   __(l_mid_trpo,    ____________,  QH_A,    QH_S,      QH_D                    ) \
@@ -77,7 +77,7 @@
   DO(r_bot_trpi,    EM_CHG_BUF,    QB_N,    QB_M,      QB_COMM                 ) \
   DO(r_bot_trpm,    EM_SHELL,      QB_M,    QB_COMM,   QB_DOT                  ) \
   DO(r_bot_trpo,    EM_KIL_BUF,    QB_COMM, QB_DOT,    QB_SLSH                 ) \
-  ______________________________________________________________________________ 
+  ______________________________________________________________________________
 
 //========================================================================================
 // Define combo keys
