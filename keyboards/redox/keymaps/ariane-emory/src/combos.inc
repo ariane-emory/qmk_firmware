@@ -33,7 +33,7 @@
   ______________________________________________________________________________ \
   __(l_mid_rech,    ____________,  QH_A,    QH_S                               ) \
   DO(l_mid_innr,    EM_BOL,        QH_D,    QH_F                               ) \
-  DO(l_mid_outr,    EM_EOL,       QH_S,    QH_D                               ) \
+  DO(l_mid_outr,    EM_EOL,        QH_S,    QH_D                               ) \
   __(l_mid_curl,    ____________,  QH_F,    QH_G                               ) \
   __(l_mid_sprd,    ____________,  QH_S,    QH_F                               ) \
   __(l_mid_trpi,    ____________,  QH_D,    QH_F,      QH_G                    ) \
