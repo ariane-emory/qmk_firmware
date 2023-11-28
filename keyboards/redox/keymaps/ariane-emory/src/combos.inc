@@ -32,8 +32,8 @@
   __(l_top_trpo,    ____________,  QT_Q,    QT_W,      QT_E                    ) \
   ______________________________________________________________________________ \
   __(l_mid_rech,    ____________,  QH_A,    QH_S                               ) \
-  DO(l_mid_innr,    LCTL(KC_E),    QH_D,    QH_F                               ) \
-  DO(l_mid_outr,    LCTL(KC_A),    QH_S,    QH_D                               ) \
+  DO(l_mid_innr,    EM_BOL,        QH_D,    QH_F                               ) \
+  DO(l_mid_outr,    EM_EOL,       QH_S,    QH_D                               ) \
   __(l_mid_curl,    ____________,  QH_F,    QH_G                               ) \
   __(l_mid_sprd,    ____________,  QH_S,    QH_F                               ) \
   __(l_mid_trpi,    ____________,  QH_D,    QH_F,      QH_G                    ) \
@@ -110,7 +110,7 @@ bool combo_should_trigger(
           || (combo->keycode == KC_HOME)
           || (combo->keycode == KC_END)
           || (((layer_state_is(LN_LOWER) || layer_state_is(LN_UPPER) || layer_state_is(LN_ARROWS))) &&
-              ((combo->keycode == LCTL(KC_A)) || (combo->keycode == LCTL(KC_E))))
+              ((combo->keycode == EM_BOL) || (combo->keycode == EM_EOL)))
           // || layer_state_is(5)
           || false);
 }
