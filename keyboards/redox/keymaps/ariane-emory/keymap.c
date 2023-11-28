@@ -125,7 +125,6 @@ void keyboard_post_init_user(void) {
   DO(EM_KIL_BUF,           (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""))                                        \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),          (""),                                   (""))                                        \
   DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (""),                                   (""))                                        \
-  DO(SS_BANGBANG,          (REPEAT_SHELL_CMD()),                 ("11" T(X_ENT)),                        (""))                                        \
   DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD))                                \
   DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" LL()))                                \
   DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"))                                      \
@@ -680,10 +679,10 @@ uint16_t keycode_config(uint16_t keycode) {
 
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
-  if (leader_sequence_one_key(NUM_1)) {
-      SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "11" CR()));
-  }
-  else if (leader_sequence_one_key(KC_0)) {
+  /* if (leader_sequence_one_key(NUM_1)) { */
+  /*     SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "11" CR())); */
+  /* } */
+  /* else */ if (leader_sequence_one_key(KC_0)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_)));
   }
   else if (leader_sequence_one_key(KC_Q)) {
