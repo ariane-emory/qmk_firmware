@@ -108,7 +108,7 @@ bool combo_should_trigger(
           || (combo->keycode == SS_DICT)
           || (combo->keycode == KC_HOME)
           || (combo->keycode == KC_END)
-          || (((layer_state_is(10) || layer_state_is(11) || layer_state_is(14))) && ((combo->keycode == LCTL(KC_A)) || (combo->keycode == LCTL(KC_E))))
+          || (((layer_state_is(LN_LOWER) || layer_state_is(LN_UPPER) || layer_state_is(LN_ARROWS))) && ((combo->keycode == LCTL(KC_A)) || (combo->keycode == LCTL(KC_E))))
           || (get_highest_layer(layer_state) < 9)
           // || layer_state_is(5)
           || false);
