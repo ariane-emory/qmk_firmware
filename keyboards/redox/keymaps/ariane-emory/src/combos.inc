@@ -31,8 +31,8 @@
   __(l_top_trpm,    ____________,  QT_W,    QT_E,      QT_R                    ) \
   __(l_top_trpo,    ____________,  QT_Q,    QT_W,      QT_E                    ) \
   ______________________________________________________________________________ \
-  DO(l_mid_rech,    EM_EOL,        QH_A,    QH_S                               ) \
-  DO(l_mid_innr,    LGUI(KC_GRV),  QH_D,    QH_F                               ) \
+  DO(l_mid_rech,    LGUI(KC_GRV),  QH_A,    QH_S                               ) \
+  DO(l_mid_innr,    EM_EOL,        QH_D,    QH_F                               ) \
   DO(l_mid_outr,    EM_BOL,        QH_S,    QH_D                               ) \
   DO(l_mid_curl,    DF(0),         QH_F,    QH_G                               ) \
   __(l_mid_sprd,    DF(1),         QH_S,    QH_F                               ) \
