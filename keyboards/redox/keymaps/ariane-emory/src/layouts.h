@@ -67,8 +67,8 @@
 #endif
 //------------------------------------------------------------------------------
 #define YT_Q    KC_Q
-#define YT_W    KC_D
-#define YT_E    KC_R
+#define YT_W    KC_R
+#define YT_E    KC_D
 #define YT_R    KC_F
 #define YT_T    KC_B
 #define YT_Y    KC_J
@@ -126,8 +126,8 @@
 #define XT_P    XT_RC
 //------------------------------------------------------------------------------
 #define XH_A    LHRM_4(KC_A)
-#define XH_S    LHRM_3(KC_D)
-#define XH_D    LHRM_2(KC_R)
+#define XH_S    LHRM_3(KC_R)
+#define XH_D    LHRM_2(KC_D)
 #define XH_F    LHRM_1(KC_T)
 #define XH_G    LHRM_0(KC_G)
 #define XH_H    RHRM_0(KC_Y)
