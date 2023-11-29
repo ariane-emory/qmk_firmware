@@ -104,6 +104,7 @@
 #define EM_END_MAC     LALT(LGUI(KC_E))
 #define EM_CTL_X       LCTL(KC_X)
 #define EM_CTL_C       LCTL(KC_C)
+#define EM_OTHER_WIN   LGUI(KC_GRV)
 #define RCTL_SQUO      RCTL_T(KC_SQUO_TAP)
 #define RCTL_DQUO      RCTL_T(KC_DQUO_TAP)
 #define LCTL_ESC       LCTL_T(KC_ESC)
