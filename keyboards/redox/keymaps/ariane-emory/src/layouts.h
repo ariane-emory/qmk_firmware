@@ -6,9 +6,9 @@
 // Q: Qwerty
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
-# define QT_RC  KC_P
-# define QH_RC  KC_QUOT
-# define QB_RC  KC_SLSH
+# define QT_RC  KC_SLSH
+# define QH_RC  KC_P
+# define QB_RC  KC_QUOT
 #else
 # define QT_RC  KC_P
 # define QH_RC  KC_QUOT
