@@ -13,8 +13,8 @@
 #define FOR_EACH_COMBO(DO)                                                       \
   ______________________________________________________________________________ \
   __(l_num_rech,    ____________,  KC_1,    KC_2                               ) \
-  __(l_num_innr,    ____________,  KC_3,    KC_4                               ) \
   __(l_num_outr,    ____________,  KC_2,    KC_3                               ) \
+  __(l_num_innr,    ____________,  KC_3,    KC_4                               ) \
   __(l_num_curl,    ____________,  KC_4,    KC_5                               ) \
   __(l_num_sprd,    ____________,  KC_2,    KC_4                               ) \
   __(l_num_trpi,    ____________,  KC_3,    KC_4,      KC_5                    ) \
@@ -23,26 +23,26 @@
   ______________________________________________________________________________ \
   DO(l_top_extr,    KC_END,        QT_TAB,  QT_Q                               ) \
   DO(l_top_rech,    KC_HOME,       QT_Q,    QT_W                               ) \
-  DO(l_top_innr,    KC_GRV,        QT_E,    QT_R                               ) \
   DO(l_top_outr,    LSFT(KC_GRV),  QT_W,    QT_E                               ) \
+  DO(l_top_innr,    KC_GRV,        QT_E,    QT_R                               ) \
   DO(l_top_curl,    KC_END,        QT_T,    QT_R                               ) \
   __(l_top_sprd,    ____________,  QT_W,    QT_R                               ) \
   __(l_top_trpi,    ____________,  QT_E,    QT_R,      QT_T                    ) \
   __(l_top_trpm,    ____________,  QT_W,    QT_E,      QT_R                    ) \
   __(l_top_trpo,    ____________,  QT_Q,    QT_W,      QT_E                    ) \
   ______________________________________________________________________________ \
-  DO(l_mid_rech,    EM_BOL,        QH_A,    QH_S                               ) \
-  DO(l_mid_innr,    EM_OTHER_WIN,  QH_D,    QH_F                               ) \
+  __(l_mid_rech,    ____________,  QH_A,    QH_S                               ) \
   DO(l_mid_outr,    EM_BOL,        QH_S,    QH_D                               ) \
-  DO(l_mid_curl,    EM_EOL,        QH_F,    QH_G                               ) \
+  DO(l_mid_innr,    EM_EOL,        QH_D,    QH_F                               ) \
+  DO(l_mid_curl,    EM_OTHER_WIN,  QH_F,    QH_G                               ) \
   __(l_mid_sprd,    ____________,  QH_S,    QH_F                               ) \
   DO(l_mid_trpi,    DF(0),         QH_D,    QH_F,      QH_G                    ) \
   DO(l_mid_trpm,    DF(1),         QH_S,    QH_D,      QH_F                    ) \
   __(l_mid_trpo,    ____________,  QH_A,    QH_S,      QH_D                    ) \
   ______________________________________________________________________________ \
   __(l_bot_rech,    ____________,  QB_Z,    QB_X                               ) \
-  DO(l_bot_innr,    SS_CD,         QB_C,    QB_V                               ) \
   __(l_bot_outr,    ____________,  QB_X,    QB_C                               ) \
+  DO(l_bot_innr,    SS_CD,         QB_C,    QB_V                               ) \
   __(l_bot_curl,    ____________,  QB_V,    QB_B                               ) \
   __(l_bot_sprd,    ____________,  QB_X,    QB_V                               ) \
   __(l_bot_trpi,    ____________,  QB_C,    QB_V,      QB_B                    ) \
@@ -51,8 +51,8 @@
   ______________________________________________________________________________ \
   DO(r_top_extr,    KC_END,        QT_P,    QT_BSLS                            ) \
   DO(r_top_rech,    KC_HOME,       QT_O,    QT_P                               ) \
-  DO(r_top_innr,    SS_LBRACK,     QT_U,    QT_I                               ) \
   DO(r_top_outr,    SS_RBRACK,     QT_I,    QT_O                               ) \
+  DO(r_top_innr,    SS_LBRACK,     QT_U,    QT_I                               ) \
   DO(r_top_curl,    SS_AND_AND,    QT_Y,    QT_U                               ) \
   __(r_top_sprd,    _____________, QT_U,    QT_O                               ) \
   DO(r_top_trpi,    SS_SMILEY2,    QT_Y,    QT_U,      QT_I                    ) \
@@ -61,8 +61,8 @@
   ______________________________________________________________________________ \
   DO(r_mid_EXTR,    EM_LWRAP,      QH_QUOT, RCTL_DQUO                          ) \
   DO(r_mid_rech,    LSFT(KC_SCLN), QH_L,    QH_QUOT                            ) \
-  DO(r_mid_innr,    KC_ENT,        QH_J,    QH_K                               ) \
   DO(r_mid_outr,    KC_SCLN,       QH_K,    QH_L                               ) \
+  DO(r_mid_innr,    KC_ENT,        QH_J,    QH_K                               ) \
   DO(r_mid_curl,    KC_EQL,        QH_H,    QH_J                               ) \
   DO(r_mid_sprd,    LALT(KC_X),    QH_J,    QH_L                               ) \
   DO(r_mid_trpi,    EM_PRV_BUF,    QH_H,    QH_J,       QH_K                   ) \
@@ -70,8 +70,8 @@
   DO(r_mid_trpo,    EM_ALL_BUF,    QH_K,    QH_L,       QH_QUOT                ) \
   ______________________________________________________________________________ \
   DO(r_bot_rech,    SS_ARROW,      QB_DOT,  QB_SLSH                            ) \
-  DO(r_bot_innr,    KA_UNDO,       QB_M,    QB_COMM                            ) \
   DO(r_bot_outr,    SS_DIR,        QB_COMM, QB_DOT                             ) \
+  DO(r_bot_innr,    KA_UNDO,       QB_M,    QB_COMM                            ) \
   DO(r_bot_curl,    EM_LASTARG,    QB_N,    QB_M                               ) \
   DO(r_bot_sprd,    SS_DICT,       QB_M,    QB_DOT                             ) \
   DO(r_bot_trpi,    EM_CHG_BUF,    QB_N,    QB_M,      QB_COMM                 ) \
