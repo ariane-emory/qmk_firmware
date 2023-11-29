@@ -62,9 +62,9 @@
 #define MY_RGB_DEFAULT                       RGB_RED
 #define MY_RGB_FLIP_LAYER_ON                 0x88, 0x00, 0xC0 // violet-ish
 #define MY_RGB_LOWER_LAYER_ON                0x00, 0x78, 0x20 // blue-ish green
-#define MY_RGB_UPPER_LAYER_ON                0xFF, 0x00, 0x60 // magenta-ish
-#define MY_RGB_ADJUST_LAYER_ON               0x14, 0x00, 0xA0 // RGB_GOLD // 0x0,  0xFF, 0x20
-#define MY_RGB_TOGGLED_LAYER_ON              0x10, 0x90, 0x00 // RGB_CHARTREUSE
+#define MY_RGB_UPPER_LAYER_ON                0xFF, 0x00, 0x68 // magenta-ish
+#define MY_RGB_ADJUST_LAYER_ON               0x14, 0x00, 0xB0 // blue 
+#define MY_RGB_TOGGLED_LAYER_ON              0x10, 0x90, 0x00 // green
 #define MY_RGB_BOOT                          0xFF, 0x28, 0x00 // orange-ish
 
 #define NO_ACTION_ONESHOT
