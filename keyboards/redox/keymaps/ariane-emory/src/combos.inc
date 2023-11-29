@@ -12,10 +12,10 @@
 
 #define FOR_EACH_COMBO(DO)                                                       \
   ______________________________________________________________________________ \
-  __(l_num_rech,    DF(0),         KC_1,    KC_2                               ) \
-  __(l_num_innr,    DF(2),         KC_3,    KC_4                               ) \
-  __(l_num_outr,    DF(1),         KC_2,    KC_3                               ) \
-  __(l_num_curl,    DF(3),         KC_4,    KC_5                               ) \
+  __(l_num_rech,    ____________,  KC_1,    KC_2                               ) \
+  __(l_num_innr,    ____________,  KC_3,    KC_4                               ) \
+  __(l_num_outr,    ____________,  KC_2,    KC_3                               ) \
+  __(l_num_curl,    ____________,  KC_4,    KC_5                               ) \
   __(l_num_sprd,    ____________,  KC_2,    KC_4                               ) \
   __(l_num_trpi,    ____________,  KC_3,    KC_4,      KC_5                    ) \
   __(l_num_trpm,    ____________,  KC_2,    KC_3,      KC_4                    ) \
