@@ -34,10 +34,10 @@
   __(l_mid_rech,    ____________,  QH_A,    QH_S                               ) \
   DO(l_mid_outr,    EM_BOL,        QH_S,    QH_D                               ) \
   DO(l_mid_innr,    EM_EOL,        QH_D,    QH_F                               ) \
-  DO(l_mid_curl,    EM_OTHER_WIN,  QH_F,    QH_G                               ) \
+  DO(l_mid_curl,    TOGGLE_DF,     QH_F,    QH_G                               ) \
   __(l_mid_sprd,    ____________,  QH_S,    QH_F                               ) \
   __(l_mid_trpi,    ____________,  QH_D,    QH_F,      QH_G                    ) \
-  DO(l_mid_trpm,    TOGGLE_DF,     QH_S,    QH_D,      QH_F                    ) \
+  DO(l_mid_trpm,    EM_OTHER_WIN,  QH_S,    QH_D,      QH_F                    ) \
   __(l_mid_trpo,    ____________,  QH_A,    QH_S,      QH_D                    ) \
   ______________________________________________________________________________ \
   __(l_bot_rech,    ____________,  QB_Z,    QB_X                               ) \
