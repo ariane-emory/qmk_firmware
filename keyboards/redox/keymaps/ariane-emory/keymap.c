@@ -254,6 +254,19 @@ KEYRECORD_C_FUN(bool disable_mouse_layer_handler) {
 };
 
 KEYRECORD_C_FUN(bool toggle_df_handler) {
+  static bool flag = false;
+  
+  if (record->event.pressed) {
+    if (flag) {
+      default_layer_set((layer_state_t)1 << 0);
+    }
+    else {
+      default_layer_set((layer_state_t)1 << 1);
+    }
+
+    flag = ! flag;
+  }
+  
   return false;
 };
 
