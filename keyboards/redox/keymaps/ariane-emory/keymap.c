@@ -135,11 +135,12 @@ void keyboard_post_init_user(void) {
   DO(SS_AND_AND,           (" 77 "),                             (" || "),                               (" @>7! "),         (""))                    \
   DO(SS_CD,                ("cd "),                              ("cd .."),                              ("cd ~"),           (""))                     
 
-#define enum_item(kc, str, ...)                                                  kc,
-#define define_tagged_progmem_string(tag, kc, str, ...)                          static const char tag##_str_##kc[] PROGMEM = str;
-#define define_nomods_progmem_string(kc, nomods_str, ...)                        define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
-#define define_ctrled_progmem_string(kc, nomods_str, ctrled_str, ...)            define_tagged_progmem_string(ctrled, kc, ctrled_str, __VA_ARGS__)
-#define define_alted_progmem_string(kc, nomods_str, ctrled_str, alted_str, ...)  define_tagged_progmem_string(alted, kc, alted_str, __VA_ARGS__)
+#define enum_item(kc, str, ...)                                                                kc,
+#define define_tagged_progmem_string(tag, kc, str, ...)                                        static const char tag##_str_##kc[] PROGMEM = str;
+#define define_nomods_progmem_string(kc, nomods_str, ...)                                      define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
+#define define_ctrled_progmem_string(kc, nomods_str, ctrled_str, ...)                          define_tagged_progmem_string(ctrled, kc, ctrled_str, __VA_ARGS__)
+#define define_alted_progmem_string(kc, nomods_str, ctrled_str, alted_str, ...)                define_tagged_progmem_string(alted, kc, alted_str, __VA_ARGS__)
+#define define_shifted_progmem_string(kc, nomods_str, ctrled_str, alted_str, shifted_str, ...) define_tagged_progmem_string(alted, kc, shifted_str, __VA_ARGS__)
 
 FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
 FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
