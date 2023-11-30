@@ -148,6 +148,7 @@ FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string)
 enum arianes_custom_keycodes {
   KC_DUMMY = SAFE_RANGE,
   OTHER_WIN,
+  CLOSE_WIN,
   KC_SQUO_TAP,
   KC_DQUO_TAP,
   HOLD_GUI,
@@ -199,6 +200,7 @@ KEYRECORD_C_FUN(bool process_shiftable_or_ctrlable_send_string) {
   return true;
 }
 
+#ifdef DYNAMIC_MACRO_HANDLERS
 KEYRECORD_C_FUN(bool dynamic_macros_handler) {
 #ifdef   DYNAMIC_MACRO_ENABLE
   if (record->event.pressed)
@@ -207,6 +209,7 @@ KEYRECORD_C_FUN(bool dynamic_macros_handler) {
 
   return true;
 }
+#endif // DYNAMIC_MACRO_HANDLERS
 
 KEYRECORD_C_FUN(bool discord_mute_handler) {
   if (record->event.pressed) {
@@ -228,6 +231,14 @@ KEYRECORD_C_FUN(bool other_win_handler) {
   return false;
 }
               
+KEYRECORD_C_FUN(bool close_win_handler) {
+  if (record->event.pressed) {
+    tap_code16(LGUI(KC_W));
+  }
+
+  return false;
+}
+              
 KEYRECORD_C_FUN(bool my_boot_handler) {
   rgb_led_fader_init(&rgb_led_fader, MY_RGB_BOOT);
 
@@ -238,8 +249,8 @@ KEYRECORD_C_FUN(bool my_boot_handler) {
   return false;
 }
 
-KEYRECORD_C_FUN(bool insert_upp_handler) {
 #ifdef INSERT_UPP_ENABLED
+KEYRECORD_C_FUN(bool insert_upp_handler) {
   if (record->event.pressed) {
     for (uint8_t ix = 0; ix < 6; ix++) {
       static const uint16_t hex_keycodes[] = {
@@ -252,10 +263,10 @@ KEYRECORD_C_FUN(bool insert_upp_handler) {
     }
     tap_code(KC_ENTER);
   }
-#endif // INSERT_UPP_ENABLED
 
   return false;
 }
+#endif // INSERT_UPP_ENABLED
 
 KEYRECORD_C_FUN(bool disable_mouse_layer_handler) {
   layer_off(LN_MOUSE);
@@ -275,15 +286,16 @@ KEYRECORD_C_FUN(bool toggle_df_handler) {
 typedef bool(*keycode_handler_fun_t)(const uint16_t keycode, const keyrecord_t * const record);
 
 static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode_handlers[] PROGMEM = {
+  { CLOSE_WIN,               close_win_handler           },
   { OTHER_WIN,               other_win_handler           },
   { TOGGLE_DF,               toggle_df_handler           },
-  { TOGGLE_DF,               toggle_df_handler           },
-  { TOGGLE_DF,               toggle_df_handler           },
+  { KC_LOWER,                disable_mouse_layer_handler },
+  { DISCORD_MUTE,            discord_mute_handler        },
+  { MY_BOOT,                 my_boot_handler             },
+#ifdef DYNAMIC_MACRO_HANDLERS
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler      },
-  { KC_LOWER,                disable_mouse_layer_handler },
-  { MY_BOOT,                 my_boot_handler             },
-  { DISCORD_MUTE,            discord_mute_handler        },
+#endif // DYNAMIC_MACRO_HANDLERS
 #ifdef    HOLD_GUI_ENABLED
   { HOLD_GUI,                hold_gui_handler            },
 #endif    // HOLD_GUI_ENABLED

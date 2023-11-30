@@ -46,7 +46,7 @@
   __(l_bot_curl,    ____________,  QB_V,    QB_B                               ) \
   __(l_bot_sprd,    ____________,  QB_X,    QB_V                               ) \
   __(l_bot_trpi,    ____________,  QB_C,    QB_V,      QB_B                    ) \
-  DO(l_bot_trpm,    LGUI(KC_W),    QB_X,    QB_C,      QB_V                    ) \
+  DO(l_bot_trpm,    CLOSE_WIN,     QB_X,    QB_C,      QB_V                    ) \
   __(l_bot_trpo,    ____________,  QB_Z,    QB_X,      QB_C                    ) \
   ______________________________________________________________________________ \
   DO(r_top_extr,    KC_END,        QT_P,    QT_BSLS                            ) \
