@@ -116,24 +116,24 @@ void keyboard_post_init_user(void) {
   SS_LGUI("`") SCR_L()
 
 #define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                                                                          \
-  DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""))                                        \
-  DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""))                                        \
-  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""))                                        \
-  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""))                                        \
-  DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),          (""),                                   (""))                                        \
-  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""))                                        \
-  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (""),                                   (""))                                        \
-  DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""))                                        \
-  DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""))                                        \
-  DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD))                                \
-  DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" LL()))                                \
-  DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"))                                      \
-  DO(SS_LBRACK,            ("9"),                                ("["),                                  ("{"))                                       \
-  DO(SS_RBRACK,            ("0"),                                ("]"),                                  ("}"))                                       \
-  DO(SS_SMILEY,            (" ;0"),                              (" :/"),                                (" >_>"))                                    \
-  DO(SS_SMILEY2,           (" :0"),                              (" :P"),                                (" :D"))                                     \
-  DO(SS_AND_AND,           (" 77 "),                             (" || "),                               (" @>7! "))                                  \
-  DO(SS_CD,                ("cd "),                              ("cd .."),                              ("cd ~"))                                   
+  DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""),               (""))                    \
+  DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
+  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                    \
+  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
+  DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),          (""),                                   (""),               (""))                    \
+  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
+  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (""),                                   (""),               (""))                    \
+  DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""),               (""))                    \
+  DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
+  DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (""))                    \
+  DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" LL()),       (""))                    \
+  DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"),             (""))                    \
+  DO(SS_LBRACK,            ("9"),                                ("["),                                  ("{"),              (""))                    \
+  DO(SS_RBRACK,            ("0"),                                ("]"),                                  ("}"),              (""))                    \
+  DO(SS_SMILEY,            (" ;0"),                              (" :/"),                                (" >_>"),           (""))                    \
+  DO(SS_SMILEY2,           (" :0"),                              (" :P"),                                (" :D"),            (""))                    \
+  DO(SS_AND_AND,           (" 77 "),                             (" || "),                               (" @>7! "),         (""))                    \
+  DO(SS_CD,                ("cd "),                              ("cd .."),                              ("cd ~"),           (""))                     
 
 #define enum_item(kc, str, ...)                                                  kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                          static const char tag##_str_##kc[] PROGMEM = str;
