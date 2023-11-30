@@ -156,6 +156,7 @@ enum arianes_custom_keycodes {
   VD_RIGHT_ALT,
   MY_BOOT,
   DISCORD_MUTE,
+  TOGGLE_DF,
   FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
@@ -252,9 +253,14 @@ KEYRECORD_C_FUN(bool disable_mouse_layer_handler) {
   return true;
 };
 
+KEYRECORD_C_FUN(bool toggle_df_handler) {
+  return false;
+};
+
 typedef bool(*keycode_handler_fun_t)(const uint16_t keycode, const keyrecord_t * const record);
 
 static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode_handlers[] PROGMEM = {
+  { TOGGLE_DF,               toggle_df_handler           },
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler      },
   { KC_LOWER,                disable_mouse_layer_handler },
