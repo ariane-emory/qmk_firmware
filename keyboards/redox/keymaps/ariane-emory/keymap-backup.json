@@ -72,7 +72,7 @@
       "ANY(STR_LFT)",
       "ANY(STR_RGT)",
       "ANY(THU_RGT)",
-      "KC_LALT",
+      "ANY(CRL_RGT)",
       "KC_LEFT",
       "KC_DOWN",
       "KC_UP",
