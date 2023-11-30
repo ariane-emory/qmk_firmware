@@ -134,7 +134,8 @@ void keyboard_post_init_user(void) {
   DO(SS_SMILEY2,           (" :0"),                              (" :P"),                                (" :D"))                                     \
   DO(SS_AND_AND,           (" 77 "),                             (" || "),                               (" @>7! "))                                  \
   DO(SS_CD,                ("cd "),                              ("cd .."),                              ("cd ~"))                                    \
-  
+  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""))                                        \
+     
 #define enum_item(kc, str, ...)                                                     kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                             static const char tag##_str_##kc[] PROGMEM = str;
 #define define_nomods_progmem_string(kc, nomods_str, ...)                           define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
