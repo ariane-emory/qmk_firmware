@@ -36,9 +36,9 @@
   DO(l_mid_innr,    EM_EOL,        QH_D,    QH_F                               ) \
   DO(l_midk_curl,   KC_END,        QH_F,    QH_G                               ) \
   DO(l_mid_sprd,    TOGGLE_DF,     QH_S,    QH_F                               ) \
-  DO(l_mid_trpi,    EM_SPLIT_V,    QH_D,    QH_F,      QH_G                    ) \
+  DO(l_mid_trpi,    EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   DO(l_mid_trpm,    OTHER_WIN,     QH_S,    QH_D,      QH_F                    ) \
-  DO(l_mid_trpo,    EM_SPLIT_H,    QH_A,    QH_S,      QH_D                    ) \
+  DO(l_mid_trpo,    EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
   ______________________________________________________________________________ \
   __(l_bot_rech,    ____________,  QB_Z,    QB_X                               ) \
   DO(l_bot_outr,    SS_CD,         QB_X,    QB_C                               ) \
