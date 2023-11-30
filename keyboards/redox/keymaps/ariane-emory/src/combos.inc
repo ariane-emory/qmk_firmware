@@ -36,9 +36,9 @@
   DO(l_mid_innr,    EM_EOL,        QH_D,    QH_F                               ) \
   DO(l_mid_curl,    KC_END,        QH_F,    QH_G                               ) \
   DO(l_mid_sprd,    EM_OTHER_WIN,  QH_S,    QH_F                               ) \
-  __(l_mid_trpi,    ____________,  QH_D,    QH_F,      QH_G                    ) \
+  DO(l_mid_trpi,    EM_SPILT_H,    QH_D,    QH_F,      QH_G                    ) \
   DO(l_mid_trpm,    TOGGLE_DF,     QH_S,    QH_D,      QH_F                    ) \
-  __(l_mid_trpo,    ____________,  QH_A,    QH_S,      QH_D                    ) \
+  DO(l_mid_trpo,    EM_SPILT_V,    QH_A,    QH_S,      QH_D                    ) \
   ______________________________________________________________________________ \
   __(l_bot_rech,    ____________,  QB_Z,    QB_X                               ) \
   __(l_bot_outr,    ____________,  QB_X,    QB_C                               ) \
