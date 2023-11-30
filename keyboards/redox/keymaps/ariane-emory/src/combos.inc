@@ -74,9 +74,9 @@
   DO(r_bot_innr,    KA_UNDO,       QB_M,    QB_COMM                            ) \
   DO(r_bot_curl,    EM_LASTARG,    QB_N,    QB_M                               ) \
   DO(r_bot_sprd,    SS_DICT,       QB_M,    QB_DOT                             ) \
-  DO(r_bot_trpi,    EM_CHG_BUF,    QB_N,    QB_M,      QB_COMM                 ) \
+  DO(r_bot_trpi,    EM_CHG_BUFF,    QB_N,    QB_M,      QB_COMM                 ) \
   DO(r_bot_trpm,    EM_SHELL,      QB_M,    QB_COMM,   QB_DOT                  ) \
-  DO(r_bot_trpo,    EM_KIL_BUF,    QB_COMM, QB_DOT,    QB_SLSH                 ) \
+  DO(r_bot_trpo,    EM_KILL_BUFF,    QB_COMM, QB_DOT,    QB_SLSH                 ) \
   ______________________________________________________________________________
 
 //========================================================================================

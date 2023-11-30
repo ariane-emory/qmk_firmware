@@ -97,7 +97,6 @@ void keyboard_post_init_user(void) {
 #define SCR_R()              SS_LCTL(T(X_F14))
 #define ESC()                T(X_ESC)
 #define SPC()                T(X_SPC)
-#define CLR()                SS_LGUI("a") SS_TAP(X_BSPC) CR()
 #define DD()                 SS_DELAY(75)
 
 #define GUI_CLICK(_)         SS_DOWN(X_LGUI) T(X_BTN1) SS_UP(X_LGUI)
@@ -106,7 +105,7 @@ void keyboard_post_init_user(void) {
 #define TELEPORT(_)                                                                                                                                   \
   GUI_CLICK() DD() SS_LCTL(T(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                     \
   SS_LGUI("`") DD() SCR_R() SS_DELAY(200) T(X_BTN1) DD() ESC() DD()                                                                                   \
-  SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(2250)                                                                       \
+  SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(2100)                                                                       \
   T(X_F) DD() RR() DD() RR() DD()                                                                                                                     \
   SS_LGUI("`") DD() SCR_L()
 #define TELEPORT2(_)                                                                                                                                  \
@@ -116,15 +115,16 @@ void keyboard_post_init_user(void) {
   T(X_F) RR() RR()                                                                                                                                    \
   SS_LGUI("`") SCR_L()
 
-#define FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                        \
+#define FOR_EACH_ALTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(DO)                                                                                        \
   DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""))                                        \
-  DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (TELEPORT()),                           (GUI_CLICK_AND_TAB()))                       \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""))                                        \
-  DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""))                                        \
-  DO(EM_CHG_BUF,           (SS_LCTL("x") "b"),                   (""),                                   (""))                                        \
-  DO(EM_KIL_BUF,           (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""))                                        \
+  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""))                                        \
+  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""))                                        \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),          (""),                                   (""))                                        \
+  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""))                                        \
   DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (""),                                   (""))                                        \
+  DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""))                                        \
+  DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""))                                        \
   DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD))                                \
   DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" LL()))                                \
   DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"))                                      \
@@ -134,17 +134,16 @@ void keyboard_post_init_user(void) {
   DO(SS_SMILEY2,           (" :0"),                              (" :P"),                                (" :D"))                                     \
   DO(SS_AND_AND,           (" 77 "),                             (" || "),                               (" @>7! "))                                  \
   DO(SS_CD,                ("cd "),                              ("cd .."),                              ("cd ~"))                                    \
-  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""))                                        \
-     
-#define enum_item(kc, str, ...)                                                     kc,
-#define define_tagged_progmem_string(tag, kc, str, ...)                             static const char tag##_str_##kc[] PROGMEM = str;
-#define define_nomods_progmem_string(kc, nomods_str, ...)                           define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
-#define define_shifted_progmem_string(kc, nomods_str, shifted_str, ...)             define_tagged_progmem_string(shifted, kc, shifted_str, __VA_ARGS__)
-#define define_ctrled_progmem_string(kc, nomods_str, shifted_str, ctrled_str, ...)  define_tagged_progmem_string(ctrled, kc, ctrled_str, __VA_ARGS__)
 
-FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
-FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
-FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
+#define enum_item(kc, str, ...)                                                   kc,
+#define define_tagged_progmem_string(tag, kc, str, ...)                           static const char tag##_str_##kc[] PROGMEM = str;
+#define define_nomods_progmem_string(kc, nomods_str, ...)                         define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
+#define define_alted_progmem_string(kc, nomods_str, alted_str, ...)               define_tagged_progmem_string(alted, kc, alted_str, __VA_ARGS__)
+#define define_ctrled_progmem_string(kc, nomods_str, alted_str, ctrled_str, ...)  define_tagged_progmem_string(ctrled, kc, ctrled_str, __VA_ARGS__)
+
+FOR_EACH_ALTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
+FOR_EACH_ALTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
+FOR_EACH_ALTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
 
 enum arianes_custom_keycodes {
   KC_DUMMY = SAFE_RANGE,
@@ -160,37 +159,37 @@ enum arianes_custom_keycodes {
   MY_BOOT,
   DISCORD_MUTE,
   TOGGLE_DF,
-  FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
+  FOR_EACH_ALTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
-#define shiftable_or_ctrlable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, shifted_str_##kc, ctrled_str_##kc },
+#define altable_or_ctrlable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, alted_str_##kc, ctrled_str_##kc },
 typedef struct {
   uint16_t kc;
   const char * str;
-  const char * shifted_str;
   const char * ctrled_str;
-} shiftable_or_ctrlable_send_string_keycodes_t;
+  const char * alted_str;
+} altable_or_ctrlable_send_string_keycodes_t;
 
-static const shiftable_or_ctrlable_send_string_keycodes_t shiftable_or_ctrlable_send_string_keycodes[] = {
-  FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(shiftable_or_ctrlable_send_string_keycodes_row)
+static const altable_or_ctrlable_send_string_keycodes_t altable_or_ctrlable_send_string_keycodes[] = {
+  FOR_EACH_ALTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(altable_or_ctrlable_send_string_keycodes_row)
 };
 
-KEYRECORD_C_FUN(bool process_shiftable_or_ctrlable_send_string) {
-  for (uint8_t ix = 0; ix < ARRAY_SIZE(shiftable_or_ctrlable_send_string_keycodes); ix++) {
-    if (shiftable_or_ctrlable_send_string_keycodes[ix].kc == keycode) {      
+KEYRECORD_C_FUN(bool process_altable_or_ctrlable_send_string) {
+  for (uint8_t ix = 0; ix < ARRAY_SIZE(altable_or_ctrlable_send_string_keycodes); ix++) {
+    if (altable_or_ctrlable_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed)  {
         if (
-          (pgm_read_byte(shiftable_or_ctrlable_send_string_keycodes[ix].shifted_str) != 0) &&
-          (get_mods() & MOD_MASK_SHIFT)) {
-          SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].shifted_str);
+          (pgm_read_byte(altable_or_ctrlable_send_string_keycodes[ix].alted_str) != 0) &&
+          (get_mods() & MOD_MASK_ALT)) {
+          SEND_STRING_WITHOUT_MODS_P(altable_or_ctrlable_send_string_keycodes[ix].alted_str);
         }
         else if (
-          (pgm_read_byte(shiftable_or_ctrlable_send_string_keycodes[ix].ctrled_str) != 0) &&
+          (pgm_read_byte(altable_or_ctrlable_send_string_keycodes[ix].ctrled_str) != 0) &&
           (get_mods() & MOD_MASK_CTRL)) {
-          SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].ctrled_str);
+          SEND_STRING_WITHOUT_MODS_P(altable_or_ctrlable_send_string_keycodes[ix].ctrled_str);
         }
         else {
-          SEND_STRING_WITHOUT_MODS_P(shiftable_or_ctrlable_send_string_keycodes[ix].str);
+          SEND_STRING_WITHOUT_MODS_P(altable_or_ctrlable_send_string_keycodes[ix].str);
         }
       }
 
@@ -417,7 +416,7 @@ KEYRECORD_FUN(bool process_record_user) {
   if (! process_achordion(keycode, record)) return false;
 #endif // USE_ACHORDION
   
-  if (! process_shiftable_or_ctrlable_send_string(keycode, record)) return false;
+  if (! process_altable_or_ctrlable_send_string(keycode, record)) return false;
 
   if (! process_tap_case(keycode, record)) return false;
 
