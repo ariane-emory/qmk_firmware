@@ -127,14 +127,14 @@ void keyboard_post_init_user(void) {
   DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
   DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (""))                    \
   DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" LL()),       (""))                    \
-  DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"),             (""))                    \
-  DO(SS_LBRACK,            ("9"),                                ("["),                                  ("{"),              ("<"))                   \
-  DO(SS_RBRACK,            ("0"),                                ("]"),                                  ("}"),              (">"))                   \
   DO(SS_SMILEY,            (" ;0"),                              (" :/"),                                (" >_>"),           (""))                    \
   DO(SS_SMILEY2,           (" :0"),                              (" :P"),                                (" :D"),            (""))                    \
-  DO(SS_AND_AND,           (" 77 "),                             (" || "),                               (" @>7! "),         (""))                    \
-  DO(SS_CD,                ("cd "),                              ("cd .."),                              ("cd ~"),           (""))                     
-//                         BARE                                  CTRL                                    ALT                 SHIFT
+  DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"),             (""))                    \
+  DO(SS_CD,                ("cd "),                              ("cd .."),                              ("cd ~"),           ("cd -"))                \
+  DO(SS_LBRACK,            ("9"),                                ("["),                                  ("{"),              ("<"))                   \
+  DO(SS_RBRACK,            ("0"),                                ("]"),                                  ("}"),              (">"))                   \
+  DO(SS_AND_AND,           (" 77 "),                             (" || "),                               (" @>7! "),         (" >/dev/null "))        \
+//                         NO MODS                               CTRL                                    ALT                 SHIFT
 
 #define enum_item(kc, str, ...)                                                                kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                                        static const char tag##_str_##kc[] PROGMEM = str;
