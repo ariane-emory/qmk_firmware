@@ -398,7 +398,7 @@ KEYRECORD_FUN(bool process_record_user) {
   if (process_mouse_keys(keycode, record)) return true;
     
   for (uint8_t ix = 0; ix < ARRAY_SIZE(keycode_handlers); ix++) {
-    if (keycode_handlers[ix].keycode == keycode) {
+    if (pgm_read_word(&keycode_handlers[ix].keycode) == keycode) {
       keycode_handler_fun_t handler = (keycode_handler_fun_t)(pgm_read_ptr(&keycode_handlers[ix].handler));
 
       return (*handler)(keycode, record);
