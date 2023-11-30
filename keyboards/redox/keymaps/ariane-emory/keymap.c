@@ -147,6 +147,7 @@ FOR_EACH_SHIFTABLE_OR_CTRLABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string)
 
 enum arianes_custom_keycodes {
   KC_DUMMY = SAFE_RANGE,
+  OTHER_WIN,
   KC_SQUO_TAP,
   KC_DQUO_TAP,
   HOLD_GUI,
@@ -218,6 +219,15 @@ KEYRECORD_C_FUN(bool discord_mute_handler) {
   return false;
 }
               
+
+KEYRECORD_C_FUN(bool other_win_handler) {
+  if (record->event.pressed) {
+    tap_code16(LGUI(KC_GRV));
+  }
+
+  return false;
+}
+              
 KEYRECORD_C_FUN(bool my_boot_handler) {
   rgb_led_fader_init(&rgb_led_fader, MY_RGB_BOOT);
 
@@ -265,6 +275,8 @@ KEYRECORD_C_FUN(bool toggle_df_handler) {
 typedef bool(*keycode_handler_fun_t)(const uint16_t keycode, const keyrecord_t * const record);
 
 static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode_handlers[] PROGMEM = {
+  { OTHER_WIN,               other_win_handler           },
+  { TOGGLE_DF,               toggle_df_handler           },
   { TOGGLE_DF,               toggle_df_handler           },
   { TOGGLE_DF,               toggle_df_handler           },
   { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler      },
