@@ -115,7 +115,7 @@ void keyboard_post_init_user(void) {
   T(X_F) RR() RR()                                                                                                                                    \
   SS_LGUI("`") SCR_L()
 
-#define FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(DO)                                                                                          \
+#define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                          \
   DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""),               (""))                    \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                    \
@@ -140,11 +140,12 @@ void keyboard_post_init_user(void) {
 #define define_nomods_progmem_string(kc, nomods_str, ...)                                      define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
 #define define_ctrled_progmem_string(kc, nomods_str, ctrled_str, ...)                          define_tagged_progmem_string(ctrled, kc, ctrled_str, __VA_ARGS__)
 #define define_alted_progmem_string(kc, nomods_str, ctrled_str, alted_str, ...)                define_tagged_progmem_string(alted, kc, alted_str, __VA_ARGS__)
-#define define_shifted_progmem_string(kc, nomods_str, ctrled_str, alted_str, shifted_str, ...) define_tagged_progmem_string(alted, kc, shifted_str, __VA_ARGS__)
+#define define_shifted_progmem_string(kc, nomods_str, ctrled_str, alted_str, shifted_str, ...) define_tagged_progmem_string(shifted, kc, shifted_str, __VA_ARGS__)
 
-FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
-FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
-FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
+FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
+FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
+FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
+FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
 
 enum arianes_custom_keycodes {
   KC_DUMMY = SAFE_RANGE,
@@ -160,38 +161,41 @@ enum arianes_custom_keycodes {
   MY_BOOT,
   DISCORD_MUTE,
   TOGGLE_DF,
-  FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(enum_item)
+  FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
-#define ctrlable_or_altable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, ctrled_str_##kc, alted_str_##kc },
+#define moddable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, ctrled_str_##kc, alted_str_##kc, shifted_str_##kc },
 
 typedef struct {
   uint16_t kc;
   const char * str;
   const char * ctrled_str;
   const char * alted_str;
-} ctrlable_or_altable_send_string_keycodes_t;
+  const char * shifted_str;
+} moddable_send_string_keycodes_t;
 
-static const ctrlable_or_altable_send_string_keycodes_t ctrlable_or_altable_send_string_keycodes[] = {
-  FOR_EACH_CTRLABLE_OR_ALTABLE_SEND_STRING_KEYCODE(ctrlable_or_altable_send_string_keycodes_row)
+static const moddable_send_string_keycodes_t moddable_send_string_keycodes[] = {
+  FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(moddable_send_string_keycodes_row)
 };
 
-KEYRECORD_C_FUN(bool process_ctrlable_or_altable_send_string) {
-  for (uint8_t ix = 0; ix < ARRAY_SIZE(ctrlable_or_altable_send_string_keycodes); ix++) {
-    if (ctrlable_or_altable_send_string_keycodes[ix].kc == keycode) {      
+KEYRECORD_C_FUN(bool process_moddable_send_string) {
+  for (uint8_t ix = 0; ix < ARRAY_SIZE(moddable_send_string_keycodes); ix++) {
+    if (moddable_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed)  {
-        if (
-          (pgm_read_byte(ctrlable_or_altable_send_string_keycodes[ix].alted_str) != 0) &&
-          (get_mods() & MOD_MASK_ALT)) {
-          SEND_STRING_WITHOUT_MODS_P(ctrlable_or_altable_send_string_keycodes[ix].alted_str);
+        if      ((pgm_read_byte(moddable_send_string_keycodes[ix].ctrled_str) != 0) &&
+                 (get_mods() & MOD_MASK_CTRL)) {
+          SEND_STRING_WITHOUT_MODS_P(moddable_send_string_keycodes[ix].ctrled_str);
         }
-        else if (
-          (pgm_read_byte(ctrlable_or_altable_send_string_keycodes[ix].ctrled_str) != 0) &&
-          (get_mods() & MOD_MASK_CTRL)) {
-          SEND_STRING_WITHOUT_MODS_P(ctrlable_or_altable_send_string_keycodes[ix].ctrled_str);
+        else if ((pgm_read_byte(moddable_send_string_keycodes[ix].alted_str) != 0) &&
+                 (get_mods() & MOD_MASK_ALT)) {
+          SEND_STRING_WITHOUT_MODS_P(moddable_send_string_keycodes[ix].alted_str);
+        }
+        else if ((pgm_read_byte(moddable_send_string_keycodes[ix].shifted_str) != 0) &&
+                 (get_mods() & MOD_MASK_SHIFT)) {
+          SEND_STRING_WITHOUT_MODS_P(moddable_send_string_keycodes[ix].shifted_str);
         }
         else {
-          SEND_STRING_WITHOUT_MODS_P(ctrlable_or_altable_send_string_keycodes[ix].str);
+          SEND_STRING_WITHOUT_MODS_P(moddable_send_string_keycodes[ix].str);
         }
       }
 
@@ -418,7 +422,7 @@ KEYRECORD_FUN(bool process_record_user) {
   if (! process_achordion(keycode, record)) return false;
 #endif // USE_ACHORDION
   
-  if (! process_ctrlable_or_altable_send_string(keycode, record)) return false;
+  if (! process_moddable_send_string(keycode, record)) return false;
 
   if (! process_tap_case(keycode, record)) return false;
 
