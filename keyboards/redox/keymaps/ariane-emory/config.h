@@ -16,7 +16,7 @@
 
 #define COMBO_ONLY_FROM_LAYER                0
 #define COMBO_SHOULD_TRIGGER
-#define COMBO_TERM                           40
+#define COMBO_TERM                           50
 
 #define DYNAMIC_MACRO_DELAY                  15
 #define DYNAMIC_MACRO_SIZE                   64
@@ -59,7 +59,7 @@
 
 #define MY_RGB_LAYERS
 #define MY_RGB_RECORDING_MACRO               RGB_ORANGE
-#define MY_RGB_DEFAULT                       RGB_RED
+#define MY_RGB_DEFAULT                       0xFF, 0x00, 0x04
 #define MY_RGB_FLIP_LAYER_ON                 0x88, 0x00, 0xC0 // violet-ish
 #define MY_RGB_LOWER_LAYER_ON                0x00, 0x78, 0x20 // blue-ish green
 #define MY_RGB_UPPER_LAYER_ON                0xFF, 0x00, 0x68 // magenta-ish
