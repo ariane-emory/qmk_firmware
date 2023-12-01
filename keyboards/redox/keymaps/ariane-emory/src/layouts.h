@@ -66,7 +66,7 @@
 # define YB_RC  KC_QUOT
 #endif
 //------------------------------------------------------------------------------
-#define YT_Q    KC_Q
+#define YT_Q    KC_Z
 #define YT_W    KC_D
 #define YT_E    KC_R
 #define YT_R    KC_F
@@ -88,7 +88,7 @@
 #define YH_L    RHRM_3(KC_I)
 #define YH_QUOT RHRM_4(YH_RC)
 //------------------------------------------------------------------------------
-#define YB_Z    LBRM_4(KC_Z)
+#define YB_Z    LBRM_4(KC_Q)
 #define YB_X    KC_X
 #define YB_C    KC_L
 #define YB_V    LBRM_4(KC_C)
