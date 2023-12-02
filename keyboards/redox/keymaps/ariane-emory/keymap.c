@@ -602,13 +602,13 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_QUOT, KC_SPC },
   
   // Right Control
-  { QH_J,    QH_H            }, // backspace
+  /* { QH_J,    QH_H            }, // backspace */
   { QH_J,    QH_K            }, // kill line
   { QH_J,    QH_L            }, // recenter / address bar
   { QH_J,    QT_Y            }, // yank
-  { QH_J,    QB_N            }, // next line
+  /* { QH_J,    QB_N            }, // next line */
   { QH_J,    QT_I            }, // tab
-  { QH_J,    QT_P            }, // prev line
+  /* { QH_J,    QT_P            }, // prev line */
 
   // Right Alt
   { QH_K,    QH_L            }, // address bar?
@@ -617,8 +617,8 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_K,    QB_N            }, // next command
 
   // Right GUI
-  { QH_L,    QH_K            }, // ???
-  { QH_L,    KC_BSLS         }, // ???
+  /* { QH_L,    QH_K            }, // ??? */
+  /* { QH_L,    KC_BSLS         }, // ??? */
 
   // Workman
   { WH_J,    WB_N            }, // kill line
