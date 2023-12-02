@@ -35,14 +35,14 @@
   DO(l_mid_outr,        EM_BOL,        QH_S,    QH_D                               ) \
   DO(l_mid_innr,        EM_EOL,        QH_D,    QH_F                               ) \
   DO(l_midk_curl,       KC_END,        QH_F,    QH_G                               ) \
-  DO(l_mid_sprd,        TOGGLE_DF,     QH_S,    QH_F                               ) \
+  DO(l_mid_sprd,        OTHER_WIN,     QH_S,    QH_F                               ) \
   DO(l_mid_trpo,        EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
-  DO(l_mid_trpm,        OTHER_WIN,     QH_S,    QH_D,      QH_F                    ) \
+  DO(l_mid_trpm,        CAPS_WORD,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,        EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   __________________________________________________________________________________ \
   __(l_bot_rech,        ____________,  QB_Z,    QB_X                               ) \
-  DO(l_bot_outr,        SS_CD,         QB_X,    QB_C                               ) \
-  DO(l_bot_innr,        CAPS_WORD,     QB_C,    QB_V                               ) \
+  DO(l_bot_outr,        TOGGLE_DF,     QB_X,    QB_C                               ) \
+  DO(l_bot_innr,        SS_CD,         QB_C,    QB_V                               ) \
   __(l_bot_curl,        ____________,  QB_V,    QB_B                               ) \
   __(l_bot_sprd,        ____________,  QB_X,    QB_V                               ) \
   __(l_bot_trpo,        ____________,  QB_Z,    QB_X,      QB_C                    ) \
