@@ -475,7 +475,7 @@ typedef struct {
   uint8_t b;
 } layer_to_rgb_t;
   
-static const layer_to_rgb_t layer_to_rgbs[] = {
+static const layer_to_rgb_t layer_to_rgbs[] PROGMEM = {
   { TOGGLED_LAYER, MY_RGB_DEFAULT          },
   { LN_ARROWS,     MY_RGB_ADJUST_LAYER_ON  },
   { LN_FLIPR,      MY_RGB_FLIP_LAYER_ON    },
@@ -489,14 +489,14 @@ void rgb_led_fader_set_target_by_layer(rgb_led_fader_t * const this) {
   const layer_to_rgb_t * row = &layer_to_rgbs[0];
   
   for (size_t ix = 1; ix < ARRAY_SIZE(layer_to_rgbs); ix++) {
-    if (IS_LAYER_ON(layer_to_rgbs[ix].layer)) {
+    if (IS_LAYER_ON(pgm_read_byte(&layer_to_rgbs[ix].layer))) {
       row = &layer_to_rgbs[ix];
 
       break;
     }
   }
 
-  rgb_led_fader_set_target(this, row->r, row->g, row->b);
+  rgb_led_fader_set_target(this, pgm_read_byte(&row->r), pgm_read_byte(&row->g), pgm_read_byte(&row->b));
 }
 #endif
 
