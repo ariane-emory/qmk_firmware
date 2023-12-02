@@ -573,10 +573,10 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
 
   // Left Alt
   /* { QH_D,    KC_TAB          }, // alt+tab */
-  { QH_D,    QT_W            }, // close
+  /* { QH_D,    QT_W            }, // close */
   /* { QH_D,    QT_R            }, // refresh */
-  { QH_D,    QH_F            }, // forwards word
-  { QH_D,    QB_B            }, // backwards word
+  /* { QH_D,    QH_F            }, // forwards word */
+  /* { QH_D,    QB_B            }, // backwards word */
   /* { QH_D,    QT_T            }, // new tab */
   { QH_D,    KC_ENT          }, // M-<return>
 
@@ -585,8 +585,8 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_F,    QH_D            }, // delete forwards char
   /* { QH_F,    QT_E            }, // end of line */
   /* { QH_F,    QT_T            }, // new tab */
-  { QH_F,    QT_W            }, // close
-  { QH_F,    QH_S            }, // i-search
+  /* { QH_F,    QT_W            }, // close */
+  /* { QH_F,    QH_S            }, // i-search */
   { QH_F,    KC_ENT          }, // C-<return>
 
   // Left shift
@@ -613,7 +613,7 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // Right Alt
   { QH_K,    QH_L            }, // address bar?
   { QH_K,    QT_P            }, // prev command
-  { QH_K,    KC_BSLS         }, // ???
+  /* { QH_K,    KC_BSLS         }, // ??? */
   { QH_K,    QB_N            }, // next command
 
   // Right GUI
