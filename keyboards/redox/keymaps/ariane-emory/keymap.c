@@ -489,14 +489,17 @@ void rgb_led_fader_set_target_by_layer(rgb_led_fader_t * const this) {
   const layer_to_rgb_t * row = &layer_to_rgbs[0];
   
   for (size_t ix = 1; ix < ARRAY_SIZE(layer_to_rgbs); ix++) {
-    if (IS_LAYER_ON(pgm_read_byte(&layer_to_rgbs[ix].layer))) {
+    if (layer_state_is(pgm_read_byte(&layer_to_rgbs[ix].layer))) {
       row = &layer_to_rgbs[ix];
 
       break;
     }
   }
 
-  rgb_led_fader_set_target(this, pgm_read_byte(&row->r), pgm_read_byte(&row->g), pgm_read_byte(&row->b));
+  rgb_led_fader_set_target(this,
+                           pgm_read_byte(&row->r),
+                           pgm_read_byte(&row->g),
+                           pgm_read_byte(&row->b));
 }
 #endif
 
