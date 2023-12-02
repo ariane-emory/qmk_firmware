@@ -124,7 +124,6 @@ bool combo_should_trigger(
           || (((layer_state_is(LN_LOWER) || layer_state_is(LN_UPPER) || layer_state_is(LN_ARROWS))) &&
               ((combo->keycode == EM_BOL) || (combo->keycode == EM_EOL)))
           || (layer_state_is(LN_MOUSE) && (combo_index < 18)) // this index will probably need frequent adjustment.
-// || layer_state_is(5)
           || false);
 }
 
