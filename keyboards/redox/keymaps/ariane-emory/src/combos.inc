@@ -40,8 +40,9 @@
   DO(l_mid_trpm,        OTHER_WIN,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,        EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   __________________________________________________________________________________ \
+  __(l_diag_innr_rev,   ____________,  QB_C,    QH_F                               ) \
   DO(l_diag_innr,       CAPS_WORD,     QH_D,    QB_V                               ) \
-  __(l_diag_curl,       ____________,  QH_F,    QB_B                               ) \
+  DO(l_diag_curl,       TOGGLE_DF,     QH_F,    QB_B                               ) \
   __________________________________________________________________________________ \
   __(l_bot_rech,        ____________,  QB_Z,    QB_X                               ) \
   DO(l_bot_outr,        TOGGLE_DF,     QB_X,    QB_C                               ) \
@@ -74,6 +75,7 @@
   __________________________________________________________________________________ \
   DO(r_diag_curl,       KC_ESC,        QB_N,    QH_J                               ) \
   DO(r_diag_innr,       LALT(KC_X),    QB_M,    QH_K                               ) \
+  DO(r_diag_innr_rev,   KC_ESC,        QH_J,    QB_COMM                            ) \
   __________________________________________________________________________________ \
   DO(r_bot_curl,        EM_LASTARG,    QB_N,    QB_M                               ) \
   DO(r_bot_innr,        KA_UNDO,       QB_M,    QB_COMM                            ) \
