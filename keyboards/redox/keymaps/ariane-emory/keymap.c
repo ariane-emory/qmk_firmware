@@ -607,6 +607,7 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_J,    QH_L            }, // recenter / address bar
   { QH_J,    QT_Y            }, // yank
   { QH_J,    QB_N            }, // next line
+  { QH_J,    QT_I            }, // tab
   { QH_J,    QT_P            }, // prev line
 
   // Right Alt
