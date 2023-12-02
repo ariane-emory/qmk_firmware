@@ -109,10 +109,8 @@
 #define RCTL_SQUO      RCTL_T(KC_SQUO_TAP)
 #define RCTL_DQUO      RCTL_T(KC_DQUO_TAP)
 #define LCTL_ESC       LCTL_T(KC_ESC)
-#define TMPU           KC_VOLU
-#define TMPD           KC_VOLD
-#define VOLU           KC_F20
-#define VOLD           KC_F19
+#define BRT_UP         KC_F20
+#define BRT_DN         KC_F19
 #define TG_MOUSE       TG(LN_MOUSE)
 #define CAPS_WORD      QK_CAPS_WORD_TOGGLE
 //==============================================================================
