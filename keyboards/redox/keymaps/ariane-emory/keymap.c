@@ -32,9 +32,9 @@ rgb_led_fader_t rgb_led_fader;
 
 #define RGB_SETRGB_FROM_FADER(f)                                                                                                                      \
   rgblight_setrgb(                                                                                                                                    \
-    DIM_RGB_LED_T(f.current.r),                                                                                                                       \
-    DIM_RGB_LED_T(f.current.g),                                                                                                                       \
-    DIM_RGB_LED_T(f.current.b));                                                                                                            
+    DIM_RGB_LED_T((f)->current.r),                                                                                                                    \
+    DIM_RGB_LED_T((f)->current.g),                                                                                                                    \
+    DIM_RGB_LED_T((f)->current.b));                                                                                                            
 
 #define KEYRECORD_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t *record)
 #define KEYRECORD_C_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t const * const record)
@@ -79,7 +79,7 @@ void keyboard_post_init_user(void) {
 
   rgb_led_fader_init(&rgb_led_fader, MY_RGB_BOOT);
 
-  RGB_SETRGB_FROM_FADER(rgb_led_fader);
+  RGB_SETRGB_FROM_FADER(&rgb_led_fader);
 #endif
 }
 
@@ -250,7 +250,7 @@ KEYRECORD_C_FUN(bool close_win_handler) {
 KEYRECORD_C_FUN(bool my_boot_handler) {
   rgb_led_fader_init(&rgb_led_fader, MY_RGB_BOOT);
 
-  RGB_SETRGB_FROM_FADER(rgb_led_fader);
+  RGB_SETRGB_FROM_FADER(&rgb_led_fader);
   
   reset_keyboard();
   
@@ -542,8 +542,7 @@ void matrix_scan_user(void) {
 #  endif
     rgb_led_fader_step(&rgb_led_fader);
 
-  ;
-  RGB_SETRGB_FROM_FADER(rgb_led_fader);
+  RGB_SETRGB_FROM_FADER(&rgb_led_fader);
 #endif // defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
 }
 
