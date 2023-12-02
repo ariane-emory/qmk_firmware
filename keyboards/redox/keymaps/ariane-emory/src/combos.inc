@@ -35,10 +35,13 @@
   DO(l_mid_outr,        EM_BOL,        QH_S,    QH_D                               ) \
   DO(l_mid_innr,        EM_EOL,        QH_D,    QH_F                               ) \
   DO(l_midk_curl,       KC_END,        QH_F,    QH_G                               ) \
-  DO(l_mid_sprd,        OTHER_WIN,     QH_S,    QH_F                               ) \
+  DO(l_mid_sprd,        CAPS_WORD,     QH_S,    QH_F                               ) \
   DO(l_mid_trpo,        EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
-  DO(l_mid_trpm,        CAPS_WORD,     QH_S,    QH_D,      QH_F                    ) \
+  DO(l_mid_trpm,        OTHER_WIN,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,        EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
+  __________________________________________________________________________________ \
+  DO(l_diag_innr,       CAPS_WORD,     QH_D,    QB_V                               ) \
+  __(l_diag_curl,       ____________,  QH_F,    QB_B                               ) \
   __________________________________________________________________________________ \
   __(l_bot_rech,        ____________,  QB_Z,    QB_X                               ) \
   DO(l_bot_outr,        TOGGLE_DF,     QB_X,    QB_C                               ) \
@@ -69,7 +72,7 @@
   DO(r_mid_trpm,        EM_DIRED,      QH_J,    QH_K,       QH_L                   ) \
   DO(r_mid_trpo,        EM_ALL_BUF,    QH_K,    QH_L,       QH_QUOT                ) \
   __________________________________________________________________________________ \
-  DO(r_diag_outr,       KC_ESC,        QB_N,    QH_J                               ) \
+  DO(r_diag_curl,       KC_ESC,        QB_N,    QH_J                               ) \
   DO(r_diag_innr,       LALT(KC_X),    QB_M,    QH_K                               ) \
   __________________________________________________________________________________ \
   DO(r_bot_curl,        EM_LASTARG,    QB_N,    QB_M                               ) \
