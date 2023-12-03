@@ -69,10 +69,10 @@
 #define YT_Q    KC_Z
 #define YT_W    KC_D
 #define YT_E    KC_R
-#define YT_R    KC_F
+#define YT_R    KC_W
 #define YT_T    KC_B
 #define YT_Y    KC_J
-#define YT_U    KC_W
+#define YT_U    KC_F
 #define YT_I    KC_U
 #define YT_O    KC_P
 #define YT_P    YT_RC
