@@ -271,7 +271,8 @@ KEYRECORD_C_FUN(bool insert_upp_handler) {
 #endif // INSERT_UPP_ENABLED
 
 KEYRECORD_C_FUN(bool disable_mouse_layer_handler) {
-  layer_off(LN_MOUSE);
+  if ((! record->tap.count) && record->event.pressed)
+    layer_off(LN_MOUSE);
 
   return true;
 };
@@ -292,6 +293,7 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
   { OTHER_WIN,               other_win_handler           },
   { TOGGLE_DF,               toggle_df_handler           },
   { KC_LOWER,                disable_mouse_layer_handler },
+  { FLIPL_OR_TAB,            disable_mouse_layer_handler },
   { DISCORD_MUTE,            discord_mute_handler        },
   { MY_BOOT,                 my_boot_handler             },
 #ifdef DYNAMIC_MACRO_HANDLERS
