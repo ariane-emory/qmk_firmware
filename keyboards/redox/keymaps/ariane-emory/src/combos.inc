@@ -31,10 +31,10 @@
   __(l_top_trpm,             ____________,  QT_W,    QT_E,      QT_R                    ) \
   __(l_top_trpi,             ____________,  QT_E,    QT_R,      QT_T                    ) \
   _______________________________________________________________________________________ \
-  DO(l_mid_rech,             EM_BOL,        QH_A,    QH_S                               ) \
-  DO(l_mid_outr,             EM_EOL,        QH_S,    QH_D                               ) \
-  DO(l_mid_innr,             KC_HOME,       QH_D,    QH_F                               ) \
-  DO(l_midk_curl,            KC_END,        QH_F,    QH_G                               ) \
+  DO(l_mid_rech,             KC_HOME,       QH_A,    QH_S                               ) \
+  DO(l_mid_outr,             KC_END,        QH_S,    QH_D                               ) \
+  DO(l_mid_innr,             EM_BOL,        QH_D,    QH_F                               ) \
+  DO(l_midk_curl,            EM_EOL,        QH_F,    QH_G                               ) \
   DO(l_mid_sprd,             CAPS_WORD,     QH_S,    QH_F                               ) \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
   DO(l_mid_trpm,             OTHER_WIN,     QH_S,    QH_D,      QH_F                    ) \
