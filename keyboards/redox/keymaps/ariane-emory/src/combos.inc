@@ -21,11 +21,11 @@
   __(l_num_trpm,             ____________,  KC_2,    KC_3,      KC_4                    ) \
   __(l_num_trpi,             ____________,  KC_3,    KC_4,      KC_5                    ) \
   _______________________________________________________________________________________ \
-  DO(l_top_extr,             KC_END,        QT_TAB,  QT_Q                               ) \
-  DO(l_top_rech,             KC_HOME,       QT_Q,    QT_W                               ) \
+  __(l_top_extr,             ____________,  QT_TAB,  QT_Q                               ) \
+  __(l_top_rech,             ____________,  QT_Q,    QT_W                               ) \
   DO(l_top_outr,             LSFT(KC_GRV),  QT_W,    QT_E                               ) \
   DO(l_top_innr,             KC_GRV,        QT_E,    QT_R                               ) \
-  DO(l_top_curl,             KC_END,        QT_R,    QT_T                               ) \
+  __(l_top_curl,             ____________,  QT_R,    QT_T                               ) \
   __(l_top_sprd,             ____________,  QT_W,    QT_R                               ) \
   __(l_top_trpo,             ____________,  QT_Q,    QT_W,      QT_E                    ) \
   __(l_top_trpm,             ____________,  QT_W,    QT_E,      QT_R                    ) \
