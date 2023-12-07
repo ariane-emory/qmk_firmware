@@ -271,7 +271,7 @@ KEYRECORD_C_FUN(bool insert_upp_handler) {
 #endif // INSERT_UPP_ENABLED
 
 KEYRECORD_C_FUN(bool disable_mouse_layer_handler) {
-  if ((! record->tap.count) && record->event.pressed)
+  if (! record->event.pressed)
     layer_off(LN_MOUSE);
 
   return true;
