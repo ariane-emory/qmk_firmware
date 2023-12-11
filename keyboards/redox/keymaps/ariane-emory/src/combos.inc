@@ -44,7 +44,7 @@
   DO(l_mid_diag_innr,        CAPS_WORD,     QH_D,    QB_V                               ) \
   DO(l_mid_diag_curl,        TOGGLE_DF,     QH_F,    QB_B                               ) \
   _______________________________________________________________________________________ \
-  __(l_bot_rech,             ____________,  QB_Z,    QB_X                               ) \
+  DO(l_bot_rech,             TG(LN_MOUSE),  QB_Z,    QB_X                               ) \
   DO(l_bot_outr,             TOGGLE_DF,     QB_X,    QB_C                               ) \
   DO(l_bot_innr,             SS_CD,         QB_C,    QB_V                               ) \
   __(l_bot_curl,             ____________,  QB_V,    QB_B                               ) \
