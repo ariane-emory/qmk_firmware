@@ -37,7 +37,7 @@
   DO(l_midk_curl,            KC_HOME,       QH_F,    QH_G                               ) \
   DO(l_mid_sprd,             OTHER_WIN,     QH_S,    QH_F                               ) \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
-  __(l_mid_trpm,             ____________,  QH_S,    QH_D,      QH_F                    ) \
+  DO(l_mid_trpm,             CLOSE_WIN,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,             EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   _______________________________________________________________________________________ \
   __(l_mid_diag_innr_rev,    ____________,  QB_C,    QH_F                               ) \
@@ -50,7 +50,7 @@
   __(l_bot_curl,             ____________,  QB_V,    QB_B                               ) \
   DO(l_bot_sprd,             TG(LN_MOUSE),  QB_X,    QB_V                               ) \
   __(l_bot_trpo,             ____________,  QB_Z,    QB_X,      QB_C                    ) \
-  DO(l_bot_trpm,             CLOSE_WIN,     QB_X,    QB_C,      QB_V                    ) \
+  __(l_bot_trpm,             ____________,  QB_X,    QB_C,      QB_V                    ) \
   __(l_bot_trpi,             ____________,  QB_C,    QB_V,      QB_B                    ) \
   _______________________________________________________________________________________ \
   DO(r_top_curl,             SS_AND_AND,    QT_Y,    QT_U                               ) \
