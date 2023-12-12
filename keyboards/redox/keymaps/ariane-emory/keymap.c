@@ -295,9 +295,8 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
   { STR_LFT,                 disable_mouse_layer_handler },
   { THU_LFT,                 disable_mouse_layer_handler },
   { CRL_LFT,                 disable_mouse_layer_handler },
-  { CRL_MS,                  disable_mouse_layer_handler },
-  
-  // { CRL_MS,                  disable_mouse_layer_handler },
+//{ CRL_MS,                  disable_mouse_layer_handler },
+
   { DISCORD_MUTE,            discord_mute_handler        },
   { MY_BOOT,                 my_boot_handler             },
 #ifdef DYNAMIC_MACRO_HANDLERS

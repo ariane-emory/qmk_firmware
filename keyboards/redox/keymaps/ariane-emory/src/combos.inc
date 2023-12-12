@@ -31,24 +31,24 @@
   __(l_top_trpm,             ____________,  QT_W,    QT_E,      QT_R                    ) \
   __(l_top_trpi,             ____________,  QT_E,    QT_R,      QT_T                    ) \
   _______________________________________________________________________________________ \
-  DO(l_mid_rech,             KC_HOME,       QH_A,    QH_S                               ) \
-  DO(l_mid_outr,             KC_END,        QH_S,    QH_D                               ) \
+  DO(l_mid_rech,             KC_END,        QH_A,    QH_S                               ) \
+  DO(l_mid_outr,             EM_EOL,        QH_S,    QH_D                               ) \
   DO(l_mid_innr,             EM_BOL,        QH_D,    QH_F                               ) \
-  DO(l_midk_curl,            EM_EOL,        QH_F,    QH_G                               ) \
+  DO(l_midk_curl,            KC_HOME,       QH_F,    QH_G                               ) \
   DO(l_mid_sprd,             CAPS_WORD,     QH_S,    QH_F                               ) \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
   DO(l_mid_trpm,             OTHER_WIN,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,             EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   _______________________________________________________________________________________ \
   __(l_mid_diag_innr_rev,    ____________,  QB_C,    QH_F                               ) \
-  DO(l_mid_diag_innr,        CAPS_WORD,     QH_D,    QB_V                               ) \
+  DO(l_mid_diag_innr,        SS_CD,         QH_D,    QB_V                               ) \
   DO(l_mid_diag_curl,        TOGGLE_DF,     QH_F,    QB_B                               ) \
   _______________________________________________________________________________________ \
-  DO(l_bot_rech,             TG(LN_MOUSE),  QB_Z,    QB_X                               ) \
+  __(l_bot_rech,             ____________,  QB_Z,    QB_X                               ) \
   DO(l_bot_outr,             TOGGLE_DF,     QB_X,    QB_C                               ) \
-  DO(l_bot_innr,             SS_CD,         QB_C,    QB_V                               ) \
+  DO(l_bot_innr,             CAPS_WORD,     QB_C,    QB_V                               ) \
   __(l_bot_curl,             ____________,  QB_V,    QB_B                               ) \
-  __(l_bot_sprd,             ____________,  QB_X,    QB_V                               ) \
+  DO(l_bot_sprd,             TG(LN_MOUSE),  QB_X,    QB_V                               ) \
   __(l_bot_trpo,             ____________,  QB_Z,    QB_X,      QB_C                    ) \
   DO(l_bot_trpm,             CLOSE_WIN,     QB_X,    QB_C,      QB_V                    ) \
   __(l_bot_trpi,             ____________,  QB_C,    QB_V,      QB_B                    ) \
