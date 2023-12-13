@@ -289,25 +289,27 @@ KEYRECORD_C_FUN(bool toggle_df_handler) {
 typedef bool(*keycode_handler_fun_t)(const uint16_t keycode, const keyrecord_t * const record);
 
 static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode_handlers[] PROGMEM = {
-  { CLOSE_WIN,               close_win_handler           },
-  { OTHER_WIN,               other_win_handler           },
-  { TOGGLE_DF,               toggle_df_handler           },
-  { STR_LFT,                 disable_mouse_layer_handler },
-  { THU_LFT,                 disable_mouse_layer_handler },
-  { CRL_LFT,                 disable_mouse_layer_handler },
-//{ CRL_MS,                  disable_mouse_layer_handler },
+  { DISCORD_MUTE,                discord_mute_handler        },
+  { MY_BOOT,                     my_boot_handler             },
+  { CLOSE_WIN,                   close_win_handler           },
+  { OTHER_WIN,                   other_win_handler           },
+  { TOGGLE_DF,                   toggle_df_handler           },
+  { STR_LFT,                     disable_mouse_layer_handler },
+  { THU_LFT,                     disable_mouse_layer_handler },
+  { CRL_LFT,                     disable_mouse_layer_handler },
+//{ CRL_MS,                      disable_mouse_layer_handler },
 
-  { DISCORD_MUTE,            discord_mute_handler        },
-  { MY_BOOT,                 my_boot_handler             },
 #ifdef DYNAMIC_MACRO_HANDLERS
-  { QK_DYNAMIC_MACRO_PLAY_1, dynamic_macros_handler      },
-  { QK_DYNAMIC_MACRO_PLAY_2, dynamic_macros_handler      },
+  { QK_DYNAMIC_MACRO_PLAY_1,     dynamic_macros_handler      },
+  { QK_DYNAMIC_MACRO_PLAY_2,     dynamic_macros_handler      },
 #endif // DYNAMIC_MACRO_HANDLERS
+
 #ifdef    HOLD_GUI_ENABLED
-  { HOLD_GUI,                hold_gui_handler            },
+  { HOLD_GUI,                    hold_gui_handler            },
 #endif    // HOLD_GUI_ENABLED
+
 #ifdef    INSERT_UPP_ENABLED
-  { INSERT_UPP,              insert_upp_handler          },
+  { INSERT_UPP,                  insert_upp_handler          },
 #endif // INSERT_UPP_ENABLED
 };
 
