@@ -75,9 +75,9 @@
   DO(r_mid_trpm,             EM_DIRED,      QH_J,    QH_K,       QH_L                   ) \
   DO(r_mid_trpo,             EM_ALL_BUF,    QH_K,    QH_L,       QH_QUOT                ) \
   _______________________________________________________________________________________ \
-  DO(r_mid_diag_curl,        KC_ESC,        QB_N,    QH_J                               ) \
+  __(r_mid_diag_curl,        _____________, QB_N,    QH_J                               ) \
   DO(r_mid_diag_innr,        LALT(KC_X),    QB_M,    QH_K                               ) \
-  DO(r_mid_diag_innr_rev,    KC_ESC,        QH_J,    QB_COMM                            ) \
+  __(r_mid_diag_innr_rev,    _____________, QH_J,    QB_COMM                            ) \
   _______________________________________________________________________________________ \
   DO(r_bot_curl,             EM_LASTARG,    QB_N,    QB_M                               ) \
   DO(r_bot_innr,             KA_UNDO,       QB_M,    QB_COMM                            ) \

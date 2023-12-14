@@ -125,7 +125,7 @@ void keyboard_post_init_user(void) {
   DO(SS_SMILEY,            (" ;0"),                              (" :/"),                                (" >_>"),           (""))                    \
   DO(SS_SMILEY2,           (" :0"),                              (" :P"),                                (" :D"),            (""))                    \
   DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"),             (""))                    \
-  DO(SS_CD,                ("cd "),                              ("cd ~"),                               ("cd .."),          ("cd -"))                \
+  DO(SS_CD,                ("cd "),                              ("cd ~/"),                              ("cd .."),          ("cd -"))                \
   DO(SS_LBRACK,            ("9"),                                ("["),                                  ("{"),              ("<"))                   \
   DO(SS_RBRACK,            ("0"),                                ("]"),                                  ("}"),              (">"))                   \
   DO(SS_AND_AND,           (" 77 "),                             (" || "),                               (" @>7! "),         (" >/dev/null "))        \
