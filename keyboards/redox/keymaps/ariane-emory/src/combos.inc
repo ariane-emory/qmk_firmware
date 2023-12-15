@@ -65,8 +65,10 @@
   DO(r_top_trpo,             SS_SMILEY,     QT_I,    QT_O,      QT_P                    ) \
   DO(r_top_extr,             KC_END,        QT_P,    QT_BSLS                            ) \
   _______________________________________________________________________________________ \
-  DO(r_top_diag_innr,        KC_VOLD,       QH_J,    QT_I                               ) \
-  DO(r_top_diag_outr,        KC_VOLU,       QT_I,    QH_L                               ) \
+  DO(r_top_diag_curl,        KC_VOLD,       QH_H,    QT_U                               ) \
+  DO(r_top_innr_rev,         KC_VOLU,       QH_K,    QT_U                               ) \
+  __(r_top_diag_innr,        KC_VOLD,       QH_J,    QT_I                               ) \
+  __(r_top_diag_outr,        KC_VOLU,       QT_I,    QH_L                               ) \
   _______________________________________________________________________________________ \
   DO(r_mid_EXTR,             EM_LWRAP,      QH_QUOT, RCTL_DQUO                          ) \
   DO(r_mid_curl,             KC_EQL,        QH_H,    QH_J                               ) \
@@ -122,8 +124,8 @@ bool combo_should_trigger(
           || (combo->keycode == SS_DICT)
           || (combo->keycode == KC_HOME)
           || (combo->keycode == KC_END)
-          // || (combo->keycode == KC_VOLD)
-          // || (combo->keycode == KC_VOLU)
+          || (combo->keycode == KC_VOLD)
+          || (combo->keycode == KC_VOLU)
           || (combo->keycode == KC_ESC)
           || (layer_state_is(LN_ARROWS) && combo->keycode == KC_ENT)
           || (((layer_state_is(LN_LOWER) || layer_state_is(LN_UPPER) || layer_state_is(LN_ARROWS))) &&
