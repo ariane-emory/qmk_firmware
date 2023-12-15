@@ -22,7 +22,7 @@
   __(l_top_trpm,             ____________,  QT_W,    QT_E,      QT_R                    ) \
   __(l_top_trpi,             ____________,  QT_E,    QT_R,      QT_T                    ) \
   _______________________________________________________________________________________ \
-  __(l_top_diag_up_innr,     SS_CD,         QH_F,    QT_E                               ) \
+  DO(l_top_diag_up_innr,     KC_TAB,        QH_F,    QT_E                               ) \
   __(l_top_diag_dn_outr,     KC_VOLD,       QT_E,    QH_S                               ) \
   _______________________________________________________________________________________ \
   DO(l_mid_rech,             KC_END,        QH_A,    QH_S                               ) \
