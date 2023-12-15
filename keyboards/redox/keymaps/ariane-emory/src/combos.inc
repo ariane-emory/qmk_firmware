@@ -57,7 +57,7 @@
   DO(r_top_trpo,             SS_SMILEY,     QT_I,    QT_O,      QT_P                    ) \
   DO(r_top_extr,             KC_END,        QT_P,    QT_BSLS                            ) \
   _______________________________________________________________________________________ \
-  DO(r_top_diag_curl_up,     KC_ESC,        QH_H,    QT_U                               ) \
+  __(r_top_diag_curl_up,     KC_ESC,        QH_H,    QT_U                               ) \
   __(r_top_diag_innr_dn,     KC_ESC,        QH_K,    QT_U                               ) \
   DO(r_top_diag_innr_up,     LALT(KC_X),    QH_J,    QT_I                               ) \
   DO(r_top_diag_outr_dn,     QK_LEAD,       QT_I,    QH_L                               ) \
@@ -72,7 +72,7 @@
   DO(r_mid_trpm,             EM_DIRED,      QH_J,    QH_K,       QH_L                   ) \
   DO(r_mid_trpo,             EM_ALL_BUF,    QH_K,    QH_L,       QH_QUOT                ) \
   _______________________________________________________________________________________ \
-  __(r_bot_diag_curl_up,     KC_VOLD,       QB_N,    QH_J                               ) \
+  DO(r_bot_diag_curl_up,     KC_ESC,        QB_N,    QH_J                               ) \
   __(r_bot_diag_curl_dn,     KC_VOLD,       QB_M,    QH_H                               ) \
   DO(r_bot_diag_innr_up,     KC_VOLD,       QB_M,    QH_K                               ) \
   __(r_bot_diag_innr_dn,     KC_VOLU,       QB_COMM, QH_J                               ) \
