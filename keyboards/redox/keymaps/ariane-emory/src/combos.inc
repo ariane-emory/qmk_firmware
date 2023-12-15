@@ -12,15 +12,6 @@
 
 #define FOR_EACH_COMBO(DO)                                                                \
   _______________________________________________________________________________________ \
-  __(l_num_rech,             ____________,  KC_1,    KC_2                               ) \
-  __(l_num_outr,             ____________,  KC_2,    KC_3                               ) \
-  __(l_num_innr,             ____________,  KC_3,    KC_4                               ) \
-  __(l_num_curl,             ____________,  KC_4,    KC_5                               ) \
-  __(l_num_sprd,             ____________,  KC_2,    KC_4                               ) \
-  __(l_num_trpo,             ____________,  KC_1,    KC_2,      KC_3                    ) \
-  __(l_num_trpm,             ____________,  KC_2,    KC_3,      KC_4                    ) \
-  __(l_num_trpi,             ____________,  KC_3,    KC_4,      KC_5                    ) \
-  _______________________________________________________________________________________ \
   __(l_top_extr,             ____________,  QT_TAB,  QT_Q                               ) \
   __(l_top_rech,             ____________,  QT_Q,    QT_W                               ) \
   DO(l_top_outr,             LSFT(KC_GRV),  QT_W,    QT_E                               ) \
@@ -31,8 +22,8 @@
   __(l_top_trpm,             ____________,  QT_W,    QT_E,      QT_R                    ) \
   __(l_top_trpi,             ____________,  QT_E,    QT_R,      QT_T                    ) \
   _______________________________________________________________________________________ \
-  DO(l_top_diag_innr,        KC_VOLU,       QH_F,    QT_E                               ) \
-  DO(l_top_diag_outr,        KC_VOLD,       QT_E,    QH_S                               ) \
+  __(l_top_diag_innr,        KC_VOLU,       QH_F,    QT_E                               ) \
+  __(l_top_diag_outr,        KC_VOLD,       QT_E,    QH_S                               ) \
   _______________________________________________________________________________________ \
   DO(l_mid_rech,             KC_END,        QH_A,    QH_S                               ) \
   DO(l_mid_outr,             EM_EOL,        QH_S,    QH_D                               ) \
