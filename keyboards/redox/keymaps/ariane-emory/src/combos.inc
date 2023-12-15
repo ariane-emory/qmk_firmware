@@ -57,7 +57,7 @@
   DO(r_top_trpo,             SS_SMILEY,     QT_I,    QT_O,      QT_P                    ) \
   DO(r_top_extr,             KC_END,        QT_P,    QT_BSLS                            ) \
   _______________________________________________________________________________________ \
-  __(r_top_diag_curl_up,     KC_ESC,        QH_H,    QT_U                               ) \
+  DO(r_top_diag_curl_up,     KC_ESC,        QH_H,    QT_U                               ) \
   __(r_top_diag_innr_dn,     KC_ESC,        QH_K,    QT_U                               ) \
   DO(r_top_diag_innr_up,     LALT(KC_X),    QH_J,    QT_I                               ) \
   DO(r_top_diag_outr_dn,     QK_LEAD,       QT_I,    QH_L                               ) \
