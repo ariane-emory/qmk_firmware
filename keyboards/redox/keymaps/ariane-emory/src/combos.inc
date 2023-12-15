@@ -79,7 +79,7 @@
   DO(r_mid_trpm,             EM_DIRED,      QH_J,    QH_K,       QH_L                   ) \
   DO(r_mid_trpo,             EM_ALL_BUF,    QH_K,    QH_L,       QH_QUOT                ) \
   _______________________________________________________________________________________ \
-  __(r_mid_diag_curl,        _____________, QB_N,    QH_J                               ) \
+  DO(r_mid_diag_curl,        KC_ESC,        QB_N,    QH_J                               ) \
   DO(r_mid_diag_innr,        LALT(KC_X),    QB_M,    QH_K                               ) \
   __(r_mid_diag_innr_rev,    _____________, QH_J,    QB_COMM                            ) \
   _______________________________________________________________________________________ \
