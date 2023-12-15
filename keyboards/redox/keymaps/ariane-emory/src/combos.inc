@@ -43,7 +43,6 @@
   DO(l_mid_trpm,             CLOSE_WIN,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,             EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   _______________________________________________________________________________________ \
-  __(l_mid_diag_innr_rev,    ____________,  QB_C,    QH_F                               ) \
   DO(l_mid_diag_innr,        SS_CD,         QH_D,    QB_V                               ) \
   DO(l_mid_diag_curl,        SS_DIR,        QH_F,    QB_B                               ) \
   _______________________________________________________________________________________ \
@@ -81,7 +80,6 @@
   _______________________________________________________________________________________ \
   DO(r_mid_diag_curl,        KC_ESC,        QB_N,    QH_J                               ) \
   DO(r_mid_diag_innr,        LALT(KC_X),    QB_M,    QH_K                               ) \
-  __(r_mid_diag_innr_rev,    _____________, QH_J,    QB_COMM                            ) \
   _______________________________________________________________________________________ \
   DO(r_bot_curl,             EM_LASTARG,    QB_N,    QB_M                               ) \
   DO(r_bot_innr,             KA_UNDO,       QB_M,    QB_COMM                            ) \
