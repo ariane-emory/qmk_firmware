@@ -43,8 +43,8 @@
   DO(l_mid_trpm,             CLOSE_WIN,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,             EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   _______________________________________________________________________________________ \
-  DO(l_mid_diag_innr,        SS_CD,         QH_D,    QB_V                               ) \
-  DO(l_mid_diag_curl,        SS_DIR,        QH_F,    QB_B                               ) \
+  DO(l_bot_diag_innr,        SS_CD,         QH_D,    QB_V                               ) \
+  DO(l_bot_diag_curl,        SS_DIR,        QH_F,    QB_B                               ) \
   _______________________________________________________________________________________ \
   __(l_bot_rech,             ____________,  QB_Z,    QB_X                               ) \
   DO(l_bot_outr,             TOGGLE_DF,     QB_X,    QB_C                               ) \
@@ -65,9 +65,9 @@
   DO(r_top_trpo,             SS_SMILEY,     QT_I,    QT_O,      QT_P                    ) \
   DO(r_top_extr,             KC_END,        QT_P,    QT_BSLS                            ) \
   _______________________________________________________________________________________ \
-  DO(r_top_diag_curl,        KC_VOLD,       QH_H,    QT_U                               ) \
-  DO(r_top_innr_rev,         KC_VOLU,       QH_K,    QT_U                               ) \
-  __(r_top_diag_innr,        KC_VOLD,       QH_J,    QT_I                               ) \
+  __(r_top_diag_curl,        KC_VOLD,       QH_H,    QT_U                               ) \
+  __(r_top_innr_rev,         KC_VOLU,       QH_K,    QT_U                               ) \
+  DO(r_top_diag_innr,        KC_ESC,        QH_J,    QT_I                               ) \
   __(r_top_diag_outr,        KC_VOLU,       QT_I,    QH_L                               ) \
   _______________________________________________________________________________________ \
   DO(r_mid_EXTR,             EM_LWRAP,      QH_QUOT, RCTL_DQUO                          ) \
@@ -80,8 +80,9 @@
   DO(r_mid_trpm,             EM_DIRED,      QH_J,    QH_K,       QH_L                   ) \
   DO(r_mid_trpo,             EM_ALL_BUF,    QH_K,    QH_L,       QH_QUOT                ) \
   _______________________________________________________________________________________ \
-  DO(r_mid_diag_curl,        KC_ESC,        QB_N,    QH_J                               ) \
-  DO(r_mid_diag_innr,        LALT(KC_X),    QB_M,    QH_K                               ) \
+  DO(r_bot_diag_curl,        KC_VOLD,       QB_N,    QH_J                               ) \
+  DO(r_bot_diag_innr,        LALT(KC_X),    QB_M,    QH_K                               ) \
+  DO(r_bot_diag_innr_rev,    KC_VOLU,       QB_COMM, QH_J                               ) \
   _______________________________________________________________________________________ \
   DO(r_bot_curl,             EM_LASTARG,    QB_N,    QB_M                               ) \
   DO(r_bot_innr,             KA_UNDO,       QB_M,    QB_COMM                            ) \
