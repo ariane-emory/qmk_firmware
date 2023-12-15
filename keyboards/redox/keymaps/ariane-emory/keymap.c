@@ -737,6 +737,9 @@ void leader_end_user(void) {
   /* else */ if (leader_sequence_one_key(KC_0)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_)));
   }
+  else if (leader_sequence_one_key(KC_B)) {
+    my_boot_handler(0, NULL);
+  }
   else if (leader_sequence_one_key(KC_Q)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkc" CR()));
   }
