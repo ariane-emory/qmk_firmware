@@ -72,10 +72,12 @@
   DO(r_mid_trpm,             EM_DIRED,      QH_J,    QH_K,       QH_L                   ) \
   DO(r_mid_trpo,             EM_ALL_BUF,    QH_K,    QH_L,       QH_QUOT                ) \
   _______________________________________________________________________________________ \
-  DO(r_bot_diag_curl_up,     KC_VOLD,       QB_N,    QH_J                               ) \
+  __(r_bot_diag_curl_up,     KC_VOLD,       QB_N,    QH_J                               ) \
   __(r_bot_diag_curl_dn,     KC_VOLD,       QB_M,    QH_H                               ) \
-  DO(r_bot_diag_innr_up,     KC_VOLU,       QB_M,    QH_K                               ) \
-  __(r_bot_diag_innr_dn,     KC_VOLD,       QB_COMM, QH_J                               ) \
+  DO(r_bot_diag_innr_up,     KC_VOLD,       QB_M,    QH_K                               ) \
+  __(r_bot_diag_innr_dn,     KC_VOLU,       QB_COMM, QH_J                               ) \
+  __(r_bot_diag_outr_up,     KC_VOLU,       QB_COMM, QH_L                               ) \
+  DO(r_bot_diag_outr_dn,     KC_VOLU,       QB_DOT,  QH_K                               ) \
   _______________________________________________________________________________________ \
   DO(r_bot_curl,             EM_LASTARG,    QB_N,    QB_M                               ) \
   DO(r_bot_innr,             KA_UNDO,       QB_M,    QB_COMM                            ) \
