@@ -126,6 +126,7 @@ bool combo_should_trigger(
           || (combo->keycode == KC_END)
           || (combo->keycode == KC_VOLD)
           || (combo->keycode == KC_VOLU)
+          || (combo->keycode == KC_ESC)
           || (layer_state_is(LN_ARROWS) && combo->keycode == KC_ENT)
           || (((layer_state_is(LN_LOWER) || layer_state_is(LN_UPPER) || layer_state_is(LN_ARROWS))) &&
               ((combo->keycode == EM_BOL) || (combo->keycode == EM_EOL)))
