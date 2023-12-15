@@ -41,7 +41,7 @@
   __(l_bot_rech,             ____________,  QB_Z,    QB_X                               ) \
   DO(l_bot_outr,             TOGGLE_DF,     QB_X,    QB_C                               ) \
   DO(l_bot_innr,             CAPS_WORD,     QB_C,    QB_V                               ) \
-  __(l_bot_curl,             ____________,  QB_V,    QB_B                               ) \
+  DO(l_bot_curl,             KC_ENT,        QB_V,    QB_B                               ) \
   DO(l_bot_sprd,             TG(LN_MOUSE),  QB_X,    QB_V                               ) \
   __(l_bot_trpo,             ____________,  QB_Z,    QB_X,      QB_C                    ) \
   __(l_bot_trpm,             ____________,  QB_X,    QB_C,      QB_V                    ) \
