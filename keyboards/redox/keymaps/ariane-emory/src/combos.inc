@@ -69,7 +69,7 @@
   DO(r_top_diag_innr_up,     LALT(KC_X),    QH_J,    QT_I                               ) \
   __(r_top_diag_innr_dn,     KC_ESC,        QH_K,    QT_U                               ) \
   __(r_top_diag_outr_up,     QK_LEAD,       QH_K,    QT_O                               ) \
-  DO(r_top_diag_outr_dn,     QK_LEAD,       QH_L,    QT_I                               ) \
+  DO(r_top_diag_outr_dn,     CAPS_WORD,     QH_L,    QT_I                               ) \
   _______________________________________________________________________________________ \
   DO(r_mid_EXTR,             EM_LWRAP,      QH_QUOT, RCTL_DQUO                          ) \
   DO(r_mid_curl,             KC_EQL,        QH_H,    QH_J                               ) \
