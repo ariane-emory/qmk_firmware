@@ -119,7 +119,7 @@ void keyboard_post_init_user(void) {
   DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (""),                                   (""),               (""))                    \
   DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""),               (GUI_CLICK_AND_TAB()))   \
   DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
-  DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (""))                    \
+  DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (AE_PIN2))               \
   DO(SS_0X,                (")x"),                               (""),                                   (""),               (")X"))                  \
   DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" LL()),       (""))                    \
   DO(SS_SMILEY,            (" ;0"),                              (" :/"),                                (" >_>"),           (""))                    \
