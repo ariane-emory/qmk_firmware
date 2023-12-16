@@ -90,7 +90,7 @@
   _______________________________________________________________________________________ \
   DO(r_bot_curl,             EM_LASTARG,    QB_N,    QB_M                               ) \
   DO(r_bot_innr,             KA_UNDO,       QB_M,    QB_COMM                            ) \
-  DO(r_bot_outr,             SS_DIR,        QB_COMM, QB_DOT                             ) \
+  DO(r_bot_outr,             QK_LEAD,       QB_COMM, QB_DOT                             ) \
   DO(r_bot_rech,             SS_ARROW,      QB_DOT,  QB_SLSH                            ) \
   DO(r_bot_trpi,             EM_CHG_BUFF,   QB_N,    QB_M,      QB_COMM                 ) \
   DO(r_bot_sprd,             SS_DICT,       QB_M,               QB_DOT                  ) \
