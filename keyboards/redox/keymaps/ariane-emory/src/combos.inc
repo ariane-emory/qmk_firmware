@@ -69,7 +69,7 @@
   DO(r_top_diag_innr_up,     LALT(KC_X),    QH_J,    QT_I                               ) \
   __(r_top_diag_innr_dn,     KC_ESC,        QH_K,    QT_U                               ) \
   __(r_top_diag_outr_up,     QK_LEAD,       QH_K,    QT_O                               ) \
-  DO(r_top_diag_outr_dn,     CAPS_WORD,     QH_L,    QT_I                               ) \
+  DO(r_top_diag_outr_dn,     QK_LEAD,       QH_L,    QT_I                               ) \
   _______________________________________________________________________________________ \
   DO(r_mid_EXTR,             EM_LWRAP,      QH_QUOT, RCTL_DQUO                          ) \
   DO(r_mid_curl,             KC_EQL,        QH_H,    QH_J                               ) \
@@ -81,7 +81,7 @@
   DO(r_mid_trpm,             EM_DIRED,      QH_J,    QH_K,       QH_L                   ) \
   DO(r_mid_trpo,             EM_ALL_BUF,    QH_K,    QH_L,       QH_QUOT                ) \
   _______________________________________________________________________________________ \
-  DO(r_bot_diag_curl_up,     KC_ESC,        QH_J,    QB_N                               ) \
+  __(r_bot_diag_curl_up,     KC_ESC,        QH_J,    QB_N                               ) \
   __(r_bot_diag_curl_dn,     KC_VOLD,       QH_H,    QB_M                               ) \
   DO(r_bot_diag_innr_up,     KC_VOLD,       QH_K,    QB_M                               ) \
   __(r_bot_diag_innr_dn,     KC_VOLU,       QH_J,    QB_COMM                            ) \
@@ -90,7 +90,7 @@
   _______________________________________________________________________________________ \
   DO(r_bot_curl,             EM_LASTARG,    QB_N,    QB_M                               ) \
   DO(r_bot_innr,             KA_UNDO,       QB_M,    QB_COMM                            ) \
-  DO(r_bot_outr,             QK_LEAD,       QB_COMM, QB_DOT                             ) \
+  DO(r_bot_outr,             SS_DIR,        QB_COMM, QB_DOT                             ) \
   DO(r_bot_rech,             SS_ARROW,      QB_DOT,  QB_SLSH                            ) \
   DO(r_bot_trpi,             EM_CHG_BUFF,   QB_N,    QB_M,      QB_COMM                 ) \
   DO(r_bot_sprd,             SS_DICT,       QB_M,               QB_DOT                  ) \
