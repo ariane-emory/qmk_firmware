@@ -24,7 +24,7 @@
   _______________________________________________________________________________________ \
   __(l_top_diag_curl_up,     ____________,  QH_G,    QT_R                               ) \
   __(l_top_diag_curl_dn,     ____________,  QH_F,    QT_T                               ) \
-  __(l_top_diag_innr_up,     ____________,  QH_F,    QT_E                               ) \
+  DO(l_top_diag_innr_up,     OTHER_WIN,     QH_F,    QT_E                               ) \
   __(l_top_diag_innr_dn,     ____________,  QH_D,    QT_R                               ) \
   __(l_top_diag_outr_up,     ____________,  QH_D,    QT_W                               ) \
   __(l_top_diag_outr_dn,     ____________,  QH_S,    QT_E                               ) \
