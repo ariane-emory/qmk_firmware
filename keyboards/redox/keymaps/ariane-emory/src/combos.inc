@@ -83,10 +83,10 @@
   _______________________________________________________________________________________ \
   __(r_bot_diag_curl_up,     KC_ESC,        QH_J,    QB_N                               ) \
   __(r_bot_diag_curl_dn,     KC_VOLD,       QH_H,    QB_M                               ) \
-  DO(r_bot_diag_innr_up,     KC_VOLD,       QH_K,    QB_M                               ) \
-  __(r_bot_diag_innr_dn,     KC_VOLU,       QH_J,    QB_COMM                            ) \
-  __(r_bot_diag_outr_up,     KC_VOLU,       QH_L,    QB_COMM                            ) \
-  DO(r_bot_diag_outr_dn,     KC_VOLU,       QH_K,    QB_DOT                             ) \
+  __(r_bot_diag_innr_up,     KC_VOLD,       QH_K,    QB_M                               ) \
+  DO(r_bot_diag_innr_dn,     KC_VOLD,       QH_J,    QB_COMM                            ) \
+  DO(r_bot_diag_outr_up,     KC_VOLU,       QH_L,    QB_COMM                            ) \
+  __(r_bot_diag_outr_dn,     KC_VOLU,       QH_K,    QB_DOT                             ) \
   _______________________________________________________________________________________ \
   DO(r_bot_curl,             EM_LASTARG,    QB_N,    QB_M                               ) \
   DO(r_bot_innr,             KA_UNDO,       QB_M,    QB_COMM                            ) \
