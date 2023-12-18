@@ -44,6 +44,8 @@
   __(l_bot_diag_innr_dn,     SS_CD,         QH_F,    QB_C                               ) \
   __(l_bot_diag_outr_up,     SS_DIR,        QH_S,    QB_C                               ) \
   __(l_bot_diag_outr_dn,     SS_DIR,        QH_D,    QB_X                               ) \
+  __(l_bot_diag_rech_up,     SS_DIR,        QH_A,    QB_X                               ) \
+  __(l_bot_diag_rech_dn,     SS_DIR,        QH_S,    QB_Z                               ) \
   _______________________________________________________________________________________ \
   __(l_bot_rech,             ____________,  QB_Z,    QB_X                               ) \
   DO(l_bot_outr,             TOGGLE_DF,     QB_X,    QB_C                               ) \
