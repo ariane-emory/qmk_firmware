@@ -1,6 +1,7 @@
 // -*- c-backslash-column: 90; c-backslash-max-column: 90 -*-
 
 #include "key-aliases.h"
+#include "src/util.h"
 
 // =======================================================================================
 // Combos
@@ -128,6 +129,7 @@ combo_t key_combos[] = { FOR_EACH_COMBO(BIND_COMBO) };
 uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
 
 //========================================================================================
+
 
 bool combo_should_trigger(
   uint16_t      combo_index,
