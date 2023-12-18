@@ -92,7 +92,7 @@
   _______________________________________________________________________________________ \
   DO(r_bot_curl_diag_up,     KC_VOLD,       QH_J,    QB_N                               ) \
   __(r_bot_curl_diag_dn,     _____________, QH_H,    QB_M                               ) \
-  DO(r_bot_innr_diag_up,     LGUI(KC_SPC),  QH_K,    QB_M                               ) \
+  DO(r_bot_innr_diag_up,     SPOTLIGHT,     QH_K,    QB_M                               ) \
   DO(r_bot_innr_diag_dn,     KC_VOLU,       QH_J,    QB_COMM                            ) \
   __(r_bot_outr_diag_up,     KC_VOLU,       QH_L,    QB_COMM                            ) \
   __(r_bot_outr_diag_dn,     _____________, QH_K,    QB_DOT                             ) \

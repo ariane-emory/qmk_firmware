@@ -113,6 +113,7 @@
 #define BRT_DN         KC_F19
 #define TG_MOUSE       TG(LN_MOUSE)
 #define CAPS_WORD      QK_CAPS_WORD_TOGGLE
+#define SPOTLIGHT      LGUI(KC_SPC)
 //==============================================================================
 
 
