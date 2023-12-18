@@ -87,6 +87,8 @@
   DO(r_bot_diag_innr_dn,     KC_VOLD,       QH_J,    QB_COMM                            ) \
   DO(r_bot_diag_outr_up,     KC_VOLU,       QH_L,    QB_COMM                            ) \
   __(r_bot_diag_outr_dn,     KC_VOLU,       QH_K,    QB_DOT                             ) \
+  __(r_bot_diag_rech_up,     KC_VOLU,       QH_L,    QB_SLSH                            ) \
+  __(r_bot_diag_rech_dn,     KC_VOLU,       QH_QUOT, QB_DOT                             ) \
   _______________________________________________________________________________________ \
   DO(r_bot_curl,             EM_LASTARG,    QB_N,    QB_M                               ) \
   DO(r_bot_innr,             KA_UNDO,       QB_M,    QB_COMM                            ) \
