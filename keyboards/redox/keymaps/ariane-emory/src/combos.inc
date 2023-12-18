@@ -28,6 +28,8 @@
   __(l_top_diag_innr_dn,     ____________,  QH_D,    QT_R                               ) \
   __(l_top_diag_outr_up,     ____________,  QH_D,    QT_W                               ) \
   __(l_top_diag_outr_dn,     ____________,  QH_S,    QT_E                               ) \
+  __(l_top_diag_rech_up,     ____________,  QH_S,    QT_Q                               ) \
+  __(l_top_diag_rech_dn,     ____________,  QH_A,    QT_W                               ) \
   _______________________________________________________________________________________ \
   DO(l_mid_rech,             KC_END,        QH_A,    QH_S                               ) \
   DO(l_mid_outr,             EM_EOL,        QH_S,    QH_D                               ) \
