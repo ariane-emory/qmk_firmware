@@ -147,7 +147,7 @@ bool combo_should_trigger(
           || (((layer_state_is(LN_LOWER) || layer_state_is(LN_UPPER) || layer_state_is(LN_ARROWS))) &&
               ((combo->keycode == EM_BOL) || (combo->keycode == EM_EOL)))
           // this index will probably need frequent adjustment whenever left-hand combos are altered:
-          || (layer_state_is(LN_MOUSE) && (combo_index <= 14))
+          || (layer_state_is(LN_MOUSE) && (combo_index <= 16))
           || false);
 }
 
