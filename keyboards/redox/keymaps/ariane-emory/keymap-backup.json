@@ -865,7 +865,7 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "KC_NO",
+      "RGUI(KC_SPC)",
       "LAG(KC_E)",
       "LAG(KC_W)",
       "LAG(KC_R)"
