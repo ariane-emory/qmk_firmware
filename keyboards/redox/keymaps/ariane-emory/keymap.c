@@ -147,6 +147,7 @@ enum arianes_custom_keycodes {
   KC_DUMMY = SAFE_RANGE,
   OTHER_WIN,
   CLOSE_WIN,
+  NEW_TAB,
   KC_SQUO_TAP,
   KC_DQUO_TAP,
   HOLD_GUI,
@@ -241,6 +242,14 @@ KEYRECORD_C_FUN(bool close_win_handler) {
   return false;
 }
               
+KEYRECORD_C_FUN(bool new_tab_handler) {
+  if (record->event.pressed) {
+    tap_code16(LGUI(KC_T));
+  }
+
+  return false;
+}
+              
 KEYRECORD_C_FUN(bool my_boot_handler) {
   rgb_led_fader_init(&rgb_led_fader, MY_RGB_BOOT);
 
@@ -292,6 +301,7 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
   { DISCORD_MUTE,                discord_mute_handler        },
   { MY_BOOT,                     my_boot_handler             },
   { CLOSE_WIN,                   close_win_handler           },
+  { NEW_TAB,                     new_tab_handler             },
   { OTHER_WIN,                   other_win_handler           },
   { TOGGLE_DF,                   toggle_df_handler           },
   { STR_LFT,                     disable_mouse_layer_handler },
