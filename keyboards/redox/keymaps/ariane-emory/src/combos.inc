@@ -79,7 +79,7 @@
   __(r_top_rech_diag_up,     _____________, QH_L,    QT_P                               ) \
   __(r_top_rech_diag_dn,     _____________, QH_QUOT, QT_O                               ) \
   _______________________________________________________________________________________ \
-  DO(r_mid_EXTR,             EM_LWRAP,      QH_QUOT, RCTL_DQUO                          ) \
+  DO(r_mid_extr,             EM_LWRAP,      QH_QUOT, RCTL_DQUO                          ) \
   DO(r_mid_curl,             KC_EQL,        QH_H,    QH_J                               ) \
   DO(r_mid_innr,             KC_ENT,        QH_J,    QH_K                               ) \
   DO(r_mid_outr,             KC_SCLN,       QH_K,    QH_L                               ) \
