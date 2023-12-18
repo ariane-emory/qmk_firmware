@@ -28,6 +28,7 @@
 #define QT_P     QT_RC
 #define QT_BSLS  LT(LN_UTIL,KC_BSLS)
 //------------------------------------------------------------------------------
+#define QH_CAPS  LCTL_ESC
 #define QH_A     LHRM_4(KC_A)
 #define QH_S     LHRM_3(KC_S)
 #define QH_D     LHRM_2(KC_D)

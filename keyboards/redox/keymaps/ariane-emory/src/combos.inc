@@ -22,32 +22,32 @@
   __(l_top_trpm,             ____________,  QT_W,    QT_E,      QT_R                    ) \
   __(l_top_trpi,             ____________,  QT_E,    QT_R,      QT_T                    ) \
   _______________________________________________________________________________________ \
-  __(l_top_curl_diag_up,     ____________,  QH_G,    QT_R                               ) \
-  __(l_top_curl_diag_dn,     ____________,  QH_F,    QT_T                               ) \
-  DO(l_top_innr_diag_up,     OTHER_WIN,     QH_F,    QT_E                               ) \
-  __(l_top_innr_diag_dn,     ____________,  QH_D,    QT_R                               ) \
-  __(l_top_outr_diag_up,     ____________,  QH_D,    QT_W                               ) \
-  __(l_top_outr_diag_dn,     ____________,  QH_S,    QT_E                               ) \
   __(l_top_rech_diag_up,     ____________,  QH_S,    QT_Q                               ) \
   __(l_top_rech_diag_dn,     ____________,  QH_A,    QT_W                               ) \
+  __(l_top_outr_diag_up,     ____________,  QH_D,    QT_W                               ) \
+  __(l_top_outr_diag_dn,     ____________,  QH_S,    QT_E                               ) \
+  DO(l_top_innr_diag_up,     OTHER_WIN,     QH_F,    QT_E                               ) \
+  __(l_top_innr_diag_dn,     ____________,  QH_D,    QT_R                               ) \
+  __(l_top_curl_diag_up,     ____________,  QH_G,    QT_R                               ) \
+  __(l_top_curl_diag_dn,     ____________,  QH_F,    QT_T                               ) \
   _______________________________________________________________________________________ \
   DO(l_mid_rech,             KC_END,        QH_A,    QH_S                               ) \
   DO(l_mid_outr,             EM_EOL,        QH_S,    QH_D                               ) \
   DO(l_mid_innr,             EM_BOL,        QH_D,    QH_F                               ) \
-  DO(l_midk_curl,            KC_HOME,       QH_F,    QH_G                               ) \
+  DO(l_mid_curl,             KC_HOME,       QH_F,    QH_G                               ) \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
   DO(l_mid_sprd,             OTHER_WIN,     QH_S,               QH_F                    ) \
   DO(l_mid_trpm,             CLOSE_WIN,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,             EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   _______________________________________________________________________________________ \
-  DO(l_bot_curl_diag_up,     SS_DIR,        QH_F,    QB_B                               ) \
-  __(l_bot_curl_diag_dn,     _____________, QH_F,    QB_C                               ) \
-  DO(l_bot_innr_diag_up,     SS_CD,         QH_D,    QB_V                               ) \
-  __(l_bot_innr_diag_dn,     _____________, QH_F,    QB_C                               ) \
-  __(l_bot_outr_diag_up,     _____________, QH_S,    QB_C                               ) \
-  __(l_bot_outr_diag_dn,     _____________, QH_D,    QB_X                               ) \
   __(l_bot_rech_diag_up,     _____________, QH_A,    QB_X                               ) \
   __(l_bot_rech_diag_dn,     _____________, QH_S,    QB_Z                               ) \
+  __(l_bot_outr_diag_up,     _____________, QH_S,    QB_C                               ) \
+  __(l_bot_outr_diag_dn,     _____________, QH_D,    QB_X                               ) \
+  DO(l_bot_innr_diag_up,     SS_CD,         QH_D,    QB_V                               ) \
+  __(l_bot_innr_diag_dn,     _____________, QH_F,    QB_C                               ) \
+  DO(l_bot_curl_diag_up,     SS_DIR,        QH_F,    QB_B                               ) \
+  __(l_bot_curl_diag_dn,     _____________, QH_F,    QB_C                               ) \
   _______________________________________________________________________________________ \
   __(l_bot_rech,             ____________,  QB_Z,    QB_X                               ) \
   DO(l_bot_outr,             TOGGLE_DF,     QB_X,    QB_C                               ) \
