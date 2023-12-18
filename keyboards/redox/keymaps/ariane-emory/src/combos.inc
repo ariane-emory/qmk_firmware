@@ -136,7 +136,10 @@ bool combo_should_trigger(
   keyrecord_t * record) {
   return (false
           || (get_highest_layer(layer_state) < LN_MOUSE)
+          // this index will probably need frequent adjustment whenever left-hand combos are altered:
+          || (layer_state_is(LN_MOUSE) && (combo_index <= 16))
           || (combo->keycode == TG(LN_MOUSE))
+          || (combo->keycode == LGUI(KC_SPC))
           || (combo->keycode == SS_DICT)
           || (combo->keycode == KC_HOME)
           || (combo->keycode == KC_END)
@@ -146,8 +149,6 @@ bool combo_should_trigger(
           || (layer_state_is(LN_ARROWS) && combo->keycode == KC_ENT)
           || (((layer_state_is(LN_LOWER) || layer_state_is(LN_UPPER) || layer_state_is(LN_ARROWS))) &&
               ((combo->keycode == EM_BOL) || (combo->keycode == EM_EOL)))
-          // this index will probably need frequent adjustment whenever left-hand combos are altered:
-          || (layer_state_is(LN_MOUSE) && (combo_index <= 16))
           || false);
 }
 
