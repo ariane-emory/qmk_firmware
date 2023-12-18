@@ -90,9 +90,9 @@
   DO(r_mid_rech,             LSFT(KC_SCLN), QH_L,    QH_QUOT                            ) \
   DO(r_mid_extr,             EM_LWRAP,      QH_QUOT, RCTL_DQUO                          ) \
   _______________________________________________________________________________________ \
-  DO(r_bot_curl_diag_up,     KC_VOLD,       QH_J,    QB_N                               ) \
+  DO(r_bot_curl_diag_up,     SPOTLIGHT,     QH_J,    QB_N                               ) \
   __(r_bot_curl_diag_dn,     _____________, QH_H,    QB_M                               ) \
-  DO(r_bot_innr_diag_up,     SPOTLIGHT,     QH_K,    QB_M                               ) \
+  DO(r_bot_innr_diag_up,     KC_VOLD,       QH_K,    QB_M                               ) \
   DO(r_bot_innr_diag_dn,     KC_VOLU,       QH_J,    QB_COMM                            ) \
   __(r_bot_outr_diag_up,     _____________, QH_L,    QB_COMM                            ) \
   __(r_bot_outr_diag_dn,     _____________, QH_K,    QB_DOT                             ) \
