@@ -27,9 +27,9 @@
   __(l_top_rech_diag_dn,     ____________,  QH_A,    QT_W                               ) \
   __(l_top_outr_diag_up,     ____________,  QH_D,    QT_W                               ) \
   DO(l_top_outr_diag_dn,     TOGGLE_DF,     QH_S,    QT_E                               ) \
-  DO(l_top_innr_diag_up,     OTHER_WIN,     QH_F,    QT_E                               ) \
+  __(l_top_innr_diag_up,     ____________,  QH_F,    QT_E                               ) \
   __(l_top_innr_diag_dn,     ____________,  QH_D,    QT_R                               ) \
-  __(l_top_curl_diag_up,     ____________,  QH_G,    QT_R                               ) \
+  DO(l_top_curl_diag_up,     TOGGLE_DF,     QH_G,    QT_R                               ) \
   __(l_top_curl_diag_dn,     ____________,  QH_F,    QT_T                               ) \
   _______________________________________________________________________________________ \
   __(l_mid_extr,             ____________,  QH_CAPS, QH_                                ) \
