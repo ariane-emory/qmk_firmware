@@ -61,7 +61,7 @@
 #define MY_RGB_RECORDING_MACRO               RGB_ORANGE
 #define MY_RGB_DEFAULT                       0xFF, 0x00, 0x00 // red
 #define MY_RGB_FLIP_LAYER_ON                 0x88, 0x00, 0xC0 // violet-ish
-#define MY_RGB_LOWER_LAYER_ON                0x00, 0x78, 0x1C // blue-ish green
+#define MY_RGB_LOWER_LAYER_ON                0x00, 0x74, 0x1C // blue-ish green
 #define MY_RGB_UPPER_LAYER_ON                0xFF, 0x00, 0x70 // magenta-ish
 #define MY_RGB_ADJUST_LAYER_ON               0x00, 0x14, 0xC0 // blue 
 #define MY_RGB_TOGGLED_LAYER_ON              0x10, 0x90, 0x00 // green
