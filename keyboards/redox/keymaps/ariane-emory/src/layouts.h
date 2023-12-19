@@ -71,8 +71,8 @@
 #define YT_W    KC_F // D
 #define YT_E    KC_R
 #define YT_R    KC_D // F
-#define YT_T    KC_B
-#define YT_Y    KC_J
+#define YT_T    KC_J // B
+#define YT_Y    KC_B // J
 #define YT_U    KC_W
 #define YT_I    KC_U
 #define YT_O    KC_P
