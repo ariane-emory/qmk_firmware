@@ -507,7 +507,7 @@ static const layer_to_rgb_t layer_to_rgbs[] PROGMEM = {
 };
 
 void rgb_led_fader_set_target_by_layer(rgb_led_fader_t * const this) {
-  const layer_to_rgb_t * row = &layer_to_rgbs[toggle_df_flag ? 1 : 0];
+  const layer_to_rgb_t * row = &layer_to_rgbs[toggle_df_flag]; // ? 1 : 0];
   
   for (size_t ix = 2; ix < ARRAY_SIZE(layer_to_rgbs); ix++) {
     if (layer_state_is(pgm_read_byte(&layer_to_rgbs[ix].layer))) {
