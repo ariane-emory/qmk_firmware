@@ -727,7 +727,7 @@
       "KC_TRNS"
     ],
     [
-      "KC_NO",
+      "LGUI(KC_Q)",
       "DF(0)",
       "DF(1)",
       "DF(2)",
@@ -739,7 +739,7 @@
       "RGUI(KC_MINS)",
       "RGUI(KC_EQL)",
       "LGUI(KC_Q)",
-      "KC_NO",
+      "ANY(LT(15, LGUI(KC_W)))",
       "LCTL(KC_A)",
       "LCTL(KC_E)",
       "RCS(KC_TAB)",
