@@ -115,6 +115,7 @@
 #define CAPS_WORD      QK_CAPS_WORD_TOGGLE
 #define SPOTLIGHT      LGUI(KC_SPC)
 #define LOCAL_CAPS     LGUI(LALT(KC_C))
+#define NEW_TAB        LGUI(KC_T)
 //==============================================================================
 
 
