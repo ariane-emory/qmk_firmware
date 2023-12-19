@@ -26,7 +26,7 @@
   __(l_top_rech_diag_up,     ____________,  QH_S,    QT_Q                               ) \
   __(l_top_rech_diag_dn,     ____________,  QH_A,    QT_W                               ) \
   __(l_top_outr_diag_up,     ____________,  QH_D,    QT_W                               ) \
-  DO(l_top_outr_diag_dn,     LOCAL_CAPS,    QH_S,    QT_E                               ) \
+  __(l_top_outr_diag_dn,     ____________,  QH_S,    QT_E                               ) \
   DO(l_top_innr_diag_up,     OTHER_WIN,     QH_F,    QT_E                               ) \
   __(l_top_innr_diag_dn,     ____________,  QH_D,    QT_R                               ) \
   __(l_top_curl_diag_up,     ____________,  QH_G,    QT_R                               ) \
@@ -45,7 +45,7 @@
   __(l_bot_rech_diag_up,     _____________, QH_A,    QB_X                               ) \
   __(l_bot_rech_diag_dn,     _____________, QH_S,    QB_Z                               ) \
   __(l_bot_outr_diag_up,     _____________, QH_S,    QB_C                               ) \
-  __(l_bot_outr_diag_dn,     _____________, QH_D,    QB_X                               ) \
+  DO(l_bot_outr_diag_dn,     LOCAL_CAPS,    QH_D,    QB_X                               ) \
   DO(l_bot_innr_diag_up,     CAPS_WORD,     QH_D,    QB_V                               ) \
   __(l_bot_innr_diag_dn,     _____________, QH_F,    QB_C                               ) \
   __(l_bot_curl_diag_up,     _____________, QH_F,    QB_B                               ) \
