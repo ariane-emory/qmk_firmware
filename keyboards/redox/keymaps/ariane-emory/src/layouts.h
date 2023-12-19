@@ -92,10 +92,10 @@
 #define YB_Z    LBRM_4(KC_Q)
 #define YB_X    KC_X
 #define YB_C    KC_L
-#define YB_V    LBRM_4(KC_C)
+#define YB_V    LBRM_4(KC_M) // C)
 #define YB_B    KC_V
 #define YB_N    KC_K
-#define YB_M    LBRM_4(KC_M)
+#define YB_M    LBRM_4(KC_C) // M)
 #define YB_COMM KC_COMM
 #define YB_DOT  KC_DOT
 #define YB_SLSH RBRM_4(YB_RC)
