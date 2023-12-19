@@ -66,7 +66,7 @@
 #define MY_RGB_ADJUST_LAYER_ON               0x00, 0x14, 0xC0 // blue 
 #define MY_RGB_TOGGLED_LAYER_ON              0x10, 0x90, 0x00 // green
 #define MY_RGB_BOOT                          0xFF, 0x28, 0x00 // orange-ish
-#define MY_RGB_WORKMAK                       0xFF, 0x18, 0x10 
+#define MY_RGB_WORKMAK                       0xFF, 0x18, 0x10 // pink-ish
 
 #define NO_ACTION_ONESHOT
 #define ONESHOT_TIMEOUT                      1000
