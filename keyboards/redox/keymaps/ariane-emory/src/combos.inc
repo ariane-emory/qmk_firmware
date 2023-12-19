@@ -90,10 +90,10 @@
   DO(r_mid_rech,             LSFT(KC_SCLN), QH_L,    QH_QUOT                            ) \
   DO(r_mid_extr,             EM_LWRAP,      QH_QUOT, RCTL_DQUO                          ) \
   _______________________________________________________________________________________ \
-  DO(r_bot_curl_diag_up,     CLOSE_WIN,     QH_J,    QB_N                               ) \
-  DO(r_bot_curl_diag_dn,     REOPEN_TAB,    QH_H,    QB_M                               ) \
+  DO(r_bot_curl_diag_up,     NEW_TAB,       QH_J,    QB_N                               ) \
+  __(r_bot_curl_diag_dn,     _____________, QH_H,    QB_M                               ) \
   DO(r_bot_innr_diag_up,     KC_VOLD,       QH_K,    QB_M                               ) \
-  DO(r_bot_innr_diag_dn,     NEW_TAB,       QH_J,    QB_COMM                            ) \
+  DO(r_bot_innr_diag_dn,     CLOSE_WIN,     QH_J,    QB_COMM                            ) \
   DO(r_bot_outr_diag_up,     SPOTLIGHT,     QH_L,    QB_COMM                            ) \
   DO(r_bot_outr_diag_dn,     KC_VOLU,       QH_K,    QB_DOT                             ) \
   __(r_bot_rech_diag_up,     _____________, QH_L,    QB_SLSH                            ) \
@@ -150,6 +150,7 @@ bool combo_should_trigger(
           || (combo->keycode == KC_ESC)
           || (combo->keycode == CLOSE_WIN)
           || (combo->keycode == NEW_TAB)
+          /* || (combo->keycode == REOPEN_TAB) */
           || (layer_state_is(LN_ARROWS) && combo->keycode == KC_ENT)
           || (((layer_state_is(LN_LOWER) || layer_state_is(LN_UPPER) || layer_state_is(LN_ARROWS))) &&
               ((combo->keycode == EM_BOL) || (combo->keycode == EM_EOL)))
