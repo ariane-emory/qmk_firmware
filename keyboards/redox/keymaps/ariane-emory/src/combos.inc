@@ -48,7 +48,7 @@
   __(l_bot_outr_diag_dn,     _____________, QH_D,    QB_X                               ) \
   DO(l_bot_innr_diag_up,     CAPS_WORD,     QH_D,    QB_V                               ) \
   __(l_bot_innr_diag_dn,     _____________, QH_F,    QB_C                               ) \
-  DO(l_bot_curl_diag_up,     SS_DIR,        QH_F,    QB_B                               ) \
+  DO(l_bot_curl_diag_up,     LOCAL_CAPS,    QH_F,    QB_B                               ) \
   __(l_bot_curl_diag_dn,     _____________, QH_F,    QB_C                               ) \
   _______________________________________________________________________________________ \
   __(l_bot_extr,             ____________,  QB_LSFT, QB_Z                               ) \

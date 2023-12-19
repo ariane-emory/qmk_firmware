@@ -114,6 +114,7 @@
 #define TG_MOUSE       TG(LN_MOUSE)
 #define CAPS_WORD      QK_CAPS_WORD_TOGGLE
 #define SPOTLIGHT      LGUI(KC_SPC)
+#define LOCAL_CAPS     LGUI(LALT(KC_C))
 //==============================================================================
 
 
