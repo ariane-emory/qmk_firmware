@@ -153,7 +153,6 @@ enum arianes_custom_keycodes {
   KC_DQUO_TAP,
   HOLD_GUI,
   INSERT_UPP,
-  RGB_TOGGLE_NOEE,
   VD_LEFT_ALT,
   VD_RIGHT_ALT,
   MY_BOOT,
@@ -295,11 +294,11 @@ KEYRECORD_C_FUN(bool disable_mouse_layer_handler) {
   return true;
 };
 
-KEYRECORD_C_FUN(bool toggle_df_handler) {
-  static bool flag = false;
-  
+static bool toggle_df_flag = false;
+
+KEYRECORD_C_FUN(bool toggle_df_handler) {  
   if (record->event.pressed)
-    default_layer_set((layer_state_t)1 << (flag = ! flag));
+    default_layer_set((layer_state_t)1 << (toggle_df_flag = ! toggle_df_flag));
   
   return false;
 };
@@ -497,7 +496,8 @@ typedef struct {
 } layer_to_rgb_t;
   
 static const layer_to_rgb_t layer_to_rgbs[] PROGMEM = {
-  { TOGGLED_LAYER, MY_RGB_DEFAULT          },
+  { 0,             MY_RGB_DEFAULT          },
+  { 0,             MY_RGB_WORKMAK          },
   { LN_ARROWS,     MY_RGB_ADJUST_LAYER_ON  },
   { LN_FLIPR,      MY_RGB_FLIP_LAYER_ON    },
   { LN_FLIPL,      MY_RGB_FLIP_LAYER_ON    },
@@ -507,9 +507,9 @@ static const layer_to_rgb_t layer_to_rgbs[] PROGMEM = {
 };
 
 void rgb_led_fader_set_target_by_layer(rgb_led_fader_t * const this) {
-  const layer_to_rgb_t * row = &layer_to_rgbs[0];
+  const layer_to_rgb_t * row = &layer_to_rgbs[toggle_df_flag ? 1 : 0];
   
-  for (size_t ix = 1; ix < ARRAY_SIZE(layer_to_rgbs); ix++) {
+  for (size_t ix = 2; ix < ARRAY_SIZE(layer_to_rgbs); ix++) {
     if (layer_state_is(pgm_read_byte(&layer_to_rgbs[ix].layer))) {
       row = &layer_to_rgbs[ix];
 
