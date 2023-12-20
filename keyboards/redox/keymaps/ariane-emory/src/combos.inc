@@ -31,10 +31,10 @@
   __(l_top_curl_diag_up,     ____________,  QH_G,    QT_R                               ) \
   __(l_top_curl_diag_dn,     ____________,  QH_F,    QT_T                               ) \
   _______________________________________________________________________________________ \
-  DO(l_mid_rech,             KC_END,        QH_A,    QH_S                               ) \
+  DO(l_mid_rech,             KC_HOME,       QH_A,    QH_S                               ) \
   DO(l_mid_outr,             EM_EOL,        QH_S,    QH_D                               ) \
   DO(l_mid_innr,             EM_BOL,        QH_D,    QH_F                               ) \
-  DO(l_mid_curl,             KC_HOME,       QH_F,    QH_G                               ) \
+  DO(l_mid_curl,             KC_END,        QH_F,    QH_G                               ) \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
   __(l_mid_sprd,             _____________, QH_S,               QH_F                    ) \
   DO(l_mid_trpm,             TOGGLE_DF,     QH_S,    QH_D,      QH_F                    ) \
