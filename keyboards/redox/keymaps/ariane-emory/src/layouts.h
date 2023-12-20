@@ -103,54 +103,6 @@
 
 
 //==============================================================================
-// X: 'Workmak', half-curvy version, w/f normal
-//==============================================================================
-#ifdef ROTATE_RIGHT_COL
-# define XT_RC  KC_SLSH
-# define XH_RC  KC_QUOT
-# define XB_RC  KC_O
-#else
-# define XT_RC  KC_SLSH
-# define XH_RC  KC_O
-# define XB_RC  KC_QUOT
-#endif
-//------------------------------------------------------------------------------
-#define XT_Q    KC_Q
-#define XT_W    KC_S
-#define XT_E    KC_H
-#define XT_R    KC_F
-#define XT_T    KC_B
-#define XT_Y    KC_J
-#define XT_U    KC_W
-#define XT_I    KC_U
-#define XT_O    KC_P
-#define XT_P    XT_RC
-//------------------------------------------------------------------------------
-#define XH_A    LHRM_4(KC_A)
-#define XH_S    LHRM_3(KC_D)
-#define XH_D    LHRM_2(KC_R)
-#define XH_F    LHRM_1(KC_T)
-#define XH_G    LHRM_0(KC_G)
-#define XH_H    RHRM_0(KC_Y)
-#define XH_J    RHRM_1(KC_N)
-#define XH_K    RHRM_2(KC_E)
-#define XH_L    RHRM_3(KC_I)
-#define XH_QUOT RHRM_4(XH_RC)
-//------------------------------------------------------------------------------
-#define XB_Z    LBRM_4(KC_Z)
-#define XB_X    KC_X
-#define XB_C    KC_V
-#define XB_V    LBRM_4(KC_C)
-#define XB_B    KC_M
-#define XB_N    KC_K
-#define XB_M    LBRM_4(KC_L)
-#define XB_COMM KC_COMM
-#define XB_DOT  KC_DOT
-#define XB_SLSH RBRM_4(XB_RC) // YB_RC)
-//==============================================================================
-
-
-//==============================================================================
 // W: Workman
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
@@ -343,50 +295,50 @@
 
 
 //==============================================================================
-// Y: 'Workmak', my modified Workman layout
+// X: Wreathy
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
-# define RT_RC  KC_SLSH
-# define RH_RC  KC_QUOT
-# define RB_RC  KC_I
+# define XT_RC  KC_SLSH
+# define XH_RC  KC_QUOT
+# define XB_RC  KC_I
 #else
-# define RT_RC  KC_SLSH
-# define RH_RC  KC_I
-# define RB_RC  KC_QUOT
+# define XT_RC  KC_SLSH
+# define XH_RC  KC_I
+# define XB_RC  KC_QUOT
 #endif
 //------------------------------------------------------------------------------
-#define RT_Q    KC_Q
-#define RT_W    KC_G
-#define RT_E    KC_D
-#define RT_R    KC_F
-#define RT_T    KC_V
-#define RT_Y    KC_J
-#define RT_U    KC_L
-#define RT_I    KC_U
-#define RT_O    KC_O
-#define RT_P    YT_RC
+#define XT_Q    KC_Q
+#define XT_W    KC_G
+#define XT_E    KC_D
+#define XT_R    KC_F
+#define XT_T    KC_V
+#define XT_Y    KC_J
+#define XT_U    KC_L
+#define XT_I    KC_U
+#define XT_O    KC_O
+#define XT_P    YT_RC
 //------------------------------------------------------------------------------
-#define RH_A    LHRM_4(KC_N)
-#define RH_S    LHRM_3(KC_S)
-#define RH_D    LHRM_2(KC_T)
-#define RH_F    LHRM_1(KC_H)
-#define RH_G    LHRM_0(KC_Y)
-#define RH_H    RHRM_0(KC_W)
-#define RH_J    RHRM_1(KC_R)
-#define RH_K    RHRM_2(KC_E)
-#define RH_L    RHRM_3(KC_A)
-#define RH_QUOT RHRM_4(YH_RC)
+#define XH_A    LHRM_4(KC_N)
+#define XH_S    LHRM_3(KC_S)
+#define XH_D    LHRM_2(KC_T)
+#define XH_F    LHRM_1(KC_H)
+#define XH_G    LHRM_0(KC_Y)
+#define XH_H    RHRM_0(KC_W)
+#define XH_J    RHRM_1(KC_R)
+#define XH_K    RHRM_2(KC_E)
+#define XH_L    RHRM_3(KC_A)
+#define XH_QUOT RHRM_4(YH_RC)
 //------------------------------------------------------------------------------
-#define RB_Z    LBRM_4(KC_B)
-#define RB_X    KC_C
-#define RB_C    KC_M
-#define RB_V    LBRM_4(KC_P)
-#define RB_B    KC_K
-#define RB_N    KC_Z
-#define RB_M    LBRM_4(KC_X)
-#define RB_COMM KC_COMM
-#define RB_DOT  KC_DOT
-#define RB_SLSH RBRM_4(YB_RC)
+#define XB_Z    LBRM_4(KC_B)
+#define XB_X    KC_C
+#define XB_C    KC_M
+#define XB_V    LBRM_4(KC_P)
+#define XB_B    KC_K
+#define XB_N    KC_Z
+#define XB_M    LBRM_4(KC_X)
+#define XB_COMM KC_COMM
+#define XB_DOT  KC_DOT
+#define XB_SLSH RBRM_4(YB_RC)
 //==============================================================================
 
 
