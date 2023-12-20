@@ -341,3 +341,52 @@
 #define DB_SLSH RBRM_4(DB_RC)
 //==============================================================================
 
+
+//==============================================================================
+// Y: 'Workmak', my modified Workman layout
+//==============================================================================
+#ifdef ROTATE_RIGHT_COL
+# define RT_RC  KC_SLSH
+# define RH_RC  KC_QUOT
+# define RB_RC  KC_I
+#else
+# define RT_RC  KC_SLSH
+# define RH_RC  KC_I
+# define RB_RC  KC_QUOT
+#endif
+//------------------------------------------------------------------------------
+#define RT_Q    KC_Q
+#define RT_W    KC_G
+#define RT_E    KC_D
+#define RT_R    KC_F
+#define RT_T    KC_V
+#define RT_Y    KC_J
+#define RT_U    KC_L
+#define RT_I    KC_U
+#define RT_O    KC_O
+#define RT_P    YT_RC
+//------------------------------------------------------------------------------
+#define RH_A    LHRM_4(KC_N)
+#define RH_S    LHRM_3(KC_S)
+#define RH_D    LHRM_2(KC_T)
+#define RH_F    LHRM_1(KC_H)
+#define RH_G    LHRM_0(KC_Y)
+#define RH_H    RHRM_0(KC_W)
+#define RH_J    RHRM_1(KC_R)
+#define RH_K    RHRM_2(KC_E)
+#define RH_L    RHRM_3(KC_A)
+#define RH_QUOT RHRM_4(YH_RC)
+//------------------------------------------------------------------------------
+#define RB_Z    LBRM_4(KC_B)
+#define RB_X    KC_C
+#define RB_C    KC_M
+#define RB_V    LBRM_4(KC_P)
+#define RB_B    KC_K
+#define RB_N    KC_Z
+#define RB_M    LBRM_4(KC_X)
+#define RB_COMM KC_COMM
+#define RB_DOT  KC_DOT
+#define RB_SLSH RBRM_4(YB_RC)
+//==============================================================================
+
+
