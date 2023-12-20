@@ -147,7 +147,7 @@ bool combo_should_trigger(
           /* || (combo->keycode == NEW_TAB) */
           || (layer_state_is(LN_ARROWS) && combo->keycode == KC_ENT)
           || (((layer_state_is(LN_LOWER) || layer_state_is(LN_UPPER) || layer_state_is(LN_ARROWS))) &&
-              ((combo->keycode == EM_BOL) || (combo->keycode == EM_EOL)))
+              ((combo->keycode == EM_BOL) || (combo->keycode == EM_EOL) || (combo->keycode == KC_HOME) || (combo->keycode == KC_END)))
           || false);
 }
 
