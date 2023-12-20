@@ -66,17 +66,17 @@
   DO(r_top_sprd,             SS_AND_AND,    QT_U,               QT_O                    ) \
   DO(r_top_trpo,             SS_SMILEY,     QT_I,    QT_O,      QT_P                    ) \
   DO(r_top_curl,             KC_HOME,       QT_Y,    QT_U                               ) \
-  DO(r_top_innr,             SS_LBRACK,     QT_U,    QT_I                               ) \
-  DO(r_top_outr,             SS_RBRACK,     QT_I,    QT_O                               ) \
+  DO(r_top_innr,             KC_ESC,        QT_U,    QT_I                               ) \
+  DO(r_top_outr,             LALT(KC_X),    QT_I,    QT_O                               ) \
   DO(r_top_rech,             KC_END,        QT_O,    QT_P                               ) \
   __(r_top_extr,             _____________, QT_P,    QT_BSLS                            ) \
   _______________________________________________________________________________________ \
-  DO(r_top_curl_diag_up,     KC_ESC,        QH_H,    QT_U                               ) \
+  DO(r_top_curl_diag_up,     QK_LEAD,       QH_H,    QT_U                               ) \
   __(r_top_curl_diag_dn,     _____________, QH_J,    QT_Y                               ) \
-  DO(r_top_innr_diag_up,     LALT(KC_X),    QH_J,    QT_I                               ) \
+  DO(r_top_innr_diag_up,     SS_LBRACK,     QH_J,    QT_I                               ) \
   __(r_top_innr_diag_dn,     _____________, QH_K,    QT_U                               ) \
-  __(r_top_outr_diag_up,     _____________, QH_K,    QT_O                               ) \
-  DO(r_top_outr_diag_dn,     QK_LEAD,       QH_L,    QT_I                               ) \
+  __(r_top_outr_diag_up      _____________, QH_K,    QT_O                               ) \
+  DO(r_top_outr_diag_dn,     SS_RBRACK,     QH_L,    QT_I                               ) \
   __(r_top_rech_diag_up,     _____________, QH_L,    QT_P                               ) \
   __(r_top_rech_diag_dn,     _____________, QH_QUOT, QT_O                               ) \
   _______________________________________________________________________________________ \
