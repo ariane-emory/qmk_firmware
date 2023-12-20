@@ -132,7 +132,7 @@ bool combo_should_trigger(
   keyrecord_t * record) {
   return (false
           || (get_highest_layer(layer_state) < LN_MOUSE)
-          // this index will probably need frequent adjustment whenever left-hand combos are altered:
+          // v this index will probably need frequent adjustment whenever left-hand combos are altered:
           || ((layer_state_is(LN_MOUSE)  && ((combo_index <= 15))))
           || ((layer_state_is(LN_MOUSE)  && ((combo->keycode != SS_LBRACK) && (combo->keycode != SS_RBRACK))))
           || (((layer_state_is(LN_LOWER) || layer_state_is(LN_UPPER) || layer_state_is(LN_ARROWS))) &&
