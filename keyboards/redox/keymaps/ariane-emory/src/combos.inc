@@ -67,10 +67,10 @@
   DO(r_top_outr,             LALT(KC_X),    QT_I,    QT_O                               ) \
   DO(r_top_rech,             EM_LWRAP,      QT_O,    QT_P                               ) \
   _______________________________________________________________________________________ \
-  DO(r_top_curl_diag_up,     KC_HOME,       QH_H,    QT_U                               ) \
+  DO(r_top_curl_diag_up,     KC_END,        QH_H,    QT_U                               ) \
   __(r_top_curl_diag_dn,     _____________, QH_J,    QT_Y                               ) \
   DO(r_top_innr_diag_up,     SS_LBRACK,     QH_J,    QT_I                               ) \
-  DO(r_top_innr_diag_dn,     KC_END,        QH_K,    QT_U                               ) \
+  DO(r_top_innr_diag_dn,     KC_HOME,       QH_K,    QT_U                               ) \
   __(r_top_outr_diag_up      _____________, QH_K,    QT_O                               ) \
   DO(r_top_outr_diag_dn,     SS_RBRACK,     QH_L,    QT_I                               ) \
   __(r_top_rech_diag_up,     _____________, QH_L,    QT_P                               ) \
