@@ -65,20 +65,20 @@
   DO(r_top_trpm,             EM_REVERT,     QT_U,    QT_I,      QT_O                    ) \
   DO(r_top_sprd,             SS_AND_AND,    QT_U,               QT_O                    ) \
   DO(r_top_trpo,             SS_SMILEY,     QT_I,    QT_O,      QT_P                    ) \
-  DO(r_top_curl,             KC_HOME,       QT_Y,    QT_U                               ) \
+  DO(r_top_curl,             QK_LEAD,       QT_Y,    QT_U                               ) \
   DO(r_top_innr,             KC_ESC,        QT_U,    QT_I                               ) \
   DO(r_top_outr,             LALT(KC_X),    QT_I,    QT_O                               ) \
-  DO(r_top_rech,             KC_END,        QT_O,    QT_P                               ) \
+  __(r_top_rech,             _____________, QT_O,    QT_P                               ) \
   __(r_top_extr,             _____________, QT_P,    QT_BSLS                            ) \
   _______________________________________________________________________________________ \
-  DO(r_top_curl_diag_up,     QK_LEAD,       QH_H,    QT_U                               ) \
+  DO(r_top_curl_diag_up,     KC_HOME,       QH_H,    QT_U                               ) \
   __(r_top_curl_diag_dn,     _____________, QH_J,    QT_Y                               ) \
   DO(r_top_innr_diag_up,     SS_LBRACK,     QH_J,    QT_I                               ) \
-  __(r_top_innr_diag_dn,     _____________, QH_K,    QT_U                               ) \
+  DO(r_top_innr_diag_dn,     KC_END,        QH_K,    QT_U                               ) \
   __(r_top_outr_diag_up      _____________, QH_K,    QT_O                               ) \
   DO(r_top_outr_diag_dn,     SS_RBRACK,     QH_L,    QT_I                               ) \
   __(r_top_rech_diag_up,     _____________, QH_L,    QT_P                               ) \
-  __(r_top_rech_diag_dn,     _____________, QH_QUOT, QT_O                               ) \
+  DO(r_top_rech_diag_dn,     EM_LWRAP,      QH_QUOT, QT_O                               ) \
   _______________________________________________________________________________________ \
   DO(r_mid_trpi,             EM_PRV_BUF,    QH_H,    QH_J,       QH_K                   ) \
   DO(r_mid_trpm,             EM_DIRED,      QH_J,    QH_K,       QH_L                   ) \
