@@ -36,7 +36,7 @@
   DO(l_mid_innr,             EM_BOL,        QH_D,    QH_F                               ) \
   DO(l_mid_curl,             KC_END,        QH_F,    QH_G                               ) \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
-  __(l_mid_sprd,             _____________, QH_S,               QH_F                    ) \
+  DO(l_mid_sprd,             LALT(KC_X),    QH_S,               QH_F                    ) \
   DO(l_mid_trpm,             TOGGLE_DF,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,             EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   _______________________________________________________________________________________ \
@@ -134,7 +134,11 @@ bool combo_should_trigger(
           || (get_highest_layer(layer_state) < LN_MOUSE)
           // v this index will probably need frequent adjustment whenever left-hand combos are altered:
           || (((layer_state_is(LN_MOUSE)  && ((combo_index <= 15)))))
-          || (((layer_state_is(LN_MOUSE)  && ((combo->keycode != SS_LBRACK) && (combo->keycode != SS_RBRACK)))))
+          || (((layer_state_is(LN_MOUSE)  && (true
+                                              && (combo->keycode != KC_ENT)
+                                              && (combo->keycode != KC_SCLN)
+                                              && (combo->keycode != SS_LBRACK)
+                                              && (combo->keycode != SS_RBRACK)))))
           || (((layer_state_is(LN_LOWER) || layer_state_is(LN_UPPER) || layer_state_is(LN_ARROWS))) &&
               (false
                || (combo->keycode == KC_ESC)
