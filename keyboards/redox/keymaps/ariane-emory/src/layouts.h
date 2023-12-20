@@ -327,7 +327,7 @@
 #define XH_J    RHRM_1(KC_R)
 #define XH_K    RHRM_2(KC_E)
 #define XH_L    RHRM_3(KC_A)
-#define XH_QUOT RHRM_4(YH_RC)
+#define XH_QUOT RHRM_4(XH_RC)
 //------------------------------------------------------------------------------
 #define XB_Z    LBRM_4(KC_B)
 #define XB_X    KC_C
@@ -335,10 +335,10 @@
 #define XB_V    LBRM_4(KC_P)
 #define XB_B    KC_K
 #define XB_N    KC_Z
-#define XB_M    LBRM_4(KC_X)
+#define XB_M    RBRM_4(KC_X)
 #define XB_COMM KC_COMM
 #define XB_DOT  KC_DOT
-#define XB_SLSH RBRM_4(YB_RC)
+#define XB_SLSH RBRM_4(XB_RC)
 //==============================================================================
 
 
