@@ -36,7 +36,7 @@
   DO(l_mid_innr,             EM_BOL,        QH_D,    QH_F                               ) \
   DO(l_mid_curl,             KC_HOME,       QH_F,    QH_G                               ) \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
-  DO(l_mid_sprd,             TOGGLE_DF,     QH_S,               QH_F                    ) \
+  __(l_mid_sprd,             _____________, QH_S,               QH_F                    ) \
   DO(l_mid_trpm,             TOGGLE_DF,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,             EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   _______________________________________________________________________________________ \
@@ -50,9 +50,9 @@
   __(l_bot_curl_diag_dn,     _____________, QH_F,    QB_C                               ) \
   _______________________________________________________________________________________ \
   __(l_bot_rech,             ____________,  QB_Z,    QB_X                               ) \
-  DO(l_bot_outr,             TOGGLE_DF,     QB_X,    QB_C                               ) \
+  DO(l_bot_outr,             KC_ENT,        QB_X,    QB_C                               ) \
   DO(l_bot_innr,             SS_CD,         QB_C,    QB_V                               ) \
-  DO(l_bot_curl,             KC_ENT,        QB_V,    QB_B                               ) \
+  __(l_bot_curl,             ____________,  QB_V,    QB_B                               ) \
   __(l_bot_trpo,             ____________,  QB_Z,    QB_X,      QB_C                    ) \
   DO(l_bot_sprd,             TG(LN_MOUSE),  QB_X,               QB_V                    ) \
   __(l_bot_trpm,             ____________,  QB_X,    QB_C,      QB_V                    ) \
@@ -86,9 +86,9 @@
   DO(r_mid_rech,             LSFT(KC_SCLN), QH_L,    QH_QUOT                            ) \
   _______________________________________________________________________________________ \
   DO(r_bot_curl_diag_up,     CLOSE_WIN,     QH_J,    QB_N                               ) \
-  DO(r_bot_curl_diag_dn,     NEW_TAB,       QH_H,    QB_M                               ) \
+  __(r_bot_curl_diag_dn,     _____________, QH_H,    QB_M                               ) \
   DO(r_bot_innr_diag_up,     KC_VOLD,       QH_K,    QB_M                               ) \
-  __(r_bot_innr_diag_dn,     _____________, QH_J,    QB_COMM                            ) \
+  DO(r_bot_innr_diag_dn,     NEW_TAB,       QH_J,    QB_COMM                            ) \
   DO(r_bot_outr_diag_up,     SPOTLIGHT,     QH_L,    QB_COMM                            ) \
   DO(r_bot_outr_diag_dn,     KC_VOLU,       QH_K,    QB_DOT                             ) \
   __(r_bot_rech_diag_up,     _____________, QH_L,    QB_SLSH                            ) \
@@ -133,18 +133,18 @@ bool combo_should_trigger(
   return (false
           || (get_highest_layer(layer_state) < LN_MOUSE)
           // this index will probably need frequent adjustment whenever left-hand combos are altered:
-          || (layer_state_is(LN_MOUSE) && (combo_index <= 16))
-          || (combo->keycode == TG(LN_MOUSE))
-          || (combo->keycode == LGUI(KC_SPC))
-          || (combo->keycode == SS_DICT)
-          || (combo->keycode == KC_HOME)
-          || (combo->keycode == KC_END)
-          || (combo->keycode == KC_VOLD)
-          || (combo->keycode == KC_VOLU)
-          || (combo->keycode == KC_ESC)
-          || (combo->keycode == CLOSE_WIN)
-          || (combo->keycode == NEW_TAB)
-          /* || (combo->keycode == REOPEN_TAB) */
+          || (layer_state_is(LN_MOUSE) && (combo_index <= 15))
+          || ((layer_state_is(LN_MOUSE) && ((combo->keycode != SS_LBRACK) && (combo->keycode != SS_RBRACK))))
+          /* || (combo->keycode == TG(LN_MOUSE)) */
+          /* || (combo->keycode == LGUI(KC_SPC)) */
+          /* || (combo->keycode == SS_DICT) */
+          /* || (combo->keycode == KC_HOME) */
+          /* || (combo->keycode == KC_END) */
+          /* || (combo->keycode == KC_VOLD) */
+          /* || (combo->keycode == KC_VOLU) */
+          /* || (combo->keycode == KC_ESC) */
+          /* || (combo->keycode == CLOSE_WIN) */
+          /* || (combo->keycode == NEW_TAB) */
           || (layer_state_is(LN_ARROWS) && combo->keycode == KC_ENT)
           || (((layer_state_is(LN_LOWER) || layer_state_is(LN_UPPER) || layer_state_is(LN_ARROWS))) &&
               ((combo->keycode == EM_BOL) || (combo->keycode == EM_EOL)))
