@@ -151,6 +151,8 @@ bool combo_should_trigger(
                || (combo->keycode == KA_UNDO)
                || (combo->keycode == EM_BOL)
                || (combo->keycode == EM_EOL)
+               || (combo->keycode == KC_VOLD)
+               || (combo->keycode == KC_VOLU)
                || (combo->keycode == KC_HOME)
                || (combo->keycode == KC_END)))
           || false);
