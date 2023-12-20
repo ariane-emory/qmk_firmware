@@ -33,10 +33,10 @@
   __(l_top_curl_diag_dn,     ____________,  QH_F,    QT_T                               ) \
   _______________________________________________________________________________________ \
   __(l_mid_extr,             ____________,  QH_CAPS, QH_                                ) \
-  DO(l_mid_rech,             KC_END,        QH_A,    QH_S                               ) \
+  DO(l_mid_rech,             KC_HOME,       QH_A,    QH_S                               ) \
   DO(l_mid_outr,             EM_EOL,        QH_S,    QH_D                               ) \
   DO(l_mid_innr,             EM_BOL,        QH_D,    QH_F                               ) \
-  DO(l_mid_curl,             KC_HOME,       QH_F,    QH_G                               ) \
+  DO(l_mid_curl,             KC_END,        QH_F,    QH_G                               ) \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
   DO(l_mid_sprd,             TOGGLE_DF,     QH_S,               QH_F                    ) \
   DO(l_mid_trpm,             TOGGLE_DF,     QH_S,    QH_D,      QH_F                    ) \
@@ -65,10 +65,10 @@
   DO(r_top_trpm,             EM_REVERT,     QT_U,    QT_I,      QT_O                    ) \
   DO(r_top_sprd,             SS_AND_AND,    QT_U,               QT_O                    ) \
   DO(r_top_trpo,             SS_SMILEY,     QT_I,    QT_O,      QT_P                    ) \
-  DO(r_top_curl,             KC_HOME,       QT_Y,    QT_U                               ) \
+  DO(r_top_curl,             KC_END,        QT_Y,    QT_U                               ) \
   DO(r_top_innr,             SS_LBRACK,     QT_U,    QT_I                               ) \
   DO(r_top_outr,             SS_RBRACK,     QT_I,    QT_O                               ) \
-  DO(r_top_rech,             KC_END,        QT_O,    QT_P                               ) \
+  DO(r_top_rech,             KC_HOME,       QT_O,    QT_P                               ) \
   __(r_top_extr,             _____________, QT_P,    QT_BSLS                            ) \
   _______________________________________________________________________________________ \
   DO(r_top_curl_diag_up,     KC_ESC,        QH_H,    QT_U                               ) \
