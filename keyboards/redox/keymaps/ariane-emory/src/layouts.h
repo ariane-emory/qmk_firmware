@@ -316,7 +316,7 @@
 #define XT_U    KC_L
 #define XT_I    KC_U
 #define XT_O    KC_O
-#define XT_P    YT_RC
+#define XT_P    XT_RC
 //------------------------------------------------------------------------------
 #define XH_A    LHRM_4(KC_N)
 #define XH_S    LHRM_3(KC_S)
