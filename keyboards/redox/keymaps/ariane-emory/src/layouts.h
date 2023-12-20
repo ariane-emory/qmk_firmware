@@ -295,7 +295,7 @@
 
 
 //==============================================================================
-// X: Wreathy
+// X: Wreathy-JX
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
 # define XT_RC  KC_SLSH
@@ -312,7 +312,7 @@
 #define XT_E    KC_D
 #define XT_R    KC_F
 #define XT_T    KC_V
-#define XT_Y    KC_J
+#define XT_Y    KC_X // J
 #define XT_U    KC_L
 #define XT_I    KC_U
 #define XT_O    KC_O
@@ -335,7 +335,7 @@
 #define XB_V    LBRM_4(KC_P)
 #define XB_B    KC_K
 #define XB_N    KC_Z
-#define XB_M    RBRM_4(KC_X)
+#define XB_M    RBRM_4(KC_J) // X)
 #define XB_COMM KC_COMM
 #define XB_DOT  KC_DOT
 #define XB_SLSH RBRM_4(XB_RC)
