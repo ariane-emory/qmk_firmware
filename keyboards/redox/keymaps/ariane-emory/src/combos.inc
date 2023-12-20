@@ -13,7 +13,6 @@
 
 #define FOR_EACH_COMBO(DO)                                                                \
   _______________________________________________________________________________________ \
-  __(l_top_extr,             ____________,  QT_TAB,  QT_Q                               ) \
   __(l_top_rech,             ____________,  QT_Q,    QT_W                               ) \
   DO(l_top_outr,             LSFT(KC_GRV),  QT_W,    QT_E                               ) \
   DO(l_top_innr,             KC_GRV,        QT_E,    QT_R                               ) \
@@ -32,7 +31,6 @@
   __(l_top_curl_diag_up,     ____________,  QH_G,    QT_R                               ) \
   __(l_top_curl_diag_dn,     ____________,  QH_F,    QT_T                               ) \
   _______________________________________________________________________________________ \
-  __(l_mid_extr,             ____________,  QH_CAPS, QH_                                ) \
   DO(l_mid_rech,             KC_END,        QH_A,    QH_S                               ) \
   DO(l_mid_outr,             EM_EOL,        QH_S,    QH_D                               ) \
   DO(l_mid_innr,             EM_BOL,        QH_D,    QH_F                               ) \
@@ -51,7 +49,6 @@
   DO(l_bot_curl_diag_up,     LOCAL_CAPS,    QH_F,    QB_B                               ) \
   __(l_bot_curl_diag_dn,     _____________, QH_F,    QB_C                               ) \
   _______________________________________________________________________________________ \
-  __(l_bot_extr,             ____________,  QB_LSFT, QB_Z                               ) \
   __(l_bot_rech,             ____________,  QB_Z,    QB_X                               ) \
   DO(l_bot_outr,             TOGGLE_DF,     QB_X,    QB_C                               ) \
   DO(l_bot_innr,             SS_CD,         QB_C,    QB_V                               ) \
@@ -69,7 +66,6 @@
   DO(r_top_innr,             KC_ESC,        QT_U,    QT_I                               ) \
   DO(r_top_outr,             LALT(KC_X),    QT_I,    QT_O                               ) \
   __(r_top_rech,             _____________, QT_O,    QT_P                               ) \
-  __(r_top_extr,             _____________, QT_P,    QT_BSLS                            ) \
   _______________________________________________________________________________________ \
   DO(r_top_curl_diag_up,     KC_HOME,       QH_H,    QT_U                               ) \
   __(r_top_curl_diag_dn,     _____________, QH_J,    QT_Y                               ) \
@@ -88,7 +84,6 @@
   DO(r_mid_innr,             KC_ENT,        QH_J,    QH_K                               ) \
   DO(r_mid_outr,             KC_SCLN,       QH_K,    QH_L                               ) \
   DO(r_mid_rech,             LSFT(KC_SCLN), QH_L,    QH_QUOT                            ) \
-  DO(r_mid_extr,             EM_LWRAP,      QH_QUOT, RCTL_DQUO                          ) \
   _______________________________________________________________________________________ \
   DO(r_bot_curl_diag_up,     CLOSE_WIN,     QH_J,    QB_N                               ) \
   DO(r_bot_curl_diag_dn,     NEW_TAB,       QH_H,    QB_M                               ) \
@@ -107,7 +102,6 @@
   DO(r_bot_innr,             KA_UNDO,       QB_M,    QB_COMM                            ) \
   DO(r_bot_outr,             SS_DIR,        QB_COMM, QB_DOT                             ) \
   DO(r_bot_rech,             SS_ARROW,      QB_DOT,  QB_SLSH                            ) \
-  __(r_bot_extr,             _____________, QB_SLSH, QB_LSFT                            ) \
   _______________________________________________________________________________________
 
 //========================================================================================
