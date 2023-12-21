@@ -14,6 +14,8 @@
 #define FOR_EACH_COMBO(DO)                                                                \
   _______________________________________________________________________________________ \
   DO(both_str_thumbs,        KC_INS,        STR_LFT, STR_RGT                            ) \
+  DO(both_thu_thumbs,        CAPS_WORD,     THU_LFT, THU_RGT                            ) \
+  DO(both_crl_thumbs,        LOCAL_CAPS,    CRL_LFT, CRL_RGT                            ) \
   _______________________________________________________________________________________ \
   __(l_top_rech,             ____________,  QT_Q,    QT_W                               ) \
   DO(l_top_outr,             LSFT(KC_GRV),  QT_W,    QT_E                               ) \
@@ -67,16 +69,16 @@
   DO(r_top_curl,             QK_LEAD,       QT_Y,    QT_U                               ) \
   DO(r_top_innr,             LALT(KC_X),    QT_U,    QT_I                               ) \
   DO(r_top_outr,             KC_ESC,        QT_I,    QT_O                               ) \
-  DO(r_top_rech,             LGUI(KC_EQL),  QT_O,    QT_P                               ) \
+  __(r_top_rech,             _____________, QT_O,    QT_P                               ) \
   _______________________________________________________________________________________ \
   DO(r_top_curl_diag_up,     KC_HOME,       QH_H,    QT_U                               ) \
   DO(r_top_curl_diag_dn,     SS_FULLSCR,    QH_J,    QT_Y                               ) \
   DO(r_top_innr_diag_up,     SS_LBRACK,     QH_J,    QT_I                               ) \
   DO(r_top_innr_diag_dn,     KC_END,        QH_K,    QT_U                               ) \
-  __(r_top_outr_diag_up,     _____________, QH_K,    QT_O                               ) \
+  DO(r_top_outr_diag_up,     LGUI(KC_MINS), QH_K,    QT_O                               ) \
   DO(r_top_outr_diag_dn,     SS_RBRACK,     QH_L,    QT_I                               ) \
   DO(r_top_rech_diag_up,     EM_LWRAP,      QH_L,    QT_P                               ) \
-  DO(r_top_rech_diag_dn,     LGUI(KC_MINS), QH_QUOT, QT_O                               ) \
+  DO(r_top_rech_diag_dn,     LGUI(KC_EQL),  QH_QUOT, QT_O                               ) \
   _______________________________________________________________________________________ \
   DO(r_mid_trpi,             EM_PRV_BUF,    QH_H,    QH_J,       QH_K                   ) \
   DO(r_mid_trpm,             EM_DIRED,      QH_J,    QH_K,       QH_L                   ) \
