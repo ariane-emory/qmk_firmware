@@ -36,7 +36,7 @@
   DO(l_mid_innr,             EM_BOL,        QH_D,    QH_F                               ) \
   DO(l_mid_curl,             KC_END,        QH_F,    QH_G                               ) \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
-  __(l_mid_sprd,             _____________, QH_S,               QH_F                    ) \
+  DO(l_mid_sprd,             SPOTLIGHT,     QH_S,               QH_F                    ) \
   DO(l_mid_trpm,             TOGGLE_DF,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,             EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   _______________________________________________________________________________________ \
