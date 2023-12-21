@@ -297,8 +297,11 @@ KEYRECORD_C_FUN(bool disable_mouse_layer_handler) {
 static bool toggle_df_flag = false;
 
 KEYRECORD_C_FUN(bool toggle_df_handler) {  
-  if (record->event.pressed)
-    default_layer_set((layer_state_t)1 << (toggle_df_flag = ! toggle_df_flag));
+  if (record->event.pressed) {
+    toggle_df_flag = ! toggle_df_flag;
+    
+    default_layer_set((layer_state_t)1 << (toggle_df_flag ? 1 : 0));
+  }
   
   return false;
 };
