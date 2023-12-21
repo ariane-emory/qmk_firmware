@@ -13,6 +13,8 @@
 
 #define FOR_EACH_COMBO(DO)                                                                \
   _______________________________________________________________________________________ \
+  DO(both_str_thumbs,        KC_INS,        STR_LFT, STR_RGT                            ) \
+  _______________________________________________________________________________________ \
   __(l_top_rech,             ____________,  QT_Q,    QT_W                               ) \
   DO(l_top_outr,             LSFT(KC_GRV),  QT_W,    QT_E                               ) \
   DO(l_top_innr,             KC_GRV,        QT_E,    QT_R                               ) \
@@ -68,7 +70,7 @@
   DO(r_top_rech,             LGUI(KC_EQL),  QT_O,    QT_P                               ) \
   _______________________________________________________________________________________ \
   DO(r_top_curl_diag_up,     KC_HOME,       QH_H,    QT_U                               ) \
-  __(r_top_curl_diag_dn,     _____________, QH_J,    QT_Y                               ) \
+  DO(r_top_curl_diag_dn,     SS_FULLSCR,    QH_J,    QT_Y                               ) \
   DO(r_top_innr_diag_up,     SS_LBRACK,     QH_J,    QT_I                               ) \
   DO(r_top_innr_diag_dn,     KC_END,        QH_K,    QT_U                               ) \
   __(r_top_outr_diag_up,     _____________, QH_K,    QT_O                               ) \
