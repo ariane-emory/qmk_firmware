@@ -36,7 +36,7 @@
   DO(l_mid_innr,             EM_BOL,        QH_D,    QH_F                               ) \
   DO(l_mid_curl,             KC_END,        QH_F,    QH_G                               ) \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
-  DO(l_mid_sprd,             LALT(KC_X),    QH_S,               QH_F                    ) \
+  __(l_mid_sprd,             _____________, QH_S,               QH_F                    ) \
   DO(l_mid_trpm,             TOGGLE_DF,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,             EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   _______________________________________________________________________________________ \
@@ -63,8 +63,8 @@
   DO(r_top_sprd,             SS_AND_AND,    QT_U,               QT_O                    ) \
   DO(r_top_trpo,             SS_SMILEY,     QT_I,    QT_O,      QT_P                    ) \
   DO(r_top_curl,             QK_LEAD,       QT_Y,    QT_U                               ) \
-  DO(r_top_innr,             KC_ESC,        QT_U,    QT_I                               ) \
-  DO(r_top_outr,             LALT(KC_X),    QT_I,    QT_O                               ) \
+  DO(r_top_innr,             LALT(KC_X),    QT_U,    QT_I                               ) \
+  DO(r_top_outr,             KC_ESC,        QT_I,    QT_O                               ) \
   DO(r_top_rech,             LGUI(KC_EQL),  QT_O,    QT_P                               ) \
   _______________________________________________________________________________________ \
   DO(r_top_curl_diag_up,     KC_HOME,       QH_H,    QT_U                               ) \
