@@ -47,11 +47,11 @@
   __(l_bot_rech_diag_up,     _____________, QH_A,    QB_X                               ) \
   __(l_bot_rech_diag_dn,     _____________, QH_S,    QB_Z                               ) \
   __(l_bot_outr_diag_up,     _____________, QH_S,    QB_C                               ) \
-  DO(l_bot_outr_diag_dn,     LOCAL_CAPS,    QH_D,    QB_X                               ) \
+  __(l_bot_outr_diag_dn,     _____________, QH_D,    QB_X                               ) \
   DO(l_bot_innr_diag_up,     CAPS_WORD,     QH_D,    QB_V                               ) \
   __(l_bot_innr_diag_dn,     _____________, QH_F,    QB_C                               ) \
   __(l_bot_curl_diag_up,     _____________, QH_F,    QB_B                               ) \
-  DO(l_bot_curl_diag_dn,     LOCAL_CAPS,    QH_F,    QB_C                               ) \
+  __(l_bot_curl_diag_dn,     _____________, QH_F,    QB_C                               ) \
   _______________________________________________________________________________________ \
   __(l_bot_rech,             ____________,  QB_Z,    QB_X                               ) \
   DO(l_bot_outr,             KC_ENT,        QB_X,    QB_C                               ) \
