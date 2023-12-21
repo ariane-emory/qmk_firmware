@@ -608,7 +608,7 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_F,    QH_D            }, // delete forwards char
   /* { QH_F,    QT_E            }, // end of line */
   /* { QH_F,    QT_T            }, // new tab */
-  /* { QH_F,    QT_W            }, // close */
+  { QH_F,    QT_W            }, // close
   /* { QH_F,    QH_S            }, // i-search */
   { QH_F,    KC_ENT          }, // C-<return>
 
