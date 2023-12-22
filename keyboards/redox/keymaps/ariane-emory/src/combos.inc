@@ -67,8 +67,8 @@
   DO(r_top_sprd,             SS_AND_AND,    QT_U,               QT_O                    ) \
   DO(r_top_trpo,             SS_SMILEY,     QT_I,    QT_O,      QT_P                    ) \
   DO(r_top_curl,             QK_LEAD,       QT_Y,    QT_U                               ) \
-  DO(r_top_innr,             KC_ESC,        QT_U,    QT_I                               ) \
-  DO(r_top_outr,             LALT(KC_X),    QT_I,    QT_O                               ) \
+  DO(r_top_innr,             LALT(KC_X),    QT_U,    QT_I                               ) \
+  DO(r_top_outr,             KC_ESC,        QT_I,    QT_O                               ) \
   __(r_top_rech,             _____________, QT_O,    QT_P                               ) \
   _______________________________________________________________________________________ \
   DO(r_top_curl_diag_up,     KC_HOME,       QH_H,    QT_U                               ) \
