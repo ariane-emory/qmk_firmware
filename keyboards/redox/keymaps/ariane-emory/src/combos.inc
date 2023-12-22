@@ -13,7 +13,7 @@
 
 #define FOR_EACH_COMBO(DO)                                                                \
   _______________________________________________________________________________________ \
-  DO(both_str_thumbs,        LOCAL_CAPS,   STR_LFT, STR_RGT                             )  \
+  DO(both_str_thumbs,        LOCAL_CAPS,   STR_LFT, STR_RGT                             ) \
   DO(both_thu_thumbs,        CAPS_WORD,    THU_LFT, THU_RGT                             ) \
   DO(both_crl_thumbs,        KC_INS,       CRL_LFT, CRL_RGT                             ) \
   _______________________________________________________________________________________ \
