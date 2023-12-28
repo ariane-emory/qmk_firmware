@@ -89,12 +89,12 @@
   DO(r_mid_outr,             KC_SCLN,       QH_K,    QH_L                               ) \
   DO(r_mid_rech,             LSFT(KC_SCLN), QH_L,    QH_QUOT                            ) \
   _______________________________________________________________________________________ \
-  DO(r_bot_curl_diag_up,     SPOTLIGHT,     QH_J,    QB_N                               ) \
+  DO(r_bot_curl_diag_up,     KC_VOLD,       QH_J,    QB_N                               ) \
   __(r_bot_curl_diag_dn,     _____________, QH_H,    QB_M                               ) \
-  DO(r_bot_innr_diag_up,     KC_VOLD,       QH_K,    QB_M                               ) \
-  DO(r_bot_innr_diag_dn,     NEW_TAB,       QH_J,    QB_COMM                            ) \
-  DO(r_bot_outr_diag_up,     CLOSE_WIN,     QH_L,    QB_COMM                            ) \
-  DO(r_bot_outr_diag_dn,     KC_VOLU,       QH_K,    QB_DOT                             ) \
+  DO(r_bot_innr_diag_up,     CLOSE_WIN,     QH_K,    QB_M                               ) \
+  DO(r_bot_innr_diag_dn,     KC_VOLU,       QH_J,    QB_COMM                            ) \
+  DO(r_bot_outr_diag_up,     SPOTLIGHT,     QH_L,    QB_COMM                            ) \
+  DO(r_bot_outr_diag_dn,     NEW_TAB,       QH_K,    QB_DOT                             ) \
   __(r_bot_rech_diag_up,     _____________, QH_L,    QB_SLSH                            ) \
   __(r_bot_rech_diag_dn,     _____________, QH_QUOT, QB_DOT                             ) \
   _______________________________________________________________________________________ \
