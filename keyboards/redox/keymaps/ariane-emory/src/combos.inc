@@ -95,7 +95,7 @@
   DO(r_bot_innr_diag_dn,     KC_VOLU,       QH_J,    QB_COMM                            ) \
   DO(r_bot_outr_diag_up,     SPOTLIGHT,     QH_L,    QB_COMM                            ) \
   DO(r_bot_outr_diag_dn,     NEW_TAB,       QH_K,    QB_DOT                             ) \
-  __(r_bot_rech_diag_up,     _____________, QH_L,    QB_SLSH                            ) \
+  DO(r_bot_rech_diag_up,     SPOTLIGHT,     QH_L,    QB_SLSH                            ) \
   __(r_bot_rech_diag_dn,     _____________, QH_QUOT, QB_DOT                             ) \
   _______________________________________________________________________________________ \
   DO(r_bot_trpi,             EM_CHG_BUFF,   QB_N,    QB_M,      QB_COMM                 ) \
