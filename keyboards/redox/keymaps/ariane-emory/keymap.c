@@ -218,7 +218,7 @@ KEYRECORD_C_FUN(bool discord_mute_handler) {
   if (record->event.pressed) {
     // tap_code16(LGUI(LSFT(KC_D)));
     register_code16(LGUI(LSFT(KC_D)));
-    wait_ms(13);
+    wait_ms(10);
     unregister_code16(LGUI(LSFT(KC_D)));
   }
 
