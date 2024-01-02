@@ -779,37 +779,37 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_C, KC_D)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("D:" CR() AE_CD CR()));
   }
-  else if (leader_sequence_two_keys(QK_LEAD, KC_D)) {
+  else if (leader_sequence_two_keys(KC_G, KC_D)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " CR()));
   }
-  else if (leader_sequence_two_keys(QK_LEAD, KC_S)) {
+  else if (leader_sequence_two_keys(KC_G, KC_S)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git status " CR()));
   }
-  else if (leader_sequence_two_keys(QK_LEAD, KC_C)) {
+  else if (leader_sequence_two_keys(KC_G, KC_C)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git commit "));
   }
-  else if (leader_sequence_three_keys(QK_LEAD, KC_C, KC_M)) {
+  else if (leader_sequence_three_keys(KC_G, KC_C, KC_M)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\"" LL()));
   }
-  else if (leader_sequence_four_keys(QK_LEAD, KC_C, KC_A, KC_M)) {
+  else if (leader_sequence_four_keys(KC_G, KC_C, KC_A, KC_M)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\"" LL()));
   }
-  else if (leader_sequence_two_keys(QK_LEAD, KC_H)) {
+  else if (leader_sequence_two_keys(KC_G, KC_H)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git checkout "));
   }
-  else if (leader_sequence_two_keys(QK_LEAD, KC_M)) {
+  else if (leader_sequence_two_keys(KC_G, KC_M)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git merge "));
   }
-  else if (leader_sequence_two_keys(QK_LEAD, KC_P)) {
+  else if (leader_sequence_two_keys(KC_G, KC_P)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git push " CR()));
   }
-  else if (leader_sequence_two_keys(QK_LEAD, KC_U)) {
+  else if (leader_sequence_two_keys(KC_G, KC_U)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " CR()));
   }
-  else if (leader_sequence_three_keys(QK_LEAD, KC_R, KC_H)) {
+  else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " CR()));
   }
-  else if (leader_sequence_two_keys(QK_LEAD, KC_R)) {
+  else if (leader_sequence_two_keys(KC_G, KC_R)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git reset "));
   }
   /* else if (leader_sequence_one_key(0)) { */

@@ -40,7 +40,7 @@
   DO(l_mid_innr,             EM_BOL,        QH_D,    QH_F                               ) \
   DO(l_mid_curl,             KC_END,        QH_F,    QH_G                               ) \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
-  DO(l_mid_sprd,             LAG(KC_W),     QH_S,               QH_F                    ) \
+  DO(l_mid_sprd,             EM_MAC_BGN,    QH_S,               QH_F                    ) \
   DO(l_mid_trpm,             TOGGLE_DF,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,             EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   _______________________________________________________________________________________ \
@@ -50,7 +50,7 @@
   __(l_bot_outr_diag_dn,     _____________, QH_D,    QB_X                               ) \
   DO(l_bot_innr_diag_up,     CAPS_WORD,     QH_D,    QB_V                               ) \
   __(l_bot_innr_diag_dn,     _____________, QH_F,    QB_C                               ) \
-  DO(l_bot_curl_diag_up,     LAG(KC_R),     QH_F,    QB_B                               ) \
+  DO(l_bot_curl_diag_up,     EM_MAC_RPT,    QH_F,    QB_B                               ) \
   __(l_bot_curl_diag_dn,     _____________, QH_F,    QB_C                               ) \
   _______________________________________________________________________________________ \
   __(l_bot_rech,             ____________,  QB_Z,    QB_X                               ) \
@@ -59,7 +59,7 @@
   __(l_bot_curl,             ____________,  QB_V,    QB_B                               ) \
   __(l_bot_trpo,             ____________,  QB_Z,    QB_X,      QB_C                    ) \
   DO(l_bot_sprd,             TG(LN_MOUSE),  QB_X,               QB_V                    ) \
-  DO(l_bot_trpm,             LAG(KC_E),     QB_X,    QB_C,      QB_V                    ) \
+  DO(l_bot_trpm,             EM_MAC_END,    QB_X,    QB_C,      QB_V                    ) \
   __(l_bot_trpi,             ____________,  QB_C,    QB_V,      QB_B                    ) \
   _______________________________________________________________________________________ \
   DO(r_top_trpi,             SS_SMILEY2,    QT_Y,    QT_U,      QT_I                    ) \
