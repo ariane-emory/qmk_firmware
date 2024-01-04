@@ -68,11 +68,11 @@
 #endif
 //------------------------------------------------------------------------------
 #define YT_Q    KC_Z
-#define YT_W    KC_F // D
+#define YT_W    KC_F
 #define YT_E    KC_R
-#define YT_R    KC_D // F
-#define YT_T    KC_J // B
-#define YT_Y    KC_B // J
+#define YT_R    KC_D
+#define YT_T    KC_J
+#define YT_Y    KC_B
 #define YT_U    KC_W
 #define YT_I    KC_U
 #define YT_O    KC_P
@@ -90,12 +90,12 @@
 #define YH_QUOT RHRM_4(YH_RC)
 //------------------------------------------------------------------------------
 #define YB_Z    LBRM_4(KC_Q)
-#define YB_X    KC_X
+#define YB_X    KC_C // X
 #define YB_C    KC_L
 #define YB_V    LBRM_4(KC_M) // C)
-#define YB_B    KC_V
+#define YB_B    KC_X
 #define YB_N    KC_K
-#define YB_M    LBRM_4(KC_C) // M)
+#define YB_M    LBRM_4(KC_V) // M)
 #define YB_COMM KC_COMM
 #define YB_DOT  KC_DOT
 #define YB_SLSH RBRM_4(YB_RC)
