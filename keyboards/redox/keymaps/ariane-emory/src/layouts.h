@@ -75,27 +75,27 @@
 #define YT_Y    KC_B
 #define YT_U    KC_W
 #define YT_I    KC_U
-#define YT_O    KC_P
+#define YT_O    KC_O // P
 #define YT_P    YT_RC
 //------------------------------------------------------------------------------
-#define YH_A    LHRM_4(KC_A)
+#define YH_A    LHRM_4(KC_P) // A)
 #define YH_S    LHRM_3(KC_S)
 #define YH_D    LHRM_2(KC_H)
 #define YH_F    LHRM_1(KC_T)
-#define YH_G    LHRM_0(KC_G)
+#define YH_G    LHRM_0(KC_X) // G)
 #define YH_H    RHRM_0(KC_Y)
 #define YH_J    RHRM_1(KC_N)
 #define YH_K    RHRM_2(KC_E)
-#define YH_L    RHRM_3(KC_I)
+#define YH_L    RHRM_3(KC_A) // I)
 #define YH_QUOT RHRM_4(YH_RC)
 //------------------------------------------------------------------------------
 #define YB_Z    LBRM_4(KC_Q)
-#define YB_X    KC_C // X
+#define YB_X    KC_C 
 #define YB_C    KC_L
-#define YB_V    LBRM_4(KC_M) // C)
-#define YB_B    KC_X
+#define YB_V    LBRM_4(KC_M) 
+#define YB_B    KC_G // X
 #define YB_N    KC_K
-#define YB_M    LBRM_4(KC_V) // M)
+#define YB_M    LBRM_4(KC_V) 
 #define YB_COMM KC_COMM
 #define YB_DOT  KC_DOT
 #define YB_SLSH RBRM_4(YB_RC)
