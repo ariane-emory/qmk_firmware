@@ -60,10 +60,10 @@
 #ifdef ROTATE_RIGHT_COL
 # define YT_RC  KC_SLSH
 # define YH_RC  KC_QUOT
-# define YB_RC  KC_O
+# define YB_RC  KC_I // O
 #else
 # define YT_RC  KC_SLSH
-# define YH_RC  KC_O
+# define YH_RC  KC_I // O
 # define YB_RC  KC_QUOT
 #endif
 //------------------------------------------------------------------------------
