@@ -70,7 +70,7 @@
 #define YT_Q    KC_Z
 #define YT_W    KC_F
 #define YT_E    KC_N
-#define YT_R    KC_M
+#define YT_R    KC_G
 #define YT_T    KC_Q
 #define YT_Y    KC_J
 #define YT_U    KC_X
@@ -82,7 +82,7 @@
 #define YH_S    LHRM_3(KC_S)
 #define YH_D    LHRM_2(KC_H)
 #define YH_F    LHRM_1(KC_T)
-#define YH_G    LHRM_0(KC_G)
+#define YH_G    LHRM_0(KC_M)
 #define YH_H    RHRM_0(KC_Y)
 #define YH_J    RHRM_1(KC_R)
 #define YH_K    RHRM_2(KC_E)
