@@ -55,44 +55,6 @@
 
 
 //==============================================================================
-// Y: 'Threatish' layout
-//==============================================================================
-#define YT_Q    KC_Z
-#define YT_W    KC_F
-#define YT_E    KC_N
-#define YT_R    KC_G
-#define YT_T    KC_Q
-#define YT_Y    KC_J
-#define YT_U    KC_Y
-#define YT_I    KC_U
-#define YT_O    KC_O
-#define YT_P    KC_SLSH
-//------------------------------------------------------------------------------
-#define YH_A    LHRM_4(KC_C)
-#define YH_S    LHRM_3(KC_S)
-#define YH_D    LHRM_2(KC_H)
-#define YH_F    LHRM_1(KC_T)
-#define YH_G    LHRM_0(KC_M)
-#define YH_H    RHRM_0(KC_X)
-#define YH_J    RHRM_1(KC_R)
-#define YH_K    RHRM_2(KC_E)
-#define YH_L    RHRM_3(KC_A)
-#define YH_QUOT RHRM_4(KC_I)
-//------------------------------------------------------------------------------
-#define YB_Z    LBRM_4(KC_P)
-#define YB_X    KC_B
-#define YB_C    KC_L
-#define YB_V    LBRM_4(KC_D) 
-#define YB_B    KC_V
-#define YB_N    KC_K
-#define YB_M    LBRM_4(KC_W)
-#define YB_COMM KC_COMM
-#define YB_DOT  KC_DOT
-#define YB_SLSH RBRM_4(KC_QUOT)
-//==============================================================================
-
-
-//==============================================================================
 // W: Workman
 //==============================================================================
 #ifdef ROTATE_RIGHT_COL
@@ -281,6 +243,44 @@
 #define DB_COMM KC_W
 #define DB_DOT  KC_V
 #define DB_SLSH RBRM_4(DB_RC)
+//==============================================================================
+
+
+//==============================================================================
+// Y: 'Threatish' layout
+//==============================================================================
+#define YT_Q    KC_Z
+#define YT_W    KC_F
+#define YT_E    KC_N
+#define YT_R    KC_G
+#define YT_T    KC_Q
+#define YT_Y    KC_J
+#define YT_U    KC_Y
+#define YT_I    KC_U
+#define YT_O    KC_O
+#define YT_P    KC_SLSH
+//------------------------------------------------------------------------------
+#define YH_A    LHRM_4(KC_C)
+#define YH_S    LHRM_3(KC_S)
+#define YH_D    LHRM_2(KC_H)
+#define YH_F    LHRM_1(KC_T)
+#define YH_G    LHRM_0(KC_M)
+#define YH_H    RHRM_0(KC_X)
+#define YH_J    RHRM_1(KC_R)
+#define YH_K    RHRM_2(KC_E)
+#define YH_L    RHRM_3(KC_A)
+#define YH_QUOT RHRM_4(KC_I)
+//------------------------------------------------------------------------------
+#define YB_Z    LBRM_4(KC_P)
+#define YB_X    KC_B
+#define YB_C    KC_L
+#define YB_V    LBRM_4(KC_D) 
+#define YB_B    KC_V
+#define YB_N    KC_K
+#define YB_M    LBRM_4(KC_W)
+#define YB_COMM KC_COMM
+#define YB_DOT  KC_DOT
+#define YB_SLSH RBRM_4(KC_QUOT)
 //==============================================================================
 
 
