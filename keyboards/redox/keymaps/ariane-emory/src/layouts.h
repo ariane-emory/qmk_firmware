@@ -78,7 +78,7 @@
 #define YT_O    KC_O
 #define YT_P    YT_RC
 //------------------------------------------------------------------------------
-#define YH_A    LHRM_4(KC_C)
+#define YH_A    LHRM_4(KC_B)
 #define YH_S    LHRM_3(KC_S)
 #define YH_D    LHRM_2(KC_H)
 #define YH_F    LHRM_1(KC_T)
@@ -90,7 +90,7 @@
 #define YH_QUOT RHRM_4(YH_RC)
 //------------------------------------------------------------------------------
 #define YB_Z    LBRM_4(KC_P)
-#define YB_X    KC_B
+#define YB_X    KC_C
 #define YB_C    KC_L
 #define YB_V    LBRM_4(KC_D) 
 #define YB_B    KC_V
