@@ -398,3 +398,43 @@
 //==============================================================================
 
 
+
+
+//==============================================================================
+// H: Gallium
+//==============================================================================
+#define HT_Q    KC_Q
+#define HT_W    KC_L
+#define HT_E    KC_D
+#define HT_R    KC_C
+#define HT_T    KC_J
+#define HT_Y    KC_Z
+#define HT_U    KC_Y
+#define HT_I    KC_O
+#define HT_O    KC_U
+#define HT_P    KC_SLSH
+//------------------------------------------------------------------------------
+#define HH_A    LHRM_4(KC_N)
+#define HH_S    LHRM_3(KC_R)
+#define HH_D    LHRM_2(KC_T)
+#define HH_F    LHRM_1(KC_S)
+#define HH_G    LHRM_0(KC_G)
+#define HH_H    RHRM_0(KC_P)
+#define HH_J    RHRM_1(KC_H)
+#define HH_K    RHRM_2(KC_A)
+#define HH_L    RHRM_3(KC_E)
+#define HH_QUOT RHRM_4(KC_I)
+//------------------------------------------------------------------------------
+#define HB_Z    LBRM_4(KC_B)
+#define HB_X           KC_X
+#define HB_C           KC_M
+#define HB_V    LBRM_4(KC_W)
+#define HB_B           KC_V
+#define HB_N           KC_K
+#define HB_M    RBRM_4(KC_F)
+#define HB_COMM        KC_COMM
+#define HB_DOT         KC_DOT
+#define HB_SLSH RBRM_4(KC_QUOT)
+//==============================================================================
+
+
