@@ -294,8 +294,8 @@
 #define XT_T    KC_Q
 #define XT_Y    KC_Z
 #define XT_U    KC_L
-#define XT_I    KC_O
-#define XT_O    KC_U
+#define XT_I    KC_U
+#define XT_O    KC_O
 #define XT_P    KC_SLSH
 //------------------------------------------------------------------------------
 #define XH_A    LHRM_4(KC_C)
@@ -306,8 +306,8 @@
 #define XH_H    RHRM_0(KC_X)
 #define XH_J    RHRM_1(KC_R)
 #define XH_K    RHRM_2(KC_E)
-#define XH_L    RHRM_3(KC_I)
-#define XH_QUOT RHRM_4(KC_A)
+#define XH_L    RHRM_3(KC_A)
+#define XH_QUOT RHRM_4(KC_I)
 //------------------------------------------------------------------------------
 #define XB_Z    LBRM_4(KC_G)
 #define XB_X           KC_B
@@ -319,6 +319,44 @@
 #define XB_COMM        KC_COMM
 #define XB_DOT         KC_DOT
 #define XB_SLSH RBRM_4(KC_QUOT)
+//==============================================================================
+
+
+//==============================================================================
+// N: Canary
+//==============================================================================
+#define NT_Q    KC_W
+#define NT_W    KC_L
+#define NT_E    KC_Y
+#define NT_R    KC_P
+#define NT_T    KC_K
+#define NT_Y    KC_Z
+#define NT_U    KC_F
+#define NT_I    KC_O
+#define NT_O    KC_U
+#define NT_P    KC_SLSH
+//------------------------------------------------------------------------------
+#define NH_A    LHRM_4(KC_C)
+#define NH_S    LHRM_3(KC_R)
+#define NH_D    LHRM_2(KC_S)
+#define NH_F    LHRM_1(KC_T)
+#define NH_G    LHRM_0(KC_B)
+#define NH_H    RHRM_0(KC_X)
+#define NH_J    RHRM_1(KC_N)
+#define NH_K    RHRM_2(KC_E)
+#define NH_L    RHRM_3(KC_I)
+#define NH_QUOT RHRM_4(KC_A)
+//------------------------------------------------------------------------------
+#define NB_Z    LBRM_4(KC_Q)
+#define NB_X           KC_J
+#define NB_C           KC_V
+#define NB_V    LBRM_4(KC_D)
+#define NB_B           KC_G
+#define NB_N           KC_M
+#define NB_M    RBRM_4(KC_H)
+#define NB_COMM        KC_COMM
+#define NB_DOT         KC_DOT
+#define NB_SLSH RBRM_4(KC_QUOT)
 //==============================================================================
 
 
