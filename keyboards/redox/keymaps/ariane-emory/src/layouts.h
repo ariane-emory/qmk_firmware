@@ -325,7 +325,7 @@
 //==============================================================================
 // N: Canary
 //==============================================================================
-#define NT_Q    KC_W
+#define NT_Q    KC_Q
 #define NT_W    KC_L
 #define NT_E    KC_Y
 #define NT_R    KC_P
@@ -347,7 +347,7 @@
 #define NH_L    RHRM_3(KC_I)
 #define NH_QUOT RHRM_4(KC_A)
 //------------------------------------------------------------------------------
-#define NB_Z    LBRM_4(KC_Q)
+#define NB_Z    LBRM_4(KC_W)
 #define NB_X           KC_J
 #define NB_C           KC_V
 #define NB_V    LBRM_4(KC_D)
@@ -357,6 +357,44 @@
 #define NB_COMM        KC_COMM
 #define NB_DOT         KC_DOT
 #define NB_SLSH RBRM_4(KC_QUOT)
+//==============================================================================
+
+
+//==============================================================================
+// G: Graphite
+//==============================================================================
+#define GT_Q    KC_Q
+#define GT_W    KC_L
+#define GT_E    KC_D
+#define GT_R    KC_W
+#define GT_T    KC_Z
+#define GT_Y    KC_SLSH
+#define GT_U    KC_F
+#define GT_I    KC_O
+#define GT_O    KC_U
+#define GT_P    KC_J
+//------------------------------------------------------------------------------
+#define GH_A    LHRM_4(KC_N)
+#define GH_S    LHRM_3(KC_R)
+#define GH_D    LHRM_2(KC_T)
+#define GH_F    LHRM_1(KC_S)
+#define GH_G    LHRM_0(KC_G)
+#define GH_H    RHRM_0(KC_Y)
+#define GH_J    RHRM_1(KC_H)
+#define GH_K    RHRM_2(KC_A)
+#define GH_L    RHRM_3(KC_E)
+#define GH_QUOT RHRM_4(KC_I)
+//------------------------------------------------------------------------------
+#define GB_Z    LBRM_4(KC_B)
+#define GB_X           KC_X
+#define GB_C           KC_M
+#define GB_V    LBRM_4(KC_C)
+#define GB_B           KC_V
+#define GB_N           KC_K
+#define GB_M    RBRM_4(KC_P)
+#define GB_COMM        KC_COMM
+#define GB_DOT         KC_DOT
+#define GB_SLSH RBRM_4(KC_QUOT)
 //==============================================================================
 
 
