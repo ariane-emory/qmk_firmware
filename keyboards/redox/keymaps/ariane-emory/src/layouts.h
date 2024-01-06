@@ -286,11 +286,6 @@
 
 //==============================================================================
 // X: Oxeylyzed
-//
-// w p f k q  z l u o / 
-// c n s t m  x r e a i 
-// g b y d v  j h , . ' 
-// 
 //==============================================================================
 #define XT_Q    KC_W
 #define XT_W    KC_P
@@ -299,8 +294,8 @@
 #define XT_T    KC_Q
 #define XT_Y    KC_Z
 #define XT_U    KC_L
-#define XT_I    KC_U
-#define XT_O    KC_O
+#define XT_I    KC_O
+#define XT_O    KC_U
 #define XT_P    KC_SLSH
 //------------------------------------------------------------------------------
 #define XH_A    LHRM_4(KC_C)
@@ -311,8 +306,8 @@
 #define XH_H    RHRM_0(KC_X)
 #define XH_J    RHRM_1(KC_R)
 #define XH_K    RHRM_2(KC_E)
-#define XH_L    RHRM_3(KC_A)
-#define XH_QUOT RHRM_4(KC_I)
+#define XH_L    RHRM_3(KC_I)
+#define XH_QUOT RHRM_4(KC_A)
 //------------------------------------------------------------------------------
 #define XB_Z    LBRM_4(KC_G)
 #define XB_X           KC_B
