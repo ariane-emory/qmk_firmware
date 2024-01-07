@@ -303,7 +303,7 @@
 #define XH_D    LHRM_2(KC_T)
 #define XH_F    LHRM_1(KC_W)
 #define XH_G    LHRM_0(KC_M)
-#define XH_H    RHRM_0(KC_Q)
+#define XH_H    RHRM_0(KC_J)
 #define XH_J    RHRM_1(KC_H)
 #define XH_K    RHRM_2(KC_E)
 #define XH_L    RHRM_3(KC_I)
@@ -314,7 +314,7 @@
 #define XB_C           KC_K
 #define XB_V    LBRM_4(KC_Y)
 #define XB_B           KC_F
-#define XB_N           KC_J
+#define XB_N           KC_Q
 #define XB_M    RBRM_4(KC_R)
 #define XB_COMM        KC_COMM
 #define XB_DOT         KC_DOT
