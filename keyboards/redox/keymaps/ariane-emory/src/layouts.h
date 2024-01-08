@@ -287,7 +287,7 @@
 //==============================================================================
 // X: Oxeylyzed (Gallium Q/B)
 //==============================================================================
-#define XT_Q    KC_X
+#define XT_Q    KC_J
 #define XT_W    KC_L
 #define XT_E    KC_N
 #define XT_R    KC_K
@@ -310,7 +310,7 @@
 #define XH_QUOT RHRM_4(KC_A)
 //------------------------------------------------------------------------------
 #define XB_Z    LBRM_4(KC_Z)
-#define XB_X           KC_J
+#define XB_X           KC_X
 #define XB_C           KC_B
 #define XB_V    LBRM_4(KC_D)
 #define XB_B           KC_V
