@@ -286,36 +286,41 @@
 
 //==============================================================================
 // X: Oxeylyzed
+/*
+z l n k q  g p o u / 
+s r h t m  y c e i a 
+x j b d v  w f , . ' 
+*/
 //==============================================================================
-#define XT_Q    KC_X
-#define XT_W    KC_P
-#define XT_E    KC_D
-#define XT_R    KC_C
-#define XT_T    KC_G
-#define XT_Y    KC_Z
-#define XT_U    KC_L
+#define XT_Q    KC_Z
+#define XT_W    KC_L
+#define XT_E    KC_N
+#define XT_R    KC_K
+#define XT_T    KC_Q
+#define XT_Y    KC_G
+#define XT_U    KC_P
 #define XT_I    KC_O
 #define XT_O    KC_U
 #define XT_P    KC_SLSH
 //------------------------------------------------------------------------------
 #define XH_A    LHRM_4(KC_S)
-#define XH_S    LHRM_3(KC_N)
-#define XH_D    LHRM_2(KC_T)
-#define XH_F    LHRM_1(KC_W)
+#define XH_S    LHRM_3(KC_R)
+#define XH_D    LHRM_2(KC_H)
+#define XH_F    LHRM_1(KC_T)
 #define XH_G    LHRM_0(KC_M)
-#define XH_H    RHRM_0(KC_J)
-#define XH_J    RHRM_1(KC_H)
+#define XH_H    RHRM_0(KC_Y)
+#define XH_J    RHRM_1(KC_C)
 #define XH_K    RHRM_2(KC_E)
 #define XH_L    RHRM_3(KC_I)
 #define XH_QUOT RHRM_4(KC_A)
 //------------------------------------------------------------------------------
-#define XB_Z    LBRM_4(KC_V)
-#define XB_X           KC_B
-#define XB_C           KC_K
-#define XB_V    LBRM_4(KC_Y)
-#define XB_B           KC_F
-#define XB_N           KC_Q
-#define XB_M    RBRM_4(KC_R)
+#define XB_Z    LBRM_4(KC_X)
+#define XB_X           KC_J
+#define XB_C           KC_B
+#define XB_V    LBRM_4(KC_D)
+#define XB_B           KC_V
+#define XB_N           KC_W
+#define XB_M    RBRM_4(KC_F)
 #define XB_COMM        KC_COMM
 #define XB_DOT         KC_DOT
 #define XB_SLSH RBRM_4(KC_QUOT)
