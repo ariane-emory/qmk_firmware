@@ -314,8 +314,8 @@
 #define XB_C           KC_D
 #define XB_V    LBRM_4(KC_C)
 #define XB_B           KC_V
-#define XB_N           KC_F
-#define XB_M    RBRM_4(KC_K)
+#define XB_N           KC_K
+#define XB_M    RBRM_4(KC_F
 #define XB_COMM        KC_COMM
 #define XB_DOT         KC_DOT
 #define XB_SLSH RBRM_4(KC_QUOT)
