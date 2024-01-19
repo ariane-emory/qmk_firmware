@@ -255,7 +255,7 @@
 #define YT_R    KC_G
 #define YT_T    KC_Q
 #define YT_Y    KC_J
-#define YT_U    KC_X // Y
+#define YT_U    KC_W // Y 
 #define YT_I    KC_U
 #define YT_O    KC_O
 #define YT_P    KC_SLSH
@@ -277,7 +277,7 @@
 #define YB_V    LBRM_4(KC_D)
 #define YB_B    KC_V
 #define YB_N    KC_K
-#define YB_M    LBRM_4(KC_W)
+#define YB_M    LBRM_4(KC_X) // W)
 #define YB_COMM KC_COMM
 #define YB_DOT  KC_DOT
 #define YB_SLSH RBRM_4(KC_QUOT)
