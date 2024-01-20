@@ -436,3 +436,46 @@
 #define HB_DOT         KC_DOT
 #define HB_SLSH RBRM_4(KC_QUOT)
 //==============================================================================
+
+
+//==============================================================================
+// M: Another Oxey
+/*
+  b l n g k  q f o u / 
+  c s r t m  y h e i a 
+  w z x d v  j p , . ' 
+*/
+//==============================================================================
+#define MT_Q    KC_B
+#define MT_W    KC_L
+#define MT_E    KC_N
+#define MT_R    KC_G
+#define MT_T    KC_K
+#define MT_Y    KC_Q
+#define MT_U    KC_F
+#define MT_I    KC_O
+#define MT_O    KC_U
+#define MT_P    KC_SLSH
+//------------------------------------------------------------------------------
+#define MH_A    LHRM_4(KC_C)
+#define MH_S    LHRM_3(KC_S)
+#define MH_D    LHRM_2(KC_R)
+#define MH_F    LHRM_1(KC_T)
+#define MH_G    LHRM_0(KC_M)
+#define MH_H    RHRM_0(KC_Y)
+#define MH_J    RHRM_1(KC_H)
+#define MH_K    RHRM_2(KC_E)
+#define MH_L    RHRM_3(KC_I)
+#define MH_QUOT RHRM_4(KC_A)
+//------------------------------------------------------------------------------
+#define MB_Z    LBRM_4(KC_W)
+#define MB_X           KC_Z
+#define MB_C           KC_X
+#define MB_V    LBRM_4(KC_D)
+#define MB_B           KC_V
+#define MB_N           KC_J
+#define MB_M    LBRM_4(KC_P)
+#define MB_COMM        KC_COMM
+#define MB_DOT         KC_DOT
+#define MB_SLSH RBRM_4(KC_QUOT)
+//==============================================================================
