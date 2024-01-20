@@ -443,7 +443,7 @@
 /*
   b l n g k  q f o u / 
   c s r t m  y h e i a 
-  w z x d v  j p , . ' 
+  d z x w v  j p , . ' 
 */
 //==============================================================================
 #define MT_Q    KC_B
@@ -468,10 +468,10 @@
 #define MH_L    RHRM_3(KC_I)
 #define MH_QUOT RHRM_4(KC_A)
 //------------------------------------------------------------------------------
-#define MB_Z    LBRM_4(KC_W)
+#define MB_Z    LBRM_4(KC_D)
 #define MB_X           KC_Z
 #define MB_C           KC_X
-#define MB_V    LBRM_4(KC_D)
+#define MB_V    LBRM_4(KC_W)
 #define MB_B           KC_V
 #define MB_N           KC_J
 #define MB_M    LBRM_4(KC_P)
