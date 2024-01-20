@@ -440,11 +440,6 @@
 
 //==============================================================================
 // M: Another Oxey
-/*
-  b l n g k  q f o u / 
-  c s r t m  y h e i a 
-  d z x w v  j p , . ' 
-*/
 //==============================================================================
 #define MT_Q    KC_B
 #define MT_W    KC_L
@@ -452,7 +447,7 @@
 #define MT_R    KC_G
 #define MT_T    KC_K
 #define MT_Y    KC_Q
-#define MT_U    KC_F
+#define MT_U    KC_P
 #define MT_I    KC_O
 #define MT_O    KC_U
 #define MT_P    KC_SLSH
@@ -474,7 +469,7 @@
 #define MB_V    LBRM_4(KC_W)
 #define MB_B           KC_V
 #define MB_N           KC_J
-#define MB_M    LBRM_4(KC_P)
+#define MB_M    LBRM_4(KC_F)
 #define MB_COMM        KC_COMM
 #define MB_DOT         KC_DOT
 #define MB_SLSH RBRM_4(KC_QUOT)
