@@ -464,8 +464,8 @@
 #define MH_QUOT RHRM_4(KC_A)
 //------------------------------------------------------------------------------
 #define MB_Z    LBRM_4(KC_W)
-#define MB_X           KC_Z
-#define MB_C           KC_X
+#define MB_X           KC_X
+#define MB_C           KC_Z
 #define MB_V    LBRM_4(KC_D)
 #define MB_B           KC_V
 #define MB_N           KC_J
