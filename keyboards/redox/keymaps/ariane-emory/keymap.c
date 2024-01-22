@@ -147,6 +147,7 @@ enum arianes_custom_keycodes {
   KC_DUMMY = SAFE_RANGE,
   OTHER_WIN,
   CLOSE_WIN,
+  TYPE_LAYOUT,
 //  NEW_TAB,
 //  REOPEN_TAB,
   KC_SQUO_TAP,
@@ -242,6 +243,15 @@ KEYRECORD_C_FUN(bool close_win_handler) {
   return false;
 }
               
+              
+KEYRECORD_C_FUN(bool type_layout_handler) {
+  if (record->event.pressed) { 
+    SEND_STRING_WITHOUT_MODS_P("layout");
+  }
+
+  return false;
+}
+              
 /* KEYRECORD_C_FUN(bool new_tab_handler) { */
 /*   if (record->event.pressed) { */
 /*     tap_code16(LGUI(KC_T)); */
@@ -316,6 +326,7 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
   // { REOPEN_TAB,                  reopen_tab_handler          },
   { OTHER_WIN,                   other_win_handler           },
   { TOGGLE_DF,                   toggle_df_handler           },
+  { TYPE_LAYOUT,                 type_layout_handler         },
   { STR_LFT,                     disable_mouse_layer_handler },
   { THU_LFT,                     disable_mouse_layer_handler },
   { CRL_LFT,                     disable_mouse_layer_handler },
