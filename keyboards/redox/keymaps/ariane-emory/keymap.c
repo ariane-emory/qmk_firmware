@@ -249,8 +249,6 @@ KEYRECORD_C_FUN(bool close_win_handler) {
 KEYRECORD_C_FUN(bool type_layout_handler) {
   if (record->event.pressed) { 
     for (uint8_t row = 1; row <= 3; ++row) { // MATRIX_ROWS - 1; ++row) {
-      tap_code(KC_ENT);
-
       uint8_t row_offset = 0;
       
       for (uint8_t col = 1; col <= 5; ++col) { // MATRIX_COLS - 1; ++col) {
@@ -298,6 +296,8 @@ KEYRECORD_C_FUN(bool type_layout_handler) {
         tap_code(KC_SPC);
 #endif
       }
+      
+      tap_code(KC_ENT);
     } 
   }
 
