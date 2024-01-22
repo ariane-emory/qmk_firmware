@@ -244,31 +244,17 @@ KEYRECORD_C_FUN(bool close_win_handler) {
 }
               
               
+// #define TYPE_LAYOUT_VERBOSE
+
 KEYRECORD_C_FUN(bool type_layout_handler) {
   if (record->event.pressed) { 
     for (uint8_t row = 1; row <= 3; ++row) { // MATRIX_ROWS - 1; ++row) {
       tap_code(KC_ENT);
 
-      for (uint8_t col = 1; col <= 5; ++col) { // MATRIX_COLS - 1; ++col) {
-        tap_number(row);
-        tap_code(KC_COMM);
-        tap_code(KC_SPC);
-        tap_number(col);
-        tap_code16(S(KC_SCLN));
-        tap_code(KC_SPC);
-        tap_code(KC_QUOT);
-
-        uint16_t kc = keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row});
-        tap_code(kc);
-
-        tap_code(KC_QUOT);
-        tap_code(KC_ENT);
-
-      }
-
-      const uint8_t row_offset = 5;
+      uint8_t row_offset = 0;
       
-      for (uint8_t col = 5; col >= 1; --col) { // MATRIX_COLS - 1; ++col) {
+      for (uint8_t col = 1; col <= 5; ++col) { // MATRIX_COLS - 1; ++col) {
+#ifdef TYPE_LAYOUT_VERBOSE
         tap_number(row + row_offset);
         tap_code(KC_COMM);
         tap_code(KC_SPC);
@@ -276,13 +262,41 @@ KEYRECORD_C_FUN(bool type_layout_handler) {
         tap_code16(S(KC_SCLN));
         tap_code(KC_SPC);
         tap_code(KC_QUOT);
-
+#endif
+        
         uint16_t kc = keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row + row_offset});
         tap_code(kc);
 
+#ifdef TYPE_LAYOUT_VERBOSE
         tap_code(KC_QUOT);
         tap_code(KC_ENT);
+#else
+        tap_code(KC_SPC);
+#endif
+      }
 
+      row_offset = 5;
+      
+      for (uint8_t col = 5; col >= 1; --col) { // MATRIX_COLS - 1; ++col) {
+#ifdef TYPE_LAYOUT_VERBOSE
+        tap_number(row + row_offset);
+        tap_code(KC_COMM);
+        tap_code(KC_SPC);
+        tap_number(col);
+        tap_code16(S(KC_SCLN));
+        tap_code(KC_SPC);
+        tap_code(KC_QUOT);
+#endif
+        
+        uint16_t kc = keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row + row_offset});
+        tap_code(kc);
+
+#ifdef TYPE_LAYOUT_VERBOSE
+        tap_code(KC_QUOT);
+        tap_code(KC_ENT);
+#else
+        tap_code(KC_SPC);
+#endif
       }
     } 
   }
