@@ -40,8 +40,8 @@
   DO(l_mid_innr,             EM_BOL,        QH_D,    QH_F                               ) \
   DO(l_mid_curl,             KC_END,        QH_F,    QH_G                               ) \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    ) \
-  DO(l_mid_sprd,             TOGGLE_DF,     QH_S,               QH_F                    ) \
-  DO(l_mid_trpm,             EM_MAC_BGN,    QH_S,    QH_D,      QH_F                    ) \
+  DO(l_mid_sprd,             EM_MAC_BGN,    QH_S,               QH_F                    ) \
+  DO(l_mid_trpm,             TOGGLE_DF,     QH_S,    QH_D,      QH_F                    ) \
   DO(l_mid_trpi,             EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    ) \
   _______________________________________________________________________________________ \
   __(l_bot_rech_diag_up,     _____________, QH_A,    QB_X                               ) \
@@ -58,8 +58,8 @@
   DO(l_bot_innr,             SS_CD,         QB_C,    QB_V                               ) \
   __(l_bot_curl,             ____________,  QB_V,    QB_B                               ) \
   __(l_bot_trpo,             ____________,  QB_Z,    QB_X,      QB_C                    ) \
-  DO(l_bot_sprd,             TG(LN_MOUSE),  QB_X,               QB_V                    ) \
-  DO(l_bot_trpm,             EM_MAC_END,    QB_X,    QB_C,      QB_V                    ) \
+  DO(l_bot_sprd,             EM_MAC_END,     QB_X,               QB_V                    ) \
+  DO(l_bot_trpm,             TG(LN_MOUSE), QB_X,    QB_C,      QB_V                    ) \
   __(l_bot_trpi,             ____________,  QB_C,    QB_V,      QB_B                    ) \
   _______________________________________________________________________________________ \
   DO(r_top_trpi,             SS_SMILEY2,    QT_Y,    QT_U,      QT_I                    ) \
