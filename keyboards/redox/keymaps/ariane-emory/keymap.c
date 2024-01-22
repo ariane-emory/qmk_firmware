@@ -246,7 +246,7 @@ KEYRECORD_C_FUN(bool close_win_handler) {
               
 KEYRECORD_C_FUN(bool type_layout_handler) {
   if (record->event.pressed) { 
-    SEND_STRING_WITHOUT_MODS_P("layout");
+    SEND_STRING_WITHOUT_MODS_P(PSTR("layout"));
   }
 
   return false;
