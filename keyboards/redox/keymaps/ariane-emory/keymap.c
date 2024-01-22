@@ -265,6 +265,25 @@ KEYRECORD_C_FUN(bool type_layout_handler) {
         tap_code(KC_ENT);
 
       }
+
+      const uint8_t row_offset = 5;
+      
+      for (uint8_t col = 3; col <= 5; ++col) { // MATRIX_COLS - 1; ++col) {
+        tap_number(row + row_offset);
+        tap_code(KC_COMM);
+        tap_code(KC_SPC);
+        tap_number(col);
+        tap_code16(S(KC_SCLN));
+        tap_code(KC_SPC);
+        tap_code(KC_QUOT);
+
+        uint16_t kc = keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row + row_offset});
+        tap_code(kc);
+
+        tap_code(KC_QUOT);
+        tap_code(KC_ENT);
+
+      }
     } 
   }
 
