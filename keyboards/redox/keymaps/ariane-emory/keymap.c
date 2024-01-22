@@ -268,7 +268,7 @@ KEYRECORD_C_FUN(bool type_layout_handler) {
 
       const uint8_t row_offset = 5;
       
-      for (uint8_t col = 3; col <= 5; ++col) { // MATRIX_COLS - 1; ++col) {
+      for (uint8_t col = 5; col >= 1; --col) { // MATRIX_COLS - 1; ++col) {
         tap_number(row + row_offset);
         tap_code(KC_COMM);
         tap_code(KC_SPC);
