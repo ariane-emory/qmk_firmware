@@ -106,8 +106,8 @@ void keyboard_post_init_user(void) {
   GUI_CLICK() DD() SS_LCTL(T(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                     \
   SS_LGUI("`") DD() SCR_R() SS_DELAY(200) T(X_BTN1) DD() ESC() DD()                                                                                   \
   SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(2500)                                                                       \
-  T(X_F) DD() RR() DD() RR() DD()                                                                                                                     \
-  SS_LGUI("`") DD() SCR_L()
+                                                                 T(X_F) DD() RR() DD() RR() DD()                                                      \
+                                                                        SS_LGUI("`") DD() SCR_L()
 
 #define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                     \
   DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""),               (""))                    \
@@ -246,7 +246,24 @@ KEYRECORD_C_FUN(bool close_win_handler) {
               
 KEYRECORD_C_FUN(bool type_layout_handler) {
   if (record->event.pressed) { 
-    SEND_STRING_WITHOUT_MODS_P(PSTR("layout"));
+    for (uint8_t row = 1; row <= 1; ++row) { // MATRIX_ROWS - 1; ++row) {
+      for (uint8_t col = 1; col <= 4; ++col) { // MATRIX_COLS - 1; ++col) {
+        tap_number(row);
+        tap_code(KC_COMM);
+        tap_code(KC_SPC);
+        tap_number(col);
+        tap_code16(S(KC_SCLN));
+        tap_code(KC_SPC);
+        tap_code(KC_QUOT);
+
+        uint16_t kc = keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row});
+        tap_code(kc);
+
+        tap_code(KC_QUOT);
+        tap_code(KC_ENT);
+
+      }
+    } 
   }
 
   return false;
