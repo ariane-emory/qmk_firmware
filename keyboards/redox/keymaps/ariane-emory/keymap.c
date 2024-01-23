@@ -258,10 +258,12 @@ CONST_KEYRECORD_FUN(bool type_layout_handler) {
   const uint8_t outermost_typed_column = 1;
   const uint8_t innermost_typed_column = 5;
     
-#define TAP_HALF_ROW_BY_MATRIX_POS(row, start_column, end_column, col_incr, row_offset)                            \
-  for (uint8_t column = start_column; column != end_column + col_incr; column += col_incr) {                       \
-    tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){column, row + row_offset})); \
-    tap_code(KC_SPC);                                                                                              \
+#define TAP_HALF_ROW_BY_MATRIX_POS(row, start_column, end_column, col_incr, row_offset)                                 \
+  for (uint8_t column = start_column;                                                                                   \
+       column != end_column + col_incr;                                                                                 \
+       column += col_incr) {                                                                                            \
+    tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){column, row + row_offset}));      \
+    tap_code(KC_SPC);                                                                                                   \
   }
 
   for (uint8_t row = 1; row <= 3; ++row) {
