@@ -248,16 +248,16 @@ CONST_KEYRECORD_FUN(bool type_layout_handler) {
     const uint8_t outermost_typed_column = 1;
     const uint8_t innermost_typed_column = 5;
     
-    for (uint8_t row = 1; row <= 3; ++row) {
-#define TAP_HALF_ROW_BY_MATRIX_POS(start_column, end_column, col_incr, row_offset)                                                                    \
-      for (uint8_t column = start_column; column != end_column + col_incr; column += col_incr)                                                        \
-      {                                                                                                                                               \
-        tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){column, row + row_offset}));                                \
-        tap_code(KC_SPC);                                                                                                                             \
-      }
+#define TAP_HALF_ROW_BY_MATRIX_POS(row, start_column, end_column, col_incr, row_offset)                                                               \
+    for (uint8_t column = start_column; column != end_column + col_incr; column += col_incr) {                                                        \
+      tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){column, row + row_offset}));                                  \
+      tap_code(KC_SPC);                                                                                                                               \
+    }
 
-      TAP_HALF_ROW_BY_MATRIX_POS(outermost_typed_column, innermost_typed_column, +1, 0);
-      TAP_HALF_ROW_BY_MATRIX_POS(innermost_typed_column, outermost_typed_column, -1, 5);      
+    for (uint8_t row = 1; row <= 3; ++row) {
+      TAP_HALF_ROW_BY_MATRIX_POS(row, outermost_typed_column, innermost_typed_column, +1, 0); // left side of split
+      TAP_HALF_ROW_BY_MATRIX_POS(row, innermost_typed_column, outermost_typed_column, -1, 5); // right side of split
+      tap_code(KC_BSPC);
       tap_code(KC_ENT);
     }
     
