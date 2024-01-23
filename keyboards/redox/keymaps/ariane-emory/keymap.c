@@ -244,9 +244,10 @@ CONST_KEYRECORD_FUN(bool close_win_handler) {
 }
 
 CONST_KEYRECORD_FUN(bool type_layout_handler) {
-  if (record->event.pressed) { 
-    const uint8_t row_count       = 5;
-    const uint8_t skipped_columns = 1;
+  if (record->event.pressed) {  
+    const uint8_t outermost_typed_column = 1;
+    const uint8_t innermost_typed_column = 5;
+    const uint8_t row_count              = 5;
     
     for (uint8_t row = 1; row <= 3; ++row) {
 #define TAP_BY_MATRIX_POS(row_offset)                                                                                                                 \
@@ -255,11 +256,8 @@ CONST_KEYRECORD_FUN(bool type_layout_handler) {
         tap_code(KC_SPC);                                                                                                                             \
       } while (0)
       
-      for (uint8_t col = skipped_columns; col != row_count; ++col)
-        TAP_BY_MATRIX_POS(0);
-
-      for (uint8_t col = row_count; col != skipped_columns - 1; --col)
-        TAP_BY_MATRIX_POS(row_count);
+      for (uint8_t col = outermost_typed_column; col != innermost_typed_column;     ++col) TAP_BY_MATRIX_POS(0);
+      for (uint8_t col = innermost_typed_column; col != outermost_typed_column - 1; --col) TAP_BY_MATRIX_POS(row_count);
       
       tap_code(KC_ENT);
     }
