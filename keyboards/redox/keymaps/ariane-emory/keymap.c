@@ -247,18 +247,17 @@ CONST_KEYRECORD_FUN(bool type_layout_handler) {
   if (record->event.pressed) {  
     const uint8_t outermost_typed_column = 1;
     const uint8_t innermost_typed_column = 5;
-    const uint8_t row_count              = 5;
     
     for (uint8_t row = 1; row <= 3; ++row) {
-#define TAP_BY_MATRIX_POS(row_offset)                                                                                                                 \
-      do {                                                                                                                                            \
-        tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row + row_offset}));                                   \
+#define TAP_HALF_ROW_BY_MATRIX_POS(start_column, end_column, col_incr, row_offset)                                                                    \
+      for (uint8_t column = start_column; column != end_column + col_incr; column += col_incr)                                                        \
+      {                                                                                                                                               \
+        tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){column, row + row_offset}));                                \
         tap_code(KC_SPC);                                                                                                                             \
-      } while (0)
-      
-      for (uint8_t col = outermost_typed_column; col != innermost_typed_column;     ++col) TAP_BY_MATRIX_POS(0);
-      for (uint8_t col = innermost_typed_column; col != outermost_typed_column - 1; --col) TAP_BY_MATRIX_POS(row_count);
-      
+      }
+
+      TAP_HALF_ROW_BY_MATRIX_POS(outermost_typed_column, innermost_typed_column, +1, 0);
+      TAP_HALF_ROW_BY_MATRIX_POS(innermost_typed_column, outermost_typed_column, -1, 5);      
       tap_code(KC_ENT);
     }
     
