@@ -262,7 +262,9 @@ CONST_KEYRECORD_FUN(bool type_layout_handler) {
         TAP_BY_MATRIX_POS(row_count);
       
       tap_code(KC_ENT);
-    } 
+    }
+    
+    tap_code(KC_ENT);
   }
 
   return false;
