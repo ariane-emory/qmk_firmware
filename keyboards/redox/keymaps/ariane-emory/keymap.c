@@ -36,8 +36,8 @@ rgb_led_fader_t rgb_led_fader;
     DIM_RGB_LED_T((f)->current.g),                                                                                                                    \
     DIM_RGB_LED_T((f)->current.b));                                                                                                            
 
-#define KEYRECORD_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t *record)
-#define KEYRECORD_C_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t const * const record)
+#define KEYRECORD_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t * record)
+#define CONST_KEYRECORD_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t const * const record)
 
 #ifdef SEND_STRING_ENABLE
 #  define MY_SS_DELAY 10
@@ -176,7 +176,7 @@ static const moddable_send_string_keycodes_t moddable_send_string_keycodes[] = {
   FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(moddable_send_string_keycodes_row)
 };
 
-KEYRECORD_C_FUN(bool process_moddable_send_string) {
+CONST_KEYRECORD_FUN(bool process_moddable_send_string) {
   for (uint8_t ix = 0; ix < ARRAY_SIZE(moddable_send_string_keycodes); ix++) {
     if (moddable_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed)  {
@@ -205,7 +205,7 @@ KEYRECORD_C_FUN(bool process_moddable_send_string) {
 }
 
 #ifdef DYNAMIC_MACRO_HANDLERS
-KEYRECORD_C_FUN(bool dynamic_macros_handler) {
+CONST_KEYRECORD_FUN(bool dynamic_macros_handler) {
 #ifdef   DYNAMIC_MACRO_ENABLE
   if (record->event.pressed)
     dynamic_macro_stop_recording();
@@ -215,7 +215,7 @@ KEYRECORD_C_FUN(bool dynamic_macros_handler) {
 }
 #endif // DYNAMIC_MACRO_HANDLERS
 
-KEYRECORD_C_FUN(bool discord_mute_handler) {
+CONST_KEYRECORD_FUN(bool discord_mute_handler) {
   if (record->event.pressed) {
     // tap_code16(LGUI(LSFT(KC_D)));
     register_code16(LGUI(LSFT(KC_D)));
@@ -227,7 +227,7 @@ KEYRECORD_C_FUN(bool discord_mute_handler) {
 }
               
 
-KEYRECORD_C_FUN(bool other_win_handler) {
+CONST_KEYRECORD_FUN(bool other_win_handler) {
   if (record->event.pressed) {
     tap_code16(LGUI(KC_GRV));
   }
@@ -235,96 +235,31 @@ KEYRECORD_C_FUN(bool other_win_handler) {
   return false;
 }
               
-KEYRECORD_C_FUN(bool close_win_handler) {
+CONST_KEYRECORD_FUN(bool close_win_handler) {
   if (record->event.pressed) {
     tap_code16(LGUI(KC_W));
   }
 
   return false;
 }
-              
-              
-// #define TYPE_LAYOUT_VERBOSE
 
-KEYRECORD_C_FUN(bool type_layout_handler_verbose) {
-  if (record->event.pressed) { 
-    for (uint8_t row = 1; row <= 3; ++row) { // MATRIX_ROWS - 1; ++row) {
-      uint8_t row_offset = 0;
-      
-      for (uint8_t col = 1; col <= 5; ++col) { // MATRIX_COLS - 1; ++col) {
-#ifdef TYPE_LAYOUT_VERBOSE
-        tap_number(row + row_offset);
-        tap_code(KC_COMM);
-        tap_code(KC_SPC);
-        tap_number(col);
-        tap_code16(S(KC_SCLN));
-        tap_code(KC_SPC);
-        tap_code(KC_QUOT);
-#endif
-        
-        uint16_t kc = keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row + row_offset});
-        tap_code(kc);
-
-#ifdef TYPE_LAYOUT_VERBOSE
-        tap_code(KC_QUOT);
-        tap_code(KC_ENT);
-#else
-        tap_code(KC_SPC);
-#endif
-      }
-
-      row_offset = 5;
-      
-      for (uint8_t col = 5; col >= 1; --col) { // MATRIX_COLS - 1; ++col) {
-#ifdef TYPE_LAYOUT_VERBOSE
-        tap_number(row + row_offset);
-        tap_code(KC_COMM);
-        tap_code(KC_SPC);
-        tap_number(col);
-        tap_code16(S(KC_SCLN));
-        tap_code(KC_SPC);
-        tap_code(KC_QUOT);
-#endif
-        
-        uint16_t kc = keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row + row_offset});
-        tap_code(kc);
-
-#ifdef TYPE_LAYOUT_VERBOSE
-        tap_code(KC_QUOT);
-        tap_code(KC_ENT);
-#else
-        tap_code(KC_SPC);
-#endif
-      }
-      
-      tap_code(KC_ENT);
-    } 
-  }
-
-  return false;
-}
-
-KEYRECORD_C_FUN(bool type_layout_handler) {
+CONST_KEYRECORD_FUN(bool type_layout_handler) {
   if (record->event.pressed) { 
     const uint8_t row_count       = 5;
     const uint8_t omitted_columns = 1;
     
     for (uint8_t row = 1; row <= 3; ++row) {
-      uint8_t row_offset = 0;
-
-#define TAP_BY_MATRIX_POS                                                                                                                             \
+#define TAP_BY_MATRIX_POS(row_offset)                                                                                                                 \
       do {                                                                                                                                            \
         tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row + row_offset}));                                   \
         tap_code(KC_SPC);                                                                                                                             \
       } while (0)
       
       for (uint8_t col = omitted_columns; col != row_count; ++col)
-        TAP_BY_MATRIX_POS;
+        TAP_BY_MATRIX_POS(0);
 
-      row_offset  = row_count;
-      
       for (uint8_t col = row_count; col != omitted_columns - 1; --col)
-        TAP_BY_MATRIX_POS;
+        TAP_BY_MATRIX_POS(row_count);
       
       tap_code(KC_ENT);
     } 
@@ -333,7 +268,7 @@ KEYRECORD_C_FUN(bool type_layout_handler) {
   return false;
 }
 
-/* KEYRECORD_C_FUN(bool new_tab_handler) { */
+/* CONST_KEYRECORD_FUN(bool new_tab_handler) { */
 /*   if (record->event.pressed) { */
 /*     tap_code16(LGUI(KC_T)); */
 /*   } */
@@ -341,7 +276,7 @@ KEYRECORD_C_FUN(bool type_layout_handler) {
 /*   return false; */
 /* } */
               
-/* KEYRECORD_C_FUN(bool reopen_tab_handler) { */
+/* CONST_KEYRECORD_FUN(bool reopen_tab_handler) { */
 /*   if (record->event.pressed) { */
 /*     tap_code16(LGUI(LSFT(KC_T))); */
 /*   } */
@@ -349,7 +284,7 @@ KEYRECORD_C_FUN(bool type_layout_handler) {
 /*   return false; */
 /* } */
               
-KEYRECORD_C_FUN(bool my_boot_handler) {
+CONST_KEYRECORD_FUN(bool my_boot_handler) {
   rgb_led_fader_init(&rgb_led_fader, MY_RGB_BOOT);
 
   RGB_SETRGB_FROM_FADER(&rgb_led_fader);
@@ -360,7 +295,7 @@ KEYRECORD_C_FUN(bool my_boot_handler) {
 }
 
 #ifdef INSERT_UPP_ENABLED
-KEYRECORD_C_FUN(bool insert_upp_handler) {
+CONST_KEYRECORD_FUN(bool insert_upp_handler) {
   if (record->event.pressed) {
     for (uint8_t ix = 0; ix < 6; ix++) {
       static const uint16_t hex_keycodes[] = {
@@ -378,7 +313,7 @@ KEYRECORD_C_FUN(bool insert_upp_handler) {
 }
 #endif // INSERT_UPP_ENABLED
 
-KEYRECORD_C_FUN(bool disable_mouse_layer_handler) {
+CONST_KEYRECORD_FUN(bool disable_mouse_layer_handler) {
   if ((! record->tap.count) && (! record->event.pressed))
     layer_off(LN_MOUSE);
 
@@ -387,7 +322,7 @@ KEYRECORD_C_FUN(bool disable_mouse_layer_handler) {
 
 static bool toggle_df_flag = false;
 
-KEYRECORD_C_FUN(bool toggle_df_handler) {  
+CONST_KEYRECORD_FUN(bool toggle_df_handler) {  
   if (record->event.pressed) {
     toggle_df_flag = ! toggle_df_flag;
     
