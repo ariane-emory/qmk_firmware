@@ -315,9 +315,9 @@ KEYRECORD_C_FUN(bool type_layout_handler_verbose) {
         tap_code(KC_SPC);
       }
 
-      row_offset = 5;
+      row_offset = row_count;
       
-      for (uint8_t col = 5; col != 0; --col) {
+      for (uint8_t col = row_count; col != 0; --col) {
         tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row + row_offset}));
         tap_code(KC_SPC);
       }
