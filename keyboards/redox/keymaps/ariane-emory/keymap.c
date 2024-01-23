@@ -243,26 +243,36 @@ CONST_KEYRECORD_FUN(bool close_win_handler) {
   return false;
 }
 
-CONST_KEYRECORD_FUN(bool type_layout_handler) {
-  if (record->event.pressed) {  
-    const uint8_t outermost_typed_column = 1;
-    const uint8_t innermost_typed_column = 5;
-    
-#define TAP_HALF_ROW_BY_MATRIX_POS(row, start_column, end_column, col_incr, row_offset)                                                               \
-    for (uint8_t column = start_column; column != end_column + col_incr; column += col_incr) {                                                        \
-      tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){column, row + row_offset}));                                  \
-      tap_code(KC_SPC);                                                                                                                               \
-    }
 
-    for (uint8_t row = 1; row <= 3; ++row) {
-      TAP_HALF_ROW_BY_MATRIX_POS(row, outermost_typed_column, innermost_typed_column, +1, 0); // left side of split
-      TAP_HALF_ROW_BY_MATRIX_POS(row, innermost_typed_column, outermost_typed_column, -1, 5); // right side of split
-      tap_code(KC_BSPC);
-      tap_code(KC_ENT);
-    }
+void tap_half_row_by_matrix_pos(uint8_t row, uint8_t start_column, uint8_t end_column, int8_t col_incr, uint8_t row_offset) {
+  for (uint8_t column = start_column; column != end_column + col_incr; column += col_incr) {
+    tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){column, row + row_offset}));
+    tap_code(KC_SPC);
+  }
+}
+
+CONST_KEYRECORD_FUN(bool type_layout_handler) {
+  if (! record->event.pressed)
+    return false;
+  
+  const uint8_t outermost_typed_column = 1;
+  const uint8_t innermost_typed_column = 5;
     
+#define TAP_HALF_ROW_BY_MATRIX_POS(row, start_column, end_column, col_incr, row_offset)                            \
+  for (uint8_t column = start_column; column != end_column + col_incr; column += col_incr) {                       \
+    tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){column, row + row_offset})); \
+    tap_code(KC_SPC);                                                                                              \
+  }
+
+  for (uint8_t row = 1; row <= 3; ++row) {
+    TAP_HALF_ROW_BY_MATRIX_POS(row, outermost_typed_column, innermost_typed_column, +1, 0); // left side of split
+    tap_code(KC_SPC);
+    TAP_HALF_ROW_BY_MATRIX_POS(row, innermost_typed_column, outermost_typed_column, -1, 5); // right side of split
+    tap_code(KC_BSPC);
     tap_code(KC_ENT);
   }
+    
+  tap_code(KC_ENT);
 
   return false;
 }
