@@ -307,17 +307,20 @@ KEYRECORD_C_FUN(bool type_layout_handler_verbose) {
  KEYRECORD_C_FUN(bool type_layout_handler) {
   if (record->event.pressed) { 
     for (uint8_t row = 1; row <= 3; ++row) {
-      const uint8_t row_count = 5;
-      uint8_t row_offset = 0;
+      const uint8_t row_count       = 5;
+      const uint8_t omitted_columns = 1;
+      uint8_t row_offset            = 0;
+      uint8_t column_incr           = 1;
       
-      for (uint8_t col = 1; col != row_count; ++col) {
+      for (uint8_t col = omitted_columns; col != row_count; col += column_incr) {
         tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row + row_offset}));
         tap_code(KC_SPC);
       }
 
-      row_offset = row_count;
+      row_offset  = row_count;
+      column_incr = -1;
       
-      for (uint8_t col = row_count; col != 0; --col) {
+      for (uint8_t col = row_count; col != omitted_columns - 1; col += column_incr) {
         tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row + row_offset}));
         tap_code(KC_SPC);
       }
