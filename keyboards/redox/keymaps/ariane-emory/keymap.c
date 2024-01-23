@@ -246,7 +246,7 @@ KEYRECORD_C_FUN(bool close_win_handler) {
               
 // #define TYPE_LAYOUT_VERBOSE
 
-KEYRECORD_C_FUN(bool type_layout_handler) {
+KEYRECORD_C_FUN(bool type_layout_handler_verbose) {
   if (record->event.pressed) { 
     for (uint8_t row = 1; row <= 3; ++row) { // MATRIX_ROWS - 1; ++row) {
       uint8_t row_offset = 0;
@@ -303,7 +303,32 @@ KEYRECORD_C_FUN(bool type_layout_handler) {
 
   return false;
 }
-              
+
+ KEYRECORD_C_FUN(bool type_layout_handler) {
+  if (record->event.pressed) { 
+    for (uint8_t row = 1; row <= 3; ++row) {
+      const uint8_t row_count = 5;
+      uint8_t row_offset = 0;
+      
+      for (uint8_t col = 1; col != row_count; ++col) {
+        tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row + row_offset}));
+        tap_code(KC_SPC);
+      }
+
+      row_offset = 5;
+      
+      for (uint8_t col = 5; col >= 1; --col) {
+        tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){col, row + row_offset}));
+        tap_code(KC_SPC);
+      }
+      
+      tap_code(KC_ENT);
+    } 
+  }
+
+  return false;
+}
+
 /* KEYRECORD_C_FUN(bool new_tab_handler) { */
 /*   if (record->event.pressed) { */
 /*     tap_code16(LGUI(KC_T)); */
