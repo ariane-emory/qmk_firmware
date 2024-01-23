@@ -452,7 +452,7 @@
 #define MT_O    KC_U
 #define MT_P    KC_SLSH
 //------------------------------------------------------------------------------
-#define MH_A    LHRM_4(KC_C)
+#define MH_A    LHRM_4(KC_W)
 #define MH_S    LHRM_3(KC_S)
 #define MH_D    LHRM_2(KC_R)
 #define MH_F    LHRM_1(KC_T)
@@ -463,7 +463,7 @@
 #define MH_L    RHRM_3(KC_I)
 #define MH_QUOT RHRM_4(KC_A)
 //------------------------------------------------------------------------------
-#define MB_Z    LBRM_4(KC_W)
+#define MB_Z    LBRM_4(KC_C)
 #define MB_X           KC_Z
 #define MB_C           KC_X
 #define MB_V    LBRM_4(KC_D)
