@@ -44,10 +44,10 @@
 #define QB_Z     LBRM_4(KC_Z)
 #define QB_X     KC_X
 #define QB_C     KC_C
-#define QB_V     LBRM_4(KC_V)
+#define QB_V     LBRM_1(KC_V)
 #define QB_B     KC_B
 #define QB_N     KC_N
-#define QB_M     LBRM_4(KC_M)
+#define QB_M     RBRM_1(KC_M)
 #define QB_COMM  KC_COMM
 #define QB_DOT   KC_DOT
 #define QB_SLSH  LBRM_4(QB_RC)
@@ -92,10 +92,10 @@
 #define WB_Z    LBRM_4(KC_Z)
 #define WB_X    KC_X
 #define WB_C    KC_M
-#define WB_V    LBRM_4(KC_C)
+#define WB_V    LBRM_1(KC_C)
 #define WB_B    KC_V
 #define WB_N    KC_K
-#define WB_M    LBRM_4(KC_L)
+#define WB_M    RBRM_1(KC_L)
 #define WB_COMM KC_COMM
 #define WB_DOT  KC_DOT
 #define WB_SLSH RBRM_4(WB_RC)
@@ -140,10 +140,10 @@
 #define KB_Z    LBRM_4(KC_Z)
 #define KB_X    KC_X
 #define KB_C    KC_C
-#define KB_V    LBRM_4(KC_D)
+#define KB_V    LBRM_1(KC_D)
 #define KB_B    KC_V
 #define KB_N    KC_K
-#define KB_M    LBRM_4(KC_N)
+#define KB_M    RBRM_1(KC_N)
 #define KB_COMM KC_COMM
 #define KB_DOT  KC_DOT
 #define KB_SLSH RBRM_4(KB_RC)
@@ -188,10 +188,10 @@
 #define CB_Z    LBRM_4(KC_Z)
 #define CB_X    KC_X
 #define CB_C    KC_C
-#define CB_V    LBRM_4(KC_D)
+#define CB_V    LBRM_1(KC_D)
 #define CB_B    KC_V
 #define CB_N    KC_K
-#define CB_M    LBRM_4(KC_H)
+#define CB_M    RBRM_1(KC_H)
 #define CB_COMM KC_COMM
 #define CB_DOT  KC_DOT
 #define CB_SLSH RBRM_4(CB_RC)
@@ -236,10 +236,10 @@
 #define DB_Z    LBRM_4(KC_QUOT)
 #define DB_X    KC_Q
 #define DB_C    KC_J
-#define DB_V    LBRM_4(KC_K)
+#define DB_V    LBRM_1(KC_K)
 #define DB_B    KC_X
 #define DB_N    KC_B
-#define DB_M    LBRM_4(KC_M)
+#define DB_M    RBRM_1(KC_M)
 #define DB_COMM KC_W
 #define DB_DOT  KC_V
 #define DB_SLSH RBRM_4(DB_RC)
@@ -274,10 +274,10 @@
 #define YB_Z    LBRM_4(KC_P)
 #define YB_X    KC_B
 #define YB_C    KC_L
-#define YB_V    LBRM_4(KC_D)
+#define YB_V    LBRM_1(KC_D)
 #define YB_B    KC_V
 #define YB_N    KC_K
-#define YB_M    LBRM_4(KC_W)
+#define YB_M    RBRM_1(KC_W)
 #define YB_COMM KC_COMM
 #define YB_DOT  KC_DOT
 #define YB_SLSH RBRM_4(KC_QUOT)
@@ -312,10 +312,10 @@
 #define XB_Z    LBRM_4(KC_J)
 #define XB_X           KC_X
 #define XB_C           KC_B
-#define XB_V    LBRM_4(KC_D)
+#define XB_V    LBRM_1(KC_D)
 #define XB_B           KC_V
 #define XB_N           KC_F
-#define XB_M    RBRM_4(KC_W)
+#define XB_M    RBRM_1(KC_W)
 #define XB_COMM        KC_COMM
 #define XB_DOT         KC_DOT
 #define XB_SLSH RBRM_4(KC_QUOT)
@@ -350,10 +350,10 @@
 #define NB_Z    LBRM_4(KC_W)
 #define NB_X           KC_J
 #define NB_C           KC_V
-#define NB_V    LBRM_4(KC_D)
+#define NB_V    LBRM_1(KC_D)
 #define NB_B           KC_K
 #define NB_N           KC_X
-#define NB_M    RBRM_4(KC_N) // H)
+#define NB_M    RBRM_1(KC_N) // H)
 #define NB_COMM        KC_COMM
 #define NB_DOT         KC_DOT
 #define NB_SLSH RBRM_4(KC_QUOT)
@@ -388,10 +388,10 @@
 #define GB_Z    LBRM_4(KC_B)
 #define GB_X           KC_X
 #define GB_C           KC_M
-#define GB_V    LBRM_4(KC_C)
+#define GB_V    LBRM_1(KC_C)
 #define GB_B           KC_V
 #define GB_N           KC_K
-#define GB_M    RBRM_4(KC_P)
+#define GB_M    RBRM_1(KC_P)
 #define GB_COMM        KC_COMM
 #define GB_DOT         KC_DOT
 #define GB_SLSH RBRM_4(KC_QUOT)
@@ -428,10 +428,10 @@
 #define HB_Z    LBRM_4(KC_B)
 #define HB_X           KC_X
 #define HB_C           KC_M
-#define HB_V    LBRM_4(KC_W)
+#define HB_V    LBRM_1(KC_W)
 #define HB_B           KC_J
 #define HB_N           KC_K
-#define HB_M    RBRM_4(KC_F)
+#define HB_M    RBRM_1(KC_F)
 #define HB_COMM        KC_COMM
 #define HB_DOT         KC_DOT
 #define HB_SLSH RBRM_4(KC_QUOT)
@@ -466,10 +466,10 @@
 #define MB_Z    LBRM_4(KC_C)
 #define MB_X           KC_X
 #define MB_C           KC_Z
-#define MB_V    LBRM_4(KC_D)
+#define MB_V    LBRM_1(KC_D)
 #define MB_B           KC_V
 #define MB_N           KC_J
-#define MB_M    LBRM_4(KC_P)
+#define MB_M    RBRM_1(KC_P)
 #define MB_COMM        KC_COMM
 #define MB_DOT         KC_DOT
 #define MB_SLSH RBRM_4(KC_A) // KC_QUOT)
