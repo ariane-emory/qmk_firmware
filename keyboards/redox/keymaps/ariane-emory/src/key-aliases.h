@@ -20,7 +20,7 @@
 //==============================================================================
 // HRM Assignments
 //==============================================================================
-#define LHRM_4(x) LSFT_T(x) // LT(LN_ARROWS,x)
+#define LHRM_4(x) LSFT_T(x)
 #define LHRM_3(x) LGUI_T(x)
 #define LHRM_2(x) LALT_T(x)
 #define LHRM_1(x) LCTL_T(x)
@@ -30,9 +30,11 @@
 #define RHRM_1(x) RCTL_T(x)
 #define RHRM_2(x) RALT_T(x)
 #define RHRM_3(x) RGUI_T(x)
-#define RHRM_4(x) RSFT_T(x) // LT(LN_ARROWS,x)
+#define RHRM_4(x) RSFT_T(x)
 //------------------------------------------------------------------------------
 #define LBRM_4(x) LT(LN_ARROWS, x)
+#define LBRM_1(x) LT(LN_ARROWS, x)
+#define RBRM_1(x) LT(LN_ARROWS, x)
 #define RBRM_4(x) LT(LN_ARROWS, x)
 //==============================================================================
 
