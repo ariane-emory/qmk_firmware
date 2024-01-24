@@ -16,7 +16,7 @@
 
 #define COMBO_ONLY_FROM_LAYER                0
 #define COMBO_SHOULD_TRIGGER
-#define COMBO_TERM                           50
+#define COMBO_TERM                           45
 
 #define DYNAMIC_MACRO_DELAY                  15
 #define DYNAMIC_MACRO_SIZE                   64
