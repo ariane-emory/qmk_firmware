@@ -461,7 +461,7 @@
 #define MH_J    RHRM_1(KC_H)
 #define MH_K    RHRM_2(KC_E)
 #define MH_L    RHRM_3(KC_I)
-#define MH_QUOT RHRM_4(KC_A)
+#define MH_QUOT RHRM_4(KC_QUOT) // KC_A)
 //------------------------------------------------------------------------------
 #define MB_Z    LBRM_4(KC_C)
 #define MB_X           KC_X
@@ -472,5 +472,5 @@
 #define MB_M    LBRM_4(KC_P)
 #define MB_COMM        KC_COMM
 #define MB_DOT         KC_DOT
-#define MB_SLSH RBRM_4(KC_QUOT)
+#define MB_SLSH RBRM_4(KC_A) // KC_QUOT)
 //==============================================================================
