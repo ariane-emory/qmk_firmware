@@ -13,7 +13,7 @@ typedef struct rgb_led_fader_t {
   rgb_led_t   initial;
   rgb_led_t   current;
   rgb_led_t   target;
-  uint8_t step;
+  uint8_t     step;
 
 #ifndef CRGB_FADER_NO_STRINGS
   char    c_str[8];
