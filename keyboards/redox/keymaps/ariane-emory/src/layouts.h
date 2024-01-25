@@ -460,12 +460,12 @@
 #define MH_G    LHRM_0(KC_M)
 #define MH_H    RHRM_0(KC_Y)
 #define MH_J    RHRM_1(KC_H)
-#define MH_K    RHRM_2(KC_E)
+#define MH_K    RHRM_2(KC_A)
 #define MH_L    RHRM_3(KC_I)
 #ifdef ROTATE_OXEY
 #  define MH_QUOT RHRM_4(KC_QUOT)
 #else
-#  define MH_QUOT RHRM_4(KC_A)
+#  define MH_QUOT RHRM_4(KC_E)
 #endif
 //-----------------------------------------------------------------------------
 #define MB_Z    LBRM_4(KC_C)
@@ -478,7 +478,7 @@
 #define MB_COMM        KC_COMM
 #define MB_DOT         KC_DOT
 #ifdef ROTATE_OXEY
-#  define MB_SLSH RBRM_4(KC_A)
+#  define MB_SLSH RBRM_4(KC_E)
 #else
 #  define MB_SLSH RBRM_4(KC_QUOT)
 #endif
