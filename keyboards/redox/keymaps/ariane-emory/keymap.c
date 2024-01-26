@@ -299,8 +299,10 @@ CONST_KEYRECORD_FUN(bool insert_upp_handler) {
       };
       const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
       const uint16_t hex_kc = LSFT(hex_keycodes[roll - 2]);
+
       tap_code16(hex_kc);
     }
+    
     tap_code(KC_ENTER);
   }
 
@@ -410,47 +412,55 @@ KEYRECORD_FUN(bool process_mouse_keys) {
     case KC_MS_L:
       if (record->event.pressed) {
         m_l = true;
-      } else {
-        if (m_r) {
+      }
+      else {
+        if (m_r)
           mousekey_on(KC_MS_R);
-        }
+
         m_l = false;
       }
 
       return true;
+
     case KC_MS_R:
       if (record->event.pressed) {
         m_r = true;
-      } else {
-        if (m_l) {
+      }
+      else {
+        if (m_l)
           mousekey_on(KC_MS_L);
-        }
+
         m_r = false;
       }
 
       return true;
+
     case KC_MS_U:
       if (record->event.pressed) {
         m_u = true;
-      } else {
-        if (m_d) {
+      }
+      else {
+        if (m_d)
           mousekey_on(KC_MS_D);
-        }
+
         m_u = false;
       }
 
       return true;
+
     case KC_MS_D:
       if (record->event.pressed) {
         m_d = true;
-      } else {
-        if (m_u) {
+      }
+      else {
+        if (m_u)
           mousekey_on(KC_MS_U);
-        }
+
         m_d = false;
       }
 
       return true;
+
     default:
       return false;
     }
