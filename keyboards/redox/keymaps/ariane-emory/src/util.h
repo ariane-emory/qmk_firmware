@@ -12,7 +12,7 @@ typedef struct {
   uint16_t second;
 } keycode_pair_t;
 
-bool array_contains_keycode       (const uint16_t       keycode, const uint16_t       arr[], const uint8_t length);
-bool array_contains_keycode_P     (const uint16_t       keycode, const uint16_t       arr[], const uint8_t length);
-bool array_contains_keycode_pair  (const keycode_pair_t pair,    const keycode_pair_t arr[], const uint8_t length);
-bool array_contains_keycode_pair_P(const keycode_pair_t pair,    const keycode_pair_t arr[], const uint8_t length);
+bool array_contains_keycode       (const uint16_t       keycode, const uint16_t       * arr, const uint8_t length);
+bool array_contains_keycode_P     (const uint16_t       keycode, const uint16_t       * arr, const uint8_t length);
+bool array_contains_keycode_pair  (const keycode_pair_t pair,    const keycode_pair_t * arr, const uint8_t length);
+bool array_contains_keycode_pair_P(const keycode_pair_t pair,    const keycode_pair_t * arr, const uint8_t length);
