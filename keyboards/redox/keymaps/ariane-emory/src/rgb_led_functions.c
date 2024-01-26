@@ -61,4 +61,4 @@ void rgb_led_t_sprintf(const rgb_led_t * const this, char * const str) {
 }
 #endif
 
-#undef COLORS
+#undef FOR_EACH_COLOR
