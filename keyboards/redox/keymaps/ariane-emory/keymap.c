@@ -77,7 +77,7 @@ void keyboard_post_init_user(void) {
 #ifdef RGBLIGHT_ENABLE
   rgblight_enable_noeeprom();
 
-  rgb_led_fader_init(&rgb_led_fader, MY_RGB_BOOT);
+  init_rgb_led_fader(&rgb_led_fader, MY_RGB_BOOT);
 
   RGB_SETRGB_FROM_FADER(&rgb_led_fader);
 #endif
@@ -296,7 +296,7 @@ CONST_KEYRECORD_FUN(bool type_layout_handler) {
 /* } */
               
 CONST_KEYRECORD_FUN(bool my_boot_handler) {
-  rgb_led_fader_init(&rgb_led_fader, MY_RGB_BOOT);
+  init_rgb_led_fader(&rgb_led_fader, MY_RGB_BOOT);
 
   RGB_SETRGB_FROM_FADER(&rgb_led_fader);
   
@@ -522,10 +522,10 @@ void dynamic_macro_record_end_user(int8_t direction) {
 // ==============================================================================
 
 #ifdef RGBLIGHT_ENABLE
-bool rgb_led_fader_set_target_if_recording_macro(rgb_led_fader_t * const this) {
+bool set_rgb_led_fader_target_if_recording_macro(rgb_led_fader_t * const this) {
   if (! currently_recording_macro)
     return false;
-  rgb_led_fader_set_target(this, MY_RGB_RECORDING_MACRO);
+  set_rgb_led_fader_target(this, MY_RGB_RECORDING_MACRO);
 
   return true;
 }
@@ -548,7 +548,7 @@ static const layer_to_rgb_t layer_to_rgbs[] PROGMEM = {
   { LN_MOUSE,      MY_RGB_TOGGLED_LAYER_ON },
 };
 
-void rgb_led_fader_set_target_by_layer(rgb_led_fader_t * const this) {
+void set_rgb_led_fader_target_by_layer(rgb_led_fader_t * const this) {
   const layer_to_rgb_t * row = &layer_to_rgbs[toggle_df_flag]; // ? 1 : 0];
   
   for (size_t ix = 2; ix < ARRAY_SIZE(layer_to_rgbs); ix++) {
@@ -559,7 +559,7 @@ void rgb_led_fader_set_target_by_layer(rgb_led_fader_t * const this) {
     }
   }
 
-  rgb_led_fader_set_target(this,
+  set_rgb_led_fader_target(this,
                            pgm_read_byte(&row->r),
                            pgm_read_byte(&row->g),
                            pgm_read_byte(&row->b));
@@ -592,8 +592,8 @@ void matrix_scan_user(void) {
 #endif // TOGGLED_LAYER_TIMEOUT
   
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-  if (!rgb_led_fader_set_target_if_recording_macro(&rgb_led_fader))
-    rgb_led_fader_set_target_by_layer(&rgb_led_fader);
+  if (!set_rgb_led_fader_target_if_recording_macro(&rgb_led_fader))
+    set_rgb_led_fader_target_by_layer(&rgb_led_fader);
 
 #  ifdef SLOW_RGBS
   static uint8_t ticker = 0;
@@ -603,7 +603,7 @@ void matrix_scan_user(void) {
   
   if (ticker)
 #  endif
-    rgb_led_fader_step(&rgb_led_fader);
+    step_rgb_led_fader(&rgb_led_fader);
 
   RGB_SETRGB_FROM_FADER(&rgb_led_fader);
 #endif // defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
