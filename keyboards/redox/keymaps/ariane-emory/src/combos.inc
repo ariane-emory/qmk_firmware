@@ -58,8 +58,8 @@
   DO(l_bot_innr,             SS_CD,         QB_C,    QB_V                               ) \
   __(l_bot_curl,             ____________,  QB_V,    QB_B                               ) \
   __(l_bot_trpo,             ____________,  QB_Z,    QB_X,      QB_C                    ) \
-  DO(l_bot_sprd,             EM_MAC_END,     QB_X,               QB_V                    ) \
-  DO(l_bot_trpm,             TG(LN_MOUSE), QB_X,    QB_C,      QB_V                    ) \
+  DO(l_bot_sprd,             EM_MAC_END,    QB_X,               QB_V                    ) \
+  DO(l_bot_trpm,             TG(LN_MOUSE),  QB_X,    QB_C,      QB_V                    ) \
   __(l_bot_trpi,             ____________,  QB_C,    QB_V,      QB_B                    ) \
   _______________________________________________________________________________________ \
   DO(r_top_trpi,             SS_SMILEY2,    QT_Y,    QT_U,      QT_I                    ) \
@@ -112,8 +112,11 @@
 // Define combo keys
 //========================================================================================
 
-#define DEFINE_COMBO_KEYS(name, ignored, ...) const uint16_t PROGMEM name[] = { __VA_ARGS__, COMBO_END };
+#define DEFINE_COMBO_KEYS(name, ignored, ...)                                             \
+  const uint16_t PROGMEM name[] = { __VA_ARGS__, COMBO_END };
+
 FOR_EACH_COMBO(DEFINE_COMBO_KEYS)
+
 #undef DEFINE_COMBO_KEYS
 
 //========================================================================================
@@ -121,7 +124,9 @@ FOR_EACH_COMBO(DEFINE_COMBO_KEYS)
 //========================================================================================
 
 #define BIND_COMBO(name, binding, ...) COMBO(name, binding),
+
 combo_t key_combos[] = { FOR_EACH_COMBO(BIND_COMBO) };
+
 #undef BIND_COMBO
 
 uint16_t COMBO_LEN = ARRAY_SIZE(key_combos);
