@@ -866,4 +866,4 @@ void leader_end_user(void) {
 // Include keymap
 // ==============================================================================
 
-#include "keymap.inc"
+#include "src/keymap.inc"
