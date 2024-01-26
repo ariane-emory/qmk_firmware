@@ -1,21 +1,25 @@
+// -*- c-backslash-column: 90; c-backslash-max-column: 90 -*-
+
 #include <string.h>
 #include <stdio.h>
 
 #include "rgb_led_functions.h"
 
-// ==============================================================================
+// ========================================================================================
 // rgb_led_t functions
-// ==============================================================================
+// ========================================================================================
 
-#define COLORS                                                                  \
-  C(r)                                                                          \
-  C(g)                                                                          \
-  C(b)
+#define FOR_EACH_COLOR(DO)                                                                \
+  DO(r)                                                                                   \
+  DO(g)                                                                                   \
+  DO(b)
 
 void rgb_led_t_init(rgb_led_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
-#define C(n) this->n = n;
-  COLORS;
-#undef C
+#define SET_COLOR(n) this->n = n;
+
+  FOR_EACH_COLOR(SET_COLOR);
+
+#undef SET_COLOR
 }
 
 void rgb_led_t_copy(rgb_led_t * const this, const rgb_led_t * const that) {

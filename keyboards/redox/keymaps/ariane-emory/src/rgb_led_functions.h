@@ -9,7 +9,7 @@
 // rgb_led_t functions
 // ==============================================================================
 
-void rgb_led_t_init            (      rgb_led_t * const this, const uint8_t r, const uint8_t g, const uint8_t b);
+void rgb_led_t_init            (      rgb_led_t * const this, const uint8_t r,  const uint8_t g, const uint8_t b);
 void rgb_led_t_copy            (      rgb_led_t * const this, const rgb_led_t * const that);
 bool rgb_led_t_equal           (const rgb_led_t * const this, const rgb_led_t * const that);
 
