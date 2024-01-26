@@ -279,22 +279,6 @@ CONST_KEYRECORD_FUN(bool type_layout_handler) {
   return false;
 }
 
-/* CONST_KEYRECORD_FUN(bool new_tab_handler) { */
-/*   if (record->event.pressed) { */
-/*     tap_code16(LGUI(KC_T)); */
-/*   } */
-
-/*   return false; */
-/* } */
-              
-/* CONST_KEYRECORD_FUN(bool reopen_tab_handler) { */
-/*   if (record->event.pressed) { */
-/*     tap_code16(LGUI(LSFT(KC_T))); */
-/*   } */
-
-/*   return false; */
-/* } */
-              
 CONST_KEYRECORD_FUN(bool my_boot_handler) {
   init_rgb_led_fader(&rgb_led_fader, MY_RGB_BOOT);
 
