@@ -1,8 +1,8 @@
 #include "tap_number.h"
 
 void tap_number(uint16_t num) {
-  static const uint8_t max_digits = 5;
-  const uint8_t current_mods = get_mods();
+  static const uint8_t max_digits   = 3;
+  /*  */ const uint8_t current_mods = get_mods();
 
   clear_mods();
   send_keyboard_report();
