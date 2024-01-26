@@ -14,7 +14,7 @@ void rgb_led_t_copy            (      rgb_led_t * const this, const rgb_led_t * 
 bool rgb_led_t_equal           (const rgb_led_t * const this, const rgb_led_t * const that);
 
 #ifndef RGB_FADER_NO_STRINGS
-bool rgb_led_t_init_from_str   (rgb_led_t * const this, const char * const str);
-void rgb_led_t_sprintf         (const rgb_led_t * const this, char * const str);
+bool rgb_led_t_init_from_str   (      rgb_led_t * const this, const char * const str);
+void rgb_led_t_sprintf         (const rgb_led_t * const this,       char * const str);
 #endif
 
