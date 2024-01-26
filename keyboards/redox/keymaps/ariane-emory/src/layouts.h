@@ -443,11 +443,11 @@
 // M: Another Oxey
 //==============================================================================
 #define MT_Q    KC_P
-#define MT_W    KC_L
+#define MT_W    KC_X
 #define MT_E    KC_R
 #define MT_R    KC_D
-#define MT_T    KC_K
-
+#define MT_T    KC_B
+//.............................................................................
 #define MT_Y    KC_Q
 #define MT_U    KC_F
 #define MT_I    KC_O
@@ -459,7 +459,7 @@
 #define MH_D    LHRM_2(KC_N)
 #define MH_F    LHRM_1(KC_T)
 #define MH_G    LHRM_0(KC_M)
-
+//.............................................................................
 #define MH_H    RHRM_0(KC_Y)
 #define MH_J    RHRM_1(KC_H)
 #define MH_K    RHRM_2(KC_A)
@@ -471,13 +471,13 @@
 #endif
 //-----------------------------------------------------------------------------
 #define MB_Z    LBRM_4(KC_C)
-#define MB_X           KC_X 
+#define MB_X           KC_L 
 #define MB_C           KC_Z
 #define MB_V    LBRM_1(KC_G)
 #define MB_B           KC_V
-
+//.............................................................................
 #define MB_N           KC_J
-#define MB_M    RBRM_1(KC_B) 
+#define MB_M    RBRM_1(KC_K)
 #define MB_COMM        KC_COMM
 #define MB_DOT         KC_DOT
 #ifdef ROTATE_OXEY
