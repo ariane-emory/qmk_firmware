@@ -130,11 +130,11 @@ void stop_rgb_led_fader(rgb_led_fader_t * const this) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef CRGB_FADER_NO_STRINGS
-void rgb_led_fader_printf(const rgb_led_fader_t * const this) {
+void printf_rgb_led_fader(const rgb_led_fader_t * const this) {
   printf("%s\n", this->c_str);
 }
 
-void rgb_led_fader_describe(const rgb_led_fader_t * const this) {
+void describe_rgb_led_fader(const rgb_led_fader_t * const this) {
 #define print_rgb_info(rgb)                                                     \
   printf("------------------------------\n");                                   \
   printf(#rgb ".r   = %3d\n", this->rgb.r);                                     \

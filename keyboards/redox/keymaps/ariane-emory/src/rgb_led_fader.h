@@ -16,7 +16,7 @@ typedef struct rgb_led_fader_t {
   uint8_t     step;
 
 #ifndef CRGB_FADER_NO_STRINGS
-  char    c_str[8];
+  char        c_str[8];
 #endif
 } rgb_led_fader_t;
 
@@ -26,16 +26,16 @@ bool rgb_led_fader_is_changing        (const rgb_led_fader_t * const this);
 void step_rgb_led_fader               (      rgb_led_fader_t * const this);
 void stop_rgb_led_fader               (      rgb_led_fader_t * const this);
 
-#define set_rgb_led_fader_target_from_rgb(rgb_led_fader_p, rgb_p)                                                                                   \
+#define set_rgb_led_fader_target_from_rgb(rgb_led_fader_p, rgb_p)                                                                           \
   set_rgb_led_fader_target(rgb_led_fader_p, ((rgb_p)->r), ((rgb_p)->g), ((rgb_p)->b))
 
-#define init_rgb_led_fader_from_rgb(rgb_led_fader_p, rgb_p)                             \
+#define init_rgb_led_fader_from_rgb(rgb_led_fader_p, rgb_p)                                                                                 \
   init_rgb_led_fader(rgb_led_fader_p, ((rgb_p)->r), ((rgb_p)->g), ((rgb_p)->b))
 
 #ifndef CRGB_FADER_NO_STRINGS
 bool init_rgb_led_fader_from_str      (      rgb_led_fader_t * const this, const char * const str);
 bool set_rgb_led_fader_target_from_str(      rgb_led_fader_t * const this, const char * const str);
-void rgb_led_fader_printf             (const rgb_led_fader_t * const this);
-void rgb_led_fader_describe           (const rgb_led_fader_t * const this);
+void printf_rgb_led_fader             (const rgb_led_fader_t * const this);
+void describe_rgb_led_fader           (const rgb_led_fader_t * const this);
 #endif
 
