@@ -45,6 +45,7 @@ rgb_led_fader_t rgb_led_fader;
 #  define SEND_STRING_WITHOUT_MODS_P(string) send_string_without_mods_P(string)
 void send_string_without_mods(const char * const string) {
   const uint8_t current_mods = get_mods();
+  
   clear_mods();
   send_keyboard_report();
   send_string_with_delay(string, MY_SS_DELAY);
@@ -52,6 +53,7 @@ void send_string_without_mods(const char * const string) {
 }
 void send_string_without_mods_P(const char * const string) {
   const uint8_t current_mods = get_mods();
+
   clear_mods();
   send_keyboard_report();
   send_string_with_delay_P(string, MY_SS_DELAY);
@@ -164,8 +166,8 @@ enum arianes_custom_keycodes {
 
 #define moddable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, ctrled_str_##kc, alted_str_##kc, shifted_str_##kc },
 
-typedef struct {
-  uint16_t kc;
+typedef struct moddable_send_string_keycodes_t {
+  uint16_t     kc;
   const char * str;
   const char * ctrled_str;
   const char * alted_str;
@@ -297,7 +299,8 @@ CONST_KEYRECORD_FUN(bool insert_upp_handler) {
         KC_2, KC_3, KC_4, KC_5, KC_6, KC_7,
         KC_8, KC_9, KC_A, KC_B, QB_C,
       };
-      const uint8_t roll = ((rand() % 6) + 1) + ((rand() % 6) + 1);
+
+      const uint8_t roll    = ((rand() % 6) + 1) + ((rand() % 6) + 1);
       const uint16_t hex_kc = LSFT(hex_keycodes[roll - 2]);
 
       tap_code16(hex_kc);
@@ -519,12 +522,13 @@ void dynamic_macro_record_end_user(int8_t direction) {
 bool set_rgb_led_fader_target_if_recording_macro(rgb_led_fader_t * const this) {
   if (! currently_recording_macro)
     return false;
+
   set_rgb_led_fader_target(this, MY_RGB_RECORDING_MACRO);
 
   return true;
 }
 
-typedef struct {
+typedef struct layer_to_rgb_t {
   uint8_t layer;
   uint8_t r;
   uint8_t g;
