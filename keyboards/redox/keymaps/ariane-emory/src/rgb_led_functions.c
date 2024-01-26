@@ -15,19 +15,19 @@
   DO(b)
 
 void rgb_led_t_init(rgb_led_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
-#define SET_COLOR(n) this->n = n & 0xff;
+#define set_color(n) this->n = n & 0xff;
 
-  FOR_EACH_COLOR(SET_COLOR);
+  FOR_EACH_COLOR(set_color);
 
-#undef SET_COLOR
+#undef set_color
 }
 
 void rgb_led_t_copy(rgb_led_t * const this, const rgb_led_t * const that) {
-#define COPY_COLOR(n) this->n = that->n;
+#define copy_color(n) this->n = that->n;
   
-  FOR_EACH_COLOR(COPY_COLOR);
+  FOR_EACH_COLOR(copy_color);
   
-#undef COPY_COLOS
+#undef copy_color
 }
 
 bool rgb_led_t_equal(const rgb_led_t * const this, const rgb_led_t * const that) {
@@ -44,11 +44,11 @@ bool rgb_led_t_init_from_str(rgb_led_t * const this, const char * const str) {
   unsigned int r, g, b;
 
   if (3 == sscanf(str, "#%02x%02x%02x", &r, &g, &b)) {
-#  define SET_COLOR(n) this->n = n & 0xff;
+#  define set_color(n) this->n = n & 0xff;
     
-  FOR_EACH_COLOR(SET_COLOR);
+  FOR_EACH_COLOR(set_color);
   
-#  undef SET_COLOR
+#  undef set_color
     
     return true;
   }

@@ -46,19 +46,25 @@ bool rgb_led_fader_before_set_target (rgb_led_fader_t * const this, const rgb_le
 
 void rgb_led_fader_init(rgb_led_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
   rgb_led_t rgb;
+
   rgb_led_t_init(&rgb, r, g, b);
+
 #define copy_rgb(r) rgb_led_t_copy(&this->r, &rgb);
   FOR_EACH_RGB(copy_rgb);
 #undef copy_rgb
+
   rgb_led_fader_finish_init(this);
 }
 
 #ifndef CRGB_FADER_NO_STRINGS
 bool rgb_led_fader_init_from_str(rgb_led_fader_t * const this, const char * const str) {
   rgb_led_t tmp;
+
   if (! rgb_led_t_init_from_str(&tmp, str))
     return false;
+
   rgb_led_fader_init(this, tmp.r, tmp.g, tmp.b);
+
   return true;
 }
 #endif
@@ -84,9 +90,12 @@ int max(int x, int y) {
 void rgb_led_fader_step(rgb_led_fader_t * const this) {
   if (UINT8_MAX == this->step) {
     rgb_led_fader_init(this, this->target.r, this->target.g, this->target.b);
-  } else {
+  }
+  else {
 #define define_color_delta(color) const int color ## _delta = (this->target. color - this->initial. color);
+
     FOR_EACH_COLOR(define_color_delta);
+
 #undef define_color_delta
     
     if (! (r_delta | g_delta | b_delta))
@@ -96,7 +105,9 @@ void rgb_led_fader_step(rgb_led_fader_t * const this) {
 
 #define fmuls8(n, m)  (((n * m) >> 8) & 0xff)
 #define set_current_color(color) this->current. color = (uint8_t)(max(0, this->initial. color + fmuls8(color ## _delta, this->step)));
+
     FOR_EACH_COLOR(set_current_color);
+
 #undef fmuls8
 #undef set_current_color
 
@@ -129,6 +140,7 @@ void rgb_led_fader_describe(const rgb_led_fader_t * const this) {
   printf(#rgb ".r   = %3d\n", this->rgb.r);                                     \
   printf(#rgb ".g   = %3d\n", this->rgb.g);                                     \
   printf(#rgb ".b   = %3d\n", this->rgb.b);                                     \
+
   FOR_EACH_RGB(print_rgb_info);
 #undef print_rgb_info
   
@@ -152,11 +164,15 @@ bool rgb_led_fader_is_changing(const rgb_led_fader_t * const this) {
 
 void rgb_led_fader_set_target(rgb_led_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
   rgb_led_t rgb;
+
   rgb_led_t_init(&rgb, r, g, b);
+
   // if rgb_led_fader_before_set_target returns false, no change is needed and we
   // return success
+
   if (! rgb_led_fader_before_set_target(this, &rgb))
     return;
+
   rgb_led_fader_stop(this);
   rgb_led_t_copy(&this->target, &rgb);
 }
@@ -164,6 +180,7 @@ void rgb_led_fader_set_target(rgb_led_fader_t * const this, const uint8_t r, con
 #ifndef CRGB_FADER_NO_STRINGS
 bool rgb_led_fader_set_target_from_str(rgb_led_fader_t * const this, const char * const str) {
   rgb_led_t rgb;
+
   return ! rgb_init_from_str(&rgb, str)
     ? false
     : rgb_led_fader_set_target_from_rgb(this, &rgb);
