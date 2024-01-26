@@ -442,13 +442,13 @@
 //==============================================================================
 // M: Another Oxey
 //==============================================================================
-#define MT_Q    KC_P
+#define MT_Q    KC_Q // P
 #define MT_W    KC_L
 #define MT_E    KC_R
 #define MT_R    KC_K
 #define MT_T    KC_B
 //.............................................................................
-#define MT_Y    KC_Q
+#define MT_Y    KC_P // Q
 #define MT_U    KC_D
 #define MT_I    KC_O
 #define MT_O    KC_U
