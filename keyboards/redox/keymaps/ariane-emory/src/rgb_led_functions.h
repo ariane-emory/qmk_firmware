@@ -9,12 +9,12 @@
 // rgb_led_t functions
 // ==============================================================================
 
-void rgb_led_t_init            (      rgb_led_t * const this, const uint8_t r,  const uint8_t g, const uint8_t b);
-void rgb_led_t_copy            (      rgb_led_t * const this, const rgb_led_t * const that);
-bool rgb_led_t_equal           (const rgb_led_t * const this, const rgb_led_t * const that);
+void init_rgb_led_t            (      rgb_led_t * const this, const uint8_t r,  const uint8_t g, const uint8_t b);
+void copy_rgb_led_t            (      rgb_led_t * const this, const rgb_led_t * const that);
+bool equal_rgb_led_t           (const rgb_led_t * const this, const rgb_led_t * const that);
 
 #ifndef RGB_FADER_NO_STRINGS
-bool rgb_led_t_init_from_str   (      rgb_led_t * const this, const char * const str);
-void rgb_led_t_sprintf         (const rgb_led_t * const this,       char * const str);
+bool init_rgb_led_t_from_str   (      rgb_led_t * const this, const char * const str);
+void sprintf_rgb_led_t         (const rgb_led_t * const this,       char * const str);
 #endif
 
