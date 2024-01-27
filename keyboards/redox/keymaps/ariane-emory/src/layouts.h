@@ -448,7 +448,7 @@
 #define MT_R    KC_M // K
 #define MT_T    KC_B
 //.............................................................................
-#define MT_Y    KC_J // P // Q
+#define MT_Y    KC_P // Q
 #define MT_U    KC_D
 #define MT_I    KC_O
 #define MT_O    KC_U
@@ -476,7 +476,7 @@
 #define MB_V    LBRM_1(KC_G)
 #define MB_B           KC_V
 //.............................................................................
-#define MB_N           KC_P // J // P
+#define MB_N           KC_J // P
 #define MB_M    RBRM_1(KC_F)
 #define MB_COMM        KC_COMM
 #define MB_DOT         KC_DOT
