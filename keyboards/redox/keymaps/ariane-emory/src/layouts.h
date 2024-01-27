@@ -445,7 +445,7 @@
 #define MT_Q    KC_Q // P
 #define MT_W    KC_L
 #define MT_E    KC_R
-#define MT_R    KC_K
+#define MT_R    KC_M // K
 #define MT_T    KC_B
 //.............................................................................
 #define MT_Y    KC_P // Q
@@ -458,7 +458,7 @@
 #define MH_S    LHRM_3(KC_S)
 #define MH_D    LHRM_2(KC_N)
 #define MH_F    LHRM_1(KC_T)
-#define MH_G    LHRM_0(KC_M)
+#define MH_G    LHRM_0(KC_K) // M)
 //.............................................................................
 #define MH_H    RHRM_0(KC_Y)
 #define MH_J    RHRM_1(KC_H)
