@@ -442,8 +442,8 @@
 //==============================================================================
 // M: Another Oxey
 //==============================================================================
-#define MT_Q    KC_B // Q // P
-#define MT_W    KC_X // L
+#define MT_Q    KC_Z
+#define MT_W    KC_X
 #define MT_E    KC_R
 #define MT_R    KC_K
 #define MT_T    KC_Q //B
@@ -471,7 +471,7 @@
 #endif
 //-----------------------------------------------------------------------------
 #define MB_Z    LBRM_4(KC_C)
-#define MB_X           KC_Z
+#define MB_X           KC_B
 #define MB_C           KC_L
 #define MB_V    LBRM_1(KC_G)
 #define MB_B           KC_V
