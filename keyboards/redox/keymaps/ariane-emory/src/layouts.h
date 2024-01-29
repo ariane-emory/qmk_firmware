@@ -446,9 +446,9 @@
 #define MT_W    KC_X
 #define MT_E    KC_R
 #define MT_R    KC_K
-#define MT_T    KC_Q //B
+#define MT_T    KC_Q
 //.............................................................................
-#define MT_Y    KC_P // Q
+#define MT_Y    KC_P
 #define MT_U    KC_D
 #define MT_I    KC_O
 #define MT_O    KC_U
