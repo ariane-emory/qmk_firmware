@@ -450,8 +450,8 @@
 //.............................................................................
 #define MT_Y    KC_P // Q
 #define MT_U    KC_D
-#define MT_I    KC_U
-#define MT_O    KC_O
+#define MT_I    KC_O
+#define MT_O    KC_U
 #define MT_P    KC_SLSH
 //------------------------------------------------------------------------------
 #define MH_A    LHRM_4(KC_W)
