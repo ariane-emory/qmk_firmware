@@ -330,7 +330,7 @@
 #define NT_E    KC_Y
 #define NT_R    KC_P
 #define NT_T    KC_B
-#define NT_Y    KC_Z
+#define NT_Y    KC_X
 #define NT_U    KC_F
 #define NT_I    KC_O
 #define NT_O    KC_U
@@ -352,7 +352,7 @@
 #define NB_C           KC_V
 #define NB_V    LBRM_1(KC_D)
 #define NB_B           KC_K
-#define NB_N           KC_X
+#define NB_N           KC_Z
 #define NB_M    RBRM_1(KC_N) // H)
 #define NB_COMM        KC_COMM
 #define NB_DOT         KC_DOT
