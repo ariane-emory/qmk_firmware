@@ -467,7 +467,7 @@
 #ifdef ROTATE_OXEY
 #  define MH_QUOT RHRM_4(KC_QUOT)
 #else
-#  define MH_QUOT RHRM_4(KC_I) // )
+#  define MH_QUOT RHRM_4(KC_I) // E)
 #endif
 //-----------------------------------------------------------------------------
 #define MB_Z    LBRM_4(KC_C)
