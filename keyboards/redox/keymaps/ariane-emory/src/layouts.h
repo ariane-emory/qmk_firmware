@@ -450,8 +450,8 @@
 //.............................................................................
 #define MT_Y    KC_P
 #define MT_U    KC_D
-#define MT_I    KC_U
-#define MT_O    KC_O
+#define MT_I    KC_O
+#define MT_O    KC_U
 #define MT_P    KC_SLSH
 //------------------------------------------------------------------------------
 #define MH_A    LHRM_4(KC_W)
@@ -463,11 +463,11 @@
 #define MH_H    RHRM_0(KC_Y)
 #define MH_J    RHRM_1(KC_H)
 #define MH_K    RHRM_2(KC_E)
-#define MH_L    RHRM_3(KC_A) 
+#define MH_L    RHRM_3(KC_I) 
 #ifdef ROTATE_OXEY
 #  define MH_QUOT RHRM_4(KC_QUOT)
 #else
-#  define MH_QUOT RHRM_4(KC_I)
+#  define MH_QUOT RHRM_4(KC_A)
 #endif
 //-----------------------------------------------------------------------------
 #define MB_Z    LBRM_4(KC_C)
