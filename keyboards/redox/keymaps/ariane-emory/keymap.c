@@ -809,7 +809,7 @@ void leader_end_user(void) {
   }
 
   // emacs macros
-  else if (leader_sequence_two_keys(KC_S, KC_S)) {
+  else if (leader_sequence_two_keys(KC_F, KC_F)) {
     tap_code16(EM_MAC_BGN);
   }
   else if (leader_sequence_one_key(KC_D)) {
