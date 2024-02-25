@@ -807,6 +807,18 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_Q, KC_W)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkupd" CR()));
   }
+
+  // emacs macros
+  else if (leader_sequence_two_keys(KC_S, KC_S)) {
+    tap_code16(EM_MAC_BGN);
+  }
+  else if (leader_sequence_one_key(KC_D)) {
+    tap_code16(EM_MAC_END);
+  }
+  else if (leader_sequence_one_key(KC_F)) {
+    tap_code16(EM_MAC_RPT);
+  }  
+  
   else if (leader_sequence_one_key(KC_S)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(CLR_LINE() "shove" CR()));
   }
