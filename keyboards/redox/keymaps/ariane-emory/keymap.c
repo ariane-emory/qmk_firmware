@@ -89,17 +89,17 @@ void keyboard_post_init_user(void) {
 // Custom keycodes
 // ==============================================================================
 
-#define T(x)                 SS_TAP(x)
+#define CR(_)                T(X_ENT)
+#define DD()                 SS_DELAY(150)
+#define ESC()                T(X_ESC)
 #define LL(_)                T(X_LEFT)
 #define RR(_)                T(X_RIGHT)
-#define UU(_)                T(X_UP) 
-#define TB(_)                T(X_TAB)
-#define CR(_)                T(X_ENT)
 #define SCR_L()              SS_LCTL(T(X_F13))
 #define SCR_R()              SS_LCTL(T(X_F14))
-#define ESC()                T(X_ESC)
 #define SPC()                T(X_SPC)
-#define DD()                 SS_DELAY(150)
+#define T(x)                 SS_TAP(x)
+#define TB(_)                T(X_TAB)
+#define UU(_)                T(X_UP) 
 
 #define GUI_CLICK(_)         SS_DOWN(X_LGUI) T(X_BTN1) SS_UP(X_LGUI)
 #define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(T(X_TAB))
@@ -792,6 +792,7 @@ uint16_t keycode_config(uint16_t keycode) {
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
   if (leader_sequence_three_keys(KC_R, KC_R, KC_R)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE()));
     tap_code16(A(KC_P));
     wait_ms(20);
     tap_code16(A(KC_P));
@@ -803,6 +804,7 @@ void leader_end_user(void) {
     /* SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_))); */
   }
   else if (leader_sequence_two_keys(KC_R, KC_R)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE()));
     tap_code16(A(KC_P));
     wait_ms(20);
     tap_code16(A(KC_P));
@@ -824,7 +826,7 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkupd" CR()));
   }  
   else if (leader_sequence_one_key(KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR_LINE() "shove" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE() "shove" CR()));
   }
   else if (leader_sequence_two_keys(KC_C, KC_D)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("D:" CR() AE_CD CR()));
@@ -859,8 +861,8 @@ void leader_end_user(void) {
   else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " CR()));
   }
-  else if (leader_sequence_two_keys(KC_G, KC_R)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset "));
+  else if (leader_sequence_one_key(KC_C)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE() "cargo run" CR()));
   }
   /* else if (leader_sequence_one_key(0)) { */
   /*   tap_code16(LCA(KC_X)); */
