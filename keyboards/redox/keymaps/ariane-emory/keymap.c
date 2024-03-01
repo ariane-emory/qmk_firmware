@@ -791,20 +791,25 @@ uint16_t keycode_config(uint16_t keycode) {
 
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
-  if (leader_sequence_four_keys(KC_R, KC_R, KC_R, KC_R)) {
+  if (leader_sequence_three_keys(KC_R, KC_R, KC_R)) {
     tap_code16(A(KC_P));
+    wait_ms(20);
     tap_code16(A(KC_P));
+    wait_ms(20);
     tap_code16(A(KC_P));
-    SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_)));
+    wait_ms(20);
+    tap_code16(KC_ENT);
+    wait_ms(20);
+    /* SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_))); */
   }
-  else   if (leader_sequence_three_keys(KC_R, KC_R, KC_R)) {
+  else if (leader_sequence_two_keys(KC_R, KC_R)) {
     tap_code16(A(KC_P));
+    wait_ms(20);
     tap_code16(A(KC_P));
-    SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_)));
-  }
-  else   if (leader_sequence_two_keys(KC_R, KC_R)) {
-    tap_code16(A(KC_P));
-    SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_)));
+    wait_ms(20);
+    tap_code16(KC_ENT);
+    wait_ms(20);
+    /* SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_))); */
   }
   else if (leader_sequence_one_key(KC_R)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_)));
