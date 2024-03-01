@@ -791,11 +791,22 @@ uint16_t keycode_config(uint16_t keycode) {
 
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
-  /* if (leader_sequence_one_key(NUM_1)) { */
-  /*     SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "11" CR())); */
-  /* } */
-  /* else */
-  if (leader_sequence_one_key(KC_R)) {
+  if (leader_sequence_four_keys(KC_R, KC_R, KC_R, KC_R)) {
+    tap_code16(A(KC_P));
+    tap_code16(A(KC_P));
+    tap_code16(A(KC_P));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_)));
+  }
+  else   if (leader_sequence_three_keys(KC_R, KC_R, KC_R)) {
+    tap_code16(A(KC_P));
+    tap_code16(A(KC_P));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_)));
+  }
+  else   if (leader_sequence_two_keys(KC_R, KC_R)) {
+    tap_code16(A(KC_P));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_)));
+  }
+  else if (leader_sequence_one_key(KC_R)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_)));
   }
   else if (leader_sequence_two_keys(KC_B, KC_B)) {
