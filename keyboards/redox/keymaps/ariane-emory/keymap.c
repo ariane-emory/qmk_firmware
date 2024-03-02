@@ -373,6 +373,8 @@ static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM =
   { RCTL_SQUO,                   KC_QUOT        },
   { RCTL_DQUO,                   KC_DQUO        },
 
+  { LCTL_OPEN,                   LGUI(KC_O)     },
+  
   { LHRM_1(VD_RIGHT_ALT),        VD_RIGHT       },
   { LHRM_2(VD_LEFT_ALT),         VD_LEFT        },
   { LHRM_4(LCA(KC_LEFT)),        LCA(KC_LEFT)   },

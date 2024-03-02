@@ -114,6 +114,7 @@
 #define RCTL_SQUO      RCTL_T(KC_SQUO_TAP)
 #define RCTL_DQUO      RCTL_T(KC_DQUO_TAP)
 #define LCTL_ESC       LCTL_T(KC_ESC)
+#define LCTL_OPEN      LCTL_T(RGUI(KC_O))
 #define BRT_UP         KC_F20
 #define BRT_DN         KC_F19
 #define TG_MOUSE       TG(LN_MOUSE)
