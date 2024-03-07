@@ -782,7 +782,7 @@
       "KC_WH_D",
       "LCA(KC_X)",
       "MO(14)",
-      "KC_RSFT",
+      "ANY(QK_CAPS_WORD_TOGGLE)",
       "KC_TRNS",
       "ANY(SS_FULLSCR)",
       "KC_NO",
