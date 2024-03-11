@@ -231,7 +231,8 @@ CONST_KEYRECORD_FUN(bool discord_mute_handler) {
 
 CONST_KEYRECORD_FUN(bool other_win_handler) {
   if (record->event.pressed) {
-    tap_code16(LGUI(KC_GRV));
+    tap_code16(LALT(KC_TAB));
+    //tap_code16(LGUI(KC_GRV));
   }
 
   return false;
