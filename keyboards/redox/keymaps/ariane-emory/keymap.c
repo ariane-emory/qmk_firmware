@@ -708,7 +708,7 @@ bool achordion_chord(
   // NOTE-AE: This is probably unnecesary due to the following check.
   //
   // if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
-  //  return true;
+  //   return true;
 
   // If it isn't a home row mod/shift, process normally.
   if (!array_contains_keycode_P(tap_hold_keycode, achordion_bilat_keys, ARRAY_SIZE(achordion_bilat_keys)))
