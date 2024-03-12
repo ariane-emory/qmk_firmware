@@ -103,7 +103,7 @@ void keyboard_post_init_user(void) {
 
 #define GUI_CLICK(_)         SS_DOWN(X_LGUI) T(X_BTN1) SS_UP(X_LGUI)
 #define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(T(X_TAB))
-#define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" CR() T(X_HOME)
+#define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "!!" CR() T(X_HOME)
 #define TELEPORT(_)                                                                                                                                   \
   GUI_CLICK() DD() SS_LCTL(T(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                     \
   SS_LGUI("`") DD() SCR_R() SS_DELAY(200) T(X_BTN1) DD() ESC() DD()                                                                                   \
