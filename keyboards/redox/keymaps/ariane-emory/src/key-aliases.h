@@ -107,7 +107,9 @@
 
 #define EM_BOL         LCTL(KC_A)
 #define EM_EOL         LCTL(KC_E)
+//#define EM_SPLIT_V     LALT(LGUI(KC_2)) // neutral
 #define EM_SPLIT_V     LALT(LGUI(KC_2))
+//#define EM_SPLIT_H     LALT(LGUI(KC_3)) // neutral
 #define EM_SPLIT_H     LALT(LGUI(KC_3))
 #define EM_PRV_BUF     LCTL(LALT(LSFT(KC_V))) // neutral
 //#define EM_PRV_BUF     LALT(LGUI(KC_V))
