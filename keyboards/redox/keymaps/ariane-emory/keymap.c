@@ -128,8 +128,8 @@ void keyboard_post_init_user(void) {
   DO(SS_SMILEY2,           (" :)"),                              (" :P"),                                (" :D"),            (""))                    \
   DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"),             (""))                    \
   DO(SS_CD,                ("cd "),                              ("cd ~/"),                              ("cd .."),          ("cd -"))                \
-  DO(SS_LBRACK,            ("("),                                ("["),                                  ("{"),              ("<"))                   \
-  DO(SS_RBRACK,            (")"),                                ("]"),                                  ("}"),              (">"))                   \
+  DO(SS_LBRACK,            ("("),                                ("{"),                                  ("["),              ("<"))                   \
+  DO(SS_RBRACK,            (")"),                                ("}"),                                  ("]"),              (">"))                   \
   DO(SS_AND_AND,           (" && "),                             (" || "),                               (" @>&1 "),         (" >/dev/null "))        \
 //                         NO MODS                               CTRL                                    ALT                 SHIFT
 
