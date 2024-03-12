@@ -124,10 +124,11 @@
 //#define EM_PRV_BUF     LALT(LGUI(KC_V))
 #define EM_DIRED       LCTL(LALT(LSFT(KC_D))) // neutral
 //#define EM_DIRED       LALT(LGUI(KC_D))
-#define EM_LWRAP       LALT(LGUI(KC_L))
 #define EM_BGN_MAC     LALT(LGUI(KC_W))
 #define EM_RPT_MAC     LALT(LGUI(KC_R))
 #define EM_END_MAC     LALT(LGUI(KC_E))
+#define EM_LWRAP       LCTL(LALT(LSFT(KC_L))) // neutral
+//#define EM_LWRAP       LALT(LGUI(KC_L))
 #define EM_CTL_X       LCTL(KC_X)
 #define EM_CTL_C       LCTL(KC_C)
 #define RCTL_SQUO      RCTL_T(KC_SQUO_TAP)
