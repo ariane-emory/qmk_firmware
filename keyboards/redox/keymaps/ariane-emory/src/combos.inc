@@ -20,7 +20,7 @@
   DO(l_top_rech,             OTHER_WIN,     QT_Q,    QT_W                               ) \
   DO(l_top_outr,             KC_GRV,        QT_W,    QT_E                               ) \
   DO(l_top_innr,             LSFT(KC_GRV),  QT_E,    QT_R                               ) \
-  DO(l_top_curl,             KC_1,          QT_R,    QT_T                               ) \
+  DO(l_top_curl,             LSFT(KC_1),    QT_R,    QT_T                               ) \
   __(l_top_trpo,             _____________, QT_Q,    QT_W,      QT_E                    ) \
   __(l_top_sprd,             _____________, QT_W,               QT_R                    ) \
   __(l_top_trpm,             _____________, QT_W,    QT_E,      QT_R                    ) \
