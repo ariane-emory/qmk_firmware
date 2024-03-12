@@ -7,7 +7,7 @@
   "layout": "LAYOUT",
   "layers": [
     [
-      "KC_GRV",
+      "LSFT(KC_1)",
       "ANY(NUM_1)",
       "ANY(NUM_2)",
       "ANY(NUM_3)",
