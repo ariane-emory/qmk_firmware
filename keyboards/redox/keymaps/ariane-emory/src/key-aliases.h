@@ -96,9 +96,12 @@
 #define EM_SHELL       LCTL(LALT(LSFT(KC_S))) // neutral
 //#define EM_SHELL       LALT(LGUI(KC_S))
 #define KA_UNDO        LGUI(KC_Z)
-#define EM_MAC_BGN     LALT(LGUI(KC_W))
-#define EM_MAC_RPT     LALT(LGUI(KC_R))
-#define EM_MAC_END     LALT(LGUI(KC_E))
+#define EM_MAC_BGN     LCTL(LALT(LSFT(KC_W)))
+//#define EM_MAC_BGN     LALT(LGUI(KC_W))
+#define EM_MAC_RPT     LCTL(LALT(LSFT(KC_R)))
+//#define EM_MAC_RPT     LALT(LGUI(KC_R))
+#define EM_MAC_END     LCTL(LALT(LSFT(KC_E)))
+//#define EM_MAC_END     LALT(LGUI(KC_E))
 #define EM_ALL_BUF     LCTL(LALT(LSFT(KC_A))) // neutral
 //#define EM_ALL_BUF     LALT(LGUI(KC_A))
 
