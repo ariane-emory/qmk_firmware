@@ -30,7 +30,7 @@
   __(l_top_rech_diag_dn,     _____________, QH_A,    QT_W                               ) \
   __(l_top_outr_diag_up,     _____________, QH_D,    QT_W                               ) \
   __(l_top_outr_diag_dn,     _____________, QH_S,    QT_E                               ) \
-  __(l_top_innr_diag_up,     _____________, QH_F,    QT_E                               ) \
+  DO(l_top_innr_diag_up,     LSFT(KC_1),    QH_F,    QT_E                               ) \
   __(l_top_innr_diag_dn,     _____________, QH_D,    QT_R                               ) \
   __(l_top_curl_diag_up,     _____________, QH_G,    QT_R                               ) \
   __(l_top_curl_diag_dn,     _____________, QH_F,    QT_T                               ) \
