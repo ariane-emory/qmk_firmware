@@ -21,19 +21,19 @@
   DO(l_top_outr,             LSFT(KC_GRV),  QT_W,    QT_E                               ) \
   DO(l_top_innr,             KC_GRV,        QT_E,    QT_R                               ) \
   DO(l_top_curl,             KC_1,          QT_R,    QT_T                               ) \
-  __(l_top_trpo,             ____________,  QT_Q,    QT_W,      QT_E                    ) \
-  __(l_top_sprd,             ____________,  QT_W,               QT_R                    ) \
-  __(l_top_trpm,             ____________,  QT_W,    QT_E,      QT_R                    ) \
-  __(l_top_trpi,             ____________,  QT_E,    QT_R,      QT_T                    ) \
+  __(l_top_trpo,             _____________, QT_Q,    QT_W,      QT_E                    ) \
+  __(l_top_sprd,             _____________, QT_W,               QT_R                    ) \
+  __(l_top_trpm,             _____________, QT_W,    QT_E,      QT_R                    ) \
+  __(l_top_trpi,             _____________, QT_E,    QT_R,      QT_T                    ) \
   _______________________________________________________________________________________ \
-  __(l_top_rech_diag_up,     ____________,  QH_S,    QT_Q                               ) \
-  __(l_top_rech_diag_dn,     ____________,  QH_A,    QT_W                               ) \
-  __(l_top_outr_diag_up,     ____________,  QH_D,    QT_W                               ) \
-  __(l_top_outr_diag_dn,     ____________,  QH_S,    QT_E                               ) \
-  __(l_top_innr_diag_up,     ____________,  QH_F,    QT_E                               ) \
-  __(l_top_innr_diag_dn,     ____________,  QH_D,    QT_R                               ) \
-  __(l_top_curl_diag_up,     ____________,  QH_G,    QT_R                               ) \
-  __(l_top_curl_diag_dn,     ____________,  QH_F,    QT_T                               ) \
+  __(l_top_rech_diag_up,     _____________, QH_S,    QT_Q                               ) \
+  __(l_top_rech_diag_dn,     _____________, QH_A,    QT_W                               ) \
+  __(l_top_outr_diag_up,     _____________, QH_D,    QT_W                               ) \
+  __(l_top_outr_diag_dn,     _____________, QH_S,    QT_E                               ) \
+  __(l_top_innr_diag_up,     _____________, QH_F,    QT_E                               ) \
+  __(l_top_innr_diag_dn,     _____________, QH_D,    QT_R                               ) \
+  __(l_top_curl_diag_up,     _____________, QH_G,    QT_R                               ) \
+  __(l_top_curl_diag_dn,     _____________, QH_F,    QT_T                               ) \
   _______________________________________________________________________________________ \
   DO(l_mid_rech,             EM_MAC_END,    QH_A,    QH_S                               ) \
   DO(l_mid_outr,             EM_MAC_BGN,    QH_S,    QH_D                               ) \
@@ -53,14 +53,14 @@
   __(l_bot_curl_diag_up,     _____________, QH_F,    QB_B                               ) \
   __(l_bot_curl_diag_dn,     _____________, QH_F,    QB_C                               ) \
   _______________________________________________________________________________________ \
-  __(l_bot_rech,             ____________,  QB_Z,    QB_X                               ) \
+  __(l_bot_rech,             _____________, QB_Z,    QB_X                               ) \
   DO(l_bot_outr,             KC_ENT,        QB_X,    QB_C                               ) \
   DO(l_bot_innr,             SS_CD,         QB_C,    QB_V                               ) \
-  __(l_bot_curl,             ____________,  QB_V,    QB_B                               ) \
-  __(l_bot_trpo,             ____________,  QB_Z,    QB_X,      QB_C                    ) \
-  __(l_bot_sprd,             ____________,  QB_X,               QB_V                    ) \
+  __(l_bot_curl,             _____________, QB_V,    QB_B                               ) \
+  __(l_bot_trpo,             _____________, QB_Z,    QB_X,      QB_C                    ) \
+  __(l_bot_sprd,             _____________, QB_X,               QB_V                    ) \
   DO(l_bot_trpm,             TG(LN_MOUSE),  QB_X,    QB_C,      QB_V                    ) \
-  __(l_bot_trpi,             ____________,  QB_C,    QB_V,      QB_B                    ) \
+  __(l_bot_trpi,             _____________, QB_C,    QB_V,      QB_B                    ) \
   _______________________________________________________________________________________ \
   DO(r_top_trpi,             SS_SMILEY2,    QT_Y,    QT_U,      QT_I                    ) \
   DO(r_top_trpm,             EM_REVERT,     QT_U,    QT_I,      QT_O                    ) \
