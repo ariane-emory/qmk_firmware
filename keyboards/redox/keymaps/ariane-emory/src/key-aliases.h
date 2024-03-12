@@ -66,17 +66,26 @@
 //==============================================================================
 // Numpad keys
 //==============================================================================
-#define NUMP_0      LSFT(KC_0)
-#define NUMP_1      LSFT(KC_1)
-#define NUMP_2      LSFT(KC_2)
-#define NUMP_3      LSFT(KC_3)
-#define NUMP_4      LSFT(KC_4)
-#define NUMP_5      LSFT(KC_5)
-#define NUMP_6      LSFT(KC_6)
-#define NUMP_7      LSFT(KC_7)
-#define NUMP_8      LSFT(KC_8)
-#define NUMP_9      LSFT(KC_9)
-#define NUMP_0      LSFT(KC_0)
+/* #define NUMP_0      LSFT(KC_0) */
+/* #define NUMP_1      LSFT(KC_1) */
+/* #define NUMP_2      LSFT(KC_2) */
+/* #define NUMP_3      LSFT(KC_3) */
+/* #define NUMP_4      LSFT(KC_4) */
+/* #define NUMP_5      LSFT(KC_5) */
+/* #define NUMP_6      LSFT(KC_6) */
+/* #define NUMP_7      LSFT(KC_7) */
+/* #define NUMP_8      LSFT(KC_8) */
+/* #define NUMP_9      LSFT(KC_9) */
+#define NUMP_0      KC_0
+#define NUMP_1      KC_1
+#define NUMP_2      KC_2
+#define NUMP_3      KC_3
+#define NUMP_4      KC_4
+#define NUMP_5      KC_5
+#define NUMP_6      KC_6
+#define NUMP_7      KC_7
+#define NUMP_8      KC_8
+#define NUMP_9      KC_9
 //==============================================================================
 
 
