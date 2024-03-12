@@ -93,7 +93,8 @@
 // Misc special functions
 //==============================================================================
 #define LUTIL_OR_CMD_W LT(LN_UTIL,RGUI(KC_W))
-#define EM_SHELL       LALT(LGUI(KC_S))
+#define EM_SHELL       LCTL(LSFT(KC_S)) // neutral
+//#define EM_SHELL       LALT(LGUI(KC_S))
 #define KA_UNDO        LGUI(KC_Z)
 #define EM_MAC_BGN     LALT(LGUI(KC_W))
 #define EM_MAC_RPT     LALT(LGUI(KC_R))
@@ -104,7 +105,8 @@
 #define EM_SPLIT_V     LALT(LGUI(KC_2))
 #define EM_SPLIT_H     LALT(LGUI(KC_3))
 #define EM_PRV_BUF     LALT(LGUI(KC_V))
-#define EM_DIRED       LALT(LGUI(KC_D))
+#define EM_DIRED       LCTL(LSFT(KC_D)) // neutral
+//#define EM_DIRED       LALT(LGUI(KC_D))
 #define EM_LWRAP       LALT(LGUI(KC_L))
 #define EM_BGN_MAC     LALT(LGUI(KC_W))
 #define EM_RPT_MAC     LALT(LGUI(KC_R))
