@@ -77,7 +77,7 @@
 #define RGBLIGHT_SAT_STEP                    8
 #define RGBLIGHT_VAL_STEP                    8
 
-#define TAPPING_TERM                         325
+#define TAPPING_TERM                         250
 
 #define TOGGLED_LAYER                        9
 #define TOGGLED_LAYER_TIMEOUT                30000
@@ -104,3 +104,4 @@
 
 #define AE_NO_DIAGONAL_MOUSE_ACCEL_RESET
 
+#define AE_FLIPPED_NUMS
