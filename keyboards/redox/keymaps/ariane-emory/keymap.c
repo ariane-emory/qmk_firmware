@@ -123,7 +123,7 @@ void keyboard_post_init_user(void) {
   DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""),               (GUI_CLICK_AND_TAB()))   \
   DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
   DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (AE_FPWD))               \
-  DO(SS_0X,                (")x"),                               (""),                                   (""),               (")X"))                  \
+  DO(SS_0X,                (")x"),                               (""),                                   (""),               (""))                    \
   DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" LL()),       (""))                    \
   DO(SS_SMILEY,            (" ;0"),                              (" :/"),                                (" >_>"),           (""))                    \
   DO(SS_SMILEY2,           (" :0"),                              (" :P"),                                (" :D"),            (""))                    \
@@ -145,15 +145,15 @@ void keyboard_post_init_user(void) {
   DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""),               (GUI_CLICK_AND_TAB()))   \
   DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
   DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (AE_FPWD))               \
-  DO(SS_0X,                (")x"),                               (""),                                   (""),               (")X"))                  \
+  DO(SS_0X,                ("0x"),                               (""),                                   (""),               (""))                    \
   DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" LL()),       (""))                    \
-  DO(SS_SMILEY,            (" ;0"),                              (" :/"),                                (" >_>"),           (""))                    \
-  DO(SS_SMILEY2,           (" :0"),                              (" :P"),                                (" :D"),            (""))                    \
+  DO(SS_SMILEY,            (" ;)"),                              (" :/"),                                (" >_>"),           (""))                    \
+  DO(SS_SMILEY2,           (" :)"),                              (" :P"),                                (" :D"),            (""))                    \
   DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"),             (""))                    \
   DO(SS_CD,                ("cd "),                              ("cd ~/"),                              ("cd .."),          ("cd -"))                \
-  DO(SS_LBRACK,            ("9"),                                ("{"),                                  ("["),              ("<"))                   \
-  DO(SS_RBRACK,            ("0"),                                ("}"),                                  ("]"),              (">"))                   \
-  DO(SS_AND_AND,           (" 77 "),                             (" || "),                               (" @>7! "),         (" >/dev/null "))        \
+  DO(SS_LBRACK,            ("("),                                ("{"),                                  ("["),              ("<"))                   \
+  DO(SS_RBRACK,            (")"),                                ("}"),                                  ("]"),              (">"))                   \
+  DO(SS_AND_AND,           (" && "),                             (" || "),                               (" @>7! "),         (" >/dev/null "))        \
 //                         NO MODS                               CTRL                                    ALT                 SHIFT
 #endif
 
