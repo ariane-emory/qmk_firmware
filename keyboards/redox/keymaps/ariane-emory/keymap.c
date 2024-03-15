@@ -112,14 +112,14 @@ void keyboard_post_init_user(void) {
                                                                         SS_LGUI("`") DD() SCR_L()
 
 #ifdef AE_FLIPPED_NUMS
-#  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                     \
+#  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                   \
   DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""),               (""))                    \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                    \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),          (""),                                   (""),               (""))                    \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
-  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (""),                                   (""),               (""))                    \
+  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" 4_"),                                (""),               (""))                    \
   DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""),               (GUI_CLICK_AND_TAB()))   \
   DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
   DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (AE_FPWD))               \
