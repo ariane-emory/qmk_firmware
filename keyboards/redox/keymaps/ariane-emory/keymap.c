@@ -858,6 +858,12 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_C, KC_D)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("D:" CR() AE_CD CR()));
   }
+  else if (leader_sequence_two_keys(KC_G, KC_R)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" CR()));
+  }
+  else if (leader_sequence_three_keys(KC_G, KC_R, KC_O)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard origin/" ));
+  }
   else if (leader_sequence_two_keys(KC_G, KC_D)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " CR()));
   }
