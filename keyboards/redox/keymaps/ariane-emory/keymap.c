@@ -112,7 +112,7 @@ void keyboard_post_init_user(void) {
                                                                         SS_LGUI("`") DD() SCR_L()
 
 #ifdef AE_FLIPPED_NUMS
-  #define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                     \
+#  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                     \
   DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""),               (""))                    \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                    \
@@ -134,7 +134,7 @@ void keyboard_post_init_user(void) {
   DO(SS_AND_AND,           (" 77 "),                             (" || "),                               (" @>7! "),         (" >/dev/null "))        \
 //                         NO MODS                               CTRL                                    ALT                 SHIFT
 #else
-  #define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                   \
+#  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                     \
   DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""),               (""))                    \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                    \
