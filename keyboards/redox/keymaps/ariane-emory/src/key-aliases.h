@@ -85,7 +85,7 @@
 //==============================================================================
 #define VD_LEFT     LALT(LCTL(KC_S))
 #define VD_RIGHT    LALT(LCTL(KC_D))
-#define VD_ALL      LALT(LCTL(KC_TAB))
+#define VD_ALL      LALT(LCTL(KC_F12))
 //==============================================================================
 
 
