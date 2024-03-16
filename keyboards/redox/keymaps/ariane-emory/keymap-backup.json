@@ -666,7 +666,7 @@
       "RGUI(KC_W)",
       "RGUI(KC_MINS)",
       "RGUI(KC_EQL)",
-      "KC_NO",
+      "ANY(OTHER_WIN)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
