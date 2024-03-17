@@ -256,9 +256,8 @@ CONST_KEYRECORD_FUN(bool discord_mute_handler) {
 
 CONST_KEYRECORD_FUN(bool cx_handler) {
   if (record->event.pressed) {
-    /* if (get_oneshot_mods() & MOD_MASK_CTRL)  */
-    /*   del_oneshot_mods(MOD_LCTL); */
-    /* else */ {
+    {
+      layer_off(LN_MOUSE);
       register_code(KC_LCTL);
       tap_code16(KC_X);
       add_oneshot_mods(MOD_LCTL);
@@ -274,9 +273,8 @@ CONST_KEYRECORD_FUN(bool cx_handler) {
 
 CONST_KEYRECORD_FUN(bool cc_handler) {
   if (record->event.pressed) {
-    /* if (get_oneshot_mods() & MOD_MASK_CTRL)  */
-    /*   del_oneshot_mods(MOD_LCTL); */
-    /* else */ {
+    {
+      layer_off(LN_MOUSE);
       register_code(KC_LCTL);
       tap_code16(KC_C);
       add_oneshot_mods(MOD_LCTL);
@@ -375,6 +373,9 @@ CONST_KEYRECORD_FUN(bool insert_upp_handler) {
 #endif // INSERT_UPP_ENABLED
 
 CONST_KEYRECORD_FUN(bool disable_mouse_layer_handler) {
+//  if (get_oneshot_mods() & MOD_MASK_CTRL)
+    del_oneshot_mods(MOD_LCTL);
+  
   if ((! record->tap.count) && (! record->event.pressed))
     layer_off(LN_MOUSE);
   
