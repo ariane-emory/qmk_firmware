@@ -852,7 +852,7 @@
       "ANY(DISCORD_MUTE)",
       "RALT(KC_LEFT)",
       "RALT(KC_RGHT)",
-      "RCTL(KC_C)",
+      "ANY(CC)",
       "ANY(CX)",
       "ANY(QK_CAPS_WORD_TOGGLE)",
       "KC_TRNS",
