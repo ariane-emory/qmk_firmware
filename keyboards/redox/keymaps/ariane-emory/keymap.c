@@ -373,9 +373,6 @@ CONST_KEYRECORD_FUN(bool insert_upp_handler) {
 #endif // INSERT_UPP_ENABLED
 
 CONST_KEYRECORD_FUN(bool disable_mouse_layer_handler) {
-//  if (get_oneshot_mods() & MOD_MASK_CTRL)
-    del_oneshot_mods(MOD_LCTL);
-  
   if ((! record->tap.count) && (! record->event.pressed))
     layer_off(LN_MOUSE);
   
