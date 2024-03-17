@@ -258,14 +258,14 @@ CONST_KEYRECORD_FUN(bool cx_handler) {
   if (record->event.pressed) {
     {
       layer_off(LN_MOUSE);
-      register_code(KC_LCTL);
-      tap_code16(KC_X);
+      //register_code(KC_LCTL);
+      tap_code16(LCTL(KC_X));
       add_oneshot_mods(MOD_LCTL);
     }
   }
-  else {
-    unregister_code(KC_LCTL);
-  }
+  /* else { */
+  /*   unregister_code(KC_LCTL); */
+  /* } */
 
   return false;
 }
@@ -275,14 +275,14 @@ CONST_KEYRECORD_FUN(bool cc_handler) {
   if (record->event.pressed) {
     {
       layer_off(LN_MOUSE);
-      register_code(KC_LCTL);
-      tap_code16(KC_C);
+      // register_code(KC_LCTL);
+      tap_code16(LCTL(KC_C));
       add_oneshot_mods(MOD_LCTL);
     }
   }
-  else {
-    unregister_code(KC_LCTL);
-  }
+  /* else { */
+  /*   unregister_code(KC_LCTL); */
+  /* } */
 
   return false;
 }
@@ -634,7 +634,7 @@ void set_rgb_led_fader_target_by_layer(rgb_led_fader_t * const this) {
 #ifdef TOGGLED_LAYER_TIMEOUT
 void manage_toggled_layer_timeout(const uint8_t layer, const uint16_t idle_time_limit_ms, const uint16_t timer)
 {
-  if (layer_state_is(layer) && (timer_elapsed(timer) >= idle_time_limit_ms))
+    if (layer_state_is(layer) && (timer_elapsed(timer) >= idle_time_limit_ms))
     layer_off(layer);
 }
 #endif
