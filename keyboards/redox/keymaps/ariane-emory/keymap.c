@@ -377,7 +377,7 @@ CONST_KEYRECORD_FUN(bool insert_upp_handler) {
 CONST_KEYRECORD_FUN(bool disable_mouse_layer_handler) {
   if ((! record->tap.count) && (! record->event.pressed))
     layer_off(LN_MOUSE);
-
+  
   return true;
 };
 
