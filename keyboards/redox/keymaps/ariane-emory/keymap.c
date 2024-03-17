@@ -171,6 +171,7 @@ FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
 
 enum arianes_custom_keycodes {
   KC_DUMMY = SAFE_RANGE,
+  CX,
   OTHER_WIN,
   CLOSE_WIN,
   TYPE_LAYOUT,
@@ -252,6 +253,18 @@ CONST_KEYRECORD_FUN(bool discord_mute_handler) {
   return false;
 }
               
+
+CONST_KEYRECORD_FUN(bool cx_handler) {
+  if (record->event.pressed) {
+    register_code(KC_LCTL);
+    tap_code(KC_X);
+  }
+  else {
+    unregister_code(KC_LCTL);
+  }
+
+  return false;
+}
 
 CONST_KEYRECORD_FUN(bool other_win_handler) {
   if (record->event.pressed) {
@@ -360,6 +373,7 @@ CONST_KEYRECORD_FUN(bool toggle_df_handler) {
 typedef bool(*keycode_handler_fun_t)(const uint16_t keycode, const keyrecord_t * const record);
 
 static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode_handlers[] PROGMEM = {
+  { CX,                          cx_handler                  },
   { DISCORD_MUTE,                discord_mute_handler        },
   { MY_BOOT,                     my_boot_handler             },
   { CLOSE_WIN,                   close_win_handler           },
