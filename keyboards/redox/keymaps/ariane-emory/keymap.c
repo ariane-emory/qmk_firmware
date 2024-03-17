@@ -257,7 +257,8 @@ CONST_KEYRECORD_FUN(bool discord_mute_handler) {
 CONST_KEYRECORD_FUN(bool cx_handler) {
   if (record->event.pressed) {
     register_code(KC_LCTL);
-    tap_code(KC_X);
+    tap_code16(KC_X);
+    add_oneshot_mods(MOD_LCTL);
   }
   else {
     unregister_code(KC_LCTL);
@@ -271,6 +272,7 @@ CONST_KEYRECORD_FUN(bool cc_handler) {
   if (record->event.pressed) {
     register_code(KC_LCTL);
     tap_code(KC_C);
+    add_oneshot_mods(MOD_LCTL);
   }
   else {
     unregister_code(KC_LCTL);
@@ -282,7 +284,7 @@ CONST_KEYRECORD_FUN(bool cc_handler) {
 CONST_KEYRECORD_FUN(bool other_win_handler) {
   if (record->event.pressed) {
     tap_code16(LALT(KC_TAB));
-    //tap_code16(LGUI(KC_GRV));
+    tap_code16(LGUI(KC_GRV));
   }
 
   return false;

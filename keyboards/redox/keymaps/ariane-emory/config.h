@@ -68,7 +68,7 @@
 #define MY_RGB_BOOT                          0xFF, 0x28, 0x00 // orange-ish
 #define MY_RGB_WORKMAK                       0xFF, 0x20, 0x10 // pink-ish
 
-#define NO_ACTION_ONESHOT
+//#define NO_ACTION_ONESHOT
 #define ONESHOT_TIMEOUT                      1000
 #define PERMISSIVE_HOLD_PER_KEY
 
