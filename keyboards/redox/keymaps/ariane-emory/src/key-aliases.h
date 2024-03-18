@@ -93,7 +93,7 @@
 // Misc special functions
 //==============================================================================
 #define LUTIL_OR_CMD_W LT(LN_UTIL,RGUI(KC_W))
-#define EM_SHELL       LALT(LGUI(KC_S))
+//#define EM_SHELL       LALT(LGUI(KC_S))
 #define KA_UNDO        LGUI(KC_Z)
 #define EM_MAC_BGN     LALT(LGUI(KC_W))
 #define EM_MAC_RPT     LALT(LGUI(KC_R))
