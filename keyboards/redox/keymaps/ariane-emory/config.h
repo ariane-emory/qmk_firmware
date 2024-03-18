@@ -81,7 +81,7 @@
 #define MY_RGB_WORKMAK                       0xFF, 0x20, 0x10 // pink-ish
 
 //#define NO_ACTION_ONESHOT
-#define ONESHOT_TIMEOUT                      750
+#define ONESHOT_TIMEOUT                      1250
 #define PERMISSIVE_HOLD_PER_KEY
 
 //#define RGBLED_NUM                           14
