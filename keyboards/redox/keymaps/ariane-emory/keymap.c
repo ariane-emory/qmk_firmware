@@ -186,8 +186,6 @@ enum arianes_custom_keycodes {
   OTHER_WIN,
   CLOSE_WIN,
   TYPE_LAYOUT,
-//  NEW_TAB,
-//  REOPEN_TAB,
   KC_SQUO_TAP,
   KC_DQUO_TAP,
   HOLD_GUI,
