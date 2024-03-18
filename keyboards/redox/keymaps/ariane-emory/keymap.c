@@ -86,7 +86,7 @@ void keyboard_post_init_user(void) {
 }
 
 // ==============================================================================
-// Custom keycodes
+// Send string keycodes (string macros)
 // ==============================================================================
 
 #define CR(_)                T(X_ENT)
@@ -110,6 +110,10 @@ void keyboard_post_init_user(void) {
   SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(2500)                                                                       \
                                                                  T(X_F) DD() RR() DD() RR() DD()                                                      \
                                                                         SS_LGUI("`") DD() SCR_L()
+
+// ==============================================================================
+// Send string keycodes (the main X-macro table)
+// ==============================================================================
 
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                   \
@@ -167,6 +171,10 @@ void keyboard_post_init_user(void) {
 //                         NO MODS                               CTRL                                    ALT                 SHIFT
 #endif
 
+// ==============================================================================
+// Send string keycodes (initialize the strings)
+// ==============================================================================
+
 #define enum_item(kc, str, ...)                                                                kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                                        static const char tag##_str_##kc[] PROGMEM = str;
 #define define_nomods_progmem_string(kc, nomods_str, ...)                                      define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
@@ -178,6 +186,10 @@ FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
+
+// ==============================================================================
+// Custom keycodes (inlc. send string keycodes)
+// ==============================================================================
 
 enum arianes_custom_keycodes {
   KC_DUMMY = SAFE_RANGE,
@@ -198,6 +210,10 @@ enum arianes_custom_keycodes {
   FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
+// ==============================================================================
+// Send string keycodes (build the array)
+// ==============================================================================
+
 #define moddable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, ctrled_str_##kc, alted_str_##kc, shifted_str_##kc },
 
 typedef struct moddable_send_string_keycodes_t {
@@ -211,6 +227,10 @@ typedef struct moddable_send_string_keycodes_t {
 static const moddable_send_string_keycodes_t moddable_send_string_keycodes[] = {
   FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(moddable_send_string_keycodes_row)
 };
+
+// ==============================================================================
+// Send string keycodes (the process function)
+// ==============================================================================
 
 CONST_KEYRECORD_FUN(bool process_moddable_send_string) {
   for (uint8_t ix = 0; ix < ARRAY_SIZE(moddable_send_string_keycodes); ix++) {
@@ -239,6 +259,10 @@ CONST_KEYRECORD_FUN(bool process_moddable_send_string) {
 
   return true;
 }
+
+// ==============================================================================
+// Callback-based handlers: the callbacks
+// ==============================================================================
 
 #ifdef DYNAMIC_MACRO_HANDLERS
 CONST_KEYRECORD_FUN(bool dynamic_macros_handler) {
@@ -272,7 +296,6 @@ CONST_KEYRECORD_FUN(bool cx_handler) {
   return false;
 }
 
-
 CONST_KEYRECORD_FUN(bool cc_handler) {
   if (record->event.pressed) {
     layer_off(LN_MOUSE);
@@ -299,7 +322,6 @@ CONST_KEYRECORD_FUN(bool close_win_handler) {
 
   return false;
 }
-
 
 void tap_half_row_by_matrix_pos(uint8_t row, uint8_t start_column, uint8_t end_column, int8_t col_incr, uint8_t row_offset) {
   for (uint8_t column = start_column; column != end_column + col_incr; column += col_incr) {
@@ -387,6 +409,10 @@ CONST_KEYRECORD_FUN(bool toggle_df_handler) {
   return false;
 };
 
+// ==============================================================================
+// Callback-based handlers: the callback table
+// ==============================================================================
+
 typedef bool(*keycode_handler_fun_t)(const uint16_t keycode, const keyrecord_t * const record);
 
 static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode_handlers[] PROGMEM = {
@@ -464,7 +490,6 @@ bool process_tap_case(uint16_t keycode, keyrecord_t const * const record)  {
 // ==============================================================================
 // Mouse key overlap fixer function
 // ==============================================================================
-
 
 KEYRECORD_FUN(bool process_mouse_keys) {
   {
