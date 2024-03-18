@@ -116,6 +116,7 @@ void keyboard_post_init_user(void) {
   DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""),               (""))                    \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                    \
+  DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b")),          (""),                                   (""),               (""))                    \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),          (""),                                   (""),               (""))                    \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
@@ -138,6 +139,7 @@ void keyboard_post_init_user(void) {
   DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""),               (""))                    \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                    \
+  DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b")),          (""),                                   (""),               (""))                    \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),          (""),                                   (""),               (""))                    \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                    \

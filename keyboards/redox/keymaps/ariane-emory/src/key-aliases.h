@@ -98,7 +98,7 @@
 #define EM_MAC_BGN     LALT(LGUI(KC_W))
 #define EM_MAC_RPT     LALT(LGUI(KC_R))
 #define EM_MAC_END     LALT(LGUI(KC_E))
-#define EM_ALL_BUF     LALT(LGUI(KC_A))
+//#define EM_ALL_BUFF     LALT(LGUI(KC_A))
 #define EM_BOL         LCTL(KC_A)
 #define EM_EOL         LCTL(KC_E)
 #define EM_SPLIT_V     LALT(LGUI(KC_2))

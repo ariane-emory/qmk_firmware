@@ -83,7 +83,7 @@
   DO(r_mid_trpi,             EM_PRV_BUF,    QH_H,    QH_J,       QH_K                   ) \
   DO(r_mid_trpm,             EM_DIRED,      QH_J,    QH_K,       QH_L                   ) \
   DO(r_mid_sprd,             TG(LN_MOUSE),  QH_J,                QH_L                   ) \
-  DO(r_mid_trpo,             EM_ALL_BUF,    QH_K,    QH_L,       QH_QUOT                ) \
+  DO(r_mid_trpo,             EM_ALL_BUFF,    QH_K,    QH_L,       QH_QUOT                ) \
   DO(r_mid_curl,             KC_EQL,        QH_H,    QH_J                               ) \
   DO(r_mid_innr,             KC_ENT,        QH_J,    QH_K                               ) \
   DO(r_mid_outr,             KC_SCLN,       QH_K,    QH_L                               ) \
