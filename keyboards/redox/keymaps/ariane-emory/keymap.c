@@ -119,7 +119,6 @@ void keyboard_post_init_user(void) {
   DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                                              \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                                              \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                                              \
-  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
   DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                                              \
   DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3"))           )                                                                                              \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                                              \
@@ -128,6 +127,7 @@ void keyboard_post_init_user(void) {
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                                              \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                                              \
   DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t"))           )                                                                                              \
+  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
   DO(SS_0X,                (")x")                                ) 
 //                         NO MODS
 #else
@@ -135,7 +135,6 @@ void keyboard_post_init_user(void) {
   DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                                              \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                                              \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                                              \
-  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
   DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                                              \
   DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3"))           )                                                                                              \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                                              \
@@ -144,6 +143,7 @@ void keyboard_post_init_user(void) {
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                                              \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                                              \
   DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t"))           )                                                                                              \
+  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
   DO(SS_0X,                ("0x")                                )
 //                         NO MODS                                 
 #endif
