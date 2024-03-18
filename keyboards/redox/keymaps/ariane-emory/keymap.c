@@ -200,7 +200,7 @@ FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
 
 // ==============================================================================
-// Custom keycodes (inlc. send string keycodes)
+// Custom keycodes (incl. send string keycodes)
 // ==============================================================================
 
 enum arianes_custom_keycodes {
