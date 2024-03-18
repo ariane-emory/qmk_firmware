@@ -120,8 +120,8 @@ void keyboard_post_init_user(void) {
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                                              \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                                              \
   DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t"))           )                                                                                              \
-  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                                              \
-  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3"))           )                                                                                              \
+  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                                              \
+  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("3"))           )                                                                                              \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                                              \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                                              \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                                              \
@@ -136,8 +136,8 @@ void keyboard_post_init_user(void) {
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                                              \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                                              \
   DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t"))           )                                                                                              \
-  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                                              \
-  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3"))           )                                                                                              \
+  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                                              \
+  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("3"))           )                                                                                              \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                                              \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                                              \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                                              \
