@@ -256,16 +256,10 @@ CONST_KEYRECORD_FUN(bool discord_mute_handler) {
 
 CONST_KEYRECORD_FUN(bool cx_handler) {
   if (record->event.pressed) {
-    {
-      layer_off(LN_MOUSE);
-      //register_code(KC_LCTL);
-      tap_code16(LCTL(KC_X));
-      add_oneshot_mods(MOD_LCTL);
-    }
+    layer_off(LN_MOUSE);
+    tap_code16(LCTL(KC_X));
+    add_oneshot_mods(MOD_LCTL);
   }
-  /* else { */
-  /*   unregister_code(KC_LCTL); */
-  /* } */
 
   return false;
 }
@@ -273,16 +267,10 @@ CONST_KEYRECORD_FUN(bool cx_handler) {
 
 CONST_KEYRECORD_FUN(bool cc_handler) {
   if (record->event.pressed) {
-    {
-      layer_off(LN_MOUSE);
-      // register_code(KC_LCTL);
-      tap_code16(LCTL(KC_C));
-      add_oneshot_mods(MOD_LCTL);
-    }
+    layer_off(LN_MOUSE);
+    tap_code16(LCTL(KC_C));
+    add_oneshot_mods(MOD_LCTL);
   }
-  /* else { */
-  /*   unregister_code(KC_LCTL); */
-  /* } */
 
   return false;
 }
