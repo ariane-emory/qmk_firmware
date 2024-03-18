@@ -124,8 +124,8 @@ void keyboard_post_init_user(void) {
   DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3"))           )                                                                                              \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                                              \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                                              \
-  DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                                              \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                                              \
+  DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                                              \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                                              \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
   DO(SS_0X,                (")x")                                ) 
