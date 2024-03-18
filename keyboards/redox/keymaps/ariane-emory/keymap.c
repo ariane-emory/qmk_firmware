@@ -123,6 +123,7 @@ void keyboard_post_init_user(void) {
   DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3")),          (""),                                   (""),               (""))                    \
   DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2")),          (""),                                   (""),               (""))                    \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j")),          (""),                                   (""),               (""))                    \
+  DO(EM_PRV_BUFF,          (SS_LCTL("x") SS_LCTL("l")),          (""),                                   (""),               (""))                    \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
   DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" 4_"),                                ("c -" CR()),       (""))                    \
   DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""),               (GUI_CLICK_AND_TAB()))   \
@@ -150,6 +151,7 @@ void keyboard_post_init_user(void) {
   DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3")),          (""),                                   (""),               (""))                    \
   DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2")),          (""),                                   (""),               (""))                    \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j")),          (""),                                   (""),               (""))                    \
+  DO(EM_PRV_BUFF,          (SS_LCTL("x") SS_LCTL("l")),          (""),                                   (""),               (""))                    \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
   DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" $_"),                                ("c -" CR()),       (""))                    \
   DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""),               (GUI_CLICK_AND_TAB()))   \
