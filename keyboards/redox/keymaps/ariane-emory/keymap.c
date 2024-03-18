@@ -128,6 +128,7 @@ void keyboard_post_init_user(void) {
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                                              \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                                              \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
+  DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                                              \
   DO(SS_0X,                (")x")                                ) 
 //                         NO MODS
 #else
@@ -144,6 +145,7 @@ void keyboard_post_init_user(void) {
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                                              \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                                              \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
+  DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                                              \
   DO(SS_0X,                ("0x")                                )
 //                         NO MODS                                 
 #endif
@@ -205,10 +207,10 @@ FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
 
 enum arianes_custom_keycodes {
   KC_DUMMY = SAFE_RANGE,
-//  SS_0X,
+  //SS_0X,
   EM_CX,
   EM_CC,
-  OTHER_WIN,
+  //OTHER_WIN,
   CLOSE_WIN,
   TYPE_LAYOUT,
   KC_SQUO_TAP,
@@ -346,14 +348,13 @@ CONST_KEYRECORD_FUN(bool cc_handler) {
   return false;
 }
 
-CONST_KEYRECORD_FUN(bool other_win_handler) {
-  if (record->event.pressed) {
-    tap_code16(LALT(KC_TAB));
-    tap_code16(LGUI(KC_GRV));
-  }
+/* CONST_KEYRECORD_FUN(bool other_win_handler) { */
+/*   if (record->event.pressed) { */
+/*     tap_code16(LGUI(KC_GRV)); */
+/*   } */
 
-  return false;
-}
+/*   return false; */
+/* } */
               
 CONST_KEYRECORD_FUN(bool close_win_handler) {
   if (record->event.pressed) {
@@ -463,7 +464,7 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
   { CLOSE_WIN,                   close_win_handler           },
   // { NEW_TAB,                     new_tab_handler             },
   // { REOPEN_TAB,                  reopen_tab_handler          },
-  { OTHER_WIN,                   other_win_handler           },
+  // { OTHER_WIN,                   other_win_handler           },
   { TOGGLE_DF,                   toggle_df_handler           },
   { TYPE_LAYOUT,                 type_layout_handler         },
   { STR_LFT,                     disable_mouse_layer_handler },
