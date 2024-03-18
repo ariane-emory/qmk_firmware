@@ -1,3 +1,4 @@
+// -*- c-backslash-column: 80; c-backslash-max-column: 80 ; fill-column: 80; eval: (display-fill-column-indicator-mode 1); -*-
 #pragma once
 
 //==============================================================================
@@ -166,3 +167,4 @@
 // #define CRL_MS  FLIPR_OR_BTN2
 #define CRL_MS  KC_BTN2
 //==============================================================================
+

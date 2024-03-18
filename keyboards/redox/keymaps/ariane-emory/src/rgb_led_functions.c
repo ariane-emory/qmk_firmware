@@ -1,17 +1,17 @@
-// -*- c-backslash-column: 90; c-backslash-max-column: 90 -*-
+// -*- c-backslash-column: 100; c-backslash-max-column: 100 ; fill-column: 100; eval: (display-fill-column-indicator-mode 1); -*-
 
 #include <string.h>
 #include <stdio.h>
 
 #include "rgb_led_functions.h"
 
-// ========================================================================================
+// =================================================================================================
 // rgb_led_t functions
-// ========================================================================================
+// =================================================================================================
 
-#define FOR_EACH_COLOR(DO)                                                                \
-  DO(r)                                                                                   \
-  DO(g)                                                                                   \
+#define FOR_EACH_COLOR(DO)                                                                          \
+  DO(r)                                                                                             \
+  DO(g)                                                                                             \
   DO(b)
 
 void init_rgb_led_t(rgb_led_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
@@ -46,7 +46,7 @@ bool init_rgb_led_t_from_str(rgb_led_t * const this, const char * const str) {
   if (3 == sscanf(str, "#%02x%02x%02x", &r, &g, &b)) {
 #  define set_color(n) this->n = n & 0xff;
     
-  FOR_EACH_COLOR(set_color);
+    FOR_EACH_COLOR(set_color);
   
 #  undef set_color
     

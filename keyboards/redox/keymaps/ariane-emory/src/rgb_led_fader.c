@@ -1,3 +1,4 @@
+// -*- c-backslash-column: 100; c-backslash-max-column: 100 ; fill-column: 100; eval: (display-fill-column-indicator-mode 1); -*-
 #include "rgb_led_fader.h"
 
 #include <stdio.h>
@@ -7,18 +8,18 @@
 #  include <string.h>
 #endif
 
-// ==============================================================================
+// =================================================================================================
 // RGB fader class
-// ==============================================================================
+// ===========================jh====================================================================
 
-#define FOR_EACH_COLOR(DO)                                                      \
-  DO(r)                                                                         \
-  DO(g)                                                                         \
+#define FOR_EACH_COLOR(DO)                                                                          \
+  DO(r)                                                                                             \
+  DO(g)                                                                                             \
   DO(b)
 
-#define FOR_EACH_RGB(DO)                                                        \
-  DO(initial)                                                                   \
-  DO(current)                                                                   \
+#define FOR_EACH_RGB(DO)                                                                            \
+  DO(initial)                                                                                       \
+  DO(current)                                                                                       \
   DO(target)
 
 #ifndef CRGB_FADER_NO_STRINGS
@@ -44,7 +45,10 @@ bool rgb_led_fader_before_set_target (rgb_led_fader_t * const this, const rgb_le
 // Initializers
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void init_rgb_led_fader(rgb_led_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
+void init_rgb_led_fader(rgb_led_fader_t * const this,
+                        const uint8_t r,
+                        const uint8_t g,
+                        const uint8_t b) {
   rgb_led_t rgb;
 
   init_rgb_led_t(&rgb, r, g, b);
@@ -92,7 +96,8 @@ void step_rgb_led_fader(rgb_led_fader_t * const this) {
     init_rgb_led_fader(this, this->target.r, this->target.g, this->target.b);
   }
   else {
-#define define_color_delta(color) const int color ## _delta = (this->target. color - this->initial. color);
+#define define_color_delta(color)                                                                   \
+    const int color ## _delta = (this->target. color - this->initial. color);
 
     FOR_EACH_COLOR(define_color_delta);
 
@@ -104,7 +109,9 @@ void step_rgb_led_fader(rgb_led_fader_t * const this) {
     this->step++;
 
 #define fmuls8(n, m)  (((n * m) >> 8) & 0xff)
-#define set_current_color(color) this->current. color = (uint8_t)(max(0, this->initial. color + fmuls8(color ## _delta, this->step)));
+#define set_current_color(color)                                                                    \
+    this->current. color = (uint8_t)(max(0, this->initial. color +                                  \
+                                         fmuls8(color ## _delta, this->step)));
 
     FOR_EACH_COLOR(set_current_color);
 
@@ -135,11 +142,11 @@ void printf_rgb_led_fader(const rgb_led_fader_t * const this) {
 }
 
 void describe_rgb_led_fader(const rgb_led_fader_t * const this) {
-#define print_rgb_info(rgb)                                                     \
-  printf("------------------------------\n");                                   \
-  printf(#rgb ".r   = %3d\n", this->rgb.r);                                     \
-  printf(#rgb ".g   = %3d\n", this->rgb.g);                                     \
-  printf(#rgb ".b   = %3d\n", this->rgb.b);                                     \
+#define print_rgb_info(rgb)                                                                         \
+  printf("------------------------------\n");                                                       \
+  printf(#rgb ".r   = %3d\n", this->rgb.r);                                                         \
+  printf(#rgb ".g   = %3d\n", this->rgb.g);                                                         \
+  printf(#rgb ".b   = %3d\n", this->rgb.b);                                                         \
 
   FOR_EACH_RGB(print_rgb_info);
 #undef print_rgb_info
@@ -162,7 +169,10 @@ bool rgb_led_fader_is_changing(const rgb_led_fader_t * const this) {
 // Setters
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void set_rgb_led_fader_target(rgb_led_fader_t * const this, const uint8_t r, const uint8_t g, const uint8_t b) {
+void set_rgb_led_fader_target(rgb_led_fader_t * const this,
+                              const uint8_t r,
+                              const uint8_t g,
+                              const uint8_t b) {
   rgb_led_t rgb;
 
   init_rgb_led_t(&rgb, r, g, b);
