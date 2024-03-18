@@ -105,7 +105,7 @@
 //#define EM_SPLIT_H     LALT(LGUI(KC_3))
 #define EM_PRV_BUFF     LCTL(LALT(LSFT(KC_L)))
 //#define EM_DIRED       LALT(LGUI(KC_D))
-#define EM_LWRAP       LALT(LGUI(KC_L))
+//#define EM_LWRAP       LALT(LGUI(KC_L))
 #define EM_BGN_MAC     LALT(LGUI(KC_W))
 #define EM_RPT_MAC     LALT(LGUI(KC_R))
 #define EM_END_MAC     LALT(LGUI(KC_E))
