@@ -30,7 +30,7 @@ SRC                         += src/util.c
 SRC                         += src/tap_number.c
 
 CFLAGS                      += -funroll-loops
-TOP_SYMBOLS                  = 15
+TOP_SYMBOLS                  = 30
 # EEPROM_DRIVER              = transient
 
 
