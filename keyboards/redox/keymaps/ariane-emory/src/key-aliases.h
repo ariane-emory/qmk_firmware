@@ -103,7 +103,7 @@
 #define EM_EOL         LCTL(KC_E)
 //#define EM_SPLIT_V     LALT(LGUI(KC_2))
 //#define EM_SPLIT_H     LALT(LGUI(KC_3))
-//#define EM_PRV_BUFF     LALT(LGUI(KC_V))
+#define EM_PRV_BUFF     LCTL(LALT(LSFT(KC_L)))
 //#define EM_DIRED       LALT(LGUI(KC_D))
 #define EM_LWRAP       LALT(LGUI(KC_L))
 #define EM_BGN_MAC     LALT(LGUI(KC_W))
