@@ -1,4 +1,4 @@
-// -*- c-backslash-column: 160; c-backslash-max-column: 160 -*-
+// -*- c-backslash-column: 160; c-backslash-max-column: 160 ; fill-column: 160; eval: (display-fill-column-indicator-mode 1); -*-
 
 #include QMK_KEYBOARD_H
 #include <quantum/mousekey.h>
