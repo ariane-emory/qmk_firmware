@@ -89,26 +89,26 @@ void keyboard_post_init_user(void) {
 // Send string keycodes (string macros)
 // ==============================================================================
 
-#define T(ss_kc)               SS_TAP(ss_kc)
-#define S_CR(_)                T(X_ENT)
+#define TAP(ss_kc)               SS_TAP(ss_kc)
+#define S_CR(_)                TAP(X_ENT)
 #define S_DD()                 SS_DELAY(150)
-#define S_ESC()                T(X_ESC)
-#define S_LL(_)                T(X_LEFT)
-#define S_RR(_)                T(X_RIGHT)
-#define S_SCR_L()              SS_LCTL(T(X_F13))
-#define S_SCR_R()              SS_LCTL(T(X_F14))
-#define S_SPC()                T(X_SPC)
-#define S_TB(_)                T(X_TAB)
-#define S_UU(_)                T(X_UP) 
+#define S_ESC()                TAP(X_ESC)
+#define S_LL(_)                TAP(X_LEFT)
+#define S_RR(_)                TAP(X_RIGHT)
+#define S_SCR_L()              SS_LCTL(TAP(X_F13))
+#define S_SCR_R()              SS_LCTL(TAP(X_F14))
+#define S_SPC()                TAP(X_SPC)
+#define S_TB(_)                TAP(X_TAB)
+#define S_UU(_)                TAP(X_UP) 
 
-#define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) T(X_BTN1) SS_UP(X_LGUI)
-#define S_GUI_CLICK_AND_TAB(_) S_GUI_CLICK() SS_LCTL(T(X_TAB))
-#define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" S_CR() T(X_HOME)
+#define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) TAP(X_BTN1) SS_UP(X_LGUI)
+#define S_GUI_CLICK_AND_TAB(_) S_GUI_CLICK() SS_LCTL(TAP(X_TAB))
+#define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "11" S_CR() TAP(X_HOME)
 #define S_TELEPORT(_)                                                                                                                                   \
-  S_GUI_CLICK() S_DD() SS_LCTL(T(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                                     \
-  SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) T(X_BTN1) S_DD() S_ESC() S_DD()                                                                                   \
-  SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() T(X_ENT) SS_DELAY(2500)                                                                       \
-                                                                 T(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                                                      \
+  S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                                     \
+  SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                                   \
+  SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() TAP(X_ENT) SS_DELAY(2500)                                                                       \
+                                                                 TAP(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                                                      \
                                                                         SS_LGUI("`") S_DD() S_SCR_L()
 
 // ==============================================================================
@@ -118,7 +118,7 @@ void keyboard_post_init_user(void) {
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                   \
   DO(SS_TELEPORT,          (S_TELEPORT()),                         (""),                                   (""),               (""))                    \
-  DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
+  DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                    \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b")),          (""),                                   (""),               (""))                    \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
@@ -130,7 +130,7 @@ void keyboard_post_init_user(void) {
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
   DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" 4_"),                                ("c -" S_CR()),       (""))                    \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),                        (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))   \
-  DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
+  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)),                  (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
   DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (AE_FPWD))               \
   DO(SS_0X,                (")x"),                               (""),                                   (""),               (""))                    \
   DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" S_LL()),       (""))                    \
@@ -145,7 +145,7 @@ void keyboard_post_init_user(void) {
 #else
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                   \
   DO(SS_TELEPORT,          (S_TELEPORT()),                         (""),                                   (""),               (""))                    \
-  DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
+  DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                    \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b")),          (""),                                   (""),               (""))                    \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
@@ -157,7 +157,7 @@ void keyboard_post_init_user(void) {
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
   DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" $_"),                                ("c -" S_CR()),       (""))                    \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),                        (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))   \
-  DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
+  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)),                  (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
   DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (AE_FPWD))               \
   DO(SS_0X,                ("0x"),                               (""),                                   (""),               (""))                    \
   DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" S_LL()),       (""))                    \
