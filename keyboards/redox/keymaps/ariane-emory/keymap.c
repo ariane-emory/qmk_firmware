@@ -265,16 +265,13 @@ CONST_KEYRECORD_FUN(bool process_moddable_send_string) {
   for (uint8_t ix = 0; ix < ARRAY_SIZE(moddable_send_string_keycodes); ix++) {
     if (moddable_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed)  {
-        if      (/* (moddable_send_string_keycodes[ix].ctrled_str != 0) && */
-                 (get_mods() & MOD_MASK_CTRL)) {
+        if      ((get_mods() & MOD_MASK_CTRL)) {
           SEND_STRING_WITHOUT_MODS_P(moddable_send_string_keycodes[ix].ctrled_str);
         }
-        else if (/* (moddable_send_string_keycodes[ix].alted_str != 0) && */
-                 (get_mods() & MOD_MASK_ALT)) {
+        else if ((get_mods() & MOD_MASK_ALT)) {
           SEND_STRING_WITHOUT_MODS_P(moddable_send_string_keycodes[ix].alted_str);
         }
-        else if (/* (moddable_send_string_keycodes[ix].shifted_str != 0) && */
-                 (get_mods() & MOD_MASK_SHIFT)) {
+        else if ((get_mods() & MOD_MASK_SHIFT)) {
           SEND_STRING_WITHOUT_MODS_P(moddable_send_string_keycodes[ix].shifted_str);
         }
         else {
