@@ -146,10 +146,6 @@ void keyboard_post_init_user(void) {
 //                         NO MODS                                 
 #endif
 
-
-//DO(SS_0X                 (")x")                                )
-//DO(SS_0X,                ("0x")                                )
-
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                             \
   DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)),                (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),               (""))                          \
