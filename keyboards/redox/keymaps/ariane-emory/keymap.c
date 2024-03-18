@@ -117,58 +117,58 @@ void keyboard_post_init_user(void) {
 
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                             \
-  DO(SS_TELEPORT,          (S_TELEPORT()),                         (""),                                   (""),               (""))                            \
-  DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                            \
-  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                              \
-  DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b")),          (""),                                   (""),               (""))                              \
-  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""),               (""))                              \
-  DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),          (""),                                   (""),               (""))                              \
-  DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t")),          (""),                                   (""),               (""))                              \
-  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3")),          (""),                                   (""),               (""))                              \
-  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2")),          (""),                                   (""),               (""))                              \
-  DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j")),          (""),                                   (""),               (""))                              \
-  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                              \
-  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" 4_"),                                ("c -" S_CR()),       (""))                            \
+  DO(SS_TELEPORT,          (S_TELEPORT()),                         (""),                                     (""),               (""))                          \
+  DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)), (""),                                     (""),               (""))                          \
+  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                     (""),                                     (""),               (""))                          \
+  DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b")),            (""),                                     (""),               (""))                          \
+  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),            (""),                                     (""),               (""))                          \
+  DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),            (""),                                     (""),               (""))                          \
+  DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t")),            (""),                                     (""),               (""))                          \
+  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3")),            (""),                                     (""),               (""))                          \
+  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2")),            (""),                                     (""),               (""))                          \
+  DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j")),            (""),                                     (""),               (""))                          \
+  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),            (""),                                     (""),               (""))                          \
+  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),                 (" 4_"),                                  ("c -" S_CR()),     (""))                          \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),                        (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))       \
-  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)),                  (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),               (""))                        \
-  DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (AE_FPWD))                         \
-  DO(SS_0X,                (")x"),                               (""),                                   (""),               (""))                              \
-  DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" S_LL()),       (""))                            \
-  DO(SS_SMILEY,            (" ;0"),                              (" :/"),                                (" >_>"),           (""))                              \
-  DO(SS_SMILEY2,           (" :0"),                              (" :P"),                                (" :D"),            (""))                              \
-  DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"),             (""))                              \
-  DO(SS_CD,                ("cd "),                              ("cd ~/"),                              ("cd .."),          ("cd -"))                          \
-  DO(SS_LBRACK,            ("9"),                                ("{"),                                  ("["),              ("<"))                             \
-  DO(SS_RBRACK,            ("0"),                                ("}"),                                  ("]"),              (">"))                             \
-  DO(SS_AND_AND,           (" 77 "),                             (" || "),                               (" @>7! "),         (" >/dev/null "))                  \
-//                         NO MODS                               CTRL                                    ALT                 SHIFT
+  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)),                (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),               (""))                          \
+  DO(SS_PIN1,              (AE_PIN1),                              (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                     \
+  DO(SS_0X,                (")x"),                                 (""),                                     (""),               (""))                          \
+  DO(SS_ARROW,             ("->"),                                 (" => "),                                 ("490" S_LL()),     (""))                          \
+  DO(SS_SMILEY,            (" ;0"),                                (" :/"),                                  (" >_>"),           (""))                          \
+  DO(SS_SMILEY2,           (" :0"),                                (" :P"),                                  (" :D"),            (""))                          \
+  DO(SS_DIR,               ("~/"),                                 ("../"),                                  ("./"),             (""))                          \
+  DO(SS_CD,                ("cd "),                                ("cd ~/"),                                ("cd .."),          ("cd -"))                      \
+  DO(SS_LBRACK,            ("9"),                                  ("{"),                                    ("["),              ("<"))                         \
+  DO(SS_RBRACK,            ("0"),                                  ("}"),                                    ("]"),              (">"))                         \
+  DO(SS_AND_AND,           (" 77 "),                               (" || "),                                 (" @>7! "),         (" >/dev/null "))              \
+//                         NO MODS                                 CTRL                                      ALT                 SHIFT
 #else
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                             \
-  DO(SS_TELEPORT,          (S_TELEPORT()),                         (""),                                   (""),               (""))                            \
-  DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                            \
-  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                              \
-  DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b")),          (""),                                   (""),               (""))                              \
-  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),          (""),                                   (""),               (""))                              \
-  DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),          (""),                                   (""),               (""))                              \
-  DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t")),          (""),                                   (""),               (""))                              \
-  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3")),          (""),                                   (""),               (""))                              \
-  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2")),          (""),                                   (""),               (""))                              \
-  DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j")),          (""),                                   (""),               (""))                              \
-  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                              \
-  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" $_"),                                ("c -" S_CR()),       (""))                            \
+  DO(SS_TELEPORT,          (S_TELEPORT()),                         (""),                                     (""),               (""))                          \
+  DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)), (""),                                     (""),               (""))                          \
+  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                     (""),                                     (""),               (""))                          \
+  DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b")),            (""),                                     (""),               (""))                          \
+  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),            (""),                                     (""),               (""))                          \
+  DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),            (""),                                     (""),               (""))                          \
+  DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t")),            (""),                                     (""),               (""))                          \
+  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3")),            (""),                                     (""),               (""))                          \
+  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2")),            (""),                                     (""),               (""))                          \
+  DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j")),            (""),                                     (""),               (""))                          \
+  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),            (""),                                     (""),               (""))                          \
+  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),                 (" $_"),                                  ("c -" S_CR()),     (""))                          \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),                        (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))       \
-  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)),                  (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),               (""))                        \
-  DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (AE_FPWD))                         \
-  DO(SS_0X,                ("0x"),                               (""),                                   (""),               (""))                              \
-  DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" S_LL()),       (""))                            \
-  DO(SS_SMILEY,            (" ;)"),                              (" :/"),                                (" >_>"),           (""))                              \
-  DO(SS_SMILEY2,           (" :)"),                              (" :P"),                                (" :D"),            (""))                              \
-  DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"),             (""))                              \
-  DO(SS_CD,                ("cd "),                              ("cd ~/"),                              ("cd .."),          ("cd -"))                          \
-  DO(SS_LBRACK,            ("("),                                ("{"),                                  ("["),              ("<"))                             \
-  DO(SS_RBRACK,            (")"),                                ("}"),                                  ("]"),              (">"))                             \
-  DO(SS_AND_AND,           (" && "),                             (" || "),                               (" @>7! "),         (" >/dev/null "))                  \
-//                         NO MODS                               CTRL                                    ALT                 SHIFT
+  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)),                (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),               (""))                          \
+  DO(SS_PIN1,              (AE_PIN1),                              (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                     \
+  DO(SS_0X,                ("0x"),                                 (""),                                     (""),               (""))                          \
+  DO(SS_ARROW,             ("->"),                                 (" => "),                                 ("490" S_LL()),     (""))                          \
+  DO(SS_SMILEY,            (" ;)"),                                (" :/"),                                  (" >_>"),           (""))                          \
+  DO(SS_SMILEY2,           (" :)"),                                (" :P"),                                  (" :D"),            (""))                          \
+  DO(SS_DIR,               ("~/"),                                 ("../"),                                  ("./"),             (""))                          \
+  DO(SS_CD,                ("cd "),                                ("cd ~/"),                                ("cd .."),          ("cd -"))                      \
+  DO(SS_LBRACK,            ("("),                                  ("{"),                                    ("["),              ("<"))                         \
+  DO(SS_RBRACK,            (")"),                                  ("}"),                                    ("]"),              (">"))                         \
+  DO(SS_AND_AND,           (" && "),                               (" || "),                                 (" @>7! "),         (" >/dev/null "))              \
+//                         NO MODS                                 CTRL                                      ALT                 SHIFT
 #endif
 
 // ==============================================================================
