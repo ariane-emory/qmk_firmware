@@ -61,7 +61,7 @@ static uint8_t static_effect_table[] = {
 #define _RGBM_MULTI_DYNAMIC(sym) RGBLIGHT_MODE_##sym,
 #define _RGBM_TMP_STATIC(sym, msym) RGBLIGHT_MODE_##msym,
 #define _RGBM_TMP_DYNAMIC(sym, msym) RGBLIGHT_MODE_##msym,
-#ifdef DO_NOT_USE_THIS
+#ifdef AE_ENABLE_RGBLIGHT_FEATURES
 static uint8_t mode_base_table[] = {
     0, // RGBLIGHT_MODE_zero
 #include "rgblight_modes.h"
@@ -524,7 +524,7 @@ void rgblight_sethsv_noeeprom_old(uint8_t hue, uint8_t sat, uint8_t val) {
 }
 
 void rgblight_sethsv_eeprom_helper(uint8_t hue, uint8_t sat, uint8_t val, bool write_to_eeprom) {
-#ifdef DO_NOT_USE_THIS
+#ifdef AE_ENABLE_RGBLIGHT_FEATURES
     if (rgblight_config.enable) {
 #ifdef RGBLIGHT_SPLIT
         if (rgblight_config.hue != hue || rgblight_config.sat != sat || rgblight_config.val != val) {
