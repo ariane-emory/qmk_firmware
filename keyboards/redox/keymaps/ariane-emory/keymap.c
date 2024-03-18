@@ -116,23 +116,43 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #ifdef AE_FLIPPED_NUMS
+#  define FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(DO)                                                                                                               \
+  DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                                              \
+  DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                                              \
+  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
+  DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                                              \
+  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                                              \
+  DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                                              \
+  DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t"))           )                                                                                              \
+  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3"))           )                                                                                              \
+  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                                              \
+  DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                                              \
+  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                                              \
+  DO(SS_0X                 (")x")                                )                                                                                              \
+//                         NO MODS
+#else
+#  define FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(DO)                                                                                                               \
+  DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                                              \
+  DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                                              \
+  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
+  DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                                              \
+  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                                              \
+  DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                                              \
+  DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t"))           )                                                                                              \
+  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3"))           )                                                                                              \
+  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                                              \
+  DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                                              \
+  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                                              \
+  DO(SS_0X,                ("0x")                                )                                                                                              \
+//                         NO MODS                                 
+#endif
+
+#ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                             \
-  DO(SS_TELEPORT,          (S_TELEPORT()),                         (""),                                     (""),               (""))                          \
-  DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)), (""),                                     (""),               (""))                          \
-  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                     (""),                                     (""),               (""))                          \
-  DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b")),            (""),                                     (""),               (""))                          \
-  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),            (""),                                     (""),               (""))                          \
-  DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),            (""),                                     (""),               (""))                          \
-  DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t")),            (""),                                     (""),               (""))                          \
-  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3")),            (""),                                     (""),               (""))                          \
-  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2")),            (""),                                     (""),               (""))                          \
-  DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j")),            (""),                                     (""),               (""))                          \
-  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),            (""),                                     (""),               (""))                          \
+  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)),                (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),               (""))                          \
   DO(EM_LASTARG,           (" " SS_LCTL("c") "."),                 (" 4_"),                                  ("c -" S_CR()),     (""))                          \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),                        (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))       \
-  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)),                (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),               (""))                          \
   DO(SS_PIN1,              (AE_PIN1),                              (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                     \
-  DO(SS_0X,                (")x"),                                 (""),                                     (""),               (""))                          \
   DO(SS_ARROW,             ("->"),                                 (" => "),                                 ("490" S_LL()),     (""))                          \
   DO(SS_SMILEY,            (" ;0"),                                (" :/"),                                  (" >_>"),           (""))                          \
   DO(SS_SMILEY2,           (" :0"),                                (" :P"),                                  (" :D"),            (""))                          \
@@ -144,22 +164,10 @@ void keyboard_post_init_user(void) {
 //                         NO MODS                                 CTRL                                      ALT                 SHIFT
 #else
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                             \
-  DO(SS_TELEPORT,          (S_TELEPORT()),                         (""),                                     (""),               (""))                          \
-  DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)), (""),                                     (""),               (""))                          \
-  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                     (""),                                     (""),               (""))                          \
-  DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b")),            (""),                                     (""),               (""))                          \
-  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k")),            (""),                                     (""),               (""))                          \
-  DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r")),            (""),                                     (""),               (""))                          \
-  DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t")),            (""),                                     (""),               (""))                          \
-  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("3")),            (""),                                     (""),               (""))                          \
-  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2")),            (""),                                     (""),               (""))                          \
-  DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j")),            (""),                                     (""),               (""))                          \
-  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),            (""),                                     (""),               (""))                          \
+  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)),                (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),               (""))                          \
   DO(EM_LASTARG,           (" " SS_LCTL("c") "."),                 (" $_"),                                  ("c -" S_CR()),     (""))                          \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),                        (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))       \
-  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)),                (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),               (""))                          \
   DO(SS_PIN1,              (AE_PIN1),                              (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                     \
-  DO(SS_0X,                ("0x"),                                 (""),                                     (""),               (""))                          \
   DO(SS_ARROW,             ("->"),                                 (" => "),                                 ("490" S_LL()),     (""))                          \
   DO(SS_SMILEY,            (" ;)"),                                (" :/"),                                  (" >_>"),           (""))                          \
   DO(SS_SMILEY2,           (" :)"),                                (" :P"),                                  (" :D"),            (""))                          \
@@ -175,13 +183,14 @@ void keyboard_post_init_user(void) {
 // Send string keycodes (initialize the strings)
 // ==============================================================================
 
-#define enum_item(kc, str, ...)                                                                kc,
+#define enum_item(kc, ...)                                                                     kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                                        static const char tag##_str_##kc[] PROGMEM = str;
 #define define_nomods_progmem_string(kc, nomods_str, ...)                                      define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
 #define define_ctrled_progmem_string(kc, nomods_str, ctrled_str, ...)                          define_tagged_progmem_string(ctrled, kc, ctrled_str, __VA_ARGS__)
 #define define_alted_progmem_string(kc, nomods_str, ctrled_str, alted_str, ...)                define_tagged_progmem_string(alted, kc, alted_str, __VA_ARGS__)
 #define define_shifted_progmem_string(kc, nomods_str, ctrled_str, alted_str, shifted_str, ...) define_tagged_progmem_string(shifted, kc, shifted_str, __VA_ARGS__)
 
+FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
@@ -207,6 +216,7 @@ enum arianes_custom_keycodes {
   MY_BOOT,
   DISCORD_MUTE,
   TOGGLE_DF,
+  FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(enum_item),
   FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
