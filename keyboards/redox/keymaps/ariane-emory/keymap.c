@@ -89,7 +89,7 @@ void keyboard_post_init_user(void) {
 // Send string keycodes (string macros)
 // ==============================================================================
 
-#define TAP(ss_kc)               SS_TAP(ss_kc)
+#define TAP(ss_kc)             SS_TAP(ss_kc)
 #define S_CR(_)                TAP(X_ENT)
 #define S_DD()                 SS_DELAY(150)
 #define S_ESC()                TAP(X_ESC)
@@ -100,7 +100,6 @@ void keyboard_post_init_user(void) {
 #define S_SPC()                TAP(X_SPC)
 #define S_TB(_)                TAP(X_TAB)
 #define S_UU(_)                TAP(X_UP) 
-
 #define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) TAP(X_BTN1) SS_UP(X_LGUI)
 #define S_GUI_CLICK_AND_TAB(_) S_GUI_CLICK() SS_LCTL(TAP(X_TAB))
 #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "11" S_CR() TAP(X_HOME)
@@ -909,9 +908,9 @@ uint16_t keycode_config(uint16_t keycode) {
 // Leader key
 // ==============================================================================
 
-#define END()      TAP(X_END)
-#define CLR()      SS_LGUI("a") TAP(X_BSPC) S_CR()
-#define CLR_LINE() END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
+#define S_END()      TAP(X_END)
+#define S_CLR()      SS_LGUI("a") TAP(X_BSPC) S_CR()
+#define S_CLR_LINE() S_END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
 
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
@@ -919,7 +918,7 @@ void leader_end_user(void) {
     my_boot_handler(0, NULL);
   }
   else if (leader_sequence_three_keys(KC_R, KC_R, KC_R)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE()));
     tap_code16(A(KC_P));
     wait_ms(20);
     tap_code16(A(KC_P));
@@ -931,7 +930,7 @@ void leader_end_user(void) {
     /* SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_))); */
   }
   else if (leader_sequence_two_keys(KC_R, KC_R)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE()));
     tap_code16(A(KC_P));
     wait_ms(20);
     tap_code16(A(KC_P));
@@ -944,13 +943,13 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));
   }
   else if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkc" S_CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkc" S_CR()));
   }
   else if (leader_sequence_two_keys(KC_Q, KC_W)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkupd" S_CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));
   }  
   else if (leader_sequence_one_key(KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE() "shove" S_CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));
   }
   else if (leader_sequence_two_keys(KC_C, KC_D)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("D:" S_CR() AE_CD S_CR()));
@@ -992,7 +991,7 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " S_CR()));
   }
   else if (leader_sequence_one_key(KC_C)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE() "cargo run" S_CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "cargo run" S_CR()));
   }
   /* else if (leader_sequence_one_key(0)) { */
   /*   tap_code16(LCA(KC_X)); */
