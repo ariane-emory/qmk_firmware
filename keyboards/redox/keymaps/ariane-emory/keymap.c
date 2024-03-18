@@ -128,7 +128,7 @@ void keyboard_post_init_user(void) {
   DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                                              \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                                              \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                                              \
-  DO(SS_0X                 (")x")                                )                                                                                              \
+  DO(SS_0X,                (")x")                                ) 
 //                         NO MODS
 #else
 #  define FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(DO)                                                                                                               \
@@ -143,9 +143,13 @@ void keyboard_post_init_user(void) {
   DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                                              \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                                              \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                                              \
-  DO(SS_0X,                ("0x")                                )                                                                                              \
+  DO(SS_0X,                ("0x")                                )
 //                         NO MODS                                 
 #endif
+
+
+//DO(SS_0X                 (")x")                                )
+//DO(SS_0X,                ("0x")                                )
 
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                             \
@@ -190,7 +194,9 @@ void keyboard_post_init_user(void) {
 #define define_alted_progmem_string(kc, nomods_str, ctrled_str, alted_str, ...)                define_tagged_progmem_string(alted, kc, alted_str, __VA_ARGS__)
 #define define_shifted_progmem_string(kc, nomods_str, ctrled_str, alted_str, shifted_str, ...) define_tagged_progmem_string(shifted, kc, shifted_str, __VA_ARGS__)
 
-FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
+#define define_simple_progmem_string(kc, nomods_str)                                           define_tagged_progmem_string(nomods, kc, nomods_str)
+FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(define_simple_progmem_string);
+
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
@@ -202,6 +208,7 @@ FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
 
 enum arianes_custom_keycodes {
   KC_DUMMY = SAFE_RANGE,
+//  SS_0X,
   EM_CX,
   EM_CC,
   OTHER_WIN,
@@ -216,12 +223,12 @@ enum arianes_custom_keycodes {
   MY_BOOT,
   DISCORD_MUTE,
   TOGGLE_DF,
-  FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(enum_item),
   FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(enum_item)
+  FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(enum_item)
 };
 
 // ==============================================================================
-// Send string keycodes (build the array)
+// Send string keycodes (build the moddable array)
 // ==============================================================================
 
 #define moddable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc, ctrled_str_##kc, alted_str_##kc, shifted_str_##kc },
@@ -239,7 +246,22 @@ static const moddable_send_string_keycodes_t moddable_send_string_keycodes[] = {
 };
 
 // ==============================================================================
-// Send string keycodes (the process function)
+// Send string keycodes (build the simple array)
+// ==============================================================================
+
+#define simple_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc },
+
+typedef struct simple_send_string_keycodes_t {
+  uint16_t     kc;
+  const char * str;
+} simple_send_string_keycodes_t;
+
+static const simple_send_string_keycodes_t simple_send_string_keycodes[] = {
+  FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(simple_send_string_keycodes_row)
+};
+
+// ==============================================================================
+// Send string keycodes (the moddable process function)
 // ==============================================================================
 
 CONST_KEYRECORD_FUN(bool process_moddable_send_string) {
@@ -262,11 +284,25 @@ CONST_KEYRECORD_FUN(bool process_moddable_send_string) {
           SEND_STRING_WITHOUT_MODS_P(moddable_send_string_keycodes[ix].str);
         }
       }
+      return false;
+    }
+  }
+  return true;
+}
+
+// ==============================================================================
+// Send string keycodes (the simple process function)
+// ==============================================================================
+
+CONST_KEYRECORD_FUN(bool process_simple_send_string) {
+  for (uint8_t ix = 0; ix < ARRAY_SIZE(simple_send_string_keycodes); ix++) {
+    if (simple_send_string_keycodes[ix].kc == keycode) {      
+      if (record->event.pressed)
+        SEND_STRING_WITHOUT_MODS_P(simple_send_string_keycodes[ix].str);
 
       return false;
     }
   }
-
   return true;
 }
 
@@ -573,10 +609,9 @@ KEYRECORD_FUN(bool process_record_user) {
   if (! process_achordion(keycode, record)) return false;
 #endif // USE_ACHORDION
   
+  if (! process_simple_send_string(keycode, record)) return false;
   if (! process_moddable_send_string(keycode, record)) return false;
-
   if (! process_tap_case(keycode, record)) return false;
-
   if (process_mouse_keys(keycode, record)) return true;
     
   for (uint8_t ix = 0; ix < ARRAY_SIZE(keycode_handlers); ix++) {
@@ -586,7 +621,6 @@ KEYRECORD_FUN(bool process_record_user) {
       return (*handler)(keycode, record);
     }
   }
-  
   return true;
 }
 
