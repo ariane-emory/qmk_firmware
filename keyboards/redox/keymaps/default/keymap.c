@@ -24,8 +24,6 @@ enum layers {
    _ADJUST
 };
 
-#pragme region Something
-
 // Shortcut to make keymap more readable
 #define SYM_L   MO(_SYMB)
 
@@ -37,8 +35,6 @@ enum layers {
 
 #define KC_ADEN LT(_ADJUST, KC_END)
 #define KC_ADPU LT(_ADJUST, KC_PGUP)
-
-#pragme endregion Something
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
