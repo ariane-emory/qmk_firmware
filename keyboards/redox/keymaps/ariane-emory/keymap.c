@@ -94,9 +94,9 @@ void keyboard_post_init_user(void) {
 #define S_ESC()                T(X_ESC)
 #define S_LL(_)                T(X_LEFT)
 #define S_RR(_)                T(X_RIGHT)
-#define SCR_L()              SS_LCTL(T(X_F13))
-#define SCR_R()              SS_LCTL(T(X_F14))
-#define SPC()                T(X_SPC)
+#define S_SCR_L()              SS_LCTL(T(X_F13))
+#define S_SCR_R()              SS_LCTL(T(X_F14))
+#define S_SPC()                T(X_SPC)
 #define T(x)                 SS_TAP(x)
 #define TB(_)                T(X_TAB)
 #define UU(_)                T(X_UP) 
@@ -106,10 +106,10 @@ void keyboard_post_init_user(void) {
 #define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" S_CR() T(X_HOME)
 #define TELEPORT(_)                                                                                                                                   \
   GUI_CLICK() S_DD() SS_LCTL(T(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                                     \
-  SS_LGUI("`") S_DD() SCR_R() SS_DELAY(200) T(X_BTN1) S_DD() S_ESC() S_DD()                                                                                   \
+  SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) T(X_BTN1) S_DD() S_ESC() S_DD()                                                                                   \
   SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() T(X_ENT) SS_DELAY(2500)                                                                       \
                                                                  T(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                                                      \
-                                                                        SS_LGUI("`") S_DD() SCR_L()
+                                                                        SS_LGUI("`") S_DD() S_SCR_L()
 
 // ==============================================================================
 // Send string keycodes (the main X-macro table)
