@@ -115,7 +115,7 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #ifdef AE_FLIPPED_NUMS
-#  define FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(DO)                                                                                                               \
+#  define FOR_EACH_NONMODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                          \
   DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                                              \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                                              \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
@@ -130,7 +130,7 @@ void keyboard_post_init_user(void) {
   DO(SS_0X,                (")x")                                ) 
 //                         NO MODS
 #else
-#  define FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(DO)                                                                                                               \
+#  define FOR_EACH_NONMODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                          \
   DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                                              \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                                              \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
@@ -193,8 +193,8 @@ void keyboard_post_init_user(void) {
 #define define_alted_progmem_string(kc, nomods_str, ctrled_str, alted_str, ...)                define_tagged_progmem_string(alted, kc, alted_str, __VA_ARGS__)
 #define define_shifted_progmem_string(kc, nomods_str, ctrled_str, alted_str, shifted_str, ...) define_tagged_progmem_string(shifted, kc, shifted_str, __VA_ARGS__)
 
-#define define_simple_progmem_string(kc, nomods_str)                                           define_tagged_progmem_string(nomods, kc, nomods_str)
-FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(define_simple_progmem_string);
+#define define_nonmoddable_progmem_string(kc, nomods_str)                                           define_tagged_progmem_string(nomods, kc, nomods_str)
+FOR_EACH_NONMODDABLE_SEND_STRING_KEYCODE(define_nonmoddable_progmem_string);
 
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
@@ -223,7 +223,7 @@ enum arianes_custom_keycodes {
   DISCORD_MUTE,
   TOGGLE_DF,
   FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(enum_item)
-  FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(enum_item)
+  FOR_EACH_NONMODDABLE_SEND_STRING_KEYCODE(enum_item)
 };
 
 // ==============================================================================
@@ -245,18 +245,18 @@ static const moddable_send_string_keycodes_t moddable_send_string_keycodes[] = {
 };
 
 // ==============================================================================
-// Send string keycodes (build the simple array)
+// Send string keycodes (build the nonmoddable array)
 // ==============================================================================
 
-#define simple_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc },
+#define nonmoddable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc },
 
-typedef struct simple_send_string_keycodes_t {
+typedef struct nonmoddable_send_string_keycodes_t {
   uint16_t     kc;
   const char * str;
-} simple_send_string_keycodes_t;
+} nonmoddable_send_string_keycodes_t;
 
-static const simple_send_string_keycodes_t simple_send_string_keycodes[] = {
-  FOR_EACH_SIMPLE_SEND_STRING_KEYCODE(simple_send_string_keycodes_row)
+static const nonmoddable_send_string_keycodes_t nonmoddable_send_string_keycodes[] = {
+  FOR_EACH_NONMODDABLE_SEND_STRING_KEYCODE(nonmoddable_send_string_keycodes_row)
 };
 
 // ==============================================================================
@@ -290,14 +290,14 @@ CONST_KEYRECORD_FUN(bool process_moddable_send_string) {
 }
 
 // ==============================================================================
-// Send string keycodes (the simple process function)
+// Send string keycodes (the nonmoddable process function)
 // ==============================================================================
 
-CONST_KEYRECORD_FUN(bool process_simple_send_string) {
-  for (uint8_t ix = 0; ix < ARRAY_SIZE(simple_send_string_keycodes); ix++) {
-    if (simple_send_string_keycodes[ix].kc == keycode) {      
+CONST_KEYRECORD_FUN(bool process_nonmoddable_send_string) {
+  for (uint8_t ix = 0; ix < ARRAY_SIZE(nonmoddable_send_string_keycodes); ix++) {
+    if (nonmoddable_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed)
-        SEND_STRING_WITHOUT_MODS_P(simple_send_string_keycodes[ix].str);
+        SEND_STRING_WITHOUT_MODS_P(nonmoddable_send_string_keycodes[ix].str);
 
       return false;
     }
@@ -608,7 +608,7 @@ KEYRECORD_FUN(bool process_record_user) {
   if (! process_achordion(keycode, record)) return false;
 #endif // USE_ACHORDION
   
-  if (! process_simple_send_string(keycode, record)) return false;
+  if (! process_nonmoddable_send_string(keycode, record)) return false;
   if (! process_moddable_send_string(keycode, record)) return false;
   if (! process_tap_case(keycode, record)) return false;
   if (process_mouse_keys(keycode, record)) return true;
@@ -912,6 +912,8 @@ uint16_t keycode_config(uint16_t keycode) {
 #define S_CLR()      SS_LGUI("a") TAP(X_BSPC) S_CR()
 #define S_CLR_LINE() S_END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
 
+static const char git_str[] PROGMEM = "git ";
+
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
   if (leader_sequence_two_keys(KC_B, KC_B)) {
@@ -954,6 +956,9 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_C, KC_D)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("D:" S_CR() AE_CD S_CR()));
   }
+  else if (leader_sequence_two_keys(KC_G, KC_S)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));
+  }
   else if (leader_sequence_two_keys(KC_G, KC_R)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));
   }
@@ -962,9 +967,6 @@ void leader_end_user(void) {
   }
   else if (leader_sequence_two_keys(KC_G, KC_D)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " S_CR()));
-  }
-  else if (leader_sequence_two_keys(KC_G, KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));
   }
   else if (leader_sequence_two_keys(KC_G, KC_C)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git commit "));
