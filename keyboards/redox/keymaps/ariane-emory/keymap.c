@@ -98,14 +98,14 @@ void keyboard_post_init_user(void) {
 #define S_SCR_R()              SS_LCTL(T(X_F14))
 #define S_SPC()                T(X_SPC)
 #define T(x)                 SS_TAP(x)
-#define TB(_)                T(X_TAB)
-#define UU(_)                T(X_UP) 
+#define S_TB(_)                T(X_TAB)
+#define S_UU(_)                T(X_UP) 
 
-#define GUI_CLICK(_)         SS_DOWN(X_LGUI) T(X_BTN1) SS_UP(X_LGUI)
-#define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(T(X_TAB))
-#define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" S_CR() T(X_HOME)
-#define TELEPORT(_)                                                                                                                                   \
-  GUI_CLICK() S_DD() SS_LCTL(T(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                                     \
+#define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) T(X_BTN1) SS_UP(X_LGUI)
+#define S_GUI_CLICK_AND_TAB(_) S_GUI_CLICK() SS_LCTL(T(X_TAB))
+#define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" S_CR() T(X_HOME)
+#define S_TELEPORT(_)                                                                                                                                   \
+  S_GUI_CLICK() S_DD() SS_LCTL(T(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                                     \
   SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) T(X_BTN1) S_DD() S_ESC() S_DD()                                                                                   \
   SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() T(X_ENT) SS_DELAY(2500)                                                                       \
                                                                  T(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                                                      \
@@ -117,7 +117,7 @@ void keyboard_post_init_user(void) {
 
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                   \
-  DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""),               (""))                    \
+  DO(SS_TELEPORT,          (S_TELEPORT()),                         (""),                                   (""),               (""))                    \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                    \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b")),          (""),                                   (""),               (""))                    \
@@ -129,7 +129,7 @@ void keyboard_post_init_user(void) {
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j")),          (""),                                   (""),               (""))                    \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
   DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" 4_"),                                ("c -" S_CR()),       (""))                    \
-  DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""),               (GUI_CLICK_AND_TAB()))   \
+  DO(SS_GUI_CLICK,         (S_GUI_CLICK()),                        (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))   \
   DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
   DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (AE_FPWD))               \
   DO(SS_0X,                (")x"),                               (""),                                   (""),               (""))                    \
@@ -144,7 +144,7 @@ void keyboard_post_init_user(void) {
 //                         NO MODS                               CTRL                                    ALT                 SHIFT
 #else
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                   \
-  DO(SS_TELEPORT,          (TELEPORT()),                         (""),                                   (""),               (""))                    \
+  DO(SS_TELEPORT,          (S_TELEPORT()),                         (""),                                   (""),               (""))                    \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) T(X_F) SS_UP(X_F24)), (""),                                   (""),               (""))                    \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b"),                   (""),                                   (""),               (""))                    \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b")),          (""),                                   (""),               (""))                    \
@@ -156,7 +156,7 @@ void keyboard_post_init_user(void) {
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j")),          (""),                                   (""),               (""))                    \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
   DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" $_"),                                ("c -" S_CR()),       (""))                    \
-  DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""),               (GUI_CLICK_AND_TAB()))   \
+  DO(SS_GUI_CLICK,         (S_GUI_CLICK()),                        (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))   \
   DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
   DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (AE_FPWD))               \
   DO(SS_0X,                ("0x"),                               (""),                                   (""),               (""))                    \
@@ -881,7 +881,7 @@ void leader_end_user(void) {
     wait_ms(20);
     tap_code16(KC_ENT);
     wait_ms(20);
-    /* SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_))); */
+    /* SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_))); */
   }
   else if (leader_sequence_two_keys(KC_R, KC_R)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE()));
@@ -891,10 +891,10 @@ void leader_end_user(void) {
     wait_ms(20);
     tap_code16(KC_ENT);
     wait_ms(20);
-    /* SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_))); */
+    /* SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_))); */
   }
   else if (leader_sequence_one_key(KC_R)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(REPEAT_SHELL_CMD(_)));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));
   }
   else if (leader_sequence_two_keys(KC_B, KC_B)) {
     my_boot_handler(0, NULL);
