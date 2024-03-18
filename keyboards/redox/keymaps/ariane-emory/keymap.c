@@ -865,9 +865,9 @@ uint16_t keycode_config(uint16_t keycode) {
 // Leader key
 // ==============================================================================
 
-#define END()      SS_TAP(X_END)
-#define CLR()      SS_LGUI("a") SS_TAP(X_BSPC) S_CR()
-#define CLR_LINE() END() SS_LCTL("e") SS_LCTL(SS_TAP(X_SPC)) SS_LCTL("a") SS_TAP(X_BSPC)
+#define END()      TAP(X_END)
+#define CLR()      SS_LGUI("a") TAP(X_BSPC) S_CR()
+#define CLR_LINE() END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
 
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
