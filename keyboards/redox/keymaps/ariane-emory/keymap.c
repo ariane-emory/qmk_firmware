@@ -115,7 +115,7 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #ifdef AE_FLIPPED_NUMS
-#  define FOR_EACH_NONMODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                          \
+#  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                                                                                                                \
   DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                                              \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                                              \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
@@ -130,7 +130,7 @@ void keyboard_post_init_user(void) {
   DO(SS_0X,                (")x")                                ) 
 //                         NO MODS
 #else
-#  define FOR_EACH_NONMODDABLE_SEND_STRING_KEYCODE(DO)                                                                                                          \
+#  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                                                                                                                \
   DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                                              \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                                              \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
@@ -189,8 +189,8 @@ void keyboard_post_init_user(void) {
 #define define_alted_progmem_string(kc, nomods_str, ctrled_str, alted_str, ...)                define_tagged_progmem_string(alted, kc, alted_str, __VA_ARGS__)
 #define define_shifted_progmem_string(kc, nomods_str, ctrled_str, alted_str, shifted_str, ...) define_tagged_progmem_string(shifted, kc, shifted_str, __VA_ARGS__)
 
-#define define_nonmoddable_progmem_string(kc, nomods_str)                                           define_tagged_progmem_string(nomods, kc, nomods_str)
-FOR_EACH_NONMODDABLE_SEND_STRING_KEYCODE(define_nonmoddable_progmem_string);
+#define define_basic_progmem_string(kc, nomods_str)                                           define_tagged_progmem_string(nomods, kc, nomods_str)
+FOR_EACH_BASIC_SEND_STRING_KEYCODE(define_basic_progmem_string);
 
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
@@ -219,7 +219,7 @@ enum arianes_custom_keycodes {
   DISCORD_MUTE,
   TOGGLE_DF,
   FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(enum_item)
-  FOR_EACH_NONMODDABLE_SEND_STRING_KEYCODE(enum_item)
+  FOR_EACH_BASIC_SEND_STRING_KEYCODE(enum_item)
 };
 
 // ==============================================================================
@@ -241,18 +241,18 @@ static const moddable_send_string_keycodes_t moddable_send_string_keycodes[] = {
 };
 
 // ==============================================================================
-// Send string keycodes (build the nonmoddable array)
+// Send string keycodes (build the basic array)
 // ==============================================================================
 
-#define nonmoddable_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc },
+#define basic_send_string_keycodes_row(kc, ...) { kc, nomods_str_##kc },
 
-typedef struct nonmoddable_send_string_keycodes_t {
+typedef struct basic_send_string_keycodes_t {
   uint16_t     kc;
   const char * str;
-} nonmoddable_send_string_keycodes_t;
+} basic_send_string_keycodes_t;
 
-static const nonmoddable_send_string_keycodes_t nonmoddable_send_string_keycodes[] = {
-  FOR_EACH_NONMODDABLE_SEND_STRING_KEYCODE(nonmoddable_send_string_keycodes_row)
+static const basic_send_string_keycodes_t basic_send_string_keycodes[] = {
+  FOR_EACH_BASIC_SEND_STRING_KEYCODE(basic_send_string_keycodes_row)
 };
 
 // ==============================================================================
@@ -286,14 +286,14 @@ CONST_KEYRECORD_FUN(bool process_moddable_send_string) {
 }
 
 // ==============================================================================
-// Send string keycodes (the nonmoddable process function)
+// Send string keycodes (the basic process function)
 // ==============================================================================
 
-CONST_KEYRECORD_FUN(bool process_nonmoddable_send_string) {
-  for (uint8_t ix = 0; ix < ARRAY_SIZE(nonmoddable_send_string_keycodes); ix++) {
-    if (nonmoddable_send_string_keycodes[ix].kc == keycode) {      
+CONST_KEYRECORD_FUN(bool process_basic_send_string) {
+  for (uint8_t ix = 0; ix < ARRAY_SIZE(basic_send_string_keycodes); ix++) {
+    if (basic_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed)
-        SEND_STRING_WITHOUT_MODS_P(nonmoddable_send_string_keycodes[ix].str);
+        SEND_STRING_WITHOUT_MODS_P(basic_send_string_keycodes[ix].str);
 
       return false;
     }
@@ -604,7 +604,7 @@ KEYRECORD_FUN(bool process_record_user) {
   if (! process_achordion(keycode, record)) return false;
 #endif // USE_ACHORDION
   
-  if (! process_nonmoddable_send_string(keycode, record)) return false;
+  if (! process_basic_send_string(keycode, record)) return false;
   if (! process_moddable_send_string(keycode, record)) return false;
   if (! process_tap_case(keycode, record)) return false;
   if (process_mouse_keys(keycode, record)) return true;
