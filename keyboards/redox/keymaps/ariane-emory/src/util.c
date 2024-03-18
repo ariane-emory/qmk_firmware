@@ -1,10 +1,11 @@
+// -*- c-backslash-column: 115; c-backslash-max-column: 115 ; fill-column: 115; eval: (display-fill-column-indicator-mode 1); -*-
 #include "util.h"
 
 #include <avr/pgmspace.h>
 
-// ==============================================================================
+// ================================================================================================================
 // Utility functions
-// ==============================================================================
+// ================================================================================================================
 
 bool array_contains_keycode(const uint16_t keycode, const uint16_t * arr, const uint8_t length) {
   for (uint8_t ix = 0; ix < length; ix++)

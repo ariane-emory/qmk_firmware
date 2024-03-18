@@ -1,3 +1,4 @@
+// -*- c-backslash-column: 80; c-backslash-max-column: 80 ; fill-column: 80; eval: (display-fill-column-indicator-mode 1); -*-
 // Copyright 2022-2023 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
