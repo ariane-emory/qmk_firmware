@@ -89,11 +89,11 @@ void keyboard_post_init_user(void) {
 // Send string keycodes (string macros)
 // ==============================================================================
 
-#define CR(_)                T(X_ENT)
-#define DD()                 SS_DELAY(150)
-#define ESC()                T(X_ESC)
-#define LL(_)                T(X_LEFT)
-#define RR(_)                T(X_RIGHT)
+#define S_CR(_)                T(X_ENT)
+#define S_DD()                 SS_DELAY(150)
+#define S_ESC()                T(X_ESC)
+#define S_LL(_)                T(X_LEFT)
+#define S_RR(_)                T(X_RIGHT)
 #define SCR_L()              SS_LCTL(T(X_F13))
 #define SCR_R()              SS_LCTL(T(X_F14))
 #define SPC()                T(X_SPC)
@@ -103,13 +103,13 @@ void keyboard_post_init_user(void) {
 
 #define GUI_CLICK(_)         SS_DOWN(X_LGUI) T(X_BTN1) SS_UP(X_LGUI)
 #define GUI_CLICK_AND_TAB(_) GUI_CLICK() SS_LCTL(T(X_TAB))
-#define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" CR() T(X_HOME)
+#define REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) T(X_A) SS_UP(X_LGUI) T(X_BSPC) T(X_ENT) "11" S_CR() T(X_HOME)
 #define TELEPORT(_)                                                                                                                                   \
-  GUI_CLICK() DD() SS_LCTL(T(X_TAB)) DD() SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("x") DD() SS_LGUI("w") DD()                                     \
-  SS_LGUI("`") DD() SCR_R() SS_DELAY(200) T(X_BTN1) DD() ESC() DD()                                                                                   \
-  SS_LGUI("l") DD() SS_LGUI("a") DD() SS_LGUI("v") DD() T(X_ENT) SS_DELAY(2500)                                                                       \
-                                                                 T(X_F) DD() RR() DD() RR() DD()                                                      \
-                                                                        SS_LGUI("`") DD() SCR_L()
+  GUI_CLICK() S_DD() SS_LCTL(T(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                                     \
+  SS_LGUI("`") S_DD() SCR_R() SS_DELAY(200) T(X_BTN1) S_DD() S_ESC() S_DD()                                                                                   \
+  SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() T(X_ENT) SS_DELAY(2500)                                                                       \
+                                                                 T(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                                                      \
+                                                                        SS_LGUI("`") S_DD() SCR_L()
 
 // ==============================================================================
 // Send string keycodes (the main X-macro table)
@@ -128,12 +128,12 @@ void keyboard_post_init_user(void) {
   DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2")),          (""),                                   (""),               (""))                    \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j")),          (""),                                   (""),               (""))                    \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
-  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" 4_"),                                ("c -" CR()),       (""))                    \
+  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" 4_"),                                ("c -" S_CR()),       (""))                    \
   DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""),               (GUI_CLICK_AND_TAB()))   \
   DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
   DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (AE_FPWD))               \
   DO(SS_0X,                (")x"),                               (""),                                   (""),               (""))                    \
-  DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" LL()),       (""))                    \
+  DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" S_LL()),       (""))                    \
   DO(SS_SMILEY,            (" ;0"),                              (" :/"),                                (" >_>"),           (""))                    \
   DO(SS_SMILEY2,           (" :0"),                              (" :P"),                                (" :D"),            (""))                    \
   DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"),             (""))                    \
@@ -155,12 +155,12 @@ void keyboard_post_init_user(void) {
   DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("2")),          (""),                                   (""),               (""))                    \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j")),          (""),                                   (""),               (""))                    \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k")),          (""),                                   (""),               (""))                    \
-  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" $_"),                                ("c -" CR()),       (""))                    \
+  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),               (" $_"),                                ("c -" S_CR()),       (""))                    \
   DO(SS_GUI_CLICK,         (GUI_CLICK()),                        (GUI_CLICK_AND_TAB()),                  (""),               (GUI_CLICK_AND_TAB()))   \
   DO(SS_DICT,              (T(X_F24) T(X_F24)),                  (SS_DOWN(X_F24) T(X_SPC) SS_UP(X_F24)), (""),               (""))                    \
   DO(SS_PIN1,              (AE_PIN1),                            (AE_PIN2),                              (ROUTER_PWD),       (AE_FPWD))               \
   DO(SS_0X,                ("0x"),                               (""),                                   (""),               (""))                    \
-  DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" LL()),       (""))                    \
+  DO(SS_ARROW,             ("->"),                               (" => "),                               ("490" S_LL()),       (""))                    \
   DO(SS_SMILEY,            (" ;)"),                              (" :/"),                                (" >_>"),           (""))                    \
   DO(SS_SMILEY2,           (" :)"),                              (" :P"),                                (" :D"),            (""))                    \
   DO(SS_DIR,               ("~/"),                               ("../"),                                ("./"),             (""))                    \
@@ -866,7 +866,7 @@ uint16_t keycode_config(uint16_t keycode) {
 // ==============================================================================
 
 #define END()      SS_TAP(X_END)
-#define CLR()      SS_LGUI("a") SS_TAP(X_BSPC) CR()
+#define CLR()      SS_LGUI("a") SS_TAP(X_BSPC) S_CR()
 #define CLR_LINE() END() SS_LCTL("e") SS_LCTL(SS_TAP(X_SPC)) SS_LCTL("a") SS_TAP(X_BSPC)
 
 #ifdef LEADER_ENABLE
@@ -900,37 +900,37 @@ void leader_end_user(void) {
     my_boot_handler(0, NULL);
   }
   else if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkc" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkc" S_CR()));
   }
   else if (leader_sequence_two_keys(KC_Q, KC_W)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkupd" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(CLR() "cdkm; qmkupd" S_CR()));
   }  
   else if (leader_sequence_one_key(KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE() "shove" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE() "shove" S_CR()));
   }
   else if (leader_sequence_two_keys(KC_C, KC_D)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("D:" CR() AE_CD CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("D:" S_CR() AE_CD S_CR()));
   }
   else if (leader_sequence_two_keys(KC_G, KC_R)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));
   }
   else if (leader_sequence_three_keys(KC_G, KC_R, KC_O)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard origin/" ));
   }
   else if (leader_sequence_two_keys(KC_G, KC_D)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " S_CR()));
   }
   else if (leader_sequence_two_keys(KC_G, KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git status " CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));
   }
   else if (leader_sequence_two_keys(KC_G, KC_C)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git commit "));
   }
   else if (leader_sequence_three_keys(KC_G, KC_C, KC_M)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\"" LL()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\"" S_LL()));
   }
   else if (leader_sequence_four_keys(KC_G, KC_C, KC_A, KC_M)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\"" LL()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\"" S_LL()));
   }
   else if (leader_sequence_two_keys(KC_G, KC_H)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git checkout "));
@@ -939,16 +939,16 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git merge "));
   }
   else if (leader_sequence_two_keys(KC_G, KC_P)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git push " CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git push " S_CR()));
   }
   else if (leader_sequence_two_keys(KC_G, KC_U)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " S_CR()));
   }
   else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " S_CR()));
   }
   else if (leader_sequence_one_key(KC_C)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE() "cargo run" CR()));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(END() CLR_LINE() "cargo run" S_CR()));
   }
   /* else if (leader_sequence_one_key(0)) { */
   /*   tap_code16(LCA(KC_X)); */
