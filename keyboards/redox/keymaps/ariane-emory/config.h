@@ -72,7 +72,7 @@
 #define ONESHOT_TIMEOUT                      750
 #define PERMISSIVE_HOLD_PER_KEY
 
-#define RGBLED_NUM                           14
+//#define RGBLED_NUM                           14
 #define RGBLIGHT_HUE_STEP                    8
 #define RGBLIGHT_SAT_STEP                    8
 #define RGBLIGHT_VAL_STEP                    8
