@@ -295,7 +295,7 @@ CONST_KEYRECORD_FUN(bool process_basic_send_string) {
   for (uint8_t ix = 0; ix < ARRAY_SIZE(basic_send_string_keycodes); ix++) {
     if (basic_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed)
-        SEND_STRING_WITHOUT_MODS_P(basic_send_string_keycodes[ix].str);
+        send_string_P(basic_send_string_keycodes[ix].str);
 
       return false;
     }
