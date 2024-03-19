@@ -45,7 +45,8 @@ rgb_led_fader_t rgb_led_fader;
 #  define SEND_STRING_WITHOUT_MODS_P(string) send_string_without_mods_P(string)
 void send_string_without_mods(const char * const string) {
   const uint8_t current_mods = get_mods();
-  
+
+  clear_oneshot_mods();
   clear_mods();
   send_keyboard_report();
   send_string_with_delay(string, MY_SS_DELAY);
@@ -54,6 +55,7 @@ void send_string_without_mods(const char * const string) {
 void send_string_without_mods_P(const char * const string) {
   const uint8_t current_mods = get_mods();
 
+  clear_oneshot_mods();
   clear_mods();
   send_keyboard_report();
   send_string_with_delay_P(string, MY_SS_DELAY);
@@ -91,7 +93,7 @@ void keyboard_post_init_user(void) {
 
 #define TAP(ss_kc)             SS_TAP(ss_kc)
 #define S_CR(_)                TAP(X_ENT)
-#define S_DD()                 SS_DELAY(1000)
+#define S_DD()                 SS_DELAY(250)
 #define S_ESC()                TAP(X_ESC)
 #define S_LL(_)                TAP(X_LEFT)
 #define S_RR(_)                TAP(X_RIGHT)
@@ -109,6 +111,8 @@ void keyboard_post_init_user(void) {
   SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() TAP(X_ENT) SS_DELAY(2500)                                                                         \
                                                                          TAP(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                                            \
                                                                                   SS_LGUI("`") S_DD() S_SCR_L()
+
+
 
 // ==============================================================================
 // Send string keycodes (the main X-macro table)
@@ -294,7 +298,7 @@ CONST_KEYRECORD_FUN(bool process_basic_send_string) {
   for (uint8_t ix = 0; ix < ARRAY_SIZE(basic_send_string_keycodes); ix++) {
     if (basic_send_string_keycodes[ix].kc == keycode) {      
       if (record->event.pressed)
-        send_string_P(basic_send_string_keycodes[ix].str);
+        SEND_STRING_WITHOUT_MODS_P(basic_send_string_keycodes[ix].str);
 
       return false;
     }
@@ -333,9 +337,10 @@ CONST_KEYRECORD_FUN(bool cx_handler) {
     layer_off(LN_MOUSE);
     tap_code16(LCTL(KC_X));
     add_oneshot_mods(MOD_LCTL);
+    return false;
   }
-
-  return false;
+  return true;
+  
 }
 
 CONST_KEYRECORD_FUN(bool cc_handler) {
@@ -343,9 +348,9 @@ CONST_KEYRECORD_FUN(bool cc_handler) {
     layer_off(LN_MOUSE);
     tap_code16(LCTL(KC_C));
     add_oneshot_mods(MOD_LCTL);
+    return false;
   }
-
-  return false;
+  return true;
 }
 
 /* CONST_KEYRECORD_FUN(bool other_win_handler) { */
