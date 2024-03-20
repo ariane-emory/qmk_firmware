@@ -112,7 +112,7 @@ void keyboard_post_init_user(void) {
                                                                          TAP(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                                            \
                                                                                   SS_LGUI("`") S_DD() S_SCR_L()
 
-
+#define S_EM_SWAP() (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB)))
 
 // ==============================================================================
 // Send string keycodes (the main X-macro table)
@@ -131,7 +131,7 @@ void keyboard_post_init_user(void) {
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                                              \
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                                              \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                                              \
-  DO(EM_SWAP,              (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB))) )                                                                                              \
+  DO(EM_SWAP,              (S_EM_SWAP())                         )                                                                                              \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
   DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                                              \
   DO(SS_0X,                (")x")                                ) 
@@ -149,7 +149,7 @@ void keyboard_post_init_user(void) {
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                                              \
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                                              \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                                              \
-  DO(EM_SWAP,              (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB))) )                                                                                              \
+  DO(EM_SWAP,              (S_EM_SWAP())                         )                                                                                              \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
   DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                                              \
   DO(SS_0X,                ("0x")                                )
@@ -788,13 +788,12 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_QUOT, KC_SPC },
   
   // Right Control
-  /* { QH_J,    QH_H            }, // backspace */
   { QH_J,    QH_K            }, // kill line
   { QH_J,    QH_L            }, // recenter / address bar
   { QH_J,    QT_Y            }, // yank
-  /* { QH_J,    QB_N            }, // next line */
+  { QH_J,    QB_N            }, // next line
   { QH_J,    QT_I            }, // tab
-  /* { QH_J,    QT_P            }, // prev line */
+  { QH_J,    QT_P            }, // prev line
 
   // Right Alt
   { QH_K,    QH_L            }, // address bar?
@@ -806,10 +805,6 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   /* { QH_L,    QH_K            }, // ??? */
   /* { QH_L,    KC_BSLS         }, // ??? */
 
-  // Workman
-  { WH_J,    WB_N            }, // kill line
-  { WH_J,    WH_K            }, // end of line
-  { WH_J,    WH_H            }, // yank
 };
 
 bool achordion_chord(
@@ -946,6 +941,9 @@ void leader_end_user(void) {
   }
   else if (leader_sequence_one_key(KC_R)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));
+  }
+  else if (leader_sequence_one_key(KC_F)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR(S_EM_SWAP()));
   }
   else if (leader_sequence_one_key(KC_Q)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkc" S_CR()));
