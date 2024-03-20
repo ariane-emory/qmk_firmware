@@ -131,6 +131,7 @@ void keyboard_post_init_user(void) {
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                                              \
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                                              \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                                              \
+  DO(EM_SWAP,              (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB))) )                                                                                              \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
   DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                                              \
   DO(SS_0X,                (")x")                                ) 
@@ -148,6 +149,7 @@ void keyboard_post_init_user(void) {
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                                              \
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                                              \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                                              \
+  DO(EM_SWAP,              (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB))) )                                                                                              \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                              \
   DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                                              \
   DO(SS_0X,                ("0x")                                )
