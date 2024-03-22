@@ -767,6 +767,7 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   { QH_D,    KC_ENT          }, // M-<return>
 
   // Left Control
+  { QH_F,    QT_U            }, // emacs prefix arg
   { QH_F,    QH_A            }, // beginning of line
   { QH_F,    QH_D            }, // delete forwards char
   /* { QH_F,    QT_E            }, // end of line */
