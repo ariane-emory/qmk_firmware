@@ -145,18 +145,21 @@ void keyboard_post_init_user(void) {
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                               \
   DO(EM_SWAP,              S_EM_SWAP()                           )                                                                               \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                               \
-  DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t"))           )                                                                               \
-  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                               \
-  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("3"))           )                                                                               \
+  DO(EM_SHELL,             (SS_LCTL("x") SS_LCTL("t"))           )                                                                               \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                               \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                               \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                               \
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                               \
+  DO(EM_PRV_BUFF,          (SS_LCTL("x") SS_LCTL("p"))           )                                                                               \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                               \
+  DO(EM_SPLIT_V,           (SS_LCTL("x") "2")                    )                                                                               \
+  DO(EM_SPLIT_H,           (SS_LCTL("x") "3")                    )                                                                               \
+  DO(EM_MAC_BGN,           (SS_LCTL("x") "(")                    )                                                                               \
+  DO(EM_MAC_END,           (SS_LCTL("x") ")")                    )                                                                               \
+  DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                                                                               \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                               \
   DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                               \
-  DO(EM_SWAP,              (S_EM_SWAP())                         )                                                                               \
-  DO(SS_0X,                ("0x")                                )
+  DO(SS_0X,                ("0x")                                ) 
 //                         NO MODS                                 
 #endif
 
