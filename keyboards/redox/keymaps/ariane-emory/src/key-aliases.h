@@ -93,36 +93,36 @@
 //==============================================================================
 // Misc special functions
 //==============================================================================
-#define LUTIL_OR_CMD_W LT(LN_UTIL,RGUI(KC_W))
-//#define EM_SHELL       LALT(LGUI(KC_S))
-#define KA_UNDO        LGUI(KC_Z)
-#define EM_MAC_BGN     LALT(LGUI(KC_W))
-#define EM_MAC_RPT     LALT(LGUI(KC_R))
-#define EM_MAC_END     LALT(LGUI(KC_E))
+#define BRT_DN         KC_F19
+#define BRT_UP         KC_F20
+#define CAPS_WORD      QK_CAPS_WORD_TOGGLE
 //#define EM_ALL_BUFF     LALT(LGUI(KC_A))
-#define EM_BOL         LCTL(KC_A)
-#define EM_EOL         LCTL(KC_E)
-//#define EM_SPLIT_V     LALT(LGUI(KC_2))
-//#define EM_SPLIT_H     LALT(LGUI(KC_3))
-#define EM_PRV_BUFF     LCTL(LALT(LSFT(KC_L)))
 //#define EM_DIRED       LALT(LGUI(KC_D))
 //#define EM_LWRAP       LALT(LGUI(KC_L))
-#define EM_BGN_MAC     LALT(LGUI(KC_W))
-#define EM_RPT_MAC     LALT(LGUI(KC_R))
-#define EM_END_MAC     LALT(LGUI(KC_E))
-#define EM_CTL_X       LCTL(KC_X)
-#define EM_CTL_C       LCTL(KC_C)
-#define RCTL_SQUO      RCTL_T(KC_SQUO_TAP)
-#define RCTL_DQUO      RCTL_T(KC_DQUO_TAP)
+//#define EM_SHELL       LALT(LGUI(KC_S))
+//#define EM_SPLIT_H     LALT(LGUI(KC_3))
+//#define EM_SPLIT_V     LALT(LGUI(KC_2))
+//#define EM_BGN_MAC     LALT(LGUI(KC_W))
+//#define EM_END_MAC     LALT(LGUI(KC_E))
+#define EM_MAC_END     LALT(LGUI(KC_E))
+#define EM_MAC_BGN     LALT(LGUI(KC_W))
+#define EM_MAC_RPT     LALT(LGUI(KC_R))
+#define EM_BOL         LCTL(KC_A)
+#define EM_EOL         LCTL(KC_E)
+//#define EM_CTL_C       LCTL(KC_C)
+//#define EM_CTL_X       LCTL(KC_X)
+//#define EM_PRV_BUFF    LCTL(LALT(LSFT(KC_L)))
+//#define EM_RPT_MAC     LALT(LGUI(KC_R))
+#define KA_UNDO        LGUI(KC_Z)
 #define LCTL_ESC       LCTL_T(KC_ESC)
 #define LCTL_OPEN      LCTL_T(RGUI(KC_O))
-#define BRT_UP         KC_F20
-#define BRT_DN         KC_F19
-#define TG_MOUSE       TG(LN_MOUSE)
-#define CAPS_WORD      QK_CAPS_WORD_TOGGLE
-#define SPOTLIGHT      LGUI(KC_SPC)
 #define LOCAL_CAPS     LGUI(LALT(KC_C))
+#define LUTIL_OR_CMD_W LT(LN_UTIL,RGUI(KC_W))
 #define NEW_TAB        LGUI(KC_T)
+#define RCTL_DQUO      RCTL_T(KC_DQUO_TAP)
+#define RCTL_SQUO      RCTL_T(KC_SQUO_TAP)
+#define SPOTLIGHT      LGUI(KC_SPC)
+#define TG_MOUSE       TG(LN_MOUSE)
 //==============================================================================
 
 
