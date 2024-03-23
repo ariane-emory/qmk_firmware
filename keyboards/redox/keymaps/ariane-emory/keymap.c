@@ -94,6 +94,7 @@ void keyboard_post_init_user(void) {
 #define TAP(ss_kc)             SS_TAP(ss_kc)
 #define S_CR(_)                TAP(X_ENT)
 #define S_DD()                 SS_DELAY(150)
+#define S_EM_SWAP() (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB)))
 #define S_ESC()                TAP(X_ESC)
 #define S_LL(_)                TAP(X_LEFT)
 #define S_RR(_)                TAP(X_RIGHT)
@@ -112,8 +113,6 @@ void keyboard_post_init_user(void) {
                                                                          TAP(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                             \
                                                                                   SS_LGUI("`") S_DD() S_SCR_L()
 
-#define S_EM_SWAP() (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB)))
-
 // ==============================================================================
 // Send string keycodes (the main X-macro table)
 // ==============================================================================
@@ -122,17 +121,20 @@ void keyboard_post_init_user(void) {
 #  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                                                                                                 \
   DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                               \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                               \
+  DO(EM_SWAP,              S_EM_SWAP()                           )                                                                               \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                               \
   DO(EM_SHELL,             (SS_LCTL("x") SS_LCTL("t"))           )                                                                               \
-  DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                               \
-  DO(EM_SPLIT_H,           (SS_LCTL("x") SS_LCTL("3"))           )                                                                               \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                               \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                               \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                               \
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                               \
   DO(EM_PRV_BUFF,          (SS_LCTL("x") SS_LCTL("p"))           )                                                                               \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                               \
-  DO(EM_SWAP,              (S_EM_SWAP())                         )                                                                               \
+  DO(EM_SPLIT_V,           (SS_LCTL("x") "@")                    )                                                                               \
+  DO(EM_SPLIT_H,           (SS_LCTL("x") "#")                    )                                                                               \
+  DO(EM_MAC_BGN,           (SS_LCTL("x") "9")                    )                                                                               \
+  DO(EM_MAC_END,           (SS_LCTL("x") "0")                    )                                                                               \
+  DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                                                                               \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                               \
   DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                               \
   DO(SS_0X,                (")x")                                ) 
@@ -141,6 +143,7 @@ void keyboard_post_init_user(void) {
 #  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                                                                                                 \
   DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                               \
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                               \
+  DO(EM_SWAP,              S_EM_SWAP()                           )                                                                               \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                               \
   DO(EM_SHELL,             (SS_LCTL("c") SS_LCTL("t"))           )                                                                               \
   DO(EM_SPLIT_V,           (SS_LCTL("x") SS_LCTL("2"))           )                                                                               \
@@ -150,9 +153,9 @@ void keyboard_post_init_user(void) {
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                               \
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                               \
   DO(EM_REVERT,            (SS_LCTL("x") SS_LCTL("r"))           )                                                                               \
-  DO(EM_SWAP,              (S_EM_SWAP())                         )                                                                               \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                               \
   DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                               \
+  DO(EM_SWAP,              (S_EM_SWAP())                         )                                                                               \
   DO(SS_0X,                ("0x")                                )
 //                         NO MODS                                 
 #endif

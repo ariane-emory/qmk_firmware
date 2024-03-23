@@ -96,9 +96,9 @@
 #define BRT_DN         KC_F19
 #define BRT_UP         KC_F20
 #define CAPS_WORD      QK_CAPS_WORD_TOGGLE
-#define EM_MAC_BGN     LALT(LGUI(KC_W))
-#define EM_MAC_END     LALT(LGUI(KC_E))
-#define EM_MAC_RPT     LALT(LGUI(KC_R))
+/* #define EM_MAC_BGN     LALT(LGUI(KC_W)) */
+/* #define EM_MAC_END     LALT(LGUI(KC_E)) */
+/* #define EM_MAC_RPT     LALT(LGUI(KC_R)) */
 #define EM_BOL         LCTL(KC_A)
 #define EM_EOL         LCTL(KC_E)
 #define KA_UNDO        LGUI(KC_Z)
