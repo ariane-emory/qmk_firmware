@@ -793,9 +793,9 @@
       "ANY(STR_MS)",
       "ANY(THU_MS)",
       "ANY(CRL_MS)",
-      "ANY(LCTL(LALT(KC_T)))",
       "ANY(LCTL(LALT(KC_B)))",
       "ANY(LCTL(LALT(KC_F)))",
+      "ANY(LCTL(LALT(KC_T)))",
       "ANY(LSFT(LCTL(LALT(KC_T))))"
     ],
     [
@@ -865,9 +865,9 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "ANY(LCTL(LALT(KC_T)))",
       "ANY(LCTL(LALT(KC_B)))",
       "ANY(LCTL(LALT(KC_F)))",
+      "ANY(LCTL(LALT(KC_T)))",
       "ANY(LSFT(LCTL(LALT(KC_T))))"
     ],
     [
