@@ -163,10 +163,12 @@ void keyboard_post_init_user(void) {
 //                         NO MODS                                 
 #endif
 
+#define S_EVAL_SEXP (SS_LCTL("x") SS_LCTL("e"))
+
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
   DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),               (""))                          \
-  DO(EM_LASTARG,           (" " SS_LCTL("c") "."),  (" 4_"),                                  ("c -" S_CR()),     (""))                          \
+  DO(EM_LASTARG,           (S_EVAL_SEXP),           (" " SS_LCTL("c") "."),                   (" 4_"),            ("c -" S_CR()))                \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))       \
   DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                     \
   DO(SS_ARROW,             ("->"),                  (" => "),                                 ("490" S_LL()),     (""))                          \
