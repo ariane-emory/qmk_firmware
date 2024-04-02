@@ -164,13 +164,17 @@ void keyboard_post_init_user(void) {
 #endif
 
 #define S_EVAL_SEXP (SS_LCTL("x") SS_LCTL("e"))
-#define S_PP_EVAL_SEXP (SS_LCTL("x") SS_LCTL(" "))
-#define S_PP_EXPAND_MACRO (SS_LCTL("c") SS_LCTL(SS_TAP(X_BSPC)))
+//#define S_PP_EVAL_SEXP (SS_LCTL("x") SS_LCTL(" "))
+#define S_PP_EVAL_SEXP (SS_LCTL("c") SS_LCTL(SS_TAP(X_BSPC)))
 
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
   DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),                   (""))                      \
-  DO(EM_LASTARG,           (S_PP_EVAL_SEXP),        (S_PP_EXPAND_MACRO),                      (" " SS_LCTL("c") "."), ("c -" S_CR()))            \
+  DO(EM_LASTARG,                                                                                                                                 \
+     (S_EVAL_SEXP),                                                                                                                              \
+     (S_PP_EVAL_SEXP),                                                                                                                           \
+     (" " SS_LCTL("c") "."),                                                                                                                     \
+     ("c -" S_CR()))                                                                                                                             \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),                   (S_GUI_CLICK_AND_TAB()))   \
   DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),           (AE_FPWD))                 \
   DO(SS_ARROW,             ("->"),                  (" => "),                                 ("490" S_LL()),         (""))                      \
