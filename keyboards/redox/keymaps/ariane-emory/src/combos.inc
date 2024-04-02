@@ -161,7 +161,8 @@ bool combo_should_trigger(
                || (combo->keycode == KC_VOLD)
                || (combo->keycode == KC_VOLU)
                || (combo->keycode == KC_HOME)
-               || (combo->keycode == KC_END)))
+               || (combo->keycode == KC_END)
+               || (combo->keycode == EM_LASTARG)))
           || false);
 }
 
