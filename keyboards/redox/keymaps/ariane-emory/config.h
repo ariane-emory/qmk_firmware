@@ -1,4 +1,4 @@
-// -*- c-backslash-column: 80; c-backslash-max-column: 80 ; fill-column: 80; eval: (display-fill-column-indicator-mode 1); -*-
+// -*- c-backslash-column: 80; c-backslash-max-column: 80; fill-column: 80; eval: (display-fill-column-indicator-mode 1); -*-
 #pragma once
 
 #undef RGBLIGHT_ANIMATIONS
@@ -29,7 +29,7 @@
 
 #define COMBO_ONLY_FROM_LAYER                0
 #define COMBO_SHOULD_TRIGGER
-#define COMBO_TERM                           35
+#define COMBO_TERM                           50
 
 #define DYNAMIC_MACRO_DELAY                  15
 #define DYNAMIC_MACRO_SIZE                   64
