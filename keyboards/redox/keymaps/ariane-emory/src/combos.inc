@@ -154,7 +154,7 @@ bool combo_should_trigger(
                 || layer_state_is(LN_ARROWS))) &&
               (false
                || (combo->keycode == KC_ESC)
-               // || (combo->keycode == KC_ENT)
+               || (combo->keycode == KC_ENT)
                || (combo->keycode == KA_UNDO)
                || (combo->keycode == EM_BOL)
                || (combo->keycode == EM_EOL)
