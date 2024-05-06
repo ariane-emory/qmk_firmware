@@ -93,7 +93,7 @@ void keyboard_post_init_user(void) {
 
 #define TAP(ss_kc)             SS_TAP(ss_kc)
 #define S_CR(_)                TAP(X_ENT)
-#define S_DD()                 SS_DELAY(150)
+#define S_DD()                 SS_DELAY(125)
 #define S_EM_SWAP() (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB)))
 #define S_ESC()                TAP(X_ESC)
 #define S_LL(_)                TAP(X_LEFT)
