@@ -20,12 +20,12 @@
 #define QT_TAB   LT(LN_UTIL,KC_TAB)
 #define QT_Q     KC_Q
 #define QT_W     KC_W
-#define QT_E     KC_E
-#define QT_R     KC_R
+#define QT_E     LBRM_4(KC_E)
+#define QT_R     LBRM_4(KC_R)
 #define QT_T     KC_T
 #define QT_Y     KC_Y
-#define QT_U     KC_U
-#define QT_I     KC_I
+#define QT_U     RBRM_4(KC_U)
+#define QT_I     RBRM_4(KC_I)
 #define QT_O     KC_O
 #define QT_P     QT_RC
 #define QT_BSLS  LT(LN_UTIL,KC_BSLS)
