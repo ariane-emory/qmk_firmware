@@ -933,6 +933,12 @@ void leader_end_user(void) {
   if (leader_sequence_two_keys(KC_B, KC_B)) {
     my_boot_handler(0, NULL);
   }
+  else if (leader_sequence_two_keys(KC_A, KC_A)) {
+    tap_code16(C(KC_A));
+  }
+  else if (leader_sequence_two_keys(KC_E, KC_E)) {
+    tap_code16(C(KC_E));
+  }
   else if (leader_sequence_three_keys(KC_R, KC_R, KC_R)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE()));
     tap_code16(A(KC_P));

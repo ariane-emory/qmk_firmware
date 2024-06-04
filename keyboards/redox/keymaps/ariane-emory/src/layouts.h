@@ -464,12 +464,12 @@
 //.............................................................................
 #define MH_H    RHRM_0(KC_P) 
 #define MH_J    RHRM_1(KC_H)
-#define MH_K    RHRM_2(KC_A) // E)
+#define MH_K    RHRM_2(KC_E) // E)
 #define MH_L    RHRM_3(KC_I) // E) // I) 
 #ifdef ROTATE_OXEY
 #  define MH_QUOT RHRM_4(KC_QUOT)
 #else
-#  define MH_QUOT RHRM_4(KC_E) 
+#  define MH_QUOT RHRM_4(KC_A) 
 #endif
 //-----------------------------------------------------------------------------
 #define MB_Z    LBRM_4(KC_C)
