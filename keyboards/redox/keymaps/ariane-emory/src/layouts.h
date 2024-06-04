@@ -452,8 +452,8 @@
 //.............................................................................F
 #define MT_Y    KC_X 
 #define MT_U    KC_Y 
-#define MT_I    KC_O // U // O 
-#define MT_O    KC_U // O // U 
+#define MT_I    KC_U // U // O 
+#define MT_O    KC_O // O // U 
 #define MT_P    KC_SLSH
 //------------------------------------------------------------------------------
 #define MH_A    LHRM_4(KC_W)
