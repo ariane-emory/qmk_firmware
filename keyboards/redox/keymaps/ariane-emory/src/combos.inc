@@ -40,18 +40,18 @@
   DO(l_mid_innr,             EM_MAC_RPT,    QH_D,    QH_F                               )      \
   DO(l_mid_curl,             CAPS_WORD,     QH_F,    QH_G                               )      \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    )      \
-  DO(l_mid_sprd,             EM_SWAP,       QH_S,               QH_F                    )      \
-  DO(l_mid_trpm,             TOGGLE_DF,     QH_S,    QH_D,      QH_F                    )      \
+  DO(l_mid_sprd,             TOGGLE_DF,     QH_S,               QH_F                    )      \
+  __(l_mid_trpm,             ____________,  QH_S,    QH_D,      QH_F                    )      \
   DO(l_mid_trpi,             EM_SPLIT_H,    QH_D,    QH_F,      QH_G                    )      \
   _______________________________________________________________________________________      \
-  __(l_bot_rech_diag_up,     _____________, QH_A,    QB_X                               )      \
-  __(l_bot_rech_diag_dn,     _____________, QH_S,    QB_Z                               )      \
-  __(l_bot_outr_diag_up,     _____________, QH_S,    QB_C                               )      \
-  __(l_bot_outr_diag_dn,     _____________, QH_D,    QB_X                               )      \
-  __(l_bot_innr_diag_up,     _____________, QH_D,    QB_V                               )      \
-  __(l_bot_innr_diag_dn,     _____________, QH_F,    QB_C                               )      \
-  __(l_bot_curl_diag_up,     _____________, QH_F,    QB_B                               )      \
-  __(l_bot_curl_diag_dn,     _____________, QH_F,    QB_C                               )      \
+  __(l_bot_rech_diag_up,     ____________,  QH_A,    QB_X                               )      \
+  __(l_bot_rech_diag_dn,     ____________,  QH_S,    QB_Z                               )      \
+  __(l_bot_outr_diag_up,     ____________,  QH_S,    QB_C                               )      \
+  __(l_bot_outr_diag_dn,     ____________,  QH_D,    QB_X                               )      \
+  __(l_bot_innr_diag_up,     ____________,  QH_D,    QB_V                               )      \
+  __(l_bot_innr_diag_dn,     ____________,  QH_F,    QB_C                               )      \
+  __(l_bot_curl_diag_up,     ____________,  QH_F,    QB_B                               )      \
+  __(l_bot_curl_diag_dn,     ____________,  QH_F,    QB_C                               )      \
   _______________________________________________________________________________________      \
   __(l_bot_rech,             ____________,  QB_Z,    QB_X                               )      \
   DO(l_bot_outr,             KC_ENT,        QB_X,    QB_C                               )      \
