@@ -465,9 +465,12 @@
 #define MH_H    RHRM_0(KC_P) 
 #define MH_J    RHRM_1(KC_H)
 #define MH_K    RHRM_2(KC_E) // E)
-#define MH_L    RHRM_3(KC_A) // E) // I) 
-#define MH_QUOT RHRM_4(KC_I)
-// #define MH_QUOT RHRM_4(KC_QUOT) 
+#define MH_L    RHRM_3(KC_A) // E) // I)
+#ifdef ROTATE_OXEY
+#  define MH_QUOT RHRM_4(KC_QUOT) 
+#else
+#  define MH_QUOT RHRM_4(KC_I)
+#endif
 //-----------------------------------------------------------------------------
 #define MB_Z    LBRM_4(KC_C)
 #define MB_X           KC_B
@@ -479,6 +482,9 @@
 #define MB_M    RBRM_1(KC_D) 
 #define MB_COMM        KC_COMM
 #define MB_DOT         KC_DOT
-#define MB_SLSH RBRM_4(KC_QUOT)
-// #define MB_SLSH RBRM_4(KC_I)
+#ifdef ROTATE_OXEY
+#    define MB_SLSH RBRM_4(KC_I)
+#else
+#    define MB_SLSH RBRM_4(KC_QUOT)
+#endif
 //==============================================================================
