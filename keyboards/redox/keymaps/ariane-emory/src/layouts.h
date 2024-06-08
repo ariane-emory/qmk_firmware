@@ -329,12 +329,12 @@
 //==============================================================================
 #define NT_Q    KC_Q
 #define NT_W    KC_L
-#define NT_E    KC_Y
-#define NT_R    KC_P
+#define NT_E    LBRM_4(KC_Y)
+#define NT_R    LBRM_4(KC_P)
 #define NT_T    KC_B
 #define NT_Y    KC_X
-#define NT_U    KC_F
-#define NT_I    KC_O
+#define NT_U    RBRM_4(KC_F)
+#define NT_I    RBRM_4(KC_O)
 #define NT_O    KC_U
 #define NT_P    KC_SLSH
 //------------------------------------------------------------------------------
@@ -452,8 +452,8 @@
 //..............................................................................
 #define MT_Y    KC_X 
 #define MT_U    RBRM_4(KC_Y)
-#define MT_I    RBRM_4(KC_U) // U // O 
-#define MT_O    KC_O // O // U 
+#define MT_I    RBRM_4(KC_O) // U // O 
+#define MT_O    KC_U // O // U 
 #define MT_P    KC_SLSH
 //------------------------------------------------------------------------------
 #define MH_A    LHRM_4(KC_W)
@@ -465,11 +465,11 @@
 #define MH_H    RHRM_0(KC_P) 
 #define MH_J    RHRM_1(KC_H)
 #define MH_K    RHRM_2(KC_E) // E)
-#define MH_L    RHRM_3(KC_A) // E) // I)
+#define MH_L    RHRM_3(KC_I) // E) // I)
 #ifdef ROTATE_OXEY
 #  define MH_QUOT RHRM_4(KC_QUOT) 
 #else
-#  define MH_QUOT RHRM_4(KC_I)
+#  define MH_QUOT RHRM_4(KC_A)
 #endif
 //-----------------------------------------------------------------------------
 #define MB_Z    LBRM_4(KC_C)
@@ -483,7 +483,7 @@
 #define MB_COMM        KC_COMM
 #define MB_DOT         KC_DOT
 #ifdef ROTATE_OXEY
-#    define MB_SLSH RBRM_4(KC_I)
+#    define MB_SLSH RBRM_4(KC_A)
 #else
 #    define MB_SLSH RBRM_4(KC_QUOT)
 #endif

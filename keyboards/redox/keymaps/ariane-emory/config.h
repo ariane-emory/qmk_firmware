@@ -110,7 +110,7 @@
 #undef PRODUCT
 #define PRODUCT "K's Redox"
 
-#define ROTATE_OXEY
+// #define ROTATE_OXEY
 
 #define USE_ACHORDION
 #define ACHORDION_STREAK
