@@ -466,7 +466,7 @@ CONST_KEYRECORD_FUN(bool toggle_df_handler) {
   if (record->event.pressed) {
     toggle_df_flag = ! toggle_df_flag;
     
-    default_layer_set((layer_state_t)1 << (toggle_df_flag ? 1 : 0));
+    default_layer_set((layer_state_t)1 << (toggle_df_flag ? 2 : 0)); // 2 is canary.
   }
   
   return false;

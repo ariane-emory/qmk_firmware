@@ -331,7 +331,7 @@
 #define NT_W    KC_L
 #define NT_E    LBRM_4(KC_Y)
 #define NT_R    LBRM_4(KC_P)
-#define NT_T    KC_B
+#define NT_T    KC_K
 #define NT_Y    KC_X
 #define NT_U    RBRM_4(KC_F)
 #define NT_I    RBRM_4(KC_O)
@@ -353,7 +353,7 @@
 #define NB_X           KC_J
 #define NB_C           KC_V
 #define NB_V    LBRM_1(KC_D)
-#define NB_B           KC_K
+#define NB_B           KC_B
 #define NB_N           KC_Z
 #define NB_M    RBRM_1(KC_N) // H)
 #define NB_COMM        KC_COMM
