@@ -338,7 +338,7 @@
 #define NT_O    KC_U
 #define NT_P    KC_SLSH
 //------------------------------------------------------------------------------
-#define NH_A    LHRM_4(KC_C)
+#define NH_A    LHRM_4(KC_W)
 #define NH_S    LHRM_3(KC_R)
 #define NH_D    LHRM_2(KC_S)
 #define NH_F    LHRM_1(KC_T)
@@ -349,7 +349,7 @@
 #define NH_L    RHRM_3(KC_I)
 #define NH_QUOT RHRM_4(KC_A)
 //------------------------------------------------------------------------------
-#define NB_Z    LBRM_4(KC_W)
+#define NB_Z    LBRM_4(KC_C)
 #define NB_X           KC_J
 #define NB_C           KC_V
 #define NB_V    LBRM_1(KC_D)
