@@ -328,12 +328,12 @@
 // N: Canary (mod)
 //==============================================================================
 #define NT_Q    KC_Q
-#define NT_W    KC_Y
+#define NT_W    KC_F
 #define NT_E    LBRM_4(KC_L)
 #define NT_R    LBRM_4(KC_D)
 #define NT_T    KC_K
 #define NT_Y    KC_X
-#define NT_U    RBRM_4(KC_F)
+#define NT_U    RBRM_4(KC_Y)
 #define NT_I    RBRM_4(KC_O)
 #define NT_O    KC_U
 #define NT_P    KC_QUOT
