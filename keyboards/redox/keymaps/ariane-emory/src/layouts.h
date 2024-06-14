@@ -331,7 +331,7 @@
 #define NT_W    KC_F
 #define NT_E    LBRM_4(KC_L)
 #define NT_R    LBRM_4(KC_D)
-#define NT_T    KC_K
+#define NT_T    KC_P
 #define NT_Y    KC_X
 #define NT_U    RBRM_4(KC_Y)
 #define NT_I    RBRM_4(KC_O)
@@ -342,7 +342,7 @@
 #define NH_S    LHRM_3(KC_S)
 #define NH_D    LHRM_2(KC_R)
 #define NH_F    LHRM_1(KC_T)
-#define NH_G    LHRM_0(KC_P) // G)
+#define NH_G    LHRM_0(KC_K) 
 #define NH_H    RHRM_0(KC_M)
 #define NH_J    RHRM_1(KC_H)
 #define NH_K    RHRM_2(KC_E)
