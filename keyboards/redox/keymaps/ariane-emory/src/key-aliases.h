@@ -111,6 +111,7 @@
 #define RCTL_SQUO      RCTL_T(KC_SQUO_TAP)
 #define SPOTLIGHT      LGUI(KC_SPC)
 #define TG_MOUSE       TG(LN_MOUSE)
+#define OTHER_WIN2     LGUI(KC_GRV)
 //==============================================================================
 
 
