@@ -1,4 +1,4 @@
-// -*- c-backslash-column: 95; c-backslash-max-column: 95 ; fill-column: 95; eval: (display-fill-column-indicator-mode 1); -*-
+// -*- c-backslash-column: 95; c-backslash-max-column: 95 ; fill-column: 95; eval: (display-fill-column-indicator-mode 1); eval: (lsp-mode -1); -*-
 
 #include "key-aliases.h"
 #include "src/util.h"
