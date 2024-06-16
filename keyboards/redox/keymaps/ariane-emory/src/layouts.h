@@ -328,7 +328,7 @@
 // N: Canary (mod)
 //==============================================================================
 #define NT_Q    KC_Q
-#define NT_W    KC_F
+#define NT_W    KC_V// F
 #define NT_E    LBRM_4(KC_L)
 #define NT_R    LBRM_4(KC_D)
 #define NT_T    KC_K
@@ -342,7 +342,7 @@
 #define NH_S    LHRM_3(KC_S)
 #define NH_D    LHRM_2(KC_R)
 #define NH_F    LHRM_1(KC_T)
-#define NH_G    LHRM_0(KC_P) 
+#define NH_G    LHRM_0(KC_P)
 #define NH_H    RHRM_0(KC_M)
 #define NH_J    RHRM_1(KC_H)
 #define NH_K    RHRM_2(KC_E)
@@ -350,7 +350,7 @@
 #define NH_QUOT RHRM_4(KC_A)
 //------------------------------------------------------------------------------
 #define NB_Z    LBRM_4(KC_C)
-#define NB_X           KC_V
+#define NB_X           KC_F// V
 #define NB_C           KC_J
 #define NB_V    LBRM_1(KC_G) // P)
 #define NB_B           KC_B
