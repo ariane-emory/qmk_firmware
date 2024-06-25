@@ -939,6 +939,12 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key(KC_E)) {
     tap_code16(C(KC_E));
   }
+  else if (leader_sequence_two_keys(KC_D, KC_D)) {
+    tap_code16(KC_F5);
+  }
+  else if (leader_sequence_one_key(KC_D)) {
+    tap_code16(C(KC_F5));
+  }
   else if (leader_sequence_two_keys(KC_A, KC_A)) {
     tap_code16(C(KC_A));
   }
