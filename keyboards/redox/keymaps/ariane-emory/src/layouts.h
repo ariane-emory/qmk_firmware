@@ -19,14 +19,14 @@
 //-------------------------------------------------------------------------------
 #define QT_TAB   LT(LN_UTIL,KC_TAB)
 #define QT_Q     KC_Q
-#define QT_W     LSFT_T(KC_W)
+#define QT_W     KC_W
 #define QT_E     LBRM_4(KC_E)
-#define QT_R     LBRM_4(KC_R)
+#define QT_R     LSFT_T(KC_R)
 #define QT_T     KC_T
 #define QT_Y     KC_Y
-#define QT_U     RBRM_4(KC_U)
+#define QT_U     RSFT_T(KC_U)
 #define QT_I     RBRM_4(KC_I)
-#define QT_O     LSFT_T(KC_O)
+#define QT_O     KC_O
 #define QT_P     QT_RC
 #define QT_BSLS  LT(LN_UTIL,KC_BSLS)
 //-------------------------------------------------------------------------------
@@ -328,14 +328,14 @@
 // N: Canary (mod)
 //===============================================================================
 #define NT_Q    KC_Q
-#define NT_W    LSFT_T(KC_V)
+#define NT_W    KC_V
 #define NT_E    LBRM_4(KC_L)
-#define NT_R    LBRM_4(KC_D)
+#define NT_R    LSFT_T(KC_D)
 #define NT_T    KC_K
 #define NT_Y    KC_X
-#define NT_U    RBRM_4(KC_Y)
+#define NT_U    RSFT_T(KC_Y)
 #define NT_I    RBRM_4(KC_O)
-#define NT_O    LSFT_T(KC_U)
+#define NT_O    KC_U
 #define NT_P    KC_QUOT
 //-------------------------------------------------------------------------------
 #define NH_A    LHRM_4(KC_W)
