@@ -933,6 +933,9 @@ void leader_end_user(void) {
   if (leader_sequence_two_keys(KC_B, KC_B)) {
     my_boot_handler(0, NULL);
   }
+  else if (leader_sequence_one_key(KC_BSPC)) {
+    tap_code16(S(KC_DEL));
+  }
   else if (leader_sequence_one_key(KC_A)) {
     tap_code16(C(KC_A));
   }
