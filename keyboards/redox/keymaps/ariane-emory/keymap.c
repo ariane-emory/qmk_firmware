@@ -747,6 +747,14 @@ void manage_toggled_layer_timeout(const uint8_t layer, const uint16_t idle_time_
 }
 #endif
 
+#ifdef DOUBLE_QUOTE_TIMEOUT
+void manage_double_quote_timeout(const uint8_t layer, const uint16_t idle_time_limit_ms, const uint16_t timer)
+{
+  if (timer_elapsed(timer) >= idle_time_limit_ms)
+    double_quote_is_primed = false;
+}
+#endif
+
 // ==============================================================================
 // Toggled mouse layer management
 // ==============================================================================
@@ -756,8 +764,12 @@ void matrix_scan_user(void) {
   achordion_task();
 #endif // USE_ACHORDION
 
-  idle_timer = timer_read();
+  // idle_timer = timer_read();
   
+#ifdef DOUBLE_QUOTE_TIMEOUT
+  manage_double_quote_timeout(TOGGLED_LAYER, DOUBLE_QUOTE_TIMEOUT, idle_timer);
+#endif // DOUBLE_QUOTE_TIMEOUT
+
 #ifdef TOGGLED_LAYER_TIMEOUT
   manage_toggled_layer_timeout(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
 #endif // TOGGLED_LAYER_TIMEOUT
