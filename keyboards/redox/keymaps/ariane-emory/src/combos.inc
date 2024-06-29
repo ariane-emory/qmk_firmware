@@ -17,9 +17,9 @@
   DO(both_thu_thumbs,        CAPS_WORD,     THU_LFT, THU_RGT                            )      \
   DO(both_crl_thumbs,        LOCAL_CAPS,    CRL_LFT, CRL_RGT                            )      \
   _______________________________________________________________________________________      \
-  DO(l_top_rech,             KC_1,          QT_Q,    QT_W                               )      \
+  DO(l_top_rech,             KC_GRV,        QT_Q,    QT_W                               )      \
   DO(l_top_outr,             LSFT(KC_GRV),  QT_W,    QT_E                               )      \
-  DO(l_top_innr,             KC_GRV,        QT_E,    QT_R                               )      \
+  DO(l_top_innr,             KC_1,          QT_E,    QT_R                               )      \
   DO(l_top_curl,             OTHER_WIN2,    QT_R,    QT_T                               )      \
   __(l_top_trpo,             ____________,  QT_Q,    QT_W,      QT_E                    )      \
   __(l_top_sprd,             ____________,  QT_W,               QT_R                    )      \
