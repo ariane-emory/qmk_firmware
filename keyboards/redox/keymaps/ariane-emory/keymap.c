@@ -480,7 +480,7 @@ CONST_KEYRECORD_FUN(bool double_quote_handler) {
       tap_code(KC_BSPC);
       tap_code16(S(KC_QUOT));
 
-      double_quote_is_primed = false;
+      // double_quote_is_primed = false;
       return false;
     }
     else {
@@ -514,7 +514,9 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
   { CRL_LFT,                     disable_mouse_layer_handler },
   // { CRL_MS,                      disable_mouse_layer_handler },
 
+  { KC_QUOT,                     double_quote_handler },
   { RHRM_4(KC_QUOT),             double_quote_handler },
+  
 #ifdef DYNAMIC_MACRO_HANDLERS
   { QK_DYNAMIC_MACRO_PLAY_1,     dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2,     dynamic_macros_handler      },
@@ -643,7 +645,9 @@ static uint16_t idle_timer = 0;
 KEYRECORD_FUN(bool process_record_user) {
   idle_timer = timer_read();
 
-  if (record->event.pressed && keycode != RHRM_4(KC_QUOT))
+  // Unprime double quoting when other key is struck. This should probably be
+  // moved to some sort of cleanup function.
+  if (record->event.pressed && (((uint8_t)keycode) != ((uint8_t)KC_QUOT)))
     double_quote_is_primed = false;
   
 #ifdef USE_ACHORDION
