@@ -472,6 +472,26 @@ CONST_KEYRECORD_FUN(bool toggle_df_handler) {
   return false;
 };
 
+static bool double_quote_is_primed = false;
+
+CONST_KEYRECORD_FUN(bool double_quote_handler) {
+  if (record->event.pressed) {
+    if (double_quote_is_primed) {
+      tap_code(KC_BSPC);
+      tap_code16(S(KC_QUOT));
+
+      double_quote_is_primed = false;
+      return false;
+    }
+    else {
+      double_quote_is_primed = true;
+      return true;
+    }
+  }
+  
+  return true;
+};
+
 // ==============================================================================
 // Callback-based handlers: the callback table
 // ==============================================================================
@@ -494,6 +514,7 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
   { CRL_LFT,                     disable_mouse_layer_handler },
   // { CRL_MS,                      disable_mouse_layer_handler },
 
+  { RHRM_4(KC_QUOT),             double_quote_handler },
 #ifdef DYNAMIC_MACRO_HANDLERS
   { QK_DYNAMIC_MACRO_PLAY_1,     dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2,     dynamic_macros_handler      },
