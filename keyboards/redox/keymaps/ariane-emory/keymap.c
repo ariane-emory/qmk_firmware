@@ -480,11 +480,13 @@ CONST_KEYRECORD_FUN(bool double_quote_handler) {
       tap_code(KC_BSPC);
       tap_code16(S(KC_QUOT));
 
-      // double_quote_is_primed = false;
+      double_quote_is_primed = false;
+
       return false;
     }
     else {
       double_quote_is_primed = true;
+
       return true;
     }
   }
@@ -754,6 +756,8 @@ void matrix_scan_user(void) {
   achordion_task();
 #endif // USE_ACHORDION
 
+  idle_timer = timer_read();
+  
 #ifdef TOGGLED_LAYER_TIMEOUT
   manage_toggled_layer_timeout(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
 #endif // TOGGLED_LAYER_TIMEOUT

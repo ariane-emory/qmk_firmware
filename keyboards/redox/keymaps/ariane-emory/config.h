@@ -91,6 +91,7 @@
 #define RGBLIGHT_VAL_STEP                    8
 
 #define TAPPING_TERM                         300
+// #define QUICK_TAP_TERM                       0
 
 #define TOGGLED_LAYER                        9
 #define TOGGLED_LAYER_TIMEOUT                30000
