@@ -643,6 +643,9 @@ static uint16_t idle_timer = 0;
 KEYRECORD_FUN(bool process_record_user) {
   idle_timer = timer_read();
 
+  if (record->event.pressed && keycode != RHRM_4(KC_QUOT))
+    double_quote_is_primed = false;
+  
 #ifdef USE_ACHORDION
   if (! process_achordion(keycode, record)) return false;
 #endif // USE_ACHORDION
