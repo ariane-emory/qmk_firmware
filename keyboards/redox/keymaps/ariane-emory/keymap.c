@@ -1074,9 +1074,9 @@ void leader_end_user(void) {
   else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " S_CR()));
   }
-  else if (leader_sequence_one_key(KC_C)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "cargo run" S_CR()));
-  }
+  /* else if (leader_sequence_one_key(KC_C)) { */
+  /*   SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "cargo run" S_CR())); */
+  /* } */
   /* else if (leader_sequence_one_key(0)) { */
   /*   tap_code16(LCA(KC_X)); */
   /* } */
