@@ -825,7 +825,7 @@
       "RGUI(KC_LBRC)",
       "RGUI(KC_RBRC)",
       "RGUI(KC_W)",
-      "LGUI(KC_GRV)",
+      "KC_TRNS",
       "ANY(LHRM_4(LCA(KC_B)))",
       "ANY(LHRM_3(LCA(KC_F)))",
       "ANY(LHRM_2(VD_LEFT_ALT))",
