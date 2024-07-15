@@ -148,8 +148,8 @@
 #define STR_LFT LALT_OR_SPC
 //------------------------------------------------------------------------------
 #define STR_RGT LGUI_OR_BSPC
-#define THU_RGT KC_UPPER
-#define CRL_RGT FLIPR_OR_USCORE
+#define THU_RGT LT(LN_UPPER, KC_9) // KC_UPPER
+#define CRL_RGT LT(LN_FLIPR, KC_0) // FLIPR_OR_USCORE
 //------------------------------------------------------------------------------
 #define STR_MS  KC_BTN1
 #define THU_MS  KC_TRNS

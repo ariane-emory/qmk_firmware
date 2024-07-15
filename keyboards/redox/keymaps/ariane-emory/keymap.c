@@ -551,6 +551,8 @@ static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM =
   { LHRM_4(LCA(KC_B)),           LCA(KC_B)      },
   { LHRM_3(LCA(KC_F)),           LCA(KC_F)      }, 
   { LT(14, LSA(KC_LBRC)),        LSA(KC_LBRC)   },
+  { LT(LN_UPPER, KC_9),          KC_9           },
+  { LT(LN_FLIPR, KC_0),          KC_0           },
 
   { FLIPR_OR_USCORE,             LSFT(KC_MINS)  },
 };
