@@ -119,7 +119,7 @@
 // Tri layer keys
 //==============================================================================
 #define KC_LOWER       MO(LN_LOWER)
-#define KC_UPPER       MO(LN_UPPER)
+#define KC_UPPER       LT(LN_UPPER, KC_MINS) // MO(LN_UPPER)
 //==============================================================================
 
 

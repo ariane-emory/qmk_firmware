@@ -554,7 +554,7 @@ static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM =
 
   { LSFT_T(KC_MINS),             KC_9           },
   { RSFT_T(KC_MINS),             KC_0           },
-  { FLIPR_OR_USCORE,             KC_MINS        },
+  { FLIPR_OR_USCORE,             LSFT(KC_MINS)  },
 };
 
 bool process_tap_case(uint16_t keycode, keyrecord_t const * const record)  {
