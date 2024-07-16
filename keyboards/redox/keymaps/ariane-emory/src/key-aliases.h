@@ -152,7 +152,7 @@
 #define CRL_RGT LT(LN_FLIPR, KC_9) // FLIPR_OR_USCORE
 //------------------------------------------------------------------------------
 #define STR_MS  KC_BTN1
-#define THU_MS  KC_TRNS
+#define THU_MS  KC_UPPER
 // #define CRL_MS  FLIPR_OR_BTN2
 #define CRL_MS  KC_BTN2
 //==============================================================================
