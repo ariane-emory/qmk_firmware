@@ -90,7 +90,7 @@
 #define RGBLIGHT_SAT_STEP                    8
 #define RGBLIGHT_VAL_STEP                    8
 
-#define TAPPING_TERM                         200
+#define TAPPING_TERM                         250
 // #define QUICK_TAP_TERM                       0
 
 #define TOGGLED_LAYER                        9
