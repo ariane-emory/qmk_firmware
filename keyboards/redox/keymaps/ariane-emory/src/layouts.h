@@ -328,8 +328,13 @@
 // N: Canary (mod)
 //===============================================================================
 #define NT_Q    KC_Q
-#define NT_W    KC_L
-#define NT_E    LBRM_4(KC_V)
+#ifdef CANARY_COLSWAP
+  #define NT_W    KC_L
+  #define NT_E    LBRM_4(KC_V)
+#else
+  #define NT_W    KC_V
+  #define NT_E    LBRM_4(KC_L)
+#endif
 #define NT_R    LSFT_T(KC_G) // D)
 #define NT_T    KC_K
 #define NT_Y    KC_J
@@ -339,8 +344,13 @@
 #define NT_P    KC_QUOT
 //-------------------------------------------------------------------------------
 #define NH_A    LHRM_4(KC_W)
-#define NH_S    LHRM_3(KC_R)
-#define NH_D    LHRM_2(KC_S)
+#ifdef CANARY_COLSWAP
+  #define NH_S    LHRM_3(KC_R)
+  #define NH_D    LHRM_2(KC_S)
+#else
+  #define NH_S    LHRM_3(KC_S)
+  #define NH_D    LHRM_2(KC_R)
+#endif
 #define NH_F    LHRM_1(KC_T)
 #define NH_G    LHRM_0(KC_P) // M)
 #define NH_H    RHRM_0(KC_M) // P)
@@ -350,8 +360,13 @@
 #define NH_QUOT RHRM_4(KC_A)
 //-------------------------------------------------------------------------------
 #define NB_Z    LBRM_4(KC_C)
-#define NB_X           KC_X
-#define NB_C           KC_F
+#ifdef CANARY_COLSWAP
+  #define NB_X           KC_X
+  #define NB_C           KC_F
+#else
+  #define NB_X           KC_F
+  #define NB_C           KC_X
+#endif
 #define NB_V    LBRM_1(KC_D) // G)
 #define NB_B           KC_B
 #define NB_N           KC_Z
