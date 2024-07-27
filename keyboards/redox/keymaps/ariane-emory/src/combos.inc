@@ -1,3 +1,4 @@
+
 // -*- c-backslash-column: 95; c-backslash-max-column: 95 ; fill-column: 95; eval: (display-fill-column-indicator-mode 1); eval: (lsp-mode -1); -*-
 
 #include "key-aliases.h"
@@ -150,6 +151,8 @@ bool combo_should_trigger(
                                               && (combo->keycode != SS_LBRACK)
                                               && (combo->keycode != SS_RBRACK)))))
           || (((layer_state_is(LN_LOWER)
+                || layer_state_is(LN_FLIPL)
+                || layer_state_is(LN_FLIPR)
                 || layer_state_is(LN_UPPER)
                 || layer_state_is(LN_ARROWS))) &&
               (false
