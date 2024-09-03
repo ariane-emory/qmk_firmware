@@ -360,13 +360,13 @@
 #define NH_QUOT RHRM_4(KC_A)
 //-------------------------------------------------------------------------------
 #define NB_Z    LBRM_4(KC_C)
-#ifdef CANARY_COLSWAP
+/* #ifdef CANARY_COLSWAP */
   #define NB_X           KC_X
   #define NB_C           KC_Q
-#else
-  #define NB_X           KC_Q
-  #define NB_C           KC_X
-#endif
+/* #else */
+/*   #define NB_X           KC_Q */
+/*   #define NB_C           KC_X */
+/* #endif */
 #define NB_V    LBRM_1(KC_D) // G)
 #define NB_B           KC_B
 #define NB_N           KC_Z
