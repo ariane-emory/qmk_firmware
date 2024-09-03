@@ -327,7 +327,7 @@
 //===============================================================================
 // N: Canary (mod)
 //===============================================================================
-#define NT_Q    KC_Q
+#define NT_Q    KC_F
 #ifdef CANARY_COLSWAP
   #define NT_W    KC_L
   #define NT_E    LBRM_4(KC_V)
@@ -362,9 +362,9 @@
 #define NB_Z    LBRM_4(KC_C)
 #ifdef CANARY_COLSWAP
   #define NB_X           KC_X
-  #define NB_C           KC_F
+  #define NB_C           KC_Q
 #else
-  #define NB_X           KC_F
+  #define NB_X           KC_Q
   #define NB_C           KC_X
 #endif
 #define NB_V    LBRM_1(KC_D) // G)
