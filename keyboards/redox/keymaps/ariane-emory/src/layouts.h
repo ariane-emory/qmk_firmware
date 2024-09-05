@@ -41,7 +41,7 @@
 #define QH_K     RHRM_2(KC_K)
 #define QH_L     RHRM_3(KC_L)
 #define QH_QUOT  RHRM_4(QH_RC) // KC_DQUO_TAP)
-#define QH_ENTR  KC_QUOT // RCTL_DQUO
+#define QH_ENTR  RCTL_DQUO // KC_QUOT // RCTL_DQUO
 //-------------------------------------------------------------------------------
 #define QB_Z     LBRM_4(KC_Z)
 #define QB_X     KC_X
