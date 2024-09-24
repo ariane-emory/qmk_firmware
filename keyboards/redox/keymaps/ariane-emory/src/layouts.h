@@ -371,9 +371,15 @@
 #define NB_B           KC_B
 #define NB_N           KC_Z
 #define NB_M    RBRM_1(KC_N)
-#define NB_COMM        KC_COMM  //  KC_SLSH  
-#define NB_DOT         KC_DOT   //  KC_COMM  
-#define NB_SLSH RBRM_4(KC_SLSH) // (KC_DOT)  
+#ifdef CANARY_PUNCTUATION
+  #define NB_COMM        KC_SLSH  
+  #define NB_DOT         KC_COMM
+  #define NB_SLSH RBRM_4(KC_DOT)  
+#else 
+  #define NB_COMM        KC_COMM
+  #define NB_DOT         KC_DOT
+  #define NB_SLSH RBRM_4(KC_SLSH)
+#endif
 //===============================================================================
 
 

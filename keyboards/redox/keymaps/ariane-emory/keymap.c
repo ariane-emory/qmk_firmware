@@ -839,9 +839,9 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
 
   // Left Control
   { QH_F,    QH_A            }, // beginning of line
-  { NH_J,    NH_QUOT         }, // beginning of line
+  // { NH_J,    NH_QUOT         }, // beginning of line
   { QH_F,    QT_E            }, // end of line
-  { NH_J,    NH_K            }, // end of line
+  // { NH_J,    NH_K            }, // end of line
   
   // { QH_F,    QH_D            }, // delete forwards char
   // { QH_F,    QT_T            }, // new tab
