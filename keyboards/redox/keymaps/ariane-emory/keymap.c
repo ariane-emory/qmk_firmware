@@ -909,10 +909,10 @@ bool achordion_chord(
                                  : ARRAY_SIZE(achordion_qwerty_bilat_keys))))
     return true;
   
-  /* // Exceptionally consider the following chords as holds, even though they */
-  /* // are on the same hand. */
-  /* if (array_contains_keycode_pair_P((keycode_pair_t){ tap_hold_keycode, other_keycode }, achordion_exceptions, ARRAY_SIZE(achordion_exceptions))) */
-  /*   return true; */
+  // Exceptionally consider the following chords as holds, even though they
+  // are on the same hand.
+  if (array_contains_keycode_pair_P((keycode_pair_t){ tap_hold_keycode, other_keycode }, achordion_exceptions, ARRAY_SIZE(achordion_exceptions)))
+    return true;
    
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
