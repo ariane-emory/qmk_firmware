@@ -809,12 +809,12 @@ void matrix_scan_user(void) {
 #ifdef USE_ACHORDION
 static const uint16_t achordion_qwerty_bilat_keys[] PROGMEM = {
   QH_S, QH_D, QH_F,
-  QH_J, QH_K, QH_L,
+  QH_J, QH_K, QH_L, QH_QUOT
 };
 
 static const uint16_t achordion_canary_bilat_keys[] PROGMEM = {
   NH_S, NH_D, NH_F,
-  NH_J, NH_K, NH_L,
+  NH_J, NH_K, NH_L, NH_QUOT
 };
 
 static const keycode_pair_t achordion_exceptions[] PROGMEM = {
@@ -834,7 +834,8 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // { QH_D,    QH_F            }, // forwards word
   // { QH_D,    QB_B            }, // backwards word
   // { QH_D,    QT_T            }, // new tab
-  // { QH_D,    KC_ENT          }, // M-<return>
+  { QH_F,    KC_ENT          }, // C-<return>
+  { QH_D,    KC_ENT          }, // M-<return>
 
   // Left Control
   { QH_F,    QH_A            }, // beginning of line
@@ -846,7 +847,6 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   // { QH_F,    QT_T            }, // new tab
   // { QH_F,    QT_W            }, // close
   // { QH_F,    QH_S            }, // i-search
-  // { QH_F,    KC_ENT          }, // C-<return>
 
   // Left shift
   // { QH_G,    KC_SPC },
@@ -900,15 +900,15 @@ bool achordion_chord(
   if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
     return true;
 
-  /* // If it isn't a home row mod/shift, process normally. */
-  /* if (!array_contains_keycode_P(tap_hold_keycode, */
-  /*                               (toggle_df_flag */
-  /*                                ? achordion_canary_bilat_keys */
-  /*                                : achordion_qwerty_bilat_keys), */
-  /*                               (toggle_df_flag */
-  /*                                ? ARRAY_SIZE(achordion_canary_bilat_keys) */
-  /*                                : ARRAY_SIZE(achordion_qwerty_bilat_keys)))) */
-  /*   return true; */
+  // If it isn't a home row mod/shift, process normally.
+  if (!array_contains_keycode_P(tap_hold_keycode,
+                                (toggle_df_flag
+                                 ? achordion_canary_bilat_keys
+                                 : achordion_qwerty_bilat_keys),
+                                (toggle_df_flag
+                                 ? ARRAY_SIZE(achordion_canary_bilat_keys)
+                                 : ARRAY_SIZE(achordion_qwerty_bilat_keys))))
+    return true;
   
   // Exceptionally consider the following chords as holds, even though they
   // are on the same hand.
