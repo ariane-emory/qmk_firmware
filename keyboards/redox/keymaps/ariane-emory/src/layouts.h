@@ -20,12 +20,12 @@
 #define QT_TAB   LT(LN_UTIL,KC_TAB)
 #define QT_Q     KC_Q
 #define QT_W     KC_W
-#define QT_E     LBRM_4(KC_E)
-#define QT_R     LSFT_T(KC_R)
+#define QT_E     LSFT_T(KC_E)
+#define QT_R     LBRM_4(KC_R)
 #define QT_T     KC_T
 #define QT_Y     KC_Y
-#define QT_U     RSFT_T(KC_U)
-#define QT_I     RBRM_4(KC_I)
+#define QT_U     RBRM_4(KC_U)
+#define QT_I     RSFT_T(KC_I)
 #define QT_O     KC_O
 #define QT_P     QT_RC
 #define QT_BSLS  LT(LN_UTIL,KC_BSLS)
@@ -330,16 +330,16 @@
 #define NT_Q    KC_V
 #ifdef CANARY_COLSWAP
   #define NT_W    KC_L
-  #define NT_E    LBRM_4(KC_Y)
+  #define NT_E    LSFT_T(KC_Y)
 #else
   #define NT_W    KC_Y
-  #define NT_E    LBRM_4(KC_L)
+  #define NT_E    LSFT_T(KC_L)
 #endif
-#define NT_R    LSFT_T(KC_G) // D)
+#define NT_R    LBRM_4(KC_G) // D)
 #define NT_T    KC_K
 #define NT_Y    KC_J
-#define NT_U    RSFT_T(KC_F)
-#define NT_I    RBRM_4(KC_O)
+#define NT_U    RBRM_4(KC_F)
+#define NT_I    RSFT_T(KC_O)
 #define NT_O    KC_U
 #define NT_P    KC_QUOT
 //-------------------------------------------------------------------------------
