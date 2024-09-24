@@ -839,28 +839,31 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
 
   // Left Control
   { QH_F,    QH_A            }, // beginning of line
-  { QH_F,    QH_D            }, // delete forwards char
-  /* { QH_F,    QT_E            }, // end of line */
-  /* { QH_F,    QT_T            }, // new tab */
-  { QH_F,    QT_W            }, // close
-  /* { QH_F,    QH_S            }, // i-search */
-  { QH_F,    KC_ENT          }, // C-<return>
-
-  // Left shift
-  { QH_G,    KC_SPC },
-
-  // Right  shift
-  { QH_H,    KC_SPC },
+  { NH_J,    NH_QUOT         }, // beginning of line
+  { QH_F,    QT_E            }, // end of line
+  { NH_J,    NH_K            }, // end of line
   
-  // Left shift
-  { QH_A,    KC_SPC },
+  // { QH_F,    QH_D            }, // delete forwards char
+  // { QH_F,    QT_T            }, // new tab
+  // { QH_F,    QT_W            }, // close
+  // { QH_F,    QH_S            }, // i-search
+  // { QH_F,    KC_ENT          }, // C-<return>
 
+  // Left shift
+  // { QH_G,    KC_SPC },
   // Right  shift
-  { QH_QUOT, KC_SPC },
+  // { QH_H,    KC_SPC },
+  // Left shift
+  // { QH_A,    KC_SPC },
+  // Right  shift
+  // { QH_QUOT, KC_SPC },
   
   // Right Control
-  { QH_J,    QT_U            }, // emacs prefix arg
+  // { QH_J,    QT_U            }, // emacs prefix arg
+
   { QH_J,    QH_K            }, // kill line
+  { NH_F,    NT_T            }, // kill line
+
   { QH_J,    QH_L            }, // recenter / address bar
   { QH_J,    QT_Y            }, // yank
   { QH_J,    QB_N            }, // next line
