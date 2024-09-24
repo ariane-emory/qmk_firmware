@@ -807,12 +807,14 @@ void matrix_scan_user(void) {
 // ==============================================================================
 
 #ifdef USE_ACHORDION
-static const uint16_t achordion_bilat_keys[] PROGMEM = {
+static const uint16_t achordion_qwerty_bilat_keys[] PROGMEM = {
   QH_S, QH_D, QH_F,
   QH_J, QH_K, QH_L,
+};
 
-  WH_S, WH_D, WH_F,
-  WH_J, WH_K, WH_L,
+static const uint16_t achordion_canary_bilat_keys[] PROGMEM = {
+  NH_S, NH_D, NH_F,
+  NH_J, NH_K, NH_L,
 };
 
 static const keycode_pair_t achordion_exceptions[] PROGMEM = {
@@ -898,7 +900,13 @@ bool achordion_chord(
     return true;
 
   // If it isn't a home row mod/shift, process normally.
-  if (!array_contains_keycode_P(tap_hold_keycode, achordion_bilat_keys, ARRAY_SIZE(achordion_bilat_keys)))
+  if (!array_contains_keycode_P(tap_hold_keycode,
+                                (toggle_df_flag
+                                 ? achordion_canary_bilat_keys
+                                 : achordion_qwerty_bilat_keys),
+                                (toggle_df_flag
+                                 ? ARRAY_SIZE(achordion_canary_bilat_keys)
+                                 : ARRAY_SIZE(achordion_qwerty_bilat_keys))))
     return true;
   
   /* // Exceptionally consider the following chords as holds, even though they */
