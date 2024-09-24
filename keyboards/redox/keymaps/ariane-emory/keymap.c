@@ -900,15 +900,15 @@ bool achordion_chord(
   if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
     return true;
 
-  // If it isn't a home row mod/shift, process normally.
-  if (!array_contains_keycode_P(tap_hold_keycode,
-                                (toggle_df_flag
-                                 ? achordion_canary_bilat_keys
-                                 : achordion_qwerty_bilat_keys),
-                                (toggle_df_flag
-                                 ? ARRAY_SIZE(achordion_canary_bilat_keys)
-                                 : ARRAY_SIZE(achordion_qwerty_bilat_keys))))
-    return true;
+  /* // If it isn't a home row mod/shift, process normally. */
+  /* if (!array_contains_keycode_P(tap_hold_keycode, */
+  /*                               (toggle_df_flag */
+  /*                                ? achordion_canary_bilat_keys */
+  /*                                : achordion_qwerty_bilat_keys), */
+  /*                               (toggle_df_flag */
+  /*                                ? ARRAY_SIZE(achordion_canary_bilat_keys) */
+  /*                                : ARRAY_SIZE(achordion_qwerty_bilat_keys)))) */
+  /*   return true; */
   
   // Exceptionally consider the following chords as holds, even though they
   // are on the same hand.
