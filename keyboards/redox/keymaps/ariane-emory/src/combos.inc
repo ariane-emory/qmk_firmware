@@ -1,5 +1,4 @@
-
-// -*- c-backslash-column: 95; c-backslash-max-column: 95 ; fill-column: 95; eval: (display-fill-column-indicator-mode 1); eval: (lsp-mode -1); -*-
+// -*- c-backslash-column: 95; c-backslash-max-column: 95; fill-column: 95; eval: (display-fill-column-indicator-mode 1); eval: (lsp-mode -1); -*-
 
 #include "key-aliases.h"
 #include "src/util.h"
@@ -18,8 +17,8 @@
   DO(both_thu_thumbs,        CAPS_WORD,     THU_LFT, THU_RGT                            )      \
   DO(both_crl_thumbs,        LOCAL_CAPS,    CRL_LFT, CRL_RGT                            )      \
   _______________________________________________________________________________________      \
-  DO(l_top_rech,             KC_GRV,        QT_Q,    QT_W                               )      \
-  DO(l_top_outr,             KC_1,          QT_W,    QT_E                               )      \
+  DO(l_top_rech,             KC_1,          QT_Q,    QT_W                               )      \
+  DO(l_top_outr,             KC_GRV,        QT_W,    QT_E                               )      \
   DO(l_top_innr,             LSFT(KC_GRV),  QT_E,    QT_R                               )      \
   DO(l_top_curl,             OTHER_WIN2,    QT_R,    QT_T                               )      \
   __(l_top_trpo,             ____________,  QT_Q,    QT_W,      QT_E                    )      \
