@@ -335,7 +335,7 @@
   #define NT_W    KC_Y
   #define NT_E    LSFT_T(KC_L)
 #endif
-#define NT_R    LBRM_4(KC_G)
+#define NT_R    LBRM_4(KC_D)
 #define NT_T    KC_K
 #define NT_Y    KC_J
 #define NT_U    RBRM_4(KC_F)
@@ -367,13 +367,13 @@
 /*   #define NB_X           KC_Q */
 /*   #define NB_C           KC_X */
 /* #endif */
-#define NB_V    LBRM_1(KC_D)
+#define NB_V    LBRM_1(KC_G)
 #define NB_B           KC_B
 #define NB_N           KC_Z
 #define NB_M    RBRM_1(KC_N)
-#define NB_COMM        KC_SLSH  //        KC_COMM
-#define NB_DOT         KC_COMM  //        KC_DOT
-#define NB_SLSH RBRM_4(KC_DOT)  // RBRM_4(KC_SLSH)
+#define NB_COMM        KC_COMM  //  KC_SLSH  
+#define NB_DOT         KC_DOT   //  KC_COMM  
+#define NB_SLSH RBRM_4(KC_SLSH) // (KC_DOT)  
 //===============================================================================
 
 
