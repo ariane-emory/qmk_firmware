@@ -882,9 +882,9 @@ bool achordion_chord(
   keyrecord_t * tap_hold_record,
   uint16_t      other_keycode,
   keyrecord_t * other_record) {
-  // KC_TAB keycode is not subject to achordion:
-  if (other_keycode >= KC_TAB)
-    return true;
+  /* // KC_TAB keycode is not subject to achordion: */
+  /* if (other_keycode >= KC_TAB) */
+  /*   return true; */
 
   // custom keycodes are not subject to achordion:
   if (other_keycode >= SAFE_RANGE)
@@ -893,19 +893,18 @@ bool achordion_chord(
   // Allow same-hand holds when the other key is in the rows below the
   // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
   //
-  // NOTE-AE: This is probably unnecesary due to the following check.
-  //
-  // if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
-  //   return true;
+  // NOTE-AE: This is probably unnecesary due to the following check.  //
+  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
+    return true;
 
   // If it isn't a home row mod/shift, process normally.
   if (!array_contains_keycode_P(tap_hold_keycode, achordion_bilat_keys, ARRAY_SIZE(achordion_bilat_keys)))
     return true;
   
-  // Exceptionally consider the following chords as holds, even though they
-  // are on the same hand.
-  if (array_contains_keycode_pair_P((keycode_pair_t){ tap_hold_keycode, other_keycode }, achordion_exceptions, ARRAY_SIZE(achordion_exceptions)))
-    return true;
+  /* // Exceptionally consider the following chords as holds, even though they */
+  /* // are on the same hand. */
+  /* if (array_contains_keycode_pair_P((keycode_pair_t){ tap_hold_keycode, other_keycode }, achordion_exceptions, ARRAY_SIZE(achordion_exceptions))) */
+  /*   return true; */
    
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
