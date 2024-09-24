@@ -945,7 +945,7 @@ static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
   CRL_RGT,
   THU_LFT,
   THU_RGT,
-  QH_A, QH_S, QH_D, QH_F,
+  QH_A, QH_S, QH_D, QH_F, QH_G,
   QH_J, QH_K, QH_L, QH_QUOT,  
 };
 
@@ -954,7 +954,7 @@ static const uint16_t layer9_permissive_hold_keys[] PROGMEM = {
   CRL_RGT,
   THU_LFT,
   THU_RGT,
-  NH_A, NH_S, NH_D, NH_F,
+  NH_A, NH_S, NH_D, NH_F, NH_G,
   NH_J, NH_K, NH_L, NH_QUOT,  
 };
 
