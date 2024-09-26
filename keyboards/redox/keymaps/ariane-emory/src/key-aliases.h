@@ -21,6 +21,18 @@
 //==============================================================================
 // HRM Assignments
 //==============================================================================
+#ifdef TRM_SWAP
+  #define LTRM_2(x) LT(LN_ARROWS, x)
+  #define LTRM_1(x) LSFT_T(x)
+  #define RTRM_1(x) LSFT_T(x)
+  #define RTRM_2(x) LT(LN_ARROWS, x)
+#else
+  #define LTRM_2(x) LSFT_T(x)
+  #define LTRM_1(x) LT(LN_ARROWS, x)
+  #define RTRM_1(x) LT(LN_ARROWS, x)
+  #define RTRM_2(x) LSFT_T(x)
+#endif
+//==============================================================================
 #define LHRM_4(x) LSFT_T(x) // LGUI_T(x)  
 #define LHRM_3(x) LGUI_T(x) // LALT_T(x) 
 #define LHRM_2(x) LALT_T(x) // LCTL_T(x) 
