@@ -3,7 +3,7 @@
   "notes": "",
   "documentation": "\"This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\"\n",
   "keyboard": "redox/rev1/base",
-  "keymap": "redox_rev1_base_redox_rev1_base_redox_rev1_base_redox_rev1_base_redox_rev1_base_redox-ariane-emory",
+  "keymap": "redox_rev1_base_redox_rev1_base_redox_rev1_base_redox_rev1_base_redox_rev1_base_redox_rev1_base_redox-ariane-emory",
   "layout": "LAYOUT",
   "layers": [
     [
@@ -793,10 +793,10 @@
       "ANY(STR_MS)",
       "ANY(THU_MS)",
       "ANY(CRL_MS)",
-      "ANY(LCTL(LALT(KC_B)))",
-      "ANY(LCTL(LALT(KC_T)))",
-      "ANY(LSFT(LCTL(LALT(KC_T))))",
-      "ANY(LCTL(LALT(KC_F)))"
+      "KC_LEFT",
+      "KC_DOWN",
+      "KC_UP",
+      "KC_RGHT"
     ],
     [
       "KC_TRNS",

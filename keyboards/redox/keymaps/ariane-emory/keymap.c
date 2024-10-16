@@ -106,11 +106,17 @@ void keyboard_post_init_user(void) {
 #define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) TAP(X_BTN1) SS_UP(X_LGUI)
 #define S_GUI_CLICK_AND_TAB(_) S_GUI_CLICK() SS_LCTL(TAP(X_TAB))
 #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "11" S_CR() TAP(X_HOME)
+/* #define S_TELEPORT(_)                                                                                                                             */
+/*   S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                 */
+/*   SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                   */
+/*   SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() TAP(X_ENT) SS_DELAY(2500)                                                           */
+/*                                                                          TAP(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                              */
+/*                                                                                   SS_LGUI("`") S_DD() S_SCR_L() */
 #define S_TELEPORT(_)                                                                                                                            \
   S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                \
   SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                  \
   SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() TAP(X_ENT) SS_DELAY(2500)                                                          \
-                                                                         TAP(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                             \
+                                                                         TAP(X_F) S_DD()                                                         \
                                                                                   SS_LGUI("`") S_DD() S_SCR_L()
 
 // ==============================================================================
