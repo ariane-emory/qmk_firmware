@@ -249,8 +249,8 @@ enum arianes_custom_keycodes {
   MY_BOOT,
   DISCORD_MUTE,
   TOGGLE_DF,
-  Q_POS,
-  W_POS,
+  /* Q_POS, */
+  /* W_POS, */
   A_POS,
   S_POS,
   FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(enum_item)
@@ -563,12 +563,13 @@ static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM =
   /* { LHRM_3(LCA(KC_F)),           LCA(KC_F)      },  */
 
   // dummy keys to C(A) / C(E):
-  { LHRM_4(A_POS),               C(KC_A)        },
-  { LHRM_3(S_POS),               C(KC_E)        }, 
+  { LHRM_4(A_POS),               LCA(KC_B)      },
+  { LHRM_3(S_POS),               LCA(KC_F)      }, 
 
   { LT(14, LSA(KC_LBRC)),        LSA(KC_LBRC)   },
 
   { FLIPR_OR_USCORE,             LSFT(KC_MINS)  },
+  { LHRM_0(KC_PGDN),             KC_PGDN        }
 };
 
 bool process_tap_case(uint16_t keycode, keyrecord_t const * const record)  {

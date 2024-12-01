@@ -124,7 +124,10 @@
 #define SPOTLIGHT      LGUI(KC_SPC)
 #define TG_MOUSE       TG(LN_MOUSE)
 #define OTHER_WIN2     LGUI(KC_GRV)
+#define Q_POS          C(KC_A) // LCA(KC_B)
+#define W_POS          C(KC_E) // LCA(KC_F)
 //==============================================================================
+
 
 
 //==============================================================================
