@@ -345,8 +345,8 @@
 //-------------------------------------------------------------------------------
 #define NH_A    LHRM_4(KC_W)
 #ifdef CANARY_COLSWAP
-  #define NH_S    LHRM_3(KC_R)
-  #define NH_D    LHRM_2(KC_S)
+  #define NH_S    LHRM_3(KC_S) // R)
+  #define NH_D    LHRM_2(KC_R) // S)
 #else
   #define NH_S    LHRM_3(KC_S)
   #define NH_D    LHRM_2(KC_R)
