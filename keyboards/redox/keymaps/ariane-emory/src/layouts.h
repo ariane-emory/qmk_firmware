@@ -7,16 +7,6 @@
 //===============================================================================
 // Q: Qwerty
 //===============================================================================
-#ifdef ROTATE_RIGHT_COL
-# define QT_RC  KC_P
-# define QH_RC  KC_QUOT
-# define QB_RC  KC_SLSH
-#else
-# define QT_RC  KC_P
-# define QH_RC  KC_QUOT
-# define QB_RC  KC_SLSH
-#endif
-//-------------------------------------------------------------------------------
 #define QT_TAB   LT(LN_UTIL,KC_TAB)
 #define QT_Q     KC_Q
 #define QT_W     KC_W
@@ -27,7 +17,7 @@
 #define QT_U     RTRM_1(KC_U)
 #define QT_I     RTRM_2(KC_I)
 #define QT_O     KC_O
-#define QT_P     QT_RC
+#define QT_P     KC_P
 #define QT_BSLS  LT(LN_UTIL,KC_BSLS)
 //-------------------------------------------------------------------------------
 #define QH_CAPS  LCTL_ESC
@@ -40,7 +30,7 @@
 #define QH_J     RHRM_1(KC_J)
 #define QH_K     RHRM_2(KC_K)
 #define QH_L     RHRM_3(KC_L)
-#define QH_QUOT  RHRM_4(QH_RC) // KC_DQUO_TAP)
+#define QH_QUOT  RHRM_4(KC_QUOT)
 #define QH_ENTR  RCTL_DQUO // KC_QUOT // RCTL_DQUO
 //-------------------------------------------------------------------------------
 #define QB_Z     LBRM_4(KC_Z)
@@ -52,7 +42,7 @@
 #define QB_M     RBRM_1(KC_M)
 #define QB_COMM  KC_COMM
 #define QB_DOT   KC_DOT
-#define QB_SLSH  LBRM_4(QB_RC)
+#define QB_SLSH  LBRM_4(KC_SLSH)
 //===============================================================================
 
 
