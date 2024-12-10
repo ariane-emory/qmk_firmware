@@ -9,14 +9,14 @@
 //===============================================================================
 #define QT_TAB   LT(LN_UTIL,KC_TAB)
 #define QT_Q     KC_Q
-#define QT_W     KC_W
+#define QT_W     LTRM_3(KC_W)
 #define QT_E     LTRM_2(KC_E)
 #define QT_R     LTRM_1(KC_R)
 #define QT_T     KC_T
 #define QT_Y     KC_Y
 #define QT_U     RTRM_1(KC_U)
 #define QT_I     RTRM_2(KC_I)
-#define QT_O     KC_O
+#define QT_O     RTRM_3(KC_O)
 #define QT_P     KC_P
 #define QT_BSLS  LT(LN_UTIL,KC_BSLS)
 //-------------------------------------------------------------------------------
@@ -319,10 +319,10 @@
 //===============================================================================
 #define NT_Q    KC_V
 #ifdef CANARY_COLSWAP
-  #define NT_W    KC_L
+  #define NT_W    LTRM_3(KC_L)
   #define NT_E    LTRM_2(KC_Y)
 #else
-  #define NT_W    KC_Y
+  #define NT_W    LTRM_3(KC_Y)
   #define NT_E    LTRM_2(KC_L)
 #endif
 #define NT_R    LTRM_1(KC_D)
@@ -330,7 +330,7 @@
 #define NT_Y    KC_J
 #define NT_U    RTRM_1(KC_F)
 #define NT_I    RTRM_2(KC_O)
-#define NT_O    KC_U
+#define NT_O    RTRM_3(KC_U)
 #define NT_P    KC_QUOT
 //-------------------------------------------------------------------------------
 #define NH_A    LHRM_4(KC_W)
