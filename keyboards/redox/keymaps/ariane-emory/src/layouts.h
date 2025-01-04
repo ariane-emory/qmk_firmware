@@ -338,12 +338,17 @@
   #define NH_S    LHRM_3(KC_S) // R)
   #define NH_D    LHRM_2(KC_R) // S)
 #else
-  #define NH_S    LHRM_3(KC_S)
-  #define NH_D    LHRM_2(KC_R)
+  #define NH_S    LHRM_3(KC_R)
+  #define NH_D    LHRM_2(KC_S)
 #endif
 #define NH_F    LHRM_1(KC_T)
-#define NH_G    LHRM_0(KC_P) // M)
-#define NH_H    RHRM_0(KC_M) // P)
+#ifdef CANARY_MP_SWAP
+#  define NH_G    LHRM_0(KC_M)
+#  define NH_H    RHRM_0(KC_P)
+#else
+#  define NH_G    LHRM_0(KC_P)
+#  define NH_H    RHRM_0(KC_M)
+#endif
 #define NH_J    RHRM_1(KC_H)
 #define NH_K    RHRM_2(KC_E)
 #define NH_L    RHRM_3(KC_I)
@@ -358,8 +363,13 @@
 /*   #define NB_C           KC_X */
 /* #endif */
 #define NB_V    LBRM_1(KC_G)
-#define NB_B           KC_B
-#define NB_N           KC_Z
+#ifdef CANARY_BZ_SWAP
+#  define NB_B           KC_Z
+#  define NB_N           KC_B
+#else
+#  define NB_B           KC_B
+#  define NB_N           KC_Z
+#endif
 #define NB_M    RBRM_1(KC_N)
 #ifdef CANARY_PUNCTUATION
   #define NB_COMM        KC_SLSH  
