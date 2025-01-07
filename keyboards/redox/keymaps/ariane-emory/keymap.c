@@ -547,8 +547,8 @@ static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM =
   { LT(15, LGUI(KC_W)),          LGUI(KC_W)     },
   { RHRM_4(KC_DQUO_TAP),         KC_DQUO        },
 
-  { RCTL_SQUO,                   KC_QUOT        },
-  { RCTL_DQUO,                   KC_DQUO        },
+  { LCTL_SQUO,                   KC_QUOT        },
+  { LCTL_DQUO,                   KC_DQUO        },
 
   { LCTL_OPEN,                   LGUI(KC_O)     },
   
@@ -930,7 +930,7 @@ bool achordion_eager_mod(uint8_t mod) {
 
 static const uint16_t hold_on_other_keypress_keys[] PROGMEM = {
   LCTL_ESC,
-  RCTL_DQUO,
+  LCTL_DQUO,
   LSFT_T(KC_MINS),
   RSFT_T(KC_MINS),
 };
