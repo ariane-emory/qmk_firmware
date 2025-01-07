@@ -209,7 +209,7 @@ void keyboard_post_init_user(void) {
   DO(SS_CD,                ("cd "),                 ("cd ~/"),                                ("cd .."),              ("cd -"))                  \
   DO(SS_LBRACK,            ("("),                   ("{"),                                    ("["),                  ("<"))                     \
   DO(SS_RBRACK,            (")"),                   ("}"),                                    ("]"),                  (">"))                     \
-  DO(SS_AND_AND,           (" && "),                (" || "),                                 (" @>7! "),             (" >/dev/null "))          \
+  DO(SS_AND_AND,           (" && "),                (" || "),                                 (" 2>&1 "),             (" >/dev/null "))          \
 //                         NO MODS                  CTRL                                      ALT                 SHIFT
 #endif
 
