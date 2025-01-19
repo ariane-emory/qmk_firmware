@@ -175,7 +175,7 @@ void keyboard_post_init_user(void) {
 
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
-  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),                   (""))                      \
+  DO(SS_DICT,              (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),  (TAP(X_F24) TAP(X_F24)), (""),                   (""))                       \
   DO(EM_LASTARG,                                                                                                                                 \
      (S_EVAL_SEXP),           /* NO MODS */                                                                                                      \
      (S_PP_EVAL_SEXP),        /* CTRL */                                                                                                         \
@@ -194,7 +194,7 @@ void keyboard_post_init_user(void) {
 //                         NO MODS                  CTRL                                      ALT                     SHIFT
 #else
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
-  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_SPC) SS_UP(X_F24)), (""),                   (""))                      \
+  DO(SS_DICT,              (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),  (TAP(X_F24) TAP(X_F24)), (""),                   (""))                     \
   DO(EM_LASTARG,                                                                                                                                 \
      (S_EVAL_SEXP),           /* NO MODS */                                                                                                      \
      (S_PP_EVAL_SEXP),        /* CTRL */                                                                                                         \
