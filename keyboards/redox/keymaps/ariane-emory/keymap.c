@@ -880,6 +880,7 @@ static const keycode_pair_t achordion_exceptions[] PROGMEM = {
   /* { QH_K,    KC_BSLS         }, // ??? */
   { QH_K,    QB_N            }, // next command
 
+  { QH_S,   KC_ENT },
   // Right GUI
   /* { QH_L,    QH_K            }, // ??? */
   /* { QH_L,    KC_BSLS         }, // ??? */
@@ -1110,3 +1111,4 @@ void leader_end_user(void) {
 // ==============================================================================
 
 #include "src/keymap.inc"
+
