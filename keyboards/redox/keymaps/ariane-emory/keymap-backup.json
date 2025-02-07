@@ -63,7 +63,7 @@
       "ANY(QB_DOT)",
       "ANY(QB_SLSH)",
       "ANY(QB_RSFT)",
-      "KC_TRNS",
+      "ANY(QB_LSFT)",
       "KC_TRNS",
       "KC_F24",
       "ANY(VD_ALL)",
