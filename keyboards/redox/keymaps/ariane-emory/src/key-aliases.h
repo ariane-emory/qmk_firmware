@@ -41,10 +41,10 @@
 #define RHRM_3(x) LGUI_T(x) // LALT_T(x) 
 #define RHRM_4(x) RSFT_T(x) // LGUI_T(x) 
 //------------------------------------------------------------------------------
-#define LBRM_4(x) LSFT_T(x)
+#define LBRM_4(x) LT(LN_ARROWS, x)
 #define LBRM_1(x) LSFT_T(x)
 #define RBRM_1(x) LSFT_T(x)
-#define RBRM_4(x) LSFT_T(x)
+#define RBRM_4(x) LT(LN_ARROWS, x)
 //==============================================================================
 
 
