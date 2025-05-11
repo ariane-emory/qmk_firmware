@@ -183,7 +183,7 @@ void keyboard_post_init_user(void) {
      ("c -" S_CR()))          /* SHIFT */                                                                                                        \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),                   (S_GUI_CLICK_AND_TAB()))   \
   DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),           (AE_FPWD))                 \
-  DO(SS_ARROW,             ("->"),                  (" => "),                                 ("490" S_LL()),         (""))                      \
+  DO(SS_ARROW,             ("->"),                  (" => "),                                 ("4()" S_LL()),         (""))                      \
   DO(SS_SMILEY,            (" ;0"),                 (" :/"),                                  (" >_>"),               (""))                      \
   DO(SS_SMILEY2,           (" :0"),                 (" :P"),                                  (" :D"),                (""))                      \
   DO(SS_DIR,               ("~/"),                  ("../"),                                  ("./"),                 (""))                      \
@@ -194,7 +194,7 @@ void keyboard_post_init_user(void) {
 //                         NO MODS                  CTRL                                      ALT                     SHIFT
 #else
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
-  DO(SS_DICT,              (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),  (TAP(X_F24) TAP(X_F24)), (""),                   (""))                     \
+  DO(SS_DICT,              (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),  (TAP(X_F24) TAP(X_F24)), (""),                   (""))                       \
   DO(EM_LASTARG,                                                                                                                                 \
      (S_EVAL_SEXP),           /* NO MODS */                                                                                                      \
      (S_PP_EVAL_SEXP),        /* CTRL */                                                                                                         \
@@ -202,7 +202,7 @@ void keyboard_post_init_user(void) {
      ("c -" S_CR()))          /* SHIFT */                                                                                                        \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),                   (S_GUI_CLICK_AND_TAB()))   \
   DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),           (AE_FPWD))                 \
-  DO(SS_ARROW,             ("->"),                  (" => "),                                 ("$()" S_LL()),         (""))                      \
+  DO(SS_ARROW,             ("->"),                  (" => "),                                 ("${}" S_LL()),         (""))                      \
   DO(SS_SMILEY,            (" ;)"),                 (" :/"),                                  (" >_>"),               (""))                      \
   DO(SS_SMILEY2,           (" :)"),                 (" :P"),                                  (" :D"),                (""))                      \
   DO(SS_DIR,               ("~/"),                  ("../"),                                  ("./"),                 (""))                      \
