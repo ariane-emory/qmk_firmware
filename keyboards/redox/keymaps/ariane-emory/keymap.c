@@ -202,7 +202,7 @@ void keyboard_post_init_user(void) {
      ("c -" S_CR()))          /* SHIFT */                                                                                                        \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),                   (S_GUI_CLICK_AND_TAB()))   \
   DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),           (AE_FPWD))                 \
-  DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("->"),                 ("->"))                    \
+  DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("->"),                 ("``" S_LL()))             \
   DO(SS_SMILEY,            (" ;)"),                 (" :/"),                                  (" >_>"),               (""))                      \
   DO(SS_SMILEY2,           (" :)"),                 (" :P"),                                  (" :D"),                (""))                      \
   DO(SS_DIR,               ("~/"),                  ("../"),                                  ("./"),                 (""))                      \
