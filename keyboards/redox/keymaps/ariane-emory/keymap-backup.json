@@ -694,7 +694,7 @@
       "KC_MS_D",
       "KC_MS_R",
       "KC_NO",
-      "ANY(LCTL_OPEN)",
+      "ARROWS_OPEN",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
