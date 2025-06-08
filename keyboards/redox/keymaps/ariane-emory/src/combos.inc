@@ -54,8 +54,8 @@
   __(l_bot_curl_diag_dn,     ____________,  QH_F,    QB_C                               )      \
   _______________________________________________________________________________________      \
   __(l_bot_rech,             ____________,  QB_Z,    QB_X                               )      \
-  DO(l_bot_outr,             KC_ENT,        QB_X,    QB_C                               )      \
-  DO(l_bot_innr,             SS_CD,         QB_C,    QB_V                               )      \
+  DO(l_bot_outr,             SS_CD,         QB_X,    QB_C                               )      \
+  DO(l_bot_innr,             KC_ENT,        QB_C,    QB_V                               )      \
   __(l_bot_curl,             ____________,  QB_V,    QB_B                               )      \
   __(l_bot_trpo,             ____________,  QB_Z,    QB_X,      QB_C                    )      \
   __(l_bot_sprd,             ____________,  QB_X,               QB_V                    )      \
