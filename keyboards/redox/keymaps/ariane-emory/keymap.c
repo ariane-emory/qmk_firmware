@@ -105,7 +105,8 @@ void keyboard_post_init_user(void) {
 #define S_UU(_)                TAP(X_UP) 
 #define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) TAP(X_BTN1) SS_UP(X_LGUI)
 #define S_GUI_CLICK_AND_TAB(_) S_GUI_CLICK() SS_LCTL(TAP(X_TAB))
-#define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR() TAP(X_HOME)
+//#define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR() TAP(X_HOME)
+#define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR() 
 /* #define S_TELEPORT(_)                                                                                                                             */
 /*   S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                 */
 /*   SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                   */
@@ -207,7 +208,7 @@ void keyboard_post_init_user(void) {
      ("c -" S_CR()))          /* SHIFT */                                                                                                        \
   DO(SS_DICT,              (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),  (TAP(X_F24) TAP(X_F24)),  (""),                   (""))                      \
   DO(SS_DIR,               ("~/"),                  ("../"),                                  ("./"),                 ("``" S_LL()))             \
-  DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("` + `" S_LL() S_CR() S_TB()), ("->"))            \
+  DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("` + `" S_LL() S_CR() S_TB() S_RR()), ("->"))     \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),                   (S_GUI_CLICK_AND_TAB()))   \
   DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),           (AE_FPWD))                 \
 //                         NO MODS                  CTRL                                      ALT                 SHIFT
