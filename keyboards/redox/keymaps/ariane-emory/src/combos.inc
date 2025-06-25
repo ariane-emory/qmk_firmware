@@ -54,7 +54,7 @@
   __(l_bot_curl_diag_dn,     ____________,  QH_F,    QB_C                               )      \
   _______________________________________________________________________________________      \
   __(l_bot_rech,             ____________,  QB_Z,    QB_X                               )      \
-  DO(l_bot_outr,             SS_CD,         QB_X,    QB_C                               )      \
+  __(l_bot_outr,             ____________,  QB_X,    QB_C                               )      \
   DO(l_bot_innr,             KC_ENT,        QB_C,    QB_V                               )      \
   __(l_bot_curl,             ____________,  QB_V,    QB_B                               )      \
   __(l_bot_trpo,             ____________,  QB_Z,    QB_X,      QB_C                    )      \
@@ -143,7 +143,7 @@ bool combo_should_trigger(
           || (get_highest_layer(layer_state) <= LN_LOWER) // LN_MOUSE)
           // v this index will probably need frequent adjustment whenever
           //   left-hand combos are altered:
-          || (((layer_state_is(LN_MOUSE)  && ((combo_index <= 16)))))
+          || (((layer_state_is(LN_MOUSE)  && ((combo_index <= 15)))))
           || (((layer_state_is(LN_MOUSE)  && (true
                                               && (combo->keycode != KC_ENT)
                                               && (combo->keycode != KC_SCLN)
