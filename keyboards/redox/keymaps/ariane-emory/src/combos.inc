@@ -143,7 +143,7 @@ bool combo_should_trigger(
           || (get_highest_layer(layer_state) <= LN_LOWER) // LN_MOUSE)
           // v this index will probably need frequent adjustment whenever
           //   left-hand combos are altered:
-          || (((layer_state_is(LN_MOUSE)  && ((combo_index <= 20)))))
+          || (((layer_state_is(LN_MOUSE)  && ((combo_index <= 16)))))
           || (((layer_state_is(LN_MOUSE)  && (true
                                               && (combo->keycode != KC_ENT)
                                               && (combo->keycode != KC_SCLN)
