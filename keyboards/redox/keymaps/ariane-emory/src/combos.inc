@@ -20,7 +20,7 @@
   DO(l_top_rech,             S(KC_1),       QT_Q,    QT_W                               )      \
   DO(l_top_outr,             KC_GRV,        QT_W,    QT_E                               )      \
   DO(l_top_innr,             LSFT(KC_GRV),  QT_E,    QT_R                               )      \
-  DO(l_top_curl,             OTHER_WIN2,    QT_R,    QT_T                               )      \
+  DO(l_top_curl,             MAC_OTHER_WIN,    QT_R,    QT_T                               )      \
   __(l_top_trpo,             ____________,  QT_Q,    QT_W,      QT_E                    )      \
   __(l_top_sprd,             ____________,  QT_W,               QT_R                    )      \
   __(l_top_trpm,             ____________,  QT_W,    QT_E,      QT_R                    )      \
@@ -149,22 +149,22 @@ bool combo_should_trigger(
                                               && (combo->keycode != KC_SCLN)
                                               && (combo->keycode != SS_LBRACK)
                                               && (combo->keycode != SS_RBRACK)))))
-          || (((layer_state_is(LN_LOWER)
+          || (((false
+                ||layer_state_is(LN_LOWER)
                 || layer_state_is(LN_FLIPL)
                 || layer_state_is(LN_FLIPR)
                 || layer_state_is(LN_UPPER)
-                || layer_state_is(LN_ARROWS))) &&
-              (false
-               || (combo->keycode == KC_ESC)
-               || (combo->keycode == KC_ENT)
-               || (combo->keycode == KA_UNDO)
-               || (combo->keycode == EM_BOL)
-               || (combo->keycode == EM_EOL)
-               || (combo->keycode == KC_VOLD)
-               || (combo->keycode == KC_VOLU)
-               || (combo->keycode == KC_HOME)
-               || (combo->keycode == KC_END)
-               || (combo->keycode == EM_LASTARG)))
+                || layer_state_is(LN_ARROWS))) &&(false
+                                                  || (combo->keycode == KC_ESC)
+                                                  || (combo->keycode == KC_ENT)
+                                                  || (combo->keycode == KA_UNDO)
+                                                  || (combo->keycode == EM_BOL)
+                                                  || (combo->keycode == EM_EOL)
+                                                  || (combo->keycode == KC_VOLD)
+                                                  || (combo->keycode == KC_VOLU)
+                                                  || (combo->keycode == KC_HOME)
+                                                  || (combo->keycode == KC_END)
+                                                  || (combo->keycode == EM_LASTARG)))
           || false);
 }
 

@@ -119,7 +119,7 @@
 #define LCTL_SQUO      LCTL_T(KC_SQUO_TAP)
 #define SPOTLIGHT      LGUI(KC_SPC)
 #define TG_MOUSE       TG(LN_MOUSE)
-#define OTHER_WIN2     LGUI(KC_GRV)
+#define MAC_OTHER_WIN     LGUI(KC_GRV)
 #define ARROWS_OPEN    LT(LN_ARROWS, LGUI(KC_O))
 //==============================================================================
 
