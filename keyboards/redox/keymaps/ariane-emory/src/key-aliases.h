@@ -120,7 +120,7 @@
 #define SPOTLIGHT      LGUI(KC_SPC)
 #define TG_MOUSE       TG(LN_MOUSE)
 #define MAC_OTHER_WIN     LGUI(KC_GRV)
-#define ARROWS_OPEN    LT(LN_ARROWS, LGUI(KC_O))
+// #define ARROWS_OPEN    LT(LN_ARROWS, LGUI(KC_O))
 //==============================================================================
 
 
