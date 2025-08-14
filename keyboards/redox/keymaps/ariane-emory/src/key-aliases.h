@@ -100,6 +100,7 @@
 //==============================================================================
 // Misc special functions
 //==============================================================================
+#define EM_REVERT      LGUI(KC_U)
 #define BRT_DN         KC_F19
 #define BRT_UP         KC_F20
 #define CAPS_WORD      QK_CAPS_WORD_TOGGLE
