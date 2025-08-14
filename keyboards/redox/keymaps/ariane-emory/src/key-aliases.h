@@ -91,8 +91,8 @@
 //==============================================================================
 // Virtual desktops
 //==============================================================================
-#define VD_LEFT     LALT(LCTL(KC_S))
-#define VD_RIGHT    LALT(LCTL(KC_D))
+#define VD_LEFT     LALT(LCTL(LGUI(KC_D)))
+#define VD_RIGHT    LALT(LCTL(LGUI(KC_F)))
 #define VD_ALL      LALT(LCTL(LGUI(KC_TAB)))
 //==============================================================================
 
