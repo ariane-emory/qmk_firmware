@@ -331,7 +331,7 @@
 #define NT_U    RTRM_1(KC_F)
 #define NT_I    RTRM_2(KC_O)
 #define NT_O    RTRM_3(KC_U)
-#define NT_P    KC_QUOT
+#define NT_P    KC_SLSH // KC_QUOT
 //-------------------------------------------------------------------------------
 #define NH_A    LHRM_4(KC_W)
 #ifdef CANARY_COLSWAP
@@ -372,13 +372,13 @@
 #endif
 #define NB_M    RBRM_1(KC_N)
 #ifdef CANARY_PUNCTUATION
-  #define NB_COMM        KC_SLSH  
+  #define NB_COMM        KC_QUOT // KC_SLSH  
   #define NB_DOT         KC_COMM
   #define NB_SLSH RBRM_4(KC_DOT)  
 #else 
   #define NB_COMM        KC_COMM
   #define NB_DOT         KC_DOT
-  #define NB_SLSH RBRM_4(KC_SLSH)
+  #define NB_SLSH RBRM_4(KC_QUOT // KC_SLSH)
 #endif
 //===============================================================================
 

@@ -865,10 +865,10 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "ANY(LCTL(LALT(KC_B)))",
       "ANY(LCTL(LALT(KC_T)))",
-      "ANY(LSFT(LCTL(LALT(KC_T))))",
+      "ANY(LCTL(LALT(KC_B)))",
       "ANY(LCTL(LALT(KC_F)))"
+      "ANY(LSFT(LCTL(LALT(KC_T))))",
     ],
     [
       "KC_NO",
@@ -937,10 +937,10 @@
       "ANY(NUMP_0)",
       "KC_PDOT",
       "KC_COMM",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO"
+      "ANY(LCTL(LALT(KC_T)))",
+      "ANY(LCTL(LALT(KC_B)))",
+      "ANY(LCTL(LALT(KC_F)))"
+      "ANY(LSFT(LCTL(LALT(KC_T))))",
     ],
     [
       "KC_NO",
