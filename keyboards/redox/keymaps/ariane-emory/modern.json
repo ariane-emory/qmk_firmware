@@ -859,16 +859,16 @@
       "ANY(SS_FULLSCR)",
       "KC_NO",
       "KC_NO",
+      "LCA(KC_K)",
+      "LCTL(KC_K)",
+      "LCTL(KC_Y)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "ANY(STR_MS)",
-      "ANY(THU_MS)",
-      "ANY(CRL_MS)",
-      "LCA(KC_B)",
-      "LCA(KC_DOWN)",
-      "LCA(KC_UP)",
-      "LCA(KC_F)"
+      "ANY(LCTL(LALT(KC_T)))",
+      "ANY(LCTL(LALT(KC_B)))",
+      "ANY(LCTL(LALT(KC_F)))",
+      "ANY(LSFT(LCTL(LALT(KC_T))))"
     ]
   ],
   "author": ""
