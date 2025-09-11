@@ -164,7 +164,8 @@ void keyboard_post_init_user(void) {
   DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                                                                               \
   DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                               \
   DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                               \
-  DO(SS_0X,                ("0x")                                ) 
+  DO(SS_0X,                ("0x")                                )                                                                               \
+  DO(SS_DICT2,             (TAP(X_F24) TAP(X_F24))               ) 
 //                         NO MODS                                 
 #endif
 
@@ -223,7 +224,7 @@ void keyboard_post_init_user(void) {
 #define define_alted_progmem_string(kc, nomods_str, ctrled_str, alted_str, ...)                define_tagged_progmem_string(alted, kc, alted_str, __VA_ARGS__)
 #define define_shifted_progmem_string(kc, nomods_str, ctrled_str, alted_str, shifted_str, ...) define_tagged_progmem_string(shifted, kc, shifted_str, __VA_ARGS__)
 
-#define define_basic_progmem_string(kc, nomods_str)                                           define_tagged_progmem_string(nomods, kc, nomods_str)
+#define define_basic_progmem_string(kc, nomods_str)                                            define_tagged_progmem_string(nomods, kc, nomods_str)
 FOR_EACH_BASIC_SEND_STRING_KEYCODE(define_basic_progmem_string);
 
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_nomods_progmem_string);
