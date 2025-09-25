@@ -994,7 +994,7 @@ void leader_end_user(void) {
     my_boot_handler(0, NULL);
   }
   else if (leader_sequence_one_key(KC_P)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Let's break the problem down into small steps and come up with a detailed, step-by-step plan to implement "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think the problem through thoroughly and break the problem down into small steps and come up with a detailed, step-by-step plan to implement "));
   }
   else if (leader_sequence_one_key(KC_O)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's go ahead and try implementing that plan. "));
@@ -1008,17 +1008,8 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_D, KC_D)) {
     tap_code16(KC_F5);
   }
-  else if (leader_sequence_one_key(KC_D)) {
-    tap_code16(S(KC_DEL));
-  }
   else if (leader_sequence_two_keys(KC_D, KC_D)) {
     tap_code16(C(KC_F5));
-  }
-  else if (leader_sequence_two_keys(KC_A, KC_A)) {
-    tap_code16(C(KC_A));
-  }
-  else if (leader_sequence_two_keys(KC_E, KC_E)) {
-    tap_code16(C(KC_E));
   }
   else if (leader_sequence_three_keys(KC_R, KC_R, KC_R)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE()));
