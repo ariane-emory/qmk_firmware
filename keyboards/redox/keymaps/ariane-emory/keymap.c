@@ -996,6 +996,9 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key(KC_P)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("Let's break the problem down into small steps and come up with a detailed, step-by-step plan to implement "));
   }
+  else if (leader_sequence_one_key(KC_O)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's go ahead and try implementing that plan. "));
+  } 
   else if (leader_sequence_one_key(KC_A)) {
     tap_code16(C(KC_A));
   }
