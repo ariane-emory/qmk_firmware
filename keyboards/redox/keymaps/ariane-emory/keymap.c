@@ -1009,11 +1009,14 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));
   } 
   else if (leader_sequence_one_key(KC_A)) {
-    tap_code16(C(KC_A));
-  }
-  else if (leader_sequence_one_key(KC_E)) {
-    tap_code16(C(KC_E));
-  }
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet, I just want to ask you a few questions about the current code first. "));
+  } 
+  /* else if (leader_sequence_one_key(KC_A)) { */
+  /*   tap_code16(C(KC_A)); */
+  /* } */
+  /* else if (leader_sequence_one_key(KC_E)) { */
+  /*   tap_code16(C(KC_E)); */
+  /* } */
   else if (leader_sequence_two_keys(KC_D, KC_D)) {
     tap_code16(KC_F5);
   }
