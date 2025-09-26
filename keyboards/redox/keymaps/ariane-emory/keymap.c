@@ -1000,7 +1000,7 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval before you actually start editing any code. "));
   }
   else if (leader_sequence_one_key(KC_I)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think the feature through thoroughly and break it down into small steps and come up with a detailed, step-by-step plan to implement a solution. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think the feature through thoroughly and break it down into small steps and come up with a detailed, step-by-step plan to implement the feature. "));
   }
   else if (leader_sequence_one_key(KC_O)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's go ahead and try implementing that plan. "));
