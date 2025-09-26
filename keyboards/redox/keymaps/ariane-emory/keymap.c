@@ -994,10 +994,19 @@ void leader_end_user(void) {
     my_boot_handler(0, NULL);
   }
   else if (leader_sequence_one_key(KC_P)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think the problem through thoroughly and break the problem down into small steps and come up with a detailed, step-by-step plan to implement "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Let's analyze the problem, think it through thoroughly, and break it down into small steps and come up with a detailed, step-by-step plan to implement a solution. "));
+  }
+  else if (leader_sequence_two_keys(KC_P, KC_P)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval before you actually start editing any code. "));
+  }
+  else if (leader_sequence_one_key(KC_I)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think the feature through thoroughly and break it down into small steps and come up with a detailed, step-by-step plan to implement a solution. "));
   }
   else if (leader_sequence_one_key(KC_O)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's go ahead and try implementing that plan. "));
+  } 
+  else if (leader_sequence_two_keys(KC_N, KC_M)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));
   } 
   else if (leader_sequence_one_key(KC_A)) {
     tap_code16(C(KC_A));
@@ -1036,9 +1045,9 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key(KC_R)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));
   }
-  else if (leader_sequence_one_key(KC_F)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_EM_SWAP()));
-  }
+  /* else if (leader_sequence_one_key(KC_F)) { */
+  /*   SEND_STRING_WITHOUT_MODS_P(PSTR(S_EM_SWAP())); */
+  /* } */
   else if (leader_sequence_one_key(KC_Q)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkc" S_CR()));
   }
@@ -1048,9 +1057,9 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key(KC_S)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));
   }
-  else if (leader_sequence_two_keys(KC_C, KC_D)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("D:" S_CR() AE_CD S_CR()));
-  }
+  /* else if (leader_sequence_two_keys(KC_C, KC_D)) { */
+  /*   SEND_STRING_WITHOUT_MODS_P(PSTR("D:" S_CR() AE_CD S_CR())); */
+  /* } */
   else if (leader_sequence_two_keys(KC_G, KC_S)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));
   }
@@ -1081,7 +1090,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_G, KC_P)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git push " S_CR()));
   }
-  else if (leader_sequence_two_keys(KC_G, KC_U)) {
+  else if (leader_sequence_three_keys(KC_G, KC_P, KC_U)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " S_CR()));
   }
   else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {
