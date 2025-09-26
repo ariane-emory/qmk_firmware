@@ -990,48 +990,21 @@ static const char git_str[] PROGMEM = "git ";
 
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
-  if (false) {
-    ((void)0);
-  }
-  else if (leader_sequence_two_keys(KC_B, KC_B)) {
+  if (leader_sequence_two_keys(KC_B, KC_B)) {
     my_boot_handler(0, NULL);
   }
-  else if (leader_sequence_two_keys(KC_A, KC_S)) { // analyze smells
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Right now, your job is not to edit any code, your job is instead to study the codebase and analyze it, looking for things that could be refactored to improve its maintainability and extensibility, or other 'code smells' that we could eliminate. Once you have come up with a detailed list of things that could be improved, submit it to me for approval by writing it to ./refactor-plan.md."));
-  }
-  else if (leader_sequence_two_keys(KC_P, KC_P)) { // plan problem
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Let's analyze the problem, think it through thoroughly, and break it down into small steps to come up with a detailed, step-by-step plan for how to implement a solution. "));
-  }
-  else if (leader_sequence_two_keys(KC_I, KC_R)) { // implement refactor
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan in @refactoring-plan.md and mark it as complete in the file once you have finished."));
-  }
-  else if (leader_sequence_two_keys(KC_S, KC_P)) { // submit plan
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval before you actually start editing any code. "));
-  }
-  else if (leader_sequence_two_keys(KC_I, KC_F)) { // implement feature
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think the feature through thoroughly and break it down into small steps to come up with a detailed, step-by-step plan for how to implement the feature. "));
-  }
-  else if (leader_sequence_two_keys(KC_P, KC_R)) { // plan refactor
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think this refactoring through thoroughly and break it down into small steps to come up with a detailed, step-by-step plan for how to implement the refactoring. "));
-  }
-  else if (leader_sequence_one_key(KC_O)) { // okay
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's go ahead and carefully try implementing that plan. "));
-  } 
-  else if (leader_sequence_two_keys(KC_N, KC_M)) { // no mistakes
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));
-  } 
-  else if (leader_sequence_one_key(KC_N)) { // do it now, no mistakes
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and do not make any mistakes."));
-  }
-  else if (leader_sequence_two_keys(KC_N, KC_E)) { // new errors
-    SEND_STRING_WITHOUT_MODS_P(PSTR("That change introduced new errors:\n"));
-  } 
-  else if (leader_sequence_two_keys(KC_N, KC_P)) { // next phase
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's proceed onwards to implementing the next phase. "));
-  } 
-  else if (leader_sequence_one_key(KC_A)) { // ask
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet, I just want to ask you a few questions about the current code first. "));
-  } 
+  else if (leader_sequence_one_key(KC_A)) { /* ask */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet, I just want to ask you a few questions about the current code first. "));} 
+  else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */ SEND_STRING_WITHOUT_MODS_P(PSTR("Right now, your job is not to edit any code, your job is instead to study the codebase and analyze it, looking for things that could be refactored to improve its maintainability and extensibility, or other 'code smells' that we could eliminate. Once you have come up with a detailed list of things that could be improved, submit it to me for approval by writing it to ./refactor-plan.md."));}
+  else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and do not make any mistakes."));}
+  else if (leader_sequence_two_keys(KC_I, KC_R)) { /* implement refactor */ SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan in @refactoring-plan.md and mark it as complete in the file once you have finished."));}
+  else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("That change introduced new errors:\n"));} 
+  else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
+  else if (leader_sequence_two_keys(KC_N, KC_P)) { /* next phase */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's proceed onwards to implementing the next phase. "));} 
+  else if (leader_sequence_one_key (KC_O))        { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's go ahead and carefully try implementing that plan. "));} 
+  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think the feature through thoroughly and break it down into small steps to come up with a detailed, step-by-step plan for how to implement the feature. "));}
+  else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's analyze the problem, think it through thoroughly, and break it down into small steps to come up with a detailed, step-by-step plan for how to implement a solution. "));}
+  else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think this refactoring through thoroughly and break it down into small steps to come up with a detailed, step-by-step plan for how to implement the refactoring. "));}
+  else if (leader_sequence_two_keys(KC_S, KC_P)) { /* submit plan */ SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval before you actually start editing any code. "));}
   /* else if (leader_sequence_one_key(KC_A)) { */
   /*   tap_code16(C(KC_A)); */
   /* } */
