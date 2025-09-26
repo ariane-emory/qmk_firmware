@@ -990,7 +990,10 @@ static const char git_str[] PROGMEM = "git ";
 
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
-  if (leader_sequence_two_keys(KC_B, KC_B)) {
+  if (false) {
+    ((void)0);
+  }
+  else if (leader_sequence_two_keys(KC_B, KC_B)) {
     my_boot_handler(0, NULL);
   }
   else if (leader_sequence_two_keys(KC_A, KC_S)) { // analyze smells
