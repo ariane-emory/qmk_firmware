@@ -1002,6 +1002,9 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key(KC_I)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think the feature through thoroughly and break it down into small steps to come up with a detailed, step-by-step plan for how to implement the feature. "));
   }
+  else if (leader_sequence_one_key(KC_R)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think this refactoring through thoroughly and break it down into small steps to come up with a detailed, step-by-step plan for how to implement the refactoring. "));
+  }
   else if (leader_sequence_one_key(KC_O)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's go ahead and carefully try implementing that plan. "));
   } 
@@ -1045,9 +1048,9 @@ void leader_end_user(void) {
     wait_ms(20);
     /* SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_))); */
   }
-  else if (leader_sequence_one_key(KC_R)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));
-  }
+  /* else if (leader_sequence_one_key(KC_R)) { */
+  /*   SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_))); */
+  /* } */
   /* else if (leader_sequence_one_key(KC_F)) { */
   /*   SEND_STRING_WITHOUT_MODS_P(PSTR(S_EM_SWAP())); */
   /* } */
