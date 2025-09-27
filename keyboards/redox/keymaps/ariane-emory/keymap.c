@@ -1017,7 +1017,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's analyze the problem, think it through thoroughly, and break it down into small steps to come up with a detailed, step-by-step plan for how to implement a solution. "));}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think this refactoring through thoroughly and break it down into small steps to come up with a detailed, step-by-step plan for how to implement the refactoring. "));}
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet, for now I am just asking you questions about the current code: "));}
-  else if (leader_sequence_two_keys(KC_S, KC_F)) { /* submit plan */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
+  else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good plan */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit plan */ SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval before you actually start editing any code. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
   /* else if (leader_sequence_one_key(KC_A)) { */
