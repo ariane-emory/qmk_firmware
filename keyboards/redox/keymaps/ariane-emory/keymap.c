@@ -691,6 +691,7 @@ KEYRECORD_FUN(bool process_record_user) {
 // Dynamic macro related
 // ==============================================================================
 
+#  ifdef DYNAMIC_MACRO_HANDLERS
 static bool currently_recording_macro = false;
 
 void dynamic_macro_record_start_user(int8_t direction) {
@@ -700,6 +701,7 @@ void dynamic_macro_record_start_user(int8_t direction) {
 void dynamic_macro_record_end_user(int8_t direction) {
   currently_recording_macro = false;
 }
+#  endif // DYNAMIC_MACRO_HANDLERS
 
 // ==============================================================================
 // RGB fades
