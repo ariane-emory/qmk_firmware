@@ -990,7 +990,7 @@ static const char git_str[] PROGMEM = "git ";
 
 #ifdef LEADER_ENABLE
 void ss_do_not_edit(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet, for now I "))
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet, for now I "));
 }
 
 void leader_end_user(void) {
