@@ -706,6 +706,7 @@ void dynamic_macro_record_end_user(int8_t direction) {
 // ==============================================================================
 
 #ifdef RGBLIGHT_ENABLE
+#  ifdef DYNAMIC_MACRO_HANDLERS
 bool set_rgb_led_fader_target_if_recording_macro(rgb_led_fader_t * const this) {
   if (! currently_recording_macro)
     return false;
@@ -714,6 +715,7 @@ bool set_rgb_led_fader_target_if_recording_macro(rgb_led_fader_t * const this) {
 
   return true;
 }
+#endif // DYNAMIC_MACRO_HANDLERS
 
 typedef struct layer_to_rgb_t {
   uint8_t layer;
