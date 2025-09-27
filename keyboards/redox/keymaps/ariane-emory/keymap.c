@@ -247,7 +247,9 @@ enum arianes_custom_keycodes {
   KC_SQUO_TAP,
   KC_DQUO_TAP,
   HOLD_GUI,
+#ifdef INSERT_UPP_ENABLED
   INSERT_UPP,
+#endif // INSERT_UPP_ENABLED
   VD_LEFT_ALT,
   VD_RIGHT_ALT,
   MY_BOOT,
