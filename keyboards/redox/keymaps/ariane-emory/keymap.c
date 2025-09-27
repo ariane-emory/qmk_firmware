@@ -791,7 +791,7 @@ void matrix_scan_user(void) {
 #endif // TOGGLED_LAYER_TIMEOUT
   
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-  if (!set_rgb_led_fader_target_if_recording_macro(&rgb_led_fader))
+  // if (!set_rgb_led_fader_target_if_recording_macro(&rgb_led_fader))
     set_rgb_led_fader_target_by_layer(&rgb_led_fader);
 
 #  ifdef SLOW_RGBS
