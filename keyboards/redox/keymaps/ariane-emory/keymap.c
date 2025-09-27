@@ -1001,7 +1001,7 @@ void leader_end_user(void) {
   if (leader_sequence_two_keys(KC_B, KC_B)) {
     my_boot_handler(0, NULL);
   }
-  else if (leader_sequence_two_keys(KC_A, KC_A)) { /* ask */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet, for now I am just asking you questions about the current code. "));}
+  else if (leader_sequence_two_keys(KC_A, KC_P)) { /* ask */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet, for now I am just asking you questions about the current code. "));}
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet, for now I am just need you to analyze and explain this problem: "));} 
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Please analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */ SEND_STRING_WITHOUT_MODS_P(PSTR("Right now, your job is not to edit any code, your job is instead to study the codebase and analyze it, looking for things that could be refactored to improve its maintainability and extensibility, or other 'code smells' that we could eliminate. Once you have come up with a detailed list of things that could be improved, submit it to me for approval by writing it to ./refactor-plan.md. "));}
