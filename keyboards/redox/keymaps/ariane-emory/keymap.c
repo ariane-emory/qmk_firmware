@@ -799,8 +799,8 @@ void matrix_scan_user(void) {
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
 #  ifdef DYNAMIC_MACRO_HANDLERS
   if (!set_rgb_led_fader_target_if_recording_macro(&rgb_led_fader))
-    set_rgb_led_fader_target_by_layer(&rgb_led_fader);
 #  endif // DYNAMIC_MACRO_HANDLERS
+    set_rgb_led_fader_target_by_layer(&rgb_led_fader);
   
 #  ifdef SLOW_RGBS
   static uint8_t ticker = 0;
