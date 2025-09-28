@@ -1041,8 +1041,13 @@ void ss_proceed_with_implementing_next_phase(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the next phase"));
 }
 
-void ss_after_each_phase(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
+void ss_after_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("after "));
+}
+
+void multi_ss_after_each_phase(void) {
+  ss_after_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("each phase. "));
 }
 
 void ss_write_the_plan_(void) {
@@ -1090,13 +1095,14 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the codebase for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
     multi_ss_plan_refactor_();
     ss_submit_the_plan_for_approval_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("after. "));
+    ss_after_();
     multi_ss_write_the_plan_in_the_planmd_file_();
   }
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* divide phases */
     SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
     ss_the_code_must_build_correctly_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
+    ss_after_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("each phase. "));
   }
   else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */
     ss_the_code_must_build_correctly_();
@@ -1110,7 +1116,7 @@ void leader_end_user(void) {
     ss_proceed_with_implementing_next_phase();
     ss_in_the_planmd_file_dot_();
     ss_the_code_must_build_correctly_();
-    ss_after_each_phase();
+    multi_ss_after_each_phase();
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
   } 
@@ -1118,7 +1124,7 @@ void leader_end_user(void) {
     ss_proceed_with_implementing_next_phase();
     SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
     ss_the_code_must_build_correctly_();
-    ss_after_each_phase();
+    multi_ss_after_each_phase();
     ss_mark_completed_();
     ss_afterwards_dot_();
   } 
