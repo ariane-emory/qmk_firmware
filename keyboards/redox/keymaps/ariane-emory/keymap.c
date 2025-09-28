@@ -1019,18 +1019,29 @@ void _ss_and_break_the_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR(" and break the "));
 }
 
+void ss_mark_completed_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure to mark any steps you complete as completed in ./refactor-plan.md! "));
+}
+
 void leader_end_user(void) {
   if      (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and do not make any mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work. "));}
-  else if (leader_sequence_two_keys(KC_I, KC_R)) { /* implement refactor */ SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan in @./refactor -plan.md and mark it as complete in the file once you have finished. "));}
   else if (leader_sequence_two_keys(KC_K, KC_G)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going. "));}
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));} 
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
-  else if (leader_sequence_two_keys(KC_N, KC_N)) { /* next phase */ SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the next phase from @./refactor-plan.md. Make sure to mark any steps you complete as completed in ./refactor-plan.md! "));} 
+  else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */ ss_mark_completed_(); }
   else if (leader_sequence_two_keys(KC_O, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's go ahead and try carefully implementing that plan. "));} 
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good plan */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
+  else if (leader_sequence_two_keys(KC_I, KC_R)) { /* implement refactor */
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan in @./refactor -plan.md. "));
+    ss_mark_completed_();
+  }
+  else if (leader_sequence_two_keys(KC_N, KC_N)) { /* next phase */
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the next phase from @./refactor-plan.md. "));
+    ss_mark_completed_();
+  } 
   else if (leader_sequence_two_keys(KC_M, KC_B)) { /* new errors */
     ss_the_code_must_build_correctly();
     SEND_STRING_WITHOUT_MODS_P(PSTR(" afterwards! "));
