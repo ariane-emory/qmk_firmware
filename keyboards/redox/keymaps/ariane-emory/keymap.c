@@ -1096,7 +1096,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* divide phases */
     SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
     ss_the_code_must_build_correctly_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
+    ss_after_each_phase_dot_();
   }
   else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */
     ss_the_code_must_build_correctly_();
@@ -1147,6 +1147,7 @@ void leader_end_user(void) {
     ss_submit_the_plan_for_approval_(); 
     SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing the code. "));
   }
+  // other:
   else if (leader_sequence_two_keys(KC_T, KC_A)) { /* test afterwards */
     sses_test_afterwards();
   }
