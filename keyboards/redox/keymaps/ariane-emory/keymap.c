@@ -995,11 +995,11 @@ uint16_t keycode_config(uint16_t keycode) {
 #define S_CLR_LINE() S_END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
 
 #ifdef LEADER_ENABLE
-void ss_do_not_edit(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet"));
+void ss_do_not_edit_any_code_yet_colon_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet: "));
 }
 
-void ss_submit_for_approval_(void) {
+void ss_submit_the_plan_for_approval_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval "));
 }
 
@@ -1039,6 +1039,23 @@ void ss_after_each_phase(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
 }
 
+void ss_write_the_plan_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
+}
+
+void multi_ss_plan_refactor_(void) {
+  ss_lets_think_it_through_thoroughly();
+  _ss_and_break_the_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
+  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
+}
+
+void multi_ss_write_the_plan_in_the_planmd_file_(void) {
+  ss_write_the_plan_();
+  ss_in_the_planmd_file_dot_();
+}
+
 void leader_end_user(void) {
   if      (leader_sequence_two_keys(KC_B, KC_B)) {my_boot_handler(0, NULL);}  
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and do not make mistakes. "));}
@@ -1052,8 +1069,8 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */
-    ss_do_not_edit();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(", I just need you to analyze and explain this problem: "));
+    ss_do_not_edit_any_code_yet_colon_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("I just need you to analyze and explain this problem: "));
   } 
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}else if (leader_sequence_two_keys(KC_I, KC_R)) { /* implement refactor */
     SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan "));
@@ -1062,12 +1079,12 @@ void leader_end_user(void) {
     ss_in_the_planmd_file_dot_();
   }
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
-    ss_do_not_edit();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(", your job is to analyze the codebase for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
-    ss_submit_for_approval_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("by writing it "));
-    ss_in_the_planmd_file_dot_();
-    
+    ss_do_not_edit_any_code_yet_colon_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("your job is to analyze the codebase for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
+    multi_ss_plan_refactor_();
+    ss_submit_the_plan_for_approval_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("after. "));
+    multi_ss_write_the_plan_in_the_planmd_file_();
   }
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* divide phases */
     SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
@@ -1113,30 +1130,25 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
   }
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */
-    ss_lets_think_it_through_thoroughly();
-    _ss_and_break_the_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
-    _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
+    multi_ss_plan_refactor_();
   }
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask */
-    ss_do_not_edit();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I am just asking you questions about the code: "));
+    ss_do_not_edit_any_code_yet_colon_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("for now I am just asking you questions about the code: "));
   }
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit plan */
-    ss_submit_for_approval_(); 
+    ss_submit_the_plan_for_approval_(); 
     SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing the code. "));
   }
   else if (leader_sequence_two_keys(KC_T, KC_A)) { /* test afterwards */
     ss_test_afterwards();
   }
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
-    ss_in_the_planmd_file_dot_();
+    multi_ss_write_the_plan_in_the_planmd_file_();
   }
-/* else if (leader_sequence_two_keys(KC_D, KC_E)) { /\* don't edit *\/ /\* SPACE INEFFICIENT! *\/ */
-  /*   ss_do_not_edit(); */
-  /* } */
+  else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ /* SPACE INEFFICIENT! */
+    ss_do_not_edit_any_code_yet_colon_();
+  }
   /* else if (leader_sequence_one_key(KC_A)) { */
   /*   tap_code16(C(KC_A)); */
   /* } */
@@ -1178,7 +1190,8 @@ void leader_end_user(void) {
   /*   SEND_STRING_WITHOUT_MODS_P(PSTR(S_EM_SWAP())); */
   /* } */ 
   else if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkc" S_CR()));
+    /* SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkc" S_CR())); */
+    SEND_STRING_WITHOUT_MODS_P(PSTR("cdkm; qmkc" S_CR()));
   }
   else if (leader_sequence_two_keys(KC_Q, KC_W)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));
