@@ -1144,7 +1144,7 @@ void leader_end_user(void) {
     ss_do_not_edit_any_code_yet_bang_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("For now I am just asking you questions about the code. "));
   }
-  else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit plan */
+  else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */
     ss_submit_the_plan_for_approval_(); 
     SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing the code. "));
   }
