@@ -1037,6 +1037,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
   else if (leader_sequence_two_keys(KC_O, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's go ahead and try carefully implementing that plan. "));} 
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good plan */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
+  else if (leader_sequence_two_keys(KC_T, KC_A)) { /* try again*/ SEND_STRING_WITHOUT_MODS_P(PSTR("Try again. "));}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */
@@ -1056,7 +1057,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* divide phases */
     SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
     ss_the_code_must_build_correctly_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase."));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
   }
   else if (leader_sequence_two_keys(KC_M, KC_B)) { /* new errors */
     ss_the_code_must_build_correctly_();
@@ -1065,7 +1066,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_N, KC_N)) { /* next phase */
     SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the next phase from @./refactor-plan.md. "));
     ss_the_code_must_build_correctly_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase."));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
     ss_mark_completed_();
   } 
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */
