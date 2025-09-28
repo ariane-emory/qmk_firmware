@@ -1041,7 +1041,7 @@ void ss_proceed_with_implementing_next_phase(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the next phase"));
 }
 
-void ss_after_each_phase(void) {
+void ss_after_each_phase_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
 }
 
@@ -1110,7 +1110,7 @@ void leader_end_user(void) {
     ss_proceed_with_implementing_next_phase();
     ss_in_the_planmd_file_dot_();
     ss_the_code_must_build_correctly_();
-    ss_after_each_phase();
+    ss_after_each_phase_dot_();
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
   } 
@@ -1118,7 +1118,7 @@ void leader_end_user(void) {
     ss_proceed_with_implementing_next_phase();
     SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
     ss_the_code_must_build_correctly_();
-    ss_after_each_phase();
+    ss_after_each_phase_dot_();
     ss_mark_completed_();
     ss_afterwards_dot_();
   } 
