@@ -1089,7 +1089,7 @@ void leader_end_user(void) {
   }
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
     ss_do_not_edit_any_code_yet_bang_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the codebase for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
     sses_plan_refactor_();
     ss_submit_the_plan_for_approval_();
     ss_afterwards_dot_();
