@@ -996,11 +996,11 @@ uint16_t keycode_config(uint16_t keycode) {
 
 static const char git_str[] PROGMEM = "git ";
 
-void SS_do_not_edit(void) {
+void ss_do_not_edit(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet"));
 }
 
-void SS_submit_for_approval(void) {
+void ss_submit_for_approval(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval"));
 }
 
@@ -1009,14 +1009,8 @@ void leader_end_user(void) {
   if (leader_sequence_two_keys(KC_B, KC_B)) {
     my_boot_handler(0, NULL);
   }
-  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ SS_do_not_edit(); SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I need you to analyze and explain this problem: "));} 
+  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ ss_do_not_edit(); SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I need you to analyze and explain this problem: "));} 
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Please analyze this problem and fix it"));}
-  else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
-    SS_do_not_edit();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(", your job is instead to study the codebase and analyze it, looking for things that could be refactored to improve its maintainability and extensibility, or other 'code smells' we could eliminate. "));
-    SS_submit_for_approval();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(" by writing it to ./refactor-plan.md. "));
-  }
   else if (leader_sequence_two_keys(KC_B, KC_A)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Build the project afterwards! "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and do not make any mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* divide phases */ SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into 'phases': the code must continue to build and run correctly at the end of each phase. "));}
@@ -1030,10 +1024,22 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think the feature through thoroughly and break it down into small steps to come up with a detailed, step-by-step plan for how to implement the feature. "));}
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's analyze the problem, think it through thoroughly, and break it down into small steps to come up with a detailed, step-by-step plan for how to implement a solution. "));}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think this refactoring through thoroughly and break it down into small steps to come up with a detailed, step-by-step plan for how to implement the refactoring. "));}
-  else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask */ SS_do_not_edit(); SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I am just asking you questions about the current code: "));}
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good plan */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
-  else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit plan */ SS_submit_for_approval(); SEND_STRING_WITHOUT_MODS_P(PSTR(" before you actually start editing any code. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
+  else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
+    ss_do_not_edit();
+    SEND_STRING_WITHOUT_MODS_P(PSTR(", your job is instead to analyze the codebase, looking for things that could be refactored to improve its maintainability and extensibility, or other 'code smells' we could eliminate. "));
+    ss_submit_for_approval();
+    SEND_STRING_WITHOUT_MODS_P(PSTR(" by writing it to ./refactor-plan.md. "));
+  }
+  else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask */
+    ss_do_not_edit();
+    SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I am just asking you questions about the current code: "));
+  }
+  else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit plan */
+    ss_submit_for_approval();
+    SEND_STRING_WITHOUT_MODS_P(PSTR(" before you actually start editing any code. "));
+  }
   /* else if (leader_sequence_one_key(KC_A)) { */
   /*   tap_code16(C(KC_A)); */
   /* } */
