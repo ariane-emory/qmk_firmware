@@ -1020,11 +1020,12 @@ void _ss_and_break_the_(void) {
 }
 
 void ss_mark_completed_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure to mark any steps you complete as completed in ./refactor-plan.md! "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure to mark any steps you complete as completed in the ./refactor-plan.md file! "));
 }
 
 void leader_end_user(void) {
-  if      (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
+  if      (leader_sequence_two_keys(KC_B, KC_B)) {my_boot_handler(0, NULL);}
+  else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and do not make mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work. "));}
   else if (leader_sequence_two_keys(KC_K, KC_G)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going. "));}
@@ -1050,9 +1051,6 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
     ss_the_code_must_build_correctly_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase."));
-  }
-  else if (leader_sequence_two_keys(KC_B, KC_B)) {
-    my_boot_handler(0, NULL);
   }
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */
     ss_do_not_edit();
