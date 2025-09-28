@@ -1006,9 +1006,9 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */ SEND_STRING_WITHOUT_MODS_P(PSTR("Right now, your job is not to edit any code, your job is instead to study the codebase and analyze it, looking for things that could be refactored to improve its maintainability and extensibility, or other 'code smells' that we could eliminate. Once you have come up with a detailed list of things that could be improved, submit it to me for approval by writing it to ./refactor-plan.md. "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and do not make any mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* divide phases */ SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into 'phases': the code must continue to build and run correctly at the end of each phase. "));}
+  else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Good work so far. "));}
   else if (leader_sequence_two_keys(KC_I, KC_R)) { /* implement refactor */ SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan in @./refactor -plan.md and mark it as complete in the file once you have finished. "));}
   else if (leader_sequence_two_keys(KC_K, KC_G)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going. "));}
-  else if (leader_sequence_two_keys(KC_L, KC_G)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Looks good so far. "));}
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Those changes introduced new errors: "));} 
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
   else if (leader_sequence_two_keys(KC_N, KC_N)) { /* next phase */ SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed onwards to implementing the next phase from @./refactor-plan.md. Make sure to mark any steps you complete as completed in @./refactor-plan.md! "));} 
