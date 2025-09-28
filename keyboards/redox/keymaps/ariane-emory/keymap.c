@@ -1037,8 +1037,13 @@ void sses_test_afterwards(void) {
   ss_afterwards_dot_();
 }
 
-void ss_proceed_with_implementing_next_phase(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the next phase"));
+void ss_next_phase(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("next phase"));
+}
+
+void sses_proceed_with_implementing_next_phase(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the "));
+  ss_next_phase();
 }
 
 void ss_after_each_phase_dot_(void) {
@@ -1107,7 +1112,7 @@ void leader_end_user(void) {
     ss_in_the_planmd_file_dot_();
   }
   else if (leader_sequence_three_keys(KC_N, KC_P, KC_P)) { /* proceed w/ next phase of plan.md  */
-    ss_proceed_with_implementing_next_phase();
+    sses_proceed_with_implementing_next_phase();
     ss_in_the_planmd_file_dot_();
     ss_the_code_must_build_correctly_();
     ss_after_each_phase_dot_();
@@ -1115,7 +1120,7 @@ void leader_end_user(void) {
     ss_in_the_planmd_file_dot_();
   } 
   else if (leader_sequence_two_keys(KC_N, KC_P)) { /* proceed w/next phase  */
-    ss_proceed_with_implementing_next_phase();
+    sses_proceed_with_implementing_next_phase();
     SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
     ss_the_code_must_build_correctly_();
     ss_after_each_phase_dot_();
