@@ -1076,7 +1076,7 @@ void leader_end_user(void) {
   }
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask */
     ss_do_not_edit();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I am just asking you questions about the current code: "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I am just asking you questions about the code: "));
   }
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit plan */
     ss_submit_for_approval_(); 
