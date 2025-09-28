@@ -1011,6 +1011,10 @@ void ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_h
   SEND_STRING_WITHOUT_MODS_P(PSTR("down into small steps to come up with a detailed, step-by-step plan for how to implement "));
 }
 
+void ss_must_build(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly afterward! "));
+}
+
 void leader_end_user(void) {
   if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Please analyze this problem and fix it"));}
   else if (leader_sequence_two_keys(KC_B, KC_A)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Build the project afterwards! "));}
