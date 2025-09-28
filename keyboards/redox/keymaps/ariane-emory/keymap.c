@@ -1011,8 +1011,8 @@ void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a detailed, step-by-step plan for how to implement "));
 }
 
-void ss_the_code_must_build_correctly(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly"));
+void ss_the_code_must_build_correctly_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly "));
 }
 
 void _ss_and_break_the_(void) {
@@ -1043,12 +1043,12 @@ void leader_end_user(void) {
     ss_mark_completed_();
   } 
   else if (leader_sequence_two_keys(KC_M, KC_B)) { /* new errors */
-    ss_the_code_must_build_correctly();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(" afterwards! "));
+    ss_the_code_must_build_correctly_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards! "));
   }
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* divide phases */
     SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
-    ss_the_code_must_build_correctly();
+    ss_the_code_must_build_correctly_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase."));
   }
   else if (leader_sequence_two_keys(KC_B, KC_B)) {
