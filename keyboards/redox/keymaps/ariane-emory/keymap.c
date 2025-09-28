@@ -1030,7 +1030,7 @@ void ss_test_afterwards(void) {
 void leader_end_user(void) {
   if      (leader_sequence_two_keys(KC_B, KC_B)) {my_boot_handler(0, NULL);}  
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and do not make mistakes. "));}
-  else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work. "));}
+  else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work, thank you. "));}
   else if (leader_sequence_two_keys(KC_K, KC_G)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going. "));}
   else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */ ss_mark_completed_(); }
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));} 
@@ -1095,7 +1095,7 @@ void leader_end_user(void) {
   }
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit plan */
     ss_submit_for_approval_(); 
-    SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing code. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing the code. "));
   }
   else if (leader_sequence_two_keys(KC_T, KC_A)) { /* test afterwards */
     ss_test_afterwards();
