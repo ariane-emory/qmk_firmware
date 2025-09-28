@@ -49,7 +49,7 @@ void send_string_without_mods(const char * const string) {
   clear_oneshot_mods();
   clear_mods();
   send_keyboard_report();
-  send_string_with_delay(string, MY_SS_DELAY);
+  send_string(string);
   set_mods(current_mods);
 }
 void send_string_without_mods_P(const char * const string) {
@@ -58,7 +58,7 @@ void send_string_without_mods_P(const char * const string) {
   clear_oneshot_mods();
   clear_mods();
   send_keyboard_report();
-  send_string_with_delay_P(string, MY_SS_DELAY);
+  send_string_P(string);
   set_mods(current_mods);
 }
 #else
