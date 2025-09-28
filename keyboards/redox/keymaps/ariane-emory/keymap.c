@@ -1119,8 +1119,6 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
     ss_the_code_must_build_correctly_();
     ss_after_each_phase_dot_();
-    ss_mark_completed_();
-    ss_afterwards_dot_();
   } 
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */
     ss_lets_think_it_through_thoroughly();
@@ -1139,7 +1137,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */
     sses_plan_refactor_();
   }
-  else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask */
+  else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/
     ss_do_not_edit_any_code_yet_bang_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("For now I am just asking you questions about the code. "));
   }
