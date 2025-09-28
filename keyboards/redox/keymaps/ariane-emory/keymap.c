@@ -1110,6 +1110,7 @@ void leader_end_user(void) {
   }
   else if (leader_sequence_three_keys(KC_N, KC_P, KC_P)) { /* proceed w/ next phase of plan.md  */
     ss_proceed_with_implementing_next_phase();
+    SEND_STRING_WITHOUT_MODS_P(PSTR(" "));
     ss_in_the_planmd_file_dot_();
     ss_the_code_must_build_correctly_();
     ss_after_each_phase_dot_();
