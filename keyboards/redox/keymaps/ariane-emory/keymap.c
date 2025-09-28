@@ -1028,7 +1028,11 @@ void ss_test_afterwards(void) {
 }
 
 void ss_proceed_next_phase(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the next "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the next phase"));
+}
+
+void ss_after_each_phase(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
 }
 
 void leader_end_user(void) {
@@ -1071,14 +1075,14 @@ void leader_end_user(void) {
     ss_proceed_next_phase();
     SEND_STRING_WITHOUT_MODS_P(PSTR(" in @./refactor-plan.md. "));
     ss_the_code_must_build_correctly_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
+    ss_after_each_phase();
     ss_mark_completed_();
   } 
   else if (leader_sequence_two_keys(KC_N, KC_P)) { /* next phase  */
     ss_proceed_next_phase();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("."));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
     ss_the_code_must_build_correctly_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
+    ss_after_each_phase();
     ss_mark_completed_();
   } 
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */
