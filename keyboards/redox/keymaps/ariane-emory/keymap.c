@@ -999,7 +999,7 @@ void ss_do_not_edit(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet"));
 }
 
-void ss_submit_for_approval(void) {
+void ss_submit_for_approval_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval"));
 }
 
@@ -1070,17 +1070,17 @@ void leader_end_user(void) {
   }
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
     ss_do_not_edit();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(", your job is to analyze the codebase, looking for things that could be refactored to improve its maintainability and extensibility, or other 'code smells' we could eliminate. "));
-    ss_submit_for_approval();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(" by writing it to ./refactor-plan.md. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(", your job is to analyze the codebase, looking for opportunities to refactor it to improve its maintainability and extensibility, or other 'code smells' we could eliminate. "));
+    ss_submit_for_approval_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("by writing it to ./refactor-plan.md. "));
   }
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask */
     ss_do_not_edit();
     SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I am just asking you questions about the current code: "));
   }
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit plan */
-    ss_submit_for_approval();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(" before you actually start editing any code. "));
+    ss_submit_for_approval_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("before you actually start editing any code. "));
   }
   /* else if (leader_sequence_one_key(KC_A)) { */
   /*   tap_code16(C(KC_A)); */
