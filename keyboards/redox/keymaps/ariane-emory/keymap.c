@@ -1000,7 +1000,7 @@ void ss_do_not_edit(void) {
 }
 
 void ss_submit_for_approval_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval"));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval "));
 }
 
 void ss_lets_think_it_through_thoroughly(void) {
@@ -1079,8 +1079,8 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I am just asking you questions about the current code: "));
   }
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit plan */
-    ss_submit_for_approval_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("before you actually start editing any code. "));
+    ss_submit_for_approval_(); 
+    SEND_STRING_WITHOUT_MODS_P(PSTR("before you actually start editing code. "));
   }
   /* else if (leader_sequence_one_key(KC_A)) { */
   /*   tap_code16(C(KC_A)); */
