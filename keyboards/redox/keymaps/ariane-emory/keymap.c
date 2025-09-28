@@ -1038,7 +1038,7 @@ void sses_test_afterwards(void) {
 }
 
 void ss_proceed_with_implementing_next_phase(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the next phase"));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's proceed with implementing the next phase"));
 }
 
 void ss_after_each_phase_dot_(void) {
