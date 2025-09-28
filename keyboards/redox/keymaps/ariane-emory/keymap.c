@@ -1016,11 +1016,11 @@ void ss_the_code_must_build_correctly(void) {
 }
 
 void _ss_and_break_the_(void) {
-   SEND_STRING_WITHOUT_MODS_P(PSTR(" and break the "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR(" and break the "));
 }
 
 void leader_end_user(void) {
-  if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Please analyze this problem and fix it"));}
+  if      (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Please analyze this problem and fix it"));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and do not make any mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work. "));}
   else if (leader_sequence_two_keys(KC_I, KC_R)) { /* implement refactor */ SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan in @./refactor -plan.md and mark it as complete in the file once you have finished. "));}
@@ -1045,7 +1045,7 @@ void leader_end_user(void) {
   }
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */
     ss_do_not_edit();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I just need you to analyze and explain this problem: "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I need you to analyze and explain this problem: "));
   } 
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */
     ss_lets_think_it_through_thoroughly();
@@ -1080,8 +1080,11 @@ void leader_end_user(void) {
   }
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit plan */
     ss_submit_for_approval_(); 
-    SEND_STRING_WITHOUT_MODS_P(PSTR("before you actually start editing code. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing code. "));
   }
+  /* else if (leader_sequence_two_keys(KC_D, KC_E)) { /\* don't edit *\/ /\* SPACE INEFFICIENT! *\/ */
+  /*   ss_do_not_edit(); */
+  /* } */
   /* else if (leader_sequence_one_key(KC_A)) { */
   /*   tap_code16(C(KC_A)); */
   /* } */
@@ -1121,7 +1124,7 @@ void leader_end_user(void) {
   }
   /* else if (leader_sequence_one_key(KC_F)) { */
   /*   SEND_STRING_WITHOUT_MODS_P(PSTR(S_EM_SWAP())); */
-  /* } */
+  /* } */ 
   else if (leader_sequence_one_key(KC_Q)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkc" S_CR()));
   }
