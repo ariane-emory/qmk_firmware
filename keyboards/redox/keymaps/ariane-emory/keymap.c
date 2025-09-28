@@ -1020,7 +1020,7 @@ void _ss_and_break_the_(void) {
 }
 
 void ss_mark_completed_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure to mark any steps you complete as completed "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure to check off any steps you complete as completed "));
 }
 
 void ss_in_the_planmd_file_dot_(void) {
@@ -1031,7 +1031,6 @@ void ss_in_the_planmd_file_dot_(void) {
 void ss_afterwards_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards. "));
 }
-
 void sses_test_afterwards(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure all the tests still pass "));
   ss_afterwards_dot_();
