@@ -1070,7 +1070,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_K, KC_T)) { /* keep trying */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep trying. "));}
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));} 
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
-  else if (leader_sequence_two_keys(KC_K, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's go ahead and try carefully implementing that plan. "));} 
+  else if (leader_sequence_two_keys(KC_K, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));} 
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good plan */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
