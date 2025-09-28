@@ -994,8 +994,7 @@ uint16_t keycode_config(uint16_t keycode) {
 #define S_CLR()      SS_LGUI("a") TAP(X_BSPC) S_CR()
 #define S_CLR_LINE() S_END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
 
-static const char git_str[] PROGMEM = "git ";
-
+#ifdef LEADER_ENABLE
 void ss_do_not_edit(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet"));
 }
@@ -1004,7 +1003,14 @@ void ss_submit_for_approval(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval"));
 }
 
-#ifdef LEADER_ENABLE
+void ss_lets_think_it_through_thoroughly(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think it through thoroughly"));
+}
+
+void ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("down into small steps to come up with a detailed, step-by-step plan for how to implement "));
+}
+
 void leader_end_user(void) {
   if (leader_sequence_two_keys(KC_B, KC_B)) {
     my_boot_handler(0, NULL);
@@ -1021,14 +1027,29 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
   else if (leader_sequence_two_keys(KC_N, KC_N)) { /* next phase */ SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed onwards to implementing the next phase from @./refactor-plan.md. Make sure to mark any steps you complete as completed in @./refactor-plan.md! "));} 
   else if (leader_sequence_two_keys(KC_O, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's go ahead and try carefully implementing that plan. "));} 
-  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think the feature through thoroughly and break it down into small steps to come up with a detailed, step-by-step plan for how to implement the feature. "));}
-  else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's analyze the problem, think it through thoroughly, and break it down into small steps to come up with a detailed, step-by-step plan for how to implement a solution. "));}
-  else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think this refactoring through thoroughly and break it down into small steps to come up with a detailed, step-by-step plan for how to implement the refactoring. "));}
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good plan */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
+  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */
+    ss_lets_think_it_through_thoroughly();
+    SEND_STRING_WITHOUT_MODS_P(PSTR(" and break the feature "));
+    ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
+  }
+  else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */
+    ss_lets_think_it_through_thoroughly();
+    SEND_STRING_WITHOUT_MODS_P(PSTR(", analyze the problem and break it "));
+    ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
+  }
+  else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */
+    ss_lets_think_it_through_thoroughly();
+    SEND_STRING_WITHOUT_MODS_P(PSTR(" and break this refactoring "));
+    ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
+  }
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
     ss_do_not_edit();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(", your job is instead to analyze the codebase, looking for things that could be refactored to improve its maintainability and extensibility, or other 'code smells' we could eliminate. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(", your job is to analyze the codebase, looking for things that could be refactored to improve its maintainability and extensibility, or other 'code smells' we could eliminate. "));
     ss_submit_for_approval();
     SEND_STRING_WITHOUT_MODS_P(PSTR(" by writing it to ./refactor-plan.md. "));
   }
