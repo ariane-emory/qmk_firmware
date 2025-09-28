@@ -1065,6 +1065,7 @@ void sses_write_the_plan_in_the_planmd_file_(void) {
 void leader_end_user(void) {
   if      (leader_sequence_two_keys(KC_B, KC_B)) {my_boot_handler(0, NULL);}
   // prompt fragments:
+  else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and do not make mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work, thank you. "));}
   else if (leader_sequence_two_keys(KC_K, KC_G)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going. "));}
@@ -1080,7 +1081,6 @@ void leader_end_user(void) {
     ss_do_not_edit_any_code_yet_bang_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("I just need you to analyze and explain this problem: "));
   } 
-  else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_I, KC_R)) { /* implement refactor */
     SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan "));
     ss_in_the_planmd_file_dot_();
