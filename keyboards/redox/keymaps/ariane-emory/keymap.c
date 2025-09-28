@@ -1056,7 +1056,8 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(", I just need you to analyze and explain this problem: "));
   } 
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}else if (leader_sequence_two_keys(KC_I, KC_R)) { /* implement refactor */
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan in @./refactor -plan.md. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan "));
+    ss_in_the_planmd_file_dot_();
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
   }
