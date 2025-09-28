@@ -1009,7 +1009,7 @@ void leader_end_user(void) {
   if (leader_sequence_two_keys(KC_B, KC_B)) {
     my_boot_handler(0, NULL);
   }
-  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ SS_do_not_edit(); SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I am just need you to analyze and explain this problem: "));} 
+  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ SS_do_not_edit(); SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I need you to analyze and explain this problem: "));} 
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Please analyze this problem and fix it"));}
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
     SS_do_not_edit();
