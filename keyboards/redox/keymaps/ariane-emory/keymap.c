@@ -1020,7 +1020,7 @@ void _ss_and_break_the_(void) {
 }
 
 void ss_mark_completed_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure to mark any steps you complete as completed in the ./refactor-plan.md file! "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure to mark any steps you complete as completed in the ./PLAN.md file! "));
 }
 
 void ss_test_afterwards(void) {
@@ -1060,7 +1060,7 @@ void leader_end_user(void) {
     ss_do_not_edit();
     SEND_STRING_WITHOUT_MODS_P(PSTR(", your job is to analyze the codebase for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
     ss_submit_for_approval_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("by writing it to ./refactor-plan.md. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("by writing it to ./PLAN.md. "));
   }
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* divide phases */
     SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
@@ -1073,7 +1073,7 @@ void leader_end_user(void) {
   }
   else if (leader_sequence_two_keys(KC_N, KC_N)) { /* next phase refactor  */
     ss_proceed_next_phase();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(" in @./refactor-plan.md. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(" in @./PLAN.md. "));
     ss_the_code_must_build_correctly_();
     ss_after_each_phase();
     ss_mark_completed_();
