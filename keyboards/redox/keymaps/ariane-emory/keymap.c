@@ -1007,8 +1007,8 @@ void ss_lets_think_it_through_thoroughly(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think it through thoroughly"));
 }
 
-void ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("down into small steps to come up with a detailed, step-by-step plan for how to implement "));
+void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a detailed, step-by-step plan for how to implement "));
 }
 
 void ss_the_code_must_build_correctly(void) {
@@ -1050,22 +1050,22 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */
     ss_lets_think_it_through_thoroughly();
     _ss_and_break_the_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("feature "));
-    ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
+    _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
   }
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */
     ss_lets_think_it_through_thoroughly();
     _ss_and_break_the_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("problem "));
-    ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("problem"));
+    _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
   }
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */
     ss_lets_think_it_through_thoroughly();
     _ss_and_break_the_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring "));
-    ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
+    _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
   }
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
