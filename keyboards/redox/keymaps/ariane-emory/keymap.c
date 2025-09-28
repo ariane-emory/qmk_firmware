@@ -1011,46 +1011,60 @@ void ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_h
   SEND_STRING_WITHOUT_MODS_P(PSTR("down into small steps to come up with a detailed, step-by-step plan for how to implement "));
 }
 
-void ss_must_build(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly afterward! "));
+void ss_the_code_must_build_correctly(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly"));
+}
+
+void _ss_and_break_the_(void) {
+   SEND_STRING_WITHOUT_MODS_P(PSTR(" and break the "));
 }
 
 void leader_end_user(void) {
   if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Please analyze this problem and fix it"));}
-  else if (leader_sequence_two_keys(KC_B, KC_A)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Build the project afterwards! "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and do not make any mistakes. "));}
-  else if (leader_sequence_two_keys(KC_G, KC_P)) { /* divide phases */ SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into 'phases': the code must continue to build and run correctly at the end of each phase. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work. "));}
   else if (leader_sequence_two_keys(KC_I, KC_R)) { /* implement refactor */ SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan in @./refactor -plan.md and mark it as complete in the file once you have finished. "));}
   else if (leader_sequence_two_keys(KC_K, KC_G)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going. "));}
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));} 
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
-  else if (leader_sequence_two_keys(KC_N, KC_N)) { /* next phase */ SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed onwards to implementing the next phase from @./refactor-plan.md. Make sure to mark any steps you complete as completed in @./refactor-plan.md! "));} 
+  else if (leader_sequence_two_keys(KC_N, KC_N)) { /* next phase */ SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the next phase from @./refactor-plan.md. Make sure to mark any steps you complete as completed in @./refactor-plan.md! "));} 
   else if (leader_sequence_two_keys(KC_O, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's go ahead and try carefully implementing that plan. "));} 
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good plan */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
+  else if (leader_sequence_two_keys(KC_M, KC_B)) { /* new errors */
+    ss_the_code_must_build_correctly();
+    SEND_STRING_WITHOUT_MODS_P(PSTR(" afterwards! "));
+  }
+  else if (leader_sequence_two_keys(KC_G, KC_P)) { /* divide phases */
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
+    ss_the_code_must_build_correctly();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase."));
+  }
   else if (leader_sequence_two_keys(KC_B, KC_B)) {
     my_boot_handler(0, NULL);
   }
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */
     ss_do_not_edit();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I need you to analyze and explain this problem: "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR(", for now I just need you to analyze and explain this problem: "));
   } 
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */
     ss_lets_think_it_through_thoroughly();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(" and break the feature "));
+    _ss_and_break_the_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("feature "));
     ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
   }
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */
     ss_lets_think_it_through_thoroughly();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(", analyze the problem and break it "));
+    _ss_and_break_the_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("problem "));
     ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
   }
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */
     ss_lets_think_it_through_thoroughly();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(" and break this refactoring "));
+    _ss_and_break_the_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring "));
     ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
   }
