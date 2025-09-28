@@ -1027,6 +1027,10 @@ void ss_test_afterwards(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure all the tests still pass afterwards. "));
 }
 
+void ss_proceed_next_phase(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the next "));
+}
+
 void leader_end_user(void) {
   if      (leader_sequence_two_keys(KC_B, KC_B)) {my_boot_handler(0, NULL);}  
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and do not make mistakes. "));}
@@ -1063,8 +1067,16 @@ void leader_end_user(void) {
     ss_the_code_must_build_correctly_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards! "));
   }
-  else if (leader_sequence_two_keys(KC_N, KC_N)) { /* next phase */
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Alright, let's proceed with implementing the next phase from @./refactor-plan.md. "));
+  else if (leader_sequence_two_keys(KC_N, KC_N)) { /* next phase refactor  */
+    ss_proceed_next_phase();
+    SEND_STRING_WITHOUT_MODS_P(PSTR(" in @./refactor-plan.md. "));
+    ss_the_code_must_build_correctly_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
+    ss_mark_completed_();
+  } 
+  else if (leader_sequence_two_keys(KC_N, KC_P)) { /* next phase  */
+    ss_proceed_next_phase();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("."));
     ss_the_code_must_build_correctly_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
     ss_mark_completed_();
