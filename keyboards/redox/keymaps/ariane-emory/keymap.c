@@ -1031,7 +1031,9 @@ void ss_post_check_(bool plan_file, when_t when) {
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
   }
+
   ss_the_code_must_build_correctly_();
+
   if (when == WHEN_AFTERWARDS)
     ss_afterwards_dot_();
   else
