@@ -130,20 +130,20 @@ void keyboard_post_init_user(void) {
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                               \
   DO(EM_SWAP,              S_EM_SWAP()                           )                                                                               \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                               \
-  DO(EM_SHELL,             (SS_LCTL("x") "t")           )                                                                                        \
+  DO(EM_SHELL,             (SS_LCTL("x") "t")                    )                                                                               \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                               \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                               \
-  DO(EM_KILL_BUFF,         (SS_LCTL("x") "k")           )                                                                                        \
+  DO(EM_KILL_BUFF,         (SS_LCTL("x") "k")                    )                                                                               \
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                               \
-  DO(EM_PRV_BUFF,          (SS_LCTL("x") "p"                     )                                                                               \
-    DO(EM_SPLIT_V,           (SS_LCTL("x") "@")                    )                                                                             \
-    DO(EM_SPLIT_H,           (SS_LCTL("x") "#")                    )                                                                             \
-    DO(EM_MAC_BGN,           (SS_LCTL("x") "9")                    )                                                                             \
-    DO(EM_MAC_END,           (SS_LCTL("x") "0")                    )                                                                             \
-    DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                                                                             \
-    DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                             \
-    DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                             \
-    DO(SS_0X,                (")x")                                ) 
+  DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                               \
+  DO(EM_SPLIT_V,           (SS_LCTL("x") "@")                    )                                                                               \
+  DO(EM_SPLIT_H,           (SS_LCTL("x") "#")                    )                                                                               \
+  DO(EM_MAC_BGN,           (SS_LCTL("x") "9")                    )                                                                               \
+  DO(EM_MAC_END,           (SS_LCTL("x") "0")                    )                                                                               \
+  DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                                                                               \
+  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                               \
+  DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                               \
+  DO(SS_0X,                (")x")                                ) 
 //                         NO MODS
 #else
 #  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                                                                                                 \
@@ -151,10 +151,10 @@ void keyboard_post_init_user(void) {
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                               \
   DO(EM_SWAP,              S_EM_SWAP()                           )                                                                               \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                               \
-  DO(EM_SHELL,             (SS_LCTL("x") "t")           )                                                                                        \
+  DO(EM_SHELL,             (SS_LCTL("x") "t")                    )                                                                               \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                               \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                               \
-  DO(EM_KILL_BUFF,         (SS_LCTL("x") "k")           )                                                                                        \
+  DO(EM_KILL_BUFF,         (SS_LCTL("x") "k")                    )                                                                               \
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                               \
   DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                               \
   DO(EM_SPLIT_V,           (SS_LCTL("x") "2")                    )                                                                               \
@@ -1000,7 +1000,7 @@ void ss_do_not_edit_any_code_yet_dot_(void) {
 }
 
 void ss_detailed_step_by_step_plan(void) {
-   SEND_STRING_WITHOUT_MODS_P(PSTR("detailed, step-by-step plan"));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("detailed, step-by-step plan"));
 }
 
 void ss_plan_and_submit_the_plan_for_approval_(void) {
@@ -1028,7 +1028,7 @@ void _ss_and_break_the_(void) {
 }
 
 void ss_mark_completed_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure to check off any steps you've completed "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure you check off any steps you've completed "));
 }
 
 void ss_in_the_planmd_file_dot_(void) {
