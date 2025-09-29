@@ -1013,7 +1013,7 @@ void ss_lets_think_it_through_thoroughly(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think it through thoroughly"));
 }
 
-void _sses_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
+void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a "));
   ss_detailed_step_by_step_plan();
   SEND_STRING_WITHOUT_MODS_P(PSTR("for how to implement "));
@@ -1039,7 +1039,7 @@ void ss_in_the_planmd_file_dot_(void) {
 void ss_afterwards_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards. "));
 }
-void sses_test_afterwards(void) {
+void ss_test_afterwards(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure all the tests still pass "));
   ss_afterwards_dot_();
 }
@@ -1056,15 +1056,15 @@ void ss_write_the_plan_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
 }
 
-void sses_plan_refactor_(void) {
+void ss_plan_refactor_(void) {
   ss_lets_think_it_through_thoroughly();
   _ss_and_break_the_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
-  _sses_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
 }
 
-void sses_write_the_plan_in_the_planmd_file_(void) {
+void ss_write_the_plan_in_the_planmd_file_(void) {
   ss_write_the_plan_();
   ss_in_the_planmd_file_dot_();
 }
@@ -1098,10 +1098,10 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
     ss_do_not_edit_any_code_yet_dot_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
-    sses_plan_refactor_();
+    ss_plan_refactor_();
     ss_plan_and_submit_the_plan_for_approval_();
     ss_afterwards_dot_();
-    sses_write_the_plan_in_the_planmd_file_();
+    ss_write_the_plan_in_the_planmd_file_();
   }
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* divide phases */
     SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
@@ -1135,18 +1135,18 @@ void leader_end_user(void) {
     ss_lets_think_it_through_thoroughly();
     _ss_and_break_the_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
-    _sses_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+    _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
   }
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */
     ss_lets_think_it_through_thoroughly();
     _ss_and_break_the_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("problem"));
-    _sses_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+    _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
   }
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */
-    sses_plan_refactor_();
+    ss_plan_refactor_();
   }
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/
     ss_do_not_edit_any_code_yet_dot_();
@@ -1158,10 +1158,10 @@ void leader_end_user(void) {
   }
   // other:
   else if (leader_sequence_two_keys(KC_T, KC_A)) { /* test afterwards */
-    sses_test_afterwards();
+    ss_test_afterwards();
   }
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */
-    sses_write_the_plan_in_the_planmd_file_();
+    ss_write_the_plan_in_the_planmd_file_();
   }
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ /* SPACE INEFFICIENT! */
     ss_do_not_edit_any_code_yet_dot_();
