@@ -1107,17 +1107,23 @@ void leader_end_user(void) {
   }
   // prompt fragments:
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
+  else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work. "));}
   else if (leader_sequence_two_keys(KC_K, KC_G)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going. "));}
+  else if (leader_sequence_two_keys(KC_K, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));} 
   else if (leader_sequence_two_keys(KC_K, KC_T)) { /* keep trying */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep trying. "));}
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));} 
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
-  else if (leader_sequence_two_keys(KC_K, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));} 
+  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_();}
+  else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_problem_();}
+  else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_refactor_();}
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan();}
+  else if (leader_sequence_two_keys(KC_T, KC_A)) { /* test afterwards */ ss_test_afterwards();}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
+  else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
   // multi-part prompt fragments:
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */
     ss_do_not_edit_any_code_yet_dot_();
@@ -1163,16 +1169,6 @@ void leader_end_user(void) {
     ss_in_the_planmd_file_dot_();
     sses_post_check_(true);
   } 
-  // plan:
-  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */
-    ss_plan_feature_();
-  }
-  else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */
-    ss_plan_problem_();
-  }
-  else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */
-    ss_plan_refactor_();
-  }
   // misc prompt fragments:
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/
     ss_do_not_edit_any_code_yet_dot_();
@@ -1181,15 +1177,6 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */
     ss_plan_and_submit_the_plan_for_approval_(); 
     SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing the code. "));
-  }
-  else if (leader_sequence_two_keys(KC_T, KC_A)) { /* test afterwards */
-    ss_test_afterwards();
-  }
-  else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */
-    ss_write_the_plan_in_the_planmd_file_();
-  }
-  else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ /* SPACE INEFFICIENT! */
-    ss_do_not_edit_any_code_yet_dot_();
   }
   // git-related: ==================================================================================
   else if (leader_sequence_one_key(KC_S)) {
