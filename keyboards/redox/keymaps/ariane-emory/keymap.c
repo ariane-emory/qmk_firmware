@@ -1000,9 +1000,14 @@ void ss_mark_completed_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure you check off any steps you've completed "));
 }
 
-void ss_the_code_must_build_correctly_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly "));
-}
+/* void ss_the_code_must_build_correctly_(void) { */
+/*   SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly ")); */
+/* } */
+
+/* void ss_test_afterwards_dot_(void) { */
+/*   SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure all the tests still pass ")); */
+/*   ss_afterwards_dot_(); */
+/* } */
 
 void ss_afterwards_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards. "));
@@ -1012,10 +1017,6 @@ void ss_after_each_phase_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
 }
 
-void ss_test_afterwards(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure all the tests still pass "));
-  ss_afterwards_dot_();
-}
 
 void ss_in_the_planmd_file_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("in the ./PLAN.md file. "));
@@ -1025,6 +1026,15 @@ typedef enum {
   WHEN_AFTERWARDS,
   WHEN_AFTER_EACH_PHASE,
 } when_t;
+
+void ss_must_build_and_pass_tests_dot_(when_t when) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly and any tests must pass "));
+
+  if (when == WHEN_AFTERWARDS)
+    ss_afterwards_dot_();
+  else
+    ss_after_each_phase_dot_();
+}
 
 typedef enum {
   PLAN_FEATURE,
@@ -1038,12 +1048,7 @@ void ss_post_check_(bool plan_file, when_t when) {
     ss_in_the_planmd_file_dot_();
   }
 
-  ss_the_code_must_build_correctly_();
-
-  if (when == WHEN_AFTERWARDS)
-    ss_afterwards_dot_();
-  else
-    ss_after_each_phase_dot_();
+  ss_must_build_and_pass_tests_dot_(when);
 }
 
 // ---
@@ -1108,9 +1113,12 @@ void ss_write_the_plan_in_the_planmd_file_(void) {
 
 void ss_group_phases_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
-  ss_the_code_must_build_correctly_();
-  ss_after_each_phase_dot_();
+  ss_must_build_and_pass_tests_dot_(WHEN_AFTER_EACH_PHASE);
 }
+
+// =============================================================================
+// leader_end_user
+// =============================================================================
 
 void leader_end_user(void) {
   if      (leader_sequence_two_keys(KC_B, KC_B)) {
@@ -1142,7 +1150,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_M)) { /* ./plan.md */ SEND_STRING_WITHOUT_MODS_P(PSTR("./plan.md")); }
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan();}
-  else if (leader_sequence_two_keys(KC_T, KC_A)) { /* test afterwards */ ss_test_afterwards();}
+  // else if (leader_sequence_two_keys(KC_T, KC_A)) { /* test afterwards */ ss_test_afterwards_dot_();}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
@@ -1163,18 +1171,18 @@ void leader_end_user(void) {
     ss_group_phases_dot_();
   }
   else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */
-    ss_the_code_must_build_correctly_();
-    ss_afterwards_dot_();
+    ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);
   }
   else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
   }
   // implement:
-  else if (leader_sequence_two_keys(KC_I, KC_T)) { /* proceed w/ doing that  */
+  else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
-    ss_post_check_(false, WHEN_AFTERWARDS);
+    SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
+    ss_in_the_planmd_file_dot_();
+    ss_post_check_(true, WHEN_AFTERWARDS);
   } 
   else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
     ss_proceed_with_implementing_();
@@ -1187,11 +1195,10 @@ void leader_end_user(void) {
     ss_in_the_planmd_file_dot_();
     ss_post_check_(true, WHEN_AFTERWARDS);
   } 
-  else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ next phase of PLAN.md  */
+  else if (leader_sequence_two_keys(KC_I, KC_T)) { /* proceed w/ doing that  */
     ss_proceed_with_implementing_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
-    ss_in_the_planmd_file_dot_();
-    ss_post_check_(true, WHEN_AFTERWARDS);
+    SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
+    ss_post_check_(false, WHEN_AFTERWARDS);
   } 
   // misc prompt fragments:
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/
