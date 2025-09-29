@@ -1007,8 +1007,14 @@ void ss_lets_think_it_through_thoroughly(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think it through thoroughly"));
 }
 
-void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a detailed, step-by-step plan for how to implement "));
+void ss_a_detailed_step_by_step_plan_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("a detailed, step-by-step plan "));
+}
+
+void _sses_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with "));
+  ss_a_detailed_step_by_step_plan_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("for how to implement "));
 }
 
 void ss_the_code_must_build_correctly_(void) {
@@ -1020,7 +1026,7 @@ void _ss_and_break_the_(void) {
 }
 
 void ss_mark_completed_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure to check off any steps you complete as completed "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure to check of any steps you complete as completed "));
 }
 
 void ss_in_the_planmd_file_dot_(void) {
@@ -1052,7 +1058,7 @@ void sses_plan_refactor_(void) {
   ss_lets_think_it_through_thoroughly();
   _ss_and_break_the_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
-  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+  _sses_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
 }
 
@@ -1072,7 +1078,8 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));} 
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
   else if (leader_sequence_two_keys(KC_K, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));} 
-  else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good plan */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
+  else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good  */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
+  else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_a_detailed_step_by_step_plan_();}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
   // multi-part prompt fragments:
@@ -1126,14 +1133,14 @@ void leader_end_user(void) {
     ss_lets_think_it_through_thoroughly();
     _ss_and_break_the_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
-    _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+    _sses_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
   }
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */
     ss_lets_think_it_through_thoroughly();
     _ss_and_break_the_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("problem"));
-    _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+    _sses_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
   }
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */
