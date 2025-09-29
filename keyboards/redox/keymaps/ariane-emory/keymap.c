@@ -1070,10 +1070,10 @@ void ss_plan_feature_(void) {
   ss_lets_think_it_through_thoroughly_and_break_the_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("this feature. "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
 }
 
-void sses_post_check_(bool plan_file) {
+void ss_post_check_(bool plan_file) {
   if (plan_file) {
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
@@ -1086,6 +1086,12 @@ void sses_post_check_(bool plan_file) {
 void ss_write_the_plan_in_the_planmd_file_(void) {
   ss_write_the_plan_();
   ss_in_the_planmd_file_dot_();
+}
+
+void ss_group_phases_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
+  ss_the_code_must_build_correctly_();
+  ss_after_each_phase_dot_();
 }
 
 void leader_end_user(void) {
@@ -1136,9 +1142,7 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("I just need you to analyze and explain this problem: "));
   } 
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
-    ss_the_code_must_build_correctly_();
-    ss_after_each_phase_dot_();
+    ss_group_phases_dot_();
   }
   else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */
     ss_the_code_must_build_correctly_();
@@ -1152,24 +1156,24 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_I, KC_T)) { /* proceed w/ doing that  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
-    sses_post_check_(false);
+    ss_post_check_(false);
   } 
   else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("this plan. "));
-    sses_post_check_(false);
+    ss_post_check_(false);
   } 
   else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
     ss_in_the_planmd_file_dot_();
-    sses_post_check_(true);
+    ss_post_check_(true);
   } 
   else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
     ss_in_the_planmd_file_dot_();
-    sses_post_check_(true);
+    ss_post_check_(true);
   } 
   // misc prompt fragments:
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/
