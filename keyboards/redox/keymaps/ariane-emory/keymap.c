@@ -1009,8 +1009,8 @@ void ss_plan_and_submit_the_plan_for_approval_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR(", submit it to me for approval "));
 }
 
-void ss_lets_think_it_through_thoroughly(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think it through thoroughly"));
+void ss_lets_think_it_through_thoroughly_and_break_the_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think it through thoroughly and break the "));
 }
 
 void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
@@ -1021,10 +1021,6 @@ void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_
 
 void ss_the_code_must_build_correctly_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly "));
-}
-
-void _ss_and_break_the_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR(" and break the "));
 }
 
 void ss_mark_completed_(void) {
@@ -1060,27 +1056,24 @@ void ss_write_the_plan_(void) {
 }
 
 void ss_plan_refactor_(void) {
-  ss_lets_think_it_through_thoroughly();
-  _ss_and_break_the_();
+  ss_lets_think_it_through_thoroughly_and_break_the_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
 }
 
 void ss_plan_problem_(void) {
-  ss_lets_think_it_through_thoroughly();
-  _ss_and_break_the_();
+  ss_lets_think_it_through_thoroughly_and_break_the_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("problem"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
 }
 
 void ss_plan_feature_(void) {
-  ss_lets_think_it_through_thoroughly();
-  _ss_and_break_the_();
+  ss_lets_think_it_through_thoroughly_and_break_the_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("this feature. "));
 }
 
 void sses_post_check_(bool plan_file) {
