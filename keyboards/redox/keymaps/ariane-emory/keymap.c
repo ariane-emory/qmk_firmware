@@ -103,7 +103,7 @@ void keyboard_post_init_user(void) {
 #define S_SPC()                TAP(X_SPC)
 #define S_TB(_)                TAP(X_TAB)
 #define S_UU(_)                TAP(X_UP) 
-#define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) TAP(X_BTN1) SS_UP(X_LGUI)
+#define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) TAP(X_BTN1) SS_DELAY(5) SS_UP(X_LGUI)
 #define S_GUI_CLICK_AND_TAB(_) S_GUI_CLICK() SS_LCTL(TAP(X_TAB))
 //#define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR() TAP(X_HOME)
 #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR() 
@@ -1097,7 +1097,7 @@ void leader_end_user(void) {
   }
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
     ss_do_not_edit_any_code_yet_bang_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve maintainability, or other 'code smells' we could eliminate. "));
     sses_plan_refactor_();
     ss_plan_and_submit_the_plan_for_approval_();
     ss_afterwards_dot_();
