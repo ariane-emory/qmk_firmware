@@ -996,18 +996,14 @@ uint16_t keycode_config(uint16_t keycode) {
 
 #ifdef LEADER_ENABLE
 // ---
-void ss_mark_completed_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure you check off any steps you've completed "));
+void ss_in_the_planmd_file_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("in the ./PLAN.md file. "));
 }
 
-/* void ss_the_code_must_build_correctly_(void) { */
-/*   SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly ")); */
-/* } */
-
-/* void ss_test_afterwards_dot_(void) { */
-/*   SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure all the tests still pass ")); */
-/*   ss_afterwards_dot_(); */
-/* } */
+void ss_mark_completed_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure you check off any steps you've completed "));
+  ss_in_the_planmd_file_dot_();
+}
 
 void ss_afterwards_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards. "));
@@ -1018,9 +1014,6 @@ void ss_after_each_phase_dot_(void) {
 }
 
 
-void ss_in_the_planmd_file_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("in the ./PLAN.md file. "));
-}
 
 typedef enum {
   WHEN_AFTERWARDS,
@@ -1042,11 +1035,9 @@ typedef enum {
   PLAN_REFACTOR,
 } planned_thing_t;
 
-void ss_post_check_(bool plan_file, when_t when) {
-  if (plan_file) {
+void ss_post_check_dot_(bool plan_file, when_t when) {
+  if (plan_file) 
     ss_mark_completed_();
-    ss_in_the_planmd_file_dot_();
-  }
 
   ss_must_build_and_pass_tests_dot_(when);
 }
@@ -1113,7 +1104,7 @@ void ss_write_the_plan_in_the_planmd_file_(void) {
 
 void ss_group_phases_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
-  ss_must_build_and_pass_tests_dot_(WHEN_AFTER_EACH_PHASE);
+  ss_post_check_dot_(false, WHEN_AFTER_EACH_PHASE);
 }
 
 // =============================================================================
@@ -1121,36 +1112,33 @@ void ss_group_phases_dot_(void) {
 // =============================================================================
 
 void leader_end_user(void) {
-  if      (leader_sequence_two_keys(KC_B, KC_B)) {
-    my_boot_handler(0, NULL);
-  }
+  if      (leader_sequence_two_keys(KC_B, KC_B)) {my_boot_handler(0, NULL);}
   else if (leader_sequence_one_key(KC_Q)) {
     /* SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkc" S_CR())); */
     SEND_STRING_WITHOUT_MODS_P(PSTR("cdkm; qmkc" S_CR()));
   }
-  else if (leader_sequence_two_keys(KC_Q, KC_W)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));
-  }
-  else if (leader_sequence_one_key(KC_R)) { // repeat shell cmd in emacs
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));
-  }
+  else if (leader_sequence_two_keys(KC_Q, KC_W)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));}
+  else if (leader_sequence_one_key(KC_R)) { /* repeat shell cmd in emacs */ SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
   // prompt fragments:
+  // else if (leader_sequence_two_keys(KC_T, KC_A)) { /* test afterwards */ ss_test_afterwards_dot_();}
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
+  else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_();}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work. "));}
   else if (leader_sequence_two_keys(KC_K, KC_G)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going. "));}
   else if (leader_sequence_two_keys(KC_K, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));} 
   else if (leader_sequence_two_keys(KC_K, KC_T)) { /* keep trying */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep trying. "));}
+  else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
+  else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */ ss_mark_completed_();}
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));} 
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_();}
+  else if (leader_sequence_two_keys(KC_P, KC_M)) { /* ./plan.md */ SEND_STRING_WITHOUT_MODS_P(PSTR("./plan.md")); }
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_problem_();}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_refactor_();}
-  else if (leader_sequence_two_keys(KC_P, KC_M)) { /* ./plan.md */ SEND_STRING_WITHOUT_MODS_P(PSTR("./plan.md")); }
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan();}
-  // else if (leader_sequence_two_keys(KC_T, KC_A)) { /* test afterwards */ ss_test_afterwards_dot_();}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
@@ -1167,38 +1155,28 @@ void leader_end_user(void) {
     ss_do_not_edit_any_code_yet_dot_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("I just need you to analyze and explain this problem: "));
   } 
-  else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */
-    ss_group_phases_dot_();
-  }
-  else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */
-    ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);
-  }
-  else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */
-    ss_mark_completed_();
-    ss_in_the_planmd_file_dot_();
-  }
   // implement:
   else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
     ss_in_the_planmd_file_dot_();
-    ss_post_check_(true, WHEN_AFTERWARDS);
-  } 
-  else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
-    ss_proceed_with_implementing_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("this plan. "));
-    ss_post_check_(false, WHEN_AFTERWARDS);
+    ss_post_check_dot_(true, WHEN_AFTERWARDS);
   } 
   else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
     ss_in_the_planmd_file_dot_();
-    ss_post_check_(true, WHEN_AFTERWARDS);
+    ss_post_check_dot_(true, WHEN_AFTERWARDS);
   } 
-  else if (leader_sequence_two_keys(KC_I, KC_T)) { /* proceed w/ doing that  */
+  else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
+    ss_proceed_with_implementing_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("this plan. "));
+    ss_post_check_dot_(false, WHEN_AFTERWARDS);
+  } 
+  else if (leader_sequence_two_keys(KC_I, KC_T)) { /* proceed w/ implementing that  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
-    ss_post_check_(false, WHEN_AFTERWARDS);
+    ss_post_check_dot_(false, WHEN_AFTERWARDS);
   } 
   // misc prompt fragments:
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/
