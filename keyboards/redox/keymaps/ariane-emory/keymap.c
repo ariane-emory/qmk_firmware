@@ -1040,7 +1040,7 @@ void ss_test_afterwards(void) {
 }
 
 void ss_proceed_with_implementing_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Let's proceed with implementing "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed with implementing "));
 }
 
 void ss_the_next_phase(void) {
@@ -1092,7 +1092,19 @@ void ss_write_the_plan_in_the_planmd_file_(void) {
 }
 
 void leader_end_user(void) {
-  if      (leader_sequence_two_keys(KC_B, KC_B)) {my_boot_handler(0, NULL);}
+  if      (leader_sequence_two_keys(KC_B, KC_B)) {
+    my_boot_handler(0, NULL);
+  }
+  else if (leader_sequence_one_key(KC_Q)) {
+    /* SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkc" S_CR())); */
+    SEND_STRING_WITHOUT_MODS_P(PSTR("cdkm; qmkc" S_CR()));
+  }
+  else if (leader_sequence_two_keys(KC_Q, KC_W)) {
+    SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));
+  }
+  else if (leader_sequence_one_key(KC_R)) { // repeat shell cmd in emacs
+    SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));
+  }
   // prompt fragments:
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
@@ -1179,18 +1191,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ /* SPACE INEFFICIENT! */
     ss_do_not_edit_any_code_yet_dot_();
   }
-  // other: ========================================================================================
-  else if (leader_sequence_one_key(KC_R)) { // repeat shell cmd in emacs
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));
-  }
-  else if (leader_sequence_one_key(KC_Q)) {
-    /* SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkc" S_CR())); */
-    SEND_STRING_WITHOUT_MODS_P(PSTR("cdkm; qmkc" S_CR()));
-  }
-  else if (leader_sequence_two_keys(KC_Q, KC_W)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));
-  }
-  // git-related:
+  // git-related: ==================================================================================
   else if (leader_sequence_one_key(KC_S)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));
   }
@@ -1230,40 +1231,6 @@ void leader_end_user(void) {
   else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " S_CR()));
   }
-  /* else if (leader_sequence_one_key(KC_A)) { */
-  /*   tap_code16(C(KC_A)); */
-  /* } */
-  /* else if (leader_sequence_one_key(KC_E)) { */
-  /*   tap_code16(C(KC_E)); */
-  /* } */
-  /* else if (leader_sequence_two_keys(KC_D, KC_D)) { */
-  /*   tap_code16(KC_F5); */
-  /* } */
-  /* else if (leader_sequence_two_keys(KC_D, KC_D)) { */
-  /*   tap_code16(C(KC_F5)); */
-  /* } */
-  /* else if (leader_sequence_three_keys(KC_R, KC_R, KC_R)) { */
-  /*   SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE())); */
-  /*   tap_code16(A(KC_P)); */
-  /*   wait_ms(20); */
-  /*   tap_code16(A(KC_P)); */
-  /*   wait_ms(20); */
-  /*   tap_code16(A(KC_P)); */
-  /*   wait_ms(20); */
-  /*   tap_code16(KC_ENT); */
-  /*   wait_ms(20); */
-  /*   /\* SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_))); *\/ */
-  /* } */
-  /* else if (leader_sequence_two_keys(KC_R, KC_R)) { */
-  /*   SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE())); */
-  /*   tap_code16(A(KC_P)); */
-  /*   wait_ms(20); */
-  /*   tap_code16(A(KC_P)); */
-  /*   wait_ms(20); */
-  /*   tap_code16(KC_ENT); */
-  /*   wait_ms(20); */
-  /*   /\* SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_))); *\/ */
-  /* } */
 }
 #endif // LEADER_ENABLE
 
