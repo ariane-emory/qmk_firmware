@@ -1067,7 +1067,7 @@ void ss_plan_refactor_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
 }
 
-void ss_plan_problem(void) {
+void ss_plan_problem_(void) {
   ss_lets_think_it_through_thoroughly();
   _ss_and_break_the_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("problem"));
@@ -1075,7 +1075,7 @@ void ss_plan_problem(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
 }
 
-void ss_plan_feature(void) {
+void ss_plan_feature_(void) {
   ss_lets_think_it_through_thoroughly();
   _ss_and_break_the_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
@@ -1160,10 +1160,10 @@ void leader_end_user(void) {
   } 
   // plan:
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */
-    ss_plan_feature();
+    ss_plan_feature_();
   }
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */
-    ss_plan_problem();
+    ss_plan_problem_();
   }
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */
     ss_plan_refactor_();
