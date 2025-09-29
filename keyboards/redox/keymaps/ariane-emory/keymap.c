@@ -1026,6 +1026,12 @@ typedef enum {
   WHEN_AFTER_EACH_PHASE,
 } when_t;
 
+typedef enum {
+  PLAN_FEATURE,
+  PLAN_PROBLEM,
+  PLAN_REFACTOR,
+} planned_thing_t;
+
 void ss_post_check_(bool plan_file, when_t when) {
   if (plan_file) {
     ss_mark_completed_();
@@ -1050,7 +1056,7 @@ void ss_detailed_step_by_step_plan(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("detailed, step-by-step plan"));
 }
 
-void ss_plan_and_submit_the_plan_for_approval_(void) {
+void ss_and_and_submit_the_plan_for_approval_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a "));
   ss_detailed_step_by_step_plan();
   SEND_STRING_WITHOUT_MODS_P(PSTR(", submit it to me for approval "));
@@ -1145,7 +1151,7 @@ void leader_end_user(void) {
     ss_do_not_edit_any_code_yet_dot_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
     ss_plan_refactor_();
-    ss_plan_and_submit_the_plan_for_approval_();
+    ss_and_and_submit_the_plan_for_approval_();
     ss_afterwards_dot_();
     ss_write_the_plan_in_the_planmd_file_();
   }
@@ -1193,7 +1199,7 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("I am just asking you questions about the code. "));
   }
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */
-    ss_plan_and_submit_the_plan_for_approval_(); 
+    ss_and_and_submit_the_plan_for_approval_(); 
     SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing the code. "));
   }
   // git-related: ==================================================================================
