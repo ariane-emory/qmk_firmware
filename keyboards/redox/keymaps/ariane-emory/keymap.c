@@ -1149,6 +1149,11 @@ void leader_end_user(void) {
     ss_in_the_planmd_file_dot_();
   }
   // implement:
+  else if (leader_sequence_two_keys(KC_I, KC_T)) { /* proceed w/ doing that  */
+    ss_proceed_with_implementing_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("that. "));
+    sses_post_check_(false);
+  } 
   else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("that plan. "));
