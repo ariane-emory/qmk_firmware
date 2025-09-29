@@ -999,16 +999,18 @@ void ss_do_not_edit_any_code_yet_bang_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet! "));
 }
 
-void ss_submit_the_plan_for_approval_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval "));
+void ss_a_detailed_step_by_step_plan_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("a detailed, step-by-step plan "));
+}
+
+void ss_plan_and_submit_the_plan_for_approval_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a "));
+  ss_a_detailed_step_by_step_plan_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("\b, submit it to me for approval "));
 }
 
 void ss_lets_think_it_through_thoroughly(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think it through thoroughly"));
-}
-
-void ss_a_detailed_step_by_step_plan_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("a detailed, step-by-step plan "));
 }
 
 void _sses_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
@@ -1097,7 +1099,7 @@ void leader_end_user(void) {
     ss_do_not_edit_any_code_yet_bang_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
     sses_plan_refactor_();
-    ss_submit_the_plan_for_approval_();
+    ss_plan_and_submit_the_plan_for_approval_();
     ss_afterwards_dot_();
     sses_write_the_plan_in_the_planmd_file_();
   }
@@ -1151,7 +1153,7 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("For now I am just asking you questions about the code. "));
   }
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */
-    ss_submit_the_plan_for_approval_(); 
+    ss_plan_and_submit_the_plan_for_approval_(); 
     SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing the code. "));
   }
   // other:
