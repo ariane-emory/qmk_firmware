@@ -1151,7 +1151,7 @@ void leader_end_user(void) {
   // implement:
   else if (leader_sequence_two_keys(KC_I, KC_T)) { /* proceed w/ doing that  */
     ss_proceed_with_implementing_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("that. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
     sses_post_check_(false);
   } 
   else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
