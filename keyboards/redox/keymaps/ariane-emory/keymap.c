@@ -1116,7 +1116,7 @@ void leader_end_user(void) {
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
   }
-  else if (leader_sequence_three_keys(KC_N, KC_P, KC_P)) { /* proceed w/ next phase of plan.md  */
+  else if (leader_sequence_three_keys(KC_P, KC_N, KC_P)) { /* proceed w/ next phase of plan.md  */
     ss_proceed_with_implementing_next_phase();
     SEND_STRING_WITHOUT_MODS_P(PSTR(" "));
     ss_in_the_planmd_file_dot_();
@@ -1125,7 +1125,7 @@ void leader_end_user(void) {
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
   } 
-  else if (leader_sequence_two_keys(KC_N, KC_P)) { /* proceed w/next phase  */
+  else if (leader_sequence_two_keys(KC_P, KC_N)) { /* proceed w/next phase  */
     ss_proceed_with_implementing_next_phase();
     SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
     ss_the_code_must_build_correctly_();
