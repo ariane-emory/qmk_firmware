@@ -995,18 +995,18 @@ uint16_t keycode_config(uint16_t keycode) {
 #define S_CLR_LINE() S_END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
 
 #ifdef LEADER_ENABLE
-void ss_do_not_edit_any_code_yet_bang_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet! "));
+void ss_do_not_edit_any_code_yet_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet. "));
 }
 
-void ss_detailed_step_by_step_plan_(void) {
+void ss_detailed_step_by_step_plan(void) {
    SEND_STRING_WITHOUT_MODS_P(PSTR("detailed, step-by-step plan"));
 }
 
 void ss_plan_and_submit_the_plan_for_approval_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a "));
-  ss_detailed_step_by_step_plan_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("\b, submit it to me for approval "));
+  ss_detailed_step_by_step_plan();
+  SEND_STRING_WITHOUT_MODS_P(PSTR(", submit it to me for approval "));
 }
 
 void ss_lets_think_it_through_thoroughly(void) {
@@ -1015,7 +1015,7 @@ void ss_lets_think_it_through_thoroughly(void) {
 
 void _sses_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a "));
-  ss_detailed_step_by_step_plan_();
+  ss_detailed_step_by_step_plan();
   SEND_STRING_WITHOUT_MODS_P(PSTR("for how to implement "));
 }
 
@@ -1081,12 +1081,12 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
   else if (leader_sequence_two_keys(KC_K, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));} 
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
-  else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
+  else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan();}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
   // multi-part prompt fragments:
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */
-    ss_do_not_edit_any_code_yet_bang_();
+    ss_do_not_edit_any_code_yet_dot_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("I just need you to analyze and explain this problem: "));
   } 
   else if (leader_sequence_two_keys(KC_I, KC_R)) { /* implement refactor */
@@ -1096,7 +1096,7 @@ void leader_end_user(void) {
     ss_in_the_planmd_file_dot_();
   }
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
-    ss_do_not_edit_any_code_yet_bang_();
+    ss_do_not_edit_any_code_yet_dot_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
     sses_plan_refactor_();
     ss_plan_and_submit_the_plan_for_approval_();
@@ -1149,8 +1149,8 @@ void leader_end_user(void) {
     sses_plan_refactor_();
   }
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/
-    ss_do_not_edit_any_code_yet_bang_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("For now I am just asking you questions about the code. "));
+    ss_do_not_edit_any_code_yet_dot_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("For now, I am just asking you questions about the code. "));
   }
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */
     ss_plan_and_submit_the_plan_for_approval_(); 
@@ -1164,7 +1164,7 @@ void leader_end_user(void) {
     sses_write_the_plan_in_the_planmd_file_();
   }
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ /* SPACE INEFFICIENT! */
-    ss_do_not_edit_any_code_yet_bang_();
+    ss_do_not_edit_any_code_yet_dot_();
   }
   else if (leader_sequence_one_key(KC_R)) { // repat shell cmd in emacs
     SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));
