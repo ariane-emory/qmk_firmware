@@ -1056,12 +1056,18 @@ void ss_write_the_plan_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
 }
 
+void ss_refactoring(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
+}
+
 void sses_plan_refactor_(void) {
   ss_lets_think_it_through_thoroughly();
   _ss_and_break_the_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
+  ss_refactoring();
   _sses_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("this "));
+  ss_refactoring();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("\b. "));
 }
 
 void sses_write_the_plan_in_the_planmd_file_(void) {
