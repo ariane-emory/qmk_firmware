@@ -1004,7 +1004,9 @@ void ss_detailed_step_by_step_plan_(void) {
 }
 
 void ss_plan_and_submit_the_plan_for_approval_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a detailed plan, submit it to me for approval "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a "));
+  ss_detailed_step_by_step_plan_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("\b, submit it to me for approval "));
 }
 
 void ss_lets_think_it_through_thoroughly(void) {
