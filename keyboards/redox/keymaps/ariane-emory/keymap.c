@@ -999,13 +999,13 @@ void ss_do_not_edit_any_code_yet_bang_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet! "));
 }
 
-void ss_a_detailed_step_by_step_plan_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("a detailed, step-by-step plan "));
+void ss_detailed_step_by_step_plan_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("detailed, step-by-step plan "));
 }
 
 void ss_plan_and_submit_the_plan_for_approval_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a "));
-  ss_a_detailed_step_by_step_plan_();
+  ss_detailed_step_by_step_plan_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("\b, submit it to me for approval "));
 }
 
@@ -1014,8 +1014,8 @@ void ss_lets_think_it_through_thoroughly(void) {
 }
 
 void _sses_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with "));
-  ss_a_detailed_step_by_step_plan_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a "));
+  ss_detailed_step_by_step_plan_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("for how to implement "));
 }
 
@@ -1081,7 +1081,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
   else if (leader_sequence_two_keys(KC_K, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));} 
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good  */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
-  else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_a_detailed_step_by_step_plan_();}
+  else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
   // multi-part prompt fragments:
@@ -1116,7 +1116,7 @@ void leader_end_user(void) {
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
   }
-  else if (leader_sequence_three_keys(KC_N, KC_P, KC_P)) { /* proceed w/ next phase of plan.md  */
+  else if (leader_sequence_three_keys(KC_P, KC_N, KC_P)) { /* proceed w/ next phase of plan.md  */
     ss_proceed_with_implementing_next_phase();
     SEND_STRING_WITHOUT_MODS_P(PSTR(" "));
     ss_in_the_planmd_file_dot_();
@@ -1125,7 +1125,7 @@ void leader_end_user(void) {
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
   } 
-  else if (leader_sequence_two_keys(KC_N, KC_P)) { /* proceed w/next phase  */
+  else if (leader_sequence_two_keys(KC_P, KC_N)) { /* proceed w/next phase  */
     ss_proceed_with_implementing_next_phase();
     SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
     ss_the_code_must_build_correctly_();
