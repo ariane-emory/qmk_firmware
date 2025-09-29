@@ -1034,6 +1034,7 @@ void ss_in_the_planmd_file_dot_(void) {
 void ss_afterwards_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards. "));
 }
+
 void ss_test_afterwards(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure all the tests still pass "));
   ss_afterwards_dot_();
@@ -1041,10 +1042,6 @@ void ss_test_afterwards(void) {
 
 void ss_proceed_with_implementing_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed with implementing "));
-}
-
-void ss_the_next_phase(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase"));
 }
 
 void ss_after_each_phase_dot_(void) {
@@ -1125,10 +1122,6 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
   // multi-part prompt fragments:
-  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */
-    ss_do_not_edit_any_code_yet_dot_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("I just need you to analyze and explain this problem: "));
-  } 
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
     ss_do_not_edit_any_code_yet_dot_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
@@ -1137,7 +1130,11 @@ void leader_end_user(void) {
     ss_afterwards_dot_();
     ss_write_the_plan_in_the_planmd_file_();
   }
-  else if (leader_sequence_two_keys(KC_G, KC_P)) { /* divide phases */
+  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */
+    ss_do_not_edit_any_code_yet_dot_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("I just need you to analyze and explain this problem: "));
+  } 
+  else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */
     SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
     ss_the_code_must_build_correctly_();
     ss_after_each_phase_dot_();
@@ -1158,8 +1155,7 @@ void leader_end_user(void) {
   } 
   else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
-    ss_the_next_phase();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(" "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
     ss_in_the_planmd_file_dot_();
     sses_post_check_(true);
   } 
