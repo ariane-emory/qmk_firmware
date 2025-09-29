@@ -995,6 +995,51 @@ uint16_t keycode_config(uint16_t keycode) {
 #define S_CLR_LINE() S_END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
 
 #ifdef LEADER_ENABLE
+// ---
+void ss_mark_completed_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure you check off any steps you've completed "));
+}
+
+void ss_the_code_must_build_correctly_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly "));
+}
+
+void ss_afterwards_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards. "));
+}
+
+void ss_after_each_phase_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
+}
+
+void ss_test_afterwards(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure all the tests still pass "));
+  ss_afterwards_dot_();
+}
+
+void ss_in_the_planmd_file_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("in the ./PLAN.md file. "));
+}
+
+typedef enum {
+  WHEN_AFTERWARDS,
+  WHEN_AFTER_EACH_PHASE,
+} when_t;
+
+void ss_post_check_(bool plan_file, when_t when) {
+  if (plan_file) {
+    ss_mark_completed_();
+    ss_in_the_planmd_file_dot_();
+  }
+  ss_the_code_must_build_correctly_();
+  if (when == WHEN_AFTERWARDS)
+    ss_afterwards_dot_();
+  else
+    ss_after_each_phase_dot_();
+}
+
+// ---
+
 void ss_do_not_edit_any_code_yet_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet. "));
 }
@@ -1017,33 +1062,6 @@ void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a "));
   ss_detailed_step_by_step_plan();
   SEND_STRING_WITHOUT_MODS_P(PSTR(" for how we can implement "));
-}
-
-// ---
-void ss_the_code_must_build_correctly_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly "));
-}
-
-void ss_afterwards_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards. "));
-}
-
-void ss_after_each_phase_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
-}
-
-void ss_test_afterwards(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure all the tests still pass "));
-  ss_afterwards_dot_();
-}
-// ---
-
-void ss_mark_completed_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure you check off any steps you've completed "));
-}
-
-void ss_in_the_planmd_file_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("in the ./PLAN.md file. "));
 }
 
 void ss_proceed_with_implementing_(void) {
@@ -1073,16 +1091,6 @@ void ss_plan_feature_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
-}
-
-void ss_post_check_(bool plan_file) {
-  if (plan_file) {
-    ss_mark_completed_();
-    ss_in_the_planmd_file_dot_();
-  }
-  ss_the_code_must_build_correctly_();
-  ss_after_each_phase_dot_();
-  ss_test_afterwards();
 }
 
 void ss_write_the_plan_in_the_planmd_file_(void) {
@@ -1158,24 +1166,24 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_I, KC_T)) { /* proceed w/ doing that  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
-    ss_post_check_(false);
+    ss_post_check_(false, WHEN_AFTERWARDS);
   } 
   else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("this plan. "));
-    ss_post_check_(false);
+    ss_post_check_(false, WHEN_AFTERWARDS);
   } 
   else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
     ss_in_the_planmd_file_dot_();
-    ss_post_check_(true);
+    ss_post_check_(true, WHEN_AFTERWARDS);
   } 
   else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
     ss_in_the_planmd_file_dot_();
-    ss_post_check_(true);
+    ss_post_check_(true, WHEN_AFTERWARDS);
   } 
   // misc prompt fragments:
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/
