@@ -1169,7 +1169,7 @@ void leader_end_user(void) {
   // misc prompt fragments:
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/
     ss_do_not_edit_any_code_yet_dot_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("For now, I am just asking you questions about the code. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("I am just asking you questions about the code. "));
   }
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */
     ss_plan_and_submit_the_plan_for_approval_(); 
