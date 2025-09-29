@@ -1035,7 +1035,6 @@ void ss_in_the_planmd_file_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("in the ./PLAN.md file. "));
 }
 
-
 void ss_afterwards_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards. "));
 }
@@ -1044,8 +1043,12 @@ void ss_test_afterwards(void) {
   ss_afterwards_dot_();
 }
 
-void ss_proceed_with_implementing_next_phase(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Let's proceed with implementing the next phase"));
+void ss_proceed_with_implementing_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Let's proceed with implementing "));
+}
+
+void ss_the_next_phase(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase"));
 }
 
 void ss_after_each_phase_dot_(void) {
@@ -1062,6 +1065,16 @@ void ss_plan_refactor_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
+}
+
+void sses_post_check_(bool plan_file) {
+  if (plan_file) {
+    ss_mark_completed_();
+    ss_in_the_planmd_file_dot_();
+  }
+  ss_the_code_must_build_correctly_();
+  ss_after_each_phase_dot_();
+  ss_test_afterwards();
 }
 
 void ss_write_the_plan_in_the_planmd_file_(void) {
@@ -1110,32 +1123,26 @@ void leader_end_user(void) {
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
   }
-  else if (leader_sequence_three_keys(KC_I, KC_P, KC_F)) { /* implement first phase of PLAN.md */
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan "));
+  // implement:
+  else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
+    ss_proceed_with_implementing_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("that plan. "));
+    sses_post_check_(false);
+  } 
+  else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ next phase of PLAN.md  */
+    ss_proceed_with_implementing_();
+    SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
     ss_in_the_planmd_file_dot_();
-    ss_mark_completed_();
-    ss_in_the_planmd_file_dot_();
-    ss_the_code_must_build_correctly_();
-    ss_after_each_phase_dot_();
-    ss_test_afterwards();
-  }
-  else if (leader_sequence_three_keys(KC_I, KC_P, KC_N)) { /* proceed w/ next phase of PLAN.md  */
-    ss_proceed_with_implementing_next_phase();
+    sses_post_check_(true);
+  } 
+  else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next phase of PLAN.md  */
+    ss_proceed_with_implementing_();
+    ss_the_next_phase();
     SEND_STRING_WITHOUT_MODS_P(PSTR(" "));
     ss_in_the_planmd_file_dot_();
-    ss_mark_completed_();
-    ss_in_the_planmd_file_dot_();
-    ss_the_code_must_build_correctly_();
-    ss_after_each_phase_dot_();
-    ss_test_afterwards();
+    sses_post_check_(true);
   } 
-  else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/next phase */
-    ss_proceed_with_implementing_next_phase();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
-    ss_the_code_must_build_correctly_();
-    ss_after_each_phase_dot_();
-    ss_test_afterwards();
-  } 
+  // plan:
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */
     ss_lets_think_it_through_thoroughly();
     _ss_and_break_the_();
