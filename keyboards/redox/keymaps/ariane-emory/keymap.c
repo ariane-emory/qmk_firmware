@@ -1028,7 +1028,7 @@ typedef enum {
 } when_t;
 
 void ss_must_build_and_pass_tests_dot_(when_t when) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly and any tests must pass "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly and all tests must pass "));
 
   if (when == WHEN_AFTERWARDS)
     ss_afterwards_dot_();
