@@ -1016,7 +1016,7 @@ void ss_lets_think_it_through_thoroughly(void) {
 void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a "));
   ss_detailed_step_by_step_plan();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("for how to implement "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR(" for how we can implement "));
 }
 
 void ss_the_code_must_build_correctly_(void) {
