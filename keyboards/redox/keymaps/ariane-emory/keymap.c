@@ -1028,7 +1028,7 @@ void _ss_and_break_the_(void) {
 }
 
 void ss_mark_completed_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure to check off any steps you completed "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure to check off any steps you've completed "));
 }
 
 void ss_in_the_planmd_file_dot_(void) {
@@ -1089,12 +1089,6 @@ void leader_end_user(void) {
     ss_do_not_edit_any_code_yet_dot_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("I just need you to analyze and explain this problem: "));
   } 
-  else if (leader_sequence_two_keys(KC_I, KC_R)) { /* implement refactor */
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan "));
-    ss_in_the_planmd_file_dot_();
-    ss_mark_completed_();
-    ss_in_the_planmd_file_dot_();
-  }
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
     ss_do_not_edit_any_code_yet_dot_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
@@ -1116,20 +1110,31 @@ void leader_end_user(void) {
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
   }
-  else if (leader_sequence_three_keys(KC_P, KC_N, KC_P)) { /* proceed w/ next phase of plan.md  */
-    ss_proceed_with_implementing_next_phase();
-    SEND_STRING_WITHOUT_MODS_P(PSTR(" "));
+  else if (leader_sequence_three_keys(KC_I, KC_F, KC_P)) { /* implement refactor */
+    SEND_STRING_WITHOUT_MODS_P(PSTR("Please implement the first uncompleted phase of the plan "));
+    ss_in_the_planmd_file_dot_();
+    ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
     ss_the_code_must_build_correctly_();
     ss_after_each_phase_dot_();
+    ss_test_afterwards();
+  }
+  else if (leader_sequence_three_keys(KC_I, KC_N, KC_P)) { /* proceed w/ next phase of plan.md  */
+    ss_proceed_with_implementing_next_phase();
+    SEND_STRING_WITHOUT_MODS_P(PSTR(" "));
+    ss_in_the_planmd_file_dot_();
     ss_mark_completed_();
     ss_in_the_planmd_file_dot_();
+    ss_the_code_must_build_correctly_();
+    ss_after_each_phase_dot_();
+    ss_test_afterwards();
   } 
-  else if (leader_sequence_two_keys(KC_P, KC_N)) { /* proceed w/next phase  */
+  else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/next phase  */
     ss_proceed_with_implementing_next_phase();
     SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
     ss_the_code_must_build_correctly_();
     ss_after_each_phase_dot_();
+    ss_test_afterwards();
   } 
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */
     ss_lets_think_it_through_thoroughly();
