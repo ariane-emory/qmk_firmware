@@ -994,8 +994,6 @@ uint16_t keycode_config(uint16_t keycode) {
 #define S_CLR()      SS_LGUI("a") TAP(X_BSPC) S_CR()
 #define S_CLR_LINE() S_END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
 
-static const char git_str[] PROGMEM = "git ";
-
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
   if (leader_sequence_two_keys(KC_B, KC_B)) {
