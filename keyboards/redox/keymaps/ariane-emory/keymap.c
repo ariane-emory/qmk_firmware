@@ -1001,7 +1001,7 @@ void ss_in_the_planmd_file_dot_(void) {
 }
 
 void ss_mark_completed_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Make sure you check off any steps you've completed "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("You MUST check off any steps you've completed "));
   ss_in_the_planmd_file_dot_();
 }
 
@@ -1021,7 +1021,7 @@ typedef enum {
 } when_t;
 
 void ss_must_build_and_pass_tests_dot_(when_t when) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("The code must build correctly and all tests must pass "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("The code MUST build correctly and all tests MUST pass "));
 
   if (when == WHEN_AFTERWARDS)
     ss_afterwards_dot_();
