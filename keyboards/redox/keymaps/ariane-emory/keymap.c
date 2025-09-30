@@ -1139,7 +1139,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_M)) { /* ./plan.md */ SEND_STRING_WITHOUT_MODS_P(PSTR("./plan.md")); }
   else if (leader_sequence_two_keys(KC_P, KC_S)) { /* proceed systematically */ SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed systematically "));}
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
-  else if (leader_sequence_two_keys(KC_T, KC_A)) { /* try again */ SEND_STRING_WITHOUT_MODS_P(PSTR("Try again. "));}
+  else if (leader_sequence_two_keys(KC_T, KC_A)) { /* try again */ SEND_STRING_WITHOUT_MODS_P(PSTR("Rethink it and then try again. "));}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));}
   // single call:
