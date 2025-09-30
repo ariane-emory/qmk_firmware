@@ -1108,11 +1108,11 @@ void ss_write_the_plan_in_the_planmd_file_(void) {
 
 void leader_end_user(void) {
   if      (leader_sequence_two_keys(KC_B, KC_B)) {my_boot_handler(0, NULL);}
-  else if (leader_sequence_one_key(KC_Q)) {SEND_STRING_WITHOUT_MODS_P(PSTR(/*S_CLR()*/ "cdkm; qmkc" S_CR()));}
+  else if (leader_sequence_one_key(KC_Q))        {SEND_STRING_WITHOUT_MODS_P(PSTR(/*S_CLR()*/ "cdkm; qmkc" S_CR()));}
   else if (leader_sequence_two_keys(KC_Q, KC_W)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));}
-  else if (leader_sequence_one_key(KC_R)) { /* repeat shell cmd in emacs */ SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
+  else if (leader_sequence_one_key(KC_R))        { /* repeat shell cmd in emacs */ SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
   // prompt fragments:
-  // else if (leader_sequence_two_keys(KC_T, KC_A)) { /* test afterwards */ ss_test_afterwards_dot_();}
+  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("I just need you to analyze and explain this problem: "));} 
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
@@ -1149,10 +1149,6 @@ void leader_end_user(void) {
     ss_afterwards_dot_();
     ss_write_the_plan_in_the_planmd_file_();
   }
-  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */
-    ss_do_not_edit_any_code_yet_dot_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("I just need you to analyze and explain this problem: "));
-  } 
   // implement:
   else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
