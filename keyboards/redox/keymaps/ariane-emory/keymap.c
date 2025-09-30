@@ -1102,6 +1102,19 @@ void ss_write_the_plan_in_the_planmd_file_(void) {
   ss_in_the_planmd_file_dot_();
 }
 
+void ss_analyze_smells_(void) {
+  ss_do_not_edit_any_code_yet_dot_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
+  ss_plan_refactor_();
+  ss_and_submit_the_plan_for_approval_();
+  ss_afterwards_dot_();
+  ss_write_the_plan_in_the_planmd_file_();
+}
+
+void ss_do_not_add_files_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Do not add any new files in the process. "));
+}
+
 // =============================================================================
 // leader_end_user
 // =============================================================================
@@ -1120,7 +1133,6 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_K, KC_T)) { /* keep trying */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep trying. "));}
   else if (leader_sequence_two_keys(KC_L, KC_B)) { /* locality of behavior */ SEND_STRING_WITHOUT_MODS_P(PSTR("Prioritize locality-of-behavior! "));}
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));}
-  else if (leader_sequence_two_keys(KC_N, KC_F)) { /* no new files */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do not add any new files in the process. "));}
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("No mistakes! "));}
   else if (leader_sequence_two_keys(KC_P, KC_M)) { /* ./plan.md */ SEND_STRING_WITHOUT_MODS_P(PSTR("./plan.md")); }
   else if (leader_sequence_two_keys(KC_P, KC_S)) { /* proceed systematically */ SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed systematically "));}
@@ -1128,28 +1140,23 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_T, KC_A)) { /* try again */ SEND_STRING_WITHOUT_MODS_P(PSTR("Try again. "));}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));}
-  // more complex ones: 
-  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("I need you to analyze and explain this problem: "));}
+  // single call:
+  else if (leader_sequence_two_keys(KC_N, KC_F)) { /* no new files */ ss_do_not_add_files_();}
+  else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_();}
-  else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
   else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */ ss_mark_completed_();}
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_();}
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_problem_();}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_refactor_();}
-  else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("\b\b, just answer questions for now. "));}
-  else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_and_submit_the_plan_for_approval_(); SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing code. "));}
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
+  // more complex ones: 
+  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("I need you to analyze and explain this problem: "));}
+  else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
+  else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("\b\b, just answer questions for now. "));}
+  else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_and_submit_the_plan_for_approval_(); SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing code. "));}
   // multi-part prompt fragments:
-  else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
-    ss_do_not_edit_any_code_yet_dot_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
-    ss_plan_refactor_();
-    ss_and_submit_the_plan_for_approval_();
-    ss_afterwards_dot_();
-    ss_write_the_plan_in_the_planmd_file_();
-  }
   // implement:
   else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
