@@ -1072,6 +1072,11 @@ void ss_proceed_with_implementing_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed with implementing "));
 }
 
+void ss_group_phases_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
+  ss_post_check_dot_(false, WHEN_AFTER_EACH_PHASE);
+}
+
 void ss_write_the_plan_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
 }
@@ -1081,6 +1086,7 @@ void ss_plan_refactor_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
+  ss_group_phases_dot_();
 }
 
 void ss_plan_problem_(void) {
@@ -1088,6 +1094,7 @@ void ss_plan_problem_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("problem"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
+  ss_group_phases_dot_();
 }
 
 void ss_plan_feature_(void) {
@@ -1095,16 +1102,12 @@ void ss_plan_feature_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
+  ss_group_phases_dot_();
 }
 
 void ss_write_the_plan_in_the_planmd_file_(void) {
   ss_write_the_plan_();
   ss_in_the_planmd_file_dot_();
-}
-
-void ss_group_phases_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
-  ss_post_check_dot_(false, WHEN_AFTER_EACH_PHASE);
 }
 
 // =============================================================================
@@ -1133,8 +1136,8 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */ ss_mark_completed_();}
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));} 
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Be careful, no mistakes! "));} 
-  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_();}
   else if (leader_sequence_two_keys(KC_P, KC_M)) { /* ./plan.md */ SEND_STRING_WITHOUT_MODS_P(PSTR("./plan.md")); }
+  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_();}
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_problem_();}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_refactor_();}
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
