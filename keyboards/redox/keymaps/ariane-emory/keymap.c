@@ -1154,7 +1154,6 @@ void leader_end_user(void) {
     ss_do_not_edit_any_code_yet_dot_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
     ss_plan_refactor_();
-    ss_group_phases_dot_();
     ss_and_and_submit_the_plan_for_approval_();
     ss_afterwards_dot_();
     ss_write_the_plan_in_the_planmd_file_();
