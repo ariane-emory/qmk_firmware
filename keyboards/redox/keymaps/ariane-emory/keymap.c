@@ -1040,14 +1040,14 @@ void ss_do_not_edit_any_code_yet_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet. "));
 }
 
-void ss_detailed_step_by_step_plan(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("detailed, step-by-step plan"));
+void ss_detailed_step_by_step_plan_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("detailed, step-by-step plan "));
 }
 
-void ss_and_and_submit_the_plan_for_approval_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a "));
-  ss_detailed_step_by_step_plan();
-  SEND_STRING_WITHOUT_MODS_P(PSTR(", submit it to me for approval "));
+void ss_and_submit_the_plan_for_approval_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Come up with a "));
+  ss_detailed_step_by_step_plan_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("and submit it to me for approval "));
 }
 
 void ss_lets_think_it_through_thoroughly_and_break_the_(void) {
@@ -1056,8 +1056,8 @@ void ss_lets_think_it_through_thoroughly_and_break_the_(void) {
 
 void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a "));
-  ss_detailed_step_by_step_plan();
-  SEND_STRING_WITHOUT_MODS_P(PSTR(" for how we can implement "));
+  ss_detailed_step_by_step_plan_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("for how we can implement "));
 }
 
 void ss_proceed_with_implementing_(void) {
@@ -1137,16 +1137,16 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_();}
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_problem_();}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_refactor_();}
-  else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("Just answer questions for now. "));}
-  else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_and_and_submit_the_plan_for_approval_(); SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing the code. "));}
-  else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan();}
+  else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("\b\b, just answer questions for now. "));}
+  else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_and_submit_the_plan_for_approval_(); SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing code. "));}
+  else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
   // multi-part prompt fragments:
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */
     ss_do_not_edit_any_code_yet_dot_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
     ss_plan_refactor_();
-    ss_and_and_submit_the_plan_for_approval_();
+    ss_and_submit_the_plan_for_approval_();
     ss_afterwards_dot_();
     ss_write_the_plan_in_the_planmd_file_();
   }
