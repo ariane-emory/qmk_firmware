@@ -1147,6 +1147,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(true); }
+  else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
   else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */ ss_mark_completed_();}
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_(true);}
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_problem_(true);}
@@ -1155,10 +1156,8 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
   // more complex ones: 
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("I need you to analyze and explain this problem: "));}
-  else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("\b\b, just answer questions for now. "));}
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_submit_the_plan_for_approval_(); SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing code. "));}
-  // more multi-part prompt fragments:
   // implement:
   /* else if (leader_sequence_two_keys(KC_I, KC_F)) { /\* proceed w/ next phase of PLAN.md  *\/ */
   /*   ss_proceed_with_implementing_(); */
