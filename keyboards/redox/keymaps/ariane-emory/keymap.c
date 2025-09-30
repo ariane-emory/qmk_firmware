@@ -49,7 +49,7 @@ void send_string_without_mods(const char * const string) {
   clear_oneshot_mods();
   clear_mods();
   send_keyboard_report();
-  send_string(string);
+  send_string_with_delay(string, MY_SS_DELAY);
   set_mods(current_mods);
 }
 void send_string_without_mods_P(const char * const string) {
@@ -58,7 +58,7 @@ void send_string_without_mods_P(const char * const string) {
   clear_oneshot_mods();
   clear_mods();
   send_keyboard_report();
-  send_string_P(string);
+  send_string_with_delay_P(string, MY_SS_DELAY);
   set_mods(current_mods);
 }
 #else
@@ -103,7 +103,7 @@ void keyboard_post_init_user(void) {
 #define S_SPC()                TAP(X_SPC)
 #define S_TB(_)                TAP(X_TAB)
 #define S_UU(_)                TAP(X_UP) 
-#define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) TAP(X_BTN1) SS_DELAY(10) SS_UP(X_LGUI)
+#define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) TAP(X_BTN1) SS_UP(X_LGUI)
 #define S_GUI_CLICK_AND_TAB(_) S_GUI_CLICK() SS_LCTL(TAP(X_TAB))
 //#define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR() TAP(X_HOME)
 #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR() 
