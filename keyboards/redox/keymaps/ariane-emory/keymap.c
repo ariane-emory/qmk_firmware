@@ -1039,7 +1039,8 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key(KC_R)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
   else if (leader_sequence_one_key(KC_F)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_EM_SWAP()));}
   else if (leader_sequence_one_key(KC_Q)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkc" S_CR()));}
-  else if (leader_sequence_two_keys(KC_Q, KC_W)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));}  
+  else if (leader_sequence_two_keys(KC_Q, KC_W)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));}
+  // git-related: ==================================================================================
   else if (leader_sequence_one_key(KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));}
   else if (leader_sequence_two_keys(KC_G, KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));}
   else if (leader_sequence_two_keys(KC_G, KC_R)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));}
