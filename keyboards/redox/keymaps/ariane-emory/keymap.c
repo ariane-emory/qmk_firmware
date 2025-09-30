@@ -1069,9 +1069,9 @@ void ss_do_not_add_new_files_(void) {
 }
 
 void ss_group_phases_dot_(bool allow_new_files) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
   if (!allow_new_files)
     ss_do_not_add_new_files_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
   ss_post_check_dot_(false, WHEN_AFTER_EACH_PHASE);
 }
 
