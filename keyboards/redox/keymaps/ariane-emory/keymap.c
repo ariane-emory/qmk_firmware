@@ -1131,7 +1131,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_();}
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_problem_();}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_refactor_();}
-  else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("I am just asking you questions about the code. "));}
+  else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("Just answer questions for now. "));}
   else if (leader_sequence_two_keys(KC_P, KC_S)) { /* proceed systematically */ SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed systematically "));}
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_and_and_submit_the_plan_for_approval_(); SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing the code. "));}
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
