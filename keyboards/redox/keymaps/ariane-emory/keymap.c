@@ -1029,12 +1029,6 @@ void ss_must_build_and_pass_tests_dot_(when_t when) {
     ss_after_each_phase_dot_();
 }
 
-typedef enum {
-  PLAN_FEATURE,
-  PLAN_PROBLEM,
-  PLAN_REFACTOR,
-} planned_thing_t;
-
 void ss_post_check_dot_(bool plan_file, when_t when) {
   if (plan_file) 
     ss_mark_completed_();
