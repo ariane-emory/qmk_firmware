@@ -693,6 +693,7 @@ KEYRECORD_FUN(bool process_record_user) {
 // Dynamic macro related
 // ==============================================================================
 
+#ifdef DYNAMIC_MACRO_HANDLERS
 static bool currently_recording_macro = false;
 
 void dynamic_macro_record_start_user(int8_t direction) {
@@ -702,12 +703,14 @@ void dynamic_macro_record_start_user(int8_t direction) {
 void dynamic_macro_record_end_user(int8_t direction) {
   currently_recording_macro = false;
 }
+#endif // DYNAMIC_MACRO_HANDLERS
 
 // ==============================================================================
 // RGB fades
 // ==============================================================================
 
 #ifdef RGBLIGHT_ENABLE
+#  ifdef DYNAMIC_MACRO_HANDLERS
 bool set_rgb_led_fader_target_if_recording_macro(rgb_led_fader_t * const this) {
   if (! currently_recording_macro)
     return false;
@@ -716,6 +719,7 @@ bool set_rgb_led_fader_target_if_recording_macro(rgb_led_fader_t * const this) {
 
   return true;
 }
+#  endif // DYNAMIC_MACRO_HANDLERS
 
 typedef struct layer_to_rgb_t {
   uint8_t layer;
@@ -793,7 +797,9 @@ void matrix_scan_user(void) {
 #endif // TOGGLED_LAYER_TIMEOUT
   
 #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
+#  ifdef DYNAMIC_MACRO_HANDLERS
   if (!set_rgb_led_fader_target_if_recording_macro(&rgb_led_fader))
+#  endif // DYNAMIC_MACRO_HANDLERS
     set_rgb_led_fader_target_by_layer(&rgb_led_fader);
 
 #  ifdef SLOW_RGBS
