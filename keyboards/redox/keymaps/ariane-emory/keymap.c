@@ -1206,7 +1206,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_G, KC_H)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git checkout "));}
   else if (leader_sequence_two_keys(KC_G, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git merge "));}
   else if (leader_sequence_two_keys(KC_G, KC_P)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git push " S_CR()));}
-  else if (leader_sequence_three_keys(KC_G, KC_P, KC_U)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " S_CR()));}
+  else if (leader_sequence_two_keys(KC_G, KC_U)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " S_CR()));}
   else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " S_CR()));}
 }
 #endif // LEADER_ENABLE
