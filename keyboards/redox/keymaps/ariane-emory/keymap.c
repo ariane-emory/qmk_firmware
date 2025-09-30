@@ -1036,60 +1036,24 @@ void leader_end_user(void) {
     wait_ms(20);
     /* SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_))); */
   }
-  else if (leader_sequence_one_key(KC_R)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));
-  }
-  else if (leader_sequence_one_key(KC_F)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_EM_SWAP()));
-  }
-  else if (leader_sequence_one_key(KC_Q)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkc" S_CR()));
-  }
-  else if (leader_sequence_two_keys(KC_Q, KC_W)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));
-  }  
-  else if (leader_sequence_one_key(KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));
-  }
-  else if (leader_sequence_two_keys(KC_C, KC_D)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("D:" S_CR() AE_CD S_CR()));
-  }
-  else if (leader_sequence_two_keys(KC_G, KC_S)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));
-  }
-  else if (leader_sequence_two_keys(KC_G, KC_R)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));
-  }
-  else if (leader_sequence_three_keys(KC_G, KC_R, KC_O)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard origin/" ));
-  }
-  else if (leader_sequence_two_keys(KC_G, KC_D)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " S_CR()));
-  }
-  else if (leader_sequence_two_keys(KC_G, KC_C)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit "));
-  }
-  else if (leader_sequence_three_keys(KC_G, KC_C, KC_M)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\"" S_LL()));
-  }
-  else if (leader_sequence_four_keys(KC_G, KC_C, KC_A, KC_M)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\"" S_LL()));
-  }
-  else if (leader_sequence_two_keys(KC_G, KC_H)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git checkout "));
-  }
-  else if (leader_sequence_two_keys(KC_G, KC_M)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git merge "));
-  }
-  else if (leader_sequence_two_keys(KC_G, KC_P)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git push " S_CR()));
-  }
-  else if (leader_sequence_two_keys(KC_G, KC_U)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " S_CR()));
-  }
-  else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {
-    SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " S_CR()));
-  }
+  else if (leader_sequence_one_key(KC_R)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
+  else if (leader_sequence_one_key(KC_F)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_EM_SWAP()));}
+  else if (leader_sequence_one_key(KC_Q)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkc" S_CR()));}
+  else if (leader_sequence_two_keys(KC_Q, KC_W)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));}  
+  else if (leader_sequence_one_key(KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));}
+  else if (leader_sequence_two_keys(KC_C, KC_D)) {SEND_STRING_WITHOUT_MODS_P(PSTR("D:" S_CR() AE_CD S_CR()));}
+  else if (leader_sequence_two_keys(KC_G, KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));}
+  else if (leader_sequence_two_keys(KC_G, KC_R)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));}
+  else if (leader_sequence_three_keys(KC_G, KC_R, KC_O)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard origin/" ));}
+  else if (leader_sequence_two_keys(KC_G, KC_D)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " S_CR()));}
+  else if (leader_sequence_two_keys(KC_G, KC_C)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git commit "));}
+  else if (leader_sequence_three_keys(KC_G, KC_C, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\"" S_LL()));}
+  else if (leader_sequence_four_keys(KC_G, KC_C, KC_A, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\"" S_LL()));}
+  else if (leader_sequence_two_keys(KC_G, KC_H)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git checkout "));}
+  else if (leader_sequence_two_keys(KC_G, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git merge "));}
+  else if (leader_sequence_two_keys(KC_G, KC_P)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git push " S_CR()));}
+  else if (leader_sequence_two_keys(KC_G, KC_U)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " S_CR()));}
+  else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " S_CR()));}
   /* else if (leader_sequence_one_key(KC_C)) { */
   /*   SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "cargo run" S_CR())); */
   /* } */
