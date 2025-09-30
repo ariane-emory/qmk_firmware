@@ -246,7 +246,6 @@ enum arianes_custom_keycodes {
   TYPE_LAYOUT,
   KC_SQUO_TAP,
   KC_DQUO_TAP,
-  HOLD_GUI,
 #ifdef INSERT_UPP_ENABLED
   INSERT_UPP,
 #endif // INSERT_UPP_ENABLED
@@ -535,10 +534,6 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
   { QK_DYNAMIC_MACRO_PLAY_1,     dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2,     dynamic_macros_handler      },
 #endif // DYNAMIC_MACRO_HANDLERS
-
-#ifdef    HOLD_GUI_ENABLED
-  { HOLD_GUI,                    hold_gui_handler            },
-#endif    // HOLD_GUI_ENABLED
 
 #ifdef    INSERT_UPP_ENABLED
   { INSERT_UPP,                  insert_upp_handler          },
@@ -1120,7 +1115,6 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_Q, KC_W)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));}
   else if (leader_sequence_one_key(KC_R)) { /* repeat shell cmd in emacs */ SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
   // prompt fragments:
-  // else if (leader_sequence_two_keys(KC_T, KC_A)) { /* test afterwards */ ss_test_afterwards_dot_();}
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
