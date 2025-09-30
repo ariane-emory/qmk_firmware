@@ -1142,6 +1142,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_();}
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_problem_();}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_refactor_();}
+  else if (leader_sequence_two_keys(KC_P, KC_S)) { /* proceed systematically */ SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed systematically "));}
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan();}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
