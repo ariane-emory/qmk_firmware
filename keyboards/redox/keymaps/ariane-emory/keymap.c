@@ -1013,8 +1013,6 @@ void ss_after_each_phase_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
 }
 
-
-
 typedef enum {
   WHEN_AFTERWARDS,
   WHEN_AFTER_EACH_PHASE,
