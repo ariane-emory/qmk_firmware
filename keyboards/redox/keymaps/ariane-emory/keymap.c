@@ -1160,12 +1160,12 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_submit_the_plan_for_approval_(); SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing code. "));}
   // more multi-part prompt fragments:
   // implement:
-  else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ next phase of PLAN.md  */
-    ss_proceed_with_implementing_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
-    ss_in_the_planmd_file_dot_();
-    ss_post_check_dot_(true, WHEN_AFTERWARDS);
-  }
+  /* else if (leader_sequence_two_keys(KC_I, KC_F)) { /\* proceed w/ next phase of PLAN.md  *\/ */
+  /*   ss_proceed_with_implementing_(); */
+  /*   SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase ")); */
+  /*   ss_in_the_planmd_file_dot_(); */
+  /*   ss_post_check_dot_(true, WHEN_AFTERWARDS); */
+  /* } */
   else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
