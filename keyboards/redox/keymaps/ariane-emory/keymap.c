@@ -1051,7 +1051,7 @@ void ss_submit_the_plan_for_approval_(void) {
 }
 
 void ss_lets_think_it_through_thoroughly_and_break_the_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think it through thoroughly and break the "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Think it through thoroughly and break the "));
 }
 
 void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
@@ -1089,7 +1089,7 @@ void ss_plan_refactor_(bool allow_new_files) {
 
 void ss_plan_problem_(bool allow_new_files) {
   ss_lets_think_it_through_thoroughly_and_break_the_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("problem"));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("solution"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
   ss_group_phases_dot_(allow_new_files);
