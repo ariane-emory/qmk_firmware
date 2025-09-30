@@ -1110,7 +1110,7 @@ void leader_end_user(void) {
   if      (leader_sequence_two_keys(KC_B, KC_B)) {my_boot_handler(0, NULL);}
   else if (leader_sequence_one_key(KC_Q))        {SEND_STRING_WITHOUT_MODS_P(PSTR(/*S_CLR()*/ "cdkm; qmkc" S_CR()));}
   else if (leader_sequence_two_keys(KC_Q, KC_W)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));}
-  else if (leader_sequence_one_key(KC_R))        { /* repeat shell cmd in emacs */ SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
+  else if (leader_sequence_one_key(KC_R))        {SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
   // prompt fragments:
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("I just need you to analyze and explain this problem: "));} 
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
