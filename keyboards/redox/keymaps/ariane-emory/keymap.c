@@ -1143,6 +1143,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan();}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
+  else if (leader_sequence_two_keys(KC_T, KC_A)) { /* try again */ SEND_STRING_WITHOUT_MODS_P(PSTR("Try again. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));} 
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
   // multi-part prompt fragments:
