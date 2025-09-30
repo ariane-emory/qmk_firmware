@@ -995,6 +995,116 @@ uint16_t keycode_config(uint16_t keycode) {
 #define S_CLR_LINE() S_END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
 
 #ifdef LEADER_ENABLE
+// ---
+void ss_in_the_planmd_file_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("in the ./PLAN.md file. "));
+}
+
+void ss_mark_completed_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("You MUST check off any steps you've completed "));
+  ss_in_the_planmd_file_dot_();
+}
+
+void ss_afterwards_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards. "));
+}
+
+void ss_after_each_phase_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
+}
+
+typedef enum {
+  WHEN_AFTERWARDS,
+  WHEN_AFTER_EACH_PHASE,
+} when_t;
+
+void ss_must_build_and_pass_tests_dot_(when_t when) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("The code MUST build correctly and all tests MUST pass "));
+
+  if (when == WHEN_AFTERWARDS)
+    ss_afterwards_dot_();
+  else
+    ss_after_each_phase_dot_();
+}
+
+void ss_post_check_dot_(bool plan_file, when_t when) {
+  if (plan_file) 
+    ss_mark_completed_();
+
+  ss_must_build_and_pass_tests_dot_(when);
+}
+
+// ---
+
+void ss_do_not_edit_any_code_yet_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet. "));
+}
+
+void ss_detailed_step_by_step_plan(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("detailed, step-by-step plan"));
+}
+
+void ss_and_and_submit_the_plan_for_approval_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Once you have come up with a "));
+  ss_detailed_step_by_step_plan();
+  SEND_STRING_WITHOUT_MODS_P(PSTR(", submit it to me for approval "));
+}
+
+void ss_lets_think_it_through_thoroughly_and_break_the_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Let's think it through thoroughly and break the "));
+}
+
+void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a "));
+  ss_detailed_step_by_step_plan();
+  SEND_STRING_WITHOUT_MODS_P(PSTR(" for how we can implement "));
+}
+
+void ss_proceed_with_implementing_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed with implementing "));
+}
+
+void ss_group_phases_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
+  ss_post_check_dot_(false, WHEN_AFTER_EACH_PHASE);
+}
+
+void ss_write_the_plan_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
+}
+
+void ss_plan_refactor_(void) {
+  ss_lets_think_it_through_thoroughly_and_break_the_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
+  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
+  ss_group_phases_dot_();
+}
+
+void ss_plan_problem_(void) {
+  ss_lets_think_it_through_thoroughly_and_break_the_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("problem"));
+  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
+  ss_group_phases_dot_();
+}
+
+void ss_plan_feature_(void) {
+  ss_lets_think_it_through_thoroughly_and_break_the_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
+  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
+  ss_group_phases_dot_();
+}
+
+void ss_write_the_plan_in_the_planmd_file_(void) {
+  ss_write_the_plan_();
+  ss_in_the_planmd_file_dot_();
+}
+
+// =============================================================================
+// leader_end_user
+// =============================================================================
 void leader_end_user(void) {
   if (leader_sequence_two_keys(KC_B, KC_B)) {
     my_boot_handler(0, NULL);
