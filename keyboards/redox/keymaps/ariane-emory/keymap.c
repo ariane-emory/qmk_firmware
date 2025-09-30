@@ -22,7 +22,7 @@ rgb_led_fader_t rgb_led_fader;
 #endif
 
 #include "src/util.h"
-#include "src/tap_number.h"
+// #include "src/tap_number.h"
 
 // ==============================================================================
 // Define local macros
