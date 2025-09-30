@@ -1018,6 +1018,12 @@ typedef enum {
   WHEN_AFTER_EACH_PHASE,
 } when_t;
 
+typedef enum {
+  SUBJECT_PROBLEM,
+  SUBJECT_FEATURE,
+  SUBJECT_REFACTORING,
+} subject_t;
+
 void ss_must_build_and_pass_tests_dot_(when_t when) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("The code MUST build correctly and all tests MUST pass "));
 
