@@ -1044,7 +1044,7 @@ void ss_detailed_step_by_step_plan_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("detailed, step-by-step plan "));
 }
 
-void ss_and_submit_the_plan_for_approval_(void) {
+void ss_submit_the_plan_for_approval_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Come up with a "));
   ss_detailed_step_by_step_plan_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("and submit it to me for approval "));
@@ -1073,11 +1073,17 @@ void ss_write_the_plan_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
 }
 
-void ss_plan_refactor_(void) {
+void ss_do_not_add_new_files_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Do not add any new files in the process. "));
+}
+
+void ss_plan_refactor_(bool allow_new_files) {
   ss_lets_think_it_through_thoroughly_and_break_the_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
+  if (!allow_new_files)
+    ss_do_not_add_new_files_();
   ss_group_phases_dot_();
 }
 
@@ -1105,14 +1111,10 @@ void ss_write_the_plan_in_the_planmd_file_(void) {
 void ss_analyze_smells_(void) {
   ss_do_not_edit_any_code_yet_dot_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
-  ss_plan_refactor_();
-  ss_and_submit_the_plan_for_approval_();
+  ss_plan_refactor_(false);
+  ss_submit_the_plan_for_approval_();
   ss_afterwards_dot_();
   ss_write_the_plan_in_the_planmd_file_();
-}
-
-void ss_do_not_add_files_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Do not add any new files in the process. "));
 }
 
 // =============================================================================
@@ -1141,21 +1143,21 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));}
   // single call:
-  else if (leader_sequence_two_keys(KC_N, KC_F)) { /* no new files */ ss_do_not_add_files_();}
+  else if (leader_sequence_two_keys(KC_N, KC_F)) { /* no new files */ ss_do_not_add_new_files_();}
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_();}
   else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */ ss_mark_completed_();}
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_();}
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_problem_();}
-  else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_refactor_();}
+  else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_refactor_(true);}
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
   // more complex ones: 
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("I need you to analyze and explain this problem: "));}
   else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("\b\b, just answer questions for now. "));}
-  else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_and_submit_the_plan_for_approval_(); SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing code. "));}
+  else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_submit_the_plan_for_approval_(); SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing code. "));}
   // more multi-part prompt fragments:
   // implement:
   else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ next phase of PLAN.md  */
