@@ -1132,7 +1132,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_K, KC_G)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going. "));}
   else if (leader_sequence_two_keys(KC_K, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));} 
   else if (leader_sequence_two_keys(KC_K, KC_T)) { /* keep trying */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep trying. "));}
-  else if (leader_sequence_two_keys(KC_K, KC_T)) { /* locality of behaviour */ SEND_STRING_WITHOUT_MODS_P(PSTR("Prioritize locality-of-behaviour! "));}
+  else if (leader_sequence_two_keys(KC_L, KC_B)) { /* locality of behavior */ SEND_STRING_WITHOUT_MODS_P(PSTR("Prioritize locality-of-behavior! "));}
   else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
   else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */ ss_mark_completed_();}
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));}
