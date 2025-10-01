@@ -1005,26 +1005,21 @@ void ss_mark_completed_(void) {
   ss_in_the_planmd_file_dot_();
 }
 
-void ss_afterwards_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards. "));
-}
-
-void ss_after_each_phase_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
-}
-
 typedef enum {
   WHEN_AFTERWARDS,
   WHEN_AFTER_EACH_PHASE,
 } when_t;
 
+void ss_when_t_dot_(when_t when) {
+  if (when == WHEN_AFTERWARDS)
+    SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards. "));
+  else
+    SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
+}
+
 void ss_must_build_and_pass_tests_dot_(when_t when) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("The code MUST build correctly and all tests MUST pass "));
-
-  if (when == WHEN_AFTERWARDS)
-    ss_afterwards_dot_();
-  else
-    ss_after_each_phase_dot_();
+  ss_when_t_dot_(when);
 }
 
 void ss_post_check_dot_(bool plan_file, when_t when) {
@@ -1110,7 +1105,7 @@ void ss_plan_(subject_t subject, subject_t subject2, allow_new_files_t allow_new
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_the_();
   ss_subject_t_(subject2);
   SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
-   ss_group_phases_dot_(allow_new_files);
+  ss_group_phases_dot_(allow_new_files);
 }
 
 void ss_plan_refactor_(allow_new_files_t allow_new_files) {
@@ -1135,7 +1130,7 @@ void ss_analyze_smells_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
   ss_plan_refactor_(false);
   ss_submit_the_plan_for_approval_();
-  ss_afterwards_dot_();
+  ss_when_t_dot_(WHEN_AFTERWARDS);
   ss_write_the_plan_in_the_planmd_file_();
 }
 
