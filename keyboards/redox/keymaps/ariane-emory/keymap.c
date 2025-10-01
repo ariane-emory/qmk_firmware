@@ -1102,7 +1102,7 @@ void ss_subject_t_(const subject_t subject) {
   }
 }
 
-void ss_think_subject_through_thoroughly_and_break_the_(subject_t subject, subject_t subject2) {
+void ss_plan_(subject_t subject, subject_t subject2, allow_new_files_t allow_new_files) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
   ss_subject_t_(subject);
   SEND_STRING_WITHOUT_MODS_P(PSTR(" through thoroughly and break the "));
@@ -1110,21 +1110,19 @@ void ss_think_subject_through_thoroughly_and_break_the_(subject_t subject, subje
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_the_();
   ss_subject_t_(subject2);
   SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
+   ss_group_phases_dot_(allow_new_files);
 }
 
 void ss_plan_refactor_(allow_new_files_t allow_new_files) {
-  ss_think_subject_through_thoroughly_and_break_the_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);
-  ss_group_phases_dot_(allow_new_files);
+  ss_plan_(SUBJECT_REFACTORING, SUBJECT_REFACTORING, allow_new_files);
 }
 
 void ss_plan_problem_(allow_new_files_t allow_new_files) {
-  ss_think_subject_through_thoroughly_and_break_the_(SUBJECT_PROBLEM, SUBJECT_SOLUTION);
-  ss_group_phases_dot_(allow_new_files);
+  ss_plan_(SUBJECT_PROBLEM, SUBJECT_SOLUTION, allow_new_files);
 }
 
 void ss_plan_feature_(allow_new_files_t allow_new_files) {
-  ss_think_subject_through_thoroughly_and_break_the_(SUBJECT_FEATURE, SUBJECT_FEATURE);
-  ss_group_phases_dot_(allow_new_files);
+  ss_plan_(SUBJECT_FEATURE, SUBJECT_FEATURE, allow_new_files);
 }
 
 void ss_write_the_plan_in_the_planmd_file_(void) {
