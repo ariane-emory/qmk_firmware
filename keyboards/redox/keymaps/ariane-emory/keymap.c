@@ -1024,11 +1024,11 @@ typedef enum {
   SUBJECT_REFACTORING,
 } subject_t;
 
-void foo(const subject_t subject) {
+void ss_subject_t(const subject_t subject) {
   switch (subject) {
-  case SUBJECT_PROBLEM: /* do nothing */ break;
-  case SUBJECT_FEATURE: /* do nothing */ break;
-  case SUBJECT_REFACTORING: /* do nothing */ break;
+  case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("problem ")); return;
+  case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(PSTR("feature ")); return; 
+  case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring ")); return; 
   }
 }
 
