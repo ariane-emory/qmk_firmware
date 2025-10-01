@@ -36,7 +36,7 @@
 
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
-#define LEADER_TIMEOUT 600
+#define LEADER_TIMEOUT 1000
 #define LEADER_PER_KEY_TIMING
 
 #define MOUSEKEY_DELAY                       0

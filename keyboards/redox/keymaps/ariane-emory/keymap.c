@@ -1018,38 +1018,6 @@ typedef enum {
   WHEN_AFTER_EACH_PHASE,
 } when_t;
 
-typedef enum {
-  SUBJECT_PROBLEM,
-  SUBJECT_FEATURE,
-  SUBJECT_REFACTORING,
-} subject_t;
-
-// -------------------------------------------------------------------------------------------------
-
-void ss_subject_t(const subject_t subject) {
-  switch (subject) {
-  case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("problem ")); return;
-  case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(PSTR("feature ")); return; 
-  case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring ")); return; 
-  }
-}
-
-void ss_subject_t2(const subject_t subject) {
-  switch (subject) {
-  case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("solution ")); return;
-  default: SEND_STRING_WITHOUT_MODS_P(PSTR("it ")); return; 
-  }
-}
-
-void ss_dumb(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
-  ss_subject_t(SUBJECT_FEATURE);
-  SEND_STRING_WITHOUT_MODS_P(PSTR("through thoroughly and break the "));
-  ss_subject_t(SUBJECT_FEATURE);
-}
-
-// -------------------------------------------------------------------------------------------------
-
 void ss_must_build_and_pass_tests_dot_(when_t when) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("The code MUST build correctly and all tests MUST pass "));
 
@@ -1086,8 +1054,12 @@ void ss_think_it_through_thoroughly_and_break_the_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Think it through thoroughly and break the "));
 }
 
-void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
+void _ss_down_into_small_steps_to_come_up_with_a_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a "));
+}
+
+void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
+  _ss_down_into_small_steps_to_come_up_with_a_();
   ss_detailed_step_by_step_plan_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("for how we can implement "));
 }
@@ -1100,39 +1072,44 @@ void ss_do_not_add_new_files_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Do not add any new files in the process. "));
 }
 
-void ss_group_phases_dot_(bool allow_new_files) {
-  if (!allow_new_files)
+typedef enum {
+  ALLOW_NEW_FILES_NO,
+  ALLOW_NEW_FILES_UNSPECIFIED,
+} allow_new_files_t;
+
+void ss_group_phases_dot_(allow_new_files_t allow_new_files, when_t when) {
+  if (allow_new_files == ALLOW_NEW_FILES_NO)
     ss_do_not_add_new_files_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
-  ss_post_check_dot_(false, WHEN_AFTER_EACH_PHASE);
+  ss_post_check_dot_(false, when);
 }
 
 void ss_write_the_plan_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
 }
-
-void ss_plan_refactor_(bool allow_new_files) {
+ 
+void ss_plan_refactor_(allow_new_files_t allow_new_files) {
   ss_think_it_through_thoroughly_and_break_the_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
-  ss_group_phases_dot_(allow_new_files);
+  ss_group_phases_dot_(allow_new_files, WHEN_AFTERWARDS);
 }
 
-void ss_plan_problem_(bool allow_new_files) {
+void ss_plan_problem_(allow_new_files_t allow_new_files) {
   ss_think_it_through_thoroughly_and_break_the_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("solution"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
-  ss_group_phases_dot_(allow_new_files);
+  ss_group_phases_dot_(allow_new_files, WHEN_AFTERWARDS);
 }
 
-void ss_plan_feature_(bool allow_new_files) {
+void ss_plan_feature_(allow_new_files_t allow_new_files) {
   ss_think_it_through_thoroughly_and_break_the_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
-  ss_group_phases_dot_(allow_new_files);
+  ss_group_phases_dot_(allow_new_files, WHEN_AFTERWARDS);
 }
 
 void ss_write_the_plan_in_the_planmd_file_(void) {
@@ -1149,6 +1126,42 @@ void ss_analyze_smells_(void) {
   ss_write_the_plan_in_the_planmd_file_();
 }
 
+// -------------------------------------------------------------------------------------------------
+
+typedef enum {
+  SUBJECT_PROBLEM,
+  SUBJECT_FEATURE,
+  SUBJECT_REFACTORING,
+} subject_t;
+
+void ss_subject_t(const subject_t subject) {
+  switch (subject) {
+  case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("problem ")); return;
+  case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(PSTR("feature ")); return; 
+  case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring ")); return; 
+  }
+}
+
+void ss_subject_t2(const subject_t subject) {
+  switch (subject) {
+  case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("solution")); return;
+  case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(PSTR("feature")); return; 
+  case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring")); return; 
+  }
+}
+
+void ss_plan_dot_(subject_t subject) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
+  ss_subject_t(subject);
+  SEND_STRING_WITHOUT_MODS_P(PSTR("through thoroughly and break the "));
+  ss_subject_t2(subject);
+  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR("the "));
+  ss_subject_t2(subject);
+  SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
+  ss_group_phases_dot_(true, WHEN_AFTERWARDS);
+}
+
 // =============================================================================
 // leader_end_user
 // =============================================================================
@@ -1159,7 +1172,9 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_Q, KC_W)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));}
   else if (leader_sequence_one_key (KC_R))       {SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
   // prompt fragments:
-  else if (leader_sequence_two_keys(KC_F, KC_F)) { ss_dumb();}
+  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_dot_(SUBJECT_FEATURE);}
+  else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_dot_(SUBJECT_PROBLEM);}
+  else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactoring */ ss_plan_dot_(SUBJECT_REFACTORING);}
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work. "));}
@@ -1179,12 +1194,12 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_N, KC_F)) { /* no new files */ ss_do_not_add_new_files_();}
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
-  else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(true); }
+  else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(ALLOW_NEW_FILES_UNSPECIFIED, WHEN_AFTERWARDS); }
   else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
   else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */ ss_mark_completed_();}
-  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_(true);}
-  else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_problem_(true);}
-  else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_refactor_(true);}
+  /* else if (leader_sequence_two_keys(KC_P, KC_F)) { /\* plan feature *\/ ss_plan_feature_(true);} */
+  /* else if (leader_sequence_two_keys(KC_P, KC_P)) { /\* plan problem *\/ ss_plan_problem_(true);} */
+  /* else if (leader_sequence_two_keys(KC_P, KC_R)) { /\* plan refactor *\/ ss_plan_refactor_(true);} */
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
   // more complex ones: 
