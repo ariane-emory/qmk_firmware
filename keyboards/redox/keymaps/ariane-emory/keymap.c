@@ -1088,25 +1088,45 @@ void ss_write_the_plan_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
 }
  
+typedef enum {
+  SUBJECT_PROBLEM,
+  SUBJECT_SOLUTION,
+  SUBJECT_FEATURE,
+  SUBJECT_REFACTORING,
+} subject_t;
+
+void ss_subject_t_(const subject_t subject) {
+  switch (subject) {
+  case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("problem ")); return;
+  case SUBJECT_SOLUTION: SEND_STRING_WITHOUT_MODS_P(PSTR("solution ")); return;
+  case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(PSTR("feature ")); return;
+  case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring ")); return;
+  }
+}
+
+void ss_think_subject_through_thoroughly_and_break_the_(subject_t subject, subject_t subject2) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
+  ss_subject_t_(subject);
+  SEND_STRING_WITHOUT_MODS_P(PSTR("through thoroughly and break the "));
+  ss_subject_t_(subject2);
+}
+
 void ss_plan_refactor_(allow_new_files_t allow_new_files) {
-  ss_think_it_through_thoroughly_and_break_the_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
+  ss_think_subject_through_thoroughly_and_break_the_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
   ss_group_phases_dot_(allow_new_files);
 }
 
 void ss_plan_problem_(allow_new_files_t allow_new_files) {
-  ss_think_it_through_thoroughly_and_break_the_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("solution"));
+  ss_think_subject_through_thoroughly_and_break_the_(SUBJECT_PROBLEM, SUBJECT_SOLUTION);
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
   ss_group_phases_dot_(allow_new_files);
 }
 
 void ss_plan_feature_(allow_new_files_t allow_new_files) {
-  ss_think_it_through_thoroughly_and_break_the_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
+  ss_think_subject_through_thoroughly_and_break_the_(SUBJECT_FEATURE, SUBJECT_FEATURE);
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
   ss_group_phases_dot_(allow_new_files);
@@ -1128,24 +1148,6 @@ void ss_analyze_smells_(void) {
 
 // -------------------------------------------------------------------------------------------------
 
-/* typedef enum { */
-/*   SUBJECT_PROBLEM, */
-/*   SUBJECT_FEATURE, */
-/*   SUBJECT_REFACTORING, */
-/* } subject_t; */
-
-/* static const char pstr_problem_[] PROGMEM     = "problem "; */
-/* static const char pstr_solution_[] PROGMEM    = "solution"; */
-/* static const char pstr_feature_[] PROGMEM     = "feature "; */
-/* static const char pstr_refactoring_[] PROGMEM = "refactoring "; */
-
-/* void ss_subject_t(const subject_t subject) { */
-/*   switch (subject) { */
-/*   case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(pstr_problem_); return; */
-/*   case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(pstr_feature_); return;  */
-/*   case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(pstr_refactoring_); return;  */
-/*   } */
-/* } */
 
 /* void ss_subject_t2(const subject_t subject) { */
 /*   switch (subject) { */
