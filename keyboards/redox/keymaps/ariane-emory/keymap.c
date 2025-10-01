@@ -1167,6 +1167,10 @@ void ss_plan_dot_(subject_t subject) {
   ss_group_phases_dot_(true, WHEN_AFTERWARDS);
 }
 
+void ss_oh_no_bang_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Oh-no! The instructions in ./PLAN.md were quite clear, you are not allowed to add new files! "));
+}
+
 // =============================================================================
 // leader_end_user
 // =============================================================================
@@ -1177,7 +1181,8 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_Q, KC_W)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));}
   else if (leader_sequence_one_key (KC_R))       {SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
   // prompt fragments:
-  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_(true);}
+  else if (leader_sequence_two_keys(KC_O, KC_N)) { /* oh no! */ ss_oh_no_bang_();}
+  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_feature_(true);} 
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_problem_(true);}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_refactor_(true);}
   /* else if (leader_sequence_two_keys(KC_P, KC_F)) { /\* plan feature *\/ ss_plan_dot_(SUBJECT_FEATURE);} */
