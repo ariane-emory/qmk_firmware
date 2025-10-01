@@ -1138,29 +1138,6 @@ void ss_analyze_smells_(void) {
   ss_write_the_plan_in_the_planmd_file_();
 }
 
-// -------------------------------------------------------------------------------------------------
-
-
-/* void ss_subject_t2(const subject_t subject) { */
-/*   switch (subject) { */
-/*   case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(pstr_solution_); return; */
-/*   case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(pstr_feature_); return;  */
-/*   case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(pstr_refactoring_); return;  */
-/*   } */
-/* } */
-
-/* void ss_plan_dot_(subject_t subject) { */
-/*   SEND_STRING_WITHOUT_MODS_P(PSTR("Think the ")); */
-/*   ss_subject_t(subject); */
-/*   SEND_STRING_WITHOUT_MODS_P(PSTR("through thoroughly and break the ")); */
-/*   ss_subject_t2(subject); */
-/*   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(); */
-/*   SEND_STRING_WITHOUT_MODS_P(PSTR("the ")); */
-/*   ss_subject_t2(subject); */
-/*   SEND_STRING_WITHOUT_MODS_P(PSTR(". ")); */
-/*   ss_group_phases_dot_(true, WHEN_AFTERWARDS); */
-/* } */
-
 void ss_oh_no_bang_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Oh-no! The instructions in ./PLAN.md were quite clear, you are not allowed to add new files! "));
 }
