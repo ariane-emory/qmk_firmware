@@ -995,7 +995,6 @@ uint16_t keycode_config(uint16_t keycode) {
 #define S_CLR_LINE() S_END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
 
 #ifdef LEADER_ENABLE
-// ---
 void ss_in_the_planmd_file_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("in the ./PLAN.md file. "));
 }
@@ -1082,7 +1081,7 @@ typedef enum {
   SUBJECT_REFACTORING,
 } subject_t;
 
-void ss_subject_t_(const subject_t subject) {
+void ss_subject_t(const subject_t subject) {
   switch (subject) {
   case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("problem")); return;
   case SUBJECT_SOLUTION: SEND_STRING_WITHOUT_MODS_P(PSTR("solution")); return;
@@ -1097,13 +1096,13 @@ void ss_dot_(void) {
 
 void ss_plan_(subject_t subject, subject_t subject2, allow_new_files_t allow_new_files) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
-  ss_subject_t_(subject);
+  ss_subject_t(subject);
   SEND_STRING_WITHOUT_MODS_P(PSTR(" through thoroughly and break the "));
-  ss_subject_t_(subject2);
+  ss_subject_t(subject2);
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps and produce a "));
   ss_detailed_step_by_step_plan_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("for how we can implement the "));
-  ss_subject_t_(subject2);
+  ss_subject_t(subject2);
   ss_dot_();
   ss_group_phases_dot_(allow_new_files);
 }
