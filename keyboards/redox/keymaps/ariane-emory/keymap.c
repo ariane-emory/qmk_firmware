@@ -1164,6 +1164,7 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key (KC_Q))       {SEND_STRING_WITHOUT_MODS_P(PSTR(/*S_CLR()*/ "cdkm; qmkc" S_CR()));}
   else if (leader_sequence_two_keys(KC_Q, KC_W)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));}
   else if (leader_sequence_one_key (KC_R))       {SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
+  else if (leader_sequence_one_key (KC_S))       {SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));}
   // prompt fragments:
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
@@ -1218,8 +1219,6 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
     ss_post_check_dot_(false, WHEN_AFTERWARDS);
   }
-  // git-related: ==================================================================================
-  else if (leader_sequence_one_key(KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));}
   /* else if (leader_sequence_two_keys(KC_G, KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));} */
   /* else if (leader_sequence_two_keys(KC_G, KC_R)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));} */
   /* else if (leader_sequence_three_keys(KC_G, KC_R, KC_O)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard origin/" ));} */
