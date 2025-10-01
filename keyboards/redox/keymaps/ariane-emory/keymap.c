@@ -1093,7 +1093,7 @@ void ss_plan_refactor_(allow_new_files_t allow_new_files) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
-  ss_group_phases_dot_(allow_new_files, WHEN_AFTERWARDS);
+  ss_group_phases_dot_(allow_new_files, WHEN_AFTER_EACH_PHASE);
 }
 
 void ss_plan_problem_(allow_new_files_t allow_new_files) {
@@ -1101,7 +1101,7 @@ void ss_plan_problem_(allow_new_files_t allow_new_files) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("solution"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
-  ss_group_phases_dot_(allow_new_files, WHEN_AFTERWARDS);
+  ss_group_phases_dot_(allow_new_files, WHEN_AFTER_EACH_PHASE);
 }
 
 void ss_plan_feature_(allow_new_files_t allow_new_files) {
@@ -1109,7 +1109,7 @@ void ss_plan_feature_(allow_new_files_t allow_new_files) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
-  ss_group_phases_dot_(allow_new_files, WHEN_AFTERWARDS);
+  ss_group_phases_dot_(allow_new_files, WHEN_AFTER_EACH_PHASE);
 }
 
 void ss_write_the_plan_in_the_planmd_file_(void) {
@@ -1128,44 +1128,44 @@ void ss_analyze_smells_(void) {
 
 // -------------------------------------------------------------------------------------------------
 
-typedef enum {
-  SUBJECT_PROBLEM,
-  SUBJECT_FEATURE,
-  SUBJECT_REFACTORING,
-} subject_t;
+/* typedef enum { */
+/*   SUBJECT_PROBLEM, */
+/*   SUBJECT_FEATURE, */
+/*   SUBJECT_REFACTORING, */
+/* } subject_t; */
 
-static const char pstr_problem_[] PROGMEM     = "problem ";
-static const char pstr_solution_[] PROGMEM    = "solution";
-static const char pstr_feature_[] PROGMEM     = "feature ";
-static const char pstr_refactoring_[] PROGMEM = "refactoring ";
+/* static const char pstr_problem_[] PROGMEM     = "problem "; */
+/* static const char pstr_solution_[] PROGMEM    = "solution"; */
+/* static const char pstr_feature_[] PROGMEM     = "feature "; */
+/* static const char pstr_refactoring_[] PROGMEM = "refactoring "; */
 
-void ss_subject_t(const subject_t subject) {
-  switch (subject) {
-  case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(pstr_problem_); return;
-  case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(pstr_feature_); return; 
-  case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(pstr_refactoring_); return; 
-  }
-}
+/* void ss_subject_t(const subject_t subject) { */
+/*   switch (subject) { */
+/*   case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(pstr_problem_); return; */
+/*   case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(pstr_feature_); return;  */
+/*   case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(pstr_refactoring_); return;  */
+/*   } */
+/* } */
 
-void ss_subject_t2(const subject_t subject) {
-  switch (subject) {
-  case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(pstr_solution_); return;
-  case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(pstr_feature_); return; 
-  case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(pstr_refactoring_); return; 
-  }
-}
+/* void ss_subject_t2(const subject_t subject) { */
+/*   switch (subject) { */
+/*   case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(pstr_solution_); return; */
+/*   case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(pstr_feature_); return;  */
+/*   case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(pstr_refactoring_); return;  */
+/*   } */
+/* } */
 
-void ss_plan_dot_(subject_t subject) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
-  ss_subject_t(subject);
-  SEND_STRING_WITHOUT_MODS_P(PSTR("through thoroughly and break the "));
-  ss_subject_t2(subject);
-  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("the "));
-  ss_subject_t2(subject);
-  SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
-  ss_group_phases_dot_(true, WHEN_AFTERWARDS);
-}
+/* void ss_plan_dot_(subject_t subject) { */
+/*   SEND_STRING_WITHOUT_MODS_P(PSTR("Think the ")); */
+/*   ss_subject_t(subject); */
+/*   SEND_STRING_WITHOUT_MODS_P(PSTR("through thoroughly and break the ")); */
+/*   ss_subject_t2(subject); */
+/*   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(); */
+/*   SEND_STRING_WITHOUT_MODS_P(PSTR("the ")); */
+/*   ss_subject_t2(subject); */
+/*   SEND_STRING_WITHOUT_MODS_P(PSTR(". ")); */
+/*   ss_group_phases_dot_(true, WHEN_AFTERWARDS); */
+/* } */
 
 void ss_oh_no_bang_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Oh-no! The instructions in ./PLAN.md were quite clear, you are not allowed to add new files! "));
