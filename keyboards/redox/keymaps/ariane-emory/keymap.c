@@ -1077,11 +1077,11 @@ typedef enum {
   ALLOW_NEW_FILES_UNSPECIFIED,
 } allow_new_files_t;
 
-void ss_group_phases_dot_(allow_new_files_t allow_new_files, when_t when) {
+void ss_group_phases_dot_(allow_new_files_t allow_new_files) {
   if (allow_new_files == ALLOW_NEW_FILES_NO)
     ss_do_not_add_new_files_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
-  ss_post_check_dot_(false, when);
+  ss_post_check_dot_(false, WHEN_AFTER_EACH_PHASE);
 }
 
 void ss_write_the_plan_(void) {
@@ -1093,7 +1093,7 @@ void ss_plan_refactor_(allow_new_files_t allow_new_files) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
-  ss_group_phases_dot_(allow_new_files, WHEN_AFTER_EACH_PHASE);
+  ss_group_phases_dot_(allow_new_files);
 }
 
 void ss_plan_problem_(allow_new_files_t allow_new_files) {
@@ -1101,7 +1101,7 @@ void ss_plan_problem_(allow_new_files_t allow_new_files) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("solution"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
-  ss_group_phases_dot_(allow_new_files, WHEN_AFTER_EACH_PHASE);
+  ss_group_phases_dot_(allow_new_files);
 }
 
 void ss_plan_feature_(allow_new_files_t allow_new_files) {
@@ -1109,7 +1109,7 @@ void ss_plan_feature_(allow_new_files_t allow_new_files) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("feature"));
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
-  ss_group_phases_dot_(allow_new_files, WHEN_AFTER_EACH_PHASE);
+  ss_group_phases_dot_(allow_new_files);
 }
 
 void ss_write_the_plan_in_the_planmd_file_(void) {
@@ -1208,7 +1208,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_N, KC_F)) { /* no new files */ ss_do_not_add_new_files_();}
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
-  else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(ALLOW_NEW_FILES_UNSPECIFIED, WHEN_AFTERWARDS); }
+  else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(ALLOW_NEW_FILES_UNSPECIFIED); }
   else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
   else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */ ss_mark_completed_();}
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
