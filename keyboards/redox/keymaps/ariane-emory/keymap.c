@@ -1120,31 +1120,31 @@ void ss_the_next_phase_in_the_planmd_file_dot_(void) {
   ss_in_the_planmd_file_dot_();
 }
 
-typedef enum {
-  SUBJECT_NEXT_IN_PLANMD,
-  SUBJECT_THIS_PLAN,
-  SUBJECT_THIS,
-} implementation_subject_t;
+/* typedef enum { */
+/*   SUBJECT_NEXT_IN_PLANMD, */
+/*   SUBJECT_THIS_PLAN, */
+/*   SUBJECT_THIS, */
+/* } implementation_subject_t; */
 
-void ss_implementation_subject_t_dot_(implementation_subject_t subject) {
-  switch (subject) {
-  case SUBJECT_NEXT_IN_PLANMD:
-    ss_the_next_phase_in_the_planmd_file_dot_();
-    return;
-  case SUBJECT_THIS_PLAN:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("this plan. "));
-    return;
-  case SUBJECT_THIS:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
-    return;
-  }
-}
+/* void ss_implementation_subject_t_dot_(implementation_subject_t subject) { */
+/*   switch (subject) { */
+/*   case SUBJECT_NEXT_IN_PLANMD: */
+/*     ss_the_next_phase_in_the_planmd_file_dot_(); */
+/*     return; */
+/*   case SUBJECT_THIS_PLAN: */
+/*     SEND_STRING_WITHOUT_MODS_P(PSTR("this plan. ")); */
+/*     return; */
+/*   case SUBJECT_THIS: */
+/*     SEND_STRING_WITHOUT_MODS_P(PSTR("this. ")); */
+/*     return; */
+/*   } */
+/* } */
 
-void ss_implement_dot_(implementation_subject_t subject) {
-  ss_proceed_with_implementing_();
-  ss_implementation_subject_t_dot_(subject);
-  ss_post_check_dot_(true, WHEN_AFTERWARDS);
-}
+/* void ss_implement_dot_(implementation_subject_t subject) { */
+/*   ss_proceed_with_implementing_(); */
+/*   ss_implementation_subject_t_dot_(subject); */
+/*   ss_post_check_dot_(true, WHEN_AFTERWARDS); */
+/* } */
 
 
 // =============================================================================
