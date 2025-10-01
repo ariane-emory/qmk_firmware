@@ -1024,6 +1024,8 @@ typedef enum {
   SUBJECT_REFACTORING,
 } subject_t;
 
+// -------------------------------------------------------------------------------------------------
+
 void ss_subject_t(const subject_t subject) {
   switch (subject) {
   case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("problem ")); return;
@@ -1032,7 +1034,21 @@ void ss_subject_t(const subject_t subject) {
   }
 }
 
+void ss_subject_t2(const subject_t subject) {
+  switch (subject) {
+  case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("solution ")); return;
+  default: SEND_STRING_WITHOUT_MODS_P(PSTR("it ")); return; 
+  }
+}
 
+void ss_dumb(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
+  ss_subject_t(SUBJECT_FEATURE);
+  SEND_STRING_WITHOUT_MODS_P(PSTR("through thoroughly and break the "));
+  ss_subject_t(SUBJECT_FEATURE);
+}
+
+// -------------------------------------------------------------------------------------------------
 
 void ss_must_build_and_pass_tests_dot_(when_t when) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("The code MUST build correctly and all tests MUST pass "));
@@ -1143,6 +1159,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_Q, KC_W)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));}
   else if (leader_sequence_one_key (KC_R))       {SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
   // prompt fragments:
+  else if (leader_sequence_two_keys(KC_F, KC_F)) { ss_dumb();}
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work. "));}
