@@ -1191,19 +1191,13 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("\b\b, just answer questions for now. "));}
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_submit_the_plan_for_approval_dot_(WHEN_AFTERWARDS); }
   else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next phase of PLAN.md  */
-    ss_proceed_with_implementing_();
-    ss_the_next_phase_in_the_planmd_file_dot_();
-    ss_post_check_dot_(true, WHEN_AFTERWARDS);
+    ss_implement_dot_(SUBJECT_NEXT_IN_PLANMD);
   }
   else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
-    ss_proceed_with_implementing_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("this plan. "));
-    ss_post_check_dot_(false, WHEN_AFTERWARDS);
+    ss_implement_dot_(SUBJECT_THIS_PLAN);
   }
   else if (leader_sequence_two_keys(KC_I, KC_T)) { /* proceed w/ implementing that  */
-    ss_proceed_with_implementing_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
-    ss_post_check_dot_(false, WHEN_AFTERWARDS);
+    ss_implement_dot_(SUBJECT_THIS);
   }
   // git-related: ==================================================================================
   else if (leader_sequence_one_key(KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));}
