@@ -1048,9 +1048,9 @@ void ss_submit_the_plan_for_approval_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Submit the plan to me for approval "));
 }
 
-void ss_think_it_through_thoroughly_and_break_the_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Think it through thoroughly and break the "));
-}
+/* void ss_think_it_through_thoroughly_and_break_the_(void) { */
+/*   SEND_STRING_WITHOUT_MODS_P(PSTR("Think it through thoroughly and break the ")); */
+/* } */
 
 void _ss_down_into_small_steps_to_come_up_with_a_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a "));
