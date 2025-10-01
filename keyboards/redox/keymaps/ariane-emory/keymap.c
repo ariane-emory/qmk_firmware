@@ -1140,6 +1140,13 @@ void ss_implementation_subject_t_dot_(implementation_subject_t subject) {
   }
 }
 
+void ss_implement_dot_(implementation_subject_t subject) {
+  ss_proceed_with_implementing_();
+  ss_implementation_subject_t_dot_(subject);
+  ss_post_check_dot_(true, WHEN_AFTERWARDS);
+}
+
+
 // =============================================================================
 // leader_end_user
 // =============================================================================
