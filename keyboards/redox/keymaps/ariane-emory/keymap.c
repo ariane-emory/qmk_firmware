@@ -1134,6 +1134,11 @@ typedef enum {
   SUBJECT_REFACTORING,
 } subject_t;
 
+static const char pstr_problem_[] PROGMEM     = "problem ";
+static const char pstr_solution_[] PROGMEM    = "solution ";
+static const char pstr_feature_[] PROGMEM     = "feature ";
+static const char pstr_refactoring_[] PROGMEM = "refactoring ";
+
 void ss_subject_t(const subject_t subject) {
   switch (subject) {
   case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("problem ")); return;
