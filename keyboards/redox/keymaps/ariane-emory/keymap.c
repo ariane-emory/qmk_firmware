@@ -1097,6 +1097,10 @@ void ss_subject_t_(const subject_t subject) {
   }
 }
 
+void ss_dot_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
+}
+
 void ss_plan_(subject_t subject, subject_t subject2, allow_new_files_t allow_new_files) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
   ss_subject_t_(subject);
@@ -1104,7 +1108,7 @@ void ss_plan_(subject_t subject, subject_t subject2, allow_new_files_t allow_new
   ss_subject_t_(subject2);
   _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_the_();
   ss_subject_t_(subject2);
-  SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
+  ss_dot_();
   ss_group_phases_dot_(allow_new_files);
 }
 
