@@ -1115,8 +1115,16 @@ void ss_analyze_smells_(void) {
   ss_write_the_plan_in_the_planmd_file_();
 }
 
-void ss_the_next_phase_in_the_planmd_file_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
+typedef enum {
+  PHASE_DESCRIPTION_NEXT_PHASE,
+  PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE,
+} phase_description_t;
+  
+void ss_phase_in_the_planmd_file_dot_(phase_description_t phase) {
+  if (phase == PHASE_DESCRIPTION_NEXT_PHASE)
+    SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
+  else 
+    SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
   ss_in_the_planmd_file_dot_();
 }
 
@@ -1190,9 +1198,14 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("I need you to analyze and explain this problem: "));}
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("\b\b, just answer questions for now. "));}
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_submit_the_plan_for_approval_dot_(WHEN_AFTERWARDS); }
+  else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ first uncompleted phase of PLAN.md  */
+    ss_proceed_with_implementing_();
+    ss_phase_in_the_planmd_file_dot_(PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE);
+    ss_post_check_dot_(true, WHEN_AFTERWARDS);
+  }
   else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
-    ss_the_next_phase_in_the_planmd_file_dot_();
+    ss_phase_in_the_planmd_file_dot_(PHASE_DESCRIPTION_NEXT_PHASE);
     ss_post_check_dot_(true, WHEN_AFTERWARDS);
   }
   else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
