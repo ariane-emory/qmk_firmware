@@ -1185,6 +1185,7 @@ void leader_end_user(void) {
   /* else if (leader_sequence_two_keys(KC_P, KC_R)) { /\* plan refactoring *\/ ss_plan_dot_(SUBJECT_REFACTORING);} */
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
+  else if (leader_sequence_two_keys(KC_D, KC_H)) { /* don't hallucinate */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do not hallucinate. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work. "));}
   else if (leader_sequence_two_keys(KC_K, KC_G)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going. "));}
   else if (leader_sequence_two_keys(KC_K, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));}
