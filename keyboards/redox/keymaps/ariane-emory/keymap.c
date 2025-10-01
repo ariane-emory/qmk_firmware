@@ -1024,6 +1024,16 @@ typedef enum {
   SUBJECT_REFACTORING,
 } subject_t;
 
+void foo(const subject_t subject) {
+  switch (subject) {
+  case SUBJECT_PROBLEM: /* do nothing */ break;
+  case SUBJECT_FEATURE: /* do nothing */ break;
+  case SUBJECT_REFACTORING: /* do nothing */ break;
+  }
+}
+
+
+
 void ss_must_build_and_pass_tests_dot_(when_t when) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("The code MUST build correctly and all tests MUST pass "));
 
