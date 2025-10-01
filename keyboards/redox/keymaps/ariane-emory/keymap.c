@@ -1045,8 +1045,6 @@ void ss_detailed_step_by_step_plan_(void) {
 }
 
 void ss_submit_the_plan_for_approval_(void) {
-  /* SEND_STRING_WITHOUT_MODS_P(PSTR("Come up with a ")); */
-  /* ss_detailed_step_by_step_plan_(); */
   SEND_STRING_WITHOUT_MODS_P(PSTR("Submit the plan to me for approval "));
 }
 
