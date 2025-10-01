@@ -1058,10 +1058,10 @@ void _ss_down_into_small_steps_to_come_up_with_a_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to come up with a "));
 }
 
-void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_(void) {
+void _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_the_(void) {
   _ss_down_into_small_steps_to_come_up_with_a_();
   ss_detailed_step_by_step_plan_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("for how we can implement "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("for how we can implement the "));
 }
 
 void ss_proceed_with_implementing_(void) {
@@ -1097,38 +1097,41 @@ typedef enum {
 
 void ss_subject_t_(const subject_t subject) {
   switch (subject) {
-  case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("problem ")); return;
-  case SUBJECT_SOLUTION: SEND_STRING_WITHOUT_MODS_P(PSTR("solution ")); return;
-  case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(PSTR("feature ")); return;
-  case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring ")); return;
+  case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("problem")); return;
+  case SUBJECT_SOLUTION: SEND_STRING_WITHOUT_MODS_P(PSTR("solution")); return;
+  case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(PSTR("feature")); return;
+  case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring")); return;
   }
 }
 
 void ss_think_subject_through_thoroughly_and_break_the_(subject_t subject, subject_t subject2) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
   ss_subject_t_(subject);
-  SEND_STRING_WITHOUT_MODS_P(PSTR("through thoroughly and break the "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR(" through thoroughly and break the "));
   ss_subject_t_(subject2);
 }
 
 void ss_plan_refactor_(allow_new_files_t allow_new_files) {
   ss_think_subject_through_thoroughly_and_break_the_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);
-  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("this refactoring. "));
+  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_the_();
+  ss_subject_t_(SUBJECT_REFACTORING);
+  SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
   ss_group_phases_dot_(allow_new_files);
 }
 
 void ss_plan_problem_(allow_new_files_t allow_new_files) {
   ss_think_subject_through_thoroughly_and_break_the_(SUBJECT_PROBLEM, SUBJECT_SOLUTION);
-  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("a solution. "));
+  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_the_();
+  ss_subject_t_(SUBJECT_SOLUTION);
+  SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
   ss_group_phases_dot_(allow_new_files);
 }
 
 void ss_plan_feature_(allow_new_files_t allow_new_files) {
   ss_think_subject_through_thoroughly_and_break_the_(SUBJECT_FEATURE, SUBJECT_FEATURE);
-  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("the feature. "));
+  _ss_down_into_small_steps_to_come_up_with_a_detailed_step_by_step_plan_for_how_to_implement_the_();
+  ss_subject_t_(SUBJECT_FEATURE);
+  SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
   ss_group_phases_dot_(allow_new_files);
 }
 
