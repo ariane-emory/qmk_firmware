@@ -1079,9 +1079,9 @@ typedef enum {
   SUBJECT_SOLUTION,
   SUBJECT_FEATURE,
   SUBJECT_REFACTORING,
-} subject_t;
+} plan_subject_t;
 
-void ss_subject_t(const subject_t subject) {
+void ss_plan_subject_t(const plan_subject_t subject) {
   switch (subject) {
   case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("problem")); return;
   case SUBJECT_SOLUTION: SEND_STRING_WITHOUT_MODS_P(PSTR("solution")); return;
@@ -1094,15 +1094,15 @@ void ss_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
 }
 
-void ss_plan_(subject_t subject, subject_t subject2, allow_new_files_t allow_new_files) {
+void ss_plan_(plan_subject_t subject, plan_subject_t subject2, allow_new_files_t allow_new_files) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
-  ss_subject_t(subject);
+  ss_plan_subject_t(subject);
   SEND_STRING_WITHOUT_MODS_P(PSTR(" through thoroughly and break the "));
-  ss_subject_t(subject2);
+  ss_plan_subject_t(subject2);
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to produce a "));
   ss_detailed_step_by_step_plan_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("for how we can implement the "));
-  ss_subject_t(subject2);
+  ss_plan_subject_t(subject2);
   ss_dot_();
   ss_group_phases_dot_(allow_new_files);
 }
@@ -1119,6 +1119,12 @@ void ss_the_next_phase_in_the_planmd_file_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
   ss_in_the_planmd_file_dot_();
 }
+
+typedef enum {
+  SUBJECT_NEXT_IN_PLANMD,
+  SUBJECT_THIS_PLAN,
+  SUBJECT_THIS,
+} implementation_subject_t;
 
 // =============================================================================
 // leader_end_user
