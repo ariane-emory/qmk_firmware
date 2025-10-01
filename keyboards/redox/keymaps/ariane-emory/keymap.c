@@ -1126,6 +1126,20 @@ typedef enum {
   SUBJECT_THIS,
 } implementation_subject_t;
 
+void ss_implementation_subject_t_dot_(implementation_subject_t subject) {
+  switch (subject) {
+  case SUBJECT_NEXT_IN_PLANMD:
+    ss_the_next_phase_in_the_planmd_file_dot_();
+    return;
+  case SUBJECT_THIS_PLAN:
+    SEND_STRING_WITHOUT_MODS_P(PSTR("this plan. "));
+    return;
+  case SUBJECT_THIS:
+    SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
+    return;
+  }
+}
+
 // =============================================================================
 // leader_end_user
 // =============================================================================
