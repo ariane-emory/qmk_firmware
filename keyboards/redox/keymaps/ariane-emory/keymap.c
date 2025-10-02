@@ -93,7 +93,7 @@ void keyboard_post_init_user(void) {
 
 #define TAP(ss_kc)             SS_TAP(ss_kc)
 #define S_CR(_)                TAP(X_ENT)
-#define S_DD()                 SS_DELAY(125)
+#define S_DD()                 SS_DELAY(150)
 #define S_EM_SWAP() (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB)))
 #define S_ESC()                TAP(X_ESC)
 #define S_LL(_)                TAP(X_LEFT)
@@ -116,7 +116,7 @@ void keyboard_post_init_user(void) {
 #define S_TELEPORT(_)                                                                                                                            \
   S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                \
   SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                  \
-  SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() TAP(X_ENT) SS_DELAY(2500)                                                          \
+  SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() TAP(X_ENT) SS_DELAY(8000)                                                          \
                                                                          TAP(X_F) S_DD()                                                         \
                                                                                   SS_LGUI("`") S_DD() S_SCR_L()
 
