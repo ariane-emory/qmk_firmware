@@ -935,7 +935,7 @@
       "ANY(THU_RGT)",
       "ANY(STR_RGT)",
       "ANY(NUMP_0)",
-      "KC_PDOT",
+      "KC_DOT",
       "KC_COMM",
       "ANY(LCTL(LALT(KC_T)))",
       "LCA(KC_DOWN)",
