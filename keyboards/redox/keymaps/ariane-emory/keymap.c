@@ -1215,7 +1215,7 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("this plan. "));
     ss_post_check_dot_(false, WHEN_AFTERWARDS);
   }
-  else if (leader_sequence_two_keys(KC_I, KC_T)) { /* proceed w/ implementing that  */
+  else if (leader_sequence_two_keys(KC_I, KC_T)) { /* proceed w/ implementing this */
     ss_proceed_with_implementing_();
     SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
     ss_post_check_dot_(false, WHEN_AFTERWARDS);
