@@ -116,6 +116,7 @@
 #define LUTIL_OR_CMD_W LT(LN_UTIL,LGUI(KC_W))
 #define NEW_TAB        LGUI(KC_T)
 #define LCTL_DQUO      LCTL_T(KC_DQUO_TAP)
+#define ARROWS_DQUO      LT(LN_ARROWS, KC_DQUO_TAP)
 // #define LCTL_DQUO      LT(LN_ARROWS, KC_DQUO_TAP)
 #define LCTL_SQUO      LCTL_T(KC_SQUO_TAP)
 #define SPOTLIGHT      LGUI(KC_SPC)

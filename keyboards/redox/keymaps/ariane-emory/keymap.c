@@ -555,6 +555,7 @@ static const struct { uint16_t matched; uint16_t tapped; } tap_cases[] PROGMEM =
 
   { LCTL_SQUO,                   KC_QUOT        },
   { LCTL_DQUO,                   KC_DQUO        },
+  { ARROWS_DQUO,                   KC_DQUO        },
 
   { LCTL_OPEN,                   LGUI(KC_O)     },
   // { ARROWS_OPEN,                 LGUI(KC_O)     },
