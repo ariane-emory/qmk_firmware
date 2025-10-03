@@ -116,7 +116,7 @@ void keyboard_post_init_user(void) {
 #define S_TELEPORT(_)                                                                                                                            \
   S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                \
   SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                  \
-  SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(500) TAP(X_ENT) SS_DELAY(4000)                                                   \
+  SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(500) TAP(X_ENT) SS_DELAY(5000)                                                   \
                                                                                 TAP(X_F) S_DD()                                                  \
                                                                                   SS_LGUI("`") S_DD() S_SCR_L()
 
@@ -175,7 +175,7 @@ void keyboard_post_init_user(void) {
 
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
-  DO(SS_DICT,              (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),  (TAP(X_F24) TAP(X_F24)), (""),                   (""))                       \
+  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),   (""),              (""))                      \
   DO(EM_LASTARG,                                                                                                                                 \
      (S_EVAL_SEXP),           /* NO MODS */                                                                                                      \
      (S_PP_EVAL_SEXP),        /* CTRL */                                                                                                         \
@@ -205,7 +205,7 @@ void keyboard_post_init_user(void) {
      (S_PP_EVAL_SEXP),        /* CTRL */                                                                                                         \
      (" " SS_LCTL("c") "."),  /* ALT */                                                                                                          \
      ("c -" S_CR()))          /* SHIFT */                                                                                                        \
-  DO(SS_DICT,              (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),  (TAP(X_F24) TAP(X_F24)),  (""),               (""))                          \
+  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),   (""),               (""))                         \
   DO(SS_DIR,               ("~/"),                  ("../"),                                  ("./"),             ("` + `" S_LL() S_CR() S_TB() S_RR())) \
   DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("``" S_LL()),      ("->"))                        \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))       \
@@ -1169,8 +1169,8 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work! "));}
-  else if (leader_sequence_two_keys(KC_K, KC_G)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going! "));}
-  else if (leader_sequence_two_keys(KC_K, KC_K)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));}
+  else if (leader_sequence_two_keys(KC_K, KC_K)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going! "));}
+  else if (leader_sequence_two_keys(KC_O, KC_O)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));}
   else if (leader_sequence_two_keys(KC_K, KC_T)) { /* keep trying */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep trying! "));}
   else if (leader_sequence_two_keys(KC_L, KC_B)) { /* locality of behavior */ SEND_STRING_WITHOUT_MODS_P(PSTR("Prioritize locality-of-behavior! "));}
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));}
@@ -1199,6 +1199,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("I need you to analyze and explain this problem: "));}
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("\b\b, just answer questions for now. "));}
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_submit_the_plan_for_approval_dot_(WHEN_AFTERWARDS); }
+  // implement:
   else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ first uncompleted phase of PLAN.md  */
     ss_proceed_with_implementing_();
     ss_phase_in_the_planmd_file_dot_(PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE);
