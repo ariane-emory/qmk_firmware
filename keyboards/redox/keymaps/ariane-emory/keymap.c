@@ -1176,6 +1176,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));}
   else if (leader_sequence_two_keys(KC_N, KC_H)) { /* don't hallucinate */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do not hallucinate! "));}
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("No mistakes! "));}
+  else if (leader_sequence_two_keys(KC_N, KC_T)) { /* new topic */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's change topics: "));}
   else if (leader_sequence_two_keys(KC_O, KC_N)) { /* oh no! */ SEND_STRING_WITHOUT_MODS_P(PSTR("Oh-no! The instructions in ./PLAN.md were quite clear, you are not allowed to add new files! "));}
   else if (leader_sequence_two_keys(KC_P, KC_M)) { /* ./plan.md */ SEND_STRING_WITHOUT_MODS_P(PSTR("./plan.md")); }
   else if (leader_sequence_two_keys(KC_P, KC_S)) { /* proceed systematically */ SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed systematically "));}
