@@ -118,7 +118,7 @@ void keyboard_post_init_user(void) {
   SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                  \
   SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(500) TAP(X_ENT) SS_DELAY(4500)                                                   \
                                                                                 TAP(X_F) S_DD()                                                  \
-                                                                                  SS_LGUI("`") S_DD() S_SCR_L()
+                                                                                         SS_LGUI("`") S_DD() S_SCR_L()
 
 // ==============================================================================
 // Send string keycodes (the main X-macro table)
@@ -175,7 +175,7 @@ void keyboard_post_init_user(void) {
 
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
-  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),   (""),              (""))                      \
+  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),   (""),              (""))                           \
   DO(EM_LASTARG,                                                                                                                                 \
      (S_EVAL_SEXP),           /* NO MODS */                                                                                                      \
      (S_PP_EVAL_SEXP),        /* CTRL */                                                                                                         \
@@ -205,7 +205,7 @@ void keyboard_post_init_user(void) {
      (S_PP_EVAL_SEXP),        /* CTRL */                                                                                                         \
      (" " SS_LCTL("c") "."),  /* ALT */                                                                                                          \
      ("c -" S_CR()))          /* SHIFT */                                                                                                        \
-  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),   (""),               (""))                         \
+  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),   (""),               (""))                          \
   DO(SS_DIR,               ("~/"),                  ("../"),                                  ("./"),             ("` + `" S_LL() S_CR() S_TB() S_RR())) \
   DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("``" S_LL()),      ("->"))                        \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))       \

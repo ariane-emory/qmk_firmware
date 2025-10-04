@@ -155,17 +155,15 @@ bool combo_should_trigger(
                 || layer_state_is(LN_FLIPL)
                 || layer_state_is(LN_FLIPR)
                 || layer_state_is(LN_UPPER)
-                || layer_state_is(LN_ARROWS))) &&(false
-                                                  || (combo->keycode == KC_ESC)
-                                                  || (combo->keycode == KC_ENT)
-                                                  || (combo->keycode == KA_UNDO)
-                                                  /* || (combo->keycode == EM_BOL) */
-                                                  /* || (combo->keycode == EM_EOL) */
-                                                  || (combo->keycode == KC_VOLD)
-                                                  || (combo->keycode == KC_VOLU)
-                                                  || (combo->keycode == KC_HOME)
-                                                  || (combo->keycode == KC_END)
-                                                  || (combo->keycode == EM_LASTARG)))
+                || layer_state_is(LN_ARROWS))) && (false
+                                                   || (combo->keycode == KC_ESC)
+                                                   || (combo->keycode == KC_ENT)
+                                                   || (combo->keycode == KA_UNDO)
+                                                   || (combo->keycode == KC_VOLD)
+                                                   || (combo->keycode == KC_VOLU)
+                                                   || (combo->keycode == KC_HOME)
+                                                   || (combo->keycode == KC_END)
+                                                   || (combo->keycode == EM_LASTARG)))
           || false);
 }
 
