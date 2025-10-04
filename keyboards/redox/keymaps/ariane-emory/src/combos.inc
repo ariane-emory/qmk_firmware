@@ -142,15 +142,16 @@ bool combo_should_trigger(
   return (false
           || (get_highest_layer(layer_state) <= LN_LOWER) // LN_MOUSE)
           // v this index will probably need frequent adjustment whenever
-          //   left-hand combos are altered:
-          || (((layer_state_is(LN_MOUSE)  && ((combo_index <= 15)))))
+          //   left-hand combos are altered.
+          //   adjust to index of last left hand combo:
+          || (((layer_state_is(LN_MOUSE)  && ((combo_index <= 17)))))
           || (((layer_state_is(LN_MOUSE)  && (true
                                               && (combo->keycode != KC_ENT)
                                               && (combo->keycode != KC_SCLN)
                                               && (combo->keycode != SS_LBRACK)
                                               && (combo->keycode != SS_RBRACK)))))
           || (((false
-                ||layer_state_is(LN_LOWER)
+                || layer_state_is(LN_LOWER)
                 || layer_state_is(LN_FLIPL)
                 || layer_state_is(LN_FLIPR)
                 || layer_state_is(LN_UPPER)
@@ -158,8 +159,8 @@ bool combo_should_trigger(
                                                   || (combo->keycode == KC_ESC)
                                                   || (combo->keycode == KC_ENT)
                                                   || (combo->keycode == KA_UNDO)
-                                                  || (combo->keycode == EM_BOL)
-                                                  || (combo->keycode == EM_EOL)
+                                                  /* || (combo->keycode == EM_BOL) */
+                                                  /* || (combo->keycode == EM_EOL) */
                                                   || (combo->keycode == KC_VOLD)
                                                   || (combo->keycode == KC_VOLU)
                                                   || (combo->keycode == KC_HOME)

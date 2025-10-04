@@ -116,7 +116,7 @@ void keyboard_post_init_user(void) {
 #define S_TELEPORT(_)                                                                                                                            \
   S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                \
   SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                  \
-  SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(500) TAP(X_ENT) SS_DELAY(5000)                                                   \
+  SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(500) TAP(X_ENT) SS_DELAY(4500)                                                   \
                                                                                 TAP(X_F) S_DD()                                                  \
                                                                                   SS_LGUI("`") S_DD() S_SCR_L()
 
@@ -1166,7 +1166,7 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key (KC_R))       {SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
   else if (leader_sequence_one_key (KC_S))       {SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));}
   // prompt fragments:
-  else if (leader_sequence_two_keys(KC_A, KC_P)) { /* analyze th problem */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze the problem "));}
+  else if (leader_sequence_two_keys(KC_A, KC_P)) { /* analyze the problem */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze the problem "));}
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* great work */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work! "));}
