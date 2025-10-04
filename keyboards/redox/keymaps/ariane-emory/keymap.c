@@ -1166,6 +1166,7 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key (KC_R))       {SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
   else if (leader_sequence_one_key (KC_S))       {SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));}
   // prompt fragments:
+  else if (leader_sequence_two_keys(KC_A, KC_P)) { /* analyze th problem */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze the problem "));}
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* great work */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work! "));}
