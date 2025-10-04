@@ -58,8 +58,8 @@
   DO(l_bot_innr,             KC_ENT,        QB_C,    QB_V                               )      \
   __(l_bot_curl,             ____________,  QB_V,    QB_B                               )      \
   __(l_bot_trpo,             ____________,  QB_Z,    QB_X,      QB_C                    )      \
-  __(l_bot_sprd,             ____________,  QB_X,               QB_V                    )      \
-  DO(l_bot_trpm,             TG(LN_MOUSE),  QB_X,    QB_C,      QB_V                    )      \
+  DO(l_bot_sprd,             TG(LN_MOUSE),  QB_X,               QB_V                    )      \
+  __(l_bot_trpm,             ____________,  QB_X,    QB_C,      QB_V                    )      \
   __(l_bot_trpi,             ____________,  QB_C,    QB_V,      QB_B                    )      \
   _______________________________________________________________________________________      \
   DO(r_top_trpi,             SS_SMILEY2,    QT_Y,    QT_U,      QT_I                    )      \
