@@ -1159,6 +1159,12 @@ void ss_phase_in_the_planmd_file_dot_(phase_description_t phase) {
 // leader_end_user
 // =============================================================================
 
+static uint16_t last_stashed_layer_state = 0;
+
+void leader_begin_user(void) {
+  last_stashed_layer_state = 1;
+}
+
 void leader_end_user(void) {
   if      (leader_sequence_two_keys(KC_B, KC_B)) {my_boot_handler(0, NULL);}
   else if (leader_sequence_one_key (KC_Q))       {SEND_STRING_WITHOUT_MODS_P(PSTR(/*S_CLR()*/ "cdkm; qmkc" S_CR()));}
@@ -1235,6 +1241,8 @@ void leader_end_user(void) {
   /* else if (leader_sequence_two_keys(KC_G, KC_P)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git push " S_CR()));} */
   /* else if (leader_sequence_two_keys(KC_G, KC_U)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " S_CR()));} */
   /* else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " S_CR()));} */
+
+  layer_state = last_stashed_layer_state;
 }
 #endif // LEADER_ENABLE
 
