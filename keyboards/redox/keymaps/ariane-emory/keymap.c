@@ -1162,7 +1162,8 @@ void ss_phase_in_the_planmd_file_dot_(phase_description_t phase) {
 static uint16_t last_stashed_layer_state = 0;
 
 void leader_begin_user(void) {
-  last_stashed_layer_state = 1;
+  last_stashed_layer_state = layer_state;
+  layer_state = 1;
 }
 
 void leader_end_user(void) {
