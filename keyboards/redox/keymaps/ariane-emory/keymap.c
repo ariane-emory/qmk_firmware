@@ -1163,7 +1163,7 @@ static uint16_t last_stashed_layer_state = 0;
 
 void leader_begin_user(void) {
   last_stashed_layer_state = layer_state;
-  layer_state = 1;
+  layer_clear();
 }
 
 void leader_end_user(void) {
