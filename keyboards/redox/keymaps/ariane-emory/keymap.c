@@ -1168,6 +1168,7 @@ void leader_end_user(void) {
   // prompt fragments:
   else if (leader_sequence_two_keys(KC_A, KC_P)) { /* analyze the problem */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze the problem "));}
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
+  else if (leader_sequence_two_keys(KC_C, KC_C)) { /* continue */ SEND_STRING_WITHOUT_MODS_P(PSTR("Continue. "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* great work */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work! "));}
   else if (leader_sequence_two_keys(KC_K, KC_K)) { /* keep going */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going! "));}
