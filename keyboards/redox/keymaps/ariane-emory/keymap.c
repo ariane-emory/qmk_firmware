@@ -1069,6 +1069,10 @@ void ss_group_phases_dot_(allow_new_files_t allow_new_files) {
   ss_post_check_dot_(false, WHEN_AFTER_EACH_PHASE);
 }
 
+void ss_analyze_this_problem_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem "));
+}
+
 void ss_write_the_plan_in_the_planmd_file_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
   ss_in_the_planmd_file_dot_();
@@ -1165,28 +1169,29 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_Q, KC_W)) {SEND_STRING_WITHOUT_MODS_P(PSTR(S_CLR() "cdkm; qmkupd" S_CR()));}
   else if (leader_sequence_one_key (KC_R))       {SEND_STRING_WITHOUT_MODS_P(PSTR(S_REPEAT_SHELL_CMD(_)));}
   else if (leader_sequence_one_key (KC_S))       {SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));}
-  // prompt fragments:
-  else if (leader_sequence_two_keys(KC_A, KC_P)) { /* analyze the problem */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze the problem "));}
-  else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem and fix it: "));}
+  /* prompt fragments: */
+  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_STRING_WITHOUT_MODS_P(PSTR("and explain its cause: "));}
+  else if (leader_sequence_two_keys(KC_A, KC_P)) { /* analyze this problem */ ss_analyze_this_problem_();}
+  else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_STRING_WITHOUT_MODS_P(PSTR("and fix it: "));}
   else if (leader_sequence_two_keys(KC_C, KC_C)) { /* continue */ SEND_STRING_WITHOUT_MODS_P(PSTR("Continue. "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* great work */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work! "));}
-  else if (leader_sequence_two_keys(KC_K, KC_K)) { /* keep going */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going! "));}
-  else if (leader_sequence_two_keys(KC_O, KC_O)) { /* okay */ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));}
-  else if (leader_sequence_two_keys(KC_K, KC_T)) { /* keep trying */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep trying! "));}
-  else if (leader_sequence_two_keys(KC_L, KC_B)) { /* locality of behavior */ SEND_STRING_WITHOUT_MODS_P(PSTR("Prioritize locality-of-behavior! "));}
+  else if (leader_sequence_two_keys(KC_K, KC_K)) { /* keep going */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going. "));}
+  /* else if (leader_sequence_two_keys(KC_O, KC_O)) { /\* okay *\/ SEND_STRING_WITHOUT_MODS_P(PSTR("Okay, let's carefully try implementing that plan. "));} */
+  else if (leader_sequence_two_keys(KC_K, KC_T)) { /* keep trying */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep trying. "));}
+  /* else if (leader_sequence_two_keys(KC_L, KC_B)) { /\* locality of behavior *\/ SEND_STRING_WITHOUT_MODS_P(PSTR("Prioritize locality-of-behavior! "));} */
   else if (leader_sequence_two_keys(KC_N, KC_E)) { /* new errors */ SEND_STRING_WITHOUT_MODS_P(PSTR("The changes introduced new errors: "));}
-  else if (leader_sequence_two_keys(KC_N, KC_H)) { /* don't hallucinate */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do not hallucinate! "));}
+  /* else if (leader_sequence_two_keys(KC_N, KC_H)) { /\* don't hallucinate *\/ SEND_STRING_WITHOUT_MODS_P(PSTR("Do not hallucinate! "));} */
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("No mistakes! "));}
   else if (leader_sequence_two_keys(KC_N, KC_T)) { /* new topic */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's change topics: "));}
-  else if (leader_sequence_two_keys(KC_O, KC_N)) { /* oh no! */ SEND_STRING_WITHOUT_MODS_P(PSTR("Oh-no! The instructions in ./PLAN.md were quite clear, you are not allowed to add new files! "));}
+  /* else if (leader_sequence_two_keys(KC_O, KC_N)) { /\* oh no! *\/ SEND_STRING_WITHOUT_MODS_P(PSTR("Oh-no! The instructions in ./PLAN.md were quite clear, you are not allowed to add new files! "));} */
   else if (leader_sequence_two_keys(KC_P, KC_M)) { /* ./plan.md */ SEND_STRING_WITHOUT_MODS_P(PSTR("./plan.md")); }
   else if (leader_sequence_two_keys(KC_P, KC_S)) { /* proceed systematically */ SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed systematically "));}
+  else if (leader_sequence_two_keys(KC_R, KC_T)) { /* try again */ SEND_STRING_WITHOUT_MODS_P(PSTR("Rethink it and then try again! "));}
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
-  else if (leader_sequence_two_keys(KC_T, KC_A)) { /* try again */ SEND_STRING_WITHOUT_MODS_P(PSTR("Rethink it and then try again! "));}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));}
-  // single call:
+  /* single call: */
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(ALLOW_NEW_FILES_UNSPECIFIED); }
@@ -1196,14 +1201,13 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_submit_the_plan_for_approval_dot_(WHEN_BEFORE_EDITING); }
-  // questions/analyze: 
-  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain */ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("I need you to analyze and explain this problem: "));}
-  else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("\b\b, just answer questions for now. "));}
-  // plan:
+  /* questions/analyze:  */
+  else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("\b\b, just answer questions. "));}
+  /* plan: */
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_(SUBJECT_FEATURE, SUBJECT_FEATURE, ALLOW_NEW_FILES_UNSPECIFIED);} 
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_(SUBJECT_PROBLEM, SUBJECT_SOLUTION, ALLOW_NEW_FILES_UNSPECIFIED);}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_(SUBJECT_REFACTORING, SUBJECT_REFACTORING, ALLOW_NEW_FILES_UNSPECIFIED);}
-  // implement:
+  /* implement: */
   else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ first uncompleted phase of PLAN.md  */
     ss_proceed_with_implementing_();
     ss_phase_in_the_planmd_file_dot_(PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE);
@@ -1224,18 +1228,18 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
     ss_post_check_dot_(false, WHEN_AFTERWARDS);
   }
-  /* else if (leader_sequence_two_keys(KC_G, KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));} */
-  /* else if (leader_sequence_two_keys(KC_G, KC_R)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));} */
-  /* else if (leader_sequence_three_keys(KC_G, KC_R, KC_O)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard origin/" ));} */
-  /* else if (leader_sequence_two_keys(KC_G, KC_D)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " S_CR()));} */
-  /* else if (leader_sequence_two_keys(KC_G, KC_C)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git commit "));} */
-  /* else if (leader_sequence_three_keys(KC_G, KC_C, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\"" S_LL()));} */
-  /* else if (leader_sequence_four_keys(KC_G, KC_C, KC_A, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\"" S_LL()));} */
-  /* else if (leader_sequence_two_keys(KC_G, KC_H)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git checkout "));} */
-  /* else if (leader_sequence_two_keys(KC_G, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git merge "));} */
-  /* else if (leader_sequence_two_keys(KC_G, KC_P)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git push " S_CR()));} */
-  /* else if (leader_sequence_two_keys(KC_G, KC_U)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " S_CR()));} */
-  /* else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " S_CR()));} */
+/* else if (leader_sequence_two_keys(KC_G, KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));} */
+/* else if (leader_sequence_two_keys(KC_G, KC_R)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));} */
+/* else if (leader_sequence_three_keys(KC_G, KC_R, KC_O)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard origin/" ));} */
+/* else if (leader_sequence_two_keys(KC_G, KC_D)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " S_CR()));} */
+/* else if (leader_sequence_two_keys(KC_G, KC_C)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git commit "));} */
+/* else if (leader_sequence_three_keys(KC_G, KC_C, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\"" S_LL()));} */
+/* else if (leader_sequence_four_keys(KC_G, KC_C, KC_A, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\"" S_LL()));} */
+/* else if (leader_sequence_two_keys(KC_G, KC_H)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git checkout "));} */
+/* else if (leader_sequence_two_keys(KC_G, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git merge "));} */
+/* else if (leader_sequence_two_keys(KC_G, KC_P)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git push " S_CR()));} */
+/* else if (leader_sequence_two_keys(KC_G, KC_U)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " S_CR()));} */
+/* else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " S_CR()));} */
 }
 #endif // LEADER_ENABLE
 
