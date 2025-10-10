@@ -1054,7 +1054,8 @@ void ss_proceed_with_implementing_(void) {
 }
 
 void ss_do_not_add_new_files_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Do not add any new files in the process. "));
+  // SEND_STRING_WITHOUT_MODS_P(PSTR("Do not add any new files in the process. "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("You MUST not add any new files. "));
 }
 
 typedef enum {
@@ -1113,7 +1114,7 @@ void ss_plan_(plan_subject_t subject, plan_subject_t subject2, allow_new_files_t
 
 void ss_analyze_smells_(void) {
   ss_do_not_edit_any_code_yet_dot_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Your job is to analyze the code for opportunities to refactor to improve its maintainability, or other 'code smells' we could eliminate. "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("nalyze the code and find opportunities to refactor to improve its maintainability, or for other 'code smells' we could eliminate. "));
   ss_plan_(SUBJECT_REFACTORING, SUBJECT_REFACTORING, ALLOW_NEW_FILES_NO);
   ss_submit_the_plan_for_approval_dot_(WHEN_AFTERWARDS);
   ss_write_the_plan_in_the_planmd_file_();
@@ -1132,33 +1133,6 @@ void ss_phase_in_the_planmd_file_dot_(phase_description_t phase) {
   ss_in_the_planmd_file_dot_();
 }
 
-/* typedef enum { */
-/*   SUBJECT_NEXT_IN_PLANMD, */
-/*   SUBJECT_THIS_PLAN, */
-/*   SUBJECT_THIS, */
-/* } implementation_subject_t; */
-
-/* void ss_implementation_subject_t_dot_(implementation_subject_t subject) { */
-/*   switch (subject) { */
-/*   case SUBJECT_NEXT_IN_PLANMD: */
-/*     ss_the_next_phase_in_the_planmd_file_dot_(); */
-/*     return; */
-/*   case SUBJECT_THIS_PLAN: */
-/*     SEND_STRING_WITHOUT_MODS_P(PSTR("this plan. ")); */
-/*     return; */
-/*   case SUBJECT_THIS: */
-/*     SEND_STRING_WITHOUT_MODS_P(PSTR("this. ")); */
-/*     return; */
-/*   } */
-/* } */
-
-/* void ss_implement_dot_(implementation_subject_t subject) { */
-/*   ss_proceed_with_implementing_(); */
-/*   ss_implementation_subject_t_dot_(subject); */
-/*   ss_post_check_dot_(true, WHEN_AFTERWARDS); */
-/* } */
-
-
 // =============================================================================
 // leader_end_user
 // =============================================================================
@@ -1171,9 +1145,10 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key (KC_S))       {SEND_STRING_WITHOUT_MODS_P(PSTR(S_END() S_CLR_LINE() "shove" S_CR()));}
   /* prompt fragments: */
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_STRING_WITHOUT_MODS_P(PSTR("and explain its cause: "));}
-  else if (leader_sequence_two_keys(KC_A, KC_P)) { /* analyze this problem */ ss_analyze_this_problem_();}
+  /* else if (leader_sequence_two_keys(KC_A, KC_P)) { /\* analyze this problem *\/ ss_analyze_this_problem_();} */
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_STRING_WITHOUT_MODS_P(PSTR("and fix it: "));}
   else if (leader_sequence_two_keys(KC_C, KC_C)) { /* continue */ SEND_STRING_WITHOUT_MODS_P(PSTR("Continue. "));}
+  else if (leader_sequence_two_keys(KC_E, KC_P)) { /* continue */ SEND_STRING_WITHOUT_MODS_P(PSTR("Complete the ENTIRE plan! "));}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("Do it now, do it correctly, and make no mistakes. "));}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* great work */ SEND_STRING_WITHOUT_MODS_P(PSTR("Great work! "));}
   else if (leader_sequence_two_keys(KC_K, KC_K)) { /* keep going */ SEND_STRING_WITHOUT_MODS_P(PSTR("Keep going. "));}
@@ -1185,13 +1160,13 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_N, KC_M)) { /* no mistakes */ SEND_STRING_WITHOUT_MODS_P(PSTR("No mistakes! "));}
   else if (leader_sequence_two_keys(KC_N, KC_T)) { /* new topic */ SEND_STRING_WITHOUT_MODS_P(PSTR("Let's change topics: "));}
   /* else if (leader_sequence_two_keys(KC_O, KC_N)) { /\* oh no! *\/ SEND_STRING_WITHOUT_MODS_P(PSTR("Oh-no! The instructions in ./PLAN.md were quite clear, you are not allowed to add new files! "));} */
-  else if (leader_sequence_two_keys(KC_P, KC_M)) { /* ./plan.md */ SEND_STRING_WITHOUT_MODS_P(PSTR("./plan.md")); }
+  else if (leader_sequence_two_keys(KC_P, KC_M)) { /* ./plan.md */ SEND_STRING_WITHOUT_MODS_P(PSTR("./PLAN..md")); }
   else if (leader_sequence_two_keys(KC_P, KC_S)) { /* proceed systematically */ SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed systematically "));}
   else if (leader_sequence_two_keys(KC_R, KC_T)) { /* try again */ SEND_STRING_WITHOUT_MODS_P(PSTR("Rethink it and then try again! "));}
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good */ SEND_STRING_WITHOUT_MODS_P(PSTR("So far, so good. "));}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_STRING_WITHOUT_MODS_P(PSTR("Thank you. "));}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_STRING_WITHOUT_MODS_P(PSTR("Ultrathink. "));}
-  /* single call: */
+  /* SINGLE CALLS: */
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
   else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(ALLOW_NEW_FILES_UNSPECIFIED); }
@@ -1201,18 +1176,18 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
   else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_submit_the_plan_for_approval_dot_(WHEN_BEFORE_EDITING); }
-  /* questions/analyze:  */
+  /* QUESTIONS/ANALYZE:  */
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("\b\b, just answer questions. "));}
-  /* plan: */
+  /* PLAN: */
   else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_(SUBJECT_FEATURE, SUBJECT_FEATURE, ALLOW_NEW_FILES_UNSPECIFIED);} 
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_(SUBJECT_PROBLEM, SUBJECT_SOLUTION, ALLOW_NEW_FILES_UNSPECIFIED);}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_(SUBJECT_REFACTORING, SUBJECT_REFACTORING, ALLOW_NEW_FILES_UNSPECIFIED);}
-  /* implement: */
-  else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ first uncompleted phase of PLAN.md  */
-    ss_proceed_with_implementing_();
-    ss_phase_in_the_planmd_file_dot_(PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE);
-    ss_post_check_dot_(true, WHEN_AFTERWARDS);
-  }
+  /* IMPLEMENT: */
+  /* else if (leader_sequence_two_keys(KC_I, KC_F)) { /\* proceed w/ first uncompleted phase of PLAN.md  *\/ */
+  /*   ss_proceed_with_implementing_(); */
+  /*   ss_phase_in_the_planmd_file_dot_(PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE); */
+  /*   ss_post_check_dot_(true, WHEN_AFTERWARDS); */
+  /* } */
   else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
     ss_phase_in_the_planmd_file_dot_(PHASE_DESCRIPTION_NEXT_PHASE);
@@ -1223,11 +1198,11 @@ void leader_end_user(void) {
     SEND_STRING_WITHOUT_MODS_P(PSTR("this plan. "));
     ss_post_check_dot_(false, WHEN_AFTERWARDS);
   }
-  else if (leader_sequence_two_keys(KC_I, KC_T)) { /* proceed w/ implementing this */
-    ss_proceed_with_implementing_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("this. "));
-    ss_post_check_dot_(false, WHEN_AFTERWARDS);
-  }
+  /* else if (leader_sequence_two_keys(KC_I, KC_T)) { /\* proceed w/ implementing this *\/ */
+  /*   ss_proceed_with_implementing_(); */
+  /*   SEND_STRING_WITHOUT_MODS_P(PSTR("this. ")); */
+  /*   ss_post_check_dot_(false, WHEN_AFTERWARDS); */
+  /* } */
 /* else if (leader_sequence_two_keys(KC_G, KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));} */
 /* else if (leader_sequence_two_keys(KC_G, KC_R)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));} */
 /* else if (leader_sequence_three_keys(KC_G, KC_R, KC_O)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard origin/" ));} */
