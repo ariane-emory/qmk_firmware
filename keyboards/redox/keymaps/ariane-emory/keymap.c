@@ -1106,7 +1106,8 @@ void ss_plan_(plan_subject_t subject, plan_subject_t subject2, allow_new_files_t
   ss_plan_subject_t(subject2);
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to produce a "));
   ss_detailed_step_by_step_plan_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("for how we can implement the "));
+  /* SEND_STRING_WITHOUT_MODS_P(PSTR("for how we can implement the ")); */
+  SEND_STRING_WITHOUT_MODS_P(PSTR("for implementing the "));
   ss_plan_subject_t(subject2);
   ss_dot_();
   ss_group_phases_dot_(allow_new_files);
