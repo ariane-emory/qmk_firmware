@@ -1045,7 +1045,7 @@ void ss_detailed_step_by_step_plan_(void) {
 }
 
 void ss_submit_the_plan_for_approval_dot_(when_t when) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Submit the plan to me for my approval "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Submit the plan to me for approval "));
   ss_when_t_dot_(when);
 }
 
