@@ -996,24 +996,24 @@ uint16_t keycode_config(uint16_t keycode) {
 
 #ifdef LEADER_ENABLE
 typedef enum {
-  PLAN_LOCATION_PLAN,
-  PLAN_LOCATION_PLAN_FILE,
-  PLAN_LOCATION_PLANMD_FILE,
-  PLAN_LOCATION_EMPTY,
+  PLAN_LOCATION_IN_THE_PLAN,
+  PLAN_LOCATION_IN_THE_PLAN_FILE,
+  PLAN_LOCATION_IN_THE_PLANMD_FILE,
+  PLAN_LOCATION_THE_PLAN,
 } plan_location_t;
 
-void ss_in_the_plan_dot_(plan_location_t plan_location) {
+void ss_plan_location_t_dot_(plan_location_t plan_location) {
   switch(plan_location) {
-  case PLAN_LOCATION_EMPTY:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("plan. "));
+  case PLAN_LOCATION_THE_PLAN:
+    SEND_STRING_WITHOUT_MODS_P(PSTR("the plan. "));
     return;
-  case PLAN_LOCATION_PLAN:
+  case PLAN_LOCATION_IN_THE_PLAN:
     SEND_STRING_WITHOUT_MODS_P(PSTR("in the plan. "));
     return;
-  case PLAN_LOCATION_PLAN_FILE:
+  case PLAN_LOCATION_IN_THE_PLAN_FILE:
     SEND_STRING_WITHOUT_MODS_P(PSTR("in the plan file. "));
     return;
-  case PLAN_LOCATION_PLANMD_FILE:
+  case PLAN_LOCATION_IN_THE_PLANMD_FILE:
     SEND_STRING_WITHOUT_MODS_P(PSTR("in the PLAN.md file. "));
     return;
   }
@@ -1021,7 +1021,7 @@ void ss_in_the_plan_dot_(plan_location_t plan_location) {
 
 void ss_mark_completed_in_the_planmd_file_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("You MUST check off any steps you've completed "));
-  ss_in_the_plan_dot_(PLAN_LOCATION_PLANMD_FILE);
+  ss_plan_location_t_dot_(PLAN_LOCATION_IN_THE_PLANMD_FILE);
 }
 
 typedef enum {
@@ -1049,13 +1049,6 @@ void ss_must_build_and_pass_tests_dot_(when_t when) {
   ss_when_t_dot_(when);
 }
 
-void ss_post_check_dot_(bool plan_file, when_t when) {
-  if (plan_file) 
-    ss_mark_completed_in_the_planmd_file_dot_();
-
-  ss_must_build_and_pass_tests_dot_(when);
-}
-
 void ss_do_not_edit_any_code_yet_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet. "));
 }
@@ -1074,6 +1067,10 @@ void ss_do_not_add_new_files_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("You MUST not add any new files. "));
 }
 
+void ss_post_check_dot_(when_t when) {
+  ss_must_build_and_pass_tests_dot_(when);
+}
+
 typedef enum {
   ALLOW_NEW_FILES_NO,
   ALLOW_NEW_FILES_UNSPECIFIED,
@@ -1083,7 +1080,7 @@ void ss_group_phases_dot_(allow_new_files_t allow_new_files) {
   if (allow_new_files == ALLOW_NEW_FILES_NO)
     ss_do_not_add_new_files_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
-  ss_post_check_dot_(false, WHEN_AFTER_EACH_PHASE);
+  ss_post_check_dot_(WHEN_AFTER_EACH_PHASE);
 }
 
 void ss_analyze_this_problem_(void) {
@@ -1092,7 +1089,7 @@ void ss_analyze_this_problem_(void) {
 
 void ss_write_the_plan_in_the_planmd_file_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
-  ss_in_the_plan_dot_(PLAN_LOCATION_PLANMD_FILE);
+  ss_plan_location_t_dot_(PLAN_LOCATION_IN_THE_PLANMD_FILE);
 }
  
 typedef enum {
@@ -1136,6 +1133,9 @@ void ss_analyze_smells_(void) {
   ss_write_the_plan_in_the_planmd_file_();
 }
 
+void ss_proceed_with_implementing_(void) {
+}
+
 typedef enum {
   PHASE_DESCRIPTION_ALL_PHASES,
   PHASE_DESCRIPTION_NEXT_PHASE,
@@ -1143,35 +1143,31 @@ typedef enum {
   PHASE_DESCRIPTION_EMPTY,
 } phase_description_t;
 
-
-void ss_the_phase_in_the_plan_dot_(phase_description_t phase,
-                                   plan_location_t plan_location) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("the "));
-  if (phase == PHASE_DESCRIPTION_NEXT_PHASE)
-    SEND_STRING_WITHOUT_MODS_P(PSTR("next phase "));
-  else if (phase == PHASE_DESCRIPTION_ALL_PHASES)
-    SEND_STRING_WITHOUT_MODS_P(PSTR("all phases "));
-  else if (phase == PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE)
-    SEND_STRING_WITHOUT_MODS_P(PSTR("first uncompleted phase "));
-  ss_in_the_plan_dot_(plan_location);
-}
-
-void ss_proceed_with_implementing_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed with implementing "));
-}
-
 void ss_proceed_with_implementing_the_phase_in_the_plan_dot_(phase_description_t phase_description,
                                                              plan_location_t plan_location) {
-  ss_proceed_with_implementing_();
-  ss_the_phase_in_the_plan_dot_(phase_description, plan_location);
-  ss_post_check_dot_(true, WHEN_AFTERWARDS);
-}
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed with implementing "));
+ 
+  switch (phase_description) {
+  case PHASE_DESCRIPTION_NEXT_PHASE:
+    SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
+    break;
+  case PHASE_DESCRIPTION_ALL_PHASES:
+    SEND_STRING_WITHOUT_MODS_P(PSTR("all phases "));
+    break;
+  case PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE:
+    SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
+    break;
+  case PHASE_DESCRIPTION_EMPTY:
+    break;
+  }
+  
+  ss_plan_location_t_dot_(plan_location);
 
-/* void ss_proceed_with_implementing_the_plan_dot_(void) { */
-/*   ss_proceed_with_implementing_(); */
-/*   SEND_STRING_WITHOUT_MODS_P(PSTR("the plan. ")); */
-/*   ss_post_check_dot_(true, WHEN_AFTERWARDS); */
-/* } */
+  if (plan_location == PLAN_LOCATION_IN_THE_PLANMD_FILE) 
+    ss_mark_completed_in_the_planmd_file_dot_();
+
+  ss_post_check_dot_(WHEN_AFTERWARDS);
+}
 
 // =============================================================================
 // leader_end_user
@@ -1223,25 +1219,25 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_(SUBJECT_PROBLEM, SUBJECT_SOLUTION, ALLOW_NEW_FILES_UNSPECIFIED);}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_(SUBJECT_REFACTORING, SUBJECT_REFACTORING, ALLOW_NEW_FILES_UNSPECIFIED);}
   /* IMPLEMENT: */
-  else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/  plan  */
+  /* else if (leader_sequence_two_keys(KC_I, KC_A)) { /\* proceed w/ all phases of inline plan  *\/ */
+  /*   ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_ALL_PHASES, */
+  /*                                                           PLAN_LOCATION_IN_THE_PLAN); */
+  /* } */
+  else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ plan  */
     ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_EMPTY,
-                                                            PLAN_LOCATION_EMPTY);
-  }
-  else if (leader_sequence_two_keys(KC_I, KC_A)) { /* proceed w/ all phases of inline plan  */
-    ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_ALL_PHASES,
-                                                            PLAN_LOCATION_PLAN);
+                                                            PLAN_LOCATION_THE_PLAN);
   }
   else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ inline plan  */
     ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
-                                                            PLAN_LOCATION_PLAN);
+                                                            PLAN_LOCATION_IN_THE_PLAN);
   }
-  else if (leader_sequence_three_keys(KC_I, KC_A, KC_F)) { /* proceed w/ all phases of PLAN.md  */
+  else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ all phases of PLAN.md  */
     ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_ALL_PHASES,
-                                                            PLAN_LOCATION_PLANMD_FILE);
+                                                            PLAN_LOCATION_IN_THE_PLANMD_FILE);
   }
   else if (leader_sequence_three_keys(KC_I, KC_N, KC_F)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
-                                                            PLAN_LOCATION_PLANMD_FILE);
+                                                            PLAN_LOCATION_IN_THE_PLANMD_FILE);
   }
 /* else if (leader_sequence_two_keys(KC_G, KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));} */
 /* else if (leader_sequence_two_keys(KC_G, KC_R)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));} */
