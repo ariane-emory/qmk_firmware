@@ -1092,18 +1092,20 @@ void ss_write_the_plan_in_the_planmd_file_(void) {
 }
  
 typedef enum {
+  SUBJECT_CHANGE,
+  SUBJECT_FEATURE,
   SUBJECT_PROBLEM,
   SUBJECT_SOLUTION,
-  SUBJECT_FEATURE,
   SUBJECT_REFACTORING,
 } plan_subject_t;
 
 void ss_plan_subject_t(const plan_subject_t subject) {
   switch (subject) {
-  case SUBJECT_PROBLEM: SEND_PSTR("problem"); return;
-  case SUBJECT_SOLUTION: SEND_PSTR("solution"); return;
+  case SUBJECT_CHANGE: SEND_PSTR("change"); return;
   case SUBJECT_FEATURE: SEND_PSTR("feature"); return;
+  case SUBJECT_PROBLEM: SEND_PSTR("problem"); return;
   case SUBJECT_REFACTORING: SEND_PSTR("refactoring"); return;
+  case SUBJECT_SOLUTION: SEND_PSTR("solution"); return;
   }
 }
 
@@ -1204,7 +1206,8 @@ void leader_end_user(void) {
   /* QUESTIONS/ANALYZE:  */
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_PSTR("\b\b, just answer questions. ");}
   /* PLAN: */
-  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_dot_(SUBJECT_FEATURE, SUBJECT_FEATURE);} 
+  else if (leader_sequence_two_keys(KC_P, KC_C)) { /* plan change */ ss_plan_dot_(SUBJECT_CHANGE, SUBJECT_CHANGE);} 
+  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_dot_(SUBJECT_FEATURE, SUBJECT_FEATURE);}
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_dot_(SUBJECT_PROBLEM, SUBJECT_SOLUTION);}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);}
   /* IMPLEMENT: */
