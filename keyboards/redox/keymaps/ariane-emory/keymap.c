@@ -1108,10 +1108,6 @@ void ss_plan_subject_t(const plan_subject_t subject) {
   }
 }
 
-void ss_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
-}
-
 void ss_plan_dot_(plan_subject_t subject, plan_subject_t subject2, allow_new_files_t allow_new_files) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
   ss_plan_subject_t(subject);
@@ -1121,7 +1117,7 @@ void ss_plan_dot_(plan_subject_t subject, plan_subject_t subject2, allow_new_fil
   ss_detailed_step_by_step_plan_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("for implementing the "));
   ss_plan_subject_t(subject2);
-  ss_dot_();
+  SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
   ss_group_phases_dot_(allow_new_files);
 }
 
