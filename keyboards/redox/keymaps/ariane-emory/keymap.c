@@ -1218,13 +1218,17 @@ void leader_end_user(void) {
     ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_ALL_PHASES,
                                                             PLAN_LOCATION_PLAN);
   }
+  else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ inline plan  */
+    ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
+                                                            PLAN_LOCATION_PLAN);
+  }
+  else if (leader_sequence_three_keys(KC_I, KC_A, KC_F)) { /* proceed w/ all phases of PLAN.md  */
+    ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_ALL_PHASES,
+                                                            PLAN_LOCATION_PLANMD_FILE);
+  }
   else if (leader_sequence_three_keys(KC_I, KC_N, KC_F)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
                                                             PLAN_LOCATION_PLANMD_FILE);
-  }
-  else if (leader_sequence_three_keys(KC_I, KC_N, KC_P)) { /* proceed w/ inline plan  */
-    ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
-                                                            PLAN_LOCATION_PLAN);
   }
 /* else if (leader_sequence_two_keys(KC_G, KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));} */
 /* else if (leader_sequence_two_keys(KC_G, KC_R)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));} */
