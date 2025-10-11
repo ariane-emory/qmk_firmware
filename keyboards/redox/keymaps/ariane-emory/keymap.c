@@ -1146,10 +1146,11 @@ typedef enum {
 
 void ss_phase_in_the_plan_dot_(phase_description_t phase,
                                plan_location_t plan_location) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("the "));
   if (phase == PHASE_DESCRIPTION_NEXT_PHASE)
-    SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
-  else 
-    SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("next phase "));
+  else if (phase == PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE)
+    SEND_STRING_WITHOUT_MODS_P(PSTR("first uncompleted phase "));
   ss_in_the_plan_dot_(plan_location);
 }
 
