@@ -999,19 +999,22 @@ typedef enum {
   PLAN_LOCATION_PLAN,
   PLAN_LOCATION_PLAN_FILE,
   PLAN_LOCATION_PLANMD_FILE,
+  PLAN_LOCATION_EMPTY,
 } plan_location_t;
 
 void ss_in_the_plan_dot_(plan_location_t plan_location) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("in the "));
   switch(plan_location) {
-  case PLAN_LOCATION_PLAN:
+  case PLAN_LOCATION_EMPTY:
     SEND_STRING_WITHOUT_MODS_P(PSTR("plan. "));
     return;
+  case PLAN_LOCATION_PLAN:
+    SEND_STRING_WITHOUT_MODS_P(PSTR("in the plan. "));
+    return;
   case PLAN_LOCATION_PLAN_FILE:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("plan.file. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("in the plan file. "));
     return;
   case PLAN_LOCATION_PLANMD_FILE:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("PLAN.md file. "));
+    SEND_STRING_WITHOUT_MODS_P(PSTR("in the PLAN.md file. "));
     return;
   }
 }
@@ -1064,10 +1067,6 @@ void ss_detailed_step_by_step_plan_(void) {
 void ss_submit_the_plan_for_approval_dot_(when_t when) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Submit the plan to me for approval "));
   ss_when_t_dot_(when);
-}
-
-void ss_proceed_with_implementing_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed with implementing "));
 }
 
 void ss_do_not_add_new_files_(void) {
@@ -1123,7 +1122,6 @@ void ss_plan_(plan_subject_t subject, plan_subject_t subject2, allow_new_files_t
   ss_plan_subject_t(subject2);
   SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to produce a "));
   ss_detailed_step_by_step_plan_();
-  /* SEND_STRING_WITHOUT_MODS_P(PSTR("for how we can implement the ")); */
   SEND_STRING_WITHOUT_MODS_P(PSTR("for implementing the "));
   ss_plan_subject_t(subject2);
   ss_dot_();
@@ -1142,6 +1140,7 @@ typedef enum {
   PHASE_DESCRIPTION_ALL_PHASES,
   PHASE_DESCRIPTION_NEXT_PHASE,
   PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE,
+  PHASE_DESCRIPTION_EMPTY,
 } phase_description_t;
 
 
@@ -1157,12 +1156,22 @@ void ss_the_phase_in_the_plan_dot_(phase_description_t phase,
   ss_in_the_plan_dot_(plan_location);
 }
 
+void ss_proceed_with_implementing_(void) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed with implementing "));
+}
+
 void ss_proceed_with_implementing_the_phase_in_the_plan_dot_(phase_description_t phase_description,
                                                              plan_location_t plan_location) {
   ss_proceed_with_implementing_();
   ss_the_phase_in_the_plan_dot_(phase_description, plan_location);
   ss_post_check_dot_(true, WHEN_AFTERWARDS);
 }
+
+/* void ss_proceed_with_implementing_the_plan_dot_(void) { */
+/*   ss_proceed_with_implementing_(); */
+/*   SEND_STRING_WITHOUT_MODS_P(PSTR("the plan. ")); */
+/*   ss_post_check_dot_(true, WHEN_AFTERWARDS); */
+/* } */
 
 // =============================================================================
 // leader_end_user
@@ -1214,7 +1223,11 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_(SUBJECT_PROBLEM, SUBJECT_SOLUTION, ALLOW_NEW_FILES_UNSPECIFIED);}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_(SUBJECT_REFACTORING, SUBJECT_REFACTORING, ALLOW_NEW_FILES_UNSPECIFIED);}
   /* IMPLEMENT: */
-  else if (leader_sequence_two_keys(KC_I, KC_A)) { /* proceed w/ all phases of plan  */
+  else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/  plan  */
+    ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_EMPTY,
+                                                            PLAN_LOCATION_EMPTY);
+  }
+  else if (leader_sequence_two_keys(KC_I, KC_A)) { /* proceed w/ all phases of inline plan  */
     ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_ALL_PHASES,
                                                             PLAN_LOCATION_PLAN);
   }
