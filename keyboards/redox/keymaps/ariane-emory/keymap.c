@@ -1007,22 +1007,22 @@ typedef enum {
 void ss_plan_location_t_dot_(plan_location_t plan_location) {
   switch(plan_location) {
   case PLAN_LOCATION_THE_PLAN:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("the plan. "));
+    SEND_PSTR("the plan. ");
     return;
   case PLAN_LOCATION_IN_THE_PLAN:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("in the plan. "));
+    SEND_PSTR("in the plan. ");
     return;
   case PLAN_LOCATION_IN_THE_PLAN_FILE:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("in the plan file. "));
+    SEND_PSTR("in the plan file. ");
     return;
   case PLAN_LOCATION_IN_THE_PLANMD_FILE:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("in the PLAN.md file. "));
+    SEND_PSTR("in the PLAN.md file. ");
     return;
   }
 }
 
 void ss_mark_completed_in_the_planmd_file_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("You MUST check off any steps you've completed "));
+  SEND_PSTR("You MUST check off any steps you've completed ");
   ss_plan_location_t_dot_(PLAN_LOCATION_IN_THE_PLANMD_FILE);
 }
 
@@ -1035,37 +1035,37 @@ typedef enum {
 void ss_when_t_dot_(when_t when) {
   switch(when) {
   case WHEN_AFTERWARDS:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("afterwards. "));
+    SEND_PSTR("afterwards. ");
     return;
   case WHEN_AFTER_EACH_PHASE:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("after each phase. "));
+    SEND_PSTR("after each phase. ");
     return;
   case WHEN_BEFORE_EDITING:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("before you start editing code. "));
+    SEND_PSTR("before you start editing code. ");
     return;
   }
 }
 
 void ss_must_build_and_pass_tests_dot_(when_t when) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("The code MUST build correctly and all tests MUST pass "));
+  SEND_PSTR("The code MUST build correctly and all tests MUST pass ");
   ss_when_t_dot_(when);
 }
 
 void ss_do_not_edit_any_code_yet_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Do not edit any code yet. "));
+  SEND_PSTR("Do not edit any code yet. ");
 }
 
 void ss_detailed_step_by_step_plan_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("detailed, step-by-step plan "));
+  SEND_PSTR("detailed, step-by-step plan ");
 }
 
 void ss_submit_the_plan_for_approval_before_editing_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Submit the plan for my approval "));
+  SEND_PSTR("Submit the plan for my approval ");
   ss_when_t_dot_(WHEN_BEFORE_EDITING);
 }
 
 void ss_do_not_add_new_files_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("You MUST not add any new files. "));
+  SEND_PSTR("You MUST not add any new files. ");
 }
 
 void ss_post_check_dot_(when_t when) {
@@ -1078,16 +1078,16 @@ typedef enum {
 } allow_new_files_t;
 
 void ss_group_phases_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
+  SEND_PSTR("Group the plan's steps into \"phases\". ");
   ss_post_check_dot_(WHEN_AFTER_EACH_PHASE);
 }
 
 void ss_analyze_this_problem_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze this problem "));
+  SEND_PSTR("Analyze this problem ");
 }
 
 void ss_write_the_plan_in_the_planmd_file_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
+  SEND_PSTR("Write the plan ");
   ss_plan_location_t_dot_(PLAN_LOCATION_IN_THE_PLANMD_FILE);
 }
  
@@ -1100,29 +1100,29 @@ typedef enum {
 
 void ss_plan_subject_t(const plan_subject_t subject) {
   switch (subject) {
-  case SUBJECT_PROBLEM: SEND_STRING_WITHOUT_MODS_P(PSTR("problem")); return;
-  case SUBJECT_SOLUTION: SEND_STRING_WITHOUT_MODS_P(PSTR("solution")); return;
-  case SUBJECT_FEATURE: SEND_STRING_WITHOUT_MODS_P(PSTR("feature")); return;
-  case SUBJECT_REFACTORING: SEND_STRING_WITHOUT_MODS_P(PSTR("refactoring")); return;
+  case SUBJECT_PROBLEM: SEND_PSTR("problem"); return;
+  case SUBJECT_SOLUTION: SEND_PSTR("solution"); return;
+  case SUBJECT_FEATURE: SEND_PSTR("feature"); return;
+  case SUBJECT_REFACTORING: SEND_PSTR("refactoring"); return;
   }
 }
 
 void ss_plan_dot_(plan_subject_t subject, plan_subject_t subject2) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
+  SEND_PSTR("Think the ");
   ss_plan_subject_t(subject);
-  SEND_STRING_WITHOUT_MODS_P(PSTR(" through thoroughly and break the "));
+  SEND_PSTR(" through thoroughly and break the ");
   ss_plan_subject_t(subject2);
-  SEND_STRING_WITHOUT_MODS_P(PSTR(" down into small steps to produce a "));
+  SEND_PSTR(" down into small steps to produce a ");
   ss_detailed_step_by_step_plan_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("for implementing the "));
+  SEND_PSTR("for implementing the ");
   ss_plan_subject_t(subject2);
-  SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
+  SEND_PSTR(". ");
   ss_group_phases_dot_();
 }
 
 void ss_analyze_smells_(void) {
   ss_do_not_edit_any_code_yet_dot_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze the code and find opportunities to refactor to improve its maintainability, or for other 'code smells' we could eliminate. "));
+  SEND_PSTR("Analyze the code and find opportunities to refactor to improve its maintainability, or for other 'code smells' we could eliminate. ");
   ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);
   ss_do_not_add_new_files_();
   ss_submit_the_plan_for_approval_before_editing_dot_();
@@ -1138,17 +1138,17 @@ typedef enum {
 
 void ss_proceed_with_implementing_plan_etc_dot_(phase_description_t phase_description,
                                                 plan_location_t plan_location) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("Proceed with implementing "));
+  SEND_PSTR("Proceed with implementing ");
  
   switch (phase_description) {
   case PHASE_DESCRIPTION_NEXT_PHASE:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
+    SEND_PSTR("the next phase ");
     break;
   case PHASE_DESCRIPTION_ALL_PHASES:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("all phases "));
+    SEND_PSTR("all phases ");
     break;
   case PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE:
-    SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
+    SEND_PSTR("the first uncompleted phase ");
     break;
   case PHASE_DESCRIPTION_EMPTY:
     break;
