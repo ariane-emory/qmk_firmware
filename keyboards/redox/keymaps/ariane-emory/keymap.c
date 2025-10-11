@@ -1076,9 +1076,9 @@ typedef enum {
   ALLOW_NEW_FILES_UNSPECIFIED,
 } allow_new_files_t;
 
-void ss_group_phases_dot_(allow_new_files_t allow_new_files) {
-  if (allow_new_files == ALLOW_NEW_FILES_NO)
-    ss_do_not_add_new_files_();
+void ss_group_phases_dot_(void) {
+  /* if (allow_new_files == ALLOW_NEW_FILES_NO) */
+  /*   ss_do_not_add_new_files_(); */
   SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
   ss_post_check_dot_(WHEN_AFTER_EACH_PHASE);
 }
@@ -1108,7 +1108,7 @@ void ss_plan_subject_t(const plan_subject_t subject) {
   }
 }
 
-void ss_plan_dot_(plan_subject_t subject, plan_subject_t subject2, allow_new_files_t allow_new_files) {
+void ss_plan_dot_(plan_subject_t subject, plan_subject_t subject2) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Think the "));
   ss_plan_subject_t(subject);
   SEND_STRING_WITHOUT_MODS_P(PSTR(" through thoroughly and break the "));
@@ -1118,13 +1118,14 @@ void ss_plan_dot_(plan_subject_t subject, plan_subject_t subject2, allow_new_fil
   SEND_STRING_WITHOUT_MODS_P(PSTR("for implementing the "));
   ss_plan_subject_t(subject2);
   SEND_STRING_WITHOUT_MODS_P(PSTR(". "));
-  ss_group_phases_dot_(allow_new_files);
+  ss_group_phases_dot_();
 }
 
 void ss_analyze_smells_(void) {
   ss_do_not_edit_any_code_yet_dot_();
   SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze the code and find opportunities to refactor to improve its maintainability, or for other 'code smells' we could eliminate. "));
-  ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING, ALLOW_NEW_FILES_NO);
+  ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);
+  ss_do_not_add_new_files_();
   ss_submit_the_plan_for_approval_before_editing_dot_();
   ss_write_the_plan_in_the_planmd_file_();
 }
@@ -1198,7 +1199,7 @@ void leader_end_user(void) {
   /* SINGLE CALLS: */
   else if (leader_sequence_two_keys(KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
   else if (leader_sequence_two_keys(KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
-  else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(ALLOW_NEW_FILES_UNSPECIFIED); }
+  else if (leader_sequence_two_keys(KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(); }
   else if (leader_sequence_two_keys(KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
   else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */ ss_mark_completed_in_the_planmd_file_dot_();}
   else if (leader_sequence_two_keys(KC_N, KC_F)) { /* no new files */ ss_do_not_add_new_files_();}
@@ -1208,9 +1209,9 @@ void leader_end_user(void) {
   /* QUESTIONS/ANALYZE:  */
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_STRING_WITHOUT_MODS_P(PSTR("\b\b, just answer questions. "));}
   /* PLAN: */
-  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_dot_(SUBJECT_FEATURE, SUBJECT_FEATURE, ALLOW_NEW_FILES_UNSPECIFIED);} 
-  else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_dot_(SUBJECT_PROBLEM, SUBJECT_SOLUTION, ALLOW_NEW_FILES_UNSPECIFIED);}
-  else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING, ALLOW_NEW_FILES_UNSPECIFIED);}
+  else if (leader_sequence_two_keys(KC_P, KC_F)) { /* plan feature */ ss_plan_dot_(SUBJECT_FEATURE, SUBJECT_FEATURE);} 
+  else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_dot_(SUBJECT_PROBLEM, SUBJECT_SOLUTION);}
+  else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);}
   /* IMPLEMENT: */
   /* else if (leader_sequence_two_keys(KC_I, KC_A)) { /\* proceed w/ all phases of inline plan  *\/ */
   /*   ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES, */
