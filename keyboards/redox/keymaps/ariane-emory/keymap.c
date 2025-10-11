@@ -1214,8 +1214,8 @@ void leader_end_user(void) {
 /* IMPLEMENT: */
   else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ plan  */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_EMPTY, PLAN_LOCATION_THE_PLAN);}
   else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ inline plan  */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_NEXT_PHASE, PLAN_LOCATION_IN_THE_PLAN);}
-  else if (leader_sequence_three_keys(KC_I, KC_P, KC_P)) { /* proceed w/ all phases of PLAN.md  */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
-  else if (leader_sequence_three_keys(KC_I, KC_N, KC_N)) { /* proceed w/ next phase of PLAN.md  */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_NEXT_PHASE, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
+  else if (leader_sequence_two_keys(KC_F, KC_P)) { /* proceed w/ all phases of PLAN.md  */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
+  else if (leader_sequence_two_keys(KC_F, KC_N)) { /* proceed w/ next phase of PLAN.md  */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_NEXT_PHASE, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
 }
 #endif // LEADER_ENABLE
 
