@@ -116,7 +116,7 @@ void keyboard_post_init_user(void) {
 #define S_TELEPORT(_)                                                                                                                            \
   S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                \
   SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                  \
-  SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(500) TAP(X_ENT) SS_DELAY(3000)                                                   \
+  SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(500) TAP(X_ENT) SS_DELAY(3500)                                                   \
                                                                                 TAP(X_F) S_DD()                                                  \
                                                                                          SS_LGUI("`") S_DD() S_SCR_L()
 
@@ -995,13 +995,30 @@ uint16_t keycode_config(uint16_t keycode) {
 #define S_CLR_LINE() S_END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
 
 #ifdef LEADER_ENABLE
-void ss_in_the_planmd_file_dot_(void) {
-  SEND_STRING_WITHOUT_MODS_P(PSTR("in the ./PLAN.md file. "));
+typedef enum {
+  PLAN_LOCATION_PLAN,
+  PLAN_LOCATION_PLAN_FILE,
+  PLAN_LOCATION_PLANMD_FILE,
+} plan_location_t;
+
+void ss_in_the_plan_dot_(plan_location_t plan_location) {
+  SEND_STRING_WITHOUT_MODS_P(PSTR("in the "));
+  switch(plan_location) {
+  case PLAN_LOCATION_PLAN:
+    SEND_STRING_WITHOUT_MODS_P(PSTR("plan. "));
+    return;
+  case PLAN_LOCATION_PLAN_FILE:
+    SEND_STRING_WITHOUT_MODS_P(PSTR("plan.file. "));
+    return;
+  case PLAN_LOCATION_PLANMD_FILE:
+    SEND_STRING_WITHOUT_MODS_P(PSTR("PLAN.md file. "));
+    return;
+  }
 }
 
 void ss_mark_completed_in_the_planmd_file_dot_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("You MUST check off any steps you've completed "));
-  ss_in_the_planmd_file_dot_();
+  ss_in_the_plan_dot_(PLAN_LOCATION_PLANMD_FILE);
 }
 
 typedef enum {
@@ -1076,7 +1093,7 @@ void ss_analyze_this_problem_(void) {
 
 void ss_write_the_plan_in_the_planmd_file_(void) {
   SEND_STRING_WITHOUT_MODS_P(PSTR("Write the plan "));
-  ss_in_the_planmd_file_dot_();
+  ss_in_the_plan_dot_(PLAN_LOCATION_PLANMD_FILE);
 }
  
 typedef enum {
@@ -1115,7 +1132,7 @@ void ss_plan_(plan_subject_t subject, plan_subject_t subject2, allow_new_files_t
 
 void ss_analyze_smells_(void) {
   ss_do_not_edit_any_code_yet_dot_();
-  SEND_STRING_WITHOUT_MODS_P(PSTR("nalyze the code and find opportunities to refactor to improve its maintainability, or for other 'code smells' we could eliminate. "));
+  SEND_STRING_WITHOUT_MODS_P(PSTR("Analyze the code and find opportunities to refactor to improve its maintainability, or for other 'code smells' we could eliminate. "));
   ss_plan_(SUBJECT_REFACTORING, SUBJECT_REFACTORING, ALLOW_NEW_FILES_NO);
   ss_submit_the_plan_for_approval_dot_(WHEN_AFTERWARDS);
   ss_write_the_plan_in_the_planmd_file_();
@@ -1125,13 +1142,14 @@ typedef enum {
   PHASE_DESCRIPTION_NEXT_PHASE,
   PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE,
 } phase_description_t;
-  
+
+
 void ss_phase_in_the_planmd_file_dot_(phase_description_t phase) {
   if (phase == PHASE_DESCRIPTION_NEXT_PHASE)
     SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
   else 
     SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
-  ss_in_the_planmd_file_dot_();
+  ss_in_the_plan_dot_(PLAN_LOCATION_PLANMD_FILE);
 }
 
 // =============================================================================
