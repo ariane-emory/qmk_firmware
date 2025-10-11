@@ -1139,6 +1139,7 @@ void ss_analyze_smells_(void) {
 }
 
 typedef enum {
+  PHASE_DESCRIPTION_ALL_PHASES,
   PHASE_DESCRIPTION_NEXT_PHASE,
   PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE,
 } phase_description_t;
@@ -1149,13 +1150,15 @@ void ss_the_phase_in_the_plan_dot_(phase_description_t phase,
   SEND_STRING_WITHOUT_MODS_P(PSTR("the "));
   if (phase == PHASE_DESCRIPTION_NEXT_PHASE)
     SEND_STRING_WITHOUT_MODS_P(PSTR("next phase "));
+  else if (phase == PHASE_DESCRIPTION_ALL_PHASES)
+    SEND_STRING_WITHOUT_MODS_P(PSTR("all phases "));
   else if (phase == PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE)
     SEND_STRING_WITHOUT_MODS_P(PSTR("first uncompleted phase "));
   ss_in_the_plan_dot_(plan_location);
 }
 
-void ss_proceed_with_implementing_the_next_phase_in_the_plan_dot_(phase_description_t phase_description,
-                                                                  plan_location_t plan_location) {
+void ss_proceed_with_implementing_the_phase_in_the_plan_dot_(phase_description_t phase_description,
+                                                             plan_location_t plan_location) {
   ss_proceed_with_implementing_();
   ss_the_phase_in_the_plan_dot_(phase_description, plan_location);
   ss_post_check_dot_(true, WHEN_AFTERWARDS);
@@ -1211,13 +1214,17 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_(SUBJECT_PROBLEM, SUBJECT_SOLUTION, ALLOW_NEW_FILES_UNSPECIFIED);}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_(SUBJECT_REFACTORING, SUBJECT_REFACTORING, ALLOW_NEW_FILES_UNSPECIFIED);}
   /* IMPLEMENT: */
-  else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ next phase of PLAN.md  */
-    ss_proceed_with_implementing_the_next_phase_in_the_plan_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
-                                                                 PLAN_LOCATION_PLANMD_FILE);
+  else if (leader_sequence_two_keys(KC_I, KC_A)) { /* proceed w/ all phases of plan  */
+    ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_ALL_PHASES,
+                                                            PLAN_LOCATION_PLAN);
   }
-  else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
-    ss_proceed_with_implementing_the_next_phase_in_the_plan_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
-                                                                 PLAN_LOCATION_PLAN);
+  else if (leader_sequence_three_keys(KC_I, KC_N, KC_F)) { /* proceed w/ next phase of PLAN.md  */
+    ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
+                                                            PLAN_LOCATION_PLANMD_FILE);
+  }
+  else if (leader_sequence_three_keys(KC_I, KC_N, KC_P)) { /* proceed w/ inline plan  */
+    ss_proceed_with_implementing_the_phase_in_the_plan_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
+                                                            PLAN_LOCATION_PLAN);
   }
 /* else if (leader_sequence_two_keys(KC_G, KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));} */
 /* else if (leader_sequence_two_keys(KC_G, KC_R)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));} */
