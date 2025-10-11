@@ -1230,18 +1230,6 @@ void leader_end_user(void) {
     ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
                                                PLAN_LOCATION_IN_THE_PLANMD_FILE);
   }
-/* else if (leader_sequence_two_keys(KC_G, KC_S)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git status " S_CR()));} */
-/* else if (leader_sequence_two_keys(KC_G, KC_R)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard" S_CR()));} */
-/* else if (leader_sequence_three_keys(KC_G, KC_R, KC_O)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard origin/" ));} */
-  /* else if (leader_sequence_two_keys(KC_G, KC_D)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git diff " S_CR()));} */
-/* else if (leader_sequence_two_keys(KC_G, KC_C)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git commit "));} */
-/* else if (leader_sequence_three_keys(KC_G, KC_C, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -m \"\"" S_LL()));} */
-/* else if (leader_sequence_four_keys(KC_G, KC_C, KC_A, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git commit -a -m \"\"" S_LL()));} */
-/* else if (leader_sequence_two_keys(KC_G, KC_H)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git checkout "));} */
-/* else if (leader_sequence_two_keys(KC_G, KC_M)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git merge "));} */
-/* else if (leader_sequence_two_keys(KC_G, KC_P)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git push " S_CR()));} */
-/* else if (leader_sequence_two_keys(KC_G, KC_U)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git pull " S_CR()));} */
-/* else if (leader_sequence_three_keys(KC_G, KC_R, KC_H)) {SEND_STRING_WITHOUT_MODS_P(PSTR("git reset --hard " S_CR()));} */
 }
 #endif // LEADER_ENABLE
 
