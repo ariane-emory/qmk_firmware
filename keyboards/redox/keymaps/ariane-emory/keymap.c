@@ -1154,6 +1154,13 @@ void ss_phase_in_the_plan_dot_(phase_description_t phase,
   ss_in_the_plan_dot_(plan_location);
 }
 
+void ss_proceed_withimplementing_the_next_phase_in_the_plan(plan_location_t plan_location) {
+  ss_proceed_with_implementing_();
+  ss_phase_in_the_plan_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
+                            plan_location);
+  ss_post_check_dot_(true, WHEN_AFTERWARDS);
+}
+
 // =============================================================================
 // leader_end_user
 // =============================================================================
@@ -1209,16 +1216,11 @@ void leader_end_user(void) {
   /*   ss_phase_in_the_plan_dot_(PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE); */
   /*   ss_post_check_dot_(true, WHEN_AFTERWARDS); */
   /* } */
-  else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next phase of PLAN.md  */
-    ss_proceed_with_implementing_();
-    ss_phase_in_the_plan_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
-                              PLAN_LOCATION_PLANMD_FILE);
-    ss_post_check_dot_(true, WHEN_AFTERWARDS);
+  else if (leader_sequence_two_keys(KC_I, KC_F)) { /* proceed w/ next phase of PLAN.md  */
+    ss_proceed_withimplementing_the_next_phase_in_the_plan(PLAN_LOCATION_PLANMD_FILE);
   }
   else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
-    ss_proceed_with_implementing_();
-    SEND_STRING_WITHOUT_MODS_P(PSTR("this plan. "));
-    ss_post_check_dot_(false, WHEN_AFTERWARDS);
+    ss_proceed_withimplementing_the_next_phase_in_the_plan(PLAN_LOCATION_PLAN);
   }
   /* else if (leader_sequence_two_keys(KC_I, KC_T)) { /\* proceed w/ implementing this *\/ */
   /*   ss_proceed_with_implementing_(); */
