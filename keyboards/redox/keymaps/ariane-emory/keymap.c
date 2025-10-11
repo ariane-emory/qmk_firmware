@@ -1063,7 +1063,6 @@ void ss_submit_the_plan_for_approval_before_editing_dot_(void) {
 }
 
 void ss_do_not_add_new_files_(void) {
-  // SEND_STRING_WITHOUT_MODS_P(PSTR("Do not add any new files in the process. "));
   SEND_STRING_WITHOUT_MODS_P(PSTR("You MUST not add any new files. "));
 }
 
@@ -1077,8 +1076,6 @@ typedef enum {
 } allow_new_files_t;
 
 void ss_group_phases_dot_(void) {
-  /* if (allow_new_files == ALLOW_NEW_FILES_NO) */
-  /*   ss_do_not_add_new_files_(); */
   SEND_STRING_WITHOUT_MODS_P(PSTR("Group the plan's steps into \"phases\". "));
   ss_post_check_dot_(WHEN_AFTER_EACH_PHASE);
 }
