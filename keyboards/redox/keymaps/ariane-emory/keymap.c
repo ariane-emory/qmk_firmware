@@ -1144,12 +1144,13 @@ typedef enum {
 } phase_description_t;
 
 
-void ss_phase_in_the_planmd_file_dot_(phase_description_t phase) {
+void ss_phase_in_the_plan_dot_(phase_description_t phase,
+                               plan_location_t plan_location) {
   if (phase == PHASE_DESCRIPTION_NEXT_PHASE)
     SEND_STRING_WITHOUT_MODS_P(PSTR("the next phase "));
   else 
     SEND_STRING_WITHOUT_MODS_P(PSTR("the first uncompleted phase "));
-  ss_in_the_plan_dot_(PLAN_LOCATION_PLANMD_FILE);
+  ss_in_the_plan_dot_(plan_location);
 }
 
 // =============================================================================
@@ -1204,12 +1205,13 @@ void leader_end_user(void) {
   /* IMPLEMENT: */
   /* else if (leader_sequence_two_keys(KC_I, KC_F)) { /\* proceed w/ first uncompleted phase of PLAN.md  *\/ */
   /*   ss_proceed_with_implementing_(); */
-  /*   ss_phase_in_the_planmd_file_dot_(PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE); */
+  /*   ss_phase_in_the_plan_dot_(PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE); */
   /*   ss_post_check_dot_(true, WHEN_AFTERWARDS); */
   /* } */
   else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next phase of PLAN.md  */
     ss_proceed_with_implementing_();
-    ss_phase_in_the_planmd_file_dot_(PHASE_DESCRIPTION_NEXT_PHASE);
+    ss_phase_in_the_plan_dot_(PHASE_DESCRIPTION_NEXT_PHASE,
+                              PLAN_LOCATION_PLANMD_FILE);
     ss_post_check_dot_(true, WHEN_AFTERWARDS);
   }
   else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ inline plan  */
