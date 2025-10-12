@@ -1160,7 +1160,7 @@ void ss_proceed_with_implementing_plan_etc_dot_(phase_description_t phase_descri
   ss_plan_location_t_dot_(plan_location);
 
   if (plan_location == PLAN_LOCATION_IN_THE_PLANMD_FILE) 
-                       ss_mark_completed_in_the_planmd_file_dot_();
+    ss_mark_completed_in_the_planmd_file_dot_();
 
   ss_post_check_dot_(WHEN_AFTERWARDS);
 }
@@ -1176,9 +1176,6 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key (KC_R))       {SEND_PSTR(S_REPEAT_SHELL_CMD(_));}
   else if (leader_sequence_one_key (KC_S))       {SEND_PSTR(S_END() S_CLR_LINE() "shove" S_CR());}
   /* prompt fragments: */
-  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_PSTR("and explain its cause: ");}
-  else if (leader_sequence_two_keys(KC_A, KC_P)) { /* analyze this problem */ ss_analyze_this_problem_();}
-  else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_PSTR("and fix it: ");}
   else if (leader_sequence_two_keys(KC_C, KC_C)) { /* continue */ SEND_PSTR("Continue. ");}
   else if (leader_sequence_two_keys(KC_E, KC_P)) { /* continue */ SEND_PSTR("Complete the ENTIRE plan! ");}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_PSTR("Do it now, do it correctly, and make no mistakes. ");}
@@ -1202,9 +1199,12 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_M, KC_C)) { /* mark completed */ ss_mark_completed_in_the_planmd_file_dot_();}
   else if (leader_sequence_two_keys(KC_N, KC_F)) { /* no new files */ ss_do_not_add_new_files_();}
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
-  else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
-  else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_submit_the_plan_for_approval_before_editing_dot_();}
-  /* QUESTIONS/ANALYZE:  */
+  else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();} else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_submit_the_plan_for_approval_before_editing_dot_();}
+  /* ANALYZE */
+  else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_PSTR("and explain its cause: ");}
+  else if (leader_sequence_two_keys(KC_A, KC_P)) { /* analyze this problem */ ss_analyze_this_problem_();}
+  else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_PSTR("and fix it: ");}
+  /* QUESTIONS/:  */
   else if (leader_sequence_two_keys(KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_PSTR("\b\b, just answer questions. ");}
   /* PLAN: */
   else if (leader_sequence_two_keys(KC_P, KC_C)) { /* plan change */ ss_plan_dot_(SUBJECT_CHANGE, SUBJECT_CHANGE);} 
@@ -1213,9 +1213,8 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);}
   /* IMPLEMENT: */
   else if (leader_sequence_two_keys(KC_I, KC_A)) { /* all of plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES, PLAN_LOCATION_THE_PLAN);}
-  else if (leader_sequence_three_keys(KC_I, KC_A, KC_F)) { /* all of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
-
   else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next in plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_NEXT_PHASE, PLAN_LOCATION_THE_PLAN);}
+  else if (leader_sequence_three_keys(KC_I, KC_A, KC_F)) { /* all of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
   else if (leader_sequence_three_keys(KC_I, KC_N, KC_F)) { /* proceed w/ next in PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_NEXT_PHASE, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
 }
 #endif // LEADER_ENABLE
