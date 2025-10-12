@@ -1033,7 +1033,7 @@ void ss_when_t_dot_(when_t when) {
     SEND_PSTR("after each phase. ");
     return;
   case WHEN_BEFORE_EDITING:
-    SEND_PSTR("before you start editing code. ");
+    SEND_PSTR("before you start editing the code. ");
     return;
   }
 }
@@ -1170,6 +1170,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_M)) { /* ./plan.md */ SEND_PSTR("./PLAN..md"); }
   else if (leader_sequence_two_keys(KC_P, KC_S)) { /* proceed systematically */ SEND_PSTR("Proceed systematically ");}
   else if (leader_sequence_two_keys(KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! ");}
+  else if (leader_sequence_three_keys(KC_S, KC_A, KC_A)) { /* systematically analyze */ SEND_PSTR("Systematically analyze ");}
   else if (leader_sequence_two_keys(KC_S, KC_F)) { /* so far so good */ SEND_PSTR("So far, so good. ");}
   else if (leader_sequence_two_keys(KC_T, KC_Y)) { /* thank you */ SEND_PSTR("Thank you. ");}
   else if (leader_sequence_two_keys(KC_U, KC_U)) { /* ultrathink */ SEND_PSTR("Ultrathink. ");}
