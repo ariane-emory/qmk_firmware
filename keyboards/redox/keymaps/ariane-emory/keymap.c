@@ -998,8 +998,6 @@ uint16_t keycode_config(uint16_t keycode) {
 
 #ifdef LEADER_ENABLE
 typedef enum {
-  //PLAN_LOCATION_IN_THE_PLAN,
-  //PLAN_LOCATION_IN_THE_PLAN_FILE,
   PLAN_LOCATION_IN_THE_PLANMD_FILE,
   PLAN_LOCATION_THE_PLAN,
 } plan_location_t;
@@ -1008,13 +1006,10 @@ void ss_plan_location_t_dot_(plan_location_t plan_location) {
   switch(plan_location) {
   case PLAN_LOCATION_THE_PLAN:
     SEND_PSTR("the plan. ");
-    return;
-    /* case PLAN_LOCATION_IN_THE_PLAN_FILE: */
-    /*   SEND_PSTR("in the plan file. "); */
-    /*   return; */
+    break;
   case PLAN_LOCATION_IN_THE_PLANMD_FILE:
     SEND_PSTR("in the PLAN.md file. ");
-    return;
+    break;
   }
 }
 
@@ -1068,11 +1063,6 @@ void ss_do_not_add_new_files_(void) {
 void ss_post_check_dot_(when_t when) {
   ss_must_build_and_pass_tests_dot_(when);
 }
-
-typedef enum {
-  ALLOW_NEW_FILES_NO,
-  ALLOW_NEW_FILES_UNSPECIFIED,
-} allow_new_files_t;
 
 void ss_group_phases_dot_(void) {
   SEND_PSTR("Group the plan's steps into \"phases\". ");
@@ -1131,8 +1121,6 @@ void ss_analyze_smells_(void) {
 typedef enum {
   PHASE_DESCRIPTION_ALL_PHASES_OF,
   PHASE_DESCRIPTION_THE_NEXT_PHASE_OF,
-  /* PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE, */
-  /* PHASE_DESCRIPTION_EMPTY, */
 } phase_description_t;
 
 void ss_phase_description(phase_description_t phase_description) {
@@ -1143,13 +1131,7 @@ void ss_phase_description(phase_description_t phase_description) {
   case PHASE_DESCRIPTION_ALL_PHASES_OF:
     SEND_PSTR("all phases of ");
     break;
-    /* case PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE: */
-    /*   SEND_PSTR("the first uncompleted phase of "); */
-    /*   break; */
-    /* case PHASE_DESCRIPTION_EMPTY: */
-    /*   break; */
   }
-
 }
 
 void ss_proceed_with_implementing_plan_etc_dot_(phase_description_t phase_description,
