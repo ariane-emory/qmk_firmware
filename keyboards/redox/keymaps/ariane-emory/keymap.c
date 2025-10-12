@@ -998,8 +998,8 @@ uint16_t keycode_config(uint16_t keycode) {
 
 #ifdef LEADER_ENABLE
 typedef enum {
-  PLAN_LOCATION_IN_THE_PLAN,
-  PLAN_LOCATION_IN_THE_PLAN_FILE,
+  //PLAN_LOCATION_IN_THE_PLAN,
+  //PLAN_LOCATION_IN_THE_PLAN_FILE,
   PLAN_LOCATION_IN_THE_PLANMD_FILE,
   PLAN_LOCATION_THE_PLAN,
 } plan_location_t;
@@ -1009,12 +1009,9 @@ void ss_plan_location_t_dot_(plan_location_t plan_location) {
   case PLAN_LOCATION_THE_PLAN:
     SEND_PSTR("the plan. ");
     return;
-  case PLAN_LOCATION_IN_THE_PLAN:
-    SEND_PSTR("in the plan. ");
-    return;
-  case PLAN_LOCATION_IN_THE_PLAN_FILE:
-    SEND_PSTR("in the plan file. ");
-    return;
+    /* case PLAN_LOCATION_IN_THE_PLAN_FILE: */
+    /*   SEND_PSTR("in the plan file. "); */
+    /*   return; */
   case PLAN_LOCATION_IN_THE_PLANMD_FILE:
     SEND_PSTR("in the PLAN.md file. ");
     return;
@@ -1138,28 +1135,32 @@ typedef enum {
   PHASE_DESCRIPTION_EMPTY,
 } phase_description_t;
 
-void ss_proceed_with_implementing_plan_etc_dot_(phase_description_t phase_description,
-                                                plan_location_t plan_location) {
-  SEND_PSTR("Proceed with implementing ");
- 
+void ss_phase_description(phase_description_t phase_description) {
   switch (phase_description) {
   case PHASE_DESCRIPTION_NEXT_PHASE:
-    SEND_PSTR("the next phase ");
+    SEND_PSTR("the next phase of ");
     break;
   case PHASE_DESCRIPTION_ALL_PHASES:
-    SEND_PSTR("all phases ");
+    SEND_PSTR("all phases of ");
     break;
   case PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE:
-    SEND_PSTR("the first uncompleted phase ");
+    SEND_PSTR("the first uncompleted phase of ");
     break;
   case PHASE_DESCRIPTION_EMPTY:
     break;
   }
-  
+
+}
+
+void ss_proceed_with_implementing_plan_etc_dot_(phase_description_t phase_description,
+                                                plan_location_t plan_location) {
+  SEND_PSTR("Proceed with the implemention of ");
+ 
+  ss_phase_description(phase_description);
   ss_plan_location_t_dot_(plan_location);
 
   if (plan_location == PLAN_LOCATION_IN_THE_PLANMD_FILE) 
-    ss_mark_completed_in_the_planmd_file_dot_();
+                       ss_mark_completed_in_the_planmd_file_dot_();
 
   ss_post_check_dot_(WHEN_AFTERWARDS);
 }
@@ -1211,10 +1212,11 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_dot_(SUBJECT_PROBLEM, SUBJECT_SOLUTION);}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);}
   /* IMPLEMENT: */
-  else if (leader_sequence_two_keys(KC_I, KC_P)) { /* proceed w/ plan  */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_EMPTY, PLAN_LOCATION_THE_PLAN);}
-  else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ inline plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_NEXT_PHASE, PLAN_LOCATION_IN_THE_PLAN);}
-  else if (leader_sequence_two_keys(KC_F, KC_P)) { /* proceed w/ all phases of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
-  else if (leader_sequence_two_keys(KC_F, KC_N)) { /* proceed w/ next phase of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_NEXT_PHASE, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
+  else if (leader_sequence_two_keys(KC_I, KC_A)) { /* all of plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES, PLAN_LOCATION_THE_PLAN);}
+  else if (leader_sequence_three_keys(KC_I, KC_A, KC_F)) { /* all of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
+
+  else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next in plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_NEXT_PHASE, PLAN_LOCATION_THE_PLAN);}
+  else if (leader_sequence_three_keys(KC_I, KC_N, KC_F)) { /* proceed w/ next in PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_NEXT_PHASE, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
 }
 #endif // LEADER_ENABLE
 
