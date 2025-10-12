@@ -1129,25 +1129,25 @@ void ss_analyze_smells_(void) {
 }
 
 typedef enum {
-  PHASE_DESCRIPTION_ALL_PHASES,
-  PHASE_DESCRIPTION_NEXT_PHASE,
-  PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE,
-  PHASE_DESCRIPTION_EMPTY,
+  PHASE_DESCRIPTION_ALL_PHASES_OF,
+  PHASE_DESCRIPTION_THE_NEXT_PHASE_OF,
+  /* PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE, */
+  /* PHASE_DESCRIPTION_EMPTY, */
 } phase_description_t;
 
 void ss_phase_description(phase_description_t phase_description) {
   switch (phase_description) {
-  case PHASE_DESCRIPTION_NEXT_PHASE:
+  case PHASE_DESCRIPTION_THE_NEXT_PHASE_OF:
     SEND_PSTR("the next phase of ");
     break;
-  case PHASE_DESCRIPTION_ALL_PHASES:
+  case PHASE_DESCRIPTION_ALL_PHASES_OF:
     SEND_PSTR("all phases of ");
     break;
-  case PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE:
-    SEND_PSTR("the first uncompleted phase of ");
-    break;
-  case PHASE_DESCRIPTION_EMPTY:
-    break;
+    /* case PHASE_DESCRIPTION_FIRST_UNCOMPLETED_PHASE: */
+    /*   SEND_PSTR("the first uncompleted phase of "); */
+    /*   break; */
+    /* case PHASE_DESCRIPTION_EMPTY: */
+    /*   break; */
   }
 
 }
@@ -1212,10 +1212,10 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_P, KC_P)) { /* plan problem */ ss_plan_dot_(SUBJECT_PROBLEM, SUBJECT_SOLUTION);}
   else if (leader_sequence_two_keys(KC_P, KC_R)) { /* plan refactor */ ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);}
   /* IMPLEMENT: */
-  else if (leader_sequence_two_keys(KC_I, KC_A)) { /* all of plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES, PLAN_LOCATION_THE_PLAN);}
-  else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next in plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_NEXT_PHASE, PLAN_LOCATION_THE_PLAN);}
-  else if (leader_sequence_three_keys(KC_I, KC_A, KC_F)) { /* all of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
-  else if (leader_sequence_three_keys(KC_I, KC_N, KC_F)) { /* proceed w/ next in PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_NEXT_PHASE, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
+  else if (leader_sequence_two_keys(KC_I, KC_A)) { /* all of plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_THE_PLAN);}
+  else if (leader_sequence_two_keys(KC_I, KC_N)) { /* proceed w/ next in plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_THE_PLAN);}
+  else if (leader_sequence_three_keys(KC_I, KC_A, KC_F)) { /* all of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
+  else if (leader_sequence_three_keys(KC_I, KC_N, KC_F)) { /* proceed w/ next in PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
 }
 #endif // LEADER_ENABLE
 
