@@ -1159,7 +1159,7 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key (KC_S))       {SEND_PSTR(S_END() S_CLR_LINE() "shove" S_CR());}
   /* prompt fragments: */
   else if (leader_sequence_two_keys(KC_C, KC_C)) { /* continue */ SEND_PSTR("Continue. ");}
-  else if (leader_sequence_two_keys(KC_E, KC_P)) { /* continue */ SEND_PSTR("Complete the ENTIRE plan! ");}
+  else if (leader_sequence_two_keys(KC_C, KC_P)) { /* continue */ SEND_PSTR("Complete the ENTIRE plan! ");}
   else if (leader_sequence_two_keys(KC_D, KC_N)) { /* do it now, no mistakes */ SEND_PSTR("Do it now, do it correctly, and make no mistakes. ");}
   else if (leader_sequence_two_keys(KC_G, KC_W)) { /* great work */ SEND_PSTR("Great work! ");}
   else if (leader_sequence_two_keys(KC_K, KC_K)) { /* keep going */ SEND_PSTR("Keep going. ");}
