@@ -1184,6 +1184,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys(KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
   else if (leader_sequence_two_keys(KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();} else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_submit_the_plan_for_approval_before_editing_dot_();}
   /* ANALYZE */
+  else if (leader_sequence_two_keys(KC_X, KC_X)) { /* explain line */ SEND_PSTR("Explain this line in detail: " SS_DOWN(X_LSFT) S_CR() SS_UP(X_LSFT));}
   else if (leader_sequence_two_keys(KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_PSTR("and explain its cause: ");}
   else if (leader_sequence_two_keys(KC_A, KC_P)) { /* analyze this problem */ ss_analyze_this_problem_();}
   else if (leader_sequence_two_keys(KC_A, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_PSTR("and fix it: ");}
