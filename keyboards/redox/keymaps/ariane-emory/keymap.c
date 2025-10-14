@@ -137,7 +137,7 @@ void keyboard_post_init_user(void) {
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                               \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                               \
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                               \
-  DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                               \
+  DO(EM_PRV_BUFF,          (SS_LCTL("x") SS_LCTL("p"))           )                                                                               \
   DO(EM_SPLIT_V,           (SS_LCTL("x") "@")                    )                                                                               \
   DO(EM_SPLIT_H,           (SS_LCTL("x") "#")                    )                                                                               \
   DO(EM_MAC_BGN,           (SS_LCTL("x") "9")                    )                                                                               \
@@ -158,7 +158,7 @@ void keyboard_post_init_user(void) {
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                               \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                               \
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                               \
-  DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                               \
+  DO(EM_PRV_BUFF,          (SS_LCTL("x") SS_LCTL("p"))           )                                                                               \
   DO(EM_SPLIT_V,           (SS_LCTL("x") "2")                    )                                                                               \
   DO(EM_SPLIT_H,           (SS_LCTL("x") "3")                    )                                                                               \
   DO(EM_MAC_BGN,           (SS_LCTL("x") "(")                    )                                                                               \
