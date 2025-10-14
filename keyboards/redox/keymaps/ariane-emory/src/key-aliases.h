@@ -100,6 +100,8 @@
 //==============================================================================
 // Misc special functions
 //==============================================================================
+#define S_EVAL_SEXP    (SS_LCTL("x") SS_LCTL("e"))
+#define S_PP_EVAL_SEXP (SS_LCTL("c") SS_LCTL(SS_TAP(X_BSPC)))
 #define EM_REVERT      LGUI(KC_U)
 #define BRT_DN         KC_F19
 #define BRT_UP         KC_F20

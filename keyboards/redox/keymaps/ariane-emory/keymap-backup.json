@@ -794,8 +794,8 @@
       "ANY(THU_MS)",
       "ANY(CRL_MS)",
       "LCA(KC_B)",
-      "LCA(KC_DOWN)",
-      "LCA(KC_UP)",
+      "LALT(KC_DOWN)",
+      "LALT(KC_UP)",
       "LCA(KC_F)"
     ],
     [
@@ -837,8 +837,8 @@
       "ANY(VD_LEFT)",
       "ANY(VD_RIGHT)",
       "ANY(VD_ALL)",
-      "LCA(KC_DOWN)",
-      "LCA(KC_UP)",
+      "LALT(KC_DOWN)",
+      "LALT(KC_UP)",
       "KC_LSFT",
       "ANY(LT(14, LSA(KC_LBRC)))",
       "LSA(KC_RCBR)",
@@ -866,8 +866,8 @@
       "KC_TRNS",
       "KC_TRNS",
       "ANY(LCTL(LALT(KC_T)))",
-      "LCA(KC_DOWN)",
-      "LCA(KC_UP)",
+      "LALT(KC_DOWN)",
+      "LALT(KC_UP)",
       "ANY(LSFT(LCTL(LALT(KC_T))))"
     ],
     [
@@ -938,8 +938,8 @@
       "KC_DOT",
       "KC_COMM",
       "ANY(LCTL(LALT(KC_T)))",
-      "LCA(KC_DOWN)",
-      "LCA(KC_UP)",
+      "LALT(KC_DOWN)",
+      "LALT(KC_UP)",
       "ANY(LSFT(LCTL(LALT(KC_T))))"
     ],
     [
