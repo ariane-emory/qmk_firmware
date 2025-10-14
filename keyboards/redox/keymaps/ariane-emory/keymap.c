@@ -132,10 +132,10 @@ void keyboard_post_init_user(void) {
   DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                               \
   DO(EM_SWAP,              S_EM_SWAP()                           )                                                                               \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                               \
-  DO(EM_SHELL,             (SS_LCTL("x") "t")                    )                                                                               \
+  DO(EM_SHELL,             (SS_LCTL("x") SS_LCTL("t"))           )                                                                               \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                               \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                               \
-  DO(EM_KILL_BUFF,         (SS_LCTL("x") "k")                    )                                                                               \
+  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                               \
   DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                               \
   DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                               \
   DO(EM_SPLIT_V,           (SS_LCTL("x") "@")                    )                                                                               \
