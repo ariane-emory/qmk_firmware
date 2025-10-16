@@ -865,10 +865,10 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "ANY(LCTL(LALT(KC_T)))",
+      "LCA(KC_B)",
       "LALT(KC_DOWN)",
       "LALT(KC_UP)",
-      "ANY(LSFT(LCTL(LALT(KC_T))))"
+      "LCA(KC_F)"
     ],
     [
       "KC_NO",
