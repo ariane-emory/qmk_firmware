@@ -1140,6 +1140,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys  (KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! ");}
   else if (leader_sequence_three_keys(KC_S, KC_A, KC_A)) { /* systematically analyze */ SEND_PSTR("Systematically analyze ");}
   else if (leader_sequence_two_keys  (KC_S, KC_F)) { /* so far so good */ SEND_PSTR("So far, so good. ");}
+  else if (leader_sequence_two_keys  (KC_T, KC_T)) { /* testing comms */ SEND_PSTR("Testing communications, can you hear me? ");}
   else if (leader_sequence_two_keys  (KC_T, KC_Y)) { /* thank you */ SEND_PSTR("Thank you. ");}
   else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ SEND_PSTR("Ultrathink. ");}
   /* SINGLE CALLS: */
