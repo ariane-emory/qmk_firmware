@@ -1143,6 +1143,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys  (KC_T, KC_T)) { /* testing comms */ SEND_PSTR("Testing communications, can you hear me? ");}
   else if (leader_sequence_two_keys  (KC_T, KC_Y)) { /* thank you */ SEND_PSTR("Thank you. ");}
   else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ SEND_PSTR("Ultrathink. ");}
+  else if (leader_sequence_one_key   (KC_Y))       { /* yes */ SEND_PSTR("Yes, please proceed. ");}
   /* SINGLE CALLS: */
   else if (leader_sequence_two_keys  (KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
   else if (leader_sequence_two_keys  (KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
