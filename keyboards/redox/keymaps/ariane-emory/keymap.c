@@ -1128,6 +1128,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys  (KC_C, KC_E)) { /* correct all errors */ SEND_PSTR("Correct ALL of the errors! ");}
   else if (leader_sequence_two_keys  (KC_C, KC_P)) { /* complete plan */ SEND_PSTR("You MUST complete the ENTIRE plan! ");}
   else if (leader_sequence_two_keys  (KC_D, KC_N)) { /* do it now, no mistakes */ SEND_PSTR("Do it now, do it correctly, and make no mistakes. ");}
+  else if (leader_sequence_two_keys  (KC_D, KC_F)) { /* do it now, no mistakes */ SEND_PSTR("Analyze the problem, diagnose its cause, and fix it. ");}
   else if (leader_sequence_two_keys  (KC_E, KC_P)) { /* correct all errors */ SEND_PSTR("Some errors persist: ");}
   else if (leader_sequence_two_keys  (KC_G, KC_W)) { /* great work */ SEND_PSTR("Great work! ");}
   else if (leader_sequence_two_keys  (KC_K, KC_G)) { /* keep going */ SEND_PSTR("Keep going. ");}
