@@ -959,7 +959,6 @@ uint16_t keycode_config(uint16_t keycode) {
 // ==============================================================================
 
 #define S_END()      TAP(X_END)
-#define S_BOL()      SS_LCTL(TAP(X_A))
 #define S_CLR()      SS_LGUI("a") TAP(X_BSPC) S_CR()
 
 #ifdef LEADER_ENABLE
