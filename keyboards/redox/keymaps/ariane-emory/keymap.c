@@ -117,10 +117,10 @@ void keyboard_post_init_user(void) {
 /*                                                                                   SS_LGUI("`") S_DD() S_SCR_L() */
 #define S_TELEPORT(_)                                                                                                                            \
   S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                \
-  SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                  \
-  SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(500) TAP(X_ENT) SS_DELAY(3500)                                                   \
-                                                                                TAP(X_F) S_DD()                                                  \
-                                                                                         SS_LGUI("`") S_DD() S_SCR_L()
+    SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                \
+    SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(500) TAP(X_ENT) SS_DELAY(3500)                                                 \
+  TAP(X_F) S_DD()                                                                                                                                \
+  SS_LGUI("`") S_DD() S_SCR_L()
 
 // ==============================================================================
 // Send string keycodes (the main X-macro table)
@@ -129,43 +129,43 @@ void keyboard_post_init_user(void) {
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                                                                                                 \
   DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                               \
-  DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                               \
-  DO(EM_SWAP,              S_EM_SWAP()                           )                                                                               \
+    DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                             \
+    DO(EM_SWAP,              S_EM_SWAP()                           )                                                                             \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                               \
   DO(EM_SHELL,             (SS_LCTL("x") SS_LCTL("t"))           )                                                                               \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                               \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                               \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                               \
-  DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                               \
-  DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                               \
+    DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                             \
+    DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                             \
   DO(EM_SPLIT_V,           (SS_LCTL("x") "@")                    )                                                                               \
   DO(EM_SPLIT_H,           (SS_LCTL("x") "#")                    )                                                                               \
   DO(EM_MAC_BGN,           (SS_LCTL("x") "9")                    )                                                                               \
   DO(EM_MAC_END,           (SS_LCTL("x") "0")                    )                                                                               \
   DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                                                                               \
-  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                               \
-  DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                               \
+    DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                             \
+    DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                             \
   DO(SS_0X,                (")x")                                ) 
 //                         NO MODS
 #else
 #  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                                                                                                 \
   DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                               \
-  DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                               \
-  DO(EM_SWAP,              S_EM_SWAP()                           )                                                                               \
+    DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                             \
+    DO(EM_SWAP,              S_EM_SWAP()                           )                                                                             \
   DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                               \
   DO(EM_SHELL,             (SS_LCTL("x") SS_LCTL("t"))           )                                                                               \
   DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                               \
   DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                               \
   DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                               \
-  DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                               \
-  DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                               \
+    DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                             \
+    DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                             \
   DO(EM_SPLIT_V,           (SS_LCTL("x") "2")                    )                                                                               \
   DO(EM_SPLIT_H,           (SS_LCTL("x") "3")                    )                                                                               \
   DO(EM_MAC_BGN,           (SS_LCTL("x") "(")                    )                                                                               \
   DO(EM_MAC_END,           (SS_LCTL("x") ")")                    )                                                                               \
   DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                                                                               \
-  DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                               \
-  DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                               \
+    DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                             \
+    DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                             \
   DO(SS_0X,                ("0x")                                )                                                                               \
   DO(SS_DICT2,             (TAP(X_F24) TAP(X_F24))               ) 
 //                         NO MODS                                 
@@ -178,27 +178,27 @@ void keyboard_post_init_user(void) {
 #ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
   DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),   (""),              (""))                           \
-  DO(EM_LASTARG,                                                                                                                                 \
-     (S_EVAL_SEXP),           /* NO MODS */                                                                                                      \
-     (S_PP_EVAL_SEXP),        /* CTRL */                                                                                                         \
-     (" " SS_LCTL("c") "."),  /* ALT */                                                                                                          \
-     ("c -" S_CR()))          /* SHIFT */                                                                                                        \
+    DO(EM_LASTARG,                                                                                                                               \
+       (S_EVAL_SEXP),           /* NO MODS */                                                                                                    \
+       (S_PP_EVAL_SEXP),        /* CTRL */                                                                                                       \
+       (" " SS_LCTL("c") "."),  /* ALT */                                                                                                        \
+       ("c -" S_CR()))          /* SHIFT */                                                                                                      \
   DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))       \
   DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                     \
-  DO(SS_ARROW,             ("->"),                  (" => "),                                 ("4()" S_LL()),     (""))                          \
+    DO(SS_ARROW,             ("->"),                  (" => "),                                 ("4()" S_LL()),     (""))                        \
   DO(SS_SMILEY,            (" ;0"),                 (" :/"),                                  (" >_>"),           (""))                          \
   DO(SS_SMILEY2,           (" :0"),                 (" :P"),                                  (" :D"),            (""))                          \
   DO(SS_DIR,               ("~/"),                  ("../"),                                  ("./"),             (""))                          \
   DO(SS_CD,                ("cd "),                 ("cd ~/"),                                ("cd .."),          ("cd -"))                      \
   DO(SS_LBRACK,            ("9"),                   ("{"),                                    ("["),              ("<"))                         \
   DO(SS_RBRACK,            ("0"),                   ("}"),                                    ("]"),              (">"))                         \
-  DO(SS_AND_AND,           (" 77 "),                (" || "),                                 (" @>7! "),         (" >/dev/null "))              \
+    DO(SS_AND_AND,           (" 77 "),                (" || "),                                 (" @>7! "),         (" >/dev/null "))            \
 //                         NO MODS                  CTRL                                      ALT                 SHIFT
 #else
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
   DO(SS_CD,                ("cd "),                 ("cd ~/"),                                ("cd .."),          ("cd -"))                      \
-  DO(SS_SMILEY2,           (" :)"),                 (" :P"),                                  (" :D"),            (""))                          \
-  DO(SS_AND_AND,           (" && "),                (" || "),                                 (" 2>&1 "),         (" >/dev/null "))              \
+    DO(SS_SMILEY2,           (" :)"),                 (" :P"),                                  (" :D"),            (""))                        \
+    DO(SS_AND_AND,           (" && "),                (" || "),                                 (" 2>&1 "),         (" >/dev/null "))            \
   DO(SS_SMILEY,            (" ;)"),                 (" :/"),                                  (" >_>"),           (""))                          \
   DO(SS_LBRACK,            ("("),                   ("{"),                                    ("["),              ("<"))                         \
   DO(SS_RBRACK,            (")"),                   ("}"),                                    ("]"),              (">"))                         \
@@ -1036,7 +1036,7 @@ void ss_group_phases_dot_(void) {
 }
 
 void ss_analyze_this_problem_(void) {
-  SEND_PSTR("Analyze this problem ");
+  SEND_PSTR("Analyze this problem");
 }
 
 void ss_write_the_plan_in_the_planmd_file_(void) {
@@ -1128,7 +1128,6 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys  (KC_C, KC_E)) { /* correct all errors */ SEND_PSTR("Correct ALL of the errors! ");}
   else if (leader_sequence_two_keys  (KC_C, KC_P)) { /* complete plan */ SEND_PSTR("You MUST complete the ENTIRE plan! ");}
   else if (leader_sequence_two_keys  (KC_D, KC_N)) { /* do it now, no mistakes */ SEND_PSTR("Do it now, do it correctly, and make no mistakes. ");}
-  else if (leader_sequence_two_keys  (KC_D, KC_F)) { /* do it now, no mistakes */ SEND_PSTR("Analyze the problem, diagnose its cause, and fix it. ");}
   else if (leader_sequence_two_keys  (KC_E, KC_P)) { /* correct all errors */ SEND_PSTR("Some errors persist: ");}
   else if (leader_sequence_two_keys  (KC_G, KC_W)) { /* great work */ SEND_PSTR("Great work! ");}
   else if (leader_sequence_two_keys  (KC_K, KC_G)) { /* keep going */ SEND_PSTR("Keep going. ");}
@@ -1145,7 +1144,8 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys  (KC_T, KC_Y)) { /* thank you */ SEND_PSTR("Thank you. ");}
   else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ SEND_PSTR("Ultrathink. ");}
   else if (leader_sequence_one_key   (KC_Y))       { /* yes */ SEND_PSTR("Yes, please proceed. ");}
-  /* SINGLE CALLS: */
+  else if (leader_sequence_one_key   (KC_X))       { /* explain line */ SEND_PSTR("Explain this line in detail: " SS_DOWN(X_LSFT) S_CR() SS_UP(X_LSFT));}
+/* SINGLE CALLS: */
   else if (leader_sequence_two_keys  (KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
   else if (leader_sequence_two_keys  (KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
   else if (leader_sequence_two_keys  (KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(); }
@@ -1155,10 +1155,8 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys  (KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
   else if (leader_sequence_two_keys  (KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();} else if (leader_sequence_two_keys(KC_S, KC_A)) { /* submit for approval */ ss_submit_the_plan_for_approval_before_editing_dot_();}
   /* ANALYZE */
-  else if (leader_sequence_one_key   (KC_X))       { /* explain line */ SEND_PSTR("Explain this line in detail: " SS_DOWN(X_LSFT) S_CR() SS_UP(X_LSFT));}
-  else if (leader_sequence_two_keys  (KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_PSTR("and explain its cause: ");}
-  else if (leader_sequence_two_keys  (KC_A, KC_P)) { /* analyze this problem */ ss_analyze_this_problem_();}
-  else if (leader_sequence_two_keys  (KC_A, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_PSTR("and fix it: ");}
+  else if (leader_sequence_two_keys  (KC_A, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_PSTR(", diagnose its cause, and fix it. ");}
+  else if (leader_sequence_two_keys  (KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_PSTR(" and explain its cause. ");}
   /* QUESTIONS/:  */
   else if (leader_sequence_two_keys  (KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_PSTR("\b\b, just answer questions. ");}
   /* PLAN: */
