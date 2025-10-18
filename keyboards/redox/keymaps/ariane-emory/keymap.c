@@ -1113,6 +1113,19 @@ void ss_proceed_with_implementing_plan_etc_dot_(phase_description_t phase_descri
   ss_post_check_dot_(WHEN_AFTERWARDS);
 }
 
+void ss_systematically_analyze_(void) {
+  SEND_PSTR("Systematically analyze ");
+}
+
+void ss_dead_code_(void) {
+  ss_systematically_analyze_();
+  SEND_PSTR("the codebase for dead code and make a ");
+  ss_detailed_step_by_step_plan_();
+  SEND_PSTR("to eliminate it. ");
+  ss_group_phases_dot_();
+}
+
+
 // =============================================================================
 // leader_end_user
 // =============================================================================
@@ -1138,15 +1151,17 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys  (KC_P, KC_M)) { /* ./plan.md */ SEND_PSTR("./PLAN..md"); }
   else if (leader_sequence_two_keys  (KC_P, KC_S)) { /* proceed systematically */ SEND_PSTR("Proceed systematically ");}
   else if (leader_sequence_two_keys  (KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! ");}
-  else if (leader_sequence_two_keys  (KC_S, KC_A)) { /* systematically analyze */ SEND_PSTR("Systematically analyze ");}
   else if (leader_sequence_two_keys  (KC_S, KC_F)) { /* so far so good */ SEND_PSTR("So far, so good. ");}
   else if (leader_sequence_two_keys  (KC_T, KC_T)) { /* testing comms */ SEND_PSTR("Testing communications, can you hear me? ");}
   else if (leader_sequence_two_keys  (KC_T, KC_Y)) { /* thank you */ SEND_PSTR("Thank you. ");}
   else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ SEND_PSTR("Ultrathink. ");}
   else if (leader_sequence_one_key   (KC_Y))       { /* yes */ SEND_PSTR("Yes, please proceed. ");}
   else if (leader_sequence_one_key   (KC_X))       { /* explain line */ SEND_PSTR("Explain this line in detail: " SS_DOWN(X_LSFT) S_CR() SS_UP(X_LSFT));}
-/* SINGLE CALLS: */
+  /* SINGLE CALLS: */
+
   else if (leader_sequence_two_keys  (KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
+  else if (leader_sequence_two_keys  (KC_D, KC_C)) { /* dead code */ ss_dead_code_();}
+  else if (leader_sequence_two_keys  (KC_S, KC_A)) { /* systematically analyze */ ss_systematically_analyze_();}
   else if (leader_sequence_two_keys  (KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
   else if (leader_sequence_two_keys  (KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(); }
   else if (leader_sequence_two_keys  (KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
@@ -1155,11 +1170,11 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys  (KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
   else if (leader_sequence_two_keys  (KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
   else if (leader_sequence_two_keys  (KC_S, KC_P)) { /* submit for approval */ ss_submit_the_plan_for_approval_before_editing_dot_();}
-  /* ANALYZE */
-  else if (leader_sequence_two_keys  (KC_A, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_PSTR(", diagnose its cause, and fix it. ");}
-  else if (leader_sequence_two_keys  (KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_PSTR(" and explain its cause. ");}
   /* QUESTIONS/:  */
   else if (leader_sequence_two_keys  (KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_PSTR("\b\b, just answer questions. ");}
+  /* ANALYZE */
+  else if (leader_sequence_two_keys  (KC_D, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_PSTR(", diagnose its cause, and fix it. ");}
+  else if (leader_sequence_two_keys  (KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_PSTR(" and explain its cause. ");}
   /* PLAN: */
   else if (leader_sequence_two_keys  (KC_P, KC_C)) { /* plan change */ ss_plan_dot_(SUBJECT_CHANGE, SUBJECT_CHANGE);} 
   else if (leader_sequence_two_keys  (KC_P, KC_F)) { /* plan feature */ ss_plan_dot_(SUBJECT_FEATURE, SUBJECT_FEATURE);}
