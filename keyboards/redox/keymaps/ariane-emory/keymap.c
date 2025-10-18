@@ -959,7 +959,7 @@ uint16_t keycode_config(uint16_t keycode) {
 // ==============================================================================
 
 #define S_END()      TAP(X_END)
-#define S_CLR()      SS_LGUI("a") TAP(X_BSPC) S_CR()
+#define S_CLEAR()    SS_LGUI("a") TAP(X_BSPC) S_CR()
 
 #ifdef LEADER_ENABLE
 typedef enum {
@@ -1132,7 +1132,7 @@ void ss_dead_code_(void) {
 void leader_end_user(void) {
   if      (leader_sequence_two_keys  (KC_B, KC_B)) {my_boot_handler(0, NULL);}
   else if (leader_sequence_one_key   (KC_Q))       {SEND_PSTR(/*S_CLR()*/ "cdkm; qmkc" S_CR());}
-  else if (leader_sequence_two_keys  (KC_Q, KC_W)) {SEND_PSTR(S_CLR() "cdkm; qmkupd" S_CR());}
+  else if (leader_sequence_two_keys  (KC_Q, KC_W)) {SEND_PSTR(S_CLEAR() "cdkm; qmkupd" S_CR());}
   else if (leader_sequence_one_key   (KC_R))       {SEND_PSTR(S_REPEAT_SHELL_CMD(_));}
   else if (leader_sequence_one_key   (KC_S))       {SEND_PSTR(S_END() SS_LCTL(TAP(X_A)) SS_LCTL(TAP(X_K)) "shove" S_CR());}
 /* prompt fragments: */
