@@ -980,7 +980,7 @@ void ss_article_t_(article_t article) {
 
 void ss_article_t_markdown_file(article_t article) {
   ss_article_t_(article); 
-  PSTR("Markdown file");
+  PSTR("plan Markdown file");
 }
 
 
