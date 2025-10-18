@@ -961,7 +961,6 @@ uint16_t keycode_config(uint16_t keycode) {
 #define S_END()      TAP(X_END)
 #define S_BOL()      SS_LCTL(TAP(X_A))
 #define S_CLR()      SS_LGUI("a") TAP(X_BSPC) S_CR()
-#define S_CLR_LINE() S_END() SS_LCTL("e") SS_LCTL(TAP(X_SPC)) SS_LCTL("a") TAP(X_BSPC)
 
 #ifdef LEADER_ENABLE
 typedef enum {
@@ -1136,7 +1135,6 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key   (KC_Q))       {SEND_PSTR(/*S_CLR()*/ "cdkm; qmkc" S_CR());}
   else if (leader_sequence_two_keys  (KC_Q, KC_W)) {SEND_PSTR(S_CLR() "cdkm; qmkupd" S_CR());}
   else if (leader_sequence_one_key   (KC_R))       {SEND_PSTR(S_REPEAT_SHELL_CMD(_));}
-  //else if (leader_sequence_one_key   (KC_S))       {SEND_PSTR(S_END() S_BOL() SS_LCTL(TAP(X_K)) "shove" S_CR());}
   else if (leader_sequence_one_key   (KC_S))       {SEND_PSTR(S_END() SS_LCTL(TAP(X_A)) SS_LCTL(TAP(X_K)) "shove" S_CR());}
 /* prompt fragments: */
   else if (leader_sequence_one_key   (KC_C))       { /* continue */ SEND_PSTR("Continue. ");}
