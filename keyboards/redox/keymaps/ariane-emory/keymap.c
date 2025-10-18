@@ -983,7 +983,6 @@ void ss_article_t_markdown_file(article_t article) {
   PSTR("plan Markdown file");
 }
 
-
 typedef enum {
   PLAN_LOCATION_IN_THE_PLANMD_FILE,
   PLAN_LOCATION_THE_PLAN,
