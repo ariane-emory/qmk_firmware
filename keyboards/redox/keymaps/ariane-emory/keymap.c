@@ -94,6 +94,8 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #define TAP(ss_kc)             SS_TAP(ss_kc)
+#define S_END(_)               TAP(X_END)
+#define S_CLEAR(_)             SS_LGUI("a") TAP(X_BSPC) S_CR()
 #define S_CR(_)                TAP(X_ENT)
 #define S_DD()                 SS_DELAY(150)
 #define S_EM_SWAP() (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB)))
@@ -958,10 +960,13 @@ uint16_t keycode_config(uint16_t keycode) {
 // Leader key
 // ==============================================================================
 
-#define S_END()      TAP(X_END)
-#define S_CLEAR()    SS_LGUI("a") TAP(X_BSPC) S_CR()
-
 #ifdef LEADER_ENABLE
+
+typedef enum {
+  ARTICLE_A,
+  ARTICLE_THE,
+} article_t;
+  
 typedef enum {
   PLAN_LOCATION_IN_THE_PLANMD_FILE,
   PLAN_LOCATION_THE_PLAN,
@@ -1151,7 +1156,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys  (KC_P, KC_S)) { /* proceed systematically */ SEND_PSTR("Proceed systematically ");}
   else if (leader_sequence_two_keys  (KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! ");}
   else if (leader_sequence_two_keys  (KC_S, KC_F)) { /* so far so good */ SEND_PSTR("So far, so good. ");}
-  else if (leader_sequence_two_keys  (KC_T, KC_T)) { /* testing comms */ SEND_PSTR("Testing communications, can you hear me? ");}
+  else if (leader_sequence_two_keys  (KC_T, KC_C)) { /* testing comms */ SEND_PSTR("Testing communications, can you hear me? ");}
   else if (leader_sequence_two_keys  (KC_T, KC_Y)) { /* thank you */ SEND_PSTR("Thank you. ");}
   else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ SEND_PSTR("Ultrathink. ");}
   else if (leader_sequence_one_key   (KC_Y))       { /* yes */ SEND_PSTR("Yes, please proceed. ");}
