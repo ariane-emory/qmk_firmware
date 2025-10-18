@@ -967,7 +967,7 @@ typedef enum {
   ARTICLE_THE,
 } article_t;
 
-void article_t_(article_t article) {
+void ss_article_t_(article_t article) {
   switch (article) {
   case ARTICLE_A:
     SEND_PSTR("a ");
@@ -977,6 +977,12 @@ void article_t_(article_t article) {
     return;
   }
 }
+
+void ss_article_t_markdown_file(article_t article) {
+  ss_article_t_(article); 
+  PSTR("Markdown file");
+}
+
 
 typedef enum {
   PLAN_LOCATION_IN_THE_PLANMD_FILE,
