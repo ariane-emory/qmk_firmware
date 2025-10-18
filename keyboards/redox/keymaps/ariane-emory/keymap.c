@@ -970,24 +970,24 @@ typedef enum {
 void ss_article_t_(article_t article) {
   switch (article) {
   case ARTICLE_A:
-    SEND_PSTR("a ");
+    SEND_PSTR("in a ");
     return;
   case ARTICLE_THE:
-    SEND_PSTR("the ");
+    SEND_PSTR("in the ");
     return;
   }
 }
 
-void ss_article_t_markdown_file_dot_(article_t article) {
+void ss_in_article_t_plan_markdown_file_dot_(article_t article) {
   ss_article_t_(article);  
-  PSTR("plan Markdown file. ");
+  SEND_PSTR("plan Markdown file. ");
 }
 
 typedef enum {
   PLAN_LOCATION_IN_THE_PLANMD_FILE,
   PLAN_LOCATION_THE_PLAN,
-  PLAN_LOCATION_THE_MARKDOWN_FILE,
-  PLAN_LOCATION_A_MARKDOWN_FILE,
+  PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE,
+  PLAN_LOCATION_IN_A_PLAN_MARKDOWN_FILE,
 } plan_location_t;
 
 void ss_plan_location_t_dot_(plan_location_t plan_location) {
@@ -998,11 +998,11 @@ void ss_plan_location_t_dot_(plan_location_t plan_location) {
   case PLAN_LOCATION_IN_THE_PLANMD_FILE:
     SEND_PSTR("in the PLAN.md file. ");
     break;
-  case PLAN_LOCATION_A_MARKDOWN_FILE:
-    ss_article_t_markdown_file_dot_(ARTICLE_A);
+  case PLAN_LOCATION_IN_A_PLAN_MARKDOWN_FILE:
+    ss_in_article_t_plan_markdown_file_dot_(ARTICLE_A);
     return;
-  case PLAN_LOCATION_THE_MARKDOWN_FILE:
-    ss_article_t_markdown_file_dot_(ARTICLE_THE);
+  case PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE:
+    ss_in_article_t_plan_markdown_file_dot_(ARTICLE_THE);
     return;
   }
 }
@@ -1069,7 +1069,8 @@ void ss_analyze_this_problem_(void) {
 
 void ss_write_the_plan_in_the_planmd_file_(void) {
   SEND_PSTR("Write the plan ");
-  ss_plan_location_t_dot_(PLAN_LOCATION_IN_THE_PLANMD_FILE);
+  ss_plan_location_t_dot_(PLAN_LOCATION_IN_A_PLAN_MARKDOWN_FILE);
+  /* ss_plan_locatio n_t_dot_(PLAN_LOCATION_IN_THE_PLANMD_FILE); */
 }
  
 typedef enum {
@@ -1211,8 +1212,10 @@ void leader_end_user(void) {
   /* IMPLEMENT: */
   else if (leader_sequence_two_keys  (KC_I, KC_A)) { /* all of plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_THE_PLAN);}
   else if (leader_sequence_two_keys  (KC_I, KC_N)) { /* proceed w/ next in plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_THE_PLAN);}
-  else if (leader_sequence_two_keys  (KC_F, KC_A)) { /* all of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
-  else if (leader_sequence_two_keys  (KC_F, KC_N)) { /* proceed w/ next in PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
+  /* else if (leader_sequence_two_keys  (KC_F, KC_A)) { /\* all of PLAN.md *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);} */
+  /* else if (leader_sequence_two_keys  (KC_F, KC_N)) { /\* proceed w/ next in PLAN.md *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);} */
+  else if (leader_sequence_two_keys  (KC_F, KC_A)) { /* all of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE);}
+  else if (leader_sequence_two_keys  (KC_F, KC_N)) { /* proceed w/ next in PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE);}
 }
 #endif // LEADER_ENABLE
 
