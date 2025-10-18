@@ -986,6 +986,8 @@ void ss_article_t_markdown_file(article_t article) {
 typedef enum {
   PLAN_LOCATION_IN_THE_PLANMD_FILE,
   PLAN_LOCATION_THE_PLAN,
+  PLAN_LOCATION_THE_MARKDOWN_FILE,
+  PLAN_LOCATION_A_MARKDOWN_FILE,
 } plan_location_t;
 
 void ss_plan_location_t_dot_(plan_location_t plan_location) {
