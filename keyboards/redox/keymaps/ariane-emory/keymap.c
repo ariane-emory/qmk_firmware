@@ -1119,7 +1119,7 @@ void ss_systematically_analyze_(void) {
 
 void ss_dead_code_(void) {
   ss_systematically_analyze_();
-  SEND_PSTR("the codebase for dead code and make a ");
+  SEND_PSTR("the codebase for any dead or duplicated code and make a ");
   ss_detailed_step_by_step_plan_();
   SEND_PSTR("to eliminate it. ");
   ss_group_phases_dot_();
@@ -1183,8 +1183,8 @@ void leader_end_user(void) {
   /* IMPLEMENT: */
   else if (leader_sequence_two_keys  (KC_I, KC_A)) { /* all of plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_THE_PLAN);}
   else if (leader_sequence_two_keys  (KC_I, KC_N)) { /* proceed w/ next in plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_THE_PLAN);}
-  else if (leader_sequence_two_keys  (KC_A, KC_F)) { /* all of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
-  else if (leader_sequence_two_keys  (KC_N, KC_F)) { /* proceed w/ next in PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
+  else if (leader_sequence_two_keys  (KC_F, KC_A)) { /* all of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
+  else if (leader_sequence_two_keys  (KC_F, KC_N)) { /* proceed w/ next in PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);}
 }
 #endif // LEADER_ENABLE
 
