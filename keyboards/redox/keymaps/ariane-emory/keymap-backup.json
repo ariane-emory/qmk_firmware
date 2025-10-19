@@ -765,7 +765,7 @@
       "KC_MS_L",
       "KC_MS_DOWN",
       "KC_MS_R",
-      "KC_RSFT",
+      "LGUI(KC_GRV)",
       "ANY(LCTL_OPEN)",
       "KC_LSFT",
       "ANY(LT(14, LSA(KC_LBRC)))",
