@@ -1051,7 +1051,7 @@ void ss_submit_the_plan_for_approval_before_editing_dot_(void) {
 }
 
 void ss_do_not_add_new_files_(void) {
-  SEND_PSTR("You MUST not add any new files. ");
+  SEND_PSTR("You MUST NOT add any new files. ");
 }
 
 void ss_post_check_dot_(when_t when) {
@@ -1182,6 +1182,7 @@ void leader_end_user(void) {
   else if (leader_sequence_two_keys  (KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! ");}
   else if (leader_sequence_two_keys  (KC_S, KC_F)) { /* so far so good */ SEND_PSTR("So far, so good. ");}
   else if (leader_sequence_two_keys  (KC_T, KC_C)) { /* testing comms */ SEND_PSTR("Testing communications, can you hear me? ");}
+  else if (leader_sequence_two_keys  (KC_T, KC_P)) { /* ./plan.md */ SEND_PSTR("The problem persists. "); }
   else if (leader_sequence_two_keys  (KC_T, KC_Y)) { /* thank you */ SEND_PSTR("Thank you. ");}
   else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ SEND_PSTR("Ultrathink. ");}
   else if (leader_sequence_one_key   (KC_Y))       { /* yes */ SEND_PSTR("Yes, please proceed. ");}
