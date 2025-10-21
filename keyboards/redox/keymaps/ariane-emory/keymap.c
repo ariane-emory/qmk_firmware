@@ -1164,7 +1164,7 @@ void leader_end_user(void) {
   else if (leader_sequence_one_key   (KC_Q))       {SEND_PSTR(/*S_CLR()*/ "cdkm; qmkc" S_CR());}
   else if (leader_sequence_two_keys  (KC_Q, KC_W)) {SEND_PSTR(S_CLEAR() "cdkm; qmkupd" S_CR());}
   else if (leader_sequence_one_key   (KC_R))       {SEND_PSTR(S_REPEAT_SHELL_CMD(_));}
-  else if (leader_sequence_one_key   (KC_S))       {SEND_PSTR(S_END() SS_LCTL(TAP(X_A)) SS_LCTL(TAP(X_K)) "shove" S_CR());}
+  else if (leader_sequence_one_key   (KC_S))       {SEND_PSTR(S_END() SS_LCTL(TAP(X_A)) SS_LCTL(TAP(X_K)) SS_DELAY(200) "shove" S_CR());}
 /* prompt fragments: */
   else if (leader_sequence_one_key   (KC_C))       { /* continue */ SEND_PSTR("Continue. ");}
   else if (leader_sequence_two_keys  (KC_C, KC_E)) { /* correct all errors */ SEND_PSTR("Correct ALL of the errors! ");}
