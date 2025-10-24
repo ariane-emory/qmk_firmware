@@ -31,10 +31,10 @@ rgb_led_fader_t rgb_led_fader;
 #define DIM_RGB_LED_T(x) (x >> DIM_RGBS)
 
 #define RGB_SETRGB_FROM_FADER(f)                                                                                                                 \
-  rgblight_setrgb(                                                                                                                               \
-    DIM_RGB_LED_T((f)->current.r),                                                                                                               \
-    DIM_RGB_LED_T((f)->current.g),                                                                                                               \
-    DIM_RGB_LED_T((f)->current.b));                                                                                                            
+rgblight_setrgb(                                                                                                                                 \
+DIM_RGB_LED_T((f)->current.r),                                                                                                                   \
+DIM_RGB_LED_T((f)->current.g),                                                                                                                   \
+DIM_RGB_LED_T((f)->current.b));                                                                                                            
 
 #define KEYRECORD_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t * record)
 #define CONST_KEYRECORD_FUN(type_and_name) type_and_name(uint16_t keycode, keyrecord_t const * const record)
@@ -87,7 +87,7 @@ void keyboard_post_init_user(void) {
 
   RGB_SETRGB_FROM_FADER(&rgb_led_fader);
 #endif
-}
+  }
 
 // ==============================================================================
 // Send string keycodes (string macros)
@@ -112,115 +112,71 @@ void keyboard_post_init_user(void) {
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR() TAP(X_HOME)
 #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR()
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) S_CR() TAP(X_ENT) "!!" S_CR() 
-/* #define S_TELEPORT(_)                                                                                                                             */
-/*   S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                 */
-/*   SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                   */
-/*   SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() TAP(X_ENT) SS_DELAY(2500)                                                           */
-/*                                                                          TAP(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                              */
+/* #define S_TELEPORT(_)                                                                                                                        */
+/*   S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()            */
+/*   SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                              */
+/*   SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() TAP(X_ENT) SS_DELAY(2500)                                                      */
+/*                                                                          TAP(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                         */
 /*                                                                                   SS_LGUI("`") S_DD() S_SCR_L() */
 #define S_TELEPORT(_)                                                                                                                            \
-  S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                \
-    SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                \
-    SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(500) TAP(X_ENT) SS_DELAY(3500)                                                 \
-  TAP(X_F) S_DD()                                                                                                                                \
-  SS_LGUI("`") S_DD() S_SCR_L()
+S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                  \
+SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                    \
+SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(500) TAP(X_ENT) SS_DELAY(3500)                                                     \
+TAP(X_F) S_DD()                                                                                                                                  \
+SS_LGUI("`") S_DD() S_SCR_L()
 
 // ==============================================================================
 // Send string keycodes (the main X-macro table)
 // ==============================================================================
 
-#ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                                                                                                 \
-  DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                               \
-    DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                             \
-    DO(EM_SWAP,              S_EM_SWAP()                           )                                                                             \
-  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                               \
-  DO(EM_SHELL,             (SS_LCTL("x") SS_LCTL("t"))           )                                                                               \
-  DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                               \
-  DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                               \
-  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                               \
-    DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                             \
-    DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                             \
-  DO(EM_SPLIT_V,           (SS_LCTL("x") "@")                    )                                                                               \
-  DO(EM_SPLIT_H,           (SS_LCTL("x") "#")                    )                                                                               \
-  DO(EM_MAC_BGN,           (SS_LCTL("x") "9")                    )                                                                               \
-  DO(EM_MAC_END,           (SS_LCTL("x") "0")                    )                                                                               \
-  DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                                                                               \
-    DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                             \
-    DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                             \
-  DO(SS_0X,                (")x")                                ) 
-//                         NO MODS
-#else
-#  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                                                                                                 \
-  DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                               \
-    DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                             \
-    DO(EM_SWAP,              S_EM_SWAP()                           )                                                                             \
-  DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                               \
-  DO(EM_SHELL,             (SS_LCTL("x") SS_LCTL("t"))           )                                                                               \
-  DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                               \
-  DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                               \
-  DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                               \
-    DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                             \
-    DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                             \
-  DO(EM_SPLIT_V,           (SS_LCTL("x") "2")                    )                                                                               \
-  DO(EM_SPLIT_H,           (SS_LCTL("x") "3")                    )                                                                               \
-  DO(EM_MAC_BGN,           (SS_LCTL("x") "(")                    )                                                                               \
-  DO(EM_MAC_END,           (SS_LCTL("x") ")")                    )                                                                               \
-  DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                                                                               \
-    DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                             \
-    DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                             \
-  DO(SS_0X,                ("0x")                                )                                                                               \
-  DO(SS_DICT2,             (TAP(X_F24) TAP(X_F24))               ) 
+DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                                 \
+DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                                 \
+DO(EM_SWAP,              S_EM_SWAP()                           )                                                                                 \
+DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                                 \
+DO(EM_SHELL,             (SS_LCTL("x") SS_LCTL("t"))           )                                                                                 \
+DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                                 \
+DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                                 \
+DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                                 \
+DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                                 \
+DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                                 \
+DO(EM_SPLIT_V,           (SS_LCTL("x") "2")                    )                                                                                 \
+DO(EM_SPLIT_H,           (SS_LCTL("x") "3")                    )                                                                                 \
+DO(EM_MAC_BGN,           (SS_LCTL("x") "(")                    )                                                                                 \
+DO(EM_MAC_END,           (SS_LCTL("x") ")")                    )                                                                                 \
+DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                                                                                 \
+DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                 \
+DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                                 \
+DO(SS_0X,                ("0x")                                )                                                                                 \
+DO(SS_DICT2,             (TAP(X_F24) TAP(X_F24))               ) 
 //                         NO MODS                                 
-#endif
 
 #define S_EVAL_SEXP (SS_LCTL("x") SS_LCTL("e"))
 //#define S_PP_EVAL_SEXP (SS_LCTL("x") SS_LCTL(" "))
 #define S_PP_EVAL_SEXP (SS_LCTL("c") SS_LCTL(SS_TAP(X_BSPC)))
 
-#ifdef AE_FLIPPED_NUMS
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
-  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),   (""),              (""))                           \
-    DO(EM_LASTARG,                                                                                                                               \
-       (S_EVAL_SEXP),           /* NO MODS */                                                                                                    \
-       (S_PP_EVAL_SEXP),        /* CTRL */                                                                                                       \
-       (" " SS_LCTL("c") "."),  /* ALT */                                                                                                        \
-       ("c -" S_CR()))          /* SHIFT */                                                                                                      \
-  DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))       \
-  DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                     \
-    DO(SS_ARROW,             ("->"),                  (" => "),                                 ("4()" S_LL()),     (""))                        \
-  DO(SS_SMILEY,            (" ;0"),                 (" :/"),                                  (" >_>"),           (""))                          \
-  DO(SS_SMILEY2,           (" :0"),                 (" :P"),                                  (" :D"),            (""))                          \
-  DO(SS_DIR,               ("~/"),                  ("../"),                                  ("./"),             (""))                          \
-  DO(SS_CD,                ("cd "),                 ("cd ~/"),                                ("cd .."),          ("cd -"))                      \
-  DO(SS_LBRACK,            ("9"),                   ("{"),                                    ("["),              ("<"))                         \
-  DO(SS_RBRACK,            ("0"),                   ("}"),                                    ("]"),              (">"))                         \
-    DO(SS_AND_AND,           (" 77 "),                (" || "),                                 (" @>7! "),         (" >/dev/null "))            \
-//                         NO MODS                  CTRL                                      ALT                 SHIFT
-#else
-#  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
-  DO(SS_CD,                ("cd "),                 ("cd ~/"),                                ("cd .."),          ("cd -"))                      \
-    DO(SS_SMILEY2,           (" :)"),                 (" :P"),                                  (" :D"),            (""))                        \
-    DO(SS_AND_AND,           (" && "),                (" || "),                                 (" 2>&1 "),         (" >/dev/null "))            \
-  DO(SS_SMILEY,            (" ;)"),                 (" :/"),                                  (" >_>"),           (""))                          \
-  DO(SS_LBRACK,            ("("),                   ("{"),                                    ("["),              ("<"))                         \
-  DO(SS_RBRACK,            (")"),                   ("}"),                                    ("]"),              (">"))                         \
-  DO(EM_LASTARG,                                                                                                                                 \
-     (S_EVAL_SEXP),           /* NO MODS */                                                                                                      \
-     (S_PP_EVAL_SEXP),        /* CTRL */                                                                                                         \
-     (" " SS_LCTL("c") "."),  /* ALT */                                                                                                          \
-     ("c -" S_CR()))          /* SHIFT */                                                                                                        \
-  DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),   (""),               (""))                          \
-  DO(SS_DIR,               ("~/"),                  ("../"),                                  ("./"),             ("` + `" S_LL() S_CR() S_TB() S_RR())) \
-  DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("``" S_LL()),      ("->"))                        \
-  DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))       \
-  DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                     \
-//                         NO MODS                  CTRL                                      ALT                 SHIFT
-#endif
+DO(SS_CD,                ("cd "),                 ("cd ~/"),                                ("cd .."),          ("cd -"))                        \
+DO(SS_SMILEY2,           (" :)"),                 (" :P"),                                  (" :D"),            (""))                            \
+DO(SS_AND_AND,           (" && "),                (" || "),                                 (" 2>&1 "),         (" >/dev/null "))                \
+DO(SS_SMILEY,            (" ;)"),                 (" :/"),                                  (" >_>"),           (""))                            \
+DO(SS_LBRACK,            ("("),                   ("{"),                                    ("["),              ("<"))                           \
+DO(SS_RBRACK,            (")"),                   ("}"),                                    ("]"),              (">"))                           \
+DO(EM_LASTARG,                                                                                                                                   \
+  (S_EVAL_SEXP),           /* NO MODS */                                                                                                         \
+(S_PP_EVAL_SEXP),        /* CTRL */                                                                                                              \
+  (" " SS_LCTL("c") "."),  /* ALT */                                                                                                             \
+  ("c -" S_CR()))          /* SHIFT */                                                                                                           \
+DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),   (""),               (""))                            \
+DO(SS_DIR,               ("~/"),                  ("../"),                                  ("./"),             ("` + `" S_LL() S_CR() S_TB() S_RR())) \
+DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("``" S_LL()),      ("->"))                          \
+DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))         \
+DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                       \
+  //                         NO MODS                  CTRL                                      ALT                 SHIFT
 
-// ==============================================================================
-// Send string keycodes (initialize the strings)
-// ==============================================================================
+  // ==============================================================================
+  // Send string keycodes (initialize the strings)
+  // ==============================================================================
 
 #define enum_item(kc, ...)                                                                     kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                                        static const char tag##_str_##kc[] PROGMEM = str;
@@ -261,7 +217,7 @@ enum arianes_custom_keycodes {
   DISCORD_MUTE,
   TOGGLE_DF,
   FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(enum_item)
-  FOR_EACH_BASIC_SEND_STRING_KEYCODE(enum_item)
+    FOR_EACH_BASIC_SEND_STRING_KEYCODE(enum_item)
 };
 
 // ==============================================================================
@@ -351,7 +307,7 @@ CONST_KEYRECORD_FUN(bool dynamic_macros_handler) {
     dynamic_macro_stop_recording();
 #endif // DYNAMIC_MACRO_ENABLE
 
-  return true;
+return true;
 }
 #endif // DYNAMIC_MACRO_HANDLERS
 
@@ -418,11 +374,11 @@ CONST_KEYRECORD_FUN(bool type_layout_handler) {
   const uint8_t innermost_typed_column = 5;
     
 #define TAP_HALF_ROW_BY_MATRIX_POS(row, start_column, end_column, col_incr, row_offset)                                                          \
-  for (uint8_t column = start_column;                                                                                                            \
-       column != end_column + col_incr;                                                                                                          \
-       column += col_incr) {                                                                                                                     \
-    tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){column, row + row_offset}));                               \
-    tap_code(KC_SPC);                                                                                                                            \
+for (uint8_t column = start_column;                                                                                                            \
+  column != end_column + col_incr;                                                                                                          \
+  column += col_incr) {                                                                                                                     \
+  tap_code(keymap_key_to_keycode(get_highest_layer(default_layer_state), (keypos_t){column, row + row_offset}));                               \
+  tap_code(KC_SPC);                                                                                                                            \
   }
 
   for (uint8_t row = 1; row <= 3; ++row) {
@@ -536,18 +492,18 @@ static const struct { uint16_t keycode; keycode_handler_fun_t handler; } keycode
   { KC_QUOT,                     double_quote_handler },
   { RHRM_4(KC_QUOT),             double_quote_handler },
   
-#ifdef DYNAMIC_MACRO_HANDLERS
+  #ifdef DYNAMIC_MACRO_HANDLERS
   { QK_DYNAMIC_MACRO_PLAY_1,     dynamic_macros_handler      },
   { QK_DYNAMIC_MACRO_PLAY_2,     dynamic_macros_handler      },
-#endif // DYNAMIC_MACRO_HANDLERS
+  #endif // DYNAMIC_MACRO_HANDLERS
 
-#ifdef    HOLD_GUI_ENABLED
+    #ifdef    HOLD_GUI_ENABLED
   { HOLD_GUI,                    hold_gui_handler            },
-#endif    // HOLD_GUI_ENABLED
+  #endif    // HOLD_GUI_ENABLED
 
-#ifdef    INSERT_UPP_ENABLED
+    #ifdef    INSERT_UPP_ENABLED
   { INSERT_UPP,                  insert_upp_handler          },
-#endif // INSERT_UPP_ENABLED
+  #endif // INSERT_UPP_ENABLED
 };
 
 // ==============================================================================
@@ -670,28 +626,28 @@ static uint16_t idle_timer = 0;
 KEYRECORD_FUN(bool process_record_user) {
   idle_timer = timer_read();
 
-  // Unprime double quoting when other key is struck. This should probably be
-  // moved to some sort of cleanup function.
-  if (record->event.pressed && (((uint8_t)keycode) != ((uint8_t)KC_QUOT)))
-    double_quote_is_primed = false;
+// Unprime double quoting when other key is struck. This should probably be
+// moved to some sort of cleanup function.
+if (record->event.pressed && (((uint8_t)keycode) != ((uint8_t)KC_QUOT)))
+  double_quote_is_primed = false;
   
 #ifdef USE_ACHORDION
-  if (! process_achordion(keycode, record)) return false;
+if (! process_achordion(keycode, record)) return false;
 #endif // USE_ACHORDION
   
-  if (! process_basic_send_string(keycode, record)) return false;
-  if (! process_moddable_send_string(keycode, record)) return false;
-  if (! process_tap_case(keycode, record)) return false;
-  if (process_mouse_keys(keycode, record)) return true;
+if (! process_basic_send_string(keycode, record)) return false;
+if (! process_moddable_send_string(keycode, record)) return false;
+if (! process_tap_case(keycode, record)) return false;
+if (process_mouse_keys(keycode, record)) return true;
     
-  for (uint8_t ix = 0; ix < ARRAY_SIZE(keycode_handlers); ix++) {
-    if (pgm_read_word(&keycode_handlers[ix].keycode) == keycode) {
-      keycode_handler_fun_t handler = (keycode_handler_fun_t)(pgm_read_ptr(&keycode_handlers[ix].handler));
+for (uint8_t ix = 0; ix < ARRAY_SIZE(keycode_handlers); ix++) {
+  if (pgm_read_word(&keycode_handlers[ix].keycode) == keycode) {
+    keycode_handler_fun_t handler = (keycode_handler_fun_t)(pgm_read_ptr(&keycode_handlers[ix].handler));
 
-      return (*handler)(keycode, record);
-    }
+    return (*handler)(keycode, record);
   }
-  return true;
+}
+return true;
 }
 
 // ==============================================================================
@@ -716,14 +672,14 @@ void dynamic_macro_record_end_user(int8_t direction) {
 
 #ifdef RGBLIGHT_ENABLE
 #  ifdef DYNAMIC_MACRO_HANDLERS
-bool set_rgb_led_fader_target_if_recording_macro(rgb_led_fader_t * const this) {
-  if (! currently_recording_macro)
-    return false;
+  bool set_rgb_led_fader_target_if_recording_macro(rgb_led_fader_t * const this) {
+    if (! currently_recording_macro)
+      return false;
 
-  set_rgb_led_fader_target(this, MY_RGB_RECORDING_MACRO);
+    set_rgb_led_fader_target(this, MY_RGB_RECORDING_MACRO);
 
-  return true;
-}
+    return true;
+  }
 #  endif //  DYNAMIC_MACRO_HANDLERS
 
 typedef struct layer_to_rgb_t {
@@ -801,10 +757,10 @@ void matrix_scan_user(void) {
   manage_toggled_layer_timeout(TOGGLED_LAYER, TOGGLED_LAYER_TIMEOUT, idle_timer);
 #endif // TOGGLED_LAYER_TIMEOUT
   
-#if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-#  ifdef DYNAMIC_MACRO_HANDLERS
+  #if defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
+  #  ifdef DYNAMIC_MACRO_HANDLERS
   if (!set_rgb_led_fader_target_if_recording_macro(&rgb_led_fader))
-#  endif // DYNAMIC_MACRO_HANDLERS
+    #  endif // DYNAMIC_MACRO_HANDLERS
     set_rgb_led_fader_target_by_layer(&rgb_led_fader);
   
 #  ifdef SLOW_RGBS
@@ -814,138 +770,138 @@ void matrix_scan_user(void) {
   ticker %= 3;
   
   if (ticker)
-#  endif
+    #  endif
     step_rgb_led_fader(&rgb_led_fader);
 
   RGB_SETRGB_FROM_FADER(&rgb_led_fader);
 #endif // defined(RGBLIGHT_ENABLE) && defined(MY_RGB_LAYERS)
-}
+  }
 
-// ==============================================================================
-// Achordion
-// ==============================================================================
+  // ==============================================================================
+  // Achordion
+  // ==============================================================================
 
 #ifdef USE_ACHORDION
-static const uint16_t achordion_qwerty_bilat_keys[] PROGMEM = {
-  QH_S, QH_D, QH_F,
-  QH_J, QH_K, QH_L, QH_QUOT
-};
+  static const uint16_t achordion_qwerty_bilat_keys[] PROGMEM = {
+    QH_S, QH_D, QH_F,
+    QH_J, QH_K, QH_L, QH_QUOT
+  };
 
-static const uint16_t achordion_canary_bilat_keys[] PROGMEM = {
-  NH_S, NH_D, NH_F,
-  NH_J, NH_K, NH_L, NH_QUOT
-};
+  static const uint16_t achordion_canary_bilat_keys[] PROGMEM = {
+    NH_S, NH_D, NH_F,
+    NH_J, NH_K, NH_L, NH_QUOT
+  };
 
-static const keycode_pair_t achordion_exceptions[] PROGMEM = {
-  // Left GUI
-  { QH_S,    QT_R            }, // refresh
-  { QH_S,    QT_T            }, // new tab
-  { QH_S,   KC_ENT },
+  static const keycode_pair_t achordion_exceptions[] PROGMEM = {
+    // Left GUI
+    { QH_S,    QT_R            }, // refresh
+    { QH_S,    QT_T            }, // new tab
+    { QH_S,   KC_ENT },
 
-  // Left alt
-  { QH_D,    KC_ENT          }, // M-<return>
+    // Left alt
+    { QH_D,    KC_ENT          }, // M-<return>
 
-  // Left Control
-  { QH_F,    QH_A            }, // beginning of line
-  { QH_F,    KC_ENT          }, // C-<return>
-  { QH_F,    QT_E            }, // end of line
+    // Left Control
+    { QH_F,    QH_A            }, // beginning of line
+    { QH_F,    KC_ENT          }, // C-<return>
+    { QH_F,    QT_E            }, // end of line
   
-  // Right Control
-  { QH_J,    QH_K            }, // kill line
+    // Right Control
+    { QH_J,    QH_K            }, // kill line
 
-  { QH_J,    QH_L            }, // recenter / address bar
-  { QH_J,    QT_Y            }, // yank
-  { QH_J,    QB_N            }, // next line
-  { QH_J,    QT_I            }, // tab
-  { QH_J,    QT_P            }, // prev line
+    { QH_J,    QH_L            }, // recenter / address bar
+    { QH_J,    QT_Y            }, // yank
+    { QH_J,    QB_N            }, // next line
+    { QH_J,    QT_I            }, // tab
+    { QH_J,    QT_P            }, // prev line
 
-  // Right Alt
-  { QH_K,    QH_L            }, // address bar?
-  { QH_K,    QT_P            }, // prev command
-  { QH_K,    QB_N            }, // next command
+    // Right Alt
+    { QH_K,    QH_L            }, // address bar?
+    { QH_K,    QT_P            }, // prev command
+    { QH_K,    QB_N            }, // next command
 
-};
+  };
 
-bool achordion_chord(
-  uint16_t      tap_hold_keycode,
-  keyrecord_t * tap_hold_record,
-  uint16_t      other_keycode,
-  keyrecord_t * other_record) {
-  /* // KC_TAB keycode is not subject to achordion: */
-  /* if (other_keycode >= KC_TAB) */
-  /*   return true; */
+  bool achordion_chord(
+                       uint16_t      tap_hold_keycode,
+                       keyrecord_t * tap_hold_record,
+                       uint16_t      other_keycode,
+                       keyrecord_t * other_record) {
+    /* // KC_TAB keycode is not subject to achordion: */
+    /* if (other_keycode >= KC_TAB) */
+    /*   return true; */
 
-  // custom keycodes are not subject to achordion:
-  if (other_keycode >= SAFE_RANGE)
-    return true;
+    // custom keycodes are not subject to achordion:
+    if (other_keycode >= SAFE_RANGE)
+      return true;
 
-  // Allow same-hand holds when the other key is in the rows below the
-  // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
-  //
-  // NOTE-AE: This is probably unnecesary due to the following check.  //
-  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
-    return true;
+    // Allow same-hand holds when the other key is in the rows below the
+    // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
+    //
+    // NOTE-AE: This is probably unnecesary due to the following check.  //
+    if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4)
+      return true;
 
-  // If it isn't a home row mod/shift, process normally.
-  if (!array_contains_keycode_P(tap_hold_keycode,
-                                (toggle_df_flag
-                                 ? achordion_canary_bilat_keys
-                                 : achordion_qwerty_bilat_keys),
-                                (toggle_df_flag
-                                 ? ARRAY_SIZE(achordion_canary_bilat_keys)
-                                 : ARRAY_SIZE(achordion_qwerty_bilat_keys))))
-    return true;
+    // If it isn't a home row mod/shift, process normally.
+    if (!array_contains_keycode_P(tap_hold_keycode,
+                                  (toggle_df_flag
+                                   ? achordion_canary_bilat_keys
+                                   : achordion_qwerty_bilat_keys),
+                                  (toggle_df_flag
+                                   ? ARRAY_SIZE(achordion_canary_bilat_keys)
+                                   : ARRAY_SIZE(achordion_qwerty_bilat_keys))))
+      return true;
   
-  // Exceptionally consider the following chords as holds, even though they
-  // are on the same hand.
-  if (array_contains_keycode_pair_P((keycode_pair_t){ tap_hold_keycode, other_keycode }, achordion_exceptions, ARRAY_SIZE(achordion_exceptions)))
-    return true;
+    // Exceptionally consider the following chords as holds, even though they
+    // are on the same hand.
+    if (array_contains_keycode_pair_P((keycode_pair_t){ tap_hold_keycode, other_keycode }, achordion_exceptions, ARRAY_SIZE(achordion_exceptions)))
+      return true;
    
-  return achordion_opposite_hands(tap_hold_record, other_record);
-}
+    return achordion_opposite_hands(tap_hold_record, other_record);
+  }
 
-bool achordion_eager_mod(uint8_t mod) {
-  return true;  // Eagerly apply all mods.
-}
+  bool achordion_eager_mod(uint8_t mod) {
+    return true;  // Eagerly apply all mods.
+  }
 #endif
 
-// ==============================================================================
-// Mod-tap interrupt
-// ==============================================================================
+  // ==============================================================================
+  // Mod-tap interrupt
+  // ==============================================================================
 
-static const uint16_t hold_on_other_keypress_keys[] PROGMEM = {
-  LCTL_ESC,
-  LCTL_DQUO,
-  LSFT_T(KC_MINS),
-  RSFT_T(KC_MINS),
-};
+  static const uint16_t hold_on_other_keypress_keys[] PROGMEM = {
+    LCTL_ESC,
+    LCTL_DQUO,
+    LSFT_T(KC_MINS),
+    RSFT_T(KC_MINS),
+  };
 
-KEYRECORD_FUN(bool get_hold_on_other_key_press) {
+  KEYRECORD_FUN(bool get_hold_on_other_key_press) {
   return ((keycode >= QK_MOD_TAP) &&
           (keycode <= QK_MOD_TAP_MAX) &&
           array_contains_keycode_P(keycode, hold_on_other_keypress_keys, ARRAY_SIZE(hold_on_other_keypress_keys)));
 }
 
-static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
-  CRL_LFT,
-  CRL_RGT,
-  THU_LFT,
-  THU_RGT,
-  QH_A, QH_S, QH_D, QH_F, QH_G,
-  QH_J, QH_K, QH_L, QH_QUOT,  
-};
+  static const uint16_t layer0_permissive_hold_keys[] PROGMEM = {
+    CRL_LFT,
+    CRL_RGT,
+    THU_LFT,
+    THU_RGT,
+    QH_A, QH_S, QH_D, QH_F, QH_G,
+    QH_J, QH_K, QH_L, QH_QUOT,  
+  };
 
-static const uint16_t layer9_permissive_hold_keys[] PROGMEM = {
-  CRL_LFT,
-  CRL_RGT,
-  THU_LFT,
-  THU_RGT,
-  NH_A, NH_S, NH_D, NH_F, NH_G,
-  NH_J, NH_K, NH_L, NH_QUOT,  
-};
+  static const uint16_t layer9_permissive_hold_keys[] PROGMEM = {
+    CRL_LFT,
+    CRL_RGT,
+    THU_LFT,
+    THU_RGT,
+    NH_A, NH_S, NH_D, NH_F, NH_G,
+    NH_J, NH_K, NH_L, NH_QUOT,  
+  };
 
 
-KEYRECORD_FUN(bool get_permissive_hold) {
+  KEYRECORD_FUN(bool get_permissive_hold) {
   if ((IS_LAYER_ON(0) && array_contains_keycode_P(keycode, layer0_permissive_hold_keys, ARRAY_SIZE(layer0_permissive_hold_keys))) ||
       (IS_LAYER_ON(9) && array_contains_keycode_P(keycode, layer9_permissive_hold_keys, ARRAY_SIZE(layer9_permissive_hold_keys))))
     return false; // Do not select the hold action when another key is tapped.
@@ -953,285 +909,285 @@ KEYRECORD_FUN(bool get_permissive_hold) {
   return true; // Select the hold action when another key is tapped.
 }
 
-uint16_t keycode_config(uint16_t keycode) {
-  return keycode;
-}
+  uint16_t keycode_config(uint16_t keycode) {
+    return keycode;
+  }
 
-// ==============================================================================
-// Leader key
-// ==============================================================================
+  // ==============================================================================
+  // Leader key
+  // ==============================================================================
 
 #ifdef LEADER_ENABLE
 
-typedef enum {
-  ARTICLE_A,
-  ARTICLE_THE,
-} article_t;
+  typedef enum {
+    ARTICLE_A,
+    ARTICLE_THE,
+  } article_t;
 
-void ss_article_t_(article_t article) {
-  switch (article) {
-  case ARTICLE_A:
-    SEND_PSTR("in a ");
-    return;
-  case ARTICLE_THE:
-    SEND_PSTR("in the ");
-    return;
+  void ss_article_t_(article_t article) {
+    switch (article) {
+    case ARTICLE_A:
+      SEND_PSTR("in a ");
+      return;
+    case ARTICLE_THE:
+      SEND_PSTR("in the ");
+      return;
+    }
   }
-}
 
-void ss_in_article_t_plan_markdown_file_dot_(article_t article) {
-  ss_article_t_(article);  
-  SEND_PSTR("plan Markdown file. ");
-}
-
-typedef enum {
-  PLAN_LOCATION_IN_THE_PLANMD_FILE,
-  PLAN_LOCATION_THE_PLAN,
-  PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE,
-  PLAN_LOCATION_IN_A_PLAN_MARKDOWN_FILE,
-} plan_location_t;
-
-void ss_plan_location_t_dot_(plan_location_t plan_location) {
-  switch(plan_location) {
-  case PLAN_LOCATION_THE_PLAN:
-    SEND_PSTR("the plan. ");
-    break;
-  case PLAN_LOCATION_IN_THE_PLANMD_FILE:
-    SEND_PSTR("in the PLAN.md file. ");
-    break;
-  case PLAN_LOCATION_IN_A_PLAN_MARKDOWN_FILE:
-    ss_in_article_t_plan_markdown_file_dot_(ARTICLE_A);
-    return;
-  case PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE:
-    ss_in_article_t_plan_markdown_file_dot_(ARTICLE_THE);
-    return;
+  void ss_in_article_t_plan_markdown_file_dot_(article_t article) {
+    ss_article_t_(article);  
+    SEND_PSTR("plan Markdown file. ");
   }
-}
 
-void ss_mark_completed_in_the_planmd_file_dot_(void) {
-  SEND_PSTR("You MUST check off any steps you've completed ");
-  ss_plan_location_t_dot_(PLAN_LOCATION_IN_THE_PLANMD_FILE);
-}
+  typedef enum {
+    PLAN_LOCATION_IN_THE_PLANMD_FILE,
+    PLAN_LOCATION_THE_PLAN,
+    PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE,
+    PLAN_LOCATION_IN_A_PLAN_MARKDOWN_FILE,
+  } plan_location_t;
 
-typedef enum {
-  WHEN_AFTERWARDS,
-  WHEN_AFTER_EACH_PHASE,
-  WHEN_BEFORE_EDITING,
-} when_t;
-
-void ss_when_t_dot_(when_t when) {
-  switch(when) {
-  case WHEN_AFTERWARDS:
-    SEND_PSTR("afterwards. ");
-    return;
-  case WHEN_AFTER_EACH_PHASE:
-    SEND_PSTR("after each phase. ");
-    return;
-  case WHEN_BEFORE_EDITING:
-    SEND_PSTR("before you start editing the code. ");
-    return;
+  void ss_plan_location_t_dot_(plan_location_t plan_location) {
+    switch(plan_location) {
+    case PLAN_LOCATION_THE_PLAN:
+      SEND_PSTR("the plan. ");
+      break;
+    case PLAN_LOCATION_IN_THE_PLANMD_FILE:
+      SEND_PSTR("in the PLAN.md file. ");
+      break;
+    case PLAN_LOCATION_IN_A_PLAN_MARKDOWN_FILE:
+      ss_in_article_t_plan_markdown_file_dot_(ARTICLE_A);
+      return;
+    case PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE:
+      ss_in_article_t_plan_markdown_file_dot_(ARTICLE_THE);
+      return;
+    }
   }
-}
 
-void ss_must_build_and_pass_tests_dot_(when_t when) {
-  SEND_PSTR("The code MUST build correctly and all tests MUST pass ");
-  ss_when_t_dot_(when);
-}
+  void ss_mark_completed_in_the_planmd_file_dot_(void) {
+    SEND_PSTR("You MUST check off any steps you've completed ");
+    ss_plan_location_t_dot_(PLAN_LOCATION_IN_THE_PLANMD_FILE);
+  }
 
-void ss_do_not_edit_any_code_yet_dot_(void) {
-  SEND_PSTR("Do not edit any code yet. ");
-}
+  typedef enum {
+    WHEN_AFTERWARDS,
+    WHEN_AFTER_EACH_PHASE,
+    WHEN_BEFORE_EDITING,
+  } when_t;
 
-void ss_detailed_step_by_step_plan_(void) {
-  SEND_PSTR("detailed, step-by-step plan ");
-}
+  void ss_when_t_dot_(when_t when) {
+    switch(when) {
+    case WHEN_AFTERWARDS:
+      SEND_PSTR("afterwards. ");
+      return;
+    case WHEN_AFTER_EACH_PHASE:
+      SEND_PSTR("after each phase. ");
+      return;
+    case WHEN_BEFORE_EDITING:
+      SEND_PSTR("before you start editing the code. ");
+      return;
+    }
+  }
 
-void ss_submit_the_plan_for_approval_before_editing_dot_(void) {
-  SEND_PSTR("Submit the plan for my approval ");
-  ss_when_t_dot_(WHEN_BEFORE_EDITING);
-}
+  void ss_must_build_and_pass_tests_dot_(when_t when) {
+    SEND_PSTR("The code MUST build correctly and all tests MUST pass ");
+    ss_when_t_dot_(when);
+  }
 
-void ss_do_not_add_new_files_(void) {
-  SEND_PSTR("You MUST NOT add any new files. ");
-}
+  void ss_do_not_edit_any_code_yet_dot_(void) {
+    SEND_PSTR("Do not edit any code yet. ");
+  }
 
-void ss_post_check_dot_(when_t when) {
-  ss_must_build_and_pass_tests_dot_(when);
-}
+  void ss_detailed_step_by_step_plan_(void) {
+    SEND_PSTR("detailed, step-by-step plan ");
+  }
 
-void ss_group_phases_dot_(void) {
-  SEND_PSTR("Group the plan's steps into \"phases\". ");
-  ss_post_check_dot_(WHEN_AFTER_EACH_PHASE);
-}
+  void ss_submit_the_plan_for_approval_before_editing_dot_(void) {
+    SEND_PSTR("Submit the plan for my approval ");
+    ss_when_t_dot_(WHEN_BEFORE_EDITING);
+  }
 
-void ss_analyze_this_problem_(void) {
-  SEND_PSTR("Analyze this problem");
-}
+  void ss_do_not_add_new_files_(void) {
+    SEND_PSTR("You MUST NOT add any new files. ");
+  }
 
-void ss_write_the_plan_in_the_planmd_file_(void) {
-  SEND_PSTR("Write the plan ");
-  ss_plan_location_t_dot_(PLAN_LOCATION_IN_A_PLAN_MARKDOWN_FILE);
-  /* ss_plan_locatio n_t_dot_(PLAN_LOCATION_IN_THE_PLANMD_FILE); */
-}
+  void ss_post_check_dot_(when_t when) {
+    ss_must_build_and_pass_tests_dot_(when);
+  }
+
+  void ss_group_phases_dot_(void) {
+    SEND_PSTR("Group the plan's steps into \"phases\". ");
+    ss_post_check_dot_(WHEN_AFTER_EACH_PHASE);
+  }
+
+  void ss_analyze_this_problem_(void) {
+    SEND_PSTR("Analyze this problem");
+  }
+
+  void ss_write_the_plan_in_the_planmd_file_(void) {
+    SEND_PSTR("Write the plan ");
+    ss_plan_location_t_dot_(PLAN_LOCATION_IN_A_PLAN_MARKDOWN_FILE);
+    /* ss_plan_locatio n_t_dot_(PLAN_LOCATION_IN_THE_PLANMD_FILE); */
+  }
  
-typedef enum {
-  SUBJECT_CHANGE,
-  SUBJECT_FEATURE,
-  SUBJECT_PROBLEM,
-  SUBJECT_SOLUTION,
-  SUBJECT_REFACTORING,
-} plan_subject_t;
+  typedef enum {
+    SUBJECT_CHANGE,
+    SUBJECT_FEATURE,
+    SUBJECT_PROBLEM,
+    SUBJECT_SOLUTION,
+    SUBJECT_REFACTORING,
+  } plan_subject_t;
 
-void ss_plan_subject_t(const plan_subject_t subject) {
-  switch (subject) {
-  case SUBJECT_CHANGE: SEND_PSTR("change"); return;
-  case SUBJECT_FEATURE: SEND_PSTR("feature"); return;
-  case SUBJECT_PROBLEM: SEND_PSTR("problem"); return;
-  case SUBJECT_REFACTORING: SEND_PSTR("refactoring"); return;
-  case SUBJECT_SOLUTION: SEND_PSTR("solution"); return;
+  void ss_plan_subject_t(const plan_subject_t subject) {
+    switch (subject) {
+    case SUBJECT_CHANGE: SEND_PSTR("change"); return;
+    case SUBJECT_FEATURE: SEND_PSTR("feature"); return;
+    case SUBJECT_PROBLEM: SEND_PSTR("problem"); return;
+    case SUBJECT_REFACTORING: SEND_PSTR("refactoring"); return;
+    case SUBJECT_SOLUTION: SEND_PSTR("solution"); return;
+    }
   }
-}
 
-void ss_plan_dot_(plan_subject_t subject, plan_subject_t subject2) {
-  SEND_PSTR("Think the ");
-  ss_plan_subject_t(subject);
-  SEND_PSTR(" through thoroughly and break the ");
-  ss_plan_subject_t(subject2);
-  SEND_PSTR(" down into small steps to produce a ");
-  ss_detailed_step_by_step_plan_();
-  SEND_PSTR("for implementing the ");
-  ss_plan_subject_t(subject2);
-  SEND_PSTR(". ");
-  ss_group_phases_dot_();
-}
-
-void ss_analyze_smells_(void) {
-  ss_do_not_edit_any_code_yet_dot_();
-  SEND_PSTR("Analyze the code and find opportunities to refactor to improve its maintainability, or for other 'code smells' we could eliminate. ");
-  ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);
-  ss_do_not_add_new_files_();
-  ss_submit_the_plan_for_approval_before_editing_dot_();
-  ss_write_the_plan_in_the_planmd_file_();
-}
-
-typedef enum {
-  PHASE_DESCRIPTION_ALL_PHASES_OF,
-  PHASE_DESCRIPTION_THE_NEXT_PHASE_OF,
-} phase_description_t;
-
-void ss_phase_description(phase_description_t phase_description) {
-  switch (phase_description) {
-  case PHASE_DESCRIPTION_THE_NEXT_PHASE_OF:
-    SEND_PSTR("the next phase of ");
-    break;
-  case PHASE_DESCRIPTION_ALL_PHASES_OF:
-    SEND_PSTR("all phases of ");
-    break;
+  void ss_plan_dot_(plan_subject_t subject, plan_subject_t subject2) {
+    SEND_PSTR("Think the ");
+    ss_plan_subject_t(subject);
+    SEND_PSTR(" through thoroughly and break the ");
+    ss_plan_subject_t(subject2);
+    SEND_PSTR(" down into small steps to produce a ");
+    ss_detailed_step_by_step_plan_();
+    SEND_PSTR("for implementing the ");
+    ss_plan_subject_t(subject2);
+    SEND_PSTR(". ");
+    ss_group_phases_dot_();
   }
-}
 
-void ss_proceed_with_implementing_plan_etc_dot_(phase_description_t phase_description,
-                                                plan_location_t plan_location) {
-  SEND_PSTR("Proceed with the implemention of ");
+  void ss_analyze_smells_(void) {
+    ss_do_not_edit_any_code_yet_dot_();
+    SEND_PSTR("Analyze the code and find opportunities to refactor to improve its maintainability, or for other 'code smells' we could eliminate. ");
+    ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);
+    ss_do_not_add_new_files_();
+    ss_submit_the_plan_for_approval_before_editing_dot_();
+    ss_write_the_plan_in_the_planmd_file_();
+  }
+
+  typedef enum {
+    PHASE_DESCRIPTION_ALL_PHASES_OF,
+    PHASE_DESCRIPTION_THE_NEXT_PHASE_OF,
+  } phase_description_t;
+
+  void ss_phase_description(phase_description_t phase_description) {
+    switch (phase_description) {
+    case PHASE_DESCRIPTION_THE_NEXT_PHASE_OF:
+      SEND_PSTR("the next phase of ");
+      break;
+    case PHASE_DESCRIPTION_ALL_PHASES_OF:
+      SEND_PSTR("all phases of ");
+      break;
+    }
+  }
+
+  void ss_proceed_with_implementing_plan_etc_dot_(phase_description_t phase_description,
+                                                  plan_location_t plan_location) {
+    SEND_PSTR("Proceed with the implemention of ");
  
-  ss_phase_description(phase_description);
-  ss_plan_location_t_dot_(plan_location);
+    ss_phase_description(phase_description);
+    ss_plan_location_t_dot_(plan_location);
 
-  if (plan_location == PLAN_LOCATION_IN_THE_PLANMD_FILE) 
-    ss_mark_completed_in_the_planmd_file_dot_();
+    if (plan_location == PLAN_LOCATION_IN_THE_PLANMD_FILE) 
+      ss_mark_completed_in_the_planmd_file_dot_();
 
-  ss_post_check_dot_(WHEN_AFTERWARDS);
-}
+    ss_post_check_dot_(WHEN_AFTERWARDS);
+  }
 
-void ss_systematically_analyze_(void) {
-  SEND_PSTR("Systematically analyze ");
-}
+  void ss_systematically_analyze_(void) {
+    SEND_PSTR("Systematically analyze ");
+  }
 
-void ss_dead_code_(void) {
-  ss_systematically_analyze_();
-  SEND_PSTR("the codebase for any dead or duplicated code and make a ");
-  ss_detailed_step_by_step_plan_();
-  SEND_PSTR("to eliminate it. ");
-  ss_group_phases_dot_();
-}
+  void ss_dead_code_(void) {
+    ss_systematically_analyze_();
+    SEND_PSTR("the codebase for any dead or duplicated code and make a ");
+    ss_detailed_step_by_step_plan_();
+    SEND_PSTR("to eliminate it. ");
+    ss_group_phases_dot_();
+  }
 
 
-// =============================================================================
-// leader_end_user
-// =============================================================================
+  // =============================================================================
+  // leader_end_user
+  // =============================================================================
 
-void leader_end_user(void) {
-  if      (leader_sequence_two_keys  (KC_B, KC_B)) {my_boot_handler(0, NULL);}
-  else if (leader_sequence_one_key   (KC_Q))       {SEND_PSTR(/*S_CLR()*/ "cdkm; qmkc" S_CR());}
-  else if (leader_sequence_two_keys  (KC_Q, KC_W)) {SEND_PSTR(S_CLEAR() "cdkm; qmkupd" S_CR());}
-  else if (leader_sequence_one_key   (KC_R))       {SEND_PSTR(S_REPEAT_SHELL_CMD(_));}
-  else if (leader_sequence_one_key   (KC_S))       {SEND_PSTR(S_END() SS_LCTL(TAP(X_A)) SS_LCTL(TAP(X_K)) SS_DELAY(200) "shove" S_CR());}
-/* prompt fragments: */
-  else if (leader_sequence_one_key   (KC_C))       { /* continue */ SEND_PSTR("Continue. ");}
-  else if (leader_sequence_two_keys  (KC_C, KC_E)) { /* correct all errors */ SEND_PSTR("Correct ALL of the errors! ");}
-  else if (leader_sequence_two_keys  (KC_C, KC_P)) { /* complete plan */ SEND_PSTR("You MUST complete the ENTIRE plan! ");}
-  else if (leader_sequence_two_keys  (KC_D, KC_N)) { /* do it now, no mistakes */ SEND_PSTR("Do it now, do it correctly, and make no mistakes. ");}
-  else if (leader_sequence_two_keys  (KC_E, KC_P)) { /* correct all errors */ SEND_PSTR("Some errors persist: ");}
-  else if (leader_sequence_two_keys  (KC_G, KC_W)) { /* great work */ SEND_PSTR("Great work! ");}
-  else if (leader_sequence_two_keys  (KC_K, KC_G)) { /* keep going */ SEND_PSTR("Keep going. ");}
-  else if (leader_sequence_two_keys  (KC_K, KC_T)) { /* keep trying */ SEND_PSTR("Keep trying. ");}
-  else if (leader_sequence_two_keys  (KC_N, KC_E)) { /* new errors */ SEND_PSTR("The changes introduced new errors: ");}
-  else if (leader_sequence_two_keys  (KC_N, KC_M)) { /* no mistakes */ SEND_PSTR("No mistakes! ");}
-  else if (leader_sequence_two_keys  (KC_N, KC_T)) { /* new topic */ SEND_PSTR("Let's change topics: ");}
-  else if (leader_sequence_two_keys  (KC_P, KC_M)) { /* ./plan.md */ SEND_PSTR("./PLAN..md"); }
-  else if (leader_sequence_two_keys  (KC_P, KC_S)) { /* proceed systematically */ SEND_PSTR("Proceed systematically ");}
-  else if (leader_sequence_two_keys  (KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! ");}
-  else if (leader_sequence_two_keys  (KC_S, KC_F)) { /* so far so good */ SEND_PSTR("So far, so good. ");}
-  else if (leader_sequence_two_keys  (KC_T, KC_C)) { /* testing comms */ SEND_PSTR("Testing communications, can you hear me? ");}
-  else if (leader_sequence_two_keys  (KC_T, KC_P)) { /* ./plan.md */ SEND_PSTR("The problem persists. "); }
-  else if (leader_sequence_two_keys  (KC_T, KC_Y)) { /* thank you */ SEND_PSTR("Thank you. ");}
-  else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ SEND_PSTR("Ultrathink. ");}
-  else if (leader_sequence_one_key   (KC_Y))       { /* yes */ SEND_PSTR("Yes, please proceed. ");}
-  else if (leader_sequence_one_key   (KC_X))       { /* explain line */ SEND_PSTR("Explain this line in detail: " SS_DOWN(X_LSFT) S_CR() SS_UP(X_LSFT));}
-  /* SINGLE CALLS: */
+  void leader_end_user(void) {
+    if      (leader_sequence_two_keys  (KC_B, KC_B)) {my_boot_handler(0, NULL);}
+    else if (leader_sequence_one_key   (KC_Q))       {SEND_PSTR(/*S_CLR()*/ "cdkm; qmkc" S_CR());}
+    else if (leader_sequence_two_keys  (KC_Q, KC_W)) {SEND_PSTR(S_CLEAR() "cdkm; qmkupd" S_CR());}
+    else if (leader_sequence_one_key   (KC_R))       {SEND_PSTR(S_REPEAT_SHELL_CMD(_));}
+    else if (leader_sequence_one_key   (KC_S))       {SEND_PSTR(S_END() SS_LCTL(TAP(X_A)) SS_LCTL(TAP(X_K)) SS_DELAY(200) "shove" S_CR());}
+      /* prompt fragments: */
+    else if (leader_sequence_one_key   (KC_C))       { /* continue */ SEND_PSTR("Continue. ");}
+    else if (leader_sequence_two_keys  (KC_C, KC_E)) { /* correct all errors */ SEND_PSTR("Correct ALL of the errors! ");}
+    else if (leader_sequence_two_keys  (KC_C, KC_P)) { /* complete plan */ SEND_PSTR("You MUST complete the ENTIRE plan! ");}
+    else if (leader_sequence_two_keys  (KC_D, KC_N)) { /* do it now, no mistakes */ SEND_PSTR("Do it now, do it correctly, and make no mistakes. ");}
+    else if (leader_sequence_two_keys  (KC_E, KC_P)) { /* correct all errors */ SEND_PSTR("Some errors persist: ");}
+    else if (leader_sequence_two_keys  (KC_G, KC_W)) { /* great work */ SEND_PSTR("Great work! ");}
+    else if (leader_sequence_two_keys  (KC_K, KC_G)) { /* keep going */ SEND_PSTR("Keep going. ");}
+    else if (leader_sequence_two_keys  (KC_K, KC_T)) { /* keep trying */ SEND_PSTR("Keep trying. ");}
+    else if (leader_sequence_two_keys  (KC_N, KC_E)) { /* new errors */ SEND_PSTR("The changes introduced new errors: ");}
+    else if (leader_sequence_two_keys  (KC_N, KC_M)) { /* no mistakes */ SEND_PSTR("No mistakes! ");}
+    else if (leader_sequence_two_keys  (KC_N, KC_T)) { /* new topic */ SEND_PSTR("Let's change topics: ");}
+    else if (leader_sequence_two_keys  (KC_P, KC_M)) { /* ./plan.md */ SEND_PSTR("./PLAN..md"); }
+    else if (leader_sequence_two_keys  (KC_P, KC_S)) { /* proceed systematically */ SEND_PSTR("Proceed systematically ");}
+    else if (leader_sequence_two_keys  (KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! ");}
+    else if (leader_sequence_two_keys  (KC_S, KC_F)) { /* so far so good */ SEND_PSTR("So far, so good. ");}
+    else if (leader_sequence_two_keys  (KC_T, KC_C)) { /* testing comms */ SEND_PSTR("Testing communications, can you hear me? ");}
+    else if (leader_sequence_two_keys  (KC_T, KC_P)) { /* ./plan.md */ SEND_PSTR("The problem persists. "); }
+    else if (leader_sequence_two_keys  (KC_T, KC_Y)) { /* thank you */ SEND_PSTR("Thank you. ");}
+    else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ SEND_PSTR("Ultrathink. ");}
+    else if (leader_sequence_one_key   (KC_Y))       { /* yes */ SEND_PSTR("Yes, please proceed. ");}
+    else if (leader_sequence_one_key   (KC_X))       { /* explain line */ SEND_PSTR("Explain this line in detail: " SS_DOWN(X_LSFT) S_CR() SS_UP(X_LSFT));}
+      /* SINGLE CALLS: */
 
-  else if (leader_sequence_two_keys  (KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
-  else if (leader_sequence_two_keys  (KC_D, KC_C)) { /* dead code */ ss_dead_code_();}
-  else if (leader_sequence_two_keys  (KC_S, KC_A)) { /* systematically analyze */ ss_systematically_analyze_();}
-  else if (leader_sequence_two_keys  (KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
-  else if (leader_sequence_two_keys  (KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(); }
-  else if (leader_sequence_two_keys  (KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
-  else if (leader_sequence_two_keys  (KC_M, KC_C)) { /* mark completed */ ss_mark_completed_in_the_planmd_file_dot_();}
-  else if (leader_sequence_two_keys  (KC_N, KC_F)) { /* no new files */ ss_do_not_add_new_files_();}
-  else if (leader_sequence_two_keys  (KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
-  else if (leader_sequence_two_keys  (KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
-  else if (leader_sequence_two_keys  (KC_S, KC_P)) { /* submit for approval */ ss_submit_the_plan_for_approval_before_editing_dot_();}
-  /* QUESTIONS/:  */
-  else if (leader_sequence_two_keys  (KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_PSTR("\b\b, just answer questions. ");}
-  /* ANALYZE */
-  else if (leader_sequence_two_keys  (KC_D, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_PSTR(", diagnose its cause, and fix it. ");}
-  else if (leader_sequence_two_keys  (KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_PSTR(" and explain its cause. ");}
-  /* PLAN: */
-  else if (leader_sequence_two_keys  (KC_P, KC_C)) { /* plan change */ ss_plan_dot_(SUBJECT_CHANGE, SUBJECT_CHANGE);} 
-  else if (leader_sequence_two_keys  (KC_P, KC_F)) { /* plan feature */ ss_plan_dot_(SUBJECT_FEATURE, SUBJECT_FEATURE);}
-  else if (leader_sequence_two_keys  (KC_P, KC_P)) { /* plan problem */ ss_plan_dot_(SUBJECT_PROBLEM, SUBJECT_SOLUTION);}
-  else if (leader_sequence_two_keys  (KC_P, KC_R)) { /* plan refactor */ ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);}
-  /* IMPLEMENT: */
-  else if (leader_sequence_two_keys  (KC_I, KC_A)) { /* all of plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_THE_PLAN);}
-  else if (leader_sequence_two_keys  (KC_I, KC_N)) { /* proceed w/ next in plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_THE_PLAN);}
-  /* else if (leader_sequence_two_keys  (KC_F, KC_A)) { /\* all of PLAN.md *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);} */
-  /* else if (leader_sequence_two_keys  (KC_F, KC_N)) { /\* proceed w/ next in PLAN.md *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);} */
-  else if (leader_sequence_two_keys  (KC_F, KC_A)) { /* all of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE);}
-  else if (leader_sequence_two_keys  (KC_F, KC_N)) { /* proceed w/ next in PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE);}
-}
+    else if (leader_sequence_two_keys  (KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
+    else if (leader_sequence_two_keys  (KC_D, KC_C)) { /* dead code */ ss_dead_code_();}
+    else if (leader_sequence_two_keys  (KC_S, KC_A)) { /* systematically analyze */ ss_systematically_analyze_();}
+    else if (leader_sequence_two_keys  (KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
+    else if (leader_sequence_two_keys  (KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(); }
+    else if (leader_sequence_two_keys  (KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
+    else if (leader_sequence_two_keys  (KC_M, KC_C)) { /* mark completed */ ss_mark_completed_in_the_planmd_file_dot_();}
+    else if (leader_sequence_two_keys  (KC_N, KC_F)) { /* no new files */ ss_do_not_add_new_files_();}
+    else if (leader_sequence_two_keys  (KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
+    else if (leader_sequence_two_keys  (KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
+    else if (leader_sequence_two_keys  (KC_S, KC_P)) { /* submit for approval */ ss_submit_the_plan_for_approval_before_editing_dot_();}
+      /* QUESTIONS/:  */
+    else if (leader_sequence_two_keys  (KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_PSTR("\b\b, just answer questions. ");}
+      /* ANALYZE */
+    else if (leader_sequence_two_keys  (KC_D, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_PSTR(", diagnose its cause, and fix it. ");}
+    else if (leader_sequence_two_keys  (KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_PSTR(" and explain its cause. ");}
+      /* PLAN: */
+    else if (leader_sequence_two_keys  (KC_P, KC_C)) { /* plan change */ ss_plan_dot_(SUBJECT_CHANGE, SUBJECT_CHANGE);} 
+    else if (leader_sequence_two_keys  (KC_P, KC_F)) { /* plan feature */ ss_plan_dot_(SUBJECT_FEATURE, SUBJECT_FEATURE);}
+    else if (leader_sequence_two_keys  (KC_P, KC_P)) { /* plan problem */ ss_plan_dot_(SUBJECT_PROBLEM, SUBJECT_SOLUTION);}
+    else if (leader_sequence_two_keys  (KC_P, KC_R)) { /* plan refactor */ ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);}
+      /* IMPLEMENT: */
+    else if (leader_sequence_two_keys  (KC_I, KC_A)) { /* all of plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_THE_PLAN);}
+    else if (leader_sequence_two_keys  (KC_I, KC_N)) { /* proceed w/ next in plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_THE_PLAN);}
+      /* else if (leader_sequence_two_keys  (KC_F, KC_A)) { /\* all of PLAN.md *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);} */
+      /* else if (leader_sequence_two_keys  (KC_F, KC_N)) { /\* proceed w/ next in PLAN.md *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);} */
+    else if (leader_sequence_two_keys  (KC_F, KC_A)) { /* all of PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE);}
+    else if (leader_sequence_two_keys  (KC_F, KC_N)) { /* proceed w/ next in PLAN.md */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE);}
+  }
 #endif // LEADER_ENABLE
 
-// ==============================================================================
-// Include combos 
-// ==============================================================================
+  // ==============================================================================
+  // Include combos 
+  // ==============================================================================
 
 #ifdef COMBO_ENABLE
 #  include "src/combos.inc"
 #endif
 
-// ==============================================================================
-// Include keymap
-// ==============================================================================
+  // ==============================================================================
+  // Include keymap
+  // ==============================================================================
 
 #include "src/keymap.inc"
 
