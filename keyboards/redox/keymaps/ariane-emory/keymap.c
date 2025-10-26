@@ -172,12 +172,11 @@ DO(SS_DIR,               ("~/"),                  ("../"),                      
 DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("``" S_LL()),      ("->"))                          \
 DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))         \
 DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                       \
-  //                         NO MODS                  CTRL                                      ALT                 SHIFT
+//                         NO MODS                  CTRL                                      ALT                 SHIFT
 
   // ==============================================================================
   // Send string keycodes (initialize the strings)
   // ==============================================================================
-
 #define enum_item(kc, ...)                                                                     kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                                        static const char tag##_str_##kc[] PROGMEM = str;
 #define define_nomods_progmem_string(kc, nomods_str, ...)                                      define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
@@ -1111,11 +1110,9 @@ void matrix_scan_user(void) {
     ss_group_phases_dot_();
   }
 
-
   // =============================================================================
   // leader_end_user
   // =============================================================================
-
   void leader_end_user(void) {
     if      (leader_sequence_two_keys  (KC_B, KC_B)) {my_boot_handler(0, NULL);}
     else if (leader_sequence_one_key   (KC_Q))       {SEND_PSTR(/*S_CLR()*/ "cdkm; qmkc" S_CR());}
