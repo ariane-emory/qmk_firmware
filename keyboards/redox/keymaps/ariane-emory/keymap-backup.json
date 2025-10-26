@@ -838,7 +838,7 @@
       "ANY(VD_RIGHT)",
       "ANY(VD_ALL)",
       "LGUI(KC_GRV)",
-      "ANY(LSFT(LGUI(KC_TILD)))",
+      "LGUI(KC_GRV)",
       "KC_LSFT",
       "ANY(LT(14, LSA(KC_LBRC)))",
       "LSA(KC_RCBR)",
