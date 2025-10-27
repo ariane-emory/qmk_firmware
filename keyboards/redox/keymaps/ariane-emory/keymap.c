@@ -732,7 +732,7 @@ void manage_toggled_layer_timeout(const uint8_t layer, const uint16_t idle_time_
 #ifdef DOUBLE_QUOTE_TIMEOUT
 void manage_double_quote_timeout(const uint8_t layer, const uint16_t idle_time_limit_ms, const uint16_t timer)
 {
-  if (timer_elapsed(timer) >= idle_time_limit_ms)
+  if (double_quote_is_primed && timer_elapsed(timer) >= idle_time_limit_ms)
     double_quote_is_primed = false;
 }
 #endif
