@@ -746,8 +746,6 @@ void matrix_scan_user(void) {
   achordion_task();
 #endif // USE_ACHORDION
 
-  // idle_timer = timer_read();
-  
 #ifdef DOUBLE_QUOTE_TIMEOUT
   manage_double_quote_timeout(TOGGLED_LAYER, DOUBLE_QUOTE_TIMEOUT, idle_timer);
 #endif // DOUBLE_QUOTE_TIMEOUT
@@ -929,7 +927,7 @@ void matrix_scan_user(void) {
       SEND_PSTR("in a ");
       return;
     case ARTICLE_THE:
-      SEND_PSTR("in the ");
+      SEND_PSTR("the plan in the ");
       return;
     }
   }
@@ -965,7 +963,7 @@ void matrix_scan_user(void) {
 
   void ss_mark_completed_in_the_planmd_file_dot_(void) {
     SEND_PSTR("You MUST check off any steps you've completed ");
-    ss_plan_location_t_dot_(PLAN_LOCATION_IN_THE_PLANMD_FILE);
+    ss_plan_location_t_dot_(PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE);
   }
 
   typedef enum {
@@ -1126,25 +1124,24 @@ void matrix_scan_user(void) {
     else if (leader_sequence_two_keys  (KC_D, KC_N)) { /* do it now, no mistakes */ SEND_PSTR("Do it now, do it correctly, and make no mistakes. ");}
     else if (leader_sequence_two_keys  (KC_E, KC_P)) { /* correct all errors */ SEND_PSTR("Some errors persist: ");}
     else if (leader_sequence_two_keys  (KC_G, KC_W)) { /* great work */ SEND_PSTR("Great work! ");}
-    else if (leader_sequence_two_keys  (KC_K, KC_G)) { /* keep going */ SEND_PSTR("Keep going. ");}
+      /* else if (leader_sequence_two_keys  (KC_K, KC_G)) { /\* keep going *\/ SEND_PSTR("Keep going. ");} */
     else if (leader_sequence_two_keys  (KC_K, KC_T)) { /* keep trying */ SEND_PSTR("Keep trying. ");}
     else if (leader_sequence_two_keys  (KC_N, KC_E)) { /* new errors */ SEND_PSTR("The changes introduced new errors: ");}
     else if (leader_sequence_two_keys  (KC_N, KC_M)) { /* no mistakes */ SEND_PSTR("No mistakes! ");}
     else if (leader_sequence_two_keys  (KC_N, KC_T)) { /* new topic */ SEND_PSTR("Let's change topics: ");}
-    else if (leader_sequence_two_keys  (KC_P, KC_M)) { /* ./plan.md */ SEND_PSTR("./PLAN..md"); }
+      /* else if (leader_sequence_two_keys  (KC_P, KC_M)) { /\* ./plan.md *\/ SEND_PSTR("./PLAN..md"); } */
     else if (leader_sequence_two_keys  (KC_P, KC_S)) { /* proceed systematically */ SEND_PSTR("Proceed systematically ");}
     else if (leader_sequence_two_keys  (KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! ");}
     else if (leader_sequence_two_keys  (KC_S, KC_F)) { /* so far so good */ SEND_PSTR("So far, so good. ");}
     else if (leader_sequence_two_keys  (KC_T, KC_C)) { /* testing comms */ SEND_PSTR("Testing communications, can you hear me? ");}
-    else if (leader_sequence_two_keys  (KC_T, KC_P)) { /* ./plan.md */ SEND_PSTR("The problem persists. "); }
+    else if (leader_sequence_two_keys  (KC_T, KC_P)) { /* problem persists */ SEND_PSTR("The problem persists. "); }
     else if (leader_sequence_two_keys  (KC_T, KC_Y)) { /* thank you */ SEND_PSTR("Thank you. ");}
     else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ SEND_PSTR("Ultrathink. ");}
     else if (leader_sequence_one_key   (KC_Y))       { /* yes */ SEND_PSTR("Yes, please proceed. ");}
     else if (leader_sequence_one_key   (KC_X))       { /* explain line */ SEND_PSTR("Explain this line in detail: " SS_DOWN(X_LSFT) S_CR() SS_UP(X_LSFT));}
       /* SINGLE CALLS: */
-
-    else if (leader_sequence_two_keys  (KC_A, KC_S)) { /* analyze smells */ ss_analyze_smells_();}
-    else if (leader_sequence_two_keys  (KC_D, KC_C)) { /* dead code */ ss_dead_code_();}
+      /* else if (leader_sequence_two_keys  (KC_A, KC_S)) { /\* analyze smells *\/ ss_analyze_smells_();} */
+      /* else if (leader_sequence_two_keys  (KC_D, KC_C)) { /\* dead code *\/ ss_dead_code_();} */
     else if (leader_sequence_two_keys  (KC_S, KC_A)) { /* systematically analyze */ ss_systematically_analyze_();}
     else if (leader_sequence_two_keys  (KC_D, KC_E)) { /* don't edit */ ss_do_not_edit_any_code_yet_dot_();}
     else if (leader_sequence_two_keys  (KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(); }
