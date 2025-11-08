@@ -163,7 +163,7 @@ DO(SS_SMILEY,            (" ;)"),                 (" :/"),                      
 DO(SS_LBRACK,            ("("),                   ("{"),                                    ("["),              ("<"))                           \
 DO(SS_RBRACK,            (")"),                   ("}"),                                    ("]"),              (">"))                           \
 DO(EM_LASTARG,                                                                                                                                   \
-  (S_EVAL_SEXP),           /* NO MODS */                                                                                                         \
+(S_EVAL_SEXP),           /* NO MODS */                                                                                                         \
 (S_PP_EVAL_SEXP),        /* CTRL */                                                                                                              \
   (" " SS_LCTL("c") "."),  /* ALT */                                                                                                             \
   ("c -" S_CR()))          /* SHIFT */                                                                                                           \
@@ -172,7 +172,7 @@ DO(SS_DIR,               ("~/"),                  ("../"),                      
 DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("``" S_LL()),      ("->"))                          \
 DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))         \
 DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                       \
-//                         NO MODS                  CTRL                                      ALT                 SHIFT
+  //                         NO MODS                  CTRL                                      ALT                 SHIFT
 
   // ==============================================================================
   // Send string keycodes (initialize the strings)
@@ -1151,11 +1151,11 @@ void matrix_scan_user(void) {
     else if (leader_sequence_two_keys  (KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
     else if (leader_sequence_two_keys  (KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
     else if (leader_sequence_two_keys  (KC_S, KC_P)) { /* submit for approval */ ss_submit_the_plan_for_approval_before_editing_dot_();}
-      /* QUESTIONS/:  */
-    else if (leader_sequence_two_keys  (KC_Q, KC_Q)) { /* ask questions*/ ss_do_not_edit_any_code_yet_dot_(); SEND_PSTR("\b\b, just answer questions. ");}
+      /* QUESTIONS/: */
+    else if (leader_sequence_two_keys  (KC_Q, KC_Q)) { /* ask questions */ ss_do_not_edit_any_code_yet_dot_(); SEND_PSTR("\b\b, just answer questions. ");}
       /* ANALYZE */
-    else if (leader_sequence_two_keys  (KC_D, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_PSTR(", diagnose its cause, and fix it. ");}
-    else if (leader_sequence_two_keys  (KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_PSTR(" and explain its cause. ");}
+    else if (leader_sequence_two_keys  (KC_D, KC_F)) { /* analyze and fix */ ss_analyze_this_problem_(); SEND_PSTR(", diagnose its cause and fix it. ");}
+    else if (leader_sequence_two_keys  (KC_A, KC_E)) { /* analyze and explain problem */ ss_do_not_edit_any_code_yet_dot_(); ss_analyze_this_problem_(); SEND_PSTR(" and explain its cause: ");}
       /* PLAN: */
     else if (leader_sequence_two_keys  (KC_P, KC_C)) { /* plan change */ ss_plan_dot_(SUBJECT_CHANGE, SUBJECT_CHANGE);} 
     else if (leader_sequence_two_keys  (KC_P, KC_F)) { /* plan feature */ ss_plan_dot_(SUBJECT_FEATURE, SUBJECT_FEATURE);}
