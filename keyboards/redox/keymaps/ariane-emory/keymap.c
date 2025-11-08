@@ -689,14 +689,15 @@ typedef struct layer_to_rgb_t {
 } layer_to_rgb_t;
   
 static const layer_to_rgb_t layer_to_rgbs[] PROGMEM = {
-  { 0,             MY_RGB_DEFAULT          },
-  { 0,             MY_RGB_WORKMAK          },
-  { LN_ARROWS,     MY_RGB_ADJUST_LAYER_ON  },
-  { LN_FLIPR,      MY_RGB_FLIP_LAYER_ON    },
-  { LN_FLIPL,      MY_RGB_FLIP_LAYER_ON    },
-  { LN_UPPER,      MY_RGB_UPPER_LAYER_ON   },
-  { LN_LOWER,      MY_RGB_LOWER_LAYER_ON   },
-  { LN_MOUSE,      MY_RGB_TOGGLED_LAYER_ON },
+  { 0,             MY_RGB_DEFAULT                 },
+  { 0,             MY_RGB_WORKMAK                 },
+  { 5,             MY_RGB_TOGGLED_ARROWS_LAYER_ON },
+  { LN_ARROWS,     MY_RGB_ADJUST_LAYER_ON         },
+  { LN_FLIPR,      MY_RGB_FLIP_LAYER_ON           },
+  { LN_FLIPL,      MY_RGB_FLIP_LAYER_ON           },
+  { LN_UPPER,      MY_RGB_UPPER_LAYER_ON          },
+  { LN_LOWER,      MY_RGB_LOWER_LAYER_ON          },
+  { LN_MOUSE,      MY_RGB_TOGGLED_LAYER_ON        },
 };
 
 void set_rgb_led_fader_target_by_layer(rgb_led_fader_t * const this) {
