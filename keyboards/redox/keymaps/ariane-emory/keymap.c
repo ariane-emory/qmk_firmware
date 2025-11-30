@@ -917,6 +917,10 @@ void matrix_scan_user(void) {
 
 #ifdef LEADER_ENABLE
 
+  void ss_ultrathink_bang_(void) {
+    SEND_PSTR("Ultrathink! ");
+  }
+
   typedef enum {
     ARTICLE_A,
     ARTICLE_THE,
@@ -1057,6 +1061,7 @@ void matrix_scan_user(void) {
     ss_plan_subject_t(subject2);
     SEND_PSTR(". ");
     ss_group_phases_dot_();
+    ss_ultrathink_bang_();
   }
 
   void ss_analyze_smells_(void) {
@@ -1139,7 +1144,7 @@ void matrix_scan_user(void) {
     else if (leader_sequence_two_keys  (KC_T, KC_H)) { /* think hard */ SEND_PSTR("Think hard! ");}
     else if (leader_sequence_two_keys  (KC_T, KC_P)) { /* problem persists */ SEND_PSTR("The problem persists. "); }
       /* else if (leader_sequence_two_keys  (KC_T, KC_Y)) { /\* thank you *\/ SEND_PSTR("Thank you. ");} */
-    else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ SEND_PSTR("Ultrathink! ");}
+    else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ ss_ultrathink_bang_(); }
     else if (leader_sequence_one_key   (KC_Y))       { /* yes */ SEND_PSTR("Yes, please proceed. ");}
     else if (leader_sequence_one_key   (KC_X))       { /* explain line */ SEND_PSTR("Explain this line in detail: " SS_DOWN(X_LSFT) S_CR() SS_UP(X_LSFT));}
       /* SINGLE CALLS: */
@@ -1166,11 +1171,11 @@ void matrix_scan_user(void) {
     else if (leader_sequence_two_keys  (KC_P, KC_R)) { /* plan refactor */ ss_plan_dot_(SUBJECT_REFACTORING, SUBJECT_REFACTORING);}
       /* IMPLEMENT: */
     else if (leader_sequence_two_keys  (KC_I, KC_A)) { /* all of plan */ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_THE_PLAN);}
-      /* else if (leader_sequence_two_keys  (KC_I, KC_N)) { /\* proceed w/ next in plan *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_THE_PLAN);} */
-      /* else if (leader_sequence_two_keys  (KC_F, KC_A)) { /\* all of PLAN.md *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);} */
-      /* else if (leader_sequence_two_keys  (KC_F, KC_N)) { /\* implement next in PLAN.md *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);} */
-      /* else if (leader_sequence_two_keys  (KC_F, KC_A)) { /\* implement all of Markdown *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE);} */
-      /* else if (leader_sequence_two_keys  (KC_F, KC_N)) { /\* implement next in Markdown *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE);} */
+    /* else if (leader_sequence_two_keys  (KC_I, KC_N)) { /\* proceed w/ next in plan *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_THE_PLAN);} */
+    /* else if (leader_sequence_two_keys  (KC_F, KC_A)) { /\* all of PLAN.md *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);} */
+    /* else if (leader_sequence_two_keys  (KC_F, KC_N)) { /\* implement next in PLAN.md *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLANMD_FILE);} */
+    /* else if (leader_sequence_two_keys  (KC_F, KC_A)) { /\* implement all of Markdown *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_ALL_PHASES_OF, PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE);} */
+    /* else if (leader_sequence_two_keys  (KC_F, KC_N)) { /\* implement next in Markdown *\/ ss_proceed_with_implementing_plan_etc_dot_(PHASE_DESCRIPTION_THE_NEXT_PHASE_OF, PLAN_LOCATION_IN_THE_PLAN_MARKDOWN_FILE);} */
   }
 #endif // LEADER_ENABLE
 
