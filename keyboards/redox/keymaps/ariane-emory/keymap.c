@@ -921,6 +921,11 @@ void matrix_scan_user(void) {
     SEND_PSTR("Ultrathink! ");
   }
 
+  void ss_diagnose_(void) {
+    SEND_PSTR("Diagnose the root cause of this problem. ");
+    ss_ultrathink_bang_();
+  }
+
   typedef enum {
     ARTICLE_A,
     ARTICLE_THE,
@@ -1127,6 +1132,7 @@ void matrix_scan_user(void) {
     else if (leader_sequence_one_key   (KC_C))       { /* continue */ SEND_PSTR("Continue. ");}
     else if (leader_sequence_two_keys  (KC_C, KC_E)) { /* correct all errors */ SEND_PSTR("Correct ALL of the errors! ");}
     else if (leader_sequence_two_keys  (KC_C, KC_P)) { /* complete plan */ SEND_PSTR("You MUST complete the ENTIRE plan! ");}
+    else if (leader_sequence_two_keys  (KC_D, KC_P)) { /* diagnose problem */ ss_diagnose_();}
       /* else if (leader_sequence_two_keys  (KC_D, KC_N)) { /\* do it now, no mistakes *\/ SEND_PSTR("Do it now, do it correctly, and make no mistakes. ");} */
     else if (leader_sequence_two_keys  (KC_E, KC_P)) { /* correct all errors */ SEND_PSTR("This error persists: ");}
     else if (leader_sequence_two_keys  (KC_G, KC_W)) { /* great work */ SEND_PSTR("Great work! ");}
