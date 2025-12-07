@@ -1146,7 +1146,7 @@ void matrix_scan_user(void) {
     else if (leader_sequence_two_keys  (KC_N, KC_T)) { /* new topic */ SEND_PSTR("Let's change topics: ");}
       /* else if (leader_sequence_two_keys  (KC_P, KC_M)) { /\* ./plan.md *\/ SEND_PSTR("./PLAN..md"); } */
     else if (leader_sequence_two_keys  (KC_P, KC_S)) { /* proceed systematically */ SEND_PSTR("Proceed systematically ");}
-    else if (leader_sequence_two_keys  (KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! ");}
+    else if (leader_sequence_two_keys  (KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! Ultrathink!");}
     else if (leader_sequence_two_keys  (KC_S, KC_F)) { /* so far so good */ SEND_PSTR("So far, so good. ");}
     else if (leader_sequence_two_keys  (KC_S, KC_G)) { /* sounds good */ SEND_PSTR("Sounds good good to me. ");}
       /* else if (leader_sequence_two_keys  (KC_T, KC_C)) { /\* testing comms *\/ SEND_PSTR("Testing communications, can you hear me? ");} */
