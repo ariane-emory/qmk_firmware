@@ -1129,6 +1129,7 @@ void matrix_scan_user(void) {
     else if (leader_sequence_one_key   (KC_R))       {SEND_PSTR(S_REPEAT_SHELL_CMD(_));}
       // else if (leader_sequence_one_key   (KC_S))       {SEND_PSTR(S_END() SS_LCTL(TAP(X_A)) SS_LCTL(TAP(X_K)) SS_DELAY(200) "shove" S_CR());}
       /* prompt fragments: */
+    else if (leader_sequence_one_key   (KC_A))       { /* continue */ SEND_PSTR("Answer. ");}
     else if (leader_sequence_one_key   (KC_C))       { /* continue */ SEND_PSTR("Continue. ");}
     else if (leader_sequence_one_key   (KC_M))       { /* minimal change */ SEND_PSTR("Make the minimal change needed to accomplish this. ");}
     else if (leader_sequence_two_keys  (KC_C, KC_E)) { /* correct all errors */ SEND_PSTR("Correct ALL of the errors! ");}
@@ -1157,9 +1158,9 @@ void matrix_scan_user(void) {
     else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ ss_ultrathink_bang_(); }
     else if (leader_sequence_one_key   (KC_Y))       { /* yes */ SEND_PSTR("Yes, please proceed. ");}
     else if (leader_sequence_one_key   (KC_X))       { /* explain line */ SEND_PSTR("Explain this line in detail: " SS_DOWN(X_LSFT) S_CR() SS_UP(X_LSFT));}
-      /* SINGLE CALLS: */
-      /* else if (leader_sequence_two_keys  (KC_A, KC_S)) { /\* analyze smells *\/ ss_analyze_smells_();} */
-      /* else if (leader_sequence_two_keys  (KC_D, KC_C)) { /\* dead code *\/ ss_dead_code_();} */
+    /* SINGLE CALLS: */
+    /* else if (leader_sequence_two_keys  (KC_A, KC_S)) { /\* analyze smells *\/ ss_analyze_smells_();} */
+    /* else if (leader_sequence_two_keys  (KC_D, KC_C)) { /\* dead code *\/ ss_dead_code_();} */
     else if (leader_sequence_two_keys  (KC_S, KC_A)) { /* systematically analyze */ ss_systematically_analyze_();}
       /* else if (leader_sequence_two_keys  (KC_D, KC_E)) { /\* don't edit *\/ ss_do_not_edit_any_code_yet_dot_();} */
     else if (leader_sequence_two_keys  (KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(); }
