@@ -38,7 +38,7 @@
   DO(l_mid_rech,             EM_MAC_END,    QH_A,    QH_S                               )      \
   DO(l_mid_outr,             EM_MAC_BGN,    QH_S,    QH_D                               )      \
   DO(l_mid_innr,             EM_MAC_RPT,    QH_D,    QH_F                               )      \
-  DO(l_mid_curl,             CAPS_WORD,     QH_F,    QH_G                               )      \
+  DO(l_mid_curl,             KC_F12,        QH_F,    QH_G                               )      \
   DO(l_mid_trpo,             EM_SPLIT_V,    QH_A,    QH_S,      QH_D                    )      \
   DO(l_mid_sprd,             TOGGLE_DF,     QH_S,               QH_F                    )      \
   __(l_mid_trpm,             ____________,  QH_S,    QH_D,      QH_F                    )      \

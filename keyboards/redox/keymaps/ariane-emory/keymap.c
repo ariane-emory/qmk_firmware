@@ -1132,6 +1132,7 @@ void matrix_scan_user(void) {
     else if (leader_sequence_one_key   (KC_A))       { /* continue */ SEND_PSTR("Answer. ");}
     else if (leader_sequence_one_key   (KC_C))       { /* continue */ SEND_PSTR("Continue. ");}
     else if (leader_sequence_one_key   (KC_M))       { /* minimal change */ SEND_PSTR("Make the minimal change needed to accomplish this. ");}
+    else if (leader_sequence_one_key   (KC_T))       { /* that */ SEND_PSTR("that ");}
     else if (leader_sequence_two_keys  (KC_C, KC_E)) { /* correct all errors */ SEND_PSTR("Correct ALL of the errors! ");}
     else if (leader_sequence_two_keys  (KC_C, KC_O)) { /* carry on */ SEND_PSTR("Carry on. ");}
     else if (leader_sequence_two_keys  (KC_C, KC_P)) { /* complete plan */ SEND_PSTR("You MUST complete the ENTIRE plan! ");}
