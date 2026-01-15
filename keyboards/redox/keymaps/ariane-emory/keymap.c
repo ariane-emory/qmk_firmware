@@ -148,6 +148,7 @@ DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                
 DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                 \
 DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                                 \
 DO(SS_0X,                ("0x")                                )                                                                                 \
+DO(SS_THAT,              ("that ")                             )                                                                                 \
 DO(SS_DICT2,             (TAP(X_F24) TAP(X_F24))               ) 
 //                         NO MODS                                 
 
