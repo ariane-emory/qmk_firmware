@@ -148,7 +148,7 @@ DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                
 DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                 \
 DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                                 \
 DO(SS_0X,                ("0x")                                )                                                                                 \
-DO(SS_THAT,              ("that ")                             )                                                                                 \
+DO(SS_THAT,             ("that ")                             )                                                                                 \
 DO(SS_DICT2,             (TAP(X_F24) TAP(X_F24))               ) 
 //                         NO MODS                                 
 
@@ -924,7 +924,7 @@ void matrix_scan_user(void) {
 
   void ss_diagnose_(void) {
     SEND_PSTR("Diagnose the root cause of this problem. ");
-    ss_ultrathink_bang_();
+    // ss_ultrathink_bang_();
   }
 
   typedef enum {
@@ -1149,7 +1149,7 @@ void matrix_scan_user(void) {
     else if (leader_sequence_two_keys  (KC_N, KC_T)) { /* new topic */ SEND_PSTR("Let's change topics: ");}
       /* else if (leader_sequence_two_keys  (KC_P, KC_M)) { /\* ./plan.md *\/ SEND_PSTR("./PLAN..md"); } */
     else if (leader_sequence_two_keys  (KC_P, KC_S)) { /* proceed systematically */ SEND_PSTR("Proceed systematically ");}
-    else if (leader_sequence_two_keys  (KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! "); ss_ultrathink_bang_(); }
+    else if (leader_sequence_two_keys  (KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! "); /* ss_ultrathink_bang_(); */ }
     else if (leader_sequence_two_keys  (KC_S, KC_F)) { /* so far so good */ SEND_PSTR("So far, so good. ");}
     else if (leader_sequence_two_keys  (KC_S, KC_G)) { /* sounds good */ SEND_PSTR("Sounds good to me. ");}
       /* else if (leader_sequence_two_keys  (KC_T, KC_C)) { /\* testing comms *\/ SEND_PSTR("Testing communications, can you hear me? ");} */
