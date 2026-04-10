@@ -146,6 +146,7 @@ bool combo_should_trigger(
           //   adjust to index of last left hand combo:
           || (((layer_state_is(LN_MOUSE)  && ((combo_index <= 17)))))
           || (((layer_state_is(LN_MOUSE)  && (true
+                                              && (combo->keycode != QK_LEAD)
                                               && (combo->keycode != KC_ENT)
                                               && (combo->keycode != KC_SCLN)
                                               && (combo->keycode != SS_LBRACK)
