@@ -154,7 +154,6 @@ bool combo_should_trigger(
                                               || (combo->keycode == LGUI(KC_MINS))
                                               || (combo->keycode == LGUI(KC_EQL))
                                               || (combo->keycode == TG(LN_MOUSE))
-               //|| (combo->keycode == KC_ENT)
                                               || (combo->keycode == KC_VOLD)
                                               || (combo->keycode == KC_VOLU)
                                               || (combo->keycode == CLOSE_WIN) 
@@ -162,16 +161,11 @@ bool combo_should_trigger(
                                               || (combo->keycode == SPOTLIGHT)
                                               || (combo->keycode == KA_UNDO)
                 ))))
-          /* || (((layer_state_is(LN_MOUSE)  && (true */
-          /*                                     && (combo->keycode != QK_LEAD) */
-          /*                                     && (combo->keycode != KC_ENT) */
-          /*                                     && (combo->keycode != KC_SCLN) */
-          /*                                     && (combo->keycode != SS_LBRACK) */
-          /*                                     && (combo->keycode != SS_RBRACK))))) */
           || (((false
                 || layer_state_is(LN_LOWER)
                 || layer_state_is(LN_FLIPL)
                 || layer_state_is(LN_FLIPR)
+                || layer_state_is(LN_LOWER)
                 || layer_state_is(LN_UPPER)
                 || layer_state_is(LN_ARROWS))) && (false
                                                    || (combo->keycode == KC_ESC)
