@@ -140,17 +140,34 @@ bool combo_should_trigger(
   uint16_t      keycode,
   keyrecord_t * record) {
   return (false
-          || (get_highest_layer(layer_state) <= LN_LOWER) // LN_MOUSE)
+          || (get_highest_layer(layer_state) < LN_MOUSE)
           // v this index will probably need frequent adjustment whenever
           //   left-hand combos are altered.
           //   adjust to index of last left hand combo:
           || (((layer_state_is(LN_MOUSE)  && ((combo_index <= 17)))))
-          || (((layer_state_is(LN_MOUSE)  && (true
-                                              && (combo->keycode != QK_LEAD)
-                                              && (combo->keycode != KC_ENT)
-                                              && (combo->keycode != KC_SCLN)
-                                              && (combo->keycode != SS_LBRACK)
-                                              && (combo->keycode != SS_RBRACK)))))
+          || (((layer_state_is(LN_MOUSE)  && (false
+                                              || (combo->keycode == QK_LEAD)
+                                              || (combo->keycode == LALT(KC_X))
+                                              || (combo->keycode == KC_ESC)
+                                              || (combo->keycode == KC_HOME)
+                                              || (combo->keycode == KC_END)
+                                              || (combo->keycode == LGUI(KC_MINS))
+                                              || (combo->keycode == LGUI(KC_EQL))
+                                              || (combo->keycode == TG(LN_MOUSE))
+               //|| (combo->keycode == KC_ENT)
+                                              || (combo->keycode == KC_VOLD)
+                                              || (combo->keycode == KC_VOLU)
+                                              || (combo->keycode == CLOSE_WIN) 
+                                              || (combo->keycode == NEW_TAB)
+                                              || (combo->keycode == SPOTLIGHT)
+                                              || (combo->keycode == KA_UNDO)
+                ))))
+          /* || (((layer_state_is(LN_MOUSE)  && (true */
+          /*                                     && (combo->keycode != QK_LEAD) */
+          /*                                     && (combo->keycode != KC_ENT) */
+          /*                                     && (combo->keycode != KC_SCLN) */
+          /*                                     && (combo->keycode != SS_LBRACK) */
+          /*                                     && (combo->keycode != SS_RBRACK))))) */
           || (((false
                 || layer_state_is(LN_LOWER)
                 || layer_state_is(LN_FLIPL)
