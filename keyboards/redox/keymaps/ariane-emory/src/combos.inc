@@ -147,6 +147,7 @@ bool combo_should_trigger(
           || (((layer_state_is(LN_MOUSE)  && ((combo_index <= 17)))))
           || (((layer_state_is(LN_MOUSE)  && (false
                                               || (combo->keycode == QK_LEAD)
+                                              || (combo->keycode == SS_FULLSCR)
                                               || (combo->keycode == LALT(KC_X))
                                               || (combo->keycode == KC_ESC)
                                               || (combo->keycode == KC_HOME)
