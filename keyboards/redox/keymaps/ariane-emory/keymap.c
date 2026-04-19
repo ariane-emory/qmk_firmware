@@ -148,7 +148,7 @@ DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                
 DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                 \
 DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                                 \
 DO(SS_0X,                ("0x")                                )                                                                                 \
-DO(SS_THAT,             ("that ")                             )                                                                                 \
+DO(SS_THAT,              ("that ")                             )                                                                                 \
 DO(SS_DICT2,             (TAP(X_F24) TAP(X_F24))               ) 
 //                         NO MODS                                 
 
@@ -158,14 +158,14 @@ DO(SS_DICT2,             (TAP(X_F24) TAP(X_F24))               )
 
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
 DO(SS_CD,                ("cd "),                 ("cd ~/"),                                ("cd .."),          ("cd -"))                        \
-DO(SS_SMILEY2,           (" :)"),                 (" :P"),                                  (" :D"),            (""))                            \
+DO(SS_SMILEY2,           (" :-)"),                (" :-P"),                                  (" :-D"),          (""))                            \
 DO(SS_AND_AND,           (" && "),                (" || "),                                 (" 2>&1 "),         (" >/dev/null "))                \
-DO(SS_SMILEY,            (" ;)"),                 (" :/"),                                  (" >_>"),           (""))                            \
+DO(SS_SMILEY,            (" ;-)"),                (" :-/"),                                 (" >_>"),           (""))                            \
 DO(SS_LBRACK,            ("("),                   ("{"),                                    ("["),              ("<"))                           \
 DO(SS_RBRACK,            (")"),                   ("}"),                                    ("]"),              (">"))                           \
 DO(EM_LASTARG,                                                                                                                                   \
-(S_EVAL_SEXP),           /* NO MODS */                                                                                                         \
-(S_PP_EVAL_SEXP),        /* CTRL */                                                                                                              \
+(S_EVAL_SEXP),             /* NO MODS */                                                                                                         \
+(S_PP_EVAL_SEXP),          /* CTRL */                                                                                                            \
   (" " SS_LCTL("c") "."),  /* ALT */                                                                                                             \
   ("c -" S_CR()))          /* SHIFT */                                                                                                           \
 DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),   (""),               (""))                            \
@@ -173,7 +173,7 @@ DO(SS_DIR,               ("~/"),                  ("../"),                      
 DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("``" S_LL()),      ("->"))                          \
 DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))         \
 DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                       \
-  //                         NO MODS                  CTRL                                      ALT                 SHIFT
+  //                     NO MODS                  CTRL                                      ALT                 SHIFT
 
   // ==============================================================================
   // Send string keycodes (initialize the strings)
