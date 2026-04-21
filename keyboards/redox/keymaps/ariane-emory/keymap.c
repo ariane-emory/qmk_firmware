@@ -1130,36 +1130,36 @@ void matrix_scan_user(void) {
     else if (leader_sequence_one_key   (KC_R))       {SEND_PSTR(S_REPEAT_SHELL_CMD(_));}
       // else if (leader_sequence_one_key   (KC_S))       {SEND_PSTR(S_END() SS_LCTL(TAP(X_A)) SS_LCTL(TAP(X_K)) SS_DELAY(200) "shove" S_CR());}
       /* prompt fragments: */
-    else if (leader_sequence_one_key   (KC_A))       { /* continue */ SEND_PSTR("Answer. ");}
+      /* else if (leader_sequence_one_key   (KC_A))       { /\* continue *\/ SEND_PSTR("Answer. ");} */
     else if (leader_sequence_one_key   (KC_C))       { /* continue */ SEND_PSTR("Carry on, continue. ");}
     else if (leader_sequence_one_key   (KC_M))       { /* minimal change */ SEND_PSTR("Make the minimal change needed to accomplish this. ");}
-    else if (leader_sequence_one_key   (KC_T))       { /* that */ SEND_PSTR("that ");}
-    else if (leader_sequence_two_keys  (KC_C, KC_E)) { /* correct all errors */ SEND_PSTR("Correct ALL of the errors! ");}
+      /* else if (leader_sequence_one_key   (KC_T))       { /\* that *\/ SEND_PSTR("that ");} */
+      /* else if (leader_sequence_two_keys  (KC_C, KC_E)) { /\* correct all errors *\/ SEND_PSTR("Correct ALL of the errors! ");} */
       // else if (leader_sequence_two_keys  (KC_C, KC_O)) { /* carry on */ SEND_PSTR("Carry on. ");}
     else if (leader_sequence_two_keys  (KC_C, KC_P)) { /* complete plan */ SEND_PSTR("You MUST complete the ENTIRE plan! ");}
-    else if (leader_sequence_two_keys  (KC_D, KC_G)) { /* don't get distracted */ SEND_PSTR("Don't get distracted. ");}
+      /* else if (leader_sequence_two_keys  (KC_D, KC_G)) { /\* don't get distracted *\/ SEND_PSTR("Don't get distracted. ");} */
     else if (leader_sequence_two_keys  (KC_D, KC_P)) { /* diagnose problem */ ss_diagnose_();}
       /* else if (leader_sequence_two_keys  (KC_D, KC_N)) { /\* do it now, no mistakes *\/ SEND_PSTR("Do it now, do it correctly, and make no mistakes. ");} */
     else if (leader_sequence_two_keys  (KC_E, KC_P)) { /* correct all errors */ SEND_PSTR("This error persists: ");}
-    else if (leader_sequence_two_keys  (KC_G, KC_W)) { /* great work */ SEND_PSTR("Great work! ");}
+      /* else if (leader_sequence_two_keys  (KC_G, KC_W)) { /\* great work *\/ SEND_PSTR("Great work! ");} */
       /* else if (leader_sequence_two_keys  (KC_K, KC_G)) { /\* keep going *\/ SEND_PSTR("Keep going. ");} */
-    else if (leader_sequence_two_keys  (KC_K, KC_T)) { /* keep trying */ SEND_PSTR("Keep trying. ");}
+      /* else if (leader_sequence_two_keys  (KC_K, KC_T)) { /\* keep trying *\/ SEND_PSTR("Keep trying. ");} */
     else if (leader_sequence_two_keys  (KC_N, KC_E)) { /* new errors */ SEND_PSTR("The changes introduced new errors: ");}
-    else if (leader_sequence_two_keys  (KC_N, KC_M)) { /* no mistakes */ SEND_PSTR("No mistakes! ");}
-    else if (leader_sequence_two_keys  (KC_N, KC_T)) { /* new topic */ SEND_PSTR("Let's change topics: ");}
+      /* else if (leader_sequence_two_keys  (KC_N, KC_M)) { /\* no mistakes *\/ SEND_PSTR("No mistakes! ");} */
+      /* else if (leader_sequence_two_keys  (KC_N, KC_T)) { /\* new topic *\/ SEND_PSTR("Let's change topics: ");} */
       /* else if (leader_sequence_two_keys  (KC_P, KC_M)) { /\* ./plan.md *\/ SEND_PSTR("./PLAN..md"); } */
-    else if (leader_sequence_two_keys  (KC_P, KC_S)) { /* proceed systematically */ SEND_PSTR("Proceed systematically ");}
+      /* else if (leader_sequence_two_keys  (KC_P, KC_S)) { /\* proceed systematically *\/ SEND_PSTR("Proceed systematically ");} */
     else if (leader_sequence_two_keys  (KC_R, KC_T)) { /* try again */ SEND_PSTR("Rethink it and then try again! "); /* ss_ultrathink_bang_(); */ }
     else if (leader_sequence_two_keys  (KC_S, KC_F)) { /* so far so good */ SEND_PSTR("So far, so good. ");}
     else if (leader_sequence_two_keys  (KC_S, KC_G)) { /* sounds good */ SEND_PSTR("Sounds good to me. ");}
       /* else if (leader_sequence_two_keys  (KC_T, KC_C)) { /\* testing comms *\/ SEND_PSTR("Testing communications, can you hear me? ");} */
-    else if (leader_sequence_two_keys  (KC_T, KC_A)) { /* try again */ SEND_PSTR("Try again. ");}
-    else if (leader_sequence_two_keys  (KC_T, KC_H)) { /* think hard */ SEND_PSTR("Think hard! ");}
+      /* else if (leader_sequence_two_keys  (KC_T, KC_A)) { /\* try again *\/ SEND_PSTR("Try again. ");} */
+      /* else if (leader_sequence_two_keys  (KC_T, KC_H)) { /\* think hard *\/ SEND_PSTR("Think hard! ");} */
     else if (leader_sequence_two_keys  (KC_T, KC_P)) { /* problem persists */ SEND_PSTR("The problem persists. "); }
       /* else if (leader_sequence_two_keys  (KC_T, KC_Y)) { /\* thank you *\/ SEND_PSTR("Thank you. ");} */
-    else if (leader_sequence_one_key   (KC_U))       { /* ultrathink */ ss_ultrathink_bang_(); }
+      /* else if (leader_sequence_one_key   (KC_U))       { /\* ultrathink *\/ ss_ultrathink_bang_(); } */
     else if (leader_sequence_one_key   (KC_Y))       { /* yes */ SEND_PSTR("Yes, please proceed. ");}
-    else if (leader_sequence_one_key   (KC_X))       { /* explain line */ SEND_PSTR("Explain this line in detail: " SS_DOWN(X_LSFT) S_CR() SS_UP(X_LSFT));}
+      /* else if (leader_sequence_one_key   (KC_X))       { /\* explain line *\/ SEND_PSTR("Explain this line in detail: " SS_DOWN(X_LSFT) S_CR() SS_UP(X_LSFT));} */
       /* SINGLE CALLS: */
       /* else if (leader_sequence_two_keys  (KC_A, KC_S)) { /\* analyze smells *\/ ss_analyze_smells_();} */
       /* else if (leader_sequence_two_keys  (KC_D, KC_C)) { /\* dead code *\/ ss_dead_code_();} */
@@ -1168,9 +1168,9 @@ void matrix_scan_user(void) {
     else if (leader_sequence_two_keys  (KC_G, KC_P)) { /* group into phases */ ss_group_phases_dot_(); }
     else if (leader_sequence_two_keys  (KC_M, KC_B)) { /* must build after */ ss_must_build_and_pass_tests_dot_(WHEN_AFTERWARDS);}
       /* else if (leader_sequence_two_keys  (KC_M, KC_C)) { /\* mark completed *\/ ss_mark_completed_in_the_planmd_file_dot_();} */
-    else if (leader_sequence_two_keys  (KC_N, KC_F)) { /* no new files */ ss_do_not_add_new_files_();}
+      /* else if (leader_sequence_two_keys  (KC_N, KC_F)) { /\* no new files *\/ ss_do_not_add_new_files_();} */
     else if (leader_sequence_two_keys  (KC_S, KC_S)) { /* step-by-step plan */ ss_detailed_step_by_step_plan_();}
-    else if (leader_sequence_two_keys  (KC_W, KC_P)) { /* write plan */ ss_write_the_plan_in_the_planmd_file_();}
+      /* else if (leader_sequence_two_keys  (KC_W, KC_P)) { /\* write plan *\/ ss_write_the_plan_in_the_planmd_file_();} */
     else if (leader_sequence_two_keys  (KC_S, KC_P)) { /* submit for approval */ ss_submit_the_plan_for_approval_before_editing_dot_();}
       /* QUESTIONS/: */
       /* else if (leader_sequence_two_keys  (KC_Q, KC_Q)) { /\* ask questions *\/ ss_do_not_edit_any_code_yet_dot_(); SEND_PSTR("\b\b, just answer questions. ");} */
