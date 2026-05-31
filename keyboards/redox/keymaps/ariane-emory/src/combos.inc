@@ -82,6 +82,7 @@
   _______________________________________________________________________________________      \
   DO(r_mid_trpi,             EM_PRV_BUFF,   QH_H,    QH_J,       QH_K                   )      \
   DO(r_mid_trpm,             EM_DIRED,      QH_J,    QH_K,       QH_L                   )      \
+  DO(r_mid_sprdi,            TG(LN_MOUSE),  QH_H,                QH_K                   )      \
   DO(r_mid_sprd,             TG(LN_MOUSE),  QH_J,                QH_L                   )      \
   DO(r_mid_sprdo,            TG(LN_MOUSE),  QH_K,                QH_QUOT                )      \
   DO(r_mid_trpo,             EM_ALL_BUFF,   QH_K,    QH_L,       QH_QUOT                )      \
