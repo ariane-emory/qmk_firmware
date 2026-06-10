@@ -74,9 +74,9 @@
       "ANY(THU_RGT)",
       "ANY(CRL_RGT)",
       "KC_LEFT",
-      "KC_RGHT",
       "KC_DOWN",
-      "KC_UP"
+      "KC_UP",
+      "KC_RGHT"
     ],
     [
       "KC_TRNS",
@@ -938,9 +938,9 @@
       "KC_DOT",
       "KC_COMM",
       "ANY(LCTL(LALT(KC_T)))",
-      "ANY(LSFT(LCTL(LALT(KC_T))))",
       "LCTL(KC_DOWN)",
-      "LCTL(KC_UP)"
+      "LCTL(KC_UP)",
+      "ANY(LSFT(LCTL(LALT(KC_T))))"
     ],
     [
       "KC_NO",
