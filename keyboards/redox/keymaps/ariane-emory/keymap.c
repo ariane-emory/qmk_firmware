@@ -1,4 +1,4 @@
-// -*- c-backslash-column: 145; c-backslash-max-column: 145 ; fill-column: 145; eval: (display-fill-column-indicator-mode 1); -*-
+// -*- c-backslash-column: 100; c-backslash-max-column: 100 ; fill-column: 100; eval: (display-fill-column-indicator-mode 1); -*-
 
 #include QMK_KEYBOARD_H
 #include <quantum/mousekey.h>
@@ -97,7 +97,8 @@ void keyboard_post_init_user(void) {
 #define S_END(_)               TAP(X_END)
 #define S_CLEAR(_)             SS_LGUI("a") TAP(X_BSPC) S_CR()
 #define S_CR(_)                TAP(X_ENT)
-#define S_DD()                 SS_DELAY(150)
+#define DD                     150
+#define S_DD()                 SS_DELAY(DD * 2)
 #define S_EM_SWAP() (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB)))
 #define S_ESC()                TAP(X_ESC)
 #define S_LL(_)                TAP(X_LEFT)
@@ -110,7 +111,8 @@ void keyboard_post_init_user(void) {
 #define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) TAP(X_BTN1) SS_DELAY(10) SS_UP(X_LGUI)
 #define S_GUI_CLICK_AND_TAB(_) S_GUI_CLICK() SS_LCTL(TAP(X_TAB))
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR() TAP(X_HOME)
-#define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR()
+// #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR()
+#define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) SS_DOWN(X_LALT) SS_LGUI("d") SS_UP(X_LALT) TAP(X_ENT) "!!" S_CR()
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) S_CR() TAP(X_ENT) "!!" S_CR() 
 /* #define S_TELEPORT(_)                                                                                                                        */
 /*   S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()            */
@@ -121,7 +123,7 @@ void keyboard_post_init_user(void) {
 #define S_TELEPORT(_)                                                                                                                            \
 S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                  \
 SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                    \
-SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(500) TAP(X_ENT) SS_DELAY(3500)                                                     \
+SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(DD * 4) TAP(X_ENT) SS_DELAY(DD * 24)                                               \
 TAP(X_F) S_DD()                                                                                                                                  \
 SS_LGUI("`") S_DD() S_SCR_L()
 
