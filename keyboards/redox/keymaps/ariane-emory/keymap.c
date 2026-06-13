@@ -160,28 +160,26 @@ DO(SS_DICT2,             (SS_TAP(X_F24) SS_TAP(X_F24))            )
 //#define S_PP_EVAL_SEXP (SS_LCTL("x") SS_LCTL(" "))
 #define S_PP_EVAL_SEXP (SS_LCTL("c") SS_LCTL(SS_TAP(X_BSPC)))
 
-#  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                              \
-DO(SS_CD,                ("cd "),                 ("cd ~/"),                                ("cd .."),          ("cd -"))                        \
-DO(SS_SMILEY2,           (" :-)"),                (" :-P"),                                 (" :-D"),           (" :tada: "))                    \
-DO(SS_AND_AND,           (" && "),                (" || "),                                 (" 2>&1 "),         (" >/dev/null "))                \
-DO(SS_SMILEY,            (" ;-)"),                (" :-/"),                                 (" >_>"),           (" :laughing: "))                \
-DO(SS_LBRACK,            ("("),                   ("{"),                                    ("["),              ("<"))                           \
-DO(SS_RBRACK,            (")"),                   ("}"),                                    ("]"),              (">"))                           \
-DO(EM_LASTARG,                                                                                                                                   \
-(S_EVAL_SEXP),             /* NO MODS */                                                                                                         \
-(S_PP_EVAL_SEXP),          /* CTRL */                                                                                                            \
-  (" " SS_LCTL("c") "."),  /* ALT */                                                                                                             \
-  ("c -" S_CR()))          /* SHIFT */                                                                                                           \
-DO(SS_DICT,              (SS_TAP(X_F24) SS_TAP(X_F24)), (SS_DOWN(X_F24) SS_TAP(X_S) SS_UP(X_F24)),   (""),               (""))                            \
-DO(SS_DIR,               ("~/"),                  ("../"),                                  ("./"),             ("` + `" S_LL() S_CR() S_TB() S_RR())) \
-DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("``" S_LL()),      ("->"))                          \
-DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))         \
-DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),                                (ROUTER_PWD),       (AE_FPWD))                       \
-  //                     NO MODS                  CTRL                                      ALT                 SHIFT
+#  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                      \
+DO(SS_CD,                ("cd "),                 ("cd ~/"),               ("cd .."),             ("cd -"))                              \
+DO(SS_SMILEY2,           (" :-)"),                (" :-P"),                (" :-D"),              (" :tada: "))                          \
+DO(SS_AND_AND,           (" && "),                (" || "),                (" 2>&1 "),            (" >/dev/null "))                      \
+DO(SS_SMILEY,            (" ;-)"),                (" :-/"),                (" >_>"),              (" :laughing: "))                      \
+DO(SS_LBRACK,            ("("),                   ("{"),                   ("["),                 ("<"))                                 \
+DO(SS_RBRACK,            (")"),                   ("}"),                   ("]"),                 (">"))                                 \
+DO(EM_LASTARG,           (S_EVAL_SEXP),           (S_PP_EVAL_SEXP),       (" " SS_LCTL("c") "."), ("c -" S_CR()))                        \
+DO(SS_DIR,               ("~/"),                  ("../"),                 ("./"),                ("` + `" S_LL() S_CR() S_TB() S_RR())) \
+DO(SS_ARROW,             (" => "),                ("${}" S_LL()),          ("``" S_LL()),         ("->"))                                \
+DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()), (""),                  (S_GUI_CLICK_AND_TAB()))               \
+DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),               (ROUTER_PWD),          (AE_FPWD))                             
+//                       NO MODS                  CTRL                     ALT                    SHIFT
 
-  // ==============================================================================
-  // Send string keycodes (initialize the strings)
-  // ==============================================================================
+// Disabled
+// DO(SS_DICT,              (SS_TAP(X_F24) SS_TAP(X_F24)), (SS_DOWN(X_F24) SS_TAP(X_S) SS_UP(X_F24)),   (""),               ("")) 
+
+// ==============================================================================
+// Send string keycodes (initialize the strings)
+// ==============================================================================
 #define enum_item(kc, ...)                                                                     kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                                        static const char tag##_str_##kc[] PROGMEM = str;
 #define define_nomods_progmem_string(kc, nomods_str, ...)                                      define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
