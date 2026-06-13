@@ -122,39 +122,39 @@ void keyboard_post_init_user(void) {
 /*   SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") S_DD() TAP(X_ENT) SS_DELAY(2500)                                                      */
 /*                                                                          TAP(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                         */
 /*                                                                                   SS_LGUI("`") S_DD() S_SCR_L() */
-#define S_TELEPORT(_)                                                                                                                            \
-S_GUI_CLICK() S_DD() SS_LCTL(SS_TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                  \
-SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) SS_TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                    \
-SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(DD * 4) SS_TAP(X_ENT) SS_DELAY(DD * 24)                                               \
-SS_TAP(X_F) S_DD()                                                                                                                                  \
+#define S_TELEPORT(_)                                                                                                              \
+S_GUI_CLICK() S_DD() SS_LCTL(SS_TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD() \
+SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) SS_TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                   \
+SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(DD * 4) SS_TAP(X_ENT) SS_DELAY(DD * 24)                              \
+SS_TAP(X_F) S_DD()                                                                                                                 \
 SS_LGUI("`") S_DD() S_SCR_L()
 
 // ==============================================================================
 // Send string keycodes (the main X-macro table)
 // ==============================================================================
 
-#  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                                                                                                 \
-DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                                 \
-DO(SS_FULLSCR,           (SS_DOWN(X_F24) SS_TAP(X_F) SS_UP(X_F24)))                                                                                 \
-DO(EM_SWAP,              S_EM_SWAP()                           )                                                                                 \
-DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                                 \
-DO(EM_SHELL,             (SS_LCTL("x") SS_LCTL("t"))           )                                                                                 \
-DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))           )                                                                                 \
-DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))           )                                                                                 \
-DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))           )                                                                                 \
-DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))           )                                                                                 \
-DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                    )                                                                                 \
-DO(EM_SPLIT_V,           (SS_LCTL("x") "2")                    )                                                                                 \
-DO(EM_SPLIT_H,           (SS_LCTL("x") "3")                    )                                                                                 \
-DO(EM_MAC_BGN,           (SS_LCTL("x") "(")                    )                                                                                 \
-DO(EM_MAC_END,           (SS_LCTL("x") ")")                    )                                                                                 \
-DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                    )                                                                                 \
-DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                                                                                 \
-DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                                 \
-DO(SS_0X,                ("0x")                                )                                                                                 \
-DO(SS_THAT,              ("that ")                             )                                                                                 \
-DO(SS_DICT2,             (SS_TAP(X_F24) SS_TAP(X_F24))               ) 
-//                         NO MODS                                 
+#  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                    \
+DO(SS_TELEPORT,          (S_TELEPORT())                           ) \
+DO(SS_FULLSCR,           (SS_DOWN(X_F24) SS_TAP(X_F) SS_UP(X_F24))) \
+DO(EM_SWAP,              S_EM_SWAP()                              ) \
+DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))              ) \
+DO(EM_SHELL,             (SS_LCTL("x") SS_LCTL("t"))              ) \
+DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))              ) \
+DO(EM_DIRED,             (SS_LCTL("x") SS_LCTL("j"))              ) \
+DO(EM_KILL_BUFF,         (SS_LCTL("x") SS_LCTL("k"))              ) \
+DO(EM_LWRAP,             (SS_LCTL("x") SS_LCTL("l"))              ) \
+DO(EM_PRV_BUFF,          (SS_LCTL("x") "p")                       ) \
+DO(EM_SPLIT_V,           (SS_LCTL("x") "2")                       ) \
+DO(EM_SPLIT_H,           (SS_LCTL("x") "3")                       ) \
+DO(EM_MAC_BGN,           (SS_LCTL("x") "(")                       ) \
+DO(EM_MAC_END,           (SS_LCTL("x") ")")                       ) \
+DO(EM_MAC_RPT,           (SS_LCTL("x") "e")                       ) \
+DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                       ) \
+DO(OTHER_WIN,            (SS_LCTL("x") "o")                       ) \
+DO(SS_0X,                ("0x")                                   ) \
+DO(SS_THAT,              ("that ")                                ) \
+DO(SS_DICT2,             (SS_TAP(X_F24) SS_TAP(X_F24))            ) 
+//                       NO MODS                                 
 
 #define S_EVAL_SEXP (SS_LCTL("x") SS_LCTL("e"))
 //#define S_PP_EVAL_SEXP (SS_LCTL("x") SS_LCTL(" "))
