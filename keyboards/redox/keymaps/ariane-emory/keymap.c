@@ -94,26 +94,29 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #define TAP(ss_kc)             SS_TAP(ss_kc)
-#define S_END(_)               TAP(X_END)
-#define S_CLEAR(_)             SS_LGUI("a") TAP(X_BSPC) S_CR()
-#define S_CR(_)                TAP(X_ENT)
+#define S_END(_)               SS_TAP(X_END)
+#define S_CLEAR(_)             SS_LGUI("a") SS_TAP(X_BSPC) S_CR()
+#define S_CR(_)                SS_TAP(X_ENT)
 #define DD                     150
 #define S_DD()                 SS_DELAY(DD * 2)
 #define S_EM_SWAP() (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB)))
-#define S_ESC()                TAP(X_ESC)
-#define S_LL(_)                TAP(X_LEFT)
-#define S_RR(_)                TAP(X_RIGHT)
-#define S_SCR_L()              SS_LCTL(TAP(X_F13))
-#define S_SCR_R()              SS_LCTL(TAP(X_F14))
-#define S_SPC()                TAP(X_SPC)
-#define S_TB(_)                TAP(X_TAB)
-#define S_UU(_)                TAP(X_UP) 
-#define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) TAP(X_BTN1) SS_DELAY(10) SS_UP(X_LGUI)
-#define S_GUI_CLICK_AND_TAB(_) S_GUI_CLICK() SS_LCTL(TAP(X_TAB))
+#define S_ESC()                SS_TAP(X_ESC)
+#define S_LL(_)                SS_TAP(X_LEFT)
+#define S_RR(_)                SS_TAP(X_RIGHT)
+#define S_SCR_L()              SS_LCTL(SS_TAP(X_F13))
+#define S_SCR_R()              SS_LCTL(SS_TAP(X_F14))
+#define S_SPC()                SS_TAP(X_SPC)
+#define S_TB(_)                SS_TAP(X_TAB)
+#define S_UU(_)                SS_TAP(X_UP) 
+#define S_GUI_CLICK(_)         SS_DOWN(X_LGUI) SS_TAP(X_BTN1) SS_DELAY(10) SS_UP(X_LGUI)
+#define S_GUI_CLICK_AND_TAB(_) S_GUI_CLICK() SS_LCTL(SS_TAP(X_TAB))
+
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR() TAP(X_HOME)
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR()
-#define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) SS_DOWN(X_LALT) SS_LGUI("d") SS_UP(X_LALT) TAP(X_ENT) "!!" S_CR()
+// #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) SS_DOWN(X_LALT) SS_LGUI("d") SS_UP(X_LALT) TAP(X_ENT) "!!" S_CR()
+#define S_REPEAT_SHELL_CMD(_)  SS_LGUI("a") SS_LCTL("x") SS_LCTL(SS_TAP(X_BSPC)) TAP(X_ENT) "!!" S_CR()
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) S_CR() TAP(X_ENT) "!!" S_CR() 
+
 /* #define S_TELEPORT(_)                                                                                                                        */
 /*   S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()            */
 /*   SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                              */
