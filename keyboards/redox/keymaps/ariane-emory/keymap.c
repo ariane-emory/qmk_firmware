@@ -98,7 +98,6 @@ void keyboard_post_init_user(void) {
 #define S_CR(_)                SS_TAP(X_ENT)
 #define DD                     150
 #define S_DD()                 SS_DELAY(DD * 2)
-#define S_EM_SWAP() (SS_LCTL("x") SS_LCTL(SS_TAP(X_TAB)))
 #define S_ESC()                SS_TAP(X_ESC)
 #define S_LL(_)                SS_TAP(X_LEFT)
 #define S_RR(_)                SS_TAP(X_RIGHT)
@@ -136,7 +135,6 @@ SS_LGUI("`") S_DD() S_SCR_L()
 #  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                    \
 DO(SS_TELEPORT,          (S_TELEPORT())                           ) \
 DO(SS_FULLSCR,           (SS_DOWN(X_F24) SS_TAP(X_F) SS_UP(X_F24))) \
-DO(EM_SWAP,              S_EM_SWAP()                              ) \
 DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))              ) \
 DO(EM_SHELL,             (SS_LCTL("x") SS_LCTL("t"))              ) \
 DO(EM_ALL_BUFF,          (SS_LCTL("x") SS_LCTL("b"))              ) \
@@ -177,9 +175,9 @@ DO(SS_PIN1,              (AE_PIN1),               (AE_PIN2),               (ROUT
 // Disabled
 // DO(SS_DICT,              (SS_TAP(X_F24) SS_TAP(X_F24)), (SS_DOWN(X_F24) SS_TAP(X_S) SS_UP(X_F24)),   (""),               ("")) 
 
-// ==============================================================================
+// ==================================================================================================
 // Send string keycodes (initialize the strings)
-// ==============================================================================
+// ==================================================================================================
 #define enum_item(kc, ...)                                                                     kc,
 #define define_tagged_progmem_string(tag, kc, str, ...)                                        static const char tag##_str_##kc[] PROGMEM = str;
 #define define_nomods_progmem_string(kc, nomods_str, ...)                                      define_tagged_progmem_string(nomods, kc, nomods_str, __VA_ARGS__)
@@ -194,9 +192,9 @@ FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_alted_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_ctrled_progmem_string);
 FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(define_shifted_progmem_string);
 
-// ==============================================================================
+// ==================================================================================================
 // Custom keycodes (incl. send string keycodes)
-// ==============================================================================
+// ==================================================================================================
 
 enum arianes_custom_keycodes {
   KC_DUMMY = SAFE_RANGE,
