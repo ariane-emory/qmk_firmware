@@ -93,7 +93,6 @@ void keyboard_post_init_user(void) {
 // Send string keycodes (string macros)
 // ==============================================================================
 
-// #define TAP(ss_kc)             SS_TAP(ss_kc)
 #define S_END(_)               SS_TAP(X_END)
 #define S_CLEAR(_)             SS_LGUI("a") SS_TAP(X_BSPC) S_CR()
 #define S_CR(_)                SS_TAP(X_ENT)
