@@ -93,7 +93,7 @@ void keyboard_post_init_user(void) {
 // Send string keycodes (string macros)
 // ==============================================================================
 
-#define TAP(ss_kc)             SS_TAP(ss_kc)
+// #define TAP(ss_kc)             SS_TAP(ss_kc)
 #define S_END(_)               SS_TAP(X_END)
 #define S_CLEAR(_)             SS_LGUI("a") SS_TAP(X_BSPC) S_CR()
 #define S_CR(_)                SS_TAP(X_ENT)
@@ -114,7 +114,7 @@ void keyboard_post_init_user(void) {
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR() TAP(X_HOME)
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR()
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) SS_DOWN(X_LALT) SS_LGUI("d") SS_UP(X_LALT) TAP(X_ENT) "!!" S_CR()
-#define S_REPEAT_SHELL_CMD(_)  SS_LGUI("a") SS_LCTL("x") SS_LCTL(SS_TAP(X_BSPC)) TAP(X_ENT) "!!" S_CR()
+#define S_REPEAT_SHELL_CMD(_)  SS_LGUI("a") SS_LCTL("x") SS_LCTL(SS_TAP(X_BSPC)) SS_TAP(X_ENT) "!!" S_CR()
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) S_CR() TAP(X_ENT) "!!" S_CR() 
 
 /* #define S_TELEPORT(_)                                                                                                                        */
@@ -124,10 +124,10 @@ void keyboard_post_init_user(void) {
 /*                                                                          TAP(X_F) S_DD() S_RR() S_DD() S_RR() S_DD()                         */
 /*                                                                                   SS_LGUI("`") S_DD() S_SCR_L() */
 #define S_TELEPORT(_)                                                                                                                            \
-S_GUI_CLICK() S_DD() SS_LCTL(TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                  \
-SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                    \
-SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(DD * 4) TAP(X_ENT) SS_DELAY(DD * 24)                                               \
-TAP(X_F) S_DD()                                                                                                                                  \
+S_GUI_CLICK() S_DD() SS_LCTL(SS_TAP(X_TAB)) S_DD() SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("x") S_DD() SS_LGUI("w") S_DD()                  \
+SS_LGUI("`") S_DD() S_SCR_R() SS_DELAY(200) SS_TAP(X_BTN1) S_DD() S_ESC() S_DD()                                                                    \
+SS_LGUI("l") S_DD() SS_LGUI("a") S_DD() SS_LGUI("v") SS_DELAY(DD * 4) SS_TAP(X_ENT) SS_DELAY(DD * 24)                                               \
+SS_TAP(X_F) S_DD()                                                                                                                                  \
 SS_LGUI("`") S_DD() S_SCR_L()
 
 // ==============================================================================
@@ -136,7 +136,7 @@ SS_LGUI("`") S_DD() S_SCR_L()
 
 #  define FOR_EACH_BASIC_SEND_STRING_KEYCODE(DO)                                                                                                 \
 DO(SS_TELEPORT,          (S_TELEPORT())                        )                                                                                 \
-DO(SS_FULLSCR,           (SS_DOWN(X_F24) TAP(X_F) SS_UP(X_F24)))                                                                                 \
+DO(SS_FULLSCR,           (SS_DOWN(X_F24) SS_TAP(X_F) SS_UP(X_F24)))                                                                                 \
 DO(EM_SWAP,              S_EM_SWAP()                           )                                                                                 \
 DO(SS_KILL_WHOLE_LINE,   (SS_LCTL("a") SS_LCTL("k"))           )                                                                                 \
 DO(EM_SHELL,             (SS_LCTL("x") SS_LCTL("t"))           )                                                                                 \
@@ -154,7 +154,7 @@ DO(EM_CHG_BUFF,          (SS_LCTL("x") "b")                    )                
 DO(OTHER_WIN,            (SS_LCTL("x") "o")                    )                                                                                 \
 DO(SS_0X,                ("0x")                                )                                                                                 \
 DO(SS_THAT,              ("that ")                             )                                                                                 \
-DO(SS_DICT2,             (TAP(X_F24) TAP(X_F24))               ) 
+DO(SS_DICT2,             (SS_TAP(X_F24) SS_TAP(X_F24))               ) 
 //                         NO MODS                                 
 
 #define S_EVAL_SEXP (SS_LCTL("x") SS_LCTL("e"))
@@ -173,7 +173,7 @@ DO(EM_LASTARG,                                                                  
 (S_PP_EVAL_SEXP),          /* CTRL */                                                                                                            \
   (" " SS_LCTL("c") "."),  /* ALT */                                                                                                             \
   ("c -" S_CR()))          /* SHIFT */                                                                                                           \
-DO(SS_DICT,              (TAP(X_F24) TAP(X_F24)), (SS_DOWN(X_F24) TAP(X_S) SS_UP(X_F24)),   (""),               (""))                            \
+DO(SS_DICT,              (SS_TAP(X_F24) SS_TAP(X_F24)), (SS_DOWN(X_F24) SS_TAP(X_S) SS_UP(X_F24)),   (""),               (""))                            \
 DO(SS_DIR,               ("~/"),                  ("../"),                                  ("./"),             ("` + `" S_LL() S_CR() S_TB() S_RR())) \
 DO(SS_ARROW,             (" => "),                ("${}" S_LL()),                           ("``" S_LL()),      ("->"))                          \
 DO(SS_GUI_CLICK,         (S_GUI_CLICK()),         (S_GUI_CLICK_AND_TAB()),                  (""),               (S_GUI_CLICK_AND_TAB()))         \
@@ -1133,7 +1133,7 @@ void matrix_scan_user(void) {
     else if (leader_sequence_one_key   (KC_Q))       {SEND_PSTR(/*S_CLR()*/ "cdkm; qmkc" S_CR());}
     else if (leader_sequence_two_keys  (KC_Q, KC_W)) {SEND_PSTR(S_CLEAR() "cdkm; qmkupd" S_CR());}
     else if (leader_sequence_one_key   (KC_R))       {SEND_PSTR(S_REPEAT_SHELL_CMD(_));}
-    else if (leader_sequence_one_key   (KC_S))       {SEND_PSTR(S_END() SS_LCTL(TAP(X_A)) SS_LCTL(TAP(X_K)) SS_DELAY(200) "shove" S_CR());}
+    else if (leader_sequence_one_key   (KC_S))       {SEND_PSTR(S_END() SS_LCTL(SS_TAP(X_A)) SS_LCTL(SS_TAP(X_K)) SS_DELAY(200) "shove" S_CR());}
       /* prompt fragments: */
       /* else if (leader_sequence_one_key   (KC_A))       { /\* continue *\/ SEND_PSTR("Answer. ");} */
     else if (leader_sequence_one_key   (KC_C))       { /* continue */ SEND_PSTR("Carry on, continue. ");}
