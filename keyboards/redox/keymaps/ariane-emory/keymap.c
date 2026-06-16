@@ -439,6 +439,8 @@ static bool toggle_df_flag = false;
 CONST_KEYRECORD_FUN(bool toggle_df_handler) {  
   if (record->event.pressed) {
     toggle_df_flag = ! toggle_df_flag;
+
+    layer_off(LN_MOUSE);
     
     default_layer_set((layer_state_t)1 << (toggle_df_flag ? 2 : 0)); // 2 is canary.
   }
