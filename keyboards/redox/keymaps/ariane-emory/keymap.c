@@ -368,6 +368,8 @@ void tap_half_row_by_matrix_pos(uint8_t row, uint8_t start_column, uint8_t end_c
 }
 
 CONST_KEYRECORD_FUN(bool type_layout_handler) {
+  return false; // Disable the function here!
+  
   if (! record->event.pressed)
     return false;
   
@@ -1132,7 +1134,7 @@ void matrix_scan_user(void) {
     else if (leader_sequence_two_keys  (KC_Q, KC_W)) {SEND_PSTR(S_CLEAR() "cdkm; qmkupd" S_CR());}
     else if (leader_sequence_one_key   (KC_R))       {SEND_PSTR(S_REPEAT_SHELL_CMD(_));}
     else if (leader_sequence_one_key   (KC_S))       {SEND_PSTR(S_END() SS_LCTL(SS_TAP(X_A)) SS_LCTL(SS_TAP(X_K)) SS_DELAY(200) "shove" S_CR());}
-    else if (leader_sequence_one_key   (KC_ENT))     {SEND_PSTR(SS_LCTL(SS_TAP(X_ENT)));}
+    else if (leader_sequence_one_key   (QK_LEAD))    {SEND_PSTR(SS_LCTL(SS_TAP(X_ENT)));}
       /* prompt fragments: */
       /* else if (leader_sequence_one_key   (KC_A))       { /\* continue *\/ SEND_PSTR("Answer. ");} */
     else if (leader_sequence_one_key   (KC_C))       { /* continue */ SEND_PSTR("Carry on, continue. ");}
