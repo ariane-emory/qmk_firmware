@@ -162,9 +162,9 @@ DO(SS_THAT,              ("that ")                                )
 
 #  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                      \
 DO(SS_CD,                ("cd "),                 ("cd ~/"),               ("cd .."),             ("cd -"))                              \
-DO(SS_SMILEY2,           (" :-)"),                (" :-P"),                (" :-D"),              (" :tada: "))                          \
+DO(SS_SMILEY2,           (" :)"),                 (" :P"),                 (" :D"),               (" :tada: "))                          \
 DO(SS_AND_AND,           (" && "),                (" || "),                (" 2>&1 "),            (" >/dev/null "))                      \
-DO(SS_SMILEY,            (" ;-)"),                (" :-/"),                (" >_>"),              (" :laughing: "))                      \
+DO(SS_SMILEY,            (" ;)") ,                (" :/"),                 (" >_>"),              (" :laughing: "))                      \
 DO(SS_LBRACK,            ("("),                   ("{"),                   ("["),                 ("<"))                                 \
 DO(SS_RBRACK,            (")"),                   ("}"),                   ("]"),                 (">"))                                 \
 DO(EM_LASTARG,           (S_EVAL_SEXP),           (S_PP_EVAL_SEXP),       (" " SS_LCTL("c") "."), ("c -" S_CR()))                        \
