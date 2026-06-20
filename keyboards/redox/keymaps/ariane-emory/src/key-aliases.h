@@ -115,7 +115,7 @@
 #define LCTL_ESC       LCTL_T(KC_ESC)
 #define LCTL_OPEN      LCTL_T(LGUI(KC_O))
 #define LOCAL_CAPS     LGUI(LALT(KC_C))
-#define LUTIL_OR_CMD_W LT(LN_UTIL,LGUI(KC_W))
+// #define LUTIL_OR_CMD_W LT(LN_UTIL,LGUI(KC_W))
 #define NEW_TAB        LGUI(KC_T)
 #define LCTL_DQUO      LCTL_T(KC_DQUO_TAP)
 // #define LCTL_DQUO      LT(LN_ARROWS, KC_DQUO_TAP)
