@@ -1,6 +1,6 @@
-// -*- c-backslash-column: 100; c-backslash-max-column: 100 ; fill-column: 100; eval: (display-fill-column-indicator-mode 1); -*-
+// -*- c-backslash-column: 100; c-backslash-max-column: 100 ; fill-column: 100; eval: (display-fill-column-indicator-mode 1); eval: (aggressive-indent-mode -1); -*-
 
-#include QMK_KEYBOARD_H
+#include QMK_KEYBOARD_H 
 #include <quantum/mousekey.h>
 #include <stdbool.h>
 
@@ -94,7 +94,8 @@ void keyboard_post_init_user(void) {
 // ==============================================================================
 
 #define S_END(_)               SS_TAP(X_END)
-#define S_CLEAR(_)             SS_LGUI("a") SS_TAP(X_BSPC) S_CR()
+#define S_DELSEL()             SS_LCTL(SS_TAP(X_BSPC))
+#define S_CLEAR(_)             SS_LGUI("a") S_DELSEL() S_CR()
 #define S_CR(_)                SS_TAP(X_ENT)
 #define DD                     150
 #define S_DD()                 SS_DELAY(DD * 2)
@@ -112,7 +113,7 @@ void keyboard_post_init_user(void) {
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR() TAP(X_HOME)
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) TAP(X_BSPC) TAP(X_ENT) "!!" S_CR()
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) SS_DOWN(X_LALT) SS_LGUI("d") SS_UP(X_LALT) TAP(X_ENT) "!!" S_CR()
-#define S_REPEAT_SHELL_CMD(_)  SS_LGUI("a") SS_LCTL("x") SS_LCTL(SS_TAP(X_BSPC)) SS_TAP(X_ENT) "!!" S_CR()
+#define S_REPEAT_SHELL_CMD(_)  SS_LGUI("a") SS_LCTL("x") S_DELSEL() SS_TAP(X_ENT) "!!" S_CR()
 // #define S_REPEAT_SHELL_CMD(_)  SS_DOWN(X_LGUI) TAP(X_A) SS_UP(X_LGUI) S_CR() TAP(X_ENT) "!!" S_CR() 
 
 /* #define S_TELEPORT(_)                                                                                                                        */
