@@ -7,7 +7,8 @@
 //===============================================================================
 // Q: Qwerty
 //===============================================================================
-#define QT_TAB   LT(LN_UTIL,KC_TAB)
+// #define QT_TAB   LT(LN_UTIL,KC_TAB)
+#define QT_TAB   KC_TAB
 #define QT_Q     KC_Q
 #define QT_W     LTRM_3(KC_W)
 #define QT_E     LTRM_2(KC_E)
