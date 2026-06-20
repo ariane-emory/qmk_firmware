@@ -160,7 +160,7 @@ DO(SS_THAT,              ("that ")                                )
 //#define S_PP_EVAL_SEXP (SS_LCTL("x") SS_LCTL(" "))
 #define S_PP_EVAL_SEXP (SS_LCTL("c") SS_LCTL(SS_TAP(X_BSPC)))
 
-#  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                      \
+#  define FOR_EACH_MODDABLE_SEND_STRING_KEYCODE(DO)                                                                                       \
 DO(SS_CD,                ("cd "),                 ("cd ~/"),               ("cd .."),              ("cd -"))                              \
 DO(SS_SMILEY2,           (" :)"),                 (" :P"),                 (" :D"),                (" :tada: "))                          \
 DO(SS_AND_AND,           (" && "),                (" || "),                (" 2>&1 "),             (" >/dev/null "))                      \
