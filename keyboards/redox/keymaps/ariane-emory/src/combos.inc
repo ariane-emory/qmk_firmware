@@ -92,7 +92,7 @@
   DO(r_mid_rech,             LSFT(KC_SCLN), QH_L,    QH_QUOT                            )      \
   _______________________________________________________________________________________      \
   DO(r_bot_curl_diag_up,     KC_VOLD,       QH_J,    QB_N                               )      \
-  __(r_bot_curl_diag_dn,     _____________, QH_H,    QB_M                               )      \
+  DO(r_bot_curl_diag_dn,     SS_FULLSCR,    QH_H,    QB_M                               )      \
   DO(r_bot_innr_diag_up,     CLOSE_WIN,     QH_K,    QB_M                               )      \
   DO(r_bot_innr_diag_dn,     KC_VOLU,       QH_J,    QB_COMM                            )      \
   DO(r_bot_outr_diag_up,     SPOTLIGHT,     QH_L,    QB_COMM                            )      \
