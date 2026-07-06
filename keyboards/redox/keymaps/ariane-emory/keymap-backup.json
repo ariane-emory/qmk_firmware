@@ -23,7 +23,7 @@
       "ANY(QT_Q)",
       "ANY(QT_W)",
       "ANY(QT_E)",
-      "ANY(QT_R)",
+      "KC_R",
       "ANY(QT_T)",
       "ANY(TOGGLE_DF)",
       "TG(9)",
