@@ -36,9 +36,9 @@
 #define LHRM_0(x) LSFT_T(x) // LCTL_T(x) 
 //------------------------------------------------------------------------------
 #define RHRM_0(x) RSFT_T(x) // LCTL_T(x) 
-#define RHRM_1(x) LCTL_T(x) // RSFT_T(x) 
-#define RHRM_2(x) LALT_T(x) // LCTL_T(x) 
-#define RHRM_3(x) LGUI_T(x) // LALT_T(x) 
+#define RHRM_1(x) RCTL_T(x) // RSFT_T(x) 
+#define RHRM_2(x) RALT_T(x) // LCTL_T(x) 
+#define RHRM_3(x) RGUI_T(x) // LALT_T(x) 
 #define RHRM_4(x) RSFT_T(x) // LGUI_T(x) 
 //------------------------------------------------------------------------------
 #define LBRM_4(x) LT(LN_ARROWS, x)
